@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Nouns>
+	<Position>
+		<PositionID>-1</PositionID>
+		<ProjectID>1</ProjectID>
+		<PositionOZ>1.1.10</PositionOZ>
+		<ParentOZ>1.1</ParentOZ>
+		<Title>ABCDEFG</Title>
+		<ShortDescription>100fsdfdsafdsafa</ShortDescription>
+		<LongDescription>qwertyhfjkalkjhdlkfjaslkjfdlkjsalkjfldksajklfjdlkajlkfjdlksajflkjsalkfs</LongDescription>
+		<PostionKZ>N</PostionKZ>
+		<LVSection>HA</LVSection>
+		<WG>10</WG>
+		<WA>10</WA>
+		<WI>10</WI>
+		<Menge>14</Menge>
+		<ME>m2</ME>
+		<Fabricate>dsfdfdsdfafda</Fabricate>
+		<Type>fdsfdsdfafda</Type>
+		<LVStatus>A</LVStatus>
+		<ProposalNo>1</ProposalNo>
+		<SurchargeFrom>10</SurchargeFrom>
+		<SurchargeTO>20</SurchargeTO>
+		<SurchargePer>5</SurchargePer>
+		<UserID>1</UserID>
+	</Position>
+</Nouns>

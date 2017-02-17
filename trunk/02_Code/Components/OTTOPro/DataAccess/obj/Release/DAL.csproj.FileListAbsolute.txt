@@ -1,0 +1,14 @@
+E:\OTTOPro\trunk\02_Code\Components\OTTOPro\DataAccess\bin\Release\DataAccess.dll
+E:\OTTOPro\trunk\02_Code\Components\OTTOPro\DataAccess\bin\Release\DataAccess.pdb
+E:\OTTOPro\trunk\02_Code\Components\OTTOPro\DataAccess\bin\Release\EL.dll
+E:\OTTOPro\trunk\02_Code\Components\OTTOPro\DataAccess\bin\Release\EL.pdb
+E:\OTTOPro\trunk\02_Code\Components\OTTOPro\DataAccess\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\OTTOPro\trunk\02_Code\Components\OTTOPro\DataAccess\obj\Release\DataAccess.dll
+E:\OTTOPro\trunk\02_Code\Components\OTTOPro\DataAccess\obj\Release\DataAccess.pdb
+E:\02_Code\Components\OTTOPro\DataAccess\bin\Release\DataAccess.dll
+E:\02_Code\Components\OTTOPro\DataAccess\bin\Release\DataAccess.pdb
+E:\02_Code\Components\OTTOPro\DataAccess\bin\Release\EL.dll
+E:\02_Code\Components\OTTOPro\DataAccess\bin\Release\EL.pdb
+E:\02_Code\Components\OTTOPro\DataAccess\obj\Release\DAL.csprojResolveAssemblyReference.cache
+E:\02_Code\Components\OTTOPro\DataAccess\obj\Release\DataAccess.dll
+E:\02_Code\Components\OTTOPro\DataAccess\obj\Release\DataAccess.pdb
