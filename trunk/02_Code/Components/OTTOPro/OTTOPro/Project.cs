@@ -5092,6 +5092,15 @@ e.Column.FieldName == "GB")
             {
                 if (ObjEProject.ProjectID > 0)
                 {
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    DataTable dtLVSection = new DataTable();
+                    cmbLVSectionFilter.Properties.Items.Clear();
+                    dtLVSection = objBGAEB.GetLVSection(_ProjectID);
+                    foreach (DataRow dr in dtLVSection.Rows)
+                    {
+                        cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
+                    }
                     btnProjectDetails.BackColor = Color.Silver;
                     btnMulti5.BackColor = Color.Silver;
                     btnLvdetails.BackColor = Color.Silver;
@@ -5145,6 +5154,25 @@ e.Column.FieldName == "GB")
             catch (Exception EX)
             {
                 Utility.ShowError(EX);
+            }
+        }
+
+        private void btnMulti6LoadArticles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjEMulti == null)
+                    ObjEMulti = new EMulti();
+                if (ObjBMulti == null)
+                    ObjBMulti = new BMulti();
+                ObjEMulti.ProjectID = ObjEProject.ProjectID;
+                ObjEMulti.LVSection = cmbLVSectionFilter.Text;
+                ObjEMulti = ObjBMulti.GetArticleGroups(ObjEMulti);
+                gcMulti6.DataSource = ObjEMulti.dtArticles;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
     }
