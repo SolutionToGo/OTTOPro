@@ -59,6 +59,8 @@ namespace OTTOPro
         BPosition ObjBPosition = new BPosition();
         BGAEB objBGAEB = new BGAEB();
         EGAEB objEGAEB = new EGAEB();
+        EMulti ObjEMulti = null;
+        BMulti ObjBMulti = null;
         /// <summary>
         /// Properties to bind the internal variables
         /// </summary>
@@ -1079,21 +1081,21 @@ namespace OTTOPro
         {
             try
             {
-                    tlPositions.Columns["MA_Multi1"].ColumnEdit.ReadOnly = chkEinkaufspreisME.Checked;
-                    tlPositions.Columns["MA_multi2"].ColumnEdit.ReadOnly = chkEinkaufspreisME.Checked;
-                    tlPositions.Columns["MA_multi3"].ColumnEdit.ReadOnly = chkEinkaufspreisME.Checked;
-                    tlPositions.Columns["MA_multi4"].ColumnEdit.ReadOnly = chkEinkaufspreisME.Checked;
+                    tlPositions.Columns["MA_Multi1"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
+                    tlPositions.Columns["MA_multi2"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
+                    tlPositions.Columns["MA_multi3"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
+                    tlPositions.Columns["MA_multi4"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
 
-                    tlPositions.Columns["MO_multi1"].ColumnEdit.ReadOnly = chkEinkaufspreisMO.Checked;
-                    tlPositions.Columns["MO_multi2"].ColumnEdit.ReadOnly = chkEinkaufspreisMO.Checked;
-                    tlPositions.Columns["MO_multi3"].ColumnEdit.ReadOnly = chkEinkaufspreisMO.Checked;
-                    tlPositions.Columns["MO_multi4"].ColumnEdit.ReadOnly = chkEinkaufspreisMO.Checked;
+                    tlPositions.Columns["MO_multi1"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
+                    tlPositions.Columns["MO_multi2"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
+                    tlPositions.Columns["MO_multi3"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
+                    tlPositions.Columns["MO_multi4"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
 
 
-                    tlPositions.Columns["MA_selbstkostenMulti"].ColumnEdit.ReadOnly = chkSelbstkostenME.Checked;
-                    tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = chkSelbstkostenMO.Checked;
-                    tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = chkVerkaufspreisME.Checked;
-                    tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = chkVerkaufspreisMO.Checked;
+                    tlPositions.Columns["MA_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenME.CheckState);
+                    tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenMO.CheckState);
+                    tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisME.CheckState);
+                    tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisMO.CheckState);
 
                 var view = (TreeList)sender;
                 var editor = view.ActiveEditor as TextEdit;
@@ -1442,25 +1444,25 @@ namespace OTTOPro
                 }
 
                 if (e.Column.FieldName == "MA_Multi1" ||
-e.Column.FieldName == "MA_multi2" ||
-e.Column.FieldName == "MA_multi3" ||
-e.Column.FieldName == "MA_multi4" ||
-e.Column.FieldName == "MA_einkaufspreis" ||
-e.Column.FieldName == "MA_selbstkostenMulti" ||
-e.Column.FieldName == "MA_verkaufspreis_Multi" ||
-e.Column.FieldName == "MA_selbstkosten" ||
-e.Column.FieldName == "MA_verkaufspreis" ||
-e.Column.FieldName == "MO_multi1" ||
-e.Column.FieldName == "MO_multi2" ||
-e.Column.FieldName == "MO_multi3" ||
-e.Column.FieldName == "MO_multi4" ||
-e.Column.FieldName == "MO_Einkaufspreis" ||
-e.Column.FieldName == "MO_selbstkostenMulti" ||
-e.Column.FieldName == "MO_verkaufspreisMulti" ||
-e.Column.FieldName == "MO_selbstkosten" ||
-e.Column.FieldName == "MO_verkaufspreis" ||
-e.Column.FieldName == "EP" ||
-e.Column.FieldName == "GB")
+                    e.Column.FieldName == "MA_multi2" ||
+                    e.Column.FieldName == "MA_multi3" ||
+                    e.Column.FieldName == "MA_multi4" ||
+                    e.Column.FieldName == "MA_einkaufspreis" ||
+                    e.Column.FieldName == "MA_selbstkostenMulti" ||
+                    e.Column.FieldName == "MA_verkaufspreis_Multi" ||
+                    e.Column.FieldName == "MA_selbstkosten" ||
+                    e.Column.FieldName == "MA_verkaufspreis" ||
+                    e.Column.FieldName == "MO_multi1" ||
+                    e.Column.FieldName == "MO_multi2" ||
+                    e.Column.FieldName == "MO_multi3" ||
+                    e.Column.FieldName == "MO_multi4" ||
+                    e.Column.FieldName == "MO_Einkaufspreis" ||
+                    e.Column.FieldName == "MO_selbstkostenMulti" ||
+                    e.Column.FieldName == "MO_verkaufspreisMulti" ||
+                    e.Column.FieldName == "MO_selbstkosten" ||
+                    e.Column.FieldName == "MO_verkaufspreis" ||
+                    e.Column.FieldName == "EP" ||
+                    e.Column.FieldName == "GB")
                 {
                     e.Column.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
                     e.Column.Format.FormatString = "n" + ObjEProject.RoundingPrice.ToString();
@@ -2646,24 +2648,6 @@ e.Column.FieldName == "GB")
 
         private void SetMaskForMaulties()
         {
-            //string strMask = "n" + ObjEProject.RoundingPrice.ToString();
-            //string _Multies_mask = null;
-            //if (strMask == "n0")
-            //{
-            //    _Multies_mask = "0";
-            //}
-            //if (strMask == "n1")
-            //{
-            //    _Multies_mask = "1";
-            //}
-            //if (strMask == "n2")
-            //{
-            //    _Multies_mask = "2";
-            //}
-            //if (strMask == "n3")
-            //{
-            //    _Multies_mask = "3";
-            //}
             rpiMulti1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             rpiMulti1.Mask.EditMask = @"\d{1,2}(\R.\d{0,3})";
             rpiMulti1.Mask.UseMaskAsDisplayFormat = true;
@@ -2842,7 +2826,7 @@ e.Column.FieldName == "GB")
 
         private void txtMa_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.ToString() == "s" || e.KeyChar.ToString() == "x" || e.KeyChar == '\b')
+            if (e.KeyChar.ToString().ToLower() == "s" || e.KeyChar.ToString().ToLower() == "x" || e.KeyChar == '\b')
             {
                 e.Handled = false;
             }
@@ -4844,95 +4828,11 @@ e.Column.FieldName == "GB")
             }
         }
 
-
-        private void cmbSelectGridviewOptions_CloseUp(object sender, CloseUpEventArgs e)
-        {
-            //bool isFound_MA = false;
-            //bool isFound_MO = false;
-            //bool isFound_Einfr = false;
-            //bool isFound_Seleb = false;
-            //bool isFound_Verkf = false;
-            //try
-            //{
-            //    foreach (var item in cmbSelectGridviewOptions.Text.Split(','))
-            //    {
-            //        if (item.Trim() == "MA Multies")
-            //        {
-            //            isFound_MA = true;
-            //        }
-            //        if (item.Trim() == "MO Multies")
-            //        {
-            //            isFound_MO = true;
-            //        }
-            //        if (item.Trim() == "Einkaufspreis")
-            //        {
-            //            isFound_Einfr = true;
-            //        }
-            //        if (item.Trim() == "Selbstkosten")
-            //        {
-            //            isFound_Seleb = true;
-            //        }
-            //        if (item.Trim() == "Verkaufspreis")
-            //        {
-            //            isFound_Verkf = true;
-            //        }
-            //    }
-            //        tlPositions.Columns["MA_Multi1"].VisibleIndex = 8;
-            //        tlPositions.Columns["MA_multi2"].VisibleIndex = 9;
-            //        tlPositions.Columns["MA_multi3"].VisibleIndex = 10;
-            //        tlPositions.Columns["MA_multi4"].VisibleIndex = 11;
-            //        tlPositions.Columns["MA_Multi1"].Visible = isFound_MA;
-            //        tlPositions.Columns["MA_multi2"].Visible = isFound_MA;
-            //        tlPositions.Columns["MA_multi3"].Visible = isFound_MA;
-            //        tlPositions.Columns["MA_multi4"].Visible = isFound_MA;
-
-            //        tlPositions.Columns["MO_multi1"].VisibleIndex = 12;
-            //        tlPositions.Columns["MO_multi2"].VisibleIndex = 13;
-            //        tlPositions.Columns["MO_multi3"].VisibleIndex = 14;
-            //        tlPositions.Columns["MO_multi4"].VisibleIndex = 15;
-            //        tlPositions.Columns["MO_multi1"].Visible = isFound_MO;
-            //        tlPositions.Columns["MO_multi2"].Visible = isFound_MO;
-            //        tlPositions.Columns["MO_multi3"].Visible = isFound_MO;
-            //        tlPositions.Columns["MO_multi4"].Visible = isFound_MO;
-               
-            //        tlPositions.Columns["MA_einkaufspreis"].VisibleIndex = 16;
-            //        tlPositions.Columns["MO_Einkaufspreis"].VisibleIndex = 17;
-            //        tlPositions.Columns["MA_einkaufspreis"].Visible = isFound_Einfr;
-            //        tlPositions.Columns["MO_Einkaufspreis"].Visible = isFound_Einfr;
-                
-            //        tlPositions.Columns["MA_selbstkostenMulti"].VisibleIndex = 18;
-            //        tlPositions.Columns["MA_selbstkosten"].VisibleIndex = 19;
-            //        tlPositions.Columns["MO_selbstkostenMulti"].VisibleIndex = 20;
-            //        tlPositions.Columns["MO_selbstkosten"].VisibleIndex = 21;
-            //        tlPositions.Columns["MA_selbstkostenMulti"].Visible = isFound_Seleb;
-            //        tlPositions.Columns["MO_selbstkostenMulti"].Visible = isFound_Seleb;
-            //        tlPositions.Columns["MA_selbstkosten"].Visible = isFound_Seleb;
-            //        tlPositions.Columns["MO_selbstkosten"].Visible = isFound_Seleb;
-
-            //        tlPositions.Columns["MA_verkaufspreis_Multi"].VisibleIndex = 22;
-            //        tlPositions.Columns["MA_verkaufspreis"].VisibleIndex = 23;
-            //        tlPositions.Columns["MO_verkaufspreisMulti"].VisibleIndex = 24;
-            //        tlPositions.Columns["MO_verkaufspreis"].VisibleIndex = 25;
-            //        tlPositions.Columns["MA_verkaufspreis_Multi"].Visible = isFound_Verkf;
-            //        tlPositions.Columns["MO_verkaufspreisMulti"].Visible = isFound_Verkf;
-            //        tlPositions.Columns["MA_verkaufspreis"].Visible = isFound_Verkf;
-            //        tlPositions.Columns["MO_verkaufspreis"].Visible = isFound_Verkf;
-              
-            //    tlPositions.Columns["EP"].VisibleIndex = 26;
-            //    tlPositions.Columns["GB"].VisibleIndex = 27;
-            //    tlPositions.BestFitColumns();
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
-        }
-
         private void cmbSelectGridviewOptions_CustomDisplayText(object sender, CustomDisplayTextEventArgs e)
         {
             try
             {
-                if (cmbSelectGridviewOptions.EditValue == "" || cmbSelectGridviewOptions.EditValue == null)
+                if (cmbSelectGridviewOptions.EditValue.ToString() == "" || cmbSelectGridviewOptions.EditValue == null)
                 {
                     cmbSelectGridviewOptions.Text = "Auswahl";
                 }                
@@ -5161,6 +5061,15 @@ e.Column.FieldName == "GB")
             {
                 if (ObjEProject.ProjectID > 0)
                 {
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    DataTable dtLVSection = new DataTable();
+                    cmbLVSectionFilter.Properties.Items.Clear();
+                    dtLVSection = objBGAEB.GetLVSection(_ProjectID);
+                    foreach(DataRow dr in dtLVSection.Rows)
+                    {
+                        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
+                    }
                     btnProjectDetails.BackColor = Color.Silver;
                     btnMulti5.BackColor = Color.DeepSkyBlue;
                     btnLvdetails.BackColor = Color.Silver;
@@ -5200,6 +5109,43 @@ e.Column.FieldName == "GB")
         }
         #endregion
 
+        private void btnMulti5LoadArticles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(ObjEMulti == null)
+                    ObjEMulti = new EMulti();
+                if(ObjBMulti == null)
+                    ObjBMulti = new BMulti();
+                ObjEMulti.ProjectID = ObjEProject.ProjectID;
+                ObjEMulti.LVSection = cmbLVSectionFilter.Text;
+                ObjEMulti = ObjBMulti.GetArticleGroups(ObjEMulti);
+                gcMulti5.DataSource = ObjEMulti.dtArticles;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
 
+        private void btnMulti5UpdateSelbekosten_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjEMulti == null)
+                    ObjEMulti = new EMulti();
+                if (ObjBMulti == null)
+                    ObjBMulti = new BMulti();
+                ObjEMulti.ProjectID = ObjEProject.ProjectID;
+                ObjEMulti.LVSection = cmbLVSectionFilter.Text;
+                ObjEMulti = ObjBMulti.UpdateMulti5(ObjEMulti);
+                btnMulti5LoadArticles_Click(null, null);
+                BindPositionData();
+            }
+            catch (Exception EX)
+            {
+                Utility.ShowError(EX);
+            }
+        }
     }
 }

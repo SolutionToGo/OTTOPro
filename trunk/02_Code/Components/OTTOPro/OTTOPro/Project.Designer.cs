@@ -622,9 +622,9 @@
             this.emptySpaceItem97 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tbMulti5 = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl5 = new DevExpress.XtraLayout.LayoutControl();
+            this.cmbLVSectionFilter = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.btnMulti5UpdateSelbekosten = new DevExpress.XtraEditors.SimpleButton();
             this.btnMulti5LoadArticles = new DevExpress.XtraEditors.SimpleButton();
-            this.cmbMulti5LVFilter = new DevExpress.XtraEditors.ComboBoxEdit();
             this.gcMulti5 = new DevExpress.XtraGrid.GridControl();
             this.gvMulti5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -632,17 +632,17 @@
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpMulti5texteidt = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup17 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem12 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem16 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem125 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem87 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem126 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem129 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem101 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem130 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem104 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lcLVSectionFilter = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbMulti6 = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl8 = new DevExpress.XtraLayout.LayoutControl();
             this.btnMulti6UpdateSelbekosten = new DevExpress.XtraEditors.SimpleButton();
@@ -1128,19 +1128,19 @@
             this.tbMulti5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).BeginInit();
             this.layoutControl5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMulti5LVFilter.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLVSectionFilter.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMulti5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMulti5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpMulti5texteidt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem125)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem87)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem126)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem129)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem101)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem130)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem104)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcLVSectionFilter)).BeginInit();
             this.tbMulti6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).BeginInit();
             this.layoutControl8.SuspendLayout();
@@ -1293,6 +1293,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager1;
             this.barDockControlTop.Size = new System.Drawing.Size(1746, 0);
             // 
             // barDockControlBottom
@@ -1300,6 +1301,7 @@
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 830);
+            this.barDockControlBottom.Manager = this.barManager1;
             this.barDockControlBottom.Size = new System.Drawing.Size(1746, 0);
             // 
             // barDockControlLeft
@@ -1307,6 +1309,7 @@
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager1;
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 830);
             // 
             // barDockControlRight
@@ -1314,6 +1317,7 @@
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1746, 0);
+            this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 830);
             // 
             // barButtonItemAddSumPosition
@@ -4854,7 +4858,6 @@
             this.cmbSelectGridviewOptions.StyleController = this.layoutControl4;
             this.cmbSelectGridviewOptions.TabIndex = 47;
             this.cmbSelectGridviewOptions.Tag = "";
-            this.cmbSelectGridviewOptions.CloseUp += new DevExpress.XtraEditors.Controls.CloseUpEventHandler(this.cmbSelectGridviewOptions_CloseUp);
             this.cmbSelectGridviewOptions.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cmbSelectGridviewOptions_Closed);
             this.cmbSelectGridviewOptions.CustomDisplayText += new DevExpress.XtraEditors.Controls.CustomDisplayTextEventHandler(this.cmbSelectGridviewOptions_CustomDisplayText);
             // 
@@ -8772,9 +8775,9 @@
             // layoutControl5
             // 
             this.layoutControl5.AllowCustomization = false;
+            this.layoutControl5.Controls.Add(this.cmbLVSectionFilter);
             this.layoutControl5.Controls.Add(this.btnMulti5UpdateSelbekosten);
             this.layoutControl5.Controls.Add(this.btnMulti5LoadArticles);
-            this.layoutControl5.Controls.Add(this.cmbMulti5LVFilter);
             this.layoutControl5.Controls.Add(this.gcMulti5);
             this.layoutControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl5.Location = new System.Drawing.Point(0, 0);
@@ -8784,6 +8787,17 @@
             this.layoutControl5.Size = new System.Drawing.Size(1557, 798);
             this.layoutControl5.TabIndex = 0;
             this.layoutControl5.Text = "layoutControl5";
+            // 
+            // cmbLVSectionFilter
+            // 
+            this.cmbLVSectionFilter.Location = new System.Drawing.Point(92, 12);
+            this.cmbLVSectionFilter.MenuManager = this.barManager1;
+            this.cmbLVSectionFilter.Name = "cmbLVSectionFilter";
+            this.cmbLVSectionFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbLVSectionFilter.Size = new System.Drawing.Size(220, 20);
+            this.cmbLVSectionFilter.StyleController = this.layoutControl5;
+            this.cmbLVSectionFilter.TabIndex = 8;
             // 
             // btnMulti5UpdateSelbekosten
             // 
@@ -8795,6 +8809,7 @@
             this.btnMulti5UpdateSelbekosten.StyleController = this.layoutControl5;
             this.btnMulti5UpdateSelbekosten.TabIndex = 7;
             this.btnMulti5UpdateSelbekosten.Text = "Update Selbekosten\r\nwith the Articles with\r\nWG of Project/Kommision\r\n";
+            this.btnMulti5UpdateSelbekosten.Click += new System.EventHandler(this.btnMulti5UpdateSelbekosten_Click);
             // 
             // btnMulti5LoadArticles
             // 
@@ -8806,17 +8821,7 @@
             this.btnMulti5LoadArticles.StyleController = this.layoutControl5;
             this.btnMulti5LoadArticles.TabIndex = 6;
             this.btnMulti5LoadArticles.Text = "Load All \r\nArticles Groups";
-            // 
-            // cmbMulti5LVFilter
-            // 
-            this.cmbMulti5LVFilter.Location = new System.Drawing.Point(99, 12);
-            this.cmbMulti5LVFilter.MenuManager = this.barManager1;
-            this.cmbMulti5LVFilter.Name = "cmbMulti5LVFilter";
-            this.cmbMulti5LVFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbMulti5LVFilter.Size = new System.Drawing.Size(285, 20);
-            this.cmbMulti5LVFilter.StyleController = this.layoutControl5;
-            this.cmbMulti5LVFilter.TabIndex = 5;
+            this.btnMulti5LoadArticles.Click += new System.EventHandler(this.btnMulti5LoadArticles_Click);
             // 
             // gcMulti5
             // 
@@ -8824,6 +8829,8 @@
             this.gcMulti5.MainView = this.gvMulti5;
             this.gcMulti5.MenuManager = this.barManager1;
             this.gcMulti5.Name = "gcMulti5";
+            this.gcMulti5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rpMulti5texteidt});
             this.gcMulti5.Size = new System.Drawing.Size(1024, 362);
             this.gcMulti5.TabIndex = 4;
             this.gcMulti5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -8839,6 +8846,8 @@
             this.gridColumn5,
             this.gridColumn6});
             this.gvMulti5.GridControl = this.gcMulti5;
+            this.gvMulti5.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.None, "", null, "")});
             this.gvMulti5.Name = "gvMulti5";
             this.gvMulti5.OptionsMenu.EnableColumnMenu = false;
             this.gvMulti5.OptionsMenu.EnableFooterMenu = false;
@@ -8851,50 +8860,90 @@
             this.gridColumn1.Caption = "WG";
             this.gridColumn1.FieldName = "WG";
             this.gridColumn1.Name = "gridColumn1";
+            this.gridColumn1.OptionsColumn.AllowEdit = false;
+            this.gridColumn1.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn1.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn1.OptionsColumn.ReadOnly = true;
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "WG Description";
-            this.gridColumn2.FieldName = "WG Description";
+            this.gridColumn2.FieldName = "WGDescritpion";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 1;
             // 
             // gridColumn3
             // 
             this.gridColumn3.Caption = "X";
-            this.gridColumn3.FieldName = "X";
+            this.gridColumn3.DisplayFormat.FormatString = "n3";
+            this.gridColumn3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn3.FieldName = "XValue";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn3.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "X", "SUM={0:n2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "XValue", "SUM = {0:n3}")});
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
             // gridColumn4
             // 
             this.gridColumn4.Caption = "S";
-            this.gridColumn4.FieldName = "S";
+            this.gridColumn4.DisplayFormat.FormatString = "n3";
+            this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn4.FieldName = "SValue";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "S", "SUM={0:n2}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SValue", "SUM = {0:n3}")});
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             // 
             // gridColumn5
             // 
             this.gridColumn5.Caption = "X Factor";
-            this.gridColumn5.FieldName = "X Factor";
+            this.gridColumn5.ColumnEdit = this.rpMulti5texteidt;
+            this.gridColumn5.FieldName = "XFactor";
+            this.gridColumn5.GroupFormat.FormatString = "n3";
+            this.gridColumn5.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Average, "XFactor", "AVG = {0:N3}")});
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
+            // 
+            // rpMulti5texteidt
+            // 
+            this.rpMulti5texteidt.AutoHeight = false;
+            this.rpMulti5texteidt.Mask.EditMask = "n3";
+            this.rpMulti5texteidt.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpMulti5texteidt.Mask.ShowPlaceHolders = false;
+            this.rpMulti5texteidt.Mask.UseMaskAsDisplayFormat = true;
+            this.rpMulti5texteidt.MaxLength = 5;
+            this.rpMulti5texteidt.Name = "rpMulti5texteidt";
             // 
             // gridColumn6
             // 
             this.gridColumn6.Caption = "S Factor";
-            this.gridColumn6.FieldName = "S Factor";
+            this.gridColumn6.ColumnEdit = this.rpMulti5texteidt;
+            this.gridColumn6.DisplayFormat.FormatString = "n3";
+            this.gridColumn6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+            this.gridColumn6.FieldName = "SFactor";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Average, "SFactor", "AVG = {0:N3}")});
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 5;
             // 
@@ -8907,11 +8956,10 @@
             this.emptySpaceItem16,
             this.layoutControlItem125,
             this.emptySpaceItem87,
-            this.layoutControlItem126,
             this.layoutControlItem129,
             this.emptySpaceItem101,
             this.layoutControlItem130,
-            this.emptySpaceItem104});
+            this.lcLVSectionFilter});
             this.layoutControlGroup17.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup17.Name = "Root";
             this.layoutControlGroup17.Size = new System.Drawing.Size(1557, 798);
@@ -8920,9 +8968,9 @@
             // emptySpaceItem12
             // 
             this.emptySpaceItem12.AllowHotTrack = false;
-            this.emptySpaceItem12.Location = new System.Drawing.Point(376, 0);
+            this.emptySpaceItem12.Location = new System.Drawing.Point(304, 0);
             this.emptySpaceItem12.Name = "emptySpaceItem12";
-            this.emptySpaceItem12.Size = new System.Drawing.Size(474, 37);
+            this.emptySpaceItem12.Size = new System.Drawing.Size(546, 37);
             this.emptySpaceItem12.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem16
@@ -8949,19 +8997,6 @@
             this.emptySpaceItem87.Name = "emptySpaceItem87";
             this.emptySpaceItem87.Size = new System.Drawing.Size(850, 50);
             this.emptySpaceItem87.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem126
-            // 
-            this.layoutControlItem126.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControlItem126.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem126.AppearanceItemCaption.Options.UseBackColor = true;
-            this.layoutControlItem126.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem126.Control = this.cmbMulti5LVFilter;
-            this.layoutControlItem126.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem126.Name = "layoutControlItem126";
-            this.layoutControlItem126.Size = new System.Drawing.Size(376, 24);
-            this.layoutControlItem126.Text = "LV-Filter Type :";
-            this.layoutControlItem126.TextSize = new System.Drawing.Size(84, 13);
             // 
             // layoutControlItem129
             // 
@@ -8995,13 +9030,13 @@
             this.layoutControlItem130.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem130.TextVisible = false;
             // 
-            // emptySpaceItem104
+            // lcLVSectionFilter
             // 
-            this.emptySpaceItem104.AllowHotTrack = false;
-            this.emptySpaceItem104.Location = new System.Drawing.Point(0, 24);
-            this.emptySpaceItem104.Name = "emptySpaceItem104";
-            this.emptySpaceItem104.Size = new System.Drawing.Size(376, 13);
-            this.emptySpaceItem104.TextSize = new System.Drawing.Size(0, 0);
+            this.lcLVSectionFilter.Control = this.cmbLVSectionFilter;
+            this.lcLVSectionFilter.Location = new System.Drawing.Point(0, 0);
+            this.lcLVSectionFilter.Name = "lcLVSectionFilter";
+            this.lcLVSectionFilter.Size = new System.Drawing.Size(304, 37);
+            this.lcLVSectionFilter.TextSize = new System.Drawing.Size(77, 13);
             // 
             // tbMulti6
             // 
@@ -9777,19 +9812,19 @@
             this.tbMulti5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl5)).EndInit();
             this.layoutControl5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbMulti5LVFilter.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLVSectionFilter.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMulti5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMulti5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpMulti5texteidt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem12)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem125)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem87)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem126)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem129)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem101)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem130)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem104)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lcLVSectionFilter)).EndInit();
             this.tbMulti6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).EndInit();
             this.layoutControl8.ResumeLayout(false);
@@ -10419,7 +10454,6 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl5;
         private DevExpress.XtraEditors.SimpleButton btnMulti5UpdateSelbekosten;
         private DevExpress.XtraEditors.SimpleButton btnMulti5LoadArticles;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbMulti5LVFilter;
         private DevExpress.XtraGrid.GridControl gcMulti5;
         private DevExpress.XtraGrid.Views.Grid.GridView gvMulti5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
@@ -10433,11 +10467,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem16;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem125;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem87;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem126;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem129;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem101;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem130;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem104;
         private DevExpress.XtraTab.XtraTabPage tbMulti6;
         private DevExpress.XtraLayout.LayoutControl layoutControl8;
         private DevExpress.XtraEditors.SimpleButton btnMulti6UpdateSelbekosten;
@@ -10464,6 +10496,9 @@
         private System.Windows.Forms.Button btnMulti5;
         private System.Windows.Forms.Button btnMulti6;
         private DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpMulti5texteidt;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit cmbLVSectionFilter;
+        private DevExpress.XtraLayout.LayoutControlItem lcLVSectionFilter;
 
 
     }
