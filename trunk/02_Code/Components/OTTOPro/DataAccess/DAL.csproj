@@ -43,6 +43,7 @@
     <Compile Include="DCustomer.cs" />
     <Compile Include="DGAEB.cs" />
     <Compile Include="DMulti.cs" />
+    <Compile Include="DOTTO.cs" />
     <Compile Include="DPosition.cs" />
     <Compile Include="DProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -57,6 +57,7 @@
     <Compile Include="BCustomer.cs" />
     <Compile Include="BGAEB.cs" />
     <Compile Include="BMulti.cs" />
+    <Compile Include="BOTTO.cs" />
     <Compile Include="BPosition.cs" />
     <Compile Include="BProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
