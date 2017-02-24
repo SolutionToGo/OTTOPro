@@ -97,9 +97,18 @@ namespace OTTOPro
                 ActiveMdiChild.Close();
         }
 
-        private void barButtonItem7_ItemClick(object sender, ItemClickEventArgs e)
+        private void btnCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmLoadCustomerMaster Obj = new frmLoadCustomerMaster();
+            Obj.MdiParent = this;
+            label2.Visible = false;
+            pictureBox1.Visible = false;
+            Obj.Show();
+        }
+
+        private void btnOTTO_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmLoadOTTOMaster Obj = new frmLoadOTTOMaster();
             Obj.MdiParent = this;
             label2.Visible = false;
             pictureBox1.Visible = false;

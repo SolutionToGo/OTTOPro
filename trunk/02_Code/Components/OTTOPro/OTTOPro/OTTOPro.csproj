@@ -204,6 +204,12 @@
     <Compile Include="frmLoadCustomerMaster.Designer.cs">
       <DependentUpon>frmLoadCustomerMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLoadOTTOMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoadOTTOMaster.Designer.cs">
+      <DependentUpon>frmLoadOTTOMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoadSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +221,12 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOTTOMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOTTOMaster.Designer.cs">
+      <DependentUpon>frmOTTOMaster.cs</DependentUpon>
     </Compile>
     <Compile Include="frmShortCuts.cs">
       <SubType>Form</SubType>
@@ -281,11 +293,17 @@
     <EmbeddedResource Include="frmLoadCustomerMaster.resx">
       <DependentUpon>frmLoadCustomerMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLoadOTTOMaster.resx">
+      <DependentUpon>frmLoadOTTOMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoadSupplier.resx">
       <DependentUpon>frmLoadSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOTTOMaster.resx">
+      <DependentUpon>frmOTTOMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShortCuts.resx">
       <DependentUpon>frmShortCuts.cs</DependentUpon>
@@ -398,6 +416,8 @@
     <Content Include="IconLogo.ico" />
     <None Include="Resources\BOCustomer_16x16.png" />
     <None Include="Resources\BOCustomer_32x32.png" />
+    <None Include="Resources\BORole_16x16.png" />
+    <None Include="Resources\BORole_32x32.png" />
     <Content Include="Resources\edit-icon %281%29.png" />
     <Content Include="Resources\edit-icon.png" />
     <None Include="Resources\Save_16x16.png" />

@@ -54,7 +54,8 @@
             this.btnShortCuts = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem6 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemExitProject = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnCustomer = new DevExpress.XtraBars.BarButtonItem();
+            this.btnOTTO = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.BarButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
@@ -92,9 +93,10 @@
             this.btnShortCuts,
             this.barButtonItem6,
             this.barButtonItemExitProject,
-            this.barButtonItem7});
+            this.btnCustomer,
+            this.btnOTTO});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 27;
+            this.ribbon.MaxItemId = 28;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome});
@@ -226,13 +228,21 @@
             this.barButtonItemExitProject.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.barButtonItemExitProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemExitProject_ItemClick);
             // 
-            // barButtonItem7
+            // btnCustomer
             // 
-            this.barButtonItem7.Caption = "Customer";
-            this.barButtonItem7.Id = 26;
-            this.barButtonItem7.LargeGlyph = global::OTTOPro.Properties.Resources.BOCustomer_32x32;
-            this.barButtonItem7.Name = "barButtonItem7";
-            this.barButtonItem7.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem7_ItemClick);
+            this.btnCustomer.Caption = "Customer";
+            this.btnCustomer.Id = 26;
+            this.btnCustomer.LargeGlyph = global::OTTOPro.Properties.Resources.BOCustomer_32x32;
+            this.btnCustomer.Name = "btnCustomer";
+            this.btnCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCustomer_ItemClick);
+            // 
+            // btnOTTO
+            // 
+            this.btnOTTO.Caption = "OTTO";
+            this.btnOTTO.Id = 27;
+            this.btnOTTO.LargeGlyph = global::OTTOPro.Properties.Resources.BORole_32x32;
+            this.btnOTTO.Name = "btnOTTO";
+            this.btnOTTO.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOTTO_ItemClick);
             // 
             // miHome
             // 
@@ -245,7 +255,8 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNewProject);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLoadProject, true);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItem7, true);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnCustomer, true);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnOTTO, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnShortCuts, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemSave, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemExitProject, true);
@@ -385,6 +396,7 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItemExitProject;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem btnCustomer;
+        private DevExpress.XtraBars.BarButtonItem btnOTTO;
     }
 }

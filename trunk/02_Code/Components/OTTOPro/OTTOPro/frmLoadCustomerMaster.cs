@@ -12,6 +12,8 @@ using EL;
 using BL;
 using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraGrid.Views.Grid;
+using System.Drawing.Drawing2D;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace OTTOPro
 {
@@ -153,20 +155,28 @@ namespace OTTOPro
         {
             try
             {
-                if (gvCustomers.SelectedRowsCount == 0)
+                GridView view = (GridView)sender;
+                Point pt = view.GridControl.PointToClient(Control.MousePosition);
+                GridHitInfo info = view.CalcHitInfo(pt);
+
+                if (info.InRow || info.InRowCell)
                 {
-                    return;
+                    if (gvCustomers.SelectedRowsCount == 0)
+                    {
+                        return;
+                    }
+                    ObjECustomer = new ECustomer();
+                    GetCustomerDetails();
+                    frmCustomerMaster frm = new frmCustomerMaster("Customer", ObjECustomer);
+                    frm.ObjEcustomer = ObjECustomer;
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        BindCustomerData();
+                        Setfocus(gvCustomers, "CustomerID", ObjECustomer.Customer_CustomerID);
+                    }
                 }
-                ObjECustomer = new ECustomer();
-                GetCustomerDetails();
-                frmCustomerMaster frm = new frmCustomerMaster("Customer", ObjECustomer);
-                frm.ObjEcustomer = ObjECustomer;
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    BindCustomerData();
-                    Setfocus(gvCustomers, "CustomerID", ObjECustomer.Customer_CustomerID);
-                }
+                
             }
             catch (Exception ex)
             {
@@ -178,20 +188,27 @@ namespace OTTOPro
         {
             try
             {
-                if (gvContacts.SelectedRowsCount == 0)
+                GridView view = (GridView)sender;
+                Point pt = view.GridControl.PointToClient(Control.MousePosition);
+                GridHitInfo info = view.CalcHitInfo(pt);
+                if (info.InRow || info.InRowCell)
                 {
-                    return;
+                    if (gvContacts.SelectedRowsCount == 0)
+                    {
+                        return;
+                    }
+                    ObjECustomer = new ECustomer();
+                    GetContactDetails();
+                    frmCustomerMaster frm = new frmCustomerMaster("Contact", ObjECustomer);
+                    frm.ObjEcustomer = ObjECustomer;
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        BindContactData();
+                        Setfocus(gvContacts, "ContactPersonID", ObjECustomer.ContactPersonID);
+                    }
                 }
-                ObjECustomer = new ECustomer();
-                GetContactDetails();
-                frmCustomerMaster frm = new frmCustomerMaster("Contact",ObjECustomer);
-                frm.ObjEcustomer = ObjECustomer;
-                frm.ShowDialog();                
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    BindContactData();
-                    Setfocus(gvContacts, "ContactPersonID", ObjECustomer.ContactPersonID);
-                }
+                
             }
             catch (Exception ex)
             {
@@ -203,20 +220,28 @@ namespace OTTOPro
         {
             try
             {
-                if (gvAddress.SelectedRowsCount == 0)
+                GridView view = (GridView)sender;
+                Point pt = view.GridControl.PointToClient(Control.MousePosition);
+                GridHitInfo info = view.CalcHitInfo(pt);
+
+                if (info.InRow || info.InRowCell)
                 {
-                    return;
+                    if (gvAddress.SelectedRowsCount == 0)
+                    {
+                        return;
+                    }
+                    ObjECustomer = new ECustomer();
+                    GetAddressDetails();
+                    frmCustomerMaster frm = new frmCustomerMaster("Address", ObjECustomer);
+                    frm.ObjEcustomer = ObjECustomer;
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        BindAddressData();
+                        Setfocus(gvAddress, "AddressID", ObjECustomer.AddressID);
+                    }
                 }
-                ObjECustomer = new ECustomer();
-                GetAddressDetails();
-                frmCustomerMaster frm = new frmCustomerMaster("Address", ObjECustomer);
-                frm.ObjEcustomer = ObjECustomer;
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    BindAddressData();
-                    Setfocus(gvAddress, "AddressID", ObjECustomer.AddressID);
-                }
+                
             }
             catch (Exception ex)
             {
@@ -393,7 +418,7 @@ namespace OTTOPro
         #endregion
 
 
-        //test commit ..
+
 
 //*******************
     }

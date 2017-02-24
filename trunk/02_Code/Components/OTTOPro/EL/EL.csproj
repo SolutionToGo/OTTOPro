@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ECustomer.cs" />
     <Compile Include="EGAEB.cs" />
+    <Compile Include="EOTTO.cs" />
     <Compile Include="EPosition.cs" />
     <Compile Include="EProject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

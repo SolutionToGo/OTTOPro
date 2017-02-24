@@ -49,7 +49,6 @@ namespace EL
         private string _ContTelephone;
         private string _ContFax;
         private bool _DefaultContact;
-        private DataSet _dtContact;
 
         // To hold the Customer Address
         private int _AddressID = -1;
@@ -60,7 +59,6 @@ namespace EL
         private string _AddrCity;
         private string _AddrCountry;
         private bool _DefaultAddress;
-        private DataSet _dtAddress;
 
 
         // Customers Properties
@@ -201,11 +199,6 @@ namespace EL
         }
 
         // Customers Contact Properties
-        public DataSet dsContact
-        {
-            get { return _dtContact; }
-            set { _dtContact = value; }
-        }
         public int ContactPersonID
         {
             get { return _ContactPersonID; }
@@ -253,11 +246,6 @@ namespace EL
         }
 
         // Customers Address Properties
-        public DataSet dsAddress
-        {
-            get { return _dtAddress; }
-            set { _dtAddress = value; }
-        }
         public int AddressID
         {
             get { return _AddressID; }

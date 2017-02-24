@@ -141,6 +141,10 @@
             // 
             // Commentary
             // 
+            Commentary.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            Commentary.AppearanceCell.Options.UseFont = true;
+            Commentary.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            Commentary.AppearanceHeader.Options.UseFont = true;
             Commentary.Caption = "Commentary";
             Commentary.ColumnEdit = this.repositoryItemMemoExEdit1;
             Commentary.FieldName = "Commentary";
@@ -180,7 +184,7 @@
             // 
             // label4
             // 
-            this.label4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(785, 451);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(232, 22);
@@ -209,12 +213,27 @@
             // 
             // gvInvoiceHistory
             // 
+            this.gvInvoiceHistory.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvInvoiceHistory.Appearance.Empty.Options.UseBackColor = true;
+            this.gvInvoiceHistory.Appearance.FocusedCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvInvoiceHistory.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvInvoiceHistory.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvInvoiceHistory.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvInvoiceHistory.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvInvoiceHistory.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvInvoiceHistory.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.gvInvoiceHistory.Appearance.Row.Options.UseBackColor = true;
+            this.gvInvoiceHistory.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvInvoiceHistory.Appearance.SelectedRow.Options.UseFont = true;
+            this.gvInvoiceHistory.Appearance.VertLine.BackColor = System.Drawing.Color.White;
+            this.gvInvoiceHistory.Appearance.VertLine.Options.UseBackColor = true;
             this.gvInvoiceHistory.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvInvoiceHistory.GridControl = this.gcInvoiceHistory;
             this.gvInvoiceHistory.Name = "gvInvoiceHistory";
             this.gvInvoiceHistory.OptionsBehavior.Editable = false;
             this.gvInvoiceHistory.OptionsBehavior.ReadOnly = true;
             this.gvInvoiceHistory.OptionsFind.AlwaysVisible = true;
+            this.gvInvoiceHistory.OptionsFind.ShowFindButton = false;
             this.gvInvoiceHistory.OptionsMenu.EnableColumnMenu = false;
             this.gvInvoiceHistory.OptionsMenu.EnableFooterMenu = false;
             this.gvInvoiceHistory.OptionsMenu.EnableGroupPanelMenu = false;
@@ -234,6 +253,20 @@
             // 
             // gvAddress
             // 
+            this.gvAddress.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvAddress.Appearance.Empty.Options.UseBackColor = true;
+            this.gvAddress.Appearance.FocusedCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvAddress.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvAddress.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvAddress.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvAddress.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvAddress.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvAddress.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.gvAddress.Appearance.Row.Options.UseBackColor = true;
+            this.gvAddress.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvAddress.Appearance.SelectedRow.Options.UseFont = true;
+            this.gvAddress.Appearance.VertLine.BackColor = System.Drawing.Color.White;
+            this.gvAddress.Appearance.VertLine.Options.UseBackColor = true;
             this.gvAddress.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn2,
             this.gridColumn3,
@@ -249,6 +282,7 @@
             this.gvAddress.OptionsBehavior.Editable = false;
             this.gvAddress.OptionsBehavior.ReadOnly = true;
             this.gvAddress.OptionsFind.AlwaysVisible = true;
+            this.gvAddress.OptionsFind.ShowFindButton = false;
             this.gvAddress.OptionsMenu.EnableColumnMenu = false;
             this.gvAddress.OptionsMenu.EnableFooterMenu = false;
             this.gvAddress.OptionsMenu.EnableGroupPanelMenu = false;
@@ -259,19 +293,31 @@
             // 
             // gridColumn2
             // 
+            this.gridColumn2.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn2.AppearanceCell.Options.UseFont = true;
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
             this.gridColumn2.Caption = "ID";
             this.gridColumn2.FieldName = "AddressID";
             this.gridColumn2.Name = "gridColumn2";
             // 
             // gridColumn3
             // 
+            this.gridColumn3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceCell.Options.UseFont = true;
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
             this.gridColumn3.Caption = "CustomerID";
             this.gridColumn3.FieldName = "CustomerID";
             this.gridColumn3.Name = "gridColumn3";
             // 
             // gridColumn12
             // 
-            this.gridColumn12.Caption = "DefaultAddress";
+            this.gridColumn12.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn12.AppearanceCell.Options.UseFont = true;
+            this.gridColumn12.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn12.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn12.Caption = "Default Address";
             this.gridColumn12.FieldName = "DefaultAddress";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
@@ -279,7 +325,11 @@
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "ShortName";
+            this.gridColumn4.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceCell.Options.UseFont = true;
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn4.Caption = "Short Name";
             this.gridColumn4.FieldName = "AddressShortName";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -287,6 +337,10 @@
             // 
             // gridColumn5
             // 
+            this.gridColumn5.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn5.AppearanceCell.Options.UseFont = true;
+            this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn5.AppearanceHeader.Options.UseFont = true;
             this.gridColumn5.Caption = "StreetNo";
             this.gridColumn5.FieldName = "StreetNo";
             this.gridColumn5.Name = "gridColumn5";
@@ -295,7 +349,11 @@
             // 
             // gridColumn9
             // 
-            this.gridColumn9.Caption = "PostalCode";
+            this.gridColumn9.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn9.AppearanceCell.Options.UseFont = true;
+            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn9.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn9.Caption = "Postal Code";
             this.gridColumn9.FieldName = "PostalCode";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
@@ -303,6 +361,10 @@
             // 
             // gridColumn10
             // 
+            this.gridColumn10.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn10.AppearanceCell.Options.UseFont = true;
+            this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn10.AppearanceHeader.Options.UseFont = true;
             this.gridColumn10.Caption = "City";
             this.gridColumn10.FieldName = "City";
             this.gridColumn10.Name = "gridColumn10";
@@ -311,6 +373,10 @@
             // 
             // gridColumn11
             // 
+            this.gridColumn11.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn11.AppearanceCell.Options.UseFont = true;
+            this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn11.AppearanceHeader.Options.UseFont = true;
             this.gridColumn11.Caption = "Country";
             this.gridColumn11.FieldName = "Country";
             this.gridColumn11.Name = "gridColumn11";
@@ -329,6 +395,20 @@
             // 
             // gvContacts
             // 
+            this.gvContacts.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvContacts.Appearance.Empty.Options.UseBackColor = true;
+            this.gvContacts.Appearance.FocusedCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvContacts.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvContacts.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvContacts.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvContacts.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvContacts.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvContacts.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.gvContacts.Appearance.Row.Options.UseBackColor = true;
+            this.gvContacts.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvContacts.Appearance.SelectedRow.Options.UseFont = true;
+            this.gvContacts.Appearance.VertLine.BackColor = System.Drawing.Color.White;
+            this.gvContacts.Appearance.VertLine.Options.UseBackColor = true;
             this.gvContacts.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.ContactPersonID,
             this.CustomerID,
@@ -345,6 +425,7 @@
             this.gvContacts.OptionsBehavior.Editable = false;
             this.gvContacts.OptionsBehavior.ReadOnly = true;
             this.gvContacts.OptionsFind.AlwaysVisible = true;
+            this.gvContacts.OptionsFind.ShowFindButton = false;
             this.gvContacts.OptionsMenu.EnableColumnMenu = false;
             this.gvContacts.OptionsMenu.EnableFooterMenu = false;
             this.gvContacts.OptionsMenu.EnableGroupPanelMenu = false;
@@ -355,19 +436,31 @@
             // 
             // ContactPersonID
             // 
+            this.ContactPersonID.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContactPersonID.AppearanceCell.Options.UseFont = true;
+            this.ContactPersonID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContactPersonID.AppearanceHeader.Options.UseFont = true;
             this.ContactPersonID.Caption = "ID";
             this.ContactPersonID.FieldName = "ContactPersonID";
             this.ContactPersonID.Name = "ContactPersonID";
             // 
             // CustomerID
             // 
+            this.CustomerID.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerID.AppearanceCell.Options.UseFont = true;
+            this.CustomerID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerID.AppearanceHeader.Options.UseFont = true;
             this.CustomerID.Caption = "CustomerID";
             this.CustomerID.FieldName = "CustomerID";
             this.CustomerID.Name = "CustomerID";
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "DefaultContact";
+            this.gridColumn1.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceCell.Options.UseFont = true;
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn1.Caption = "Default Contact";
             this.gridColumn1.FieldName = "DefaultContact";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
@@ -375,6 +468,10 @@
             // 
             // Salutation
             // 
+            this.Salutation.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Salutation.AppearanceCell.Options.UseFont = true;
+            this.Salutation.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Salutation.AppearanceHeader.Options.UseFont = true;
             this.Salutation.Caption = "Salutation";
             this.Salutation.FieldName = "Salutation";
             this.Salutation.Name = "Salutation";
@@ -383,7 +480,11 @@
             // 
             // ContatPersonName
             // 
-            this.ContatPersonName.Caption = "ContatPersonName";
+            this.ContatPersonName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContatPersonName.AppearanceCell.Options.UseFont = true;
+            this.ContatPersonName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContatPersonName.AppearanceHeader.Options.UseFont = true;
+            this.ContatPersonName.Caption = "Person Name";
             this.ContatPersonName.FieldName = "ContatPersonName";
             this.ContatPersonName.Name = "ContatPersonName";
             this.ContatPersonName.Visible = true;
@@ -391,6 +492,10 @@
             // 
             // Designation
             // 
+            this.Designation.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Designation.AppearanceCell.Options.UseFont = true;
+            this.Designation.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Designation.AppearanceHeader.Options.UseFont = true;
             this.Designation.Caption = "Designation";
             this.Designation.FieldName = "Designation";
             this.Designation.Name = "Designation";
@@ -399,6 +504,10 @@
             // 
             // gridColumn6
             // 
+            this.gridColumn6.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn6.AppearanceCell.Options.UseFont = true;
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn6.AppearanceHeader.Options.UseFont = true;
             this.gridColumn6.Caption = "EmailID";
             this.gridColumn6.FieldName = "EmailID";
             this.gridColumn6.Name = "gridColumn6";
@@ -407,6 +516,10 @@
             // 
             // gridColumn7
             // 
+            this.gridColumn7.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn7.AppearanceCell.Options.UseFont = true;
+            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn7.AppearanceHeader.Options.UseFont = true;
             this.gridColumn7.Caption = "Telephone";
             this.gridColumn7.FieldName = "Telephone";
             this.gridColumn7.Name = "gridColumn7";
@@ -415,6 +528,10 @@
             // 
             // gridColumn8
             // 
+            this.gridColumn8.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn8.AppearanceCell.Options.UseFont = true;
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
             this.gridColumn8.Caption = "FAX";
             this.gridColumn8.FieldName = "FAX";
             this.gridColumn8.Name = "gridColumn8";
@@ -435,6 +552,18 @@
             // 
             // gvCustomers
             // 
+            this.gvCustomers.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvCustomers.Appearance.Empty.Options.UseBackColor = true;
+            this.gvCustomers.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvCustomers.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvCustomers.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvCustomers.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvCustomers.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gvCustomers.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gvCustomers.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.gvCustomers.Appearance.Row.Options.UseBackColor = true;
+            this.gvCustomers.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvCustomers.Appearance.SelectedRow.Options.UseFont = true;
             this.gvCustomers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.ID,
             this.FullName,
@@ -470,6 +599,7 @@
             this.gvCustomers.OptionsCustomization.AllowColumnMoving = false;
             this.gvCustomers.OptionsFilter.AllowFilterEditor = false;
             this.gvCustomers.OptionsFind.AlwaysVisible = true;
+            this.gvCustomers.OptionsFind.ShowFindButton = false;
             this.gvCustomers.OptionsMenu.EnableColumnMenu = false;
             this.gvCustomers.OptionsMenu.EnableFooterMenu = false;
             this.gvCustomers.OptionsMenu.EnableGroupPanelMenu = false;
@@ -482,12 +612,20 @@
             // 
             // ID
             // 
+            this.ID.AppearanceCell.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.AppearanceCell.Options.UseFont = true;
+            this.ID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ID.AppearanceHeader.Options.UseFont = true;
             this.ID.Caption = "ID";
             this.ID.FieldName = "CustomerID";
             this.ID.Name = "ID";
             // 
             // FullName
             // 
+            this.FullName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullName.AppearanceCell.Options.UseFont = true;
+            this.FullName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FullName.AppearanceHeader.Options.UseFont = true;
             this.FullName.Caption = "Full Name";
             this.FullName.FieldName = "CustomerFullName";
             this.FullName.Name = "FullName";
@@ -496,6 +634,10 @@
             // 
             // ShortName
             // 
+            this.ShortName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShortName.AppearanceCell.Options.UseFont = true;
+            this.ShortName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShortName.AppearanceHeader.Options.UseFont = true;
             this.ShortName.Caption = "Short Name";
             this.ShortName.FieldName = "CustomerShortName";
             this.ShortName.Name = "ShortName";
@@ -504,6 +646,10 @@
             // 
             // Street
             // 
+            this.Street.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Street.AppearanceCell.Options.UseFont = true;
+            this.Street.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Street.AppearanceHeader.Options.UseFont = true;
             this.Street.Caption = "Street";
             this.Street.FieldName = "Street";
             this.Street.Name = "Street";
@@ -512,6 +658,10 @@
             // 
             // PostalCode
             // 
+            this.PostalCode.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PostalCode.AppearanceCell.Options.UseFont = true;
+            this.PostalCode.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PostalCode.AppearanceHeader.Options.UseFont = true;
             this.PostalCode.Caption = "Postal Code";
             this.PostalCode.FieldName = "PostalCode";
             this.PostalCode.Name = "PostalCode";
@@ -520,6 +670,10 @@
             // 
             // City
             // 
+            this.City.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.City.AppearanceCell.Options.UseFont = true;
+            this.City.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.City.AppearanceHeader.Options.UseFont = true;
             this.City.Caption = "City";
             this.City.FieldName = "City";
             this.City.Name = "City";
@@ -528,6 +682,10 @@
             // 
             // Country
             // 
+            this.Country.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Country.AppearanceCell.Options.UseFont = true;
+            this.Country.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Country.AppearanceHeader.Options.UseFont = true;
             this.Country.Caption = "Country";
             this.Country.FieldName = "Country";
             this.Country.Name = "Country";
@@ -536,6 +694,10 @@
             // 
             // ILN
             // 
+            this.ILN.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ILN.AppearanceCell.Options.UseFont = true;
+            this.ILN.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ILN.AppearanceHeader.Options.UseFont = true;
             this.ILN.Caption = "ILN";
             this.ILN.FieldName = "ILN";
             this.ILN.Name = "ILN";
@@ -544,6 +706,10 @@
             // 
             // Telephone
             // 
+            this.Telephone.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Telephone.AppearanceCell.Options.UseFont = true;
+            this.Telephone.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Telephone.AppearanceHeader.Options.UseFont = true;
             this.Telephone.Caption = "Telephone";
             this.Telephone.FieldName = "Telephone";
             this.Telephone.Name = "Telephone";
@@ -552,6 +718,10 @@
             // 
             // Fax
             // 
+            this.Fax.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fax.AppearanceCell.Options.UseFont = true;
+            this.Fax.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Fax.AppearanceHeader.Options.UseFont = true;
             this.Fax.Caption = "Fax";
             this.Fax.FieldName = "Fax";
             this.Fax.Name = "Fax";
@@ -560,6 +730,10 @@
             // 
             // EmailID
             // 
+            this.EmailID.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailID.AppearanceCell.Options.UseFont = true;
+            this.EmailID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EmailID.AppearanceHeader.Options.UseFont = true;
             this.EmailID.Caption = "E-Mail";
             this.EmailID.FieldName = "EmailID";
             this.EmailID.Name = "EmailID";
@@ -568,91 +742,147 @@
             // 
             // TaxNumber
             // 
+            this.TaxNumber.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaxNumber.AppearanceCell.Options.UseFont = true;
+            this.TaxNumber.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TaxNumber.AppearanceHeader.Options.UseFont = true;
             this.TaxNumber.Caption = "TaxNumber";
             this.TaxNumber.FieldName = "TaxNumber";
             this.TaxNumber.Name = "TaxNumber";
             // 
             // BankName
             // 
+            this.BankName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BankName.AppearanceCell.Options.UseFont = true;
+            this.BankName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BankName.AppearanceHeader.Options.UseFont = true;
             this.BankName.Caption = "BankName";
             this.BankName.FieldName = "BankName";
             this.BankName.Name = "BankName";
             // 
             // BankPostalCode
             // 
+            this.BankPostalCode.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BankPostalCode.AppearanceCell.Options.UseFont = true;
+            this.BankPostalCode.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BankPostalCode.AppearanceHeader.Options.UseFont = true;
             this.BankPostalCode.Caption = "BankPCode";
             this.BankPostalCode.FieldName = "BankPostalCode";
             this.BankPostalCode.Name = "BankPostalCode";
             // 
             // BankAccountNumber
             // 
+            this.BankAccountNumber.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BankAccountNumber.AppearanceCell.Options.UseFont = true;
+            this.BankAccountNumber.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BankAccountNumber.AppearanceHeader.Options.UseFont = true;
             this.BankAccountNumber.Caption = "BankAccNo";
             this.BankAccountNumber.FieldName = "BankAccountNumber";
             this.BankAccountNumber.Name = "BankAccountNumber";
             // 
             // DVNr
             // 
+            this.DVNr.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DVNr.AppearanceCell.Options.UseFont = true;
+            this.DVNr.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DVNr.AppearanceHeader.Options.UseFont = true;
             this.DVNr.Caption = "DVNr";
             this.DVNr.FieldName = "DVNr";
             this.DVNr.Name = "DVNr";
             // 
             // TenderNumber
             // 
+            this.TenderNumber.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenderNumber.AppearanceCell.Options.UseFont = true;
+            this.TenderNumber.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TenderNumber.AppearanceHeader.Options.UseFont = true;
             this.TenderNumber.Caption = "TenderNo";
             this.TenderNumber.FieldName = "TenderNumber";
             this.TenderNumber.Name = "TenderNumber";
             // 
             // DebitorNumber
             // 
+            this.DebitorNumber.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DebitorNumber.AppearanceCell.Options.UseFont = true;
+            this.DebitorNumber.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DebitorNumber.AppearanceHeader.Options.UseFont = true;
             this.DebitorNumber.Caption = "DebitorNo";
             this.DebitorNumber.FieldName = "DebitorNumber";
             this.DebitorNumber.Name = "DebitorNumber";
             // 
             // CountryType
             // 
+            this.CountryType.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryType.AppearanceCell.Options.UseFont = true;
+            this.CountryType.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryType.AppearanceHeader.Options.UseFont = true;
             this.CountryType.Caption = "CountryType";
             this.CountryType.FieldName = "CountryType";
             this.CountryType.Name = "CountryType";
             // 
             // CountryName
             // 
+            this.CountryName.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryName.AppearanceCell.Options.UseFont = true;
+            this.CountryName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CountryName.AppearanceHeader.Options.UseFont = true;
             this.CountryName.Caption = "CountryName";
             this.CountryName.FieldName = "CountryName";
             this.CountryName.Name = "CountryName";
             // 
             // CreatedBy
             // 
+            this.CreatedBy.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreatedBy.AppearanceCell.Options.UseFont = true;
+            this.CreatedBy.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreatedBy.AppearanceHeader.Options.UseFont = true;
             this.CreatedBy.Caption = "CreatedBy";
             this.CreatedBy.FieldName = "CreatedBy";
             this.CreatedBy.Name = "CreatedBy";
             // 
             // CreatedDate
             // 
+            this.CreatedDate.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreatedDate.AppearanceCell.Options.UseFont = true;
+            this.CreatedDate.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreatedDate.AppearanceHeader.Options.UseFont = true;
             this.CreatedDate.Caption = "CreatedDate";
             this.CreatedDate.FieldName = "CreatedDate";
             this.CreatedDate.Name = "CreatedDate";
             // 
             // LastUpdatedBy
             // 
+            this.LastUpdatedBy.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastUpdatedBy.AppearanceCell.Options.UseFont = true;
+            this.LastUpdatedBy.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastUpdatedBy.AppearanceHeader.Options.UseFont = true;
             this.LastUpdatedBy.Caption = "LastUpdatedBy";
             this.LastUpdatedBy.FieldName = "LastUpdatedBy";
             this.LastUpdatedBy.Name = "LastUpdatedBy";
             // 
             // LastUpdatedDate
             // 
+            this.LastUpdatedDate.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastUpdatedDate.AppearanceCell.Options.UseFont = true;
+            this.LastUpdatedDate.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LastUpdatedDate.AppearanceHeader.Options.UseFont = true;
             this.LastUpdatedDate.Caption = "LastUpdatedDate";
             this.LastUpdatedDate.FieldName = "LastUpdatedDate";
             this.LastUpdatedDate.Name = "LastUpdatedDate";
             // 
             // IsActive
             // 
+            this.IsActive.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsActive.AppearanceCell.Options.UseFont = true;
+            this.IsActive.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.IsActive.AppearanceHeader.Options.UseFont = true;
             this.IsActive.Caption = "IsActive";
             this.IsActive.FieldName = "IsActive";
             this.IsActive.Name = "IsActive";
             // 
             // label3
             // 
-            this.label3.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(785, 242);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(504, 22);
@@ -661,7 +891,7 @@
             // 
             // label2
             // 
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(785, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 22);
@@ -670,7 +900,7 @@
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 22);
@@ -712,10 +942,10 @@
             // 
             // memoEditCommentary
             // 
-            this.memoEditCommentary.Location = new System.Drawing.Point(12, 472);
+            this.memoEditCommentary.Location = new System.Drawing.Point(12, 473);
             this.memoEditCommentary.Name = "memoEditCommentary";
             this.memoEditCommentary.Properties.ReadOnly = true;
-            this.memoEditCommentary.Size = new System.Drawing.Size(769, 221);
+            this.memoEditCommentary.Size = new System.Drawing.Size(769, 220);
             this.memoEditCommentary.StyleController = this.layoutControl1;
             this.memoEditCommentary.TabIndex = 7;
             // 
@@ -757,7 +987,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem4.Control = this.memoEditCommentary;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 444);
@@ -765,7 +995,7 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(773, 241);
             this.layoutControlItem4.Text = "Commentary :";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(80, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(86, 14);
             // 
             // emptySpaceItem1
             // 

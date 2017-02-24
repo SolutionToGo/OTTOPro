@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraTab;
 using EL;
 using BL;
+using System.Threading;
 
 namespace OTTOPro
 {
@@ -68,7 +69,7 @@ namespace OTTOPro
                     this.Text = "Customer Master";
                     ObjTabDetails = tbCustomerMaster;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(740, 641);
+                    this.MinimumSize = new System.Drawing.Size(760, 689);
 
                 }
                 if (_CustomerType == "Contact")
@@ -148,6 +149,19 @@ namespace OTTOPro
                 ObjBCustomer = new BCustomer();
                 ObjECustomer.AddressID = ObjBCustomer.SaveCustomerAddressDetails(ObjECustomer);
                 this.Close();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtCustFullName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextEdit textbox = (TextEdit)sender;
+                textbox.Text = ToTitleCase(textbox.Text);
             }
             catch (Exception ex)
             {
@@ -320,11 +334,23 @@ namespace OTTOPro
 
         }
 
+        public static string ToTitleCase(string stringToConvert)
+        {
+            try
+            {
+                return Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(stringToConvert);
+            }
+            catch (Exception Ex)
+            {
+                throw;
+            }
+        }
+
         #endregion
 
 
 
-        //test ..
+
 //*******************
     }
 }

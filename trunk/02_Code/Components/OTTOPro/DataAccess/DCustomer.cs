@@ -31,6 +31,10 @@ namespace DataAccess
                     object returnObj = cmd.ExecuteScalar();
                     if(returnObj!=null)
                     {
+                        if (returnObj.ToString().Contains("duplicate"))
+                        {
+                            throw new Exception("ShortName is already exists.!");
+                        }
                         if (!int.TryParse(returnObj.ToString(), out CustomerID))
                         {
                             throw new Exception(returnObj.ToString());
