@@ -63,6 +63,7 @@
     <ApplicationIcon>IconLogo.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.BonusSkins.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Data.v16.1, Version=16.1.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -173,6 +174,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmCustomerMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCustomerMaster.Designer.cs">
+      <DependentUpon>frmCustomerMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDocuwareLink.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -190,6 +197,18 @@
     </Compile>
     <Compile Include="frmGAEBImport.Designer.cs">
       <DependentUpon>frmGAEBImport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoadCustomerMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoadCustomerMaster.Designer.cs">
+      <DependentUpon>frmLoadCustomerMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoadSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoadSupplier.Designer.cs">
+      <DependentUpon>frmLoadSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -247,6 +266,9 @@
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmCustomerMaster.resx">
+      <DependentUpon>frmCustomerMaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDocuwareLink.resx">
       <DependentUpon>frmDocuwareLink.cs</DependentUpon>
     </EmbeddedResource>
@@ -255,6 +277,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGAEBImport.resx">
       <DependentUpon>frmGAEBImport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoadCustomerMaster.resx">
+      <DependentUpon>frmLoadCustomerMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoadSupplier.resx">
+      <DependentUpon>frmLoadSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -368,6 +396,8 @@
     <None Include="Resources\Close_16x16.png" />
     <None Include="Resources\Close_32x32.png" />
     <Content Include="IconLogo.ico" />
+    <None Include="Resources\BOCustomer_16x16.png" />
+    <None Include="Resources\BOCustomer_32x32.png" />
     <Content Include="Resources\edit-icon %281%29.png" />
     <Content Include="Resources\edit-icon.png" />
     <None Include="Resources\Save_16x16.png" />
