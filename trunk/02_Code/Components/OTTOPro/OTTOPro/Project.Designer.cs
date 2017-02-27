@@ -646,7 +646,7 @@
             this.tbMulti6 = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl8 = new DevExpress.XtraLayout.LayoutControl();
             this.cmbMulti6LVFilter = new DevExpress.XtraEditors.CheckedComboBoxEdit();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnMulti6UpdateSelbekosten = new DevExpress.XtraEditors.SimpleButton();
             this.btnMulti6LoadArticles = new DevExpress.XtraEditors.SimpleButton();
             this.gcMulti6 = new DevExpress.XtraGrid.GridControl();
@@ -656,6 +656,7 @@
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpedit6 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup18 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem32 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -1149,9 +1150,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).BeginInit();
             this.layoutControl8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMulti6LVFilter.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMulti6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMulti6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpedit6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem51)).BeginInit();
@@ -8806,6 +8808,7 @@
             this.cmbLVSectionFilter.Size = new System.Drawing.Size(210, 20);
             this.cmbLVSectionFilter.StyleController = this.layoutControl5;
             this.cmbLVSectionFilter.TabIndex = 8;
+            this.cmbLVSectionFilter.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cmbLVSectionFilter_Closed);
             // 
             // btnMulti5UpdateSelbekosten
             // 
@@ -8862,6 +8865,7 @@
             this.gvMulti5.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvMulti5.OptionsView.ShowFooter = true;
             this.gvMulti5.OptionsView.ShowGroupPanel = false;
+            this.gvMulti5.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gvMulti5_CustomSummaryCalculate);
             // 
             // gridColumn1
             // 
@@ -8899,7 +8903,7 @@
             this.gridColumn3.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "XValue", "SUM = {0:n3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "XValue", "SUM = {0:n3}", "XValue")});
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 2;
             // 
@@ -8915,7 +8919,7 @@
             this.gridColumn4.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SValue", "SUM = {0:n3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SValue", "SUM = {0:n3}", "SValue")});
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 3;
             // 
@@ -8928,7 +8932,7 @@
             this.gridColumn5.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Average, "XFactor", "AVG = {0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "XFactor", "Weighted % = {0:N3}", "XFactor")});
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 4;
             // 
@@ -8951,7 +8955,7 @@
             this.gridColumn6.FieldName = "SFactor";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Average, "SFactor", "AVG = {0:N3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "SFactor", "Weighted % = {0:N3}", "SFactor")});
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 5;
             // 
@@ -9064,7 +9068,7 @@
             // 
             this.layoutControl8.AllowCustomization = false;
             this.layoutControl8.Controls.Add(this.cmbMulti6LVFilter);
-            this.layoutControl8.Controls.Add(this.comboBoxEdit1);
+            this.layoutControl8.Controls.Add(this.cmbType);
             this.layoutControl8.Controls.Add(this.btnMulti6UpdateSelbekosten);
             this.layoutControl8.Controls.Add(this.btnMulti6LoadArticles);
             this.layoutControl8.Controls.Add(this.gcMulti6);
@@ -9088,21 +9092,21 @@
             this.cmbMulti6LVFilter.StyleController = this.layoutControl8;
             this.cmbMulti6LVFilter.TabIndex = 9;
             // 
-            // comboBoxEdit1
+            // cmbType
             // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(451, 12);
-            this.comboBoxEdit1.MenuManager = this.barManager1;
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.AllowMouseWheel = false;
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.cmbType.Location = new System.Drawing.Point(451, 12);
+            this.cmbType.MenuManager = this.barManager1;
+            this.cmbType.Name = "cmbType";
+            this.cmbType.Properties.AllowMouseWheel = false;
+            this.cmbType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Properties.Items.AddRange(new object[] {
+            this.cmbType.Properties.Items.AddRange(new object[] {
             "Material",
             "Montage"});
-            this.comboBoxEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.comboBoxEdit1.Size = new System.Drawing.Size(198, 20);
-            this.comboBoxEdit1.StyleController = this.layoutControl8;
-            this.comboBoxEdit1.TabIndex = 8;
+            this.cmbType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbType.Size = new System.Drawing.Size(198, 20);
+            this.cmbType.StyleController = this.layoutControl8;
+            this.cmbType.TabIndex = 8;
             // 
             // btnMulti6UpdateSelbekosten
             // 
@@ -9114,6 +9118,7 @@
             this.btnMulti6UpdateSelbekosten.StyleController = this.layoutControl8;
             this.btnMulti6UpdateSelbekosten.TabIndex = 7;
             this.btnMulti6UpdateSelbekosten.Text = "Update Selbekosten\r\nwith the Articles with\r\nWG of Project/Kommision";
+            this.btnMulti6UpdateSelbekosten.Click += new System.EventHandler(this.btnMulti6UpdateSelbekosten_Click);
             // 
             // btnMulti6LoadArticles
             // 
@@ -9133,6 +9138,8 @@
             this.gcMulti6.MainView = this.gvMulti6;
             this.gcMulti6.MenuManager = this.barManager1;
             this.gcMulti6.Name = "gcMulti6";
+            this.gcMulti6.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rpedit6});
             this.gcMulti6.Size = new System.Drawing.Size(1019, 335);
             this.gcMulti6.TabIndex = 4;
             this.gcMulti6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -9154,6 +9161,7 @@
             this.gvMulti6.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvMulti6.OptionsView.ShowFooter = true;
             this.gvMulti6.OptionsView.ShowGroupPanel = false;
+            this.gvMulti6.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gvMulti5_CustomSummaryCalculate);
             // 
             // gridColumn7
             // 
@@ -9189,7 +9197,7 @@
             this.gridColumn9.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn9.OptionsColumn.ReadOnly = true;
             this.gridColumn9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "XValue", "SUM={0:n3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "XValue", "SUM={0:n3}", "XValue")});
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 2;
             // 
@@ -9203,27 +9211,39 @@
             this.gridColumn10.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn10.OptionsColumn.ReadOnly = true;
             this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SValue", "SUM={0:n3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SValue", "SUM={0:n3}", "SValue")});
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 3;
             // 
             // gridColumn11
             // 
             this.gridColumn11.Caption = "X Factor";
+            this.gridColumn11.ColumnEdit = this.rpedit6;
             this.gridColumn11.FieldName = "XFactor";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Average, "XFactor", "AVG={0:n3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "XFactor", "Weighted % ={0:n3}", "XFactor")});
             this.gridColumn11.Visible = true;
             this.gridColumn11.VisibleIndex = 4;
+            // 
+            // rpedit6
+            // 
+            this.rpedit6.AutoHeight = false;
+            this.rpedit6.Mask.EditMask = "n3";
+            this.rpedit6.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpedit6.Mask.ShowPlaceHolders = false;
+            this.rpedit6.Mask.UseMaskAsDisplayFormat = true;
+            this.rpedit6.MaxLength = 5;
+            this.rpedit6.Name = "rpedit6";
             // 
             // gridColumn12
             // 
             this.gridColumn12.Caption = "S Factor";
+            this.gridColumn12.ColumnEdit = this.rpedit6;
             this.gridColumn12.FieldName = "SFactor";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Average, "SFactor", "AVG={0:n3}")});
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "SFactor", "Weighted % ={0:n3}", "SFactor")});
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 5;
             // 
@@ -9324,7 +9344,7 @@
             this.layoutControlItem126.AppearanceItemCaption.Options.UseBackColor = true;
             this.layoutControlItem126.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem126.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem126.Control = this.comboBoxEdit1;
+            this.layoutControlItem126.Control = this.cmbType;
             this.layoutControlItem126.Location = new System.Drawing.Point(352, 0);
             this.layoutControlItem126.Name = "layoutControlItem126";
             this.layoutControlItem126.Size = new System.Drawing.Size(289, 24);
@@ -9918,9 +9938,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl8)).EndInit();
             this.layoutControl8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbMulti6LVFilter.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcMulti6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvMulti6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpedit6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem51)).EndInit();
@@ -10590,12 +10611,13 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpMulti5texteidt;
         private DevExpress.XtraEditors.CheckedComboBoxEdit cmbLVSectionFilter;
         private DevExpress.XtraLayout.LayoutControlItem lcLVSectionFilter;
-        private DevExpress.XtraEditors.ComboBoxEdit comboBoxEdit1;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbType;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem126;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem104;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem106;
         private DevExpress.XtraEditors.CheckedComboBoxEdit cmbMulti6LVFilter;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem132;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpedit6;
 
 
     }

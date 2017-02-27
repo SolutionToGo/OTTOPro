@@ -12,6 +12,7 @@ namespace EL
         private string _LVSection = string.Empty;
         private int _ProjectID = -1;
         private DataTable _dtArticles = null;
+        private string _Type = string.Empty;
 
         public string LVSection
         {
@@ -29,6 +30,12 @@ namespace EL
         {
             get { return _dtArticles; }
             set { _dtArticles = value; }
+        }
+
+        public string Type
+        {
+            get { return _Type; }
+            set { _Type = value; }
         }
     }
 }

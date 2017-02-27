@@ -38,5 +38,30 @@ namespace BL
             return ObjEMulti;
         }
 
+        public EMulti GetArticleGroupsForMulti6(EMulti ObjEMulti)
+        {
+            try
+            {
+                ObjEMulti = ObjDMulti.GetArticleGroupsForMulti6(ObjEMulti);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEMulti;
+        }
+
+        public EMulti UpdateMulti6(EMulti ObjEMulti)
+        {
+            try
+            {
+                ObjEMulti = ObjDMulti.UpdateMulti6(ObjEMulti);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEMulti;
+        }
     }
 }

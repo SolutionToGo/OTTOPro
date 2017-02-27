@@ -26,6 +26,8 @@ using System.IO;
 using System.Configuration;
 using DevExpress.XtraTreeList.Menu;
 using DevExpress.XtraSplashScreen;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
 
 namespace OTTOPro
 {
@@ -3265,7 +3267,7 @@ namespace OTTOPro
         {
             if (txtMa.Text.ToLower() == "s")
             {
-                txtMo.Text = "";
+                txtMo.Text = "S";
                 txtMo.Enabled = false;
             }
             else
@@ -5166,13 +5168,127 @@ e.Column.FieldName == "GB")
                 if (ObjBMulti == null)
                     ObjBMulti = new BMulti();
                 ObjEMulti.ProjectID = ObjEProject.ProjectID;
-                ObjEMulti.LVSection = cmbLVSectionFilter.Text;
-                ObjEMulti = ObjBMulti.GetArticleGroups(ObjEMulti);
+                ObjEMulti.LVSection = cmbMulti6LVFilter.Text;
+                ObjEMulti.Type = cmbType.Text;
+                ObjEMulti = ObjBMulti.GetArticleGroupsForMulti6(ObjEMulti);
                 gcMulti6.DataSource = ObjEMulti.dtArticles;
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
+            }
+        }
+
+        private void cmbLVSectionFilter_Closed(object sender, ClosedEventArgs e)
+        {
+            try
+            {
+                btnMulti5LoadArticles_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void gvMulti5_CustomSummaryCalculate(object sender, DevExpress.Data.CustomSummaryEventArgs e)
+        {
+            try
+            {
+                GridView view = sender as GridView;
+                if (ObjEMulti == null)
+                    ObjEMulti = new EMulti();
+
+                if (ObjEMulti.dtArticles != null && ObjEMulti.dtArticles.Rows.Count > 0)
+                {
+                    string strTag = (e.Item as GridSummaryItem).Tag.ToString();
+                    if (strTag.ToLower() == "xfactor")
+                    {
+                        e.TotalValue = GetWeightedPercentage("XValue", strTag);
+                    }
+                    else if (strTag.ToLower() == "sfactor")
+                    {
+                        e.TotalValue = GetWeightedPercentage("SValue", strTag);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private decimal GetWeightedPercentage(string strValue, string strFactor)
+        {
+            decimal newTotalValue = 0;
+            decimal OldTotalValue = 0;
+            decimal TotalValue = 0;
+            try
+            {
+                foreach (DataRow dr in ObjEMulti.dtArticles.Rows)
+                {
+                    decimal XValue = 0;
+                    decimal xFactor = 0;
+                    if (decimal.TryParse(dr[strFactor].ToString(), out xFactor))
+                    {
+                        if (xFactor == 0)
+                        {
+                            if (decimal.TryParse(dr[strValue].ToString(), out XValue))
+                            {
+                                newTotalValue += XValue;
+                            }
+                        }
+                        else
+                        {
+                            if (decimal.TryParse(dr[strValue].ToString(), out XValue))
+                            {
+                                newTotalValue += (XValue * xFactor);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (decimal.TryParse(dr[strValue].ToString(), out XValue))
+                        {
+                            newTotalValue += XValue;
+                        }
+                    }
+                    XValue = 0;
+                    if (decimal.TryParse(dr[strValue].ToString(), out XValue))
+                    {
+                        OldTotalValue += XValue;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            if (OldTotalValue > 0)
+            {
+                TotalValue = (newTotalValue / OldTotalValue) - 1;
+            }
+            return TotalValue;
+        }
+
+        private void btnMulti6UpdateSelbekosten_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjEMulti == null)
+                    ObjEMulti = new EMulti();
+                if (ObjBMulti == null)
+                    ObjBMulti = new BMulti();
+                ObjEMulti.ProjectID = ObjEProject.ProjectID;
+                ObjEMulti.LVSection = cmbMulti6LVFilter.Text;
+                ObjEMulti.Type = cmbType.Text;
+                ObjEMulti = ObjBMulti.UpdateMulti6(ObjEMulti);
+                btnMulti6LoadArticles_Click(null, null);
+                BindPositionData();
+            }
+            catch (Exception EX)
+            {
+                Utility.ShowError(EX);
             }
         }
     }
