@@ -34,7 +34,7 @@ namespace OTTOPro
             sb.AppendLine();
             foreach (Control ctrl in requiredFields)
             {
-                if (ctrl is TextEdit && ctrl.Text == string.Empty)
+                if (ctrl is TextEdit && ctrl.Text.Trim() == string.Empty)
                 {
                     if (ctrl.Tag == "LV-Status")
                     {

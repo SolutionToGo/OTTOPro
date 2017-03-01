@@ -6275,7 +6275,6 @@
             this.txtProjectNumber.TabIndex = 0;
             this.txtProjectNumber.Tag = "Project Nr";
             this.txtProjectNumber.TextChanged += new System.EventHandler(this.txtProjectNumber_TextChanged);
-            this.txtProjectNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProjectNumber_KeyPress);
             // 
             // lblProjectNumber
             // 
@@ -6314,7 +6313,6 @@
             this.txtKundeNo.Size = new System.Drawing.Size(384, 20);
             this.txtKundeNo.TabIndex = 6;
             this.txtKundeNo.Tag = "Kunde Nr";
-            this.txtKundeNo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtProjectNumber_KeyPress);
             // 
             // ChkRaster
             // 
@@ -8800,11 +8798,14 @@
             // 
             // cmbLVSectionFilter
             // 
+            this.cmbLVSectionFilter.EditValue = "";
             this.cmbLVSectionFilter.Location = new System.Drawing.Point(102, 12);
             this.cmbLVSectionFilter.MenuManager = this.barManager1;
             this.cmbLVSectionFilter.Name = "cmbLVSectionFilter";
             this.cmbLVSectionFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbLVSectionFilter.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "HA")});
             this.cmbLVSectionFilter.Size = new System.Drawing.Size(210, 20);
             this.cmbLVSectionFilter.StyleController = this.layoutControl5;
             this.cmbLVSectionFilter.TabIndex = 8;

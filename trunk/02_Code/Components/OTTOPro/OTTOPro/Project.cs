@@ -163,7 +163,10 @@ namespace OTTOPro
                 LoadExistingProject();
                 if (ProjectID > 0)
                     ChkRaster.Enabled = false;
-
+                if (txtkommissionNumber.Text != string.Empty)
+                {
+                    DisalbeProjectControls();
+                }
 
             }
             catch (Exception ex)
@@ -1393,6 +1396,15 @@ namespace OTTOPro
                     ClearingValues();
                     lcCostDetails.Enabled = true;
                 }
+
+                if (cmbPositionKZ.Text.ToLower() == "h")
+                {
+                    EnableAndDisableAllControls(false);
+                }
+                else
+                {
+                    EnableAndDisableAllControls(true);
+                }
             }
             catch (Exception ex)
             {
@@ -1552,7 +1564,7 @@ namespace OTTOPro
                 // Confirmation incase of project convert into order
                 if (txtkommissionNumber.Text != string.Empty && txtkommissionNumber.ReadOnly == false)
                 {
-                    if (ObjEProject.ActualLvs > 0)
+                    if (tlPositions.Nodes.Count > 0)
                     {
                         if (Utility._IsGermany == true)
                         {
@@ -1577,7 +1589,10 @@ namespace OTTOPro
                 {
                     ObjBProject.SaveProjectDetails(ObjEProject);
                     if (!string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+                    {
                         btnProjectSave.Enabled = false;
+                        DisalbeProjectControls();
+                    }
                     // tmrStatus.Interval = 5000;
                     tmrStatus.Start();
                     if(Utility._IsGermany == true)
@@ -1603,6 +1618,28 @@ namespace OTTOPro
             }
         }
 
+        private void DisalbeProjectControls()
+        {
+            txtMWST.Enabled = false;
+            txtBauvorhaben.Enabled = false;
+            txtKundeNo.Enabled = false;
+            txtKundeName.Enabled = false;
+            txtPlanner.Enabled = false;
+            dtpProjectStartDate.Enabled = false;
+            dtpProjectEndDate.Enabled = false;
+            btnUsers.Enabled = false;
+            txtInternX.Enabled = false;
+            txtInternS.Enabled = false;
+            txtSubmitLocation.Enabled = false;
+            dtpSubmitDate.Enabled = false;
+            txtEstimatedLVs.Enabled = false;
+            ddlRounding.Enabled = false;
+            btnDiscount.Enabled = false;
+            txtActualLVs.Enabled = false;
+            chkLockHierarchy.Enabled = false;
+            txtRemarks.Enabled = false;
+        }
+
         private void btnSaveLVDetails_Click(object sender, EventArgs e)
         {
             try
@@ -1614,6 +1651,10 @@ namespace OTTOPro
                 if (_IsNewMode == false)
                 {
                     btnModify_Click(null, null);
+                }
+                if (cmbLVSection.Text == "NT" || cmbLVSection.Text == "NTM")
+                {
+                    throw new Exception("Can't save NT or NTM");
                 }
                 if (cmbPositionKZ.Text != "H")
                 {
@@ -1679,6 +1720,10 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
             tlPositions.BestFitColumns();
+            if (cmbPositionKZ.Text == "H")
+            {
+                tlPositions.MoveNext();
+            }
         }
 
         private void barButtonItemAddSumPosition_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -2307,6 +2352,10 @@ namespace OTTOPro
                     btnBulkProcess.BackColor = Color.Silver;
                     btnMulti5.BackColor = Color.Silver;
                     btnMulti6.BackColor = Color.Silver;
+                    if (tlPositions.Nodes.Count > 0)
+                    {
+                        txtkommissionNumber.ReadOnly = false;
+                    }
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbBulkProcess")
                 {
@@ -4867,25 +4916,6 @@ e.Column.FieldName == "GB")
             
         }
 
-        private void txtProjectNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            TextEdit textbox = (TextEdit)sender;
-            try
-            {
-                if (textbox.Text.Length == 0 && e.KeyChar == ' ')
-                {
-                    e.Handled = true;
-                }
-                else
-                {
-                    e.Handled = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         private void txtSurchargeFrom_Validating(object sender, CancelEventArgs e)
         {
@@ -5290,6 +5320,53 @@ e.Column.FieldName == "GB")
             {
                 Utility.ShowError(EX);
             }
+        }
+
+        private void EnableAndDisableAllControls(bool result)
+        {
+            txtStufe1Short.Enabled = result;
+            txtStufe2Short.Enabled = result;
+            txtStufe3Short.Enabled = result;
+            txtStufe4Short.Enabled = result;
+            txtPosition.Enabled = result;
+            txtWG.Enabled = result;
+            txtWA.Enabled = result;
+            txtWI.Enabled = result;
+            cmbME.Enabled = result;
+            txtMenge.Enabled = result;
+            txtFabrikate.Enabled = result;
+            txtLiefrantMA.Enabled = result;
+            cmbPositionKZ.Enabled = result;
+            txtType.Enabled = result;
+            txtDetailKZ.Enabled = result;
+            txtDim1.Enabled = result;
+            txtDim2.Enabled = result;
+            txtDim3.Enabled = result;
+            txtMin.Enabled = result;
+            txtFaktor.Enabled = result;
+            txtMa.Enabled = result;
+            txtMo.Enabled = result;
+            txtPreisText.Enabled = result;
+            btnDocuwareLink.Enabled = result;
+            txtLPMe.Enabled = result;
+            txtMulti1ME.Enabled = result;
+            txtMulti2ME.Enabled = result;
+            txtMulti3ME.Enabled = result;
+            txtMulti4ME.Enabled = result;
+            txtSelbstkostenMultiME.Enabled = result;
+            txtVerkaufspreisMultiME.Enabled = result;
+            txtMulti1MO.Enabled = result;
+            txtMulti2MO.Enabled = result;
+            txtMulti3MO.Enabled = result;
+            txtMulti4MO.Enabled = result;
+            txtSelbstkostenMultiMO.Enabled = result;
+            txtVerkaufspreisMultiMO.Enabled = result;
+            chkEinkaufspreisME.Enabled = result;
+            chkSelbstkostenME.Enabled = result;
+            chkVerkaufspreisME.Enabled = result;
+            chkEinkaufspreisMO.Enabled = result;
+            chkSelbstkostenMO.Enabled = result;
+            chkVerkaufspreisMO.Enabled = result;
         }
     }
 }
