@@ -149,6 +149,7 @@ namespace OTTOPro
                 tbBulkProcess.PageVisible = false;
                 tbMulti5.PageVisible = false;
                 tbMulti6.PageVisible = false;
+                tbOmlage.PageVisible = false;
                 cmbPositionKZ.Text = "N";
 
                 RequiredFields.Add(txtProjectNumber);
@@ -584,6 +585,9 @@ namespace OTTOPro
                 if (int.TryParse(txtDetailKZ.Text, out iValue))
                     ObjEPosition.DetailKZ = iValue;
 
+                if (cmbLVSection.Text==string.Empty)
+                    ObjEPosition.LVSection = "HA";
+                else
                 ObjEPosition.LVSection = cmbLVSection.Text;
 
                 if (int.TryParse(txtWG.Text, out iValue))
@@ -1199,6 +1203,7 @@ namespace OTTOPro
             btnBulkProcess.BackColor = Color.Silver;
             btnMulti5.BackColor = Color.Silver;
             btnMulti6.BackColor = Color.Silver;
+            btnOmlage.BackColor = Color.Silver;
             ObjTabDetails = tbProjectDetails;
             TabChange(ObjTabDetails);
           
@@ -1215,6 +1220,7 @@ namespace OTTOPro
                     btnProjectDetails.BackColor = Color.Silver;
                     btnBulkProcess.BackColor = Color.Silver;
                     btnLvdetails.BackColor = Color.DeepSkyBlue;
+                    btnOmlage.BackColor = Color.Silver;
                     IntializeLVPositions();
                     ObjTabDetails = tbLVDetails;
                     if (tbLVDetails.PageVisible == false)
@@ -2380,6 +2386,15 @@ namespace OTTOPro
                     btnBulkProcess.BackColor = Color.Silver;
                     btnMulti5.BackColor = Color.Silver;
                     btnMulti6.BackColor = Color.DeepSkyBlue;
+                }
+                else if (tcProjectDetails.SelectedTabPage.Name == "tbOmlage")
+                {
+                    btnProjectDetails.BackColor = Color.Silver;
+                    btnLvdetails.BackColor = Color.Silver;
+                    btnBulkProcess.BackColor = Color.Silver;
+                    btnMulti5.BackColor = Color.Silver;
+                    btnMulti6.BackColor = Color.Silver;
+                    btnOmlage.BackColor = Color.DeepSkyBlue;
                 }
             }
             catch (Exception ex)
@@ -3743,6 +3758,7 @@ namespace OTTOPro
                 btnProjectDetails.BackColor = Color.Silver;
                 btnBulkProcess.BackColor = Color.DeepSkyBlue;
                 btnLvdetails.BackColor = Color.Silver;
+                btnOmlage.BackColor = Color.Silver;
                 ObjTabDetails = tbBulkProcess;
                 TabChange(ObjTabDetails);
                 tlBulkProcessPositionDetails.BestFitColumns();
@@ -5097,7 +5113,7 @@ e.Column.FieldName == "GB")
                         objBGAEB = new BGAEB();
                     DataTable dtLVSection = new DataTable();
                     cmbLVSectionFilter.Properties.Items.Clear();
-                    dtLVSection = objBGAEB.GetLVSection(_ProjectID);
+                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
                     foreach(DataRow dr in dtLVSection.Rows)
                     {
                         cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
@@ -5107,6 +5123,7 @@ e.Column.FieldName == "GB")
                     btnLvdetails.BackColor = Color.Silver;
                     btnMulti6.BackColor = Color.Silver;
                     btnBulkProcess.BackColor = Color.Silver;
+                    btnOmlage.BackColor = Color.Silver;
                     ObjTabDetails = tbMulti5;
                     TabChange(ObjTabDetails);
                     gvMulti5.BestFitColumns();
@@ -5128,7 +5145,7 @@ e.Column.FieldName == "GB")
                         objBGAEB = new BGAEB();
                     DataTable dtLVSection = new DataTable();
                     cmbLVSectionFilter.Properties.Items.Clear();
-                    dtLVSection = objBGAEB.GetLVSection(_ProjectID);
+                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
                     foreach (DataRow dr in dtLVSection.Rows)
                     {
                         cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
@@ -5138,6 +5155,7 @@ e.Column.FieldName == "GB")
                     btnLvdetails.BackColor = Color.Silver;
                     btnMulti6.BackColor = Color.DeepSkyBlue;
                     btnBulkProcess.BackColor = Color.Silver;
+                    btnOmlage.BackColor = Color.Silver;
                     ObjTabDetails = tbMulti6;
                     TabChange(ObjTabDetails);
                     gvMulti6.BestFitColumns();
@@ -5367,6 +5385,28 @@ e.Column.FieldName == "GB")
             chkEinkaufspreisMO.Enabled = result;
             chkSelbstkostenMO.Enabled = result;
             chkVerkaufspreisMO.Enabled = result;
+        }
+
+        private void btnOmlage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjEProject.ProjectID > 0)
+                {                    
+                    btnProjectDetails.BackColor = Color.Silver;
+                    btnMulti5.BackColor = Color.Silver;
+                    btnLvdetails.BackColor = Color.Silver;
+                    btnMulti6.BackColor = Color.Silver;
+                    btnBulkProcess.BackColor = Color.Silver;
+                    btnOmlage.BackColor = Color.DeepSkyBlue;
+                    ObjTabDetails = tbOmlage;
+                    TabChange(ObjTabDetails);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
     }
 }

@@ -124,6 +124,7 @@
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ctrProject = new DevExpress.XtraEditors.SplitContainerControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnOmlage = new System.Windows.Forms.Button();
             this.btnProjectDetails = new System.Windows.Forms.Button();
             this.btnLvdetails = new System.Windows.Forms.Button();
             this.btnBulkProcess = new System.Windows.Forms.Button();
@@ -671,6 +672,25 @@
             this.emptySpaceItem104 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem106 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem132 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tbOmlage = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl9 = new DevExpress.XtraLayout.LayoutControl();
+            this.label25 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.btnSpecialCost = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddedCost = new DevExpress.XtraEditors.SimpleButton();
+            this.lblOmlage = new System.Windows.Forms.Label();
+            this.gcOmlage = new DevExpress.XtraGrid.GridControl();
+            this.gvOmlage = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlGroup19 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem107 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem108 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem127 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem133 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem109 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem134 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem135 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem136 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.tmrStatus = new System.Windows.Forms.Timer(this.components);
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -1167,6 +1187,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem104)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem106)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem132)).BeginInit();
+            this.tbOmlage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).BeginInit();
+            this.layoutControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcOmlage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvOmlage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem107)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem108)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem127)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem133)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem109)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem134)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem135)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
@@ -2400,6 +2435,7 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btnOmlage, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.btnProjectDetails, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLvdetails, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.btnBulkProcess, 0, 3);
@@ -2411,7 +2447,8 @@
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 9;
+            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -2424,6 +2461,21 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(174, 830);
             this.tableLayoutPanel1.TabIndex = 27;
+            // 
+            // btnOmlage
+            // 
+            this.btnOmlage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOmlage.BackColor = System.Drawing.Color.Silver;
+            this.btnOmlage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnOmlage.ForeColor = System.Drawing.Color.White;
+            this.btnOmlage.Location = new System.Drawing.Point(3, 367);
+            this.btnOmlage.Name = "btnOmlage";
+            this.btnOmlage.Size = new System.Drawing.Size(168, 46);
+            this.btnOmlage.TabIndex = 39;
+            this.btnOmlage.Text = "Omlage";
+            this.btnOmlage.UseVisualStyleBackColor = false;
+            this.btnOmlage.Click += new System.EventHandler(this.btnOmlage_Click);
             // 
             // btnProjectDetails
             // 
@@ -2547,7 +2599,8 @@
             this.tbLVDetails,
             this.tbBulkProcess,
             this.tbMulti5,
-            this.tbMulti6});
+            this.tbMulti6,
+            this.tbOmlage});
             this.tcProjectDetails.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tcProjectDetails_SelectedPageChanged);
             this.tcProjectDetails.CloseButtonClick += new System.EventHandler(this.txProjectDetails_CloseButtonClick);
             // 
@@ -8804,12 +8857,9 @@
             this.cmbLVSectionFilter.Name = "cmbLVSectionFilter";
             this.cmbLVSectionFilter.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbLVSectionFilter.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "HA")});
             this.cmbLVSectionFilter.Size = new System.Drawing.Size(210, 20);
             this.cmbLVSectionFilter.StyleController = this.layoutControl5;
             this.cmbLVSectionFilter.TabIndex = 8;
-            this.cmbLVSectionFilter.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cmbLVSectionFilter_Closed);
             // 
             // btnMulti5UpdateSelbekosten
             // 
@@ -9382,6 +9432,199 @@
             this.layoutControlItem132.Size = new System.Drawing.Size(342, 24);
             this.layoutControlItem132.Text = "LV-Filter Type :";
             this.layoutControlItem132.TextSize = new System.Drawing.Size(84, 13);
+            // 
+            // tbOmlage
+            // 
+            this.tbOmlage.Controls.Add(this.layoutControl9);
+            this.tbOmlage.Name = "tbOmlage";
+            this.tbOmlage.Size = new System.Drawing.Size(1557, 798);
+            this.tbOmlage.Text = "Omlage";
+            // 
+            // layoutControl9
+            // 
+            this.layoutControl9.Controls.Add(this.label25);
+            this.layoutControl9.Controls.Add(this.label24);
+            this.layoutControl9.Controls.Add(this.btnSpecialCost);
+            this.layoutControl9.Controls.Add(this.btnAddedCost);
+            this.layoutControl9.Controls.Add(this.lblOmlage);
+            this.layoutControl9.Controls.Add(this.gcOmlage);
+            this.layoutControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl9.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl9.Name = "layoutControl9";
+            this.layoutControl9.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(363, 323, 221, 400);
+            this.layoutControl9.Root = this.layoutControlGroup19;
+            this.layoutControl9.Size = new System.Drawing.Size(1557, 798);
+            this.layoutControl9.TabIndex = 0;
+            this.layoutControl9.Text = "layoutControl9";
+            // 
+            // label25
+            // 
+            this.label25.Location = new System.Drawing.Point(12, 420);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(865, 20);
+            this.label25.TabIndex = 9;
+            this.label25.Text = "label25";
+            // 
+            // label24
+            // 
+            this.label24.Location = new System.Drawing.Point(12, 444);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(865, 22);
+            this.label24.TabIndex = 8;
+            this.label24.Text = "label24";
+            // 
+            // btnSpecialCost
+            // 
+            this.btnSpecialCost.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSpecialCost.Appearance.Options.UseFont = true;
+            this.btnSpecialCost.Location = new System.Drawing.Point(482, 383);
+            this.btnSpecialCost.Name = "btnSpecialCost";
+            this.btnSpecialCost.Size = new System.Drawing.Size(201, 33);
+            this.btnSpecialCost.StyleController = this.layoutControl9;
+            this.btnSpecialCost.TabIndex = 7;
+            this.btnSpecialCost.Text = "Verteilung\r\nUmlage";
+            // 
+            // btnAddedCost
+            // 
+            this.btnAddedCost.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddedCost.Appearance.Options.UseFont = true;
+            this.btnAddedCost.Location = new System.Drawing.Point(687, 383);
+            this.btnAddedCost.Name = "btnAddedCost";
+            this.btnAddedCost.Size = new System.Drawing.Size(190, 33);
+            this.btnAddedCost.StyleController = this.layoutControl9;
+            this.btnAddedCost.TabIndex = 6;
+            this.btnAddedCost.Text = "Anzeige \r\nverteilte Umlage";
+            // 
+            // lblOmlage
+            // 
+            this.lblOmlage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOmlage.Location = new System.Drawing.Point(12, 12);
+            this.lblOmlage.Name = "lblOmlage";
+            this.lblOmlage.Size = new System.Drawing.Size(865, 20);
+            this.lblOmlage.TabIndex = 5;
+            this.lblOmlage.Text = "Omlage :";
+            // 
+            // gcOmlage
+            // 
+            this.gcOmlage.Location = new System.Drawing.Point(12, 36);
+            this.gcOmlage.MainView = this.gvOmlage;
+            this.gcOmlage.MenuManager = this.barManager1;
+            this.gcOmlage.Name = "gcOmlage";
+            this.gcOmlage.Size = new System.Drawing.Size(865, 343);
+            this.gcOmlage.TabIndex = 4;
+            this.gcOmlage.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvOmlage});
+            // 
+            // gvOmlage
+            // 
+            this.gvOmlage.GridControl = this.gcOmlage;
+            this.gvOmlage.Name = "gvOmlage";
+            this.gvOmlage.OptionsView.ShowGroupPanel = false;
+            // 
+            // layoutControlGroup19
+            // 
+            this.layoutControlGroup19.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup19.GroupBordersVisible = false;
+            this.layoutControlGroup19.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem107,
+            this.emptySpaceItem108,
+            this.layoutControlItem127,
+            this.layoutControlItem133,
+            this.emptySpaceItem109,
+            this.layoutControlItem134,
+            this.layoutControlItem135,
+            this.layoutControlItem136,
+            this.layoutControlItem137});
+            this.layoutControlGroup19.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup19.Name = "Root";
+            this.layoutControlGroup19.Size = new System.Drawing.Size(1557, 798);
+            this.layoutControlGroup19.TextVisible = false;
+            // 
+            // emptySpaceItem107
+            // 
+            this.emptySpaceItem107.AllowHotTrack = false;
+            this.emptySpaceItem107.Location = new System.Drawing.Point(869, 0);
+            this.emptySpaceItem107.Name = "emptySpaceItem107";
+            this.emptySpaceItem107.Size = new System.Drawing.Size(668, 778);
+            this.emptySpaceItem107.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem108
+            // 
+            this.emptySpaceItem108.AllowHotTrack = false;
+            this.emptySpaceItem108.Location = new System.Drawing.Point(0, 371);
+            this.emptySpaceItem108.Name = "emptySpaceItem108";
+            this.emptySpaceItem108.Size = new System.Drawing.Size(470, 37);
+            this.emptySpaceItem108.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem127
+            // 
+            this.layoutControlItem127.Control = this.gcOmlage;
+            this.layoutControlItem127.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem127.Name = "layoutControlItem127";
+            this.layoutControlItem127.Size = new System.Drawing.Size(869, 347);
+            this.layoutControlItem127.Text = "Omlage :";
+            this.layoutControlItem127.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem127.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem127.TextVisible = false;
+            // 
+            // layoutControlItem133
+            // 
+            this.layoutControlItem133.Control = this.lblOmlage;
+            this.layoutControlItem133.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem133.Name = "layoutControlItem133";
+            this.layoutControlItem133.Size = new System.Drawing.Size(869, 24);
+            this.layoutControlItem133.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem133.TextVisible = false;
+            // 
+            // emptySpaceItem109
+            // 
+            this.emptySpaceItem109.AllowHotTrack = false;
+            this.emptySpaceItem109.Location = new System.Drawing.Point(0, 458);
+            this.emptySpaceItem109.Name = "emptySpaceItem109";
+            this.emptySpaceItem109.Size = new System.Drawing.Size(869, 320);
+            this.emptySpaceItem109.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem134
+            // 
+            this.layoutControlItem134.Control = this.btnAddedCost;
+            this.layoutControlItem134.Location = new System.Drawing.Point(675, 371);
+            this.layoutControlItem134.MaxSize = new System.Drawing.Size(194, 37);
+            this.layoutControlItem134.MinSize = new System.Drawing.Size(194, 37);
+            this.layoutControlItem134.Name = "layoutControlItem134";
+            this.layoutControlItem134.Size = new System.Drawing.Size(194, 37);
+            this.layoutControlItem134.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem134.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem134.TextVisible = false;
+            // 
+            // layoutControlItem135
+            // 
+            this.layoutControlItem135.Control = this.btnSpecialCost;
+            this.layoutControlItem135.Location = new System.Drawing.Point(470, 371);
+            this.layoutControlItem135.MaxSize = new System.Drawing.Size(205, 37);
+            this.layoutControlItem135.MinSize = new System.Drawing.Size(205, 37);
+            this.layoutControlItem135.Name = "layoutControlItem135";
+            this.layoutControlItem135.Size = new System.Drawing.Size(205, 37);
+            this.layoutControlItem135.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem135.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem135.TextVisible = false;
+            // 
+            // layoutControlItem136
+            // 
+            this.layoutControlItem136.Control = this.label24;
+            this.layoutControlItem136.Location = new System.Drawing.Point(0, 432);
+            this.layoutControlItem136.Name = "layoutControlItem136";
+            this.layoutControlItem136.Size = new System.Drawing.Size(869, 26);
+            this.layoutControlItem136.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem136.TextVisible = false;
+            // 
+            // layoutControlItem137
+            // 
+            this.layoutControlItem137.Control = this.label25;
+            this.layoutControlItem137.Location = new System.Drawing.Point(0, 408);
+            this.layoutControlItem137.Name = "layoutControlItem137";
+            this.layoutControlItem137.Size = new System.Drawing.Size(869, 24);
+            this.layoutControlItem137.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem137.TextVisible = false;
             // 
             // navBarItem1
             // 
@@ -9956,6 +10199,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem104)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem106)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem132)).EndInit();
+            this.tbOmlage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl9)).EndInit();
+            this.layoutControl9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcOmlage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvOmlage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem107)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem108)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem127)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem133)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem109)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem134)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem135)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -10619,6 +10877,26 @@
         private DevExpress.XtraEditors.CheckedComboBoxEdit cmbMulti6LVFilter;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem132;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpedit6;
+        private DevExpress.XtraTab.XtraTabPage tbOmlage;
+        private DevExpress.XtraLayout.LayoutControl layoutControl9;
+        private System.Windows.Forms.Label lblOmlage;
+        private DevExpress.XtraGrid.GridControl gcOmlage;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvOmlage;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup19;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem107;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem108;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem127;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem133;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem109;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.Label label24;
+        private DevExpress.XtraEditors.SimpleButton btnSpecialCost;
+        private DevExpress.XtraEditors.SimpleButton btnAddedCost;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem134;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem135;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem136;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem137;
+        private System.Windows.Forms.Button btnOmlage;
 
 
     }
