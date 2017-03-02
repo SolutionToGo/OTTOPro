@@ -45,23 +45,49 @@ namespace OTTOPro
         //{
         //    DevExpress.XtraBars.Helpers.SkinHelper.InitSkinGallery(skinRibbonGalleryBarItem1, true);
         //}
-
+       
         private void btnNewProject_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmProject Obj = new frmProject();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+            try
+            {
+                FormCollection fc = Application.OpenForms;
+                foreach (Form frm in fc)
+                {
+                    if (fc != null)
+                    {
+                        if (frm.Name == "frmLoadProject")
+                        {
+                            frm.Close();
+                            break;
+                        }
+                    }
+                }
+                frmProject Obj = new frmProject();
+                Obj.MdiParent = this;
+                label2.Visible = false;
+                pictureBox1.Visible = false;
+                Obj.Show();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnLoadProject_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmLoadProject Obj = new frmLoadProject();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+            try
+            {
+                frmLoadProject Obj = new frmLoadProject();
+                Obj.MdiParent = this;
+                label2.Visible = false;
+                pictureBox1.Visible = false;
+                Obj.Show();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         public static void UpdateStatus(string Status)
@@ -96,23 +122,57 @@ namespace OTTOPro
             if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
         }
-
         private void btnCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmLoadCustomerMaster Obj = new frmLoadCustomerMaster();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+            try
+            {
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form.Name == "frmLoadCustomerMaster")
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+                {
+                    frmLoadCustomerMaster Obj = new frmLoadCustomerMaster();
+                    Obj.MdiParent = this;
+                    label2.Visible = false;
+                    pictureBox1.Visible = false;
+                    Obj.Show();                    
+                }               
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnOTTO_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmLoadOTTOMaster Obj = new frmLoadOTTOMaster();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+            try
+            {
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form.Name == "frmLoadOTTOMaster")
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+                frmLoadOTTOMaster Obj = new frmLoadOTTOMaster();
+                Obj.MdiParent = this;
+                label2.Visible = false;
+                pictureBox1.Visible = false;
+                Obj.Show();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
+
+
+
     }
 }

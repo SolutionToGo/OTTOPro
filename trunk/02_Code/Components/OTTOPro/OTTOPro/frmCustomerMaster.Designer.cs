@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.tcCustomers = new DevExpress.XtraTab.XtraTabControl();
             this.tbCustomerMaster = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -134,6 +139,10 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup13 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem42 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.dxValidationProviderCustFullName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProviderCustShortName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProviderContactName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProviderAddShortName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tcCustomers)).BeginInit();
             this.tcCustomers.SuspendLayout();
             this.tbCustomerMaster.SuspendLayout();
@@ -238,6 +247,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderCustFullName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderCustShortName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderContactName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderAddShortName)).BeginInit();
             this.SuspendLayout();
             // 
             // tcCustomers
@@ -480,20 +493,34 @@
             // 
             // txtCustShortName
             // 
+            this.dxValidationProviderCustShortName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderContactName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtCustShortName.Location = new System.Drawing.Point(129, 60);
             this.txtCustShortName.Name = "txtCustShortName";
             this.txtCustShortName.Size = new System.Drawing.Size(197, 20);
             this.txtCustShortName.StyleController = this.layoutControl2;
             this.txtCustShortName.TabIndex = 1;
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Please enter Short Name";
+            this.dxValidationProviderCustShortName.SetValidationRule(this.txtCustShortName, conditionValidationRule1);
             this.txtCustShortName.TextChanged += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // txtCustFullName
             // 
+            this.dxValidationProviderCustShortName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderContactName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtCustFullName.Location = new System.Drawing.Point(129, 36);
             this.txtCustFullName.Name = "txtCustFullName";
             this.txtCustFullName.Size = new System.Drawing.Size(197, 20);
             this.txtCustFullName.StyleController = this.layoutControl2;
             this.txtCustFullName.TabIndex = 0;
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Please enter Full Name";
+            this.dxValidationProviderCustFullName.SetValidationRule(this.txtCustFullName, conditionValidationRule2);
             this.txtCustFullName.TextChanged += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // layoutControlGroup2
@@ -583,7 +610,7 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(294, 24);
-            this.layoutControlItem2.Text = "Short Name :";
+            this.layoutControlItem2.Text = "Short Name : ";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(90, 13);
             // 
             // layoutControlGroup11
@@ -913,11 +940,18 @@
             // 
             // txtContactName
             // 
+            this.dxValidationProviderCustShortName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderContactName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtContactName.Location = new System.Drawing.Point(138, 66);
             this.txtContactName.Name = "txtContactName";
             this.txtContactName.Size = new System.Drawing.Size(576, 20);
             this.txtContactName.StyleController = this.layoutControl3;
             this.txtContactName.TabIndex = 5;
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Please enter Name";
+            this.dxValidationProviderContactName.SetValidationRule(this.txtContactName, conditionValidationRule3);
             this.txtContactName.TextChanged += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // layoutControlGroup3
@@ -1170,11 +1204,18 @@
             // 
             // txtAddShortName
             // 
+            this.dxValidationProviderCustShortName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderContactName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtAddShortName.Location = new System.Drawing.Point(132, 42);
             this.txtAddShortName.Name = "txtAddShortName";
             this.txtAddShortName.Size = new System.Drawing.Size(582, 20);
             this.txtAddShortName.StyleController = this.layoutControl4;
             this.txtAddShortName.TabIndex = 4;
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Please enter Name";
+            this.dxValidationProviderAddShortName.SetValidationRule(this.txtAddShortName, conditionValidationRule4);
             this.txtAddShortName.Validated += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // layoutControlGroup4
@@ -1333,6 +1374,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Customer Master";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCustomerMaster_FormClosing);
             this.Load += new System.EventHandler(this.frmCustomerMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tcCustomers)).EndInit();
             this.tcCustomers.ResumeLayout(false);
@@ -1438,6 +1480,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem42)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderCustFullName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderCustShortName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderContactName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderAddShortName)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1550,6 +1596,10 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup11;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup12;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup13;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderCustFullName;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderCustShortName;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderAddShortName;
+        private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderContactName;
 
     }
 }

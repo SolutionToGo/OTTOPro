@@ -193,6 +193,7 @@
             // 
             // btnAddInvoice
             // 
+            this.btnAddInvoice.Enabled = false;
             this.btnAddInvoice.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAddInvoice.Location = new System.Drawing.Point(1293, 451);
             this.btnAddInvoice.Name = "btnAddInvoice";

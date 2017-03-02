@@ -102,19 +102,25 @@ namespace OTTOPro
 
         private void btnCancelCustomer_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
+        bool _isValidate = true;
         private void btnSaveCustomer_Click(object sender, EventArgs e)
         {
             try
             {
-                if (ObjECustomer == null)
-                    ObjECustomer = new ECustomer();
-                ParseCustomerDetails();
-                ObjBCustomer = new BCustomer();
-                ObjECustomer.Customer_CustomerID = ObjBCustomer.SaveCustomerDetails(ObjECustomer);
-                this.Close();
+                ValidatControls();
+                if (_isValidate==true)
+                {
+                    if (ObjECustomer == null)
+                        ObjECustomer = new ECustomer();
+                    ParseCustomerDetails();
+                    ObjBCustomer = new BCustomer();
+                    ObjECustomer.Customer_CustomerID = ObjBCustomer.SaveCustomerDetails(ObjECustomer);
+                    this.Close();
+                }                
             }
             catch (Exception ex)
             {
@@ -126,12 +132,22 @@ namespace OTTOPro
         {
             try
             {
-                if (ObjECustomer == null)
-                    ObjECustomer = new ECustomer();
-                ParseCustomerContactsDetails();
-                ObjBCustomer = new BCustomer();
-                ObjECustomer.ContactPersonID = ObjBCustomer.SaveCustomerContactDetails(ObjECustomer);
-                this.Close();
+                bool isvalidName = dxValidationProviderContactName.Validate(txtContactName);
+                if (!isvalidName)
+                { _isValidate = false; }
+                else
+                {
+                    _isValidate = true;
+                }
+                if (_isValidate == true)
+                {
+                    if (ObjECustomer == null)
+                        ObjECustomer = new ECustomer();
+                    ParseCustomerContactsDetails();
+                    ObjBCustomer = new BCustomer();
+                    ObjECustomer.ContactPersonID = ObjBCustomer.SaveCustomerContactDetails(ObjECustomer);
+                    this.Close();
+                }                
             }
             catch (Exception ex)
             {
@@ -143,12 +159,22 @@ namespace OTTOPro
         {
             try
             {
-                if (ObjECustomer == null)
-                    ObjECustomer = new ECustomer();
-                ParseCustomerAddressDetails();
-                ObjBCustomer = new BCustomer();
-                ObjECustomer.AddressID = ObjBCustomer.SaveCustomerAddressDetails(ObjECustomer);
-                this.Close();
+                bool isvalidName = dxValidationProviderAddShortName.Validate(txtAddShortName);
+                if (!isvalidName)
+                { _isValidate = false; }
+                else
+                {
+                    _isValidate = true;
+                }
+                if (_isValidate == true)
+                {
+                    if (ObjECustomer == null)
+                        ObjECustomer = new ECustomer();
+                    ParseCustomerAddressDetails();
+                    ObjBCustomer = new BCustomer();
+                    ObjECustomer.AddressID = ObjBCustomer.SaveCustomerAddressDetails(ObjECustomer);
+                    this.Close();
+                }                
             }
             catch (Exception ex)
             {
@@ -162,6 +188,24 @@ namespace OTTOPro
             {
                 TextEdit textbox = (TextEdit)sender;
                 textbox.Text = ToTitleCase(textbox.Text);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void frmCustomerMaster_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (this.DialogResult != DialogResult.Cancel)
+                {
+                    if (_isValidate == false)
+                        e.Cancel = true;
+                }
+                else
+                    e.Cancel = false;
             }
             catch (Exception ex)
             {
@@ -346,7 +390,32 @@ namespace OTTOPro
             }
         }
 
+        private void ValidatControls()
+        {
+            try
+            {
+                bool isValidCustFullName = dxValidationProviderCustFullName.Validate(txtCustFullName);
+                bool isvalidCustShortName=dxValidationProviderCustShortName.Validate(txtCustShortName);
+                if (!isValidCustFullName || !isvalidCustShortName)
+                {
+                    _isValidate = false;
+                }
+                else
+                {
+                    _isValidate = true;
+                }                
+            }
+            catch (Exception Ex)
+            {
+                throw;
+            }
+
+        }
+
+
         #endregion
+
+
 
 
 

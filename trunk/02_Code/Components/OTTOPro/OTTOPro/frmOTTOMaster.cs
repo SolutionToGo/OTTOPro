@@ -21,6 +21,8 @@ namespace OTTOPro
         BOTTO ObjBOTTO = null;
         string _type = null;
         private EOTTO _ObjEOTTO = null;
+        bool _isValidate = true;
+
 
         #region PROPERTY SETTING
 
@@ -87,6 +89,7 @@ namespace OTTOPro
 
         private void btnCancelOtto_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -94,12 +97,16 @@ namespace OTTOPro
         {
             try
             {
-                if (ObjEOTTO == null)
-                    ObjEOTTO = new EOTTO();
-                ParseOTTODetails();
-                ObjBOTTO = new BOTTO();
-                ObjEOTTO.OTTOID = ObjBOTTO.SaveOTTODetails(ObjEOTTO);
-                this.Close();
+                ValidatControls();
+                if (_isValidate == true)
+                {
+                    if (ObjEOTTO == null)
+                        ObjEOTTO = new EOTTO();
+                    ParseOTTODetails();
+                    ObjBOTTO = new BOTTO();
+                    ObjEOTTO.OTTOID = ObjBOTTO.SaveOTTODetails(ObjEOTTO);
+                    this.Close();
+                }                
             }
             catch (Exception ex)
             {
@@ -111,6 +118,14 @@ namespace OTTOPro
         {
             try
             {
+                bool isvalidName = dxValidationProviderContName.Validate(txtContactPerson);
+                if (!isvalidName)
+                { _isValidate = false; }
+                else
+                {
+                    _isValidate = true;
+                }
+                if (_isValidate == true)
                 if (ObjEOTTO == null)
                     ObjEOTTO = new EOTTO();
                 ParseOTTOContactsDetails();
@@ -137,6 +152,23 @@ namespace OTTOPro
             }
         }
 
+        private void frmOTTOMaster_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (this.DialogResult != DialogResult.Cancel)
+                {
+                    if (_isValidate == false)
+                        e.Cancel = true;
+                }
+                else
+                    e.Cancel = false;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
 
         #endregion
 
@@ -277,7 +309,32 @@ namespace OTTOPro
             }
         }
 
+        private void ValidatControls()
+        {
+            try
+            {
+                bool isValidtFullName = dxValidationProviderFullName.Validate(txtFullName);
+                bool isvalidShortName = dxValidationProviderShortName.Validate(txtShortName);
+                if (!isValidtFullName || !isvalidShortName)
+                {
+                    _isValidate = false;
+                }
+                else
+                {
+                    _isValidate = true;
+                }
+            }
+            catch (Exception Ex)
+            {
+                throw;
+            }
+
+        }
+
+
         #endregion
+
+
 
 
 //*******************

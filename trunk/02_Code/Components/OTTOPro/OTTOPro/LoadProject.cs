@@ -28,13 +28,13 @@ namespace OTTOPro
         {
             InitializeComponent();
         }
-
-        private void frmLoadProject_Load(object sender, EventArgs e)
+        
+        public void frmLoadProject_Load(object sender, EventArgs e)
         {
             BindData();
         }
 
-        private void BindData()
+        public void BindData()
         {
             try
             {

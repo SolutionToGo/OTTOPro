@@ -694,10 +694,10 @@
             this.emptySpaceItem109 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem134 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem135 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem136 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem138 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem139 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem136 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.tmrStatus = new System.Windows.Forms.Timer(this.components);
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -1208,10 +1208,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem109)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem134)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem135)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem138)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem139)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
@@ -9689,24 +9689,6 @@
             this.layoutControlItem135.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem135.TextVisible = false;
             // 
-            // layoutControlItem136
-            // 
-            this.layoutControlItem136.Control = this.lblUmlage;
-            this.layoutControlItem136.Location = new System.Drawing.Point(0, 348);
-            this.layoutControlItem136.Name = "layoutControlItem136";
-            this.layoutControlItem136.Size = new System.Drawing.Size(152, 37);
-            this.layoutControlItem136.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem136.TextVisible = false;
-            // 
-            // layoutControlItem137
-            // 
-            this.layoutControlItem137.Control = this.lblTotalPrice;
-            this.layoutControlItem137.Location = new System.Drawing.Point(152, 348);
-            this.layoutControlItem137.Name = "layoutControlItem137";
-            this.layoutControlItem137.Size = new System.Drawing.Size(159, 37);
-            this.layoutControlItem137.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem137.TextVisible = false;
-            // 
             // layoutControlItem138
             // 
             this.layoutControlItem138.Control = this.btnAddUmlage;
@@ -9724,6 +9706,24 @@
             this.layoutControlItem139.Size = new System.Drawing.Size(59, 26);
             this.layoutControlItem139.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem139.TextVisible = false;
+            // 
+            // layoutControlItem136
+            // 
+            this.layoutControlItem136.Control = this.lblUmlage;
+            this.layoutControlItem136.Location = new System.Drawing.Point(0, 348);
+            this.layoutControlItem136.Name = "layoutControlItem136";
+            this.layoutControlItem136.Size = new System.Drawing.Size(152, 37);
+            this.layoutControlItem136.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem136.TextVisible = false;
+            // 
+            // layoutControlItem137
+            // 
+            this.layoutControlItem137.Control = this.lblTotalPrice;
+            this.layoutControlItem137.Location = new System.Drawing.Point(152, 348);
+            this.layoutControlItem137.Name = "layoutControlItem137";
+            this.layoutControlItem137.Size = new System.Drawing.Size(159, 37);
+            this.layoutControlItem137.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem137.TextVisible = false;
             // 
             // navBarItem1
             // 
@@ -10312,10 +10312,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem109)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem134)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem135)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem138)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem139)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
