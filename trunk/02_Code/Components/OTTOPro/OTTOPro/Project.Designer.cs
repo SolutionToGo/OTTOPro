@@ -684,8 +684,6 @@
             this.Cost_Desciption = new DevExpress.XtraGrid.Columns.GridColumn();
             this.Price = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rpumlagePrice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
-            this.btnAddUmlage = new DevExpress.XtraEditors.SimpleButton();
-            this.btnDeleteUmlage = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlGroup19 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem107 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem108 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -694,8 +692,6 @@
             this.emptySpaceItem109 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem134 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem135 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem138 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem139 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem136 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
@@ -1208,8 +1204,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem109)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem134)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem135)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem138)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem139)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
@@ -9458,8 +9452,6 @@
             this.layoutControl9.Controls.Add(this.btnAddedCost);
             this.layoutControl9.Controls.Add(this.lblOmlage);
             this.layoutControl9.Controls.Add(this.gcOmlage);
-            this.layoutControl9.Controls.Add(this.btnAddUmlage);
-            this.layoutControl9.Controls.Add(this.btnDeleteUmlage);
             this.layoutControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl9.Location = new System.Drawing.Point(0, 0);
             this.layoutControl9.Name = "layoutControl9";
@@ -9494,7 +9486,7 @@
             this.btnSpecialCost.Size = new System.Drawing.Size(201, 33);
             this.btnSpecialCost.StyleController = this.layoutControl9;
             this.btnSpecialCost.TabIndex = 7;
-            this.btnSpecialCost.Text = "Verteilung\r\nUmlage";
+            this.btnSpecialCost.Text = "Anzeige \r\nverteilte Umlage";
             this.btnSpecialCost.Click += new System.EventHandler(this.btnSpecialCost_Click);
             // 
             // btnAddedCost
@@ -9506,7 +9498,7 @@
             this.btnAddedCost.Size = new System.Drawing.Size(190, 33);
             this.btnAddedCost.StyleController = this.layoutControl9;
             this.btnAddedCost.TabIndex = 6;
-            this.btnAddedCost.Text = "Anzeige \r\nverteilte Umlage";
+            this.btnAddedCost.Text = "Verteilung\r\nUmlage";
             this.btnAddedCost.Click += new System.EventHandler(this.btnAddedCost_Click);
             // 
             // lblOmlage
@@ -9514,7 +9506,7 @@
             this.lblOmlage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOmlage.Location = new System.Drawing.Point(12, 12);
             this.lblOmlage.Name = "lblOmlage";
-            this.lblOmlage.Size = new System.Drawing.Size(747, 22);
+            this.lblOmlage.Size = new System.Drawing.Size(865, 22);
             this.lblOmlage.TabIndex = 5;
             this.lblOmlage.Text = "Omlage :";
             // 
@@ -9548,6 +9540,7 @@
             this.Cost_Desciption.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.Cost_Desciption.FieldName = "Cost_Desciption";
             this.Cost_Desciption.Name = "Cost_Desciption";
+            this.Cost_Desciption.OptionsColumn.ReadOnly = true;
             this.Cost_Desciption.Visible = true;
             this.Cost_Desciption.VisibleIndex = 0;
             this.Cost_Desciption.Width = 750;
@@ -9576,30 +9569,6 @@
             this.rpumlagePrice.MaxLength = 8;
             this.rpumlagePrice.Name = "rpumlagePrice";
             // 
-            // btnAddUmlage
-            // 
-            this.btnAddUmlage.Image = global::OTTOPro.Properties.Resources.Add_16x16;
-            this.btnAddUmlage.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAddUmlage.Location = new System.Drawing.Point(763, 12);
-            this.btnAddUmlage.Name = "btnAddUmlage";
-            this.btnAddUmlage.Size = new System.Drawing.Size(55, 22);
-            this.btnAddUmlage.StyleController = this.layoutControl9;
-            this.btnAddUmlage.TabIndex = 50;
-            this.btnAddUmlage.ToolTip = "hinzufügen";
-            this.btnAddUmlage.Click += new System.EventHandler(this.btnAddUmlage_Click);
-            // 
-            // btnDeleteUmlage
-            // 
-            this.btnDeleteUmlage.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnDeleteUmlage.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnDeleteUmlage.Location = new System.Drawing.Point(822, 12);
-            this.btnDeleteUmlage.Name = "btnDeleteUmlage";
-            this.btnDeleteUmlage.Size = new System.Drawing.Size(55, 22);
-            this.btnDeleteUmlage.StyleController = this.layoutControl9;
-            this.btnDeleteUmlage.TabIndex = 49;
-            this.btnDeleteUmlage.ToolTip = "Entfernen";
-            this.btnDeleteUmlage.Click += new System.EventHandler(this.btnDeleteUmlage_Click);
-            // 
             // layoutControlGroup19
             // 
             this.layoutControlGroup19.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -9612,8 +9581,6 @@
             this.emptySpaceItem109,
             this.layoutControlItem134,
             this.layoutControlItem135,
-            this.layoutControlItem138,
-            this.layoutControlItem139,
             this.layoutControlItem136,
             this.layoutControlItem137});
             this.layoutControlGroup19.Location = new System.Drawing.Point(0, 0);
@@ -9653,7 +9620,7 @@
             this.layoutControlItem133.Control = this.lblOmlage;
             this.layoutControlItem133.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem133.Name = "layoutControlItem133";
-            this.layoutControlItem133.Size = new System.Drawing.Size(751, 26);
+            this.layoutControlItem133.Size = new System.Drawing.Size(869, 26);
             this.layoutControlItem133.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem133.TextVisible = false;
             // 
@@ -9688,24 +9655,6 @@
             this.layoutControlItem135.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem135.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem135.TextVisible = false;
-            // 
-            // layoutControlItem138
-            // 
-            this.layoutControlItem138.Control = this.btnAddUmlage;
-            this.layoutControlItem138.Location = new System.Drawing.Point(751, 0);
-            this.layoutControlItem138.Name = "layoutControlItem138";
-            this.layoutControlItem138.Size = new System.Drawing.Size(59, 26);
-            this.layoutControlItem138.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem138.TextVisible = false;
-            // 
-            // layoutControlItem139
-            // 
-            this.layoutControlItem139.Control = this.btnDeleteUmlage;
-            this.layoutControlItem139.Location = new System.Drawing.Point(810, 0);
-            this.layoutControlItem139.Name = "layoutControlItem139";
-            this.layoutControlItem139.Size = new System.Drawing.Size(59, 26);
-            this.layoutControlItem139.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem139.TextVisible = false;
             // 
             // layoutControlItem136
             // 
@@ -10312,8 +10261,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem109)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem134)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem135)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem138)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem139)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem136)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
@@ -11001,10 +10948,6 @@
         private System.Windows.Forms.Button btnOmlage;
         private DevExpress.XtraGrid.Columns.GridColumn Cost_Desciption;
         private DevExpress.XtraGrid.Columns.GridColumn Price;
-        private DevExpress.XtraEditors.SimpleButton btnAddUmlage;
-        private DevExpress.XtraEditors.SimpleButton btnDeleteUmlage;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem138;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem139;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpumlagePrice;
 
 

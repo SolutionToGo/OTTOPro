@@ -5447,30 +5447,6 @@ e.Column.FieldName == "GB")
             }
         }
 
-        private void btnAddUmlage_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                gvOmlage.AddNewRow();
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void btnDeleteUmlage_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                gvOmlage.DeleteRow(gvOmlage.FocusedRowHandle);
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void btnSpecialCost_Click(object sender, EventArgs e)
         {
             try
@@ -5499,3 +5475,4 @@ e.Column.FieldName == "GB")
         }
     }
 }
+ 
