@@ -63,6 +63,8 @@ namespace OTTOPro
         EGAEB objEGAEB = new EGAEB();
         EMulti ObjEMulti = null;
         BMulti ObjBMulti = null;
+        EUmlage ObjEUmlage = null;
+        BUmlage ObjBUmlage = null;
         /// <summary>
         /// Properties to bind the internal variables
         /// </summary>
@@ -5391,8 +5393,16 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                if (ObjEProject.ProjectID > 0)
-                {                    
+                if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber == string.Empty)
+                {
+                    if (ObjEUmlage == null)
+                        ObjEUmlage = new EUmlage();
+                    if (ObjBUmlage == null)
+                        ObjBUmlage = new BUmlage();
+                    ObjEUmlage.ProjectID = ObjEProject.ProjectID;
+                    ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
+                    gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
+
                     btnProjectDetails.BackColor = Color.Silver;
                     btnMulti5.BackColor = Color.Silver;
                     btnLvdetails.BackColor = Color.Silver;
@@ -5401,6 +5411,84 @@ e.Column.FieldName == "GB")
                     btnOmlage.BackColor = Color.DeepSkyBlue;
                     ObjTabDetails = tbOmlage;
                     TabChange(ObjTabDetails);
+                }
+                else if(ObjEProject.CommissionNumber != string.Empty)
+                {
+                    throw new Exception("Cannot distribute special cost for kommissioned project");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnAddedCost_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjEUmlage == null)
+                        ObjEUmlage = new EUmlage();
+                    if (ObjBUmlage == null)
+                        ObjBUmlage = new BUmlage();
+                    ObjEUmlage.ProjectID = ObjEProject.ProjectID;
+                    if (ObjEUmlage.dtSpecialCost.Rows.Count > 0)
+                    {
+                        ObjEUmlage = ObjBUmlage.UpdateSpecialCost(ObjEUmlage);
+                        BindPositionData();
+                    }
+                    else
+                        throw new Exception("Add special cost to distribute");
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnAddUmlage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gvOmlage.AddNewRow();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnDeleteUmlage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gvOmlage.DeleteRow(gvOmlage.FocusedRowHandle);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnSpecialCost_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjEUmlage == null)
+                    ObjEUmlage = new EUmlage();
+                if (ObjBUmlage == null)
+                    ObjBUmlage = new BUmlage();
+                ObjEUmlage.ProjectID = ObjEProject.ProjectID;
+                ObjEUmlage = ObjBUmlage.ShowUmlage(ObjEUmlage);
+                if(ObjEUmlage.dtUmlage != null && ObjEUmlage.dtUmlage.Rows.Count > 0)
+                {
+                    //lblTotalPrice.Text = "Total Value : " + ObjEUmlage.dtUmlage.Rows[0]["TotalPrice"].ToString();
+                    lblUmlage.Text = "Umlage Value : " + ObjEUmlage.dtUmlage.Rows[0]["TotalUmlage"].ToString();
+                }
+                else
+                {
+                    //lblTotalPrice.Text = string.Empty;
+                    lblUmlage.Text = string.Empty;
                 }
             }
             catch (Exception ex)

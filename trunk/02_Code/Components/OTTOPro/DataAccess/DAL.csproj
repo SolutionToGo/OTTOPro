@@ -46,6 +46,7 @@
     <Compile Include="DOTTO.cs" />
     <Compile Include="DPosition.cs" />
     <Compile Include="DProject.cs" />
+    <Compile Include="DUmlage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLCon.cs" />
   </ItemGroup>

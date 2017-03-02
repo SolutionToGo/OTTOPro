@@ -45,6 +45,7 @@
     <Compile Include="EOTTO.cs" />
     <Compile Include="EPosition.cs" />
     <Compile Include="EProject.cs" />
+    <Compile Include="EUmlage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
