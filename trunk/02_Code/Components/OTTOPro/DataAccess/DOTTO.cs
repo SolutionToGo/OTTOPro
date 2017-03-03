@@ -33,7 +33,14 @@ namespace DataAccess
                     {
                         if (returnObj.ToString().Contains("duplicate"))
                         {
-                            throw new Exception("ShortName is already exists.!");
+                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                            {
+                                throw new Exception("Dieser Kurzname ist bereits vergeben");
+                            }
+                            else
+                            {
+                                throw new Exception("ShortName is already exists.!");
+                            }
                         }
                         if (!int.TryParse(returnObj.ToString(), out OTTOID))
                         {
@@ -74,7 +81,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    // throw new Exception("Fehler beim Laden der Positionsliste");
+                    throw new Exception("Fehler beim Laden der Daten zu OTTO");
                 }
                 else
                 {

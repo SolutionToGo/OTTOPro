@@ -100,7 +100,7 @@ namespace BL
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                     {
-                        //  throw new Exception("Fehler beim Speichern der LV Angaben");
+                        throw new Exception("Fehler beim Speichern der Kundeninformation");
                     }
                     else
                     {
@@ -137,7 +137,7 @@ namespace BL
                  {
                      if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                      {
-                         //  throw new Exception("Fehler beim Speichern der LV Angaben");
+                         throw new Exception("Fehler beim Speichern der Kundenaddresse");
                      }
                      else
                      {

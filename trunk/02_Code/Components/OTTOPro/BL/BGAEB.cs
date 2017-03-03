@@ -615,7 +615,14 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error while importing langtext");
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Datenimport langtext");
+                }
+                else
+                {
+                    throw new Exception("Error while importing langtext");
+                }
             }
         }
 
@@ -629,7 +636,14 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error while importing langtext");
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Datenimport langtext");
+                }
+                else
+                {
+                    throw new Exception("Error while importing langtext");
+                }
             }
         }
 

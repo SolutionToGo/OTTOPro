@@ -445,7 +445,14 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Error while Deleting Position");
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Löschen der Positionen");
+                }
+                else
+                {
+                    throw new Exception("Error while Deleting Position");
+                }
             }
         }
     }

@@ -170,7 +170,15 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error Occured While Loading the Project");
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden des Projektes");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Loading the Project");
+
+                }
             }
         }
     }

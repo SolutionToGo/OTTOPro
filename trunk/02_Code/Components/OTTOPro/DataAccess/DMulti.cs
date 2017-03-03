@@ -34,7 +34,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("");
+                    throw new Exception("Fehler beim Laden der Artikelgruppen");
                 }
                 else
                 {
@@ -67,7 +67,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("To be updated");////To be updated
+                    throw new Exception("Fehler beim Aktualisierung von Multi 5");
                 }
                 else
                 {
@@ -104,7 +104,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("To Be updated");
+                    throw new Exception("Fehler beim Laden der Artikelgruppen");
                 }
                 else
                 {
@@ -138,7 +138,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("To be updated");////To be updated
+                    throw new Exception("Fehler beim Aktualisierung von Multi 6");
                 }
                 else
                 {

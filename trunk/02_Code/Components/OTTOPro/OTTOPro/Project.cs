@@ -5439,7 +5439,7 @@ e.Column.FieldName == "GB")
                 if(ObjEUmlage.dtUmlage != null && ObjEUmlage.dtUmlage.Rows.Count > 0)
                 {
                     //lblTotalPrice.Text = "Total Value : " + ObjEUmlage.dtUmlage.Rows[0]["TotalPrice"].ToString();
-                    lblUmlage.Text = "Umlage Value : " + ObjEUmlage.dtUmlage.Rows[0]["TotalUmlage"].ToString();
+                    lblUmlage.Text = "Umlage Wert : " + ObjEUmlage.dtUmlage.Rows[0]["TotalUmlage"].ToString();
                 }
                 else
                 {

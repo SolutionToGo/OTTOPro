@@ -30,7 +30,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("");
+                    throw new Exception("Fehler bei der Verteilung der Generellen Kosten");
                 }
                 else
                 {
@@ -65,7 +65,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("");
+                    throw new Exception("Fehler beim Laden der Generellen Kosten");
                 }
                 else
                 {
@@ -100,7 +100,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("");
+                    throw new Exception("Fehler beim Laden der umlage");
                 }
                 else
                 {
