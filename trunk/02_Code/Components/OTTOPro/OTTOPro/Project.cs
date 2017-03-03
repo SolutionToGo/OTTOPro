@@ -3473,8 +3473,7 @@ namespace OTTOPro
             try
             {
                 BindPositionData();
-                int visibleRowsCount = tlPositions.ViewInfo.RowsInfo.Rows.Count;
-                if (visibleRowsCount == 0)
+                if (ObjEProject.ActualLvs == 0)
                 {
                     if (Utility._IsGermany == true)
                     {
@@ -3719,6 +3718,8 @@ namespace OTTOPro
 
         private void btnBulkProcess_Click(object sender, EventArgs e)
         {
+            if (ObjEProject.ActualLvs == 0)
+                return;
             if (GetCommisssionNo() != "")
             {
                 checkEditSectionAMulti5MA.Enabled = false;
@@ -5091,7 +5092,7 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                if (ObjEProject.ProjectID > 0)
+                if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
                 {
                     if (objBGAEB == null)
                         objBGAEB = new BGAEB();
@@ -5123,7 +5124,7 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                if (ObjEProject.ProjectID > 0)
+                if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
                 {
                     if (objBGAEB == null)
                         objBGAEB = new BGAEB();
@@ -5375,7 +5376,7 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber == string.Empty)
+                if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber == string.Empty && ObjEProject.ActualLvs > 0)
                 {
                     if (ObjEUmlage == null)
                         ObjEUmlage = new EUmlage();
@@ -5393,10 +5394,6 @@ e.Column.FieldName == "GB")
                     btnOmlage.BackColor = Color.DeepSkyBlue;
                     ObjTabDetails = tbOmlage;
                     TabChange(ObjTabDetails);
-                }
-                else if(ObjEProject.CommissionNumber != string.Empty)
-                {
-                    throw new Exception("Cannot distribute special cost for kommissioned project");
                 }
             }
             catch (Exception ex)
