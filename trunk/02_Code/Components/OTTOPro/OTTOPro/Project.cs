@@ -2354,7 +2354,6 @@ namespace OTTOPro
                     btnMulti6.BackColor = Color.Silver;
                     btnLvdetails.Focus();
                     tsProjectStatus.Text = "";
-                    ObjBProject.GetProjectDetails(ObjEProject);
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails")
                 {
