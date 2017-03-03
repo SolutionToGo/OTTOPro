@@ -153,6 +153,26 @@ namespace OTTOPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BOFileAttachment_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("BOFileAttachment_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BOFileAttachment_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("BOFileAttachment_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BORole_16x16 {
             get {
                 object obj = ResourceManager.GetObject("BORole_16x16", resourceCulture);
@@ -406,6 +426,26 @@ namespace OTTOPro.Properties {
         internal static System.Drawing.Bitmap Software {
             get {
                 object obj = ResourceManager.GetObject("Software", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpDownBars_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("UpDownBars_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UpDownBars_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("UpDownBars_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

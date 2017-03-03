@@ -2362,6 +2362,11 @@ namespace OTTOPro
                     if (tlPositions.Nodes.Count > 0)
                     {
                         txtkommissionNumber.ReadOnly = false;
+                        ddlRaster.Enabled = false;
+                    }
+                    else
+                    {
+                        ddlRaster.Enabled = true;
                     }
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbBulkProcess")
@@ -2374,6 +2379,18 @@ namespace OTTOPro
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbMulti5")
                 {
+                    if (ObjEProject.ProjectID > 0)
+                    {
+                        if (objBGAEB == null)
+                            objBGAEB = new BGAEB();
+                        DataTable dtLVSection = new DataTable();
+                        cmbLVSectionFilter.Properties.Items.Clear();
+                        dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
+                        foreach (DataRow dr in dtLVSection.Rows)
+                        {
+                            cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
+                        }
+                    }
                     btnProjectDetails.BackColor = Color.Silver;
                     btnLvdetails.BackColor = Color.Silver;
                     btnBulkProcess.BackColor = Color.Silver;
@@ -3497,9 +3514,9 @@ namespace OTTOPro
                 }
                 else
                 {
-                    ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf(ObjEProject.LVRaster);
+                   // ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf(ObjEProject.LVRaster);
                     ddlRaster.Enabled = true;
-                    // ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf("99.99.1111.9");
+                    ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf("99.99.1111.9");
                 }
 
             }
@@ -3768,42 +3785,6 @@ namespace OTTOPro
             }
         }
 
-        private void radioGroupselect_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (radioGroupselect.SelectedIndex == 2)
-                {
-                    lciAddLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    lciRemoveLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                }
-                else
-                {
-                    lciAddLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    lciRemoveLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                }
-                if (ObjEPosition.dsPositionOZList != null)
-                {
-                    gvAddRemovePositions.Rows.Clear();
-                    tlBulkProcessPositionDetails.DataSource = null;
-                }
-
-                radioGroupActionA.SelectedIndex = 1;
-                radioGroupActionB.SelectedIndex = 1;
-                radioGroupActionA_SelectedIndexChanged(null, null);
-                radioGroupActionB_SelectedIndexChanged(null, null);
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-            txtBulkProcessWG.Text = "";
-            txtBulkProcessWA.Text = "";
-        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -3833,19 +3814,19 @@ namespace OTTOPro
         string tType = null;
         private void AssignPosition_type()
         {
-            if (radioGroupselect.SelectedIndex == 0)
+            if (cmbBulkProcessSelection.SelectedIndex == 0)
             {
                 tType = "Parent Position";
             }
-            if (radioGroupselect.SelectedIndex == 1)
+            if (cmbBulkProcessSelection.SelectedIndex == 1)
             {
                 tType = "LV Position";
             }
-            if (radioGroupselect.SelectedIndex == 2)
+            if (cmbBulkProcessSelection.SelectedIndex == 2)
             {
                 tType = "WG/WA";
             }
-            if (radioGroupselect.SelectedIndex == 3)
+            if (cmbBulkProcessSelection.SelectedIndex == 3)
             {
                 tType = "Supplier";
             }
@@ -3856,7 +3837,7 @@ namespace OTTOPro
 
             try
             {
-                if (radioGroupselect.SelectedIndex != 2)
+                if (cmbBulkProcessSelection.SelectedIndex != 2)
                 {
                     if (gvAddRemovePositions.RowCount == 0)
                     {
@@ -3872,7 +3853,7 @@ namespace OTTOPro
                     }
                 }
                 string Gridvalue = null;
-                if (radioGroupselect.SelectedIndex != 2)
+                if (cmbBulkProcessSelection.SelectedIndex != 2)
                 {
                     foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
                     {
@@ -3894,7 +3875,7 @@ namespace OTTOPro
                 }
 
                 AssignPosition_type();
-                if (radioGroupselect.SelectedIndex == 2)
+                if (cmbBulkProcessSelection.SelectedIndex == 2)
                 {
                     if (txtBulkProcessWG.Text == "")
                     {
@@ -3930,7 +3911,7 @@ namespace OTTOPro
                         DataRow drPos = dtPos.NewRow();
                         tfrom = dr.Cells[0].Value.ToString();
                         tTo = dr.Cells[1].Value.ToString();
-                        if (radioGroupselect.SelectedIndex == 0)
+                        if (cmbBulkProcessSelection.SelectedIndex == 0)
                         {
                             string _fromParent = string.Empty;
                             string _ToParent = string.Empty;
@@ -4746,7 +4727,7 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                if (radioGroupselect.SelectedIndex == 0)
+                if (cmbBulkProcessSelection.SelectedIndex == 0)
                 {
                     if ((e.KeyChar != (char)Keys.Back) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
                     {
@@ -5473,6 +5454,55 @@ e.Column.FieldName == "GB")
                 Utility.ShowError(ex);
             }
         }
+
+        private void txtKundeNo_ButtonClick(object sender, ButtonPressedEventArgs e)
+        {
+            frmSelectCustomer frm = new frmSelectCustomer();
+            frm.ShowDialog();
+            if (frm.DialogResult == DialogResult.OK)
+            {
+                txtKundeNo.Text = frm.CustomerID;
+                txtKundeName.Text = frm.FullName;
+            }
+        }
+
+        private void cmbBulkProcessSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbBulkProcessSelection.SelectedIndex == 2)
+                {
+                    lciAddLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lciRemoveLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                }
+                else
+                {
+                    lciAddLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lciRemoveLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                }
+                if (ObjEPosition.dsPositionOZList != null)
+                {
+                    gvAddRemovePositions.Rows.Clear();
+                    tlBulkProcessPositionDetails.DataSource = null;
+                }
+
+                radioGroupActionA.SelectedIndex = 1;
+                radioGroupActionB.SelectedIndex = 1;
+                radioGroupActionA_SelectedIndexChanged(null, null);
+                radioGroupActionB_SelectedIndexChanged(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+            txtBulkProcessWG.Text = "";
+            txtBulkProcessWA.Text = "";
+        }
+
     }
 }
  
