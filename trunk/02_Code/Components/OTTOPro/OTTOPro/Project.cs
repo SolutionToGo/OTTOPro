@@ -44,7 +44,7 @@ namespace OTTOPro
         private bool _IsCopy = false;
         private string LongDescription = string.Empty;
         private bool _IsEditMode = false;
-        public static bool _IsNewMode = false;
+        public bool _IsNewMode = false;
         public int iSNO = -1;
         public bool _IsAddhoc = false;
 
@@ -385,7 +385,7 @@ namespace OTTOPro
                 {
                     if (_IsCopy)
                     {
-                        txtProjectNumber.Text = string.Empty;
+                        txtProjectNumber.Text = string.Empty; 
                         txtkommissionNumber.Text = string.Empty;
                         txtkommissionNumber.ReadOnly = true;
                         ObjEProject.ProjectID = -1;
@@ -462,6 +462,7 @@ namespace OTTOPro
             {
                 e.Cancel = true;
             }
+            btnCancel_Click(null,null);
             if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
             {
                 frmOTTOPro.Instance.SetPictureBoxVisible(true);
@@ -1192,7 +1193,7 @@ namespace OTTOPro
             btnOmlage.BackColor = Color.Silver;
             ObjTabDetails = tbProjectDetails;
             TabChange(ObjTabDetails);
-          
+            ObjBProject.GetProjectDetails(ObjEProject);
         }
 
         private void btnLvdetails_Click(object sender, EventArgs e)
@@ -1571,7 +1572,7 @@ namespace OTTOPro
                 // Confirmation incase of project convert into order
                 if (txtkommissionNumber.Text != string.Empty && txtkommissionNumber.ReadOnly == false)
                 {
-                    if (tlPositions.Nodes.Count > 0)
+                    if (ObjEProject.ActualLvs > 0)
                     {
                         if (Utility._IsGermany == true)
                         {
@@ -1611,6 +1612,8 @@ namespace OTTOPro
                         UpdateStatus(ObjEProject.ProjectNumber + "  " + "Project Details Saved Successfully");
                     }
                     BindPositionData();
+                    if (ObjEProject.CommissionNumber != string.Empty)
+                        txtkommissionNumber.Enabled = false;
                 }
                 else
                 {
@@ -1645,6 +1648,8 @@ namespace OTTOPro
             txtActualLVs.Enabled = false;
             chkLockHierarchy.Enabled = false;
             txtRemarks.Enabled = false;
+            txtLVSprunge.Enabled = false;
+            
         }
 
         private void btnSaveLVDetails_Click(object sender, EventArgs e)
@@ -2349,6 +2354,7 @@ namespace OTTOPro
                     btnMulti6.BackColor = Color.Silver;
                     btnLvdetails.Focus();
                     tsProjectStatus.Text = "";
+                    ObjBProject.GetProjectDetails(ObjEProject);
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails")
                 {
@@ -2426,10 +2432,6 @@ namespace OTTOPro
             try
             {
                 _IsAddhoc = false;
-                //if (tlPositions.Nodes != null && tlPositions.Nodes.Count > 0)
-                //{
-                //    tlPositions.SetFocusedNode(tlPositions.MoveLastVisible());
-                //}
                 CreateNewPosition();
             }
             catch (Exception ex)
@@ -2493,6 +2495,10 @@ namespace OTTOPro
                     if (!_IsAddhoc)
                     {
                         iSNO = -1;
+                    }
+                    if(!string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+                    {
+                        cmbLVStatus.Text = "B";
                     }
                 }
                 else if (strPositiontype.ToLower() == "h")
@@ -3544,15 +3550,10 @@ namespace OTTOPro
                         LoadExistingProject();
                         BindPositionData();
                         IntializeLVPositions();
-                        int visibleRowsCount = tlPositions.ViewInfo.RowsInfo.Rows.Count;
-                        if (visibleRowsCount == 0)
-                        {
+                        if (ObjEProject.ActualLvs == 0)
                             ChkRaster.Enabled = true;
-                        }
                         else
-                        {
                             ChkRaster.Enabled = false;
-                        }
                         SplashScreenManager.CloseForm(false);
                     }
                 }

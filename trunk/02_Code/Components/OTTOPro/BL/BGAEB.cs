@@ -301,7 +301,7 @@ namespace BL
                    {
                        if (!xnOZ.InnerText.Contains("Z"))
                        {
-                           drLVPos["OZ"] = xnOZ.InnerText;
+                           drLVPos["OZ"] = xnOZ.InnerText.Replace(" ","");
                        }else
                        {
                            continue;
