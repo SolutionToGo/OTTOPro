@@ -6369,6 +6369,7 @@
             this.txtKundeNo.Name = "txtKundeNo";
             this.txtKundeNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtKundeNo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.txtKundeNo.Size = new System.Drawing.Size(384, 20);
             this.txtKundeNo.TabIndex = 6;
             this.txtKundeNo.Tag = "Kunde Nr";
