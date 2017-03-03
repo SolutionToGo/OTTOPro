@@ -12,6 +12,8 @@ using DevExpress.XtraTab;
 using EL;
 using BL;
 using System.Threading;
+using DevExpress.XtraEditors.ViewInfo;
+using DevExpress.Utils.Drawing;
 
 namespace OTTOPro
 {
@@ -414,6 +416,7 @@ namespace OTTOPro
 
 
         #endregion
+
 
 
 

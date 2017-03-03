@@ -6381,7 +6381,7 @@
             this.ChkRaster.Location = new System.Drawing.Point(179, 202);
             this.ChkRaster.MenuManager = this.barManager1;
             this.ChkRaster.Name = "ChkRaster";
-            this.ChkRaster.Properties.Caption = "Get Raster From GAEB File";
+            this.ChkRaster.Properties.Caption = "LV Raster von GAEB-Datei";
             this.ChkRaster.Size = new System.Drawing.Size(148, 19);
             this.ChkRaster.TabIndex = 101;
             this.ChkRaster.CheckedChanged += new System.EventHandler(this.chkRaster_CheckedChanged);

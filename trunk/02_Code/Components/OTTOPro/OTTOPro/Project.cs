@@ -2374,6 +2374,7 @@ namespace OTTOPro
                     {
                         ddlRaster.Enabled = true;
                     }
+                    ObjBProject.GetProjectDetails(ObjEProject);
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbBulkProcess")
                 {
@@ -3004,7 +3005,7 @@ namespace OTTOPro
                     {
                         if(Utility._IsGermany == true)
                         {
-                            XtraMessageBox.Show("Die gewählte " + textbox.Tag.ToString() + " existiert nicht", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            XtraMessageBox.Show("Die gewählte " + textbox.Tag.ToString() + " existiert nicht", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
                         {
@@ -3014,7 +3015,7 @@ namespace OTTOPro
                     else
                     {
                         if(Utility._IsGermany == true)
-                            XtraMessageBox.Show(textbox.Tag.ToString() + " Fehlende Angabe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            XtraMessageBox.Show(textbox.Tag.ToString() + " Fehlende Angabe", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
                         {
                             XtraMessageBox.Show(textbox.Tag.ToString() + " Should not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
