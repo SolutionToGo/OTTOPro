@@ -30,14 +30,10 @@ namespace OTTOPro
         {
             try
             {
-                if(KNr != string.Empty)
-                {
-
-                    cmbLVSection.Enabled = true;
-                    cmbLVSection.DataSource = ObjBGAEB.GetLVSection(ProjectID);
-                    cmbLVSection.DisplayMember = "LVSection";
-                    cmbLVSection.ValueMember = "LVSection";
-                }
+                cmbLVSection.Enabled = true;
+                cmbLVSection.DataSource = ObjBGAEB.GetLVSection(ProjectID);
+                cmbLVSection.DisplayMember = "LVSection";
+                cmbLVSection.ValueMember = "LVSection";
             }
             catch (Exception ex)
             {

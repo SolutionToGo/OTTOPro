@@ -365,7 +365,14 @@ namespace BL
                     if (strLVSection != string.Empty)
                         drLVPos["Nachlass"] = strLVSection;
                     else if (xnNachlass != null)
-                        drLVPos["Nachlass"] = xnNachlass.InnerText;
+                    {
+                        string str = xnNachlass.InnerText;
+                        if (string.IsNullOrEmpty(str))
+                            drLVPos["Nachlass"] = "HA";
+                        else
+                            drLVPos["Nachlass"] = str;
+                    }
+
                     drLVPos["SNO"] = iSNO.ToString(); ;
                     dtV.Rows.Add(drLVPos);
                 }

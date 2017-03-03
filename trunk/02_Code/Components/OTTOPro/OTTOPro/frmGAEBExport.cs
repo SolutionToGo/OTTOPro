@@ -38,9 +38,9 @@ namespace OTTOPro
         {
             try
             {
-                string[] _D_formats = { "D81","D83", "D84", "D86","P81", "P83", "P84", "P86" };
-                string[] _P_formats = { "P81", "P83", "P84", "P86"};
-                if(_Raster > 9)
+                string[] _D_formats = { "D81", "D83", "D84", "D86", "P81", "P83", "P84", "P86" };
+                string[] _P_formats = { "P81", "P83", "P84", "P86" };
+                if (_Raster > 9)
                 {
                     foreach (string p in _P_formats)
                     {
@@ -57,22 +57,19 @@ namespace OTTOPro
                     cmbFormatType.SelectedIndex = cmbFormatType.Properties.Items.IndexOf("D83");
                 }
                 txtFilePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                if (KNr != string.Empty)
+                if (ObjBGAEB == null)
                 {
-                    if (ObjBGAEB == null)
-                    {
-                        ObjBGAEB = new BGAEB();
-                    }
-                    cmbLVSection.Enabled = true;
-                    DataTable dtLVSection = new DataTable();
-                    dtLVSection = ObjBGAEB.GetLVSection(_ProjectID);
-                    DataRow dr = dtLVSection.NewRow();
-                    dr["LVSection"] = "ALL";
-                    dtLVSection.Rows.Add(dr);
-                    cmbLVSection.DataSource = dtLVSection;
-                    cmbLVSection.DisplayMember = "LVSection";
-                    cmbLVSection.ValueMember = "LVSection";
+                    ObjBGAEB = new BGAEB();
                 }
+                cmbLVSection.Enabled = true;
+                DataTable dtLVSection = new DataTable();
+                dtLVSection = ObjBGAEB.GetLVSection(_ProjectID);
+                DataRow dr = dtLVSection.NewRow();
+                dr["LVSection"] = "ALL";
+                dtLVSection.Rows.Add(dr);
+                cmbLVSection.DataSource = dtLVSection;
+                cmbLVSection.DisplayMember = "LVSection";
+                cmbLVSection.ValueMember = "LVSection";
             }
             catch (Exception ex)
             {
