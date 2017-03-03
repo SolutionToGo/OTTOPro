@@ -38,7 +38,6 @@
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.btnSaveCustomer = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancelCustomer = new DevExpress.XtraEditors.SimpleButton();
-            this.memoEditCommentary = new DevExpress.XtraEditors.MemoEdit();
             this.txtCustCountryName = new DevExpress.XtraEditors.TextEdit();
             this.txtCustCountryType = new DevExpress.XtraEditors.TextEdit();
             this.txtCustDebitorNo = new DevExpress.XtraEditors.TextEdit();
@@ -82,7 +81,6 @@
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup10 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -143,12 +141,13 @@
             this.dxValidationProviderCustShortName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxValidationProviderContactName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxValidationProviderAddShortName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.memoEditCommentary = new System.Windows.Forms.RichTextBox();
+            this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.tcCustomers)).BeginInit();
             this.tcCustomers.SuspendLayout();
             this.tbCustomerMaster.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEditCommentary.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustCountryName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustCountryType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustDebitorNo.Properties)).BeginInit();
@@ -192,7 +191,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
@@ -251,6 +249,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderCustShortName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderContactName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderAddShortName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             this.SuspendLayout();
             // 
             // tcCustomers
@@ -278,9 +277,9 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.Controls.Add(this.memoEditCommentary);
             this.layoutControl2.Controls.Add(this.btnSaveCustomer);
             this.layoutControl2.Controls.Add(this.btnCancelCustomer);
-            this.layoutControl2.Controls.Add(this.memoEditCommentary);
             this.layoutControl2.Controls.Add(this.txtCustCountryName);
             this.layoutControl2.Controls.Add(this.txtCustCountryType);
             this.layoutControl2.Controls.Add(this.txtCustDebitorNo);
@@ -332,15 +331,6 @@
             this.btnCancelCustomer.TabIndex = 21;
             this.btnCancelCustomer.Text = "Cancel";
             this.btnCancelCustomer.Click += new System.EventHandler(this.btnCancelCustomer_Click);
-            // 
-            // memoEditCommentary
-            // 
-            this.memoEditCommentary.Location = new System.Drawing.Point(377, 40);
-            this.memoEditCommentary.Name = "memoEditCommentary";
-            this.memoEditCommentary.Size = new System.Drawing.Size(337, 532);
-            this.memoEditCommentary.StyleController = this.layoutControl2;
-            this.memoEditCommentary.TabIndex = 19;
-            this.memoEditCommentary.TextChanged += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // txtCustCountryName
             // 
@@ -493,9 +483,9 @@
             // 
             // txtCustShortName
             // 
+            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustShortName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustFullName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtCustShortName.Location = new System.Drawing.Point(129, 60);
             this.txtCustShortName.Name = "txtCustShortName";
@@ -509,9 +499,9 @@
             // 
             // txtCustFullName
             // 
+            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustShortName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustFullName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtCustFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtCustFullName.Location = new System.Drawing.Point(129, 36);
             this.txtCustFullName.Name = "txtCustFullName";
@@ -752,21 +742,11 @@
             // layoutControlGroup10
             // 
             this.layoutControlGroup10.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem24});
+            this.layoutControlItem20});
             this.layoutControlGroup10.Location = new System.Drawing.Point(353, 0);
             this.layoutControlGroup10.Name = "layoutControlGroup10";
             this.layoutControlGroup10.Size = new System.Drawing.Size(365, 576);
             this.layoutControlGroup10.TextVisible = false;
-            // 
-            // layoutControlItem24
-            // 
-            this.layoutControlItem24.Control = this.memoEditCommentary;
-            this.layoutControlItem24.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem24.Name = "layoutControlItem24";
-            this.layoutControlItem24.Size = new System.Drawing.Size(341, 552);
-            this.layoutControlItem24.Text = "Commentary :";
-            this.layoutControlItem24.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem24.TextSize = new System.Drawing.Size(90, 13);
             // 
             // layoutControlGroup8
             // 
@@ -940,9 +920,9 @@
             // 
             // txtContactName
             // 
+            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustShortName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustFullName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtContactName.Location = new System.Drawing.Point(138, 66);
             this.txtContactName.Name = "txtContactName";
@@ -1204,9 +1184,9 @@
             // 
             // txtAddShortName
             // 
+            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustShortName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustFullName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderAddShortName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtAddShortName.Location = new System.Drawing.Point(132, 42);
             this.txtAddShortName.Name = "txtAddShortName";
@@ -1359,6 +1339,24 @@
             this.layoutControlItem42.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem42.TextVisible = false;
             // 
+            // memoEditCommentary
+            // 
+            this.memoEditCommentary.Location = new System.Drawing.Point(377, 40);
+            this.memoEditCommentary.Name = "memoEditCommentary";
+            this.memoEditCommentary.Size = new System.Drawing.Size(337, 532);
+            this.memoEditCommentary.TabIndex = 22;
+            this.memoEditCommentary.Text = "";
+            // 
+            // layoutControlItem20
+            // 
+            this.layoutControlItem20.Control = this.memoEditCommentary;
+            this.layoutControlItem20.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem20.Name = "layoutControlItem20";
+            this.layoutControlItem20.Size = new System.Drawing.Size(341, 552);
+            this.layoutControlItem20.Text = "Commentary :";
+            this.layoutControlItem20.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem20.TextSize = new System.Drawing.Size(90, 13);
+            // 
             // frmCustomerMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1381,7 +1379,6 @@
             this.tbCustomerMaster.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEditCommentary.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustCountryName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustCountryType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCustDebitorNo.Properties)).EndInit();
@@ -1425,7 +1422,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
@@ -1484,6 +1480,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderCustShortName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderContactName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderAddShortName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1500,7 +1497,6 @@
         private DevExpress.XtraTab.XtraTabPage tbCustomerAddress;
         private DevExpress.XtraLayout.LayoutControl layoutControl4;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
-        private DevExpress.XtraEditors.MemoEdit memoEditCommentary;
         private DevExpress.XtraEditors.TextEdit txtCustCountryName;
         private DevExpress.XtraEditors.TextEdit txtCustCountryType;
         private DevExpress.XtraEditors.TextEdit txtCustDebitorNo;
@@ -1539,7 +1535,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem19;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem24;
         private DevExpress.XtraEditors.SimpleButton btnSaveCustomer;
         private DevExpress.XtraEditors.SimpleButton btnCancelCustomer;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
@@ -1600,6 +1595,8 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderCustShortName;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderAddShortName;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderContactName;
+        private System.Windows.Forms.RichTextBox memoEditCommentary;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem20;
 
     }
 }
