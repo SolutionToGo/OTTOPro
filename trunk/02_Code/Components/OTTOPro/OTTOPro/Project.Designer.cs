@@ -6364,6 +6364,7 @@
             // txtKundeNo
             // 
             this.tlpProject.SetColumnSpan(this.txtKundeNo, 4);
+            this.txtKundeNo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtKundeNo.Location = new System.Drawing.Point(643, 69);
             this.txtKundeNo.MenuManager = this.barManager1;
             this.txtKundeNo.Name = "txtKundeNo";
