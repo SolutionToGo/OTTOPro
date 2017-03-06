@@ -2701,14 +2701,6 @@ namespace OTTOPro
             {
                 txtLPMe.Properties.Mask.EditMask = strMask;
                 txtLPMO.Properties.Mask.EditMask = strMask;
-                //txtMulti1ME.Properties.Mask.EditMask = strMask;
-                //txtMulti2ME.Properties.Mask.EditMask = strMask;
-                //txtMulti3ME.Properties.Mask.EditMask = strMask;
-                //txtMulti4ME.Properties.Mask.EditMask = strMask;
-                //txtMulti1MO.Properties.Mask.EditMask = strMask;
-                //txtMulti2MO.Properties.Mask.EditMask = strMask;
-                //txtMulti3MO.Properties.Mask.EditMask = strMask;
-                //txtMulti4MO.Properties.Mask.EditMask = strMask;
                 txtValue1ME.Properties.Mask.EditMask = strMask;
                 txtValue2ME.Properties.Mask.EditMask = strMask;
                 txtValue3ME.Properties.Mask.EditMask = strMask;
@@ -2717,8 +2709,6 @@ namespace OTTOPro
                 txtValue2MO.Properties.Mask.EditMask = strMask;
                 txtValue3MO.Properties.Mask.EditMask = strMask;
                 txtValue4MO.Properties.Mask.EditMask = strMask;
-                //txtGrundMultiME.Properties.Mask.EditMask = strMask;
-                //txtGrundMultiMO.Properties.Mask.EditMask = strMask;
                 txtGrundValueME.Properties.Mask.EditMask = strMask;
                 txtGrundValueMO.Properties.Mask.EditMask = strMask;
                 txtEinkaufspreisME.Properties.Mask.EditMask = strMask;
@@ -2731,17 +2721,6 @@ namespace OTTOPro
                 txtGrandTotalMO.Properties.Mask.EditMask = strMask;
                 txtFinalGB.Properties.Mask.EditMask = strMask;
                 txtEP.Properties.Mask.EditMask = strMask;
-                //txtSelbstkostenMultiME.Properties.Mask.EditMask = strMask;
-                //txtSelbstkostenMultiMO.Properties.Mask.EditMask = strMask;
-                //txtVerkaufspreisMultiME.Properties.Mask.EditMask = strMask;
-                //txtVerkaufspreisMultiMO.Properties.Mask.EditMask = strMask;
-
-                //txtMulti5MA.Properties.Mask.EditMask = strMask;
-                //txtMulti5MO.Properties.Mask.EditMask = strMask;
-                //txtMulti6MA.Properties.Mask.EditMask = strMask;
-                //txtMulti6MO.Properties.Mask.EditMask = strMask;
-                txtMenge.Properties.Mask.EditMask = strMask;
-                txtPositionMenge.Properties.Mask.EditMask = strMask;      
             }
         }
 
