@@ -60,7 +60,14 @@ namespace OTTOPro
             {
                 if (_OTTOID == -1)
                 {
-                    throw new Exception("Please Select the OTTO Details.!");
+                    if (Utility._IsGermany == true)
+                    {
+                        throw new Exception("Bitte wählen Sie OTTO Detailinformationen");
+                    }
+                    else
+                    {
+                        throw new Exception("Please Select the OTTO Details.!");
+                    }
                 }
                 ObjEOTTO = new EOTTO();
                 ObjEOTTO.ContactID = -1;

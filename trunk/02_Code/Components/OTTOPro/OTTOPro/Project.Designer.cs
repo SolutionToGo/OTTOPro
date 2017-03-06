@@ -8800,7 +8800,7 @@
             this.layoutControlGroup20.Location = new System.Drawing.Point(0, 27);
             this.layoutControlGroup20.Name = "layoutControlGroup20";
             this.layoutControlGroup20.Size = new System.Drawing.Size(294, 66);
-            this.layoutControlGroup20.Text = "Select Type :";
+            this.layoutControlGroup20.Text = "Typ :";
             // 
             // layoutControlItem24
             // 

@@ -141,7 +141,7 @@
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "Full Name";
+            this.gridColumn2.Caption = "Vollständiger Name";
             this.gridColumn2.FieldName = "CustomerFullName";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.Visible = true;
@@ -149,7 +149,7 @@
             // 
             // gridColumn3
             // 
-            this.gridColumn3.Caption = "Short Name";
+            this.gridColumn3.Caption = "Kurz Name";
             this.gridColumn3.FieldName = "CustomerShortName";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.Visible = true;
@@ -221,7 +221,7 @@
             this.MinimizeBox = false;
             this.Name = "frmSelectCustomer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Select Customer";
+            this.Text = "Kunden";
             this.Load += new System.EventHandler(this.frmSelectCustomer_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

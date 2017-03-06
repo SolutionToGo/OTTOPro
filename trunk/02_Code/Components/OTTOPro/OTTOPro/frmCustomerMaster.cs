@@ -68,7 +68,7 @@ namespace OTTOPro
             {
                 if (_CustomerType == "Customer")
                 {
-                    this.Text = "Customer Master";
+                    this.Text = "Stammdaten Kunden";
                     ObjTabDetails = tbCustomerMaster;
                     TabChange(ObjTabDetails);
                     this.MinimumSize = new System.Drawing.Size(760, 689);
@@ -76,14 +76,14 @@ namespace OTTOPro
                 }
                 if (_CustomerType == "Contact")
                 {
-                    this.Text = "Customer Contact";
+                    this.Text = "Kundenkontact";
                     ObjTabDetails = tbCustomerContacts;
                     TabChange(ObjTabDetails);
                     this.MinimumSize = new System.Drawing.Size(500, 342);
                 }
                 if (_CustomerType == "Address")
                 {
-                    this.Text = "Customer Address";
+                    this.Text = "Kundenaddresse";
                     ObjTabDetails = tbCustomerAddress;
                     TabChange(ObjTabDetails);
                     this.MinimumSize = new System.Drawing.Size(500, 320);

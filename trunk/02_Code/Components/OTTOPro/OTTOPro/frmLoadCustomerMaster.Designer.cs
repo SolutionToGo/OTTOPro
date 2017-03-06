@@ -31,6 +31,7 @@
             DevExpress.XtraGrid.Columns.GridColumn Commentary;
             this.repositoryItemMemoExEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.memoEditCommentary = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnAddInvoice = new DevExpress.XtraEditors.SimpleButton();
             this.gcInvoiceHistory = new DevExpress.XtraGrid.GridControl();
@@ -105,7 +106,6 @@
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.memoEditCommentary = new System.Windows.Forms.RichTextBox();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
             Commentary = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoExEdit1)).BeginInit();
@@ -181,6 +181,14 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // memoEditCommentary
+            // 
+            this.memoEditCommentary.Location = new System.Drawing.Point(12, 472);
+            this.memoEditCommentary.Name = "memoEditCommentary";
+            this.memoEditCommentary.Size = new System.Drawing.Size(769, 221);
+            this.memoEditCommentary.TabIndex = 20;
+            this.memoEditCommentary.Text = "";
+            // 
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -188,18 +196,18 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(232, 22);
             this.label4.TabIndex = 19;
-            this.label4.Text = "Invoice History :";
+            this.label4.Text = "Rechnungshistorie :";
             // 
             // btnAddInvoice
             // 
             this.btnAddInvoice.Enabled = false;
             this.btnAddInvoice.Image = global::OTTOPro.Properties.Resources.Add_16x16;
-            this.btnAddInvoice.Location = new System.Drawing.Point(1293, 451);
+            this.btnAddInvoice.Location = new System.Drawing.Point(1270, 451);
             this.btnAddInvoice.Name = "btnAddInvoice";
-            this.btnAddInvoice.Size = new System.Drawing.Size(59, 22);
+            this.btnAddInvoice.Size = new System.Drawing.Size(82, 22);
             this.btnAddInvoice.StyleController = this.layoutControl1;
             this.btnAddInvoice.TabIndex = 18;
-            this.btnAddInvoice.Text = "Add";
+            this.btnAddInvoice.Text = "Hinzufügen";
             // 
             // gcInvoiceHistory
             // 
@@ -317,7 +325,7 @@
             this.gridColumn12.AppearanceCell.Options.UseFont = true;
             this.gridColumn12.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn12.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn12.Caption = "Default Address";
+            this.gridColumn12.Caption = "Standard Addresse";
             this.gridColumn12.FieldName = "DefaultAddress";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
@@ -329,7 +337,7 @@
             this.gridColumn4.AppearanceCell.Options.UseFont = true;
             this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn4.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn4.Caption = "Short Name";
+            this.gridColumn4.Caption = "Kurz Name";
             this.gridColumn4.FieldName = "AddressShortName";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -341,7 +349,7 @@
             this.gridColumn5.AppearanceCell.Options.UseFont = true;
             this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn5.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn5.Caption = "StreetNo";
+            this.gridColumn5.Caption = "StrasseNr";
             this.gridColumn5.FieldName = "StreetNo";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -353,7 +361,7 @@
             this.gridColumn9.AppearanceCell.Options.UseFont = true;
             this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn9.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn9.Caption = "Postal Code";
+            this.gridColumn9.Caption = "PLZ";
             this.gridColumn9.FieldName = "PostalCode";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
@@ -365,7 +373,7 @@
             this.gridColumn10.AppearanceCell.Options.UseFont = true;
             this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn10.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn10.Caption = "City";
+            this.gridColumn10.Caption = "Ort";
             this.gridColumn10.FieldName = "City";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
@@ -377,7 +385,7 @@
             this.gridColumn11.AppearanceCell.Options.UseFont = true;
             this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn11.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn11.Caption = "Country";
+            this.gridColumn11.Caption = "LandBez";
             this.gridColumn11.FieldName = "Country";
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
@@ -460,7 +468,7 @@
             this.gridColumn1.AppearanceCell.Options.UseFont = true;
             this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn1.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn1.Caption = "Default Contact";
+            this.gridColumn1.Caption = "Standardkontakt";
             this.gridColumn1.FieldName = "DefaultContact";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.Visible = true;
@@ -472,7 +480,7 @@
             this.Salutation.AppearanceCell.Options.UseFont = true;
             this.Salutation.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Salutation.AppearanceHeader.Options.UseFont = true;
-            this.Salutation.Caption = "Salutation";
+            this.Salutation.Caption = "Anrede";
             this.Salutation.FieldName = "Salutation";
             this.Salutation.Name = "Salutation";
             this.Salutation.Visible = true;
@@ -484,7 +492,7 @@
             this.ContatPersonName.AppearanceCell.Options.UseFont = true;
             this.ContatPersonName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ContatPersonName.AppearanceHeader.Options.UseFont = true;
-            this.ContatPersonName.Caption = "Person Name";
+            this.ContatPersonName.Caption = "AnsprPartner";
             this.ContatPersonName.FieldName = "ContatPersonName";
             this.ContatPersonName.Name = "ContatPersonName";
             this.ContatPersonName.Visible = true;
@@ -496,7 +504,7 @@
             this.Designation.AppearanceCell.Options.UseFont = true;
             this.Designation.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Designation.AppearanceHeader.Options.UseFont = true;
-            this.Designation.Caption = "Designation";
+            this.Designation.Caption = "Position";
             this.Designation.FieldName = "Designation";
             this.Designation.Name = "Designation";
             this.Designation.Visible = true;
@@ -508,7 +516,7 @@
             this.gridColumn6.AppearanceCell.Options.UseFont = true;
             this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn6.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn6.Caption = "EmailID";
+            this.gridColumn6.Caption = "Email";
             this.gridColumn6.FieldName = "EmailID";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.Visible = true;
@@ -520,7 +528,7 @@
             this.gridColumn7.AppearanceCell.Options.UseFont = true;
             this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn7.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn7.Caption = "Telephone";
+            this.gridColumn7.Caption = "Telefon";
             this.gridColumn7.FieldName = "Telephone";
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.Visible = true;
@@ -626,7 +634,7 @@
             this.FullName.AppearanceCell.Options.UseFont = true;
             this.FullName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FullName.AppearanceHeader.Options.UseFont = true;
-            this.FullName.Caption = "Full Name";
+            this.FullName.Caption = "Vollständiger Name";
             this.FullName.FieldName = "CustomerFullName";
             this.FullName.Name = "FullName";
             this.FullName.Visible = true;
@@ -638,7 +646,7 @@
             this.ShortName.AppearanceCell.Options.UseFont = true;
             this.ShortName.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ShortName.AppearanceHeader.Options.UseFont = true;
-            this.ShortName.Caption = "Short Name";
+            this.ShortName.Caption = "Kurz Name";
             this.ShortName.FieldName = "CustomerShortName";
             this.ShortName.Name = "ShortName";
             this.ShortName.Visible = true;
@@ -650,7 +658,7 @@
             this.Street.AppearanceCell.Options.UseFont = true;
             this.Street.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Street.AppearanceHeader.Options.UseFont = true;
-            this.Street.Caption = "Street";
+            this.Street.Caption = "Strasse";
             this.Street.FieldName = "Street";
             this.Street.Name = "Street";
             this.Street.Visible = true;
@@ -662,7 +670,7 @@
             this.PostalCode.AppearanceCell.Options.UseFont = true;
             this.PostalCode.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PostalCode.AppearanceHeader.Options.UseFont = true;
-            this.PostalCode.Caption = "Postal Code";
+            this.PostalCode.Caption = "PLZ";
             this.PostalCode.FieldName = "PostalCode";
             this.PostalCode.Name = "PostalCode";
             this.PostalCode.Visible = true;
@@ -674,7 +682,7 @@
             this.City.AppearanceCell.Options.UseFont = true;
             this.City.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.City.AppearanceHeader.Options.UseFont = true;
-            this.City.Caption = "City";
+            this.City.Caption = "Ort";
             this.City.FieldName = "City";
             this.City.Name = "City";
             this.City.Visible = true;
@@ -686,7 +694,7 @@
             this.Country.AppearanceCell.Options.UseFont = true;
             this.Country.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Country.AppearanceHeader.Options.UseFont = true;
-            this.Country.Caption = "Country";
+            this.Country.Caption = "LandBez";
             this.Country.FieldName = "Country";
             this.Country.Name = "Country";
             this.Country.Visible = true;
@@ -710,7 +718,7 @@
             this.Telephone.AppearanceCell.Options.UseFont = true;
             this.Telephone.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Telephone.AppearanceHeader.Options.UseFont = true;
-            this.Telephone.Caption = "Telephone";
+            this.Telephone.Caption = "Telefon";
             this.Telephone.FieldName = "Telephone";
             this.Telephone.Name = "Telephone";
             this.Telephone.Visible = true;
@@ -734,7 +742,7 @@
             this.EmailID.AppearanceCell.Options.UseFont = true;
             this.EmailID.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EmailID.AppearanceHeader.Options.UseFont = true;
-            this.EmailID.Caption = "E-Mail";
+            this.EmailID.Caption = "EMail";
             this.EmailID.FieldName = "EmailID";
             this.EmailID.Name = "EmailID";
             this.EmailID.Visible = true;
@@ -746,7 +754,7 @@
             this.TaxNumber.AppearanceCell.Options.UseFont = true;
             this.TaxNumber.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TaxNumber.AppearanceHeader.Options.UseFont = true;
-            this.TaxNumber.Caption = "TaxNumber";
+            this.TaxNumber.Caption = "UStIdent";
             this.TaxNumber.FieldName = "TaxNumber";
             this.TaxNumber.Name = "TaxNumber";
             // 
@@ -885,9 +893,9 @@
             this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(785, 242);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(504, 22);
+            this.label3.Size = new System.Drawing.Size(481, 22);
             this.label3.TabIndex = 13;
-            this.label3.Text = "Address :";
+            this.label3.Text = "Addresse :";
             // 
             // label2
             // 
@@ -896,7 +904,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 22);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Contact Person :";
+            this.label2.Text = "AnsprPartner :";
             // 
             // label1
             // 
@@ -905,39 +913,39 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(161, 22);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Customers :";
+            this.label1.Text = "Kunden :";
             // 
             // btnAddressAdd
             // 
             this.btnAddressAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
-            this.btnAddressAdd.Location = new System.Drawing.Point(1293, 242);
+            this.btnAddressAdd.Location = new System.Drawing.Point(1270, 242);
             this.btnAddressAdd.Name = "btnAddressAdd";
-            this.btnAddressAdd.Size = new System.Drawing.Size(59, 22);
+            this.btnAddressAdd.Size = new System.Drawing.Size(82, 22);
             this.btnAddressAdd.StyleController = this.layoutControl1;
             this.btnAddressAdd.TabIndex = 10;
-            this.btnAddressAdd.Text = "Add";
+            this.btnAddressAdd.Text = "Hinzufügen";
             this.btnAddressAdd.Click += new System.EventHandler(this.btnAddressAdd_Click);
             // 
             // btnContactAdd
             // 
             this.btnContactAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
-            this.btnContactAdd.Location = new System.Drawing.Point(1293, 12);
+            this.btnContactAdd.Location = new System.Drawing.Point(1270, 12);
             this.btnContactAdd.Name = "btnContactAdd";
-            this.btnContactAdd.Size = new System.Drawing.Size(59, 22);
+            this.btnContactAdd.Size = new System.Drawing.Size(82, 22);
             this.btnContactAdd.StyleController = this.layoutControl1;
             this.btnContactAdd.TabIndex = 9;
-            this.btnContactAdd.Text = "Add";
+            this.btnContactAdd.Text = "Hinzufügen";
             this.btnContactAdd.Click += new System.EventHandler(this.btnContactAdd_Click);
             // 
             // btnCustomerAdd
             // 
             this.btnCustomerAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
-            this.btnCustomerAdd.Location = new System.Drawing.Point(729, 12);
+            this.btnCustomerAdd.Location = new System.Drawing.Point(699, 12);
             this.btnCustomerAdd.Name = "btnCustomerAdd";
-            this.btnCustomerAdd.Size = new System.Drawing.Size(52, 22);
+            this.btnCustomerAdd.Size = new System.Drawing.Size(82, 22);
             this.btnCustomerAdd.StyleController = this.layoutControl1;
             this.btnCustomerAdd.TabIndex = 8;
-            this.btnCustomerAdd.Text = "Add";
+            this.btnCustomerAdd.Text = "Hinzufügen";
             this.btnCustomerAdd.Click += new System.EventHandler(this.btnCustomerAdd_Click);
             // 
             // layoutControlGroup1
@@ -972,7 +980,7 @@
             this.emptySpaceItem3.Location = new System.Drawing.Point(165, 0);
             this.emptySpaceItem3.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(552, 26);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(522, 26);
             this.emptySpaceItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -981,7 +989,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(1009, 439);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(272, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(249, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -990,18 +998,18 @@
             this.emptySpaceItem4.Location = new System.Drawing.Point(901, 0);
             this.emptySpaceItem4.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(380, 26);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(357, 26);
             this.emptySpaceItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnContactAdd;
-            this.layoutControlItem6.Location = new System.Drawing.Point(1281, 0);
-            this.layoutControlItem6.MaxSize = new System.Drawing.Size(63, 26);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(63, 26);
+            this.layoutControlItem6.Location = new System.Drawing.Point(1258, 0);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(86, 26);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(86, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(63, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(86, 26);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -1009,11 +1017,11 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnAddressAdd;
-            this.layoutControlItem7.Location = new System.Drawing.Point(1281, 230);
-            this.layoutControlItem7.MaxSize = new System.Drawing.Size(63, 26);
-            this.layoutControlItem7.MinSize = new System.Drawing.Size(63, 26);
+            this.layoutControlItem7.Location = new System.Drawing.Point(1258, 230);
+            this.layoutControlItem7.MaxSize = new System.Drawing.Size(86, 26);
+            this.layoutControlItem7.MinSize = new System.Drawing.Size(86, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(63, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(86, 26);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
@@ -1043,7 +1051,7 @@
             this.layoutControlItem10.Control = this.label3;
             this.layoutControlItem10.Location = new System.Drawing.Point(773, 230);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(508, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(485, 26);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
@@ -1077,11 +1085,11 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnCustomerAdd;
-            this.layoutControlItem5.Location = new System.Drawing.Point(717, 0);
-            this.layoutControlItem5.MaxSize = new System.Drawing.Size(56, 26);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(56, 26);
+            this.layoutControlItem5.Location = new System.Drawing.Point(687, 0);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(86, 26);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(86, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(56, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(86, 26);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -1098,11 +1106,11 @@
             // layoutControlItem12
             // 
             this.layoutControlItem12.Control = this.btnAddInvoice;
-            this.layoutControlItem12.Location = new System.Drawing.Point(1281, 439);
-            this.layoutControlItem12.MaxSize = new System.Drawing.Size(63, 26);
-            this.layoutControlItem12.MinSize = new System.Drawing.Size(63, 26);
+            this.layoutControlItem12.Location = new System.Drawing.Point(1258, 439);
+            this.layoutControlItem12.MaxSize = new System.Drawing.Size(86, 26);
+            this.layoutControlItem12.MinSize = new System.Drawing.Size(86, 26);
             this.layoutControlItem12.Name = "layoutControlItem12";
-            this.layoutControlItem12.Size = new System.Drawing.Size(63, 26);
+            this.layoutControlItem12.Size = new System.Drawing.Size(86, 26);
             this.layoutControlItem12.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
@@ -1116,14 +1124,6 @@
             this.layoutControlItem13.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem13.TextVisible = false;
             // 
-            // memoEditCommentary
-            // 
-            this.memoEditCommentary.Location = new System.Drawing.Point(12, 472);
-            this.memoEditCommentary.Name = "memoEditCommentary";
-            this.memoEditCommentary.Size = new System.Drawing.Size(769, 221);
-            this.memoEditCommentary.TabIndex = 20;
-            this.memoEditCommentary.Text = "";
-            // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1132,9 +1132,9 @@
             this.layoutControlItem14.Location = new System.Drawing.Point(0, 444);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(773, 241);
-            this.layoutControlItem14.Text = "Commentary :";
+            this.layoutControlItem14.Text = "Kommentar :";
             this.layoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(80, 13);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(73, 13);
             // 
             // frmLoadCustomerMaster
             // 
@@ -1143,7 +1143,7 @@
             this.ClientSize = new System.Drawing.Size(1364, 705);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmLoadCustomerMaster";
-            this.Text = "Customer Master Details";
+            this.Text = "Stammdaten Kunden";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLoadCustomerMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoExEdit1)).EndInit();

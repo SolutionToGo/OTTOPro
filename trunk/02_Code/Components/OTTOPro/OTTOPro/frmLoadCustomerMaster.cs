@@ -63,7 +63,14 @@ namespace OTTOPro
             {
                 if (_CustomerID == -1)
                 {
-                    throw new Exception("Please Select the Customer.!");
+                    if (Utility._IsGermany == true)
+                    {
+                        throw new Exception("Bitte wählen Sie einen Kunden aus");
+                    }
+                    else
+                    {
+                        throw new Exception("Please Select the Customer.!");
+                    }
                 }
                 ObjECustomer = new ECustomer();
                 ObjECustomer.ContactPersonID = -1;
@@ -88,7 +95,14 @@ namespace OTTOPro
             {
                 if (_CustomerID == -1)
                 {
-                    throw new Exception("Please Select the Customer.!");
+                    if (Utility._IsGermany == true)
+                    {
+                        throw new Exception("Bitte wählen Sie einen Kunden aus");
+                    }
+                    else
+                    {
+                        throw new Exception("Please Select the Customer.!");
+                    }
                 }
                 ObjECustomer = new ECustomer();
                 ObjECustomer.AddressID = -1;

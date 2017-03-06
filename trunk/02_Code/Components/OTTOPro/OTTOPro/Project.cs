@@ -1585,7 +1585,14 @@ namespace OTTOPro
                     }
                     else
                     {
-                        throw new Exception("No LV Positions to Order");
+                        if (Utility._IsGermany == true)
+                        {
+                            throw new Exception("Keine LV Positionen.");
+                        }
+                        else
+                        {
+                            throw new Exception("No LV Positions to Order.");
+                        }
                     }
                 }
                 else
@@ -5422,7 +5429,16 @@ e.Column.FieldName == "GB")
                         BindPositionData();
                     }
                     else
-                        throw new Exception("Add special cost to distribute");
+                    {
+                        if (Utility._IsGermany == true)
+                        {
+                            throw new Exception("Bitte fügen Sie Generelle Kosten zur Verteilung hinzu");
+                        }
+                        else
+                        {
+                            throw new Exception("Add special cost to distribute");
+                        }
+                    }                        
             }
             catch (Exception ex)
             {
