@@ -3478,6 +3478,7 @@ namespace OTTOPro
         {
             try
             {
+                ObjBProject.GetProjectDetails(ObjEProject);
                 BindPositionData();
                 if (ObjEProject.ActualLvs == 0)
                 {
@@ -5093,6 +5094,7 @@ e.Column.FieldName == "GB")
         {
             try
             {
+                ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
                 {
                     if (objBGAEB == null)
@@ -5125,6 +5127,7 @@ e.Column.FieldName == "GB")
         {
             try
             {
+                ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
                 {
                     if (objBGAEB == null)
@@ -5377,6 +5380,7 @@ e.Column.FieldName == "GB")
         {
             try
             {
+                ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber == string.Empty && ObjEProject.ActualLvs > 0)
                 {
                     if (ObjEUmlage == null)
