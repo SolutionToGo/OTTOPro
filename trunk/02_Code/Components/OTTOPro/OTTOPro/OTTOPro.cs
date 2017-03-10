@@ -134,13 +134,11 @@ namespace OTTOPro
                         return;
                     }
                 }
-                {
                     frmLoadCustomerMaster Obj = new frmLoadCustomerMaster();
                     Obj.MdiParent = this;
                     label2.Visible = false;
                     pictureBox1.Visible = false;
                     Obj.Show();                    
-                }               
             }
             catch (Exception ex)
             {
@@ -170,6 +168,23 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
+        }
+
+        private void btnSupplier_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name == "frmLoadSupplier")
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            frmLoadSupplier Obj = new frmLoadSupplier();
+            Obj.MdiParent = this;
+            label2.Visible = false;
+            pictureBox1.Visible = false;
+            Obj.Show();
         }
 
 

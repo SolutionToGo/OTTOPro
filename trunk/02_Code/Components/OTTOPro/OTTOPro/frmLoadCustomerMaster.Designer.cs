@@ -241,12 +241,12 @@
             this.gvInvoiceHistory.OptionsBehavior.Editable = false;
             this.gvInvoiceHistory.OptionsBehavior.ReadOnly = true;
             this.gvInvoiceHistory.OptionsFind.AlwaysVisible = true;
+            this.gvInvoiceHistory.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvInvoiceHistory.OptionsFind.ShowFindButton = false;
             this.gvInvoiceHistory.OptionsMenu.EnableColumnMenu = false;
             this.gvInvoiceHistory.OptionsMenu.EnableFooterMenu = false;
             this.gvInvoiceHistory.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvInvoiceHistory.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gvInvoiceHistory.OptionsView.ColumnAutoWidth = false;
             this.gvInvoiceHistory.OptionsView.ShowGroupPanel = false;
             // 
             // gcAddress
@@ -290,12 +290,12 @@
             this.gvAddress.OptionsBehavior.Editable = false;
             this.gvAddress.OptionsBehavior.ReadOnly = true;
             this.gvAddress.OptionsFind.AlwaysVisible = true;
+            this.gvAddress.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvAddress.OptionsFind.ShowFindButton = false;
             this.gvAddress.OptionsMenu.EnableColumnMenu = false;
             this.gvAddress.OptionsMenu.EnableFooterMenu = false;
             this.gvAddress.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvAddress.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gvAddress.OptionsView.ColumnAutoWidth = false;
             this.gvAddress.OptionsView.ShowGroupPanel = false;
             this.gvAddress.DoubleClick += new System.EventHandler(this.gvAddress_DoubleClick);
             // 
@@ -433,12 +433,12 @@
             this.gvContacts.OptionsBehavior.Editable = false;
             this.gvContacts.OptionsBehavior.ReadOnly = true;
             this.gvContacts.OptionsFind.AlwaysVisible = true;
+            this.gvContacts.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvContacts.OptionsFind.ShowFindButton = false;
             this.gvContacts.OptionsMenu.EnableColumnMenu = false;
             this.gvContacts.OptionsMenu.EnableFooterMenu = false;
             this.gvContacts.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvContacts.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gvContacts.OptionsView.ColumnAutoWidth = false;
             this.gvContacts.OptionsView.ShowGroupPanel = false;
             this.gvContacts.DoubleClick += new System.EventHandler(this.gvContacts_DoubleClick);
             // 
@@ -607,12 +607,12 @@
             this.gvCustomers.OptionsCustomization.AllowColumnMoving = false;
             this.gvCustomers.OptionsFilter.AllowFilterEditor = false;
             this.gvCustomers.OptionsFind.AlwaysVisible = true;
+            this.gvCustomers.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvCustomers.OptionsFind.ShowFindButton = false;
             this.gvCustomers.OptionsMenu.EnableColumnMenu = false;
             this.gvCustomers.OptionsMenu.EnableFooterMenu = false;
             this.gvCustomers.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvCustomers.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gvCustomers.OptionsView.ColumnAutoWidth = false;
             this.gvCustomers.OptionsView.RowAutoHeight = true;
             this.gvCustomers.OptionsView.ShowGroupPanel = false;
             this.gvCustomers.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCustomers_FocusedRowChanged);

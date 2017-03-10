@@ -238,6 +238,12 @@
     <Compile Include="frmSelectCustomer.Designer.cs">
       <DependentUpon>frmSelectCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSelectArticle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectArticle.Designer.cs">
+      <DependentUpon>frmSelectArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmShortCuts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -317,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectCustomer.resx">
       <DependentUpon>frmSelectCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectArticle.resx">
+      <DependentUpon>frmSelectArticle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmShortCuts.resx">
       <DependentUpon>frmShortCuts.cs</DependentUpon>

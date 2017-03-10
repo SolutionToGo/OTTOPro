@@ -128,6 +128,7 @@
             this.dgProjectSearch.Name = "dgProjectSearch";
             this.dgProjectSearch.OptionsBehavior.ReadOnly = true;
             this.dgProjectSearch.OptionsFind.AlwaysVisible = true;
+            this.dgProjectSearch.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.dgProjectSearch.OptionsFind.ShowFindButton = false;
             this.dgProjectSearch.OptionsView.ShowFooter = true;
             this.dgProjectSearch.OptionsView.ShowGroupPanel = false;

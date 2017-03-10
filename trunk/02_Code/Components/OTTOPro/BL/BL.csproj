@@ -54,6 +54,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BArticles.cs" />
     <Compile Include="BCustomer.cs" />
     <Compile Include="BGAEB.cs" />
     <Compile Include="BMulti.cs" />

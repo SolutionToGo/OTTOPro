@@ -5141,15 +5141,14 @@ e.Column.FieldName == "GB")
                 Utility.ShowError(ex);
             }
         }
-        #endregion
 
         private void btnMulti5LoadArticles_Click(object sender, EventArgs e)
         {
             try
             {
-                if(ObjEMulti == null)
+                if (ObjEMulti == null)
                     ObjEMulti = new EMulti();
-                if(ObjBMulti == null)
+                if (ObjBMulti == null)
                     ObjBMulti = new BMulti();
                 ObjEMulti.ProjectID = ObjEProject.ProjectID;
                 ObjEMulti.LVSection = cmbLVSectionFilter.Text;
@@ -5199,18 +5198,6 @@ e.Column.FieldName == "GB")
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        private void cmbLVSectionFilter_Closed(object sender, ClosedEventArgs e)
-        {
-            try
-            {
-                btnMulti5LoadArticles_Click(null, null);
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -5314,6 +5301,21 @@ e.Column.FieldName == "GB")
                 Utility.ShowError(EX);
             }
         }
+
+        private void cmbLVSectionFilter_Closed(object sender, ClosedEventArgs e)
+        {
+            try
+            {
+                btnMulti5LoadArticles_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        #endregion
+
 
         private void EnableAndDisableAllControls(bool result)
         {
@@ -5454,12 +5456,19 @@ e.Column.FieldName == "GB")
 
         private void txtKundeNo_ButtonClick(object sender, ButtonPressedEventArgs e)
         {
-            frmSelectCustomer frm = new frmSelectCustomer();
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
+            try
             {
-                txtKundeNo.Text = frm.CustomerID;
-                txtKundeName.Text = frm.FullName;
+                frmSelectCustomer frm = new frmSelectCustomer();
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    txtKundeNo.Text = frm.CustomerID;
+                    txtKundeName.Text = frm.FullName;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
@@ -5499,6 +5508,7 @@ e.Column.FieldName == "GB")
             txtBulkProcessWG.Text = "";
             txtBulkProcessWA.Text = "";
         }
+        
 
     }
 }

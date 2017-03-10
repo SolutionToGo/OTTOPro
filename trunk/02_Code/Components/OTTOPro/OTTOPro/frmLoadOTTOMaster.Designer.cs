@@ -187,6 +187,7 @@
             this.gvOTTOContact.OptionsCustomization.AllowColumnMoving = false;
             this.gvOTTOContact.OptionsFilter.AllowFilterEditor = false;
             this.gvOTTOContact.OptionsFind.AlwaysVisible = true;
+            this.gvOTTOContact.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvOTTOContact.OptionsFind.ShowFindButton = false;
             this.gvOTTOContact.OptionsMenu.EnableColumnMenu = false;
             this.gvOTTOContact.OptionsMenu.EnableFooterMenu = false;
@@ -340,6 +341,7 @@
             this.gvOTTO.OptionsCustomization.AllowColumnMoving = false;
             this.gvOTTO.OptionsFilter.AllowFilterEditor = false;
             this.gvOTTO.OptionsFind.AlwaysVisible = true;
+            this.gvOTTO.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvOTTO.OptionsFind.ShowFindButton = false;
             this.gvOTTO.OptionsMenu.EnableColumnMenu = false;
             this.gvOTTO.OptionsMenu.EnableFooterMenu = false;

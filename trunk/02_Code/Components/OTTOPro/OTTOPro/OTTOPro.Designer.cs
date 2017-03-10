@@ -65,6 +65,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,9 +95,10 @@
             this.barButtonItem6,
             this.barButtonItemExitProject,
             this.btnCustomer,
-            this.btnOTTO});
+            this.btnOTTO,
+            this.btnSupplier});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 28;
+            this.ribbon.MaxItemId = 29;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome});
@@ -257,6 +259,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLoadProject, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCustomer, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnOTTO, true);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnSupplier, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnShortCuts, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemSave, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemExitProject, true);
@@ -334,6 +337,13 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Version 1.4 (06-03-2017)";
             // 
+            // btnSupplier
+            // 
+            this.btnSupplier.Caption = "Supplier";
+            this.btnSupplier.Id = 28;
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSupplier_ItemClick);
+            // 
             // frmOTTOPro
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -398,5 +408,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItemExitProject;
         private DevExpress.XtraBars.BarButtonItem btnCustomer;
         private DevExpress.XtraBars.BarButtonItem btnOTTO;
+        private DevExpress.XtraBars.BarButtonItem btnSupplier;
     }
 }
