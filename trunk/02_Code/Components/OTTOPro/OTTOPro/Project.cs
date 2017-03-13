@@ -47,6 +47,8 @@ namespace OTTOPro
         public bool _IsNewMode = false;
         public int iSNO = -1;
         public bool _IsAddhoc = false;
+        public int iRasterCount = 0;
+        private bool _IsDot = true;
 
         private string _DocuwareLink1;
         private string _DocuwareLink2;
@@ -501,57 +503,56 @@ namespace OTTOPro
                     int Count = Levels.Length;
                     if (Levels[Count - 1].Length == 1)
                         Count -= 1;
-                    if (Count < 5)
+                    iRasterCount = Count;
+                    if (Count < 3)
                     {
-                        //lblstufe4.Visible = false;
+                        txtStufe1Short.Properties.MaxLength = Levels[0].Length;
+                        txtPosition.Properties.MaxLength = (Levels[1] + Levels[2]).Length + 1;
+                        lciStufe2Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciStufe2Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciStufe3Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-
-                        lciStufe3Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    }
+                    else if (Count < 4)
+                    {
+                        txtStufe1Short.Properties.MaxLength = Levels[0].Length;
+                        txtStufe2Short.Properties.MaxLength = Levels[1].Length;
+                        txtPosition.Properties.MaxLength = (Levels[2] + Levels[3]).Length + 1;
                         lciStufe2Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe2Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-
-                        if (Count < 4)
-                        {
-                            //lblstufe3.Visible = false;
-                            lciStufe3Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                            lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-
-                            if (Count < 3)
-                            {
-                                //lblstufe2.Visible = false;
-                                lciStufe2Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                                lciStufe2Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-
-                                RequiredPositionFieldsforTitle.Add(txtStufe1Short);
-                            }
-                            else
-                            {
-                                RequiredPositionFieldsforTitle.Add(txtStufe1Short);
-                                RequiredPositionFieldsforTitle.Add(txtStufe2Short);
-                            }
-                        }
-                        else
-                        {
-                            RequiredPositionFieldsforTitle.Add(txtStufe1Short);
-                            RequiredPositionFieldsforTitle.Add(txtStufe2Short);
-                            RequiredPositionFieldsforTitle.Add(txtStufe3Short);
-                        }
+                        lciStufe3Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    }
+                    else if (Count < 5)
+                    {
+                        txtStufe1Short.Properties.MaxLength = Levels[0].Length;
+                        txtStufe2Short.Properties.MaxLength = Levels[1].Length;
+                        txtStufe3Short.Properties.MaxLength = Levels[2].Length;
+                        txtPosition.Properties.MaxLength = (Levels[3] + Levels[4]).Length + 1;
+                        lciStufe2Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciStufe2Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciStufe3Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     }
                     else
                     {
-                        lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        lciStufe3Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        txtStufe1Short.Properties.MaxLength = Levels[0].Length;
+                        txtStufe2Short.Properties.MaxLength = Levels[1].Length;
+                        txtStufe3Short.Properties.MaxLength = Levels[2].Length;
+                        txtStufe4Short.Properties.MaxLength = Levels[3].Length;
+                        txtPosition.Properties.MaxLength = (Levels[4] + Levels[5]).Length + 1;
                         lciStufe2Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe2Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-
-                        RequiredPositionFieldsforTitle.Add(txtStufe1Short);
-                        RequiredPositionFieldsforTitle.Add(txtStufe2Short);
-                        RequiredPositionFieldsforTitle.Add(txtStufe3Short);
-                        RequiredPositionFieldsforTitle.Add(txtStufe4Short);
+                        lciStufe3Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     }
                 }
             }
@@ -568,6 +569,7 @@ namespace OTTOPro
                 int iValue = 0;
                 decimal dValue = 0;
                 DateTime dt = DateTime.Now;
+                ObjEPosition.RasterCount = iRasterCount;
                 ObjEPosition.PositionID = _PositionID;
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
                 ObjEPosition.Stufe1 = txtStufe1Short.Text;
@@ -2361,6 +2363,7 @@ namespace OTTOPro
                     btnMulti6.BackColor = Color.Silver;
                     btnLvdetails.Focus();
                     tsProjectStatus.Text = "";
+                    IntializeLVPositions();
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails")
                 {

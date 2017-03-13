@@ -97,6 +97,7 @@ namespace EL
         private decimal _FinalGB;
         private decimal _EP;
         private int _SNO;
+        private int _RasterCount;
 
         // LV DEtails Properties
         public int PositionID
@@ -521,6 +522,11 @@ namespace EL
         {
             get { return _SNO; }
             set { _SNO = value; }
+        }
+        public int RasterCount
+        {
+            get { return _RasterCount; }
+            set { _RasterCount = value; }
         }
     }
 }

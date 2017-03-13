@@ -17,7 +17,7 @@ namespace DataAccess
 {
     public class DPosition
     {
-        public int SavePositionDetails(XmlDocument XmlDoc,string LongDescription)
+        public int SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription)
         {
             int ProjectID = -1;
             try
@@ -33,6 +33,7 @@ namespace DataAccess
                     SqlParameter param = new SqlParameter("@XMLPositions", SqlDbType.Xml);
                     param.Value = innerxml;
                     cmd.Parameters.Add(param);
+                    cmd.Parameters.AddWithValue("@ProjectID", iProjectID);
                     cmd.Parameters.AddWithValue("@LongDescription", LongDescription);
 
                     object returnObj = cmd.ExecuteScalar();

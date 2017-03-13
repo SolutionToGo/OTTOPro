@@ -301,8 +301,9 @@ namespace BL
                    {
                        if (!xnOZ.InnerText.Contains("Z"))
                        {
-                           drLVPos["OZ"] = xnOZ.InnerText.Replace(" ","");
-                       }else
+                           drLVPos["OZ"] = xnOZ.InnerText;
+                       }
+                       else
                        {
                            continue;
                        }
@@ -410,26 +411,28 @@ namespace BL
         private string GetParentOZ(string strPositionOZ)
         {
             string[] strOZ = strPositionOZ.Split('.');
-            string strParentOZ = string.Empty;
+            StringBuilder strParentOZ = new StringBuilder();
             try
             {
                 if (strOZ != null && strOZ.Count() > 2)
                 {
-                    if (strOZ.Count() > 5)
+                    if (strOZ.Count() > 2)
                     {
-                        strParentOZ = strOZ[0] + "." + strOZ[1] + "." + strOZ[2] + "." + strOZ[3] + ".";
-                    }
-                    else if (strOZ.Count() > 4)
-                    {
-                        strParentOZ = strOZ[0] + "." + strOZ[1] + "." + strOZ[2] + ".";
-                    }
-                    else if (strOZ.Count() > 3)
-                    {
-                        strParentOZ = strOZ[0] + "." + strOZ[1] + ".";
-                    }
-                    else if (strOZ.Count() > 2)
-                    {
-                        strParentOZ = strOZ[0] + ".";
+                        strParentOZ.Append(strOZ[0] + ".");
+                        if (strOZ.Count() > 3)
+                        {
+                            if (!string.IsNullOrEmpty(strOZ[1].Trim()))
+                                strParentOZ.Append(strOZ[1] + ".");
+                            if (strOZ.Count() > 4)
+                            {
+                                if (!string.IsNullOrEmpty(strOZ[2].Trim()))
+                                strParentOZ.Append(strOZ[2] + ".");
+                                if (strOZ.Count() > 5 && !string.IsNullOrEmpty(strOZ[3].Trim()))
+                                {
+                                    strParentOZ.Append(strOZ[3] + ".");
+                                }
+                            }
+                        }
                     }
                 }
             }

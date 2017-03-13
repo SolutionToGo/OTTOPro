@@ -101,7 +101,7 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EP", ObjEPosition.EP.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SNO", ObjEPosition.SNO.ToString());
 
-                PositionID = ObjDPosition.SavePositionDetails(Xdoc, ObjEPosition.LongDescription);
+                PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription);
                 if (PositionID < 0)
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
@@ -161,11 +161,12 @@ namespace BL
                     //Checking stufe existence
                     if (!string.IsNullOrEmpty(ObjEPosition.Stufe1)) //1
                     {
-                        strPositionOZ.Append(ObjEPosition.Stufe1 + ".");
+                        strPositionOZ.Append(ObjEPosition.Stufe1 + "."); 
                         if (!string.IsNullOrEmpty(ObjEPosition.Position))//1
                             strParentOZ.Append(ObjEPosition.Stufe1 + ".");//1
                     }
-                    if (!string.IsNullOrEmpty(ObjEPosition.Stufe2))//1
+
+                    if (!string.IsNullOrEmpty(ObjEPosition.Stufe2.Trim()))//1
                     {
                         strPositionOZ.Append(ObjEPosition.Stufe2 + ".");//1.1
                         if (!string.IsNullOrEmpty(ObjEPosition.Position))//1
@@ -175,7 +176,15 @@ namespace BL
                             strParentOZ.Append(ObjEPosition.Stufe1 + ".");//1
                         }
                     }
-                    if (!string.IsNullOrEmpty(ObjEPosition.Stufe3))//1
+                    else if(ObjEPosition.RasterCount > 2)
+                    {
+                        if(!string.IsNullOrEmpty(ObjEPosition.Position))
+                        {
+                            strPositionOZ.Append("  .");
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(ObjEPosition.Stufe3.Trim()))//1
                     {
                         strPositionOZ.Append(ObjEPosition.Stufe3 + ".");//1.1.1
                         if (!string.IsNullOrEmpty(ObjEPosition.Position))//1
@@ -185,7 +194,15 @@ namespace BL
                             strParentOZ.Append(ObjEPosition.Stufe2 + ".");//1.1
                         }
                     }
-                    if (!string.IsNullOrEmpty(ObjEPosition.Stufe4))//1
+                    else if(ObjEPosition.RasterCount > 3)
+                    {
+                        if(!string.IsNullOrEmpty(ObjEPosition.Position))
+                        {
+                            strPositionOZ.Append("  .");
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(ObjEPosition.Stufe4.Trim()))//1
                     {
                         strPositionOZ.Append(ObjEPosition.Stufe4 + ".");//1.1.1.1
                         if (!string.IsNullOrEmpty(ObjEPosition.Position))//1
@@ -195,7 +212,15 @@ namespace BL
                             strParentOZ.Append(ObjEPosition.Stufe3 + ".");//1.1.1
                         }
                     }
-                    if (!string.IsNullOrEmpty(ObjEPosition.Position))
+                    else if(ObjEPosition.RasterCount > 4)
+                    {
+                        if(!string.IsNullOrEmpty(ObjEPosition.Position))
+                        {
+                            strPositionOZ.Append("  .");
+                        }
+                    }
+
+                    if (!string.IsNullOrEmpty(ObjEPosition.Position.Trim()))
                     {
                         if (ObjEPosition.Position.Contains('.'))
                             strPositionOZ.Append(ObjEPosition.Position);
@@ -203,9 +228,9 @@ namespace BL
                             strPositionOZ.Append(ObjEPosition.Position + ".");
                         ObjEPosition.Title = string.Empty;
                     }
-                    //Assogning the final values to entities
-                    ObjEPosition.Parent_OZ = strParentOZ.ToString();
+                    
                     ObjEPosition.Position_OZ = strPositionOZ.ToString();
+                    ObjEPosition.Parent_OZ = strParentOZ.ToString();
                 }
                 else
                 {
