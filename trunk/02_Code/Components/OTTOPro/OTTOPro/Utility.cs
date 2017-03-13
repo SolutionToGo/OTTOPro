@@ -147,5 +147,52 @@ namespace OTTOPro
                 throw;
             }
         }
+
+        public static string PrepareOZ(string strOZ, string strRaster)
+        {
+            string str = string.Empty;
+            try
+            {
+                string[] strPOZ = strOZ.Split('.');
+                string[] strPRaster = strRaster.Split('.');
+                int Count = -1;
+                int i = -1;
+                Count = strPOZ.Count();
+                while (Count > 0)
+                {
+                    i = i + 1;
+                    Count = Count - 1;
+                    string OZ = string.Empty;
+                    int OZLength = 0;
+                    int RasterLength = 0;
+
+                    OZ = strPOZ[i];
+                    RasterLength = strPRaster[i].Length;
+                    OZLength = strPOZ[i].Length;
+
+
+                    if(Count == 0)
+                    {
+                       if(RasterLength == 1 && OZLength > 0)
+                       {
+                           str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ;
+                       }
+                       else if (OZLength > 0)
+                       {
+                           str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
+                       }
+                    }
+                    else
+                    {
+                        str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return str;
+        }
     }
 }

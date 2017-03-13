@@ -258,7 +258,7 @@ namespace DataAccess
                     }
                     else
                     {
-                        throw ex;
+                        throw;
                     }
                 }
                 else

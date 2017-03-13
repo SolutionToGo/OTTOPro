@@ -2278,7 +2278,7 @@ namespace OTTOPro
             }
             catch (Exception ex)
             {
-                throw ex;
+                throw;
             }
             return dreturnvalue;
         }
@@ -2810,21 +2810,21 @@ namespace OTTOPro
             {
                 StringBuilder strParentOZ = new StringBuilder();
                 //Checking stufe existence
-                if (!string.IsNullOrEmpty(txtStufe1Short.Text)) //1
+                if (!string.IsNullOrEmpty(txtStufe1Short.Text.Trim())) //1
                 {
                     strParentOZ.Append(txtStufe1Short.Text + ".");//1
-                    if (!string.IsNullOrEmpty(txtStufe2Short.Text))//1
+                    if (!string.IsNullOrEmpty(txtStufe2Short.Text.Trim()))//1
                     {
                         strParentOZ.Append(txtStufe2Short.Text + ".");//1.1
-                        if (!string.IsNullOrEmpty(txtStufe3Short.Text))//1
+                        if (!string.IsNullOrEmpty(txtStufe3Short.Text.Trim()))//1
                         {
                             strParentOZ.Append(txtStufe3Short.Text + ".");//1.1.1
-                            if (!string.IsNullOrEmpty(txtStufe4Short.Text))//1
+                            if (!string.IsNullOrEmpty(txtStufe4Short.Text.Trim()))//1
                                 strParentOZ.Append(txtStufe4Short.Text + ".");//1.1.1.1
                         }
                     }
                 }
-                return strParentOZ.ToString();
+                return Utility.PrepareOZ(strParentOZ.ToString(),ObjEProject.LVRaster);
             }
             catch (Exception ex)
             {
@@ -2832,7 +2832,7 @@ namespace OTTOPro
             }
         }
 
-        private string SuggestOZ(string strParent)
+        private string  SuggestOZ(string strParent)
         {
             string strNewOZ = string.Empty;
             try
