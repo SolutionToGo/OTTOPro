@@ -110,10 +110,10 @@ namespace BL
                 if(dsTMLPositionsData != null && dsTMLPositionsData.Tables.Count > 1)
                 {
                     DataColumn ParentColumn, ChildColumn; DataRelation dr;
-                    for (int i = 0; i < dsTMLPositionsData.Tables.Count-1; i++)
+                    for (int i = dsTMLPositionsData.Tables.Count - 1; i > 0; i--)
                     {
                         ParentColumn = dsTMLPositionsData.Tables[i].Columns["PositionID"];
-                        ChildColumn = dsTMLPositionsData.Tables[i + 1].Columns["Parent_OZ"];
+                        ChildColumn = dsTMLPositionsData.Tables[i - 1].Columns["Parent_OZ"];
                         dr = new DataRelation("Relation" + i, ParentColumn, ChildColumn);
                         dr.Nested = true;
                         dsTMLPositionsData.Relations.Add(dr);
