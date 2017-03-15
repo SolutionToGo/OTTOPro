@@ -3780,7 +3780,18 @@ namespace OTTOPro
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            gvAddRemovePositions.Rows.Add();
+            try
+            {
+                if (cmbBulkProcessSelection.Text == "")
+                {
+                    throw new Exception("Please select Typ.!");
+                }
+                gvAddRemovePositions.Rows.Add();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -3931,6 +3942,7 @@ namespace OTTOPro
                 {
                     tlBulkProcessPositionDetails.DataSource = ObjEPosition.dsPositionOZList;
                     tlBulkProcessPositionDetails.DataMember = "Positions";
+                    tlBulkProcessPositionDetails.ParentFieldName = "Parent_OZ";
                     tlBulkProcessPositionDetails.KeyFieldName = "PositionID";
                     tlBulkProcessPositionDetails.ForceInitialize();
                     tlBulkProcessPositionDetails.ExpandAll();
@@ -4119,24 +4131,27 @@ namespace OTTOPro
 
                 if (tlBulkProcessPositionDetails.DataSource != null)
                 {
-                    foreach (TreeListNode node in tlBulkProcessPositionDetails.Nodes)
+                    foreach (TreeListNode node in tlBulkProcessPositionDetails.GetNodeList())
                     {
-                        DataRow drPos = dtPos.NewRow();
-                        string tID = node["PositionID"].ToString();
-                        string tMA_Selbstkosten = node["MA_selbstkostenMulti"].ToString();
-                        string tMO_Selbstkosten = node["MO_selbstkostenMulti"].ToString();
-                        string tMA_Verkaufspreis = node["MA_verkaufspreis_Multi"].ToString();
-                        string MO_Verkaufspreis = node["MO_verkaufspreisMulti"].ToString();
+                        string _PosKZ = node["PositionKZ"].ToString();
+                        if (_PosKZ != "NG")
+                        {
+                            DataRow drPos = dtPos.NewRow();
+                            string tID = node["PositionID"].ToString();
+                            string tMA_Selbstkosten = node["MA_selbstkostenMulti"].ToString();
+                            string tMO_Selbstkosten = node["MO_selbstkostenMulti"].ToString();
+                            string tMA_Verkaufspreis = node["MA_verkaufspreis_Multi"].ToString();
+                            string MO_Verkaufspreis = node["MO_verkaufspreisMulti"].ToString();
 
-                        drPos["ID"] = tID;
-                        drPos["MA_Selbstkosten"] = tMA_Selbstkosten.Replace(',','.');
-                        drPos["MO_Selbstkosten"] = tMO_Selbstkosten.Replace(',', '.');
-                        drPos["MA_Verkaufspreis"] = tMA_Verkaufspreis.Replace(',', '.');
-                        drPos["MO_Verkaufspreis"] = MO_Verkaufspreis.Replace(',', '.');
+                            drPos["ID"] = tID;
+                            drPos["MA_Selbstkosten"] = tMA_Selbstkosten.Replace(',', '.');
+                            drPos["MO_Selbstkosten"] = tMO_Selbstkosten.Replace(',', '.');
+                            drPos["MA_Verkaufspreis"] = tMA_Verkaufspreis.Replace(',', '.');
+                            drPos["MO_Verkaufspreis"] = MO_Verkaufspreis.Replace(',', '.');
 
-                        dtPos.Rows.Add(drPos);
+                            dtPos.Rows.Add(drPos);
+                        }                        
                     }
-
                 }
                 if (radioGroupActionA.SelectedIndex == 0)
                 {
@@ -4415,36 +4430,40 @@ namespace OTTOPro
 
                 if (tlBulkProcessPositionDetails.DataSource != null)
                 {
-                    foreach (TreeListNode node in tlBulkProcessPositionDetails.Nodes)
+                     foreach (TreeListNode node in tlBulkProcessPositionDetails.GetNodeList())
                     {
-                        DataRow drPos = dtPos.NewRow();
-                        string tID = node["PositionID"].ToString();
-                        string tmenge = node["Menge"].ToString();
-                        string tMA = node["MA"].ToString();
-                        string tMO = node["MO"].ToString();
-                        string tperisText = node["PreisText"].ToString();
-                        string tFabricat = node["Fabricate"].ToString();
-                        string t_Type = node["Type"].ToString();
-                        string tLiefrantMA = node["LiefrantMA"].ToString();
-                        string tWG = node["WG"].ToString();
-                        string tWA = node["WA"].ToString();
-                        string tWI = node["WI"].ToString();
-                        string tLVSection = node["LVSection"].ToString();
+                        string _PosKZ = node["PositionKZ"].ToString();
+                        if (_PosKZ != "NG")
+                        {
+                            DataRow drPos = dtPos.NewRow();
+                            string tID = node["PositionID"].ToString();
+                            string tmenge = node["Menge"].ToString();
+                            string tMA = node["MA"].ToString();
+                            string tMO = node["MO"].ToString();
+                            string tperisText = node["PreisText"].ToString();
+                            string tFabricat = node["Fabricate"].ToString();
+                            string t_Type = node["Type"].ToString();
+                            string tLiefrantMA = node["LiefrantMA"].ToString();
+                            string tWG = node["WG"].ToString();
+                            string tWA = node["WA"].ToString();
+                            string tWI = node["WI"].ToString();
+                            string tLVSection = node["LVSection"].ToString();
 
-                        drPos["ID"] = tID;
-                        drPos["Menge"] = tmenge;
-                        drPos["MA"] = tMA;
-                        drPos["MO"] = tMO;
-                        drPos["PreisText"] = tperisText;
-                        drPos["Fabricate"] = tFabricat;
-                        drPos["Type"] = t_Type;
-                        drPos["LiefrantMA"] = tLiefrantMA;
-                        drPos["WG"] = tWG;
-                        drPos["WA"] = tWA;
-                        drPos["WI"] = tWI;
-                        drPos["LVSection"] = tLVSection;
+                            drPos["ID"] = tID;
+                            drPos["Menge"] = tmenge;
+                            drPos["MA"] = tMA;
+                            drPos["MO"] = tMO;
+                            drPos["PreisText"] = tperisText;
+                            drPos["Fabricate"] = tFabricat;
+                            drPos["Type"] = t_Type;
+                            drPos["LiefrantMA"] = tLiefrantMA;
+                            drPos["WG"] = tWG;
+                            drPos["WA"] = tWA;
+                            drPos["WI"] = tWI;
+                            drPos["LVSection"] = tLVSection;
 
-                        dtPos.Rows.Add(drPos);
+                            dtPos.Rows.Add(drPos);
+                        }
                     }
 
                 }

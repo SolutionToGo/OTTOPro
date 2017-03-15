@@ -56,6 +56,7 @@
             this.barButtonItemExitProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.btnOTTO = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.BarButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
@@ -65,7 +66,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -246,6 +246,15 @@
             this.btnOTTO.Name = "btnOTTO";
             this.btnOTTO.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOTTO_ItemClick);
             // 
+            // btnSupplier
+            // 
+            this.btnSupplier.Caption = "Supplier";
+            this.btnSupplier.Id = 28;
+            this.btnSupplier.ImageOptions.Image = global::OTTOPro.Properties.Resources._1470736995_User_Customers;
+            this.btnSupplier.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources._1470736995_User_Customers;
+            this.btnSupplier.Name = "btnSupplier";
+            this.btnSupplier.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSupplier_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -336,13 +345,6 @@
             this.label1.Size = new System.Drawing.Size(154, 13);
             this.label1.TabIndex = 18;
             this.label1.Text = "Version 1.4 (06-03-2017)";
-            // 
-            // btnSupplier
-            // 
-            this.btnSupplier.Caption = "Supplier";
-            this.btnSupplier.Id = 28;
-            this.btnSupplier.Name = "btnSupplier";
-            this.btnSupplier.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSupplier_ItemClick);
             // 
             // frmOTTOPro
             // 
