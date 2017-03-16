@@ -250,6 +250,12 @@
     <Compile Include="frmShortCuts.Designer.cs">
       <DependentUpon>frmShortCuts.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSupplierMaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplierMaster.Designer.cs">
+      <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmViewdescription.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -329,6 +335,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmShortCuts.resx">
       <DependentUpon>frmShortCuts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplierMaster.resx">
+      <DependentUpon>frmSupplierMaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewdescription.resx">
       <DependentUpon>frmViewdescription.cs</DependentUpon>

@@ -31,9 +31,7 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txtWIDescription = new System.Windows.Forms.RichTextBox();
             this.txtWGDescription = new System.Windows.Forms.RichTextBox();
-            this.memoEditCommentary = new DevExpress.XtraEditors.MemoEdit();
             this.memoEdit2 = new DevExpress.XtraEditors.MemoEdit();
-            this.memoEditPaymentConditions = new DevExpress.XtraEditors.MemoEdit();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -73,17 +71,17 @@
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem12 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem14 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem16 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem17 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.memoEditPaymentConditions = new System.Windows.Forms.RichTextBox();
+            this.layoutControlItem18 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.memoEditCommentary = new System.Windows.Forms.RichTextBox();
+            this.layoutControlItem13 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEditCommentary.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEditPaymentConditions.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcArticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvArticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcAddress)).BeginInit();
@@ -109,22 +107,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
             this.layoutControl1.AllowCustomization = false;
+            this.layoutControl1.Controls.Add(this.memoEditCommentary);
+            this.layoutControl1.Controls.Add(this.memoEditPaymentConditions);
             this.layoutControl1.Controls.Add(this.txtWIDescription);
             this.layoutControl1.Controls.Add(this.txtWGDescription);
-            this.layoutControl1.Controls.Add(this.memoEditCommentary);
             this.layoutControl1.Controls.Add(this.memoEdit2);
-            this.layoutControl1.Controls.Add(this.memoEditPaymentConditions);
             this.layoutControl1.Controls.Add(this.label4);
             this.layoutControl1.Controls.Add(this.label3);
             this.layoutControl1.Controls.Add(this.label2);
@@ -164,32 +162,14 @@
             this.txtWGDescription.TabIndex = 19;
             this.txtWGDescription.Text = "";
             // 
-            // memoEditCommentary
-            // 
-            this.memoEditCommentary.Location = new System.Drawing.Point(12, 597);
-            this.memoEditCommentary.Name = "memoEditCommentary";
-            this.memoEditCommentary.Properties.ReadOnly = true;
-            this.memoEditCommentary.Size = new System.Drawing.Size(818, 103);
-            this.memoEditCommentary.StyleController = this.layoutControl1;
-            this.memoEditCommentary.TabIndex = 18;
-            // 
             // memoEdit2
             // 
-            this.memoEdit2.Location = new System.Drawing.Point(12, 497);
+            this.memoEdit2.Location = new System.Drawing.Point(12, 520);
             this.memoEdit2.Name = "memoEdit2";
             this.memoEdit2.Properties.ReadOnly = true;
-            this.memoEdit2.Size = new System.Drawing.Size(818, 50);
+            this.memoEdit2.Size = new System.Drawing.Size(818, 44);
             this.memoEdit2.StyleController = this.layoutControl1;
             this.memoEdit2.TabIndex = 17;
-            // 
-            // memoEditPaymentConditions
-            // 
-            this.memoEditPaymentConditions.Location = new System.Drawing.Point(12, 437);
-            this.memoEditPaymentConditions.Name = "memoEditPaymentConditions";
-            this.memoEditPaymentConditions.Properties.ReadOnly = true;
-            this.memoEditPaymentConditions.Size = new System.Drawing.Size(818, 56);
-            this.memoEditPaymentConditions.StyleController = this.layoutControl1;
-            this.memoEditPaymentConditions.TabIndex = 16;
             // 
             // label4
             // 
@@ -247,6 +227,7 @@
             this.btnAddAddress.StyleController = this.layoutControl1;
             this.btnAddAddress.TabIndex = 10;
             this.btnAddAddress.Text = "Hinzufügen";
+            this.btnAddAddress.Click += new System.EventHandler(this.btnAddAddress_Click);
             // 
             // btnAddContact
             // 
@@ -257,6 +238,7 @@
             this.btnAddContact.StyleController = this.layoutControl1;
             this.btnAddContact.TabIndex = 9;
             this.btnAddContact.Text = "Hinzufügen";
+            this.btnAddContact.Click += new System.EventHandler(this.btnAddContact_Click);
             // 
             // btnAddSupplier
             // 
@@ -267,6 +249,7 @@
             this.btnAddSupplier.StyleController = this.layoutControl1;
             this.btnAddSupplier.TabIndex = 8;
             this.btnAddSupplier.Text = "Hinzufügen";
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
             // 
             // gcArticles
             // 
@@ -379,6 +362,7 @@
             this.gvAddress.OptionsMenu.EnableFooterMenu = false;
             this.gvAddress.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvAddress.OptionsView.ShowGroupPanel = false;
+            this.gvAddress.DoubleClick += new System.EventHandler(this.gvAddress_DoubleClick);
             // 
             // gcContact
             // 
@@ -409,6 +393,7 @@
             this.gvContact.OptionsMenu.EnableFooterMenu = false;
             this.gvContact.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvContact.OptionsView.ShowGroupPanel = false;
+            this.gvContact.DoubleClick += new System.EventHandler(this.gvContact_DoubleClick);
             // 
             // gcSupplier
             // 
@@ -439,6 +424,8 @@
             this.gvSupplier.OptionsMenu.EnableFooterMenu = false;
             this.gvSupplier.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvSupplier.OptionsView.ShowGroupPanel = false;
+            this.gvSupplier.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvSupplier_FocusedRowChanged);
+            this.gvSupplier.DoubleClick += new System.EventHandler(this.gvSupplier_DoubleClick);
             // 
             // layoutControlGroup1
             // 
@@ -461,12 +448,12 @@
             this.layoutControlItem10,
             this.layoutControlItem11,
             this.layoutControlItem12,
-            this.layoutControlItem13,
             this.layoutControlItem14,
-            this.layoutControlItem15,
             this.emptySpaceItem6,
             this.layoutControlItem16,
-            this.layoutControlItem17});
+            this.layoutControlItem17,
+            this.layoutControlItem18,
+            this.layoutControlItem13});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1364, 738);
@@ -633,45 +620,21 @@
             this.layoutControlItem12.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem12.TextVisible = false;
             // 
-            // layoutControlItem13
-            // 
-            this.layoutControlItem13.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem13.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem13.Control = this.memoEditPaymentConditions;
-            this.layoutControlItem13.Location = new System.Drawing.Point(0, 409);
-            this.layoutControlItem13.Name = "layoutControlItem13";
-            this.layoutControlItem13.Size = new System.Drawing.Size(822, 76);
-            this.layoutControlItem13.Text = "Payment Conditions :";
-            this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(119, 13);
-            // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.memoEdit2;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 485);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 508);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(822, 54);
+            this.layoutControlItem14.Size = new System.Drawing.Size(822, 48);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem14.TextVisible = false;
-            // 
-            // layoutControlItem15
-            // 
-            this.layoutControlItem15.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem15.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem15.Control = this.memoEditCommentary;
-            this.layoutControlItem15.Location = new System.Drawing.Point(0, 569);
-            this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(822, 123);
-            this.layoutControlItem15.Text = "Commentary :";
-            this.layoutControlItem15.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem15.TextSize = new System.Drawing.Size(119, 13);
             // 
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 539);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 556);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(822, 30);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(822, 27);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem16
@@ -682,7 +645,7 @@
             this.layoutControlItem16.Size = new System.Drawing.Size(261, 57);
             this.layoutControlItem16.Text = "WG Description :";
             this.layoutControlItem16.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem16.TextSize = new System.Drawing.Size(119, 13);
+            this.layoutControlItem16.TextSize = new System.Drawing.Size(102, 13);
             // 
             // layoutControlItem17
             // 
@@ -692,7 +655,43 @@
             this.layoutControlItem17.Size = new System.Drawing.Size(261, 57);
             this.layoutControlItem17.Text = "WI Description :";
             this.layoutControlItem17.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem17.TextSize = new System.Drawing.Size(119, 13);
+            this.layoutControlItem17.TextSize = new System.Drawing.Size(102, 13);
+            // 
+            // memoEditPaymentConditions
+            // 
+            this.memoEditPaymentConditions.Location = new System.Drawing.Point(12, 437);
+            this.memoEditPaymentConditions.Name = "memoEditPaymentConditions";
+            this.memoEditPaymentConditions.Size = new System.Drawing.Size(818, 79);
+            this.memoEditPaymentConditions.TabIndex = 21;
+            this.memoEditPaymentConditions.Text = "";
+            // 
+            // layoutControlItem18
+            // 
+            this.layoutControlItem18.Control = this.memoEditPaymentConditions;
+            this.layoutControlItem18.Location = new System.Drawing.Point(0, 409);
+            this.layoutControlItem18.Name = "layoutControlItem18";
+            this.layoutControlItem18.Size = new System.Drawing.Size(822, 99);
+            this.layoutControlItem18.Text = "Payment Conditions :";
+            this.layoutControlItem18.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(102, 13);
+            // 
+            // memoEditCommentary
+            // 
+            this.memoEditCommentary.Location = new System.Drawing.Point(12, 611);
+            this.memoEditCommentary.Name = "memoEditCommentary";
+            this.memoEditCommentary.Size = new System.Drawing.Size(818, 89);
+            this.memoEditCommentary.TabIndex = 22;
+            this.memoEditCommentary.Text = "";
+            // 
+            // layoutControlItem13
+            // 
+            this.layoutControlItem13.Control = this.memoEditCommentary;
+            this.layoutControlItem13.Location = new System.Drawing.Point(0, 583);
+            this.layoutControlItem13.Name = "layoutControlItem13";
+            this.layoutControlItem13.Size = new System.Drawing.Size(822, 109);
+            this.layoutControlItem13.Text = "Commentary :";
+            this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(102, 13);
             // 
             // frmLoadSupplier
             // 
@@ -705,9 +704,7 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.memoEditCommentary.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.memoEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.memoEditPaymentConditions.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcAddress)).EndInit();
@@ -733,12 +730,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem11)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem16)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem13)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -779,12 +776,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem11;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem12;
-        private DevExpress.XtraEditors.MemoEdit memoEditCommentary;
         private DevExpress.XtraEditors.MemoEdit memoEdit2;
-        private DevExpress.XtraEditors.MemoEdit memoEditPaymentConditions;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem15;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private System.Windows.Forms.RichTextBox txtWIDescription;
         private System.Windows.Forms.RichTextBox txtWGDescription;
@@ -796,5 +789,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem17;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn6;
+        private System.Windows.Forms.RichTextBox memoEditCommentary;
+        private System.Windows.Forms.RichTextBox memoEditPaymentConditions;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem18;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem13;
     }
 }

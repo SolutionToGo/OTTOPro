@@ -46,6 +46,7 @@
     <Compile Include="EOTTO.cs" />
     <Compile Include="EPosition.cs" />
     <Compile Include="EProject.cs" />
+    <Compile Include="ESupplier.cs" />
     <Compile Include="EUmlage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

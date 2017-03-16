@@ -61,6 +61,7 @@
     <Compile Include="BOTTO.cs" />
     <Compile Include="BPosition.cs" />
     <Compile Include="BProject.cs" />
+    <Compile Include="BSupplier.cs" />
     <Compile Include="BUmlage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="XMLBuilder.cs" />
