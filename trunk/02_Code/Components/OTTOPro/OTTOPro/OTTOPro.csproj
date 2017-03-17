@@ -178,6 +178,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmArticlesData.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmArticlesData.Designer.cs">
+      <DependentUpon>frmArticlesData.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCustomerMaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmArticlesData.resx">
+      <DependentUpon>frmArticlesData.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerMaster.resx">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
     </EmbeddedResource>

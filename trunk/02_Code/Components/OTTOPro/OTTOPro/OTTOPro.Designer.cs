@@ -59,6 +59,8 @@
             this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgSupplier = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpgArticleMaster = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.BarButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -66,6 +68,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnArticledata = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -96,9 +99,10 @@
             this.barButtonItemExitProject,
             this.btnCustomer,
             this.btnOTTO,
-            this.btnSupplier});
+            this.btnSupplier,
+            this.btnArticledata});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 29;
+            this.ribbon.MaxItemId = 30;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome});
@@ -258,7 +262,9 @@
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1});
+            this.ribbonPageGroup1,
+            this.rpgSupplier,
+            this.rpgArticleMaster});
             this.miHome.Name = "miHome";
             this.miHome.Text = "OTTOPro";
             // 
@@ -268,12 +274,23 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLoadProject, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnCustomer, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnOTTO, true);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnSupplier, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnShortCuts, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemSave, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemExitProject, true);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Project";
+            // 
+            // rpgSupplier
+            // 
+            this.rpgSupplier.ItemLinks.Add(this.btnSupplier);
+            this.rpgSupplier.Name = "rpgSupplier";
+            this.rpgSupplier.Text = "Supplier";
+            // 
+            // rpgArticleMaster
+            // 
+            this.rpgArticleMaster.ItemLinks.Add(this.btnArticledata);
+            this.rpgArticleMaster.Name = "rpgArticleMaster";
+            this.rpgArticleMaster.Text = "Article Master";
             // 
             // BarButtonItem10
             // 
@@ -346,6 +363,13 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Version 1.4 (06-03-2017)";
             // 
+            // btnArticledata
+            // 
+            this.btnArticledata.Caption = "Article Data";
+            this.btnArticledata.Id = 29;
+            this.btnArticledata.Name = "btnArticledata";
+            this.btnArticledata.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnArticledata_ItemClick);
+            // 
             // frmOTTOPro
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -411,5 +435,8 @@
         private DevExpress.XtraBars.BarButtonItem btnCustomer;
         private DevExpress.XtraBars.BarButtonItem btnOTTO;
         private DevExpress.XtraBars.BarButtonItem btnSupplier;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSupplier;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgArticleMaster;
+        private DevExpress.XtraBars.BarButtonItem btnArticledata;
     }
 }

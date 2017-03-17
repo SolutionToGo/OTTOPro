@@ -187,6 +187,15 @@ namespace OTTOPro
             Obj.Show();
         }
 
+        private void btnArticledata_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmArticlesData Obj = new frmArticlesData();
+            Obj.MdiParent = this;
+            label2.Visible = false;
+            pictureBox1.Visible = false;
+            Obj.Show();
+        }
+
 
 
     }
