@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.tcSupplier = new DevExpress.XtraTab.XtraTabControl();
             this.tbSupplier = new DevExpress.XtraTab.XtraTabPage();
@@ -83,8 +83,8 @@
             this.layoutControlItem15 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbSupplierAddress = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
-            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.btnSaveAddress = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancelAddress = new DevExpress.XtraEditors.SimpleButton();
             this.chkDefaultAddress = new DevExpress.XtraEditors.CheckEdit();
             this.txtAddrCountry = new DevExpress.XtraEditors.TextEdit();
             this.txtAddrcity = new DevExpress.XtraEditors.TextEdit();
@@ -271,7 +271,6 @@
             this.txtCommentary.Size = new System.Drawing.Size(410, 171);
             this.txtCommentary.TabIndex = 7;
             this.txtCommentary.Text = "";
-            this.txtCommentary.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtPaymentCondition
             // 
@@ -280,7 +279,6 @@
             this.txtPaymentCondition.Size = new System.Drawing.Size(410, 126);
             this.txtPaymentCondition.TabIndex = 6;
             this.txtPaymentCondition.Text = "";
-            this.txtPaymentCondition.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtShortName
             // 
@@ -293,9 +291,9 @@
             this.txtShortName.Size = new System.Drawing.Size(309, 20);
             this.txtShortName.StyleController = this.layoutControl2;
             this.txtShortName.TabIndex = 5;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Bitte eingeben Kurz Name";
-            this.dxValidationProviderSupplierSname.SetValidationRule(this.txtShortName, conditionValidationRule1);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Bitte eingeben Kurz Name";
+            this.dxValidationProviderSupplierSname.SetValidationRule(this.txtShortName, conditionValidationRule4);
             this.txtShortName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtFullName
@@ -309,9 +307,9 @@
             this.txtFullName.Size = new System.Drawing.Size(309, 20);
             this.txtFullName.StyleController = this.layoutControl2;
             this.txtFullName.TabIndex = 4;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Bitte eingeben Vollständiger Name";
-            this.dxValidationProviderSupplierFullName.SetValidationRule(this.txtFullName, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Bitte eingeben Vollständiger Name";
+            this.dxValidationProviderSupplierFullName.SetValidationRule(this.txtFullName, conditionValidationRule1);
             this.txtFullName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // layoutControlGroup2
@@ -555,9 +553,9 @@
             this.txtContactName.Size = new System.Drawing.Size(336, 20);
             this.txtContactName.StyleController = this.layoutControl3;
             this.txtContactName.TabIndex = 4;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Bitte eingeben Name";
-            this.dxValidationProviderContactName.SetValidationRule(this.txtContactName, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Bitte eingeben Name";
+            this.dxValidationProviderContactName.SetValidationRule(this.txtContactName, conditionValidationRule2);
             this.txtContactName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // layoutControlGroup3
@@ -721,8 +719,8 @@
             // 
             // layoutControl4
             // 
-            this.layoutControl4.Controls.Add(this.simpleButton2);
-            this.layoutControl4.Controls.Add(this.simpleButton1);
+            this.layoutControl4.Controls.Add(this.btnSaveAddress);
+            this.layoutControl4.Controls.Add(this.btnCancelAddress);
             this.layoutControl4.Controls.Add(this.chkDefaultAddress);
             this.layoutControl4.Controls.Add(this.txtAddrCountry);
             this.layoutControl4.Controls.Add(this.txtAddrcity);
@@ -738,29 +736,29 @@
             this.layoutControl4.TabIndex = 0;
             this.layoutControl4.Text = "layoutControl4";
             // 
-            // simpleButton2
+            // btnSaveAddress
             // 
-            this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.simpleButton2.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.simpleButton2.Location = new System.Drawing.Point(266, 213);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(86, 22);
-            this.simpleButton2.StyleController = this.layoutControl4;
-            this.simpleButton2.TabIndex = 11;
-            this.simpleButton2.Text = "Speichern";
-            this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
+            this.btnSaveAddress.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.btnSaveAddress.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveAddress.Location = new System.Drawing.Point(266, 213);
+            this.btnSaveAddress.Name = "btnSaveAddress";
+            this.btnSaveAddress.Size = new System.Drawing.Size(86, 22);
+            this.btnSaveAddress.StyleController = this.layoutControl4;
+            this.btnSaveAddress.TabIndex = 11;
+            this.btnSaveAddress.Text = "Speichern";
+            this.btnSaveAddress.Click += new System.EventHandler(this.btnSaveAddress_Click);
             // 
-            // simpleButton1
+            // btnCancelAddress
             // 
-            this.simpleButton1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.simpleButton1.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.simpleButton1.Location = new System.Drawing.Point(356, 213);
-            this.simpleButton1.Name = "simpleButton1";
-            this.simpleButton1.Size = new System.Drawing.Size(90, 22);
-            this.simpleButton1.StyleController = this.layoutControl4;
-            this.simpleButton1.TabIndex = 10;
-            this.simpleButton1.Text = "Abbrechen";
-            this.simpleButton1.Click += new System.EventHandler(this.btnCancel_Click);
+            this.btnCancelAddress.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancelAddress.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancelAddress.Location = new System.Drawing.Point(356, 213);
+            this.btnCancelAddress.Name = "btnCancelAddress";
+            this.btnCancelAddress.Size = new System.Drawing.Size(90, 22);
+            this.btnCancelAddress.StyleController = this.layoutControl4;
+            this.btnCancelAddress.TabIndex = 10;
+            this.btnCancelAddress.Text = "Abbrechen";
+            this.btnCancelAddress.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // chkDefaultAddress
             // 
@@ -816,9 +814,9 @@
             this.txtAddrShortName.Size = new System.Drawing.Size(349, 20);
             this.txtAddrShortName.StyleController = this.layoutControl4;
             this.txtAddrShortName.TabIndex = 4;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Bitte eingeben Name";
-            this.dxValidationProviderAddrSName.SetValidationRule(this.txtAddrShortName, conditionValidationRule4);
+            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule5.ErrorText = "Bitte eingeben Name";
+            this.dxValidationProviderAddrSName.SetValidationRule(this.txtAddrShortName, conditionValidationRule5);
             this.txtAddrShortName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // layoutControlGroup4
@@ -848,7 +846,7 @@
             // 
             // layoutControlItem23
             // 
-            this.layoutControlItem23.Control = this.simpleButton1;
+            this.layoutControlItem23.Control = this.btnCancelAddress;
             this.layoutControlItem23.Location = new System.Drawing.Point(344, 201);
             this.layoutControlItem23.MaxSize = new System.Drawing.Size(94, 26);
             this.layoutControlItem23.MinSize = new System.Drawing.Size(94, 26);
@@ -860,7 +858,7 @@
             // 
             // layoutControlItem24
             // 
-            this.layoutControlItem24.Control = this.simpleButton2;
+            this.layoutControlItem24.Control = this.btnSaveAddress;
             this.layoutControlItem24.Location = new System.Drawing.Point(254, 201);
             this.layoutControlItem24.MaxSize = new System.Drawing.Size(90, 26);
             this.layoutControlItem24.MinSize = new System.Drawing.Size(90, 26);
@@ -1129,8 +1127,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem14;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem16;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton1;
+        private DevExpress.XtraEditors.SimpleButton btnSaveAddress;
+        private DevExpress.XtraEditors.SimpleButton btnCancelAddress;
         private DevExpress.XtraEditors.CheckEdit chkDefaultAddress;
         private DevExpress.XtraEditors.TextEdit txtAddrCountry;
         private DevExpress.XtraEditors.TextEdit txtAddrcity;

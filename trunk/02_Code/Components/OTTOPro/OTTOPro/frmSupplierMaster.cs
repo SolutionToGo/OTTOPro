@@ -23,17 +23,20 @@ namespace OTTOPro
         private ESupplier _ObjEsupplier = null;
 
 
+        #region CONSTRUCTORS
+
         public frmSupplierMaster()
         {
             InitializeComponent();
         }
+
         public frmSupplierMaster(string _Type, ESupplier ObjESupplier1)
         {
             InitializeComponent();
             _SupplierType = _Type;
             ObjESupplier = ObjESupplier1;
-
-        }
+        } 
+        #endregion
 
 
         #region PROPERTY SETTING
@@ -51,6 +54,9 @@ namespace OTTOPro
         }
 
         #endregion
+
+
+        #region EVENTS
 
         XtraTabPage ObjTabDetails = null;
         private void frmSupplierMaster_Load(object sender, EventArgs e)
@@ -79,7 +85,7 @@ namespace OTTOPro
                     TabChange(ObjTabDetails);
                     this.MinimumSize = new System.Drawing.Size(504, 350);
                 }
-                if (_SupplierType == "Customer")
+                if (_SupplierType == "Supplier")
                     BindSupplierDetails();
                 if (_SupplierType == "Contact")
                     BindContactsDetails();
@@ -93,6 +99,124 @@ namespace OTTOPro
             }
         }
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        bool _isValidate = true;
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ValidatControls();
+                if (_isValidate == true)
+                {
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
+                    ParseSupplierDetails();
+                    ObjBSupplier = new BSupplier();
+                    ObjESupplier.SupplierID = ObjBSupplier.SaveSupplierDetails(ObjESupplier);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnSaveContact_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isvalidName = dxValidationProviderContactName.Validate(txtContactName);
+                if (!isvalidName)
+                { _isValidate = false; }
+                else
+                {
+                    _isValidate = true;
+                }
+                if (_isValidate == true)
+                {
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
+                    ParseSupplierContactsDetails();
+                    ObjBSupplier = new BSupplier();
+                    ObjESupplier.ContactPersonID = ObjBSupplier.SaveSupplierContactDetails(ObjESupplier);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnSaveAddress_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool isvalidName = dxValidationProviderAddrSName.Validate(txtAddrShortName);
+                if (!isvalidName)
+                { _isValidate = false; }
+                else
+                {
+                    _isValidate = true;
+                }
+                if (_isValidate == true)
+                {
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
+                    ParseSupplierAddressDetails();
+                    ObjBSupplier = new BSupplier();
+                    ObjESupplier.AddressID = ObjBSupplier.SaveSupplierAddressDetails(ObjESupplier);
+                    this.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtFullName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TextEdit textbox = (TextEdit)sender;
+                textbox.Text = ToTitleCase(textbox.Text);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void frmSupplierMaster_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (this.DialogResult != DialogResult.Cancel)
+                {
+                    if (_isValidate == false)
+                        e.Cancel = true;
+                }
+                else
+                    e.Cancel = false;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        #endregion
+
+
+        #region METHODS
+
         public static string ToTitleCase(string stringToConvert)
         {
             try
@@ -104,14 +228,15 @@ namespace OTTOPro
                 throw;
             }
         }
+
         private void BindSupplierDetails()
         {
             try
             {
-                 txtFullName.Text =ObjESupplier.SupplierFullName;
-                 txtShortName.Text= ObjESupplier.SupplierShortName;
-                 txtCommentary.Text =ObjESupplier.Commentary;
-                 txtPaymentCondition.Text=ObjESupplier.PaymentCondition;
+                txtFullName.Text = ObjESupplier.SupplierFullName;
+                txtShortName.Text = ObjESupplier.SupplierShortName;
+                txtCommentary.Text = ObjESupplier.Commentary;
+                txtPaymentCondition.Text = ObjESupplier.PaymentCondition;
             }
             catch (Exception ex)
             {
@@ -138,6 +263,7 @@ namespace OTTOPro
             }
 
         }
+
         private void BindAddressDetails()
         {
             try
@@ -177,34 +303,6 @@ namespace OTTOPro
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        bool _isValidate = true;
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ValidatControls();
-                if (_isValidate == true)
-                {
-                    if (ObjESupplier == null)
-                        ObjESupplier = new ESupplier();
-                    ParseSupplierDetails();
-                    ObjBSupplier = new BSupplier();
-                    ObjESupplier.SupplierID = ObjBSupplier.SaveSupplierDetails(ObjESupplier);
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void ValidatControls()
         {
             try
@@ -226,6 +324,7 @@ namespace OTTOPro
             }
 
         }
+
         private void ParseSupplierDetails()
         {
             try
@@ -240,33 +339,6 @@ namespace OTTOPro
                 throw;
             }
 
-        }
-
-        private void btnSaveContact_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                bool isvalidName = dxValidationProviderContactName.Validate(txtContactName);
-                if (!isvalidName)
-                { _isValidate = false; }
-                else
-                {
-                    _isValidate = true;
-                }
-                if (_isValidate == true)
-                {
-                    if (ObjESupplier == null)
-                        ObjESupplier = new ESupplier();
-                    ParseSupplierContactsDetails();
-                    ObjBSupplier = new BSupplier();
-                    ObjESupplier.ContactPersonID = ObjBSupplier.SaveSupplierContactDetails(ObjESupplier);
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
         }
 
         private void ParseSupplierContactsDetails()
@@ -288,33 +360,6 @@ namespace OTTOPro
 
         }
 
-        private void simpleButton2_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                bool isvalidName = dxValidationProviderAddrSName.Validate(txtAddrShortName);
-                if (!isvalidName)
-                { _isValidate = false; }
-                else
-                {
-                    _isValidate = true;
-                }
-                if (_isValidate == true)
-                {
-                    if (ObjESupplier == null)
-                        ObjESupplier = new ESupplier();
-                    ParseSupplierAddressDetails();
-                    ObjBSupplier = new BSupplier();
-                    ObjESupplier.AddressID = ObjBSupplier.SaveSupplierAddressDetails(ObjESupplier);
-                    this.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void ParseSupplierAddressDetails()
         {
             try
@@ -333,36 +378,7 @@ namespace OTTOPro
 
         }
 
-        private void txtFullName_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                TextEdit textbox = (TextEdit)sender;
-                textbox.Text = ToTitleCase(textbox.Text);
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void frmSupplierMaster_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                if (this.DialogResult != DialogResult.Cancel)
-                {
-                    if (_isValidate == false)
-                        e.Cancel = true;
-                }
-                else
-                    e.Cancel = false;
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
+        #endregion
 
 //***************
     }

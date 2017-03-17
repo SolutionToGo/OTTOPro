@@ -29,39 +29,45 @@ namespace OTTOPro
         DataTable _dtWI = new DataTable();
         DataTable _dtWG = new DataTable();
 
+        #region CONSTRUCTOR
+
         public frmLoadSupplier()
         {
             InitializeComponent();
-        }
+        } 
+        #endregion
+
+
+        #region EVENTS
 
         private void btnAddArticles_Click(object sender, EventArgs e)
         {
             frmSelectArticle frm = new frmSelectArticle();
             frm.ShowDialog();
-            if(frm.DialogResult==DialogResult.OK)
+            if (frm.DialogResult == DialogResult.OK)
             {
                 if (frm.dsArticles != null)
-               {
-                  _dtWG= frm.dsArticles.Tables[0];
+                {
+                    _dtWG = frm.dsArticles.Tables[0];
 
-                  foreach (DataRow row in _dtWG.Rows)
-                  {
-                      gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WG"], row["WG"]);
-                      gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WA"], row["WA"]);
-                      gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WGDescription"], row["WGDescription"]);
+                    foreach (DataRow row in _dtWG.Rows)
+                    {
+                        gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WG"], row["WG"]);
+                        gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WA"], row["WA"]);
+                        gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WGDescription"], row["WGDescription"]);
 
-                  }                      
-                   //gcArticles.DataSource = frm.dsArticles.Tables[0];
-                   //_dtWI = frm.dsArticles.Tables[1];
-                   //foreach (DataRow row in _dtWI.Rows)
-                   //{
-                   //    gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WI"], row["WI"]);
-                   //    // gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.FocusedColumn, row["WIDescription"]);
-                   //}                  
+                    }
+                    //gcArticles.DataSource = frm.dsArticles.Tables[0];
+                    //_dtWI = frm.dsArticles.Tables[1];
+                    //foreach (DataRow row in _dtWI.Rows)
+                    //{
+                    //    gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WI"], row["WI"]);
+                    //    // gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.FocusedColumn, row["WIDescription"]);
+                    //}                  
 
-                  gcArticles.DataSource = _dtWG;
-                   gvArticles.BestFitColumns();
-               }
+                    gcArticles.DataSource = _dtWG;
+                    gvArticles.BestFitColumns();
+                }
 
             }
         }
@@ -71,7 +77,7 @@ namespace OTTOPro
             if (gvArticles.FocusedColumn != null && gvArticles.GetFocusedRowCellValue("WG") != null)
             {
                 txtWGDescription.Text = gvArticles.GetFocusedRowCellValue("WGDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WGDescription").ToString();
-              //  txtWIDescription.Text = gvArticles.GetFocusedRowCellValue("WIDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WIDescription").ToString();
+                //  txtWIDescription.Text = gvArticles.GetFocusedRowCellValue("WIDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WIDescription").ToString();
             }
         }
 
@@ -95,40 +101,6 @@ namespace OTTOPro
             }
         }
 
-        private void Setfocus(GridView view, string _id, int _IdValue)
-        {
-            try
-            {
-                if (_IdValue > -1)
-                {
-                    int rowHandle = view.LocateByValue(_id, _IdValue);
-                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                        view.FocusedRowHandle = rowHandle;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        public void BindSupplierData()
-        {
-            try
-            {
-                ObjBSupplier.GetSupplier(ObjESupplier);
-                if (ObjESupplier.dsSupplier != null)
-                {
-                    gcSupplier.DataSource = ObjESupplier.dsSupplier.Tables[0];
-                    gvSupplier.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
         private void btnAddContact_Click(object sender, EventArgs e)
         {
             try
@@ -137,7 +109,7 @@ namespace OTTOPro
                 {
                     if (Utility._IsGermany == true)
                     {
-                       // throw new Exception("Bitte wählen Sie einen Kunden aus");
+                        // throw new Exception("Bitte wählen Sie einen Kunden aus");
                     }
                     else
                     {
@@ -160,24 +132,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-        public void BindContactData()
-        {
-            try
-            {
-                ObjBSupplier.GetSupplier(ObjESupplier);
-                if (ObjESupplier.dsSupplier != null)
-                {
-                    DataView dvContact = ObjESupplier.dsSupplier.Tables["Table1"].DefaultView;
-                    dvContact.RowFilter = "SupplierID = '" + _SupplierID + "'";
-                    gcContact.DataSource = dvContact;
-                    gvAddress.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
 
         private void btnAddAddress_Click(object sender, EventArgs e)
         {
@@ -187,7 +141,7 @@ namespace OTTOPro
                 {
                     if (Utility._IsGermany == true)
                     {
-                       // throw new Exception("Bitte wählen Sie einen Kunden aus");
+                        // throw new Exception("Bitte wählen Sie einen Kunden aus");
                     }
                     else
                     {
@@ -208,25 +162,6 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        public void BindAddressData()
-        {
-            try
-            {
-                ObjBSupplier.GetSupplier(ObjESupplier);
-                if (ObjESupplier.dsSupplier != null)
-                {
-                    DataView dvAddress = ObjESupplier.dsSupplier.Tables["Table2"].DefaultView;
-                    dvAddress.RowFilter = "SupplierID = '" + _SupplierID + "'";
-                    gcAddress.DataSource = dvAddress;
-                    gvAddress.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -261,80 +196,6 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
-
-        private void GetSupplierDetails()
-        {
-            try
-            {
-                if (gvSupplier.GetFocusedRowCellValue("SupplierID") != DBNull.Value)
-                {
-                    if (int.TryParse(gvSupplier.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
-                        ObjESupplier.SupplierID = _IDValue;
-                    ObjESupplier.SupplierFullName = gvSupplier.GetFocusedRowCellValue("FullName") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("FullName").ToString();
-                    ObjESupplier.SupplierShortName = gvSupplier.GetFocusedRowCellValue("ShortName") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("ShortName").ToString();
-                    ObjESupplier.Commentary = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
-                    ObjESupplier.PaymentCondition = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
-        }
-
-        private void GetContactDetails()
-        {
-            try
-            {
-                if (gvContact.GetFocusedRowCellValue("ContactPersonID") != DBNull.Value)
-                {
-                    if (int.TryParse(gvContact.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
-                        ObjESupplier.Cont_supplierID = _IDValue;
-                    _ContactID = ObjESupplier.ContactPersonID = Convert.ToInt32(gvContact.GetFocusedRowCellValue("ContactPersonID") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("ContactPersonID"));
-                    ObjESupplier.Salutation = gvContact.GetFocusedRowCellValue("Salutation") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("Salutation").ToString();
-                    ObjESupplier.ContactName = gvContact.GetFocusedRowCellValue("ContactName") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("ContactName").ToString();
-                    ObjESupplier.Designation = gvContact.GetFocusedRowCellValue("Designation") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("Designation").ToString();
-                    ObjESupplier.ContEmailID = gvContact.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("EmailID").ToString();
-                    ObjESupplier.ContTelephone = gvContact.GetFocusedRowCellValue("Telephone") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("Telephone").ToString();
-                    ObjESupplier.ContFax = gvContact.GetFocusedRowCellValue("FAX") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("FAX").ToString();
-                    ObjESupplier.DefaultContact = Convert.ToBoolean(gvContact.GetFocusedRowCellValue("DefaultContact") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("DefaultContact"));
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
-        }
-
-        private void GetAddressDetails()
-        {
-            try
-            {
-                if (gvAddress.GetFocusedRowCellValue("AddressID") != DBNull.Value)
-                {
-                    if (int.TryParse(gvAddress.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
-                        ObjESupplier.Addr_supplierID = _IDValue;
-                    _AddressID = ObjESupplier.AddressID = Convert.ToInt32(gvAddress.GetFocusedRowCellValue("AddressID") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("AddressID"));
-                    ObjESupplier.AddressShortName = gvAddress.GetFocusedRowCellValue("AddressShortName") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("AddressShortName").ToString();
-                    ObjESupplier.StreetNo = gvAddress.GetFocusedRowCellValue("StreetNo") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("StreetNo").ToString();
-                    ObjESupplier.AddrPostalCode = gvAddress.GetFocusedRowCellValue("PostalCode") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("PostalCode").ToString();
-                    ObjESupplier.AddrCity = gvAddress.GetFocusedRowCellValue("City") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("City").ToString();
-                    ObjESupplier.AddrCountry = gvAddress.GetFocusedRowCellValue("Country") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("Country").ToString();
-                    ObjESupplier.DefaultAddress = Convert.ToBoolean(gvAddress.GetFocusedRowCellValue("DefaultAddress") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("DefaultAddress"));
-                }
-
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
         }
 
         private void gvContact_DoubleClick(object sender, EventArgs e)
@@ -413,7 +274,7 @@ namespace OTTOPro
                         _SupplierID = _IDValue;
                     ObjBSupplier.GetSupplier(ObjESupplier);
                     memoEditCommentary.Text = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
-
+                    memoEditPaymentConditions.Text = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
                     DataView dvContact = ObjESupplier.dsSupplier.Tables["Table1"].DefaultView;
                     dvContact.RowFilter = "SupplierID = '" + _SupplierID + "'";
                     gcContact.DataSource = dvContact;
@@ -430,6 +291,167 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void frmLoadSupplier_Load(object sender, EventArgs e)
+        {
+            BindSupplierData();
+            gvSupplier.BestFitColumns();
+            gvContact.BestFitColumns();
+            gvAddress.BestFitColumns();
+        }
+
+        #endregion
+
+
+        #region METHODS
+
+        private void Setfocus(GridView view, string _id, int _IdValue)
+        {
+            try
+            {
+                if (_IdValue > -1)
+                {
+                    int rowHandle = view.LocateByValue(_id, _IdValue);
+                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                        view.FocusedRowHandle = rowHandle;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void BindSupplierData()
+        {
+            try
+            {
+                ObjBSupplier.GetSupplier(ObjESupplier);
+                if (ObjESupplier.dsSupplier != null)
+                {
+                    gcSupplier.DataSource = ObjESupplier.dsSupplier.Tables[0];
+                    gvSupplier.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void BindContactData()
+        {
+            try
+            {
+                ObjBSupplier.GetSupplier(ObjESupplier);
+                if (ObjESupplier.dsSupplier != null)
+                {
+                    DataView dvContact = ObjESupplier.dsSupplier.Tables["Table1"].DefaultView;
+                    dvContact.RowFilter = "SupplierID = '" + _SupplierID + "'";
+                    gcContact.DataSource = dvContact;
+                    gvAddress.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void BindAddressData()
+        {
+            try
+            {
+                ObjBSupplier.GetSupplier(ObjESupplier);
+                if (ObjESupplier.dsSupplier != null)
+                {
+                    DataView dvAddress = ObjESupplier.dsSupplier.Tables["Table2"].DefaultView;
+                    dvAddress.RowFilter = "SupplierID = '" + _SupplierID + "'";
+                    gcAddress.DataSource = dvAddress;
+                    gvAddress.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void GetSupplierDetails()
+        {
+            try
+            {
+                if (gvSupplier.GetFocusedRowCellValue("SupplierID") != DBNull.Value)
+                {
+                    if (int.TryParse(gvSupplier.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
+                        ObjESupplier.SupplierID = _IDValue;
+                    ObjESupplier.SupplierFullName = gvSupplier.GetFocusedRowCellValue("FullName") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("FullName").ToString();
+                    ObjESupplier.SupplierShortName = gvSupplier.GetFocusedRowCellValue("ShortName") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("ShortName").ToString();
+                    ObjESupplier.Commentary = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
+                    ObjESupplier.PaymentCondition = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
+        private void GetContactDetails()
+        {
+            try
+            {
+                if (gvContact.GetFocusedRowCellValue("ContactPersonID") != DBNull.Value)
+                {
+                    if (int.TryParse(gvContact.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
+                        ObjESupplier.Cont_supplierID = _IDValue;
+                    _ContactID = ObjESupplier.ContactPersonID = Convert.ToInt32(gvContact.GetFocusedRowCellValue("ContactPersonID") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("ContactPersonID"));
+                    ObjESupplier.Salutation = gvContact.GetFocusedRowCellValue("Salutation") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("Salutation").ToString();
+                    ObjESupplier.ContactName = gvContact.GetFocusedRowCellValue("ContactName") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("ContactName").ToString();
+                    ObjESupplier.Designation = gvContact.GetFocusedRowCellValue("Designation") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("Designation").ToString();
+                    ObjESupplier.ContEmailID = gvContact.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("EmailID").ToString();
+                    ObjESupplier.ContTelephone = gvContact.GetFocusedRowCellValue("Telephone") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("Telephone").ToString();
+                    ObjESupplier.ContFax = gvContact.GetFocusedRowCellValue("FAX") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("FAX").ToString();
+                    ObjESupplier.DefaultContact = Convert.ToBoolean(gvContact.GetFocusedRowCellValue("DefaultContact") == DBNull.Value ? "" : gvContact.GetFocusedRowCellValue("DefaultContact"));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
+        private void GetAddressDetails()
+        {
+            try
+            {
+                if (gvAddress.GetFocusedRowCellValue("AddressID") != DBNull.Value)
+                {
+                    if (int.TryParse(gvAddress.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
+                        ObjESupplier.Addr_supplierID = _IDValue;
+                    _AddressID = ObjESupplier.AddressID = Convert.ToInt32(gvAddress.GetFocusedRowCellValue("AddressID") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("AddressID"));
+                    ObjESupplier.AddressShortName = gvAddress.GetFocusedRowCellValue("ShortName") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("ShortName").ToString();
+                    ObjESupplier.StreetNo = gvAddress.GetFocusedRowCellValue("StreetNo") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("StreetNo").ToString();
+                    ObjESupplier.AddrPostalCode = gvAddress.GetFocusedRowCellValue("PostalCode") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("PostalCode").ToString();
+                    ObjESupplier.AddrCity = gvAddress.GetFocusedRowCellValue("City") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("City").ToString();
+                    ObjESupplier.AddrCountry = gvAddress.GetFocusedRowCellValue("Country") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("Country").ToString();
+                    ObjESupplier.DefaultAddress = Convert.ToBoolean(gvAddress.GetFocusedRowCellValue("DefaultAddress") == DBNull.Value ? "" : gvAddress.GetFocusedRowCellValue("DefaultAddress"));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        } 
+        #endregion
+
 
 
 //********************
