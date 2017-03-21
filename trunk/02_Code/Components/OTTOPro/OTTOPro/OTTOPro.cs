@@ -189,6 +189,14 @@ namespace OTTOPro
 
         private void btnArticledata_ItemClick(object sender, ItemClickEventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name == "frmArticlesData")
+                {
+                    form.Activate();
+                    return;
+                }
+            }
             frmArticlesData Obj = new frmArticlesData();
             Obj.MdiParent = this;
             label2.Visible = false;

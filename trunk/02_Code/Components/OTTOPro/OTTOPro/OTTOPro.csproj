@@ -196,12 +196,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsLVDetails.xsd</DependentUpon>
     </Compile>
-    <Compile Include="frmAddArticles.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAddArticles.Designer.cs">
-      <DependentUpon>frmAddArticles.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmArticlesData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +256,12 @@
     <Compile Include="frmOTTOMaster.Designer.cs">
       <DependentUpon>frmOTTOMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRabattGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRabattGroup.Designer.cs">
+      <DependentUpon>frmRabattGroup.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSelectCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +285,12 @@
     </Compile>
     <Compile Include="frmSupplierMaster.Designer.cs">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmType.Designer.cs">
+      <DependentUpon>frmType.cs</DependentUpon>
     </Compile>
     <Compile Include="frmViewdescription.cs">
       <SubType>Form</SubType>
@@ -342,9 +348,6 @@
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAddArticles.resx">
-      <DependentUpon>frmAddArticles.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmArticlesData.resx">
       <DependentUpon>frmArticlesData.cs</DependentUpon>
     </EmbeddedResource>
@@ -375,6 +378,9 @@
     <EmbeddedResource Include="frmOTTOMaster.resx">
       <DependentUpon>frmOTTOMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRabattGroup.resx">
+      <DependentUpon>frmRabattGroup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSelectCustomer.resx">
       <DependentUpon>frmSelectCustomer.cs</DependentUpon>
     </EmbeddedResource>
@@ -386,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupplierMaster.resx">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmType.resx">
+      <DependentUpon>frmType.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewdescription.resx">
       <DependentUpon>frmViewdescription.cs</DependentUpon>
