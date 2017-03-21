@@ -26,9 +26,6 @@ namespace OTTOPro
         private int _AddressID = -1;
         int _IDValue = -1;
 
-        DataTable _dtWI = new DataTable();
-        DataTable _dtWG = new DataTable();
-
         #region CONSTRUCTOR
 
         public frmLoadSupplier()
@@ -42,42 +39,24 @@ namespace OTTOPro
 
         private void btnAddArticles_Click(object sender, EventArgs e)
         {
-            frmSelectArticle frm = new frmSelectArticle();
-            frm.ShowDialog();
-            if (frm.DialogResult == DialogResult.OK)
+            try
             {
-                if (frm.dsArticles != null)
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
+                ObjESupplier.WGWAID = -1;
+                ObjESupplier.SupplierID = _SupplierID;
+                frmWGWA frm = new frmWGWA();
+                frm.ObjESupplier = ObjESupplier;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
                 {
-                    _dtWG = frm.dsArticles.Tables[0];
-
-                    foreach (DataRow row in _dtWG.Rows)
-                    {
-                        gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WG"], row["WG"]);
-                        gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WA"], row["WA"]);
-                        gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WGDescription"], row["WGDescription"]);
-
-                    }
-                    //gcArticles.DataSource = frm.dsArticles.Tables[0];
-                    //_dtWI = frm.dsArticles.Tables[1];
-                    //foreach (DataRow row in _dtWI.Rows)
-                    //{
-                    //    gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WI"], row["WI"]);
-                    //    // gvArticles.SetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.FocusedColumn, row["WIDescription"]);
-                    //}                  
-
-                    gcArticles.DataSource = _dtWG;
-                    gvArticles.BestFitColumns();
+                    BindArticleData(_SupplierID);
+                    Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
                 }
-
             }
-        }
-
-        private void gvArticles_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            if (gvArticles.FocusedColumn != null && gvArticles.GetFocusedRowCellValue("WG") != null)
+            catch (Exception ex)
             {
-                txtWGDescription.Text = gvArticles.GetFocusedRowCellValue("WGDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WGDescription").ToString();
-                //  txtWIDescription.Text = gvArticles.GetFocusedRowCellValue("WIDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WIDescription").ToString();
+                Utility.ShowError(ex);
             }
         }
 
@@ -85,9 +64,11 @@ namespace OTTOPro
         {
             try
             {
-                ObjESupplier = new ESupplier();
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
                 ObjESupplier.SupplierID = -1;
-                frmSupplierMaster frm = new frmSupplierMaster("Supplier", ObjESupplier);
+                frmSupplierMaster frm = new frmSupplierMaster("Supplier");
+                frm.ObjEsupplier = ObjESupplier;
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
                 {
@@ -99,7 +80,7 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
+        } 
 
         private void btnAddContact_Click(object sender, EventArgs e)
         {
@@ -116,14 +97,16 @@ namespace OTTOPro
                         throw new Exception("Please Select the Supplier.!");
                     }
                 }
-                ObjESupplier = new ESupplier();
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
                 ObjESupplier.ContactPersonID = -1;
                 ObjESupplier.Cont_supplierID = _SupplierID;
-                frmSupplierMaster frm = new frmSupplierMaster("Contact", ObjESupplier);
+                frmSupplierMaster frm = new frmSupplierMaster("Contact");
+                frm.ObjEsupplier = ObjESupplier;
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
                 {
-                    BindContactData();
+                    BindContactData(_SupplierID);
                     Setfocus(gvContact, "ContactPersonID", ObjESupplier.ContactPersonID);
                 }
             }
@@ -148,14 +131,16 @@ namespace OTTOPro
                         throw new Exception("Please Select the Supplier.!");
                     }
                 }
-                ObjESupplier = new ESupplier();
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
                 ObjESupplier.AddressID = -1;
                 ObjESupplier.Addr_supplierID = _SupplierID;
-                frmSupplierMaster frm = new frmSupplierMaster("Address", ObjESupplier);
+                frmSupplierMaster frm = new frmSupplierMaster("Address");
+                frm.ObjEsupplier = ObjESupplier;
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
                 {
-                    BindAddressData();
+                    BindAddressData(_SupplierID);
                     Setfocus(gvAddress, "AddressID", ObjESupplier.AddressID);
                 }
             }
@@ -179,9 +164,10 @@ namespace OTTOPro
                     {
                         return;
                     }
-                    ObjESupplier = new ESupplier();
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
                     GetSupplierDetails();
-                    frmSupplierMaster frm = new frmSupplierMaster("Supplier", ObjESupplier);
+                    frmSupplierMaster frm = new frmSupplierMaster("Supplier");
                     frm.ObjEsupplier = ObjESupplier;
                     frm.ShowDialog();
                     if (frm.DialogResult == DialogResult.OK)
@@ -211,14 +197,15 @@ namespace OTTOPro
                     {
                         return;
                     }
-                    ObjESupplier = new ESupplier();
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
                     GetContactDetails();
-                    frmSupplierMaster frm = new frmSupplierMaster("Contact", ObjESupplier);
+                    frmSupplierMaster frm = new frmSupplierMaster("Contact");
                     frm.ObjEsupplier = ObjESupplier;
                     frm.ShowDialog();
                     if (frm.DialogResult == DialogResult.OK)
                     {
-                        BindContactData();
+                        BindContactData(_SupplierID);
                         Setfocus(gvContact, "ContactPersonID", ObjESupplier.ContactPersonID);
                     }
                 }
@@ -244,14 +231,15 @@ namespace OTTOPro
                     {
                         return;
                     }
-                    ObjESupplier = new ESupplier();
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
                     GetAddressDetails();
-                    frmSupplierMaster frm = new frmSupplierMaster("Address", ObjESupplier);
+                    frmSupplierMaster frm = new frmSupplierMaster("Address");
                     frm.ObjEsupplier = ObjESupplier;
                     frm.ShowDialog();
                     if (frm.DialogResult == DialogResult.OK)
                     {
-                        BindAddressData();
+                        BindAddressData(_SupplierID);
                         Setfocus(gvAddress, "AddressID", ObjESupplier.AddressID);
                     }
                 }
@@ -271,19 +259,14 @@ namespace OTTOPro
                 if (gvSupplier.FocusedColumn != null && gvSupplier.GetFocusedRowCellValue("SupplierID") != null)
                 {
                     if (int.TryParse(gvSupplier.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
+                    {
                         _SupplierID = _IDValue;
-                    ObjBSupplier.GetSupplier(ObjESupplier);
-                    memoEditCommentary.Text = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
-                    memoEditPaymentConditions.Text = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
-                    DataView dvContact = ObjESupplier.dsSupplier.Tables["Table1"].DefaultView;
-                    dvContact.RowFilter = "SupplierID = '" + _SupplierID + "'";
-                    gcContact.DataSource = dvContact;
-
-                    DataView dvAddress = ObjESupplier.dsSupplier.Tables["Table2"].DefaultView;
-                    dvAddress.RowFilter = "SupplierID = '" + _SupplierID + "'";
-                    gcAddress.DataSource = dvAddress;
-
-
+                        memoEditCommentary.Text = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
+                        memoEditPaymentConditions.Text = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
+                        BindContactData(_IDValue);
+                        BindAddressData(_IDValue);
+                        BindArticleData(_IDValue);
+                    }
                 }
             }
             catch (Exception ex)
@@ -294,6 +277,7 @@ namespace OTTOPro
 
         private void frmLoadSupplier_Load(object sender, EventArgs e)
         {
+            ObjESupplier = ObjBSupplier.GetSupplier(ObjESupplier);
             BindSupplierData();
             gvSupplier.BestFitColumns();
             gvContact.BestFitColumns();
@@ -326,10 +310,9 @@ namespace OTTOPro
         {
             try
             {
-                ObjBSupplier.GetSupplier(ObjESupplier);
-                if (ObjESupplier.dsSupplier != null)
+                if (ObjESupplier.dtSupplier != null)
                 {
-                    gcSupplier.DataSource = ObjESupplier.dsSupplier.Tables[0];
+                    gcSupplier.DataSource = ObjESupplier.dtSupplier;
                     gvSupplier.BestFitColumns();
                 }
             }
@@ -339,16 +322,33 @@ namespace OTTOPro
             }
         }
 
-        public void BindContactData()
+        public void BindContactData(int SupplierID)
         {
             try
             {
-                ObjBSupplier.GetSupplier(ObjESupplier);
-                if (ObjESupplier.dsSupplier != null)
+                if (ObjESupplier.dtContact != null)
                 {
-                    DataView dvContact = ObjESupplier.dsSupplier.Tables["Table1"].DefaultView;
-                    dvContact.RowFilter = "SupplierID = '" + _SupplierID + "'";
+                    DataView dvContact = ObjESupplier.dtContact.DefaultView;
+                    dvContact.RowFilter = "SupplierID = '" + SupplierID + "'";
                     gcContact.DataSource = dvContact;
+                    gvContact.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void BindAddressData(int SuplierID)
+        {
+            try
+            {
+                if (ObjESupplier.dtAddress != null)
+                {
+                    DataView dvAddress = ObjESupplier.dtAddress.DefaultView;
+                    dvAddress.RowFilter = "SupplierID = '" + _SupplierID + "'";
+                    gcAddress.DataSource = dvAddress;
                     gvAddress.BestFitColumns();
                 }
             }
@@ -358,17 +358,16 @@ namespace OTTOPro
             }
         }
 
-        public void BindAddressData()
+        private void BindArticleData(int SuplierID)
         {
             try
             {
-                ObjBSupplier.GetSupplier(ObjESupplier);
-                if (ObjESupplier.dsSupplier != null)
+                if (ObjESupplier.dtArticle != null)
                 {
-                    DataView dvAddress = ObjESupplier.dsSupplier.Tables["Table2"].DefaultView;
-                    dvAddress.RowFilter = "SupplierID = '" + _SupplierID + "'";
-                    gcAddress.DataSource = dvAddress;
-                    gvAddress.BestFitColumns();
+                    DataView dvArticle = ObjESupplier.dtArticle.DefaultView;
+                    dvArticle.RowFilter = "SupplierID = '" + SuplierID + "'";
+                    gcArticles.DataSource = dvArticle;
+                    gvArticles.BestFitColumns();
                 }
             }
             catch (Exception ex)
@@ -452,8 +451,46 @@ namespace OTTOPro
         } 
         #endregion
 
+        private void gvArticles_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                GridView view = (GridView)sender;
+                Point pt = view.GridControl.PointToClient(Control.MousePosition);
+                GridHitInfo info = view.CalcHitInfo(pt);
 
+                if (info.InRow || info.InRowCell)
+                {
+                    if (gvArticles.SelectedRowsCount == 0)
+                    {
+                        return;
+                    }
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
 
-//********************
+                    if (int.TryParse(gvSupplier.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
+                    {
+                        ObjESupplier.SupplierID = _IDValue;
+                        ObjESupplier.WGWAID = gvArticles.GetFocusedRowCellValue("WGWAID") == DBNull.Value ? -1 : Convert.ToInt32(gvArticles.GetFocusedRowCellValue("WGWAID"));
+                        ObjESupplier.WG = gvArticles.GetFocusedRowCellValue("WG") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WG").ToString();
+                        ObjESupplier.WA = gvArticles.GetFocusedRowCellValue("WA") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WA").ToString();
+                        ObjESupplier.WGDescription = gvArticles.GetFocusedRowCellValue("WGDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WGDescription").ToString();
+
+                        frmWGWA frm = new frmWGWA();
+                        frm.ObjESupplier = ObjESupplier;
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            BindArticleData(_IDValue);
+                            Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
+                        }
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Utility.ShowError(EX);
+            }
+        }
     }
 }

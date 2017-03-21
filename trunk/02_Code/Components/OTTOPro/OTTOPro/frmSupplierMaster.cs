@@ -17,7 +17,6 @@ namespace OTTOPro
 {
     public partial class frmSupplierMaster : DevExpress.XtraEditors.XtraForm
     {
-        ESupplier ObjESupplier = null;
         BSupplier ObjBSupplier = null;
         string _SupplierType = null;
         private ESupplier _ObjEsupplier = null;
@@ -30,11 +29,10 @@ namespace OTTOPro
             InitializeComponent();
         }
 
-        public frmSupplierMaster(string _Type, ESupplier ObjESupplier1)
+        public frmSupplierMaster(string _Type)
         {
             InitializeComponent();
             _SupplierType = _Type;
-            ObjESupplier = ObjESupplier1;
         } 
         #endregion
 
@@ -85,11 +83,11 @@ namespace OTTOPro
                     TabChange(ObjTabDetails);
                     this.MinimumSize = new System.Drawing.Size(504, 350);
                 }
-                if (_SupplierType == "Supplier")
+                if (_SupplierType == "Supplier" && _ObjEsupplier.SupplierID > 0)
                     BindSupplierDetails();
-                if (_SupplierType == "Contact")
+                if (_SupplierType == "Contact" && _ObjEsupplier.ContactPersonID > 0)
                     BindContactsDetails();
-                if (_SupplierType == "Address")
+                if (_SupplierType == "Address" && _ObjEsupplier.AddressID > 0)
                     BindAddressDetails();
 
             }
@@ -106,6 +104,7 @@ namespace OTTOPro
         }
 
         bool _isValidate = true;
+
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -113,11 +112,11 @@ namespace OTTOPro
                 ValidatControls();
                 if (_isValidate == true)
                 {
-                    if (ObjESupplier == null)
-                        ObjESupplier = new ESupplier();
+                    if (_ObjEsupplier == null)
+                        _ObjEsupplier = new ESupplier();
                     ParseSupplierDetails();
                     ObjBSupplier = new BSupplier();
-                    ObjESupplier.SupplierID = ObjBSupplier.SaveSupplierDetails(ObjESupplier);
+                    _ObjEsupplier = ObjBSupplier.SaveSupplierDetails(_ObjEsupplier);
                     this.Close();
                 }
             }
@@ -140,11 +139,11 @@ namespace OTTOPro
                 }
                 if (_isValidate == true)
                 {
-                    if (ObjESupplier == null)
-                        ObjESupplier = new ESupplier();
+                    if (_ObjEsupplier == null)
+                        _ObjEsupplier = new ESupplier();
                     ParseSupplierContactsDetails();
                     ObjBSupplier = new BSupplier();
-                    ObjESupplier.ContactPersonID = ObjBSupplier.SaveSupplierContactDetails(ObjESupplier);
+                    _ObjEsupplier = ObjBSupplier.SaveSupplierContactDetails(_ObjEsupplier);
                     this.Close();
                 }
             }
@@ -167,11 +166,11 @@ namespace OTTOPro
                 }
                 if (_isValidate == true)
                 {
-                    if (ObjESupplier == null)
-                        ObjESupplier = new ESupplier();
+                    if (_ObjEsupplier == null)
+                        _ObjEsupplier = new ESupplier();
                     ParseSupplierAddressDetails();
                     ObjBSupplier = new BSupplier();
-                    ObjESupplier.AddressID = ObjBSupplier.SaveSupplierAddressDetails(ObjESupplier);
+                    _ObjEsupplier = ObjBSupplier.SaveSupplierAddressDetails(_ObjEsupplier);
                     this.Close();
                 }
             }
@@ -233,10 +232,10 @@ namespace OTTOPro
         {
             try
             {
-                txtFullName.Text = ObjESupplier.SupplierFullName;
-                txtShortName.Text = ObjESupplier.SupplierShortName;
-                txtCommentary.Text = ObjESupplier.Commentary;
-                txtPaymentCondition.Text = ObjESupplier.PaymentCondition;
+                txtFullName.Text = _ObjEsupplier.SupplierFullName;
+                txtShortName.Text = _ObjEsupplier.SupplierShortName;
+                txtCommentary.Text = _ObjEsupplier.Commentary;
+                txtPaymentCondition.Text = _ObjEsupplier.PaymentCondition;
             }
             catch (Exception ex)
             {
@@ -249,13 +248,13 @@ namespace OTTOPro
         {
             try
             {
-                cmbSalutation.Text = ObjESupplier.Salutation;
-                txtContactName.Text = ObjESupplier.ContactName;
-                txtDesignation.Text = ObjESupplier.Designation;
-                txtContactemail.Text = ObjESupplier.ContEmailID;
-                txtContacttelephone.Text = ObjESupplier.ContTelephone;
-                txtContactFax.Text = ObjESupplier.ContFax;
-                chkDefaultContact.EditValue = ObjESupplier.DefaultContact;
+                cmbSalutation.Text = _ObjEsupplier.Salutation;
+                txtContactName.Text = _ObjEsupplier.ContactName;
+                txtDesignation.Text = _ObjEsupplier.Designation;
+                txtContactemail.Text = _ObjEsupplier.ContEmailID;
+                txtContacttelephone.Text = _ObjEsupplier.ContTelephone;
+                txtContactFax.Text = _ObjEsupplier.ContFax;
+                chkDefaultContact.EditValue = _ObjEsupplier.DefaultContact;
             }
             catch (Exception ex)
             {
@@ -268,12 +267,12 @@ namespace OTTOPro
         {
             try
             {
-                txtAddrShortName.Text = ObjESupplier.AddressShortName;
-                txtAddrStreetNo.Text = ObjESupplier.StreetNo;
-                txtAddrPostalCode.Text = ObjESupplier.AddrPostalCode;
-                txtAddrcity.Text = ObjESupplier.AddrCity;
-                txtAddrCountry.Text = ObjESupplier.AddrCountry;
-                chkDefaultAddress.EditValue = ObjESupplier.DefaultAddress;
+                txtAddrShortName.Text = _ObjEsupplier.AddressShortName;
+                txtAddrStreetNo.Text = _ObjEsupplier.StreetNo;
+                txtAddrPostalCode.Text = _ObjEsupplier.AddrPostalCode;
+                txtAddrcity.Text = _ObjEsupplier.AddrCity;
+                txtAddrCountry.Text = _ObjEsupplier.AddrCountry;
+                chkDefaultAddress.EditValue = _ObjEsupplier.DefaultAddress;
             }
             catch (Exception ex)
             {
@@ -329,10 +328,10 @@ namespace OTTOPro
         {
             try
             {
-                ObjESupplier.SupplierFullName = txtFullName.Text;
-                ObjESupplier.SupplierShortName = txtShortName.Text;
-                ObjESupplier.Commentary = txtCommentary.Text;
-                ObjESupplier.PaymentCondition = txtPaymentCondition.Text;
+                _ObjEsupplier.SupplierFullName = txtFullName.Text;
+                _ObjEsupplier.SupplierShortName = txtShortName.Text;
+                _ObjEsupplier.Commentary = txtCommentary.Text;
+                _ObjEsupplier.PaymentCondition = txtPaymentCondition.Text;
             }
             catch (Exception ex)
             {
@@ -345,13 +344,13 @@ namespace OTTOPro
         {
             try
             {
-                ObjESupplier.Salutation = cmbSalutation.Text;
-                ObjESupplier.ContactName = txtContactName.Text;
-                ObjESupplier.Designation = txtDesignation.Text;
-                ObjESupplier.ContEmailID = txtContactemail.Text;
-                ObjESupplier.ContTelephone = txtContacttelephone.Text;
-                ObjESupplier.ContFax = txtContactFax.Text;
-                ObjESupplier.DefaultContact = Convert.ToBoolean(chkDefaultContact.CheckState);
+                _ObjEsupplier.Salutation = cmbSalutation.Text;
+                _ObjEsupplier.ContactName = txtContactName.Text;
+                _ObjEsupplier.Designation = txtDesignation.Text;
+                _ObjEsupplier.ContEmailID = txtContactemail.Text;
+                _ObjEsupplier.ContTelephone = txtContacttelephone.Text;
+                _ObjEsupplier.ContFax = txtContactFax.Text;
+                _ObjEsupplier.DefaultContact = Convert.ToBoolean(chkDefaultContact.CheckState);
             }
             catch (Exception ex)
             {
@@ -364,12 +363,12 @@ namespace OTTOPro
         {
             try
             {
-                ObjESupplier.AddressShortName = txtAddrShortName.Text;
-                ObjESupplier.StreetNo = txtAddrStreetNo.Text;
-                ObjESupplier.AddrPostalCode = txtAddrPostalCode.Text;
-                ObjESupplier.AddrCity = txtAddrcity.Text;
-                ObjESupplier.AddrCountry = txtAddrCountry.Text;
-                ObjESupplier.DefaultAddress = Convert.ToBoolean(chkDefaultAddress.CheckState);
+                _ObjEsupplier.AddressShortName = txtAddrShortName.Text;
+                _ObjEsupplier.StreetNo = txtAddrStreetNo.Text;
+                _ObjEsupplier.AddrPostalCode = txtAddrPostalCode.Text;
+                _ObjEsupplier.AddrCity = txtAddrcity.Text;
+                _ObjEsupplier.AddrCountry = txtAddrCountry.Text;
+                _ObjEsupplier.DefaultAddress = Convert.ToBoolean(chkDefaultAddress.CheckState);
             }
             catch (Exception ex)
             {

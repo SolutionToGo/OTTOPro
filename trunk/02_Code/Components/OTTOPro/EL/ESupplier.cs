@@ -20,7 +20,8 @@ namespace EL
         private DateTime _LastUpdatedDate;
         private bool _IsActive;
         private string _Commentary;
-        private DataSet _dtSupplier;
+        private DataSet _dsSupplier;
+        private DataTable _dtSupplier;
 
 
         // To hold the Supplier Contacts
@@ -33,6 +34,7 @@ namespace EL
         private string _ContTelephone;
         private string _ContFax;
         private bool _DefaultContact;
+        private DataTable _dtContact;
 
         // To hold the Supplier Address
         private int _AddressID = -1;
@@ -43,13 +45,47 @@ namespace EL
         private string _AddrCity;
         private string _AddrCountry;
         private bool _DefaultAddress;
+        private DataTable _dtAddress;
 
+        //To hold the article data
+        private int _WGWAID = -1;
+        private string _WG;
+        private string _WA;
+        private string _WGDescription;
+        private DataTable _dtArticle;
 
+        // Article Properties and entities
+        public int WGWAID
+        {
+            get { return _WGWAID; }
+            set { _WGWAID = value; }
+        }
+        public string WG
+        {
+            get { return _WG; }
+            set { _WG = value; }
+        }
+        public string WA
+        {
+            get { return _WA; }
+            set { _WA = value; }
+        }
+        public string WGDescription
+        {
+            get { return _WGDescription; }
+            set { _WGDescription = value; }
+        }
+        public DataTable dtArticle
+        {
+            get { return _dtArticle; }
+            set { _dtArticle = value; }
+        }
+        
         // Supplier Properties
         public DataSet dsSupplier
         {
-            get { return _dtSupplier; }
-            set { _dtSupplier = value; }
+            get { return _dsSupplier; }
+            set { _dsSupplier = value; }
         }
         public int SupplierID
         {
@@ -101,6 +137,11 @@ namespace EL
             get { return _IsActive; }
             set { _IsActive = value; }
         }
+        public DataTable dtSupplier
+        {
+            get { return _dtSupplier; }
+            set { _dtSupplier = value; }
+        }
 
         // Supplier Contact Properties
         public int ContactPersonID
@@ -148,6 +189,11 @@ namespace EL
             get { return _DefaultContact; }
             set { _DefaultContact = value; }
         }
+        public DataTable dtContact
+        {
+            get { return _dtContact; }
+            set { _dtContact = value; }
+        }
 
         // Supplier Address Properties
         public int AddressID
@@ -189,6 +235,11 @@ namespace EL
         {
             get { return _DefaultAddress; }
             set { _DefaultAddress = value; }
+        }
+        public DataTable dtAddress
+        {
+            get { return _dtAddress; }
+            set { _dtAddress = value; }
         }
 
     }
