@@ -167,6 +167,14 @@
             // 
             // gvArticles
             // 
+            this.gvArticles.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvArticles.Appearance.Empty.Options.UseBackColor = true;
+            this.gvArticles.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvArticles.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvArticles.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvArticles.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gvArticles.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.gvArticles.Appearance.Row.Options.UseBackColor = true;
             this.gvArticles.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -174,19 +182,28 @@
             this.gridColumn5});
             this.gvArticles.GridControl = this.gcArticles;
             this.gvArticles.Name = "gvArticles";
-            this.gvArticles.OptionsBehavior.Editable = false;
-            this.gvArticles.OptionsBehavior.ReadOnly = true;
+            this.gvArticles.OptionsCustomization.AllowColumnMoving = false;
+            this.gvArticles.OptionsFilter.AllowFilterEditor = false;
+            this.gvArticles.OptionsMenu.EnableColumnMenu = false;
+            this.gvArticles.OptionsMenu.EnableFooterMenu = false;
+            this.gvArticles.OptionsMenu.EnableGroupPanelMenu = false;
+            this.gvArticles.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvArticles.OptionsView.ShowGroupPanel = false;
+            this.gvArticles.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvArticles_CellValueChanged);
             this.gvArticles.DoubleClick += new System.EventHandler(this.gvArticles_DoubleClick);
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
             this.gridColumn1.Caption = "ID";
             this.gridColumn1.FieldName = "WGWAID";
             this.gridColumn1.Name = "gridColumn1";
             // 
             // gridColumn2
             // 
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
             this.gridColumn2.Caption = "WG";
             this.gridColumn2.FieldName = "WG";
             this.gridColumn2.Name = "gridColumn2";
@@ -195,6 +212,8 @@
             // 
             // gridColumn3
             // 
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
             this.gridColumn3.Caption = "WA";
             this.gridColumn3.FieldName = "WA";
             this.gridColumn3.Name = "gridColumn3";
@@ -203,6 +222,8 @@
             // 
             // gridColumn5
             // 
+            this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn5.AppearanceHeader.Options.UseFont = true;
             this.gridColumn5.Caption = "WGDescription";
             this.gridColumn5.FieldName = "WGDescription";
             this.gridColumn5.Name = "gridColumn5";
