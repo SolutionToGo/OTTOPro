@@ -124,6 +124,7 @@
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ctrProject = new DevExpress.XtraEditors.SplitContainerControl();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnSubmitProposal = new System.Windows.Forms.Button();
             this.btnOmlage = new System.Windows.Forms.Button();
             this.btnProjectDetails = new System.Windows.Forms.Button();
             this.btnLvdetails = new System.Windows.Forms.Button();
@@ -2437,6 +2438,7 @@
             this.tableLayoutPanel1.BackColor = System.Drawing.Color.Gray;
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.btnSubmitProposal, 0, 11);
             this.tableLayoutPanel1.Controls.Add(this.btnOmlage, 0, 9);
             this.tableLayoutPanel1.Controls.Add(this.btnProjectDetails, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.btnLvdetails, 0, 1);
@@ -2449,7 +2451,7 @@
             this.tableLayoutPanel1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 10;
+            this.tableLayoutPanel1.RowCount = 12;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -2460,9 +2462,26 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(174, 781);
             this.tableLayoutPanel1.TabIndex = 27;
+            // 
+            // btnSubmitProposal
+            // 
+            this.btnSubmitProposal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSubmitProposal.BackColor = System.Drawing.Color.Silver;
+            this.btnSubmitProposal.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnSubmitProposal.ForeColor = System.Drawing.Color.White;
+            this.btnSubmitProposal.Location = new System.Drawing.Point(3, 419);
+            this.btnSubmitProposal.Name = "btnSubmitProposal";
+            this.btnSubmitProposal.Size = new System.Drawing.Size(168, 46);
+            this.btnSubmitProposal.TabIndex = 41;
+            this.btnSubmitProposal.Text = "Submit Proposal";
+            this.btnSubmitProposal.UseVisualStyleBackColor = false;
+            this.btnSubmitProposal.Click += new System.EventHandler(this.btnSubmitProposal_Click);
             // 
             // btnOmlage
             // 
@@ -2471,7 +2490,7 @@
             this.btnOmlage.BackColor = System.Drawing.Color.Silver;
             this.btnOmlage.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnOmlage.ForeColor = System.Drawing.Color.White;
-            this.btnOmlage.Location = new System.Drawing.Point(3, 367);
+            this.btnOmlage.Location = new System.Drawing.Point(3, 315);
             this.btnOmlage.Name = "btnOmlage";
             this.btnOmlage.Size = new System.Drawing.Size(168, 46);
             this.btnOmlage.TabIndex = 39;
@@ -2574,7 +2593,7 @@
             this.btnImport.BackColor = System.Drawing.Color.Silver;
             this.btnImport.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnImport.ForeColor = System.Drawing.Color.White;
-            this.btnImport.Location = new System.Drawing.Point(3, 315);
+            this.btnImport.Location = new System.Drawing.Point(3, 367);
             this.btnImport.Name = "btnImport";
             this.btnImport.Size = new System.Drawing.Size(168, 46);
             this.btnImport.TabIndex = 35;
@@ -10975,6 +10994,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem58;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem103;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem107;
+        private System.Windows.Forms.Button btnSubmitProposal;
 
 
     }

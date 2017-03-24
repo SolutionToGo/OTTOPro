@@ -28,6 +28,7 @@ using DevExpress.XtraTreeList.Menu;
 using DevExpress.XtraSplashScreen;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
+using DevExpress.XtraReports.UI;
 
 namespace OTTOPro
 {
@@ -5530,6 +5531,13 @@ e.Column.FieldName == "GB")
             txtBulkProcessWG.Text = "";
             txtBulkProcessWA.Text = "";
         }
+
+        private void btnSubmitProposal_Click(object sender, EventArgs e)
+        {
+            frmDesignReport Obj = new frmDesignReport("Report", ObjEProject.ProjectID, ObjEProject.KundeID);
+            Obj.ShowDialog();
+        }
+
         
 
     }
