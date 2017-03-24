@@ -212,7 +212,7 @@ namespace OTTOPro
 
         private void btnDesignReport_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmDesignReport Obj = new frmDesignReport();
+            frmDesignReport Obj = new frmDesignReport("Form",0,0);
             Obj.ShowDialog();
         }
 

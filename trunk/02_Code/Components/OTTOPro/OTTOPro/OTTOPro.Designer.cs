@@ -327,7 +327,7 @@
             this.rpSetting.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgTextModule});
             this.rpSetting.Name = "rpSetting";
-            this.rpSetting.Text = "Setting";
+            this.rpSetting.Text = "Settings";
             // 
             // rpgTextModule
             // 

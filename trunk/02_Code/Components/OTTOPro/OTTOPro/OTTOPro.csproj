@@ -353,11 +353,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\dsProposalCoverPage1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\frmProposalCoverPage1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Report Design\frmProposalCoverPage1.Designer.cs">
       <DependentUpon>frmProposalCoverPage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalCoverPage1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalCoverPage1.Designer.cs">
+      <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
     </Compile>
     <Compile Include="rptLVDetails.cs">
       <SubType>Component</SubType>
@@ -462,6 +473,9 @@
     <EmbeddedResource Include="Report Design\frmProposalCoverPage1.resx">
       <DependentUpon>frmProposalCoverPage1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalCoverPage1.resx">
+      <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptLVDetails.resx">
       <DependentUpon>rptLVDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -498,6 +512,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Report Design\dsProposalCoverPage1.xsc">
+      <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalCoverPage1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProposalCoverPage1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsProposalCoverPage1.xss">
+      <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
+    </None>
     <None Include="Resources\1470736995_User_Customers.png" />
   </ItemGroup>
   <ItemGroup>
