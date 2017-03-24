@@ -202,11 +202,23 @@
     <Compile Include="frmArticlesData.Designer.cs">
       <DependentUpon>frmArticlesData.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCategory.Designer.cs">
+      <DependentUpon>FrmCategory.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCustomerMaster.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCustomerMaster.Designer.cs">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDesignReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDesignReport.Designer.cs">
+      <DependentUpon>frmDesignReport.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDocuwareLink.cs">
       <SubType>Form</SubType>
@@ -274,6 +286,12 @@
     <Compile Include="frmSelectArticle.Designer.cs">
       <DependentUpon>frmSelectArticle.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSelectTextModuleDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectTextModuleDetails.Designer.cs">
+      <DependentUpon>frmSelectTextModuleDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmShortCuts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +303,12 @@
     </Compile>
     <Compile Include="frmSupplierMaster.Designer.cs">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTextModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTextModule.Designer.cs">
+      <DependentUpon>frmTextModule.cs</DependentUpon>
     </Compile>
     <Compile Include="frmType.cs">
       <SubType>Form</SubType>
@@ -329,6 +353,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\frmProposalCoverPage1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report Design\frmProposalCoverPage1.Designer.cs">
+      <DependentUpon>frmProposalCoverPage1.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptLVDetails.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -351,8 +381,14 @@
     <EmbeddedResource Include="frmArticlesData.resx">
       <DependentUpon>frmArticlesData.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCategory.resx">
+      <DependentUpon>FrmCategory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerMaster.resx">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDesignReport.resx">
+      <DependentUpon>frmDesignReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDocuwareLink.resx">
       <DependentUpon>frmDocuwareLink.cs</DependentUpon>
@@ -387,11 +423,17 @@
     <EmbeddedResource Include="frmSelectArticle.resx">
       <DependentUpon>frmSelectArticle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectTextModuleDetails.resx">
+      <DependentUpon>frmSelectTextModuleDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmShortCuts.resx">
       <DependentUpon>frmShortCuts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupplierMaster.resx">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTextModule.resx">
+      <DependentUpon>frmTextModule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmType.resx">
       <DependentUpon>frmType.cs</DependentUpon>
@@ -416,6 +458,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\frmProposalCoverPage1.resx">
+      <DependentUpon>frmProposalCoverPage1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptLVDetails.resx">
       <DependentUpon>rptLVDetails.cs</DependentUpon>
@@ -493,6 +538,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Open2_32x32.png" />
+    <None Include="Resources\Open2_16x16.png" />
+    <None Include="Resources\TextBox_32x32.png" />
+    <None Include="Resources\TextBox_16x16.png" />
     <None Include="Resources\UpDownBars_32x32.png" />
     <None Include="Resources\UpDownBars_16x16.png" />
     <None Include="Resources\Software.png" />
@@ -527,6 +576,8 @@
     <None Include="Resources\BORole_32x32.png" />
     <None Include="Resources\BOFileAttachment_16x16.png" />
     <None Include="Resources\BOFileAttachment_32x32.png" />
+    <None Include="Resources\DesignReport_16x16.png" />
+    <None Include="Resources\DesignReport_32x32.png" />
     <Content Include="Resources\edit-icon %281%29.png" />
     <Content Include="Resources\edit-icon.png" />
     <None Include="Resources\Save_16x16.png" />

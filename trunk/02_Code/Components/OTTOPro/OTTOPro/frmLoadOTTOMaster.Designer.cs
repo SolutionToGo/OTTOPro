@@ -67,6 +67,16 @@
             this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -332,7 +342,17 @@
             this.gridColumn19,
             this.gridColumn20,
             this.gridColumn22,
-            this.gridColumn21});
+            this.gridColumn21,
+            this.gridColumn31,
+            this.gridColumn32,
+            this.gridColumn33,
+            this.gridColumn34,
+            this.gridColumn35,
+            this.gridColumn36,
+            this.gridColumn37,
+            this.gridColumn38,
+            this.gridColumn39,
+            this.gridColumn40});
             this.gvOTTO.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvOTTO.GridControl = this.gcOTTO;
             this.gvOTTO.Name = "gvOTTO";
@@ -599,6 +619,66 @@
             this.gridColumn21.FieldName = "BGNr";
             this.gridColumn21.Name = "gridColumn21";
             // 
+            // gridColumn31
+            // 
+            this.gridColumn31.Caption = "Telefon";
+            this.gridColumn31.FieldName = "Telefon";
+            this.gridColumn31.Name = "gridColumn31";
+            // 
+            // gridColumn32
+            // 
+            this.gridColumn32.Caption = "Telefax";
+            this.gridColumn32.FieldName = "Telefax";
+            this.gridColumn32.Name = "gridColumn32";
+            // 
+            // gridColumn33
+            // 
+            this.gridColumn33.Caption = "Website";
+            this.gridColumn33.FieldName = "Website";
+            this.gridColumn33.Name = "gridColumn33";
+            // 
+            // gridColumn34
+            // 
+            this.gridColumn34.Caption = "HotLine";
+            this.gridColumn34.FieldName = "HotLine";
+            this.gridColumn34.Name = "gridColumn34";
+            // 
+            // gridColumn35
+            // 
+            this.gridColumn35.Caption = "IBAN";
+            this.gridColumn35.FieldName = "IBAN";
+            this.gridColumn35.Name = "gridColumn35";
+            // 
+            // gridColumn36
+            // 
+            this.gridColumn36.Caption = "BIC";
+            this.gridColumn36.FieldName = "BIC";
+            this.gridColumn36.Name = "gridColumn36";
+            // 
+            // gridColumn37
+            // 
+            this.gridColumn37.Caption = "USTIDNr";
+            this.gridColumn37.FieldName = "USTIDNr";
+            this.gridColumn37.Name = "gridColumn37";
+            // 
+            // gridColumn38
+            // 
+            this.gridColumn38.Caption = "SeatofCompany";
+            this.gridColumn38.FieldName = "SeatofCompany";
+            this.gridColumn38.Name = "gridColumn38";
+            // 
+            // gridColumn39
+            // 
+            this.gridColumn39.Caption = "MD";
+            this.gridColumn39.FieldName = "ManagingDirector";
+            this.gridColumn39.Name = "gridColumn39";
+            // 
+            // gridColumn40
+            // 
+            this.gridColumn40.Caption = "Complementary";
+            this.gridColumn40.FieldName = "Complementary";
+            this.gridColumn40.Name = "gridColumn40";
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -772,5 +852,15 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn29;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn32;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn33;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn34;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn35;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn36;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn37;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
     }
 }

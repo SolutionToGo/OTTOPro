@@ -233,6 +233,26 @@ namespace OTTOPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DesignReport_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("DesignReport_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap DesignReport_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("DesignReport_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Edit_16x16 {
             get {
                 object obj = ResourceManager.GetObject("Edit_16x16", resourceCulture);
@@ -373,6 +393,26 @@ namespace OTTOPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Open2_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("Open2_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Open2_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("Open2_32x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Otto {
             get {
                 object obj = ResourceManager.GetObject("Otto", resourceCulture);
@@ -426,6 +466,26 @@ namespace OTTOPro.Properties {
         internal static System.Drawing.Bitmap Software {
             get {
                 object obj = ResourceManager.GetObject("Software", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextBox_16x16 {
+            get {
+                object obj = ResourceManager.GetObject("TextBox_16x16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap TextBox_32x32 {
+            get {
+                object obj = ResourceManager.GetObject("TextBox_32x32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -57,10 +57,15 @@
             this.btnCustomer = new DevExpress.XtraBars.BarButtonItem();
             this.btnOTTO = new DevExpress.XtraBars.BarButtonItem();
             this.btnSupplier = new DevExpress.XtraBars.BarButtonItem();
+            this.btnArticledata = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTextModule = new DevExpress.XtraBars.BarButtonItem();
+            this.btnDesignReport = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgSupplier = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgArticleMaster = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.rpSetting = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.rpgTextModule = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.BarButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -68,7 +73,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnArticledata = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -100,12 +104,15 @@
             this.btnCustomer,
             this.btnOTTO,
             this.btnSupplier,
-            this.btnArticledata});
+            this.btnArticledata,
+            this.btnTextModule,
+            this.btnDesignReport});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 30;
+            this.ribbon.MaxItemId = 32;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.miHome});
+            this.miHome,
+            this.rpSetting});
             this.ribbon.Size = new System.Drawing.Size(890, 143);
             // 
             // btnNewProject
@@ -259,6 +266,29 @@
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSupplier_ItemClick);
             // 
+            // btnArticledata
+            // 
+            this.btnArticledata.Caption = "Article Data";
+            this.btnArticledata.Id = 29;
+            this.btnArticledata.Name = "btnArticledata";
+            this.btnArticledata.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnArticledata_ItemClick);
+            // 
+            // btnTextModule
+            // 
+            this.btnTextModule.Caption = "Text Module";
+            this.btnTextModule.Id = 30;
+            this.btnTextModule.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.TextBox_32x32;
+            this.btnTextModule.Name = "btnTextModule";
+            this.btnTextModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTextModule_ItemClick);
+            // 
+            // btnDesignReport
+            // 
+            this.btnDesignReport.Caption = "Design Report";
+            this.btnDesignReport.Id = 31;
+            this.btnDesignReport.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.DesignReport_32x32;
+            this.btnDesignReport.Name = "btnDesignReport";
+            this.btnDesignReport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDesignReport_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -291,6 +321,20 @@
             this.rpgArticleMaster.ItemLinks.Add(this.btnArticledata);
             this.rpgArticleMaster.Name = "rpgArticleMaster";
             this.rpgArticleMaster.Text = "Article Master";
+            // 
+            // rpSetting
+            // 
+            this.rpSetting.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.rpgTextModule});
+            this.rpSetting.Name = "rpSetting";
+            this.rpSetting.Text = "Setting";
+            // 
+            // rpgTextModule
+            // 
+            this.rpgTextModule.ItemLinks.Add(this.btnTextModule, true);
+            this.rpgTextModule.ItemLinks.Add(this.btnDesignReport, true);
+            this.rpgTextModule.Name = "rpgTextModule";
+            this.rpgTextModule.Text = "Text Module Details";
             // 
             // BarButtonItem10
             // 
@@ -363,13 +407,6 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Version 1.4 (06-03-2017)";
             // 
-            // btnArticledata
-            // 
-            this.btnArticledata.Caption = "Article Data";
-            this.btnArticledata.Id = 29;
-            this.btnArticledata.Name = "btnArticledata";
-            this.btnArticledata.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnArticledata_ItemClick);
-            // 
             // frmOTTOPro
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -438,5 +475,9 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSupplier;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgArticleMaster;
         private DevExpress.XtraBars.BarButtonItem btnArticledata;
+        private DevExpress.XtraBars.BarButtonItem btnTextModule;
+        private DevExpress.XtraBars.Ribbon.RibbonPage rpSetting;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTextModule;
+        private DevExpress.XtraBars.BarButtonItem btnDesignReport;
     }
 }

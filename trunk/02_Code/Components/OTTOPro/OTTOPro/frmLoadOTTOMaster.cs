@@ -273,6 +273,16 @@ namespace OTTOPro
                     ObjEOTTO.BGBez = gvOTTO.GetFocusedRowCellValue("BGBez") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("BGBez").ToString();
                     ObjEOTTO.BGDatum = gvOTTO.GetFocusedRowCellValue("BGDatum") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("BGDatum").ToString();
                     ObjEOTTO.BGNr = gvOTTO.GetFocusedRowCellValue("BGNr") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("BGNr").ToString();
+                    ObjEOTTO.Telefon = gvOTTO.GetFocusedRowCellValue("Telefon") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("Telefon").ToString();
+                    ObjEOTTO.Telefax = gvOTTO.GetFocusedRowCellValue("Telefax") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("Telefax").ToString();
+                    ObjEOTTO.Website = gvOTTO.GetFocusedRowCellValue("Website") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("Website").ToString();
+                    ObjEOTTO.HotLine = gvOTTO.GetFocusedRowCellValue("HotLine") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("HotLine").ToString();
+                    ObjEOTTO.IBAN = gvOTTO.GetFocusedRowCellValue("IBAN") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("IBAN").ToString();
+                    ObjEOTTO.BIC = gvOTTO.GetFocusedRowCellValue("BIC") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("BIC").ToString();
+                    ObjEOTTO.USTIDNr = gvOTTO.GetFocusedRowCellValue("USTIDNr") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("USTIDNr").ToString();
+                    ObjEOTTO.SeatofCompany = gvOTTO.GetFocusedRowCellValue("SeatofCompany") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("SeatofCompany").ToString();
+                    ObjEOTTO.ManagingDirector = gvOTTO.GetFocusedRowCellValue("ManagingDirector") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("ManagingDirector").ToString();
+                    ObjEOTTO.Complementary = gvOTTO.GetFocusedRowCellValue("Complementary") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("Complementary").ToString();
                     ObjEOTTO.IsBranch = Convert.ToBoolean(gvOTTO.GetFocusedRowCellValue("IsBranch") == DBNull.Value ? "" : gvOTTO.GetFocusedRowCellValue("IsBranch"));
 
                 }

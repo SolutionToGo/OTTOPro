@@ -47,6 +47,8 @@
     <Compile Include="DOTTO.cs" />
     <Compile Include="DPosition.cs" />
     <Compile Include="DProject.cs" />
+    <Compile Include="DProposal.cs" />
+    <Compile Include="DReportDesign.cs" />
     <Compile Include="DSupplier.cs" />
     <Compile Include="DUmlage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

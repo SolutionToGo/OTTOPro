@@ -204,6 +204,18 @@ namespace OTTOPro
             Obj.Show();
         }
 
+        private void btnTextModule_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmTextModule Obj = new frmTextModule();
+            Obj.ShowDialog();
+        }
+
+        private void btnDesignReport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmDesignReport Obj = new frmDesignReport();
+            Obj.ShowDialog();
+        }
+
 
 
     }

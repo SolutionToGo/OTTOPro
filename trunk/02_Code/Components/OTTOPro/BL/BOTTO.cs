@@ -42,6 +42,16 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BGBez", ObjEOTTO.BGBez.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BGDatum", ObjEOTTO.BGDatum.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BGNr", ObjEOTTO.BGNr.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Telefon", ObjEOTTO.Telefon.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Telefax", ObjEOTTO.Telefax.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Website", ObjEOTTO.Website.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "HotLine", ObjEOTTO.HotLine.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "IBAN", ObjEOTTO.IBAN.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BIC", ObjEOTTO.BIC.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "USTIDNr", ObjEOTTO.USTIDNr.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SeatofCompany", ObjEOTTO.SeatofCompany.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ManagingDirector", ObjEOTTO.ManagingDirector.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Complementary", ObjEOTTO.Complementary.ToString());
 
                 OTTOID = ObjDOTTO.SaveOTTODetails(Xdoc);
                 if (OTTOID < 0)

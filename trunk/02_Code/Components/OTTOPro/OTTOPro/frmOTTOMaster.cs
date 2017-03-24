@@ -67,7 +67,7 @@ namespace OTTOPro
                     this.Text = "OTTO Firmendaten";
                     ObjTabDetails = tbOTTO;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(731, 593);
+                    this.MinimumSize = new System.Drawing.Size(759, 779);
                 }
                 if (_type == "Contact")
                 {
@@ -219,6 +219,16 @@ namespace OTTOPro
                 ObjEOTTO.BGBez = txtBGBez.Text;
                 ObjEOTTO.BGDatum = txtBGDatum.Text;
                 ObjEOTTO.BGNr = txtBGNr.Text;
+                ObjEOTTO.Telefon = txtOTTOTelefone.Text;
+                ObjEOTTO.Telefax = txtTelefax.Text;
+                ObjEOTTO.Website = txtWebsite.Text;
+                ObjEOTTO.HotLine = txtHotline.Text;
+                ObjEOTTO.IBAN = txtIBAN.Text;
+                ObjEOTTO.BIC = txtBIC.Text;
+                ObjEOTTO.USTIDNr = txtUSTNr.Text;
+                ObjEOTTO.SeatofCompany = txtseatofcompany.Text;
+                ObjEOTTO.ManagingDirector = txtMD.Text;
+                ObjEOTTO.Complementary = txtComplementary.Text;
                 ObjEOTTO.IsBranch = Convert.ToBoolean(checkEditIsBranch.CheckState);
             }
             catch (Exception ex)
@@ -270,6 +280,17 @@ namespace OTTOPro
                 txtBGBez.Text = ObjEOTTO.BGBez;
                 txtBGDatum.Text = ObjEOTTO.BGDatum;
                 txtBGNr.Text = ObjEOTTO.BGNr;
+                txtOTTOTelefone.Text =ObjEOTTO.Telefon;
+                txtTelefax.Text=ObjEOTTO.Telefax;
+                txtWebsite.Text=ObjEOTTO.Website;
+                txtHotline.Text =ObjEOTTO.HotLine;
+                txtIBAN.Text =ObjEOTTO.IBAN;
+                txtBIC.Text =ObjEOTTO.BIC;
+                txtUSTNr.Text =ObjEOTTO.USTIDNr;
+                txtseatofcompany.Text =ObjEOTTO.SeatofCompany;
+                txtMD.Text =ObjEOTTO.ManagingDirector;
+                txtComplementary.Text =ObjEOTTO.Complementary;
+
                 checkEditIsBranch.EditValue = Convert.ToBoolean(ObjEOTTO.IsBranch);
             }
             catch (Exception ex)
@@ -333,6 +354,7 @@ namespace OTTOPro
 
 
         #endregion
+
 
 
 

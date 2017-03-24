@@ -32,6 +32,16 @@ namespace EL
         private string _BGBez;
         private string _BGDatum;
         private string _BGNr;
+        private string _Telefon;
+        private string _Telefax;
+        private string _Website;
+        private string _HotLine;
+        private string _IBAN;
+        private string _BIC;
+        private string _USTIDNr;
+        private string _SeatofCompany;
+        private string _ManagingDirector;
+        private string _Complementary;
         private DataSet _dtOTTO;
 
 
@@ -162,7 +172,56 @@ namespace EL
             get { return _BGNr; }
             set { _BGNr = value; }
         }
-
+        public string Telefon
+        {
+            get { return _Telefon; }
+            set { _Telefon = value; }
+        }
+        public string Telefax
+        {
+            get { return _Telefax; }
+            set { _Telefax = value; }
+        }
+        public string Website
+        {
+            get { return _Website; }
+            set { _Website = value; }
+        }
+        public string HotLine
+        {
+            get { return _HotLine; }
+            set { _HotLine = value; }
+        }
+        public string IBAN
+        {
+            get { return _IBAN; }
+            set { _IBAN = value; }
+        }
+        public string BIC
+        {
+            get { return _BIC; }
+            set { _BIC = value; }
+        }
+        public string USTIDNr
+        {
+            get { return _USTIDNr; }
+            set { _USTIDNr = value; }
+        }
+        public string SeatofCompany
+        {
+            get { return _SeatofCompany; }
+            set { _SeatofCompany = value; }
+        }
+        public string ManagingDirector
+        {
+            get { return _ManagingDirector; }
+            set { _ManagingDirector = value; }
+        }
+        public string Complementary
+        {
+            get { return _Complementary; }
+            set { _Complementary = value; }
+        }
 
         // OTTO Contact Properties
         public int ContactID
