@@ -233,7 +233,7 @@ namespace DataAccess
                             ObjESupplier.WGWAID = iArtcleID;
                             ObjESupplier.dtArticle = ds.Tables[1];
                         }
-                        else if (str.ToString().Contains("DefaultAddress"))
+                        else if (str.ToString().Contains("UNIQUE"))
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                             {

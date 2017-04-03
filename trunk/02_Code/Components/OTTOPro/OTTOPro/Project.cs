@@ -5392,7 +5392,7 @@ e.Column.FieldName == "GB")
             try
             {
                 ObjBProject.GetProjectDetails(ObjEProject);
-                if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber != string.Empty && ObjEProject.ActualLvs > 0)
+                if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber == string.Empty && ObjEProject.ActualLvs > 0)
                 {
                     if (ObjEUmlage == null)
                         ObjEUmlage = new EUmlage();
@@ -5534,8 +5534,8 @@ e.Column.FieldName == "GB")
 
         private void btnSubmitProposal_Click(object sender, EventArgs e)
         {
-            frmDesignReport Obj = new frmDesignReport("Report", ObjEProject.ProjectID, ObjEProject.KundeID);
-            Obj.ShowDialog();
+            //frmDesignReport Obj = new frmDesignReport("Report", ObjEProject.ProjectID, ObjEProject.KundeID);
+            //Obj.ShowDialog();
         }
 
         

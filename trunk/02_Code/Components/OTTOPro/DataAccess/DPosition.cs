@@ -194,7 +194,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw (ex);
+                throw;
             }
             return strNewLVSection;
         }
@@ -360,7 +360,6 @@ namespace DataAccess
             }
             return dsPositionsOZList;
         }
-
 
         public DataSet UpdateBulkProcess_ActionB(int ProjectID, string tType, string Menge, string MA, string MO, string PeriesText, string Fabricat, string Typ, string LieferantMA, string wg, string wa, string wi, string tLVSection, DataTable dt)
         {
