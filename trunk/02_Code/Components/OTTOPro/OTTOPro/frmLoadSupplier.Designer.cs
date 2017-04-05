@@ -131,6 +131,7 @@
             // layoutControl1
             // 
             this.layoutControl1.AllowCustomization = false;
+            this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl1.Controls.Add(this.gcArticles);
             this.layoutControl1.Controls.Add(this.memoEditCommentary);
             this.layoutControl1.Controls.Add(this.memoEditPaymentConditions);
@@ -190,7 +191,7 @@
             this.gvArticles.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvArticles.OptionsView.ShowGroupPanel = false;
             this.gvArticles.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvArticles_CellValueChanged);
-            this.gvArticles.DoubleClick += new System.EventHandler(this.gvArticles_DoubleClick);
+            this.gvArticles.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvArticles_BeforeLeaveRow);
             // 
             // gridColumn1
             // 

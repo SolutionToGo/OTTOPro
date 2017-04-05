@@ -25,7 +25,7 @@ namespace OTTOPro
         private int _ContactID = -1;
         private int _AddressID = -1;
         int _IDValue = -1;
-        bool _isNew = false;
+        private bool _IsSave = false;
 
 
         #region CONSTRUCTOR
@@ -36,7 +36,6 @@ namespace OTTOPro
         } 
         #endregion
 
-
         #region EVENTS
         private void btnAddArticles_Click(object sender, EventArgs e)
         {
@@ -44,11 +43,22 @@ namespace OTTOPro
             {
                 if (ObjESupplier == null)
                     ObjESupplier = new ESupplier();
-                   ObjESupplier.WGWAID = -1;
-                   ObjESupplier.SupplierID = _SupplierID;
-
-                   gvArticles.AddNewRow();
-                   _isNew = true;
+                ObjESupplier.WGWAID = -1;
+                ObjESupplier.SupplierID = _SupplierID;
+                if (ObjESupplier.dtArticle != null)
+                {
+                    DataView dvArticle = ObjESupplier.dtArticle.DefaultView;
+                    dvArticle.RowFilter = "SupplierID = '" + _SupplierID + "'";
+                    DataRowView rowView = dvArticle.AddNew();
+                    rowView["WGWAID"] = "-1";
+                    rowView["SupplierID"] = _SupplierID;
+                    rowView["WG"] = "";
+                    rowView["WA"] = "";
+                    rowView["WGDescription"] = "";
+                    rowView.EndEdit();
+                    gcArticles.DataSource = dvArticle;
+                    gvArticles.BestFitColumns();
+                }
             }
             catch (Exception ex)
             {
@@ -280,64 +290,18 @@ namespace OTTOPro
             gvAddress.BestFitColumns();
         }
 
-        private void gvArticles_DoubleClick(object sender, EventArgs e)
-        {
-            try
-            {
-                GridView view = (GridView)sender;
-                Point pt = view.GridControl.PointToClient(Control.MousePosition);
-                GridHitInfo info = view.CalcHitInfo(pt);
-
-                if (info.InRow || info.InRowCell)
-                {
-                    if (gvArticles.SelectedRowsCount == 0)
-                    {
-                        return;
-                    }
-                    if (ObjESupplier == null)
-                        ObjESupplier = new ESupplier();
-
-                    if (int.TryParse(gvSupplier.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
-                    {
-                        ObjESupplier.SupplierID = _IDValue;
-                        ObjESupplier.WGWAID = gvArticles.GetFocusedRowCellValue("WGWAID") == DBNull.Value ? -1 : Convert.ToInt32(gvArticles.GetFocusedRowCellValue("WGWAID"));
-                        ObjESupplier.WG = gvArticles.GetFocusedRowCellValue("WG") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WG").ToString();
-                        ObjESupplier.WA = gvArticles.GetFocusedRowCellValue("WA") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WA").ToString();
-                        ObjESupplier.WGDescription = gvArticles.GetFocusedRowCellValue("WGDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WGDescription").ToString();
-
-                        frmWGWA frm = new frmWGWA();
-                        frm.ObjESupplier = ObjESupplier;
-                        frm.ShowDialog();
-                        if (frm.DialogResult == DialogResult.OK)
-                        {
-                            BindArticleData(_IDValue);
-                            Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
-                        }
-                    }
-                }
-            }
-            catch (Exception EX)
-            {
-                Utility.ShowError(EX);
-            }
-        }
-
         private void gvArticles_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
+            if (!_IsSave)
+                _IsSave = true;
+        }
+
+        private void gvArticles_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
+        {
             try
             {
-                if (_isNew == true)
-                {
-                    ObjESupplier.WGWAID = -1;
-                    GetArticleDetails();
-                    _isNew = false;
-                }
-                else
-                {
-                    ObjESupplier.WGWAID = Convert.ToInt32(gvArticles.GetFocusedRowCellValue("WGWAID"));
-                    GetArticleDetails();
-                }
-                Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
+                int RowHandle = e.RowHandle;
+                GetArticleDetails(RowHandle);
             }
             catch (Exception ex)
             {
@@ -345,9 +309,7 @@ namespace OTTOPro
             }
         }
 
-
         #endregion
-
 
         #region METHODS
 
@@ -512,25 +474,32 @@ namespace OTTOPro
 
         }
 
-        private void GetArticleDetails()
+        private void GetArticleDetails(int RowHandle)
         {
+            if (!_IsSave)
+                return;
             try
             {
-                ObjESupplier.WG = gvArticles.GetFocusedRowCellValue("WG") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WG").ToString();
-                ObjESupplier.WA = gvArticles.GetFocusedRowCellValue("WA") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WA").ToString();
-                ObjESupplier.WGDescription = gvArticles.GetFocusedRowCellValue("WGDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WGDescription").ToString();
+                ObjESupplier.WGWAID = Convert.ToInt32(gvArticles.GetRowCellValue(RowHandle, "WGWAID"));
+                ObjESupplier.WG = gvArticles.GetRowCellValue(RowHandle,"WG") == DBNull.Value ? "" : gvArticles.GetRowCellValue(RowHandle,"WG").ToString();
+                ObjESupplier.WA = gvArticles.GetRowCellValue(RowHandle, "WA") == DBNull.Value ? "" : gvArticles.GetRowCellValue(RowHandle, "WA").ToString();
+                ObjESupplier.WGDescription = gvArticles.GetRowCellValue(RowHandle, "WGDescription") == DBNull.Value ? "" : gvArticles.GetRowCellValue(RowHandle, "WGDescription").ToString();
+                ObjESupplier.SupplierID = _SupplierID;
                 ObjBSupplier.SaveArticle(ObjESupplier);
-                BindArticleData(_SupplierID);
             }
             catch (Exception ex)
             {
                 throw;
             }
+            finally
+            {
+                ObjBSupplier.GetSupplier(ObjESupplier);
+                BindArticleData(_SupplierID);
+                Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
+                _IsSave = false;
+            }
         }
 
         #endregion
-
-
-
     }
 }
