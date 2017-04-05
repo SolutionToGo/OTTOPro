@@ -191,6 +191,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="dsDeliveryNotes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDeliveryNotes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsLVDetails.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLVDetails.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSPositions.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSPositions.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmArticlesData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +362,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\dsProposalwithprice.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProposalwithprice.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\frmProposalCoverPage1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -358,6 +378,36 @@
     </Compile>
     <Compile Include="Report Design\rptProposalCoverPage1.Designer.cs">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalwithprice.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalwithprice.Designer.cs">
+      <DependentUpon>rptProposalwithprice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptDeliveryNotes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptDeliveryNotes.Designer.cs">
+      <DependentUpon>rptDeliveryNotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptLVDetails.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptLVDetails.Designer.cs">
+      <DependentUpon>rptLVDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptPositions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptPositions.Designer.cs">
+      <DependentUpon>rptPositions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="rptSubReport.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="rptSubReport.Designer.cs">
+      <DependentUpon>rptSubReport.cs</DependentUpon>
     </Compile>
     <Compile Include="TextDialog.cs">
       <SubType>Form</SubType>
@@ -456,12 +506,60 @@
     <EmbeddedResource Include="Report Design\rptProposalCoverPage1.resx">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalwithprice.resx">
+      <DependentUpon>rptProposalwithprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptDeliveryNotes.resx">
+      <DependentUpon>rptDeliveryNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptLVDetails.resx">
+      <DependentUpon>rptLVDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptPositions.resx">
+      <DependentUpon>rptPositions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSubReport.resx">
+      <DependentUpon>rptSubReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextDialog.resx">
       <DependentUpon>TextDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="dsDeliveryNotes.xsc">
+      <DependentUpon>dsDeliveryNotes.xsd</DependentUpon>
+    </None>
+    <None Include="dsDeliveryNotes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDeliveryNotes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsDeliveryNotes.xss">
+      <DependentUpon>dsDeliveryNotes.xsd</DependentUpon>
+    </None>
+    <None Include="dsLVDetails.xsc">
+      <DependentUpon>dsLVDetails.xsd</DependentUpon>
+    </None>
+    <None Include="dsLVDetails.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLVDetails.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsLVDetails.xss">
+      <DependentUpon>dsLVDetails.xsd</DependentUpon>
+    </None>
+    <None Include="DSPositions.xsc">
+      <DependentUpon>DSPositions.xsd</DependentUpon>
+    </None>
+    <None Include="DSPositions.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSPositions.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSPositions.xss">
+      <DependentUpon>DSPositions.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -488,6 +586,17 @@
     </None>
     <None Include="Report Design\dsProposalCoverPage1.xss">
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalwithprice.xsc">
+      <DependentUpon>dsProposalwithprice.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalwithprice.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProposalwithprice.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsProposalwithprice.xss">
+      <DependentUpon>dsProposalwithprice.xsd</DependentUpon>
     </None>
     <None Include="Resources\1470736995_User_Customers.png" />
   </ItemGroup>
