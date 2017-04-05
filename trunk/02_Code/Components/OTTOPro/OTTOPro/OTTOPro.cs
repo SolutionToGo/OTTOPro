@@ -212,11 +212,26 @@ namespace OTTOPro
 
         private void btnDesignReport_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmDesignReport Obj = new frmDesignReport("Form",0,0);
-            Obj.ShowDialog();
+            //frmDesignReport Obj = new frmDesignReport("Form",0,0);
+            //Obj.ShowDialog();
         }
 
+        private void btnTyp_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmType Obj = new frmType();
+            Obj.MdiParent = this;
+            label2.Visible = false;
+            pictureBox1.Visible = false;
+            Obj.Show();
+        }
 
-
+        private void btnRabatt_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmRabattGroup Obj = new frmRabattGroup();
+            Obj.MdiParent = this;
+            label2.Visible = false;
+            pictureBox1.Visible = false;
+            Obj.Show();
+        }
     }
 }

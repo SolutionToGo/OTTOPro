@@ -191,11 +191,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dsLVDetails.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsLVDetails.xsd</DependentUpon>
-    </Compile>
     <Compile Include="frmArticlesData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,12 +274,6 @@
     </Compile>
     <Compile Include="frmSelectCustomer.Designer.cs">
       <DependentUpon>frmSelectCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmSelectArticle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSelectArticle.Designer.cs">
-      <DependentUpon>frmSelectArticle.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSelectTextModuleDetails.cs">
       <SubType>Form</SubType>
@@ -370,12 +359,6 @@
     <Compile Include="Report Design\rptProposalCoverPage1.Designer.cs">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
     </Compile>
-    <Compile Include="rptLVDetails.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="rptLVDetails.Designer.cs">
-      <DependentUpon>rptLVDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="TextDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,9 +414,6 @@
     <EmbeddedResource Include="frmSelectCustomer.resx">
       <DependentUpon>frmSelectCustomer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectArticle.resx">
-      <DependentUpon>frmSelectArticle.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmSelectTextModuleDetails.resx">
       <DependentUpon>frmSelectTextModuleDetails.cs</DependentUpon>
     </EmbeddedResource>
@@ -476,26 +456,12 @@
     <EmbeddedResource Include="Report Design\rptProposalCoverPage1.resx">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptLVDetails.resx">
-      <DependentUpon>rptLVDetails.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="TextDialog.resx">
       <DependentUpon>TextDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dsLVDetails.xsc">
-      <DependentUpon>dsLVDetails.xsd</DependentUpon>
-    </None>
-    <None Include="dsLVDetails.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsLVDetails.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="dsLVDetails.xss">
-      <DependentUpon>dsLVDetails.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -368,5 +368,44 @@ namespace BL
                 throw;
             }
         }
+
+        public EPosition GetArticleByTyp(EPosition ObjEPositon)
+        {
+            try
+            {
+                ObjEPositon = ObjDPosition.GetArticleByTyp(ObjEPositon);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
+
+        public EPosition GetArticleByWI(EPosition ObjEPositon)
+        {
+            try
+            {
+                ObjEPositon = ObjDPosition.GetArticleByWI(ObjEPositon);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
+
+        public EPosition GetArticleByDimension(EPosition ObjEPositon)
+        {
+            try
+            {
+                ObjEPositon = ObjDPosition.GetArticleByDimension(ObjEPositon);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
     }
 }

@@ -310,5 +310,39 @@ namespace DataAccess
            }
            return ObjEArticle;
        }
+
+       public EArticles SaveDimensionCopy(EArticles ObjEArticle)
+       {
+           DataSet dsDimesions = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Ins_DimensionCopy]";
+                   cmd.Parameters.AddWithValue("@WIID", ObjEArticle.WIID);
+                   cmd.Parameters.AddWithValue("@ValidityDate", ObjEArticle.ValidityDate);
+                   cmd.Parameters.AddWithValue("@dtDimension", ObjEArticle.dtDimenstions);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsDimesions);
+                   }
+                   ObjEArticle.dtDimenstions = dsDimesions.Tables[0];
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("To Be Updated");
+               else
+                   throw new Exception("Error While Saving the Dimension");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
    }
 }

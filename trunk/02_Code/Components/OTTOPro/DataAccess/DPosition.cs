@@ -455,5 +455,185 @@ namespace DataAccess
                 }
             }
         }
+
+        public EPosition GetArticleByTyp(EPosition ObjEPositon)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ArticleByType]";
+                    cmd.Parameters.AddWithValue("@Typ", ObjEPositon.Type);
+                    cmd.Parameters.AddWithValue("@dtSubmitDate", ObjEPositon.ValidityDate);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    if(dt != null && dt.Rows.Count > 0)
+                    {
+                        ObjEPositon.WG = dt.Rows[0]["WG"] == DBNull.Value ? "" : dt.Rows[0]["WG"].ToString();
+                        ObjEPositon.WA = dt.Rows[0]["WA"] == DBNull.Value ? "" : dt.Rows[0]["WA"].ToString();
+                        ObjEPositon.WI = dt.Rows[0]["WI"] == DBNull.Value ? "" : dt.Rows[0]["WI"].ToString();
+                        ObjEPositon.Fabricate = dt.Rows[0]["Fabrikate"] == DBNull.Value ? "" : dt.Rows[0]["Fabrikate"].ToString();
+                        ObjEPositon.ME = dt.Rows[0]["Menegenheit"] == DBNull.Value ? "" : dt.Rows[0]["Menegenheit"].ToString();
+                        ObjEPositon.Dim1 = dt.Rows[0]["A"] == DBNull.Value ? "" : dt.Rows[0]["A"].ToString();
+                        ObjEPositon.Dim2 = dt.Rows[0]["B"] == DBNull.Value ? "" : dt.Rows[0]["B"].ToString();
+                        ObjEPositon.Dim3 = dt.Rows[0]["L"] == DBNull.Value ? "" : dt.Rows[0]["L"].ToString();
+                        ObjEPositon.LPMA = dt.Rows[0]["ListPrice"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["ListPrice"]);
+                        ObjEPositon.Mins = dt.Rows[0]["Minuten"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Minuten"]);
+                        ObjEPositon.Faktor = dt.Rows[0]["Factor"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Factor"]);
+                        ObjEPositon.LiefrantMA = dt.Rows[0]["FullName"] == DBNull.Value ? "" : dt.Rows[0]["FullName"].ToString();
+                        ObjEPositon.Multi1MA = dt.Rows[0]["Multi1"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi1"]);
+                        ObjEPositon.Multi1MO = dt.Rows[0]["Multi1"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi1"]);
+                        ObjEPositon.Multi2MA = dt.Rows[0]["Multi2"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi2"]);
+                        ObjEPositon.Multi2MO = dt.Rows[0]["Multi2"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi2"]);
+                        ObjEPositon.Multi3MA = dt.Rows[0]["Multi3"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi3"]);
+                        ObjEPositon.Multi3MO = dt.Rows[0]["Multi3"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi3"]);
+                        ObjEPositon.Multi4MA = dt.Rows[0]["Multi4"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi4"]);
+                        ObjEPositon.Multi4MO = dt.Rows[0]["Multi4"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi4"]);
+                    }
+                    else
+                    {
+                        ObjEPositon.WG = string.Empty;
+                        ObjEPositon.WA = string.Empty;
+                        ObjEPositon.WI = string.Empty;
+                        ObjEPositon.Fabricate = string.Empty;
+                        ObjEPositon.ME = string.Empty;
+                        ObjEPositon.Dim1 = string.Empty;
+                        ObjEPositon.Dim2 = string.Empty;
+                        ObjEPositon.Dim3 = string.Empty;
+                        ObjEPositon.LPMA = 0;
+                        ObjEPositon.Mins = 0;
+                        ObjEPositon.Faktor = 1;
+                        ObjEPositon.LiefrantMA = string.Empty;
+                        ObjEPositon.Multi1MA = 1;
+                        ObjEPositon.Multi1MO = 1;
+                        ObjEPositon.Multi2MA = 1;
+                        ObjEPositon.Multi2MO = 1;
+                        ObjEPositon.Multi3MA = 1;
+                        ObjEPositon.Multi3MO = 1;
+                        ObjEPositon.Multi4MA = 1;
+                        ObjEPositon.Multi4MO = 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
+
+        public EPosition GetArticleByWI(EPosition ObjEPositon)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ArticleByWG]";
+                    cmd.Parameters.AddWithValue("@WG", ObjEPositon.WG);
+                    cmd.Parameters.AddWithValue("@WA", ObjEPositon.WA);
+                    cmd.Parameters.AddWithValue("@WI", ObjEPositon.WI);
+                    cmd.Parameters.AddWithValue("@dtSubmitDate", ObjEPositon.ValidityDate);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        ObjEPositon.Fabricate = dt.Rows[0]["Fabrikate"] == DBNull.Value ? "" : dt.Rows[0]["Fabrikate"].ToString();
+                        ObjEPositon.ME = dt.Rows[0]["Menegenheit"] == DBNull.Value ? "" : dt.Rows[0]["Menegenheit"].ToString();
+                        ObjEPositon.Dim1 = dt.Rows[0]["A"] == DBNull.Value ? "" : dt.Rows[0]["A"].ToString();
+                        ObjEPositon.Dim2 = dt.Rows[0]["B"] == DBNull.Value ? "" : dt.Rows[0]["B"].ToString();
+                        ObjEPositon.Dim3 = dt.Rows[0]["L"] == DBNull.Value ? "" : dt.Rows[0]["L"].ToString();
+                        ObjEPositon.LPMA = dt.Rows[0]["ListPrice"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["ListPrice"]);
+                        ObjEPositon.Mins = dt.Rows[0]["Minuten"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Minuten"]);
+                        ObjEPositon.Faktor = dt.Rows[0]["Factor"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Factor"]);
+                        ObjEPositon.LiefrantMA = dt.Rows[0]["FullName"] == DBNull.Value ? "" : dt.Rows[0]["FullName"].ToString();
+                        ObjEPositon.Multi1MA = dt.Rows[0]["Multi1"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi1"]);
+                        ObjEPositon.Multi1MO = dt.Rows[0]["Multi1"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi1"]);
+                        ObjEPositon.Multi2MA = dt.Rows[0]["Multi2"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi2"]);
+                        ObjEPositon.Multi2MO = dt.Rows[0]["Multi2"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi2"]);
+                        ObjEPositon.Multi3MA = dt.Rows[0]["Multi3"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi3"]);
+                        ObjEPositon.Multi3MO = dt.Rows[0]["Multi3"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi3"]);
+                        ObjEPositon.Multi4MA = dt.Rows[0]["Multi4"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi4"]);
+                        ObjEPositon.Multi4MO = dt.Rows[0]["Multi4"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Multi4"]);
+                    }
+                    else
+                    {
+                        ObjEPositon.Fabricate = string.Empty;
+                        ObjEPositon.ME = string.Empty;
+                        ObjEPositon.Dim1 = string.Empty;
+                        ObjEPositon.Dim2 = string.Empty;
+                        ObjEPositon.Dim3 = string.Empty;
+                        ObjEPositon.LPMA = 0;
+                        ObjEPositon.Mins = 0;
+                        ObjEPositon.Faktor = 1;
+                        ObjEPositon.LiefrantMA = string.Empty;
+                        ObjEPositon.Multi1MA = 1;
+                        ObjEPositon.Multi1MO = 1;
+                        ObjEPositon.Multi2MA = 1;
+                        ObjEPositon.Multi2MO = 1;
+                        ObjEPositon.Multi3MA = 1;
+                        ObjEPositon.Multi3MO = 1;
+                        ObjEPositon.Multi4MA = 1;
+                        ObjEPositon.Multi4MO = 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
+
+        public EPosition GetArticleByDimension(EPosition ObjEPositon)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ArticleByDimension]";
+                    cmd.Parameters.AddWithValue("@WG", ObjEPositon.WG);
+                    cmd.Parameters.AddWithValue("@WA", ObjEPositon.WA);
+                    cmd.Parameters.AddWithValue("@WI", ObjEPositon.WI);
+                    cmd.Parameters.AddWithValue("@A", ObjEPositon.Dim1);
+                    cmd.Parameters.AddWithValue("@B", ObjEPositon.Dim2);
+                    cmd.Parameters.AddWithValue("@L", ObjEPositon.Dim3);
+                    cmd.Parameters.AddWithValue("@dtSubmitDate", ObjEPositon.ValidityDate);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        ObjEPositon.LPMA = dt.Rows[0]["ListPrice"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["ListPrice"]);
+                        ObjEPositon.Mins = dt.Rows[0]["Minuten"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Minuten"]);
+                        ObjEPositon.Faktor = dt.Rows[0]["Factor"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Factor"]);
+                    }
+                    else
+                    {
+                        ObjEPositon.LPMA = 0;
+                        ObjEPositon.Mins = 0;
+                        ObjEPositon.Faktor = 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
     }
 }

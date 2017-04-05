@@ -29,9 +29,9 @@ namespace EL
         private string _PositionKZ;
         private int _DetailsKZ = 0;
         private string _LVSection;
-        private int _WG;
-        private int _WA;
-        private int _WI;
+        private string _WG;
+        private string _WA;
+        private string _WI;
         private decimal _Menge;
         private string _ME;
         private string _Fabricate;
@@ -195,17 +195,17 @@ namespace EL
             get { return _LVSection; }
             set { _LVSection = value; }
         }
-        public int WG
+        public string WG
         {
             get { return _WG; }
             set { _WG = value; }
         }
-        public int WA
+        public string WA
         {
             get { return _WA; }
             set { _WA = value; }
         }
-        public int WI
+        public string WI
         {
             get { return _WI; }
             set { _WI = value; }

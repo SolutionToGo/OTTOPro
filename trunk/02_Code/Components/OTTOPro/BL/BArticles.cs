@@ -83,6 +83,7 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ListPrice", ObjEArticle.ListPrice.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "GMulti", ObjEArticle.GMulti.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Minuten", ObjEArticle.Minuten.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEArticle.ValidityDate.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CreatedBy", ObjEArticle.CreatedBy.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastUpdatedBy", ObjEArticle.LastUpdatedBy.ToString());
                 if (ObjDArticles == null)
@@ -168,6 +169,19 @@ namespace BL
                 if (ObjDArticles == null)
                     ObjDArticles = new DArticles();
                 ObjEArticle = ObjDArticles.GetRabatt(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles SaveDimensionCopy(EArticles ObjEArticle)
+        {
+            try
+            {
+                ObjEArticle = ObjDArticles.SaveDimensionCopy(ObjEArticle);
             }
             catch (Exception ex)
             {

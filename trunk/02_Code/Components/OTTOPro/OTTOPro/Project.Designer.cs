@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -1466,6 +1466,8 @@
             this.txtWI.Size = new System.Drawing.Size(58, 24);
             this.txtWI.StyleController = this.layoutControl3;
             this.txtWI.TabIndex = 12;
+            this.txtWI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
+            this.txtWI.Leave += new System.EventHandler(this.txtWI_Leave);
             // 
             // txtWA
             // 
@@ -1479,6 +1481,8 @@
             this.txtWA.Size = new System.Drawing.Size(61, 24);
             this.txtWA.StyleController = this.layoutControl3;
             this.txtWA.TabIndex = 11;
+            this.txtWA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
+            this.txtWA.Leave += new System.EventHandler(this.txtWI_Leave);
             // 
             // txtWG
             // 
@@ -1492,6 +1496,8 @@
             this.txtWG.Size = new System.Drawing.Size(53, 24);
             this.txtWG.StyleController = this.layoutControl3;
             this.txtWG.TabIndex = 10;
+            this.txtWG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
+            this.txtWG.Leave += new System.EventHandler(this.txtWI_Leave);
             // 
             // txtType
             // 
@@ -1503,6 +1509,8 @@
             this.txtType.Size = new System.Drawing.Size(204, 24);
             this.txtType.StyleController = this.layoutControl3;
             this.txtType.TabIndex = 18;
+            this.txtType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtType_KeyPress);
+            this.txtType.Leave += new System.EventHandler(this.txtType_Leave);
             // 
             // txtFabrikate
             // 
@@ -1570,10 +1578,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -3251,6 +3259,8 @@
             this.txtDim3.Size = new System.Drawing.Size(79, 24);
             this.txtDim3.StyleController = this.layoutControl6;
             this.txtDim3.TabIndex = 29;
+            this.txtDim3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
+            this.txtDim3.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
             // txtVerkaufspreisMultiME
             // 
@@ -3448,6 +3458,8 @@
             this.txtDim2.Size = new System.Drawing.Size(79, 24);
             this.txtDim2.StyleController = this.layoutControl6;
             this.txtDim2.TabIndex = 28;
+            this.txtDim2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
+            this.txtDim2.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
             // txtSelbstkostenMultiME
             // 
@@ -3577,6 +3589,8 @@
             this.txtDim1.Size = new System.Drawing.Size(79, 24);
             this.txtDim1.StyleController = this.layoutControl6;
             this.txtDim1.TabIndex = 27;
+            this.txtDim1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
+            this.txtDim1.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
             // txtMulti4ME
             // 
@@ -7273,17 +7287,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 

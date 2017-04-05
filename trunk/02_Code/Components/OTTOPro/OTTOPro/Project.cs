@@ -49,7 +49,6 @@ namespace OTTOPro
         public int iSNO = -1;
         public bool _IsAddhoc = false;
         public int iRasterCount = 0;
-        private bool _IsDot = true;
 
         private string _DocuwareLink1;
         private string _DocuwareLink2;
@@ -595,15 +594,9 @@ namespace OTTOPro
                     ObjEPosition.LVSection = "HA";
                 else
                 ObjEPosition.LVSection = cmbLVSection.Text;
-
-                if (int.TryParse(txtWG.Text, out iValue))
-                    ObjEPosition.WG = iValue;
-
-                if (int.TryParse(txtWA.Text, out iValue))
-                    ObjEPosition.WA = iValue;
-
-                if (int.TryParse(txtWI.Text, out iValue))
-                    ObjEPosition.WI = iValue;
+                ObjEPosition.WG = txtWG.Text;
+                ObjEPosition.WA = txtWA.Text;
+                ObjEPosition.WI = txtWI.Text;
 
                 if (decimal.TryParse(txtMenge.Text, out dValue))
                     ObjEPosition.Menge = dValue;
@@ -951,6 +944,7 @@ namespace OTTOPro
                     chkEinkaufspreisMO.EditValue = tlPositions.FocusedNode["MO_Einkaufspreis_lck"] == DBNull.Value ? true : Convert.ToBoolean(tlPositions.FocusedNode["MO_Einkaufspreis_lck"]);
                     chkSelbstkostenMO.EditValue = tlPositions.FocusedNode["MO_selbstkosten_lck"] == DBNull.Value ? true : Convert.ToBoolean(tlPositions.FocusedNode["MO_selbstkosten_lck"]);
                     chkVerkaufspreisMO.EditValue = tlPositions.FocusedNode["MO_verkaufspreis_lck"] == DBNull.Value ? true : Convert.ToBoolean(tlPositions.FocusedNode["MO_verkaufspreis_lck"]); //dtTemp.Rows[0]["MO_verkaufspreis_lck"] == DBNull.Value ? true : Convert.ToBoolean(dtTemp.Rows[0]["MO_verkaufspreis_lck"]);
+                    txtDim1.Text = tlPositions.FocusedNode["A"] == DBNull.Value ? "" : tlPositions.FocusedNode["A"].ToString();
                     txtDim2.Text = tlPositions.FocusedNode["B"] == DBNull.Value ? "" : tlPositions.FocusedNode["B"].ToString();
                     txtDim3.Text = tlPositions.FocusedNode["L"] == DBNull.Value ? "" : tlPositions.FocusedNode["L"].ToString(); 
                     _DocuwareLink1 = tlPositions.FocusedNode["DocuwareLink1"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink1"].ToString();
@@ -5538,8 +5532,119 @@ e.Column.FieldName == "GB")
             //Obj.ShowDialog();
         }
 
-        
+        private void txtType_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjBPosition == null)
+                    ObjBPosition = new BPosition();
+                if (ObjEPosition == null)
+                    ObjEPosition = new EPosition();
+                ObjEPosition.Type = txtType.Text;
+                ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
+                ObjEPosition = ObjBPosition.GetArticleByTyp(ObjEPosition);
+                txtWG.Text = ObjEPosition.WG;
+                txtWA.Text = ObjEPosition.WA;
+                txtWI.Text = ObjEPosition.WI;
+                txtFabrikat.Text = ObjEPosition.Fabricate;
+                txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
+                cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
+                txtDim1.Text = ObjEPosition.Dim1;
+                txtDim2.Text = ObjEPosition.Dim2;
+                txtDim3.Text = ObjEPosition.Dim3;
+                txtMin.Text = ObjEPosition.Mins.ToString();
+                txtFaktor.Text = ObjEPosition.Faktor.ToString();
+                txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
+                txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
+                txtMulti1MO.Text = ObjEPosition.Multi1MA.ToString();
+                txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
+                txtMulti2MO.Text = ObjEPosition.Multi2MA.ToString();
+                txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
+                txtMulti3MO.Text = ObjEPosition.Multi3MA.ToString();
+                txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
+                txtMulti4MO.Text = ObjEPosition.Multi4MA.ToString();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
 
+        private void txtType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar ==  (char)Keys.Enter)
+                txtType_Leave(null, null);
+        }
+
+        private void txtWI_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjBPosition == null)
+                    ObjBPosition = new BPosition();
+                if (ObjEPosition == null)
+                    ObjEPosition = new EPosition();
+
+                ObjEPosition.WG = txtWG.Text;
+                ObjEPosition.WA = txtWA.Text;
+                ObjEPosition.WI = txtWI.Text;
+                ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
+                ObjEPosition = ObjBPosition.GetArticleByWI(ObjEPosition);
+                txtFabrikat.Text = ObjEPosition.Fabricate;
+                txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
+                cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
+                txtDim1.Text = ObjEPosition.Dim1;
+                txtDim2.Text = ObjEPosition.Dim2;
+                txtDim3.Text = ObjEPosition.Dim3;
+                txtMin.Text = ObjEPosition.Mins.ToString();
+                txtFaktor.Text = ObjEPosition.Faktor.ToString();
+                txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
+                txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
+                txtMulti1MO.Text = ObjEPosition.Multi1MA.ToString();
+                txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
+                txtMulti2MO.Text = ObjEPosition.Multi2MA.ToString();
+                txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
+                txtMulti3MO.Text = ObjEPosition.Multi3MA.ToString();
+                txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
+                txtMulti4MO.Text = ObjEPosition.Multi4MA.ToString();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtWI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                txtWI_Leave(null, null);
+        }
+
+        private void txtDim1_Leave(object sender, EventArgs e)
+        {
+            if (ObjBPosition == null)
+                ObjBPosition = new BPosition();
+            if (ObjEPosition == null)
+                ObjEPosition = new EPosition();
+
+            ObjEPosition.WG = txtWG.Text;
+            ObjEPosition.WA = txtWA.Text;
+            ObjEPosition.WI = txtWI.Text;
+            ObjEPosition.Dim1 = txtDim1.Text;
+            ObjEPosition.Dim2 = txtDim2.Text;
+            ObjEPosition.Dim3 = txtDim3.Text;
+            ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
+            ObjEPosition = ObjBPosition.GetArticleByDimension(ObjEPosition);
+            txtMin.Text = ObjEPosition.Mins.ToString();
+            txtFaktor.Text = ObjEPosition.Faktor.ToString();
+            txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
+        }
+
+        private void txtDim1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                txtDim1_Leave(null, null);
+        }
     }
 }
  

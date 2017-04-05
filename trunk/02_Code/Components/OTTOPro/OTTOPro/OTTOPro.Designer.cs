@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -73,6 +73,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnTyp = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRabatt = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -106,9 +108,11 @@
             this.btnSupplier,
             this.btnArticledata,
             this.btnTextModule,
-            this.btnDesignReport});
+            this.btnDesignReport,
+            this.btnTyp,
+            this.btnRabatt});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 32;
+            this.ribbon.MaxItemId = 34;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -200,13 +204,13 @@
             // 
             // 
             // 
-            galleryItemGroup1.Caption = "Group1";
-            galleryItemGroup2.Caption = "Group2";
-            galleryItemGroup3.Caption = "Group3";
+            galleryItemGroup4.Caption = "Group1";
+            galleryItemGroup5.Caption = "Group2";
+            galleryItemGroup6.Caption = "Group3";
             this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1,
-            galleryItemGroup2,
-            galleryItemGroup3});
+            galleryItemGroup4,
+            galleryItemGroup5,
+            galleryItemGroup6});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -319,6 +323,8 @@
             // rpgArticleMaster
             // 
             this.rpgArticleMaster.ItemLinks.Add(this.btnArticledata);
+            this.rpgArticleMaster.ItemLinks.Add(this.btnTyp);
+            this.rpgArticleMaster.ItemLinks.Add(this.btnRabatt);
             this.rpgArticleMaster.Name = "rpgArticleMaster";
             this.rpgArticleMaster.Text = "Article Master";
             // 
@@ -343,12 +349,12 @@
             this.BarButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BarButtonItem10.ImageOptions.Image")));
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem1.Text = "Otto Pro";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Maintains Customer Information";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.BarButtonItem10.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Otto Pro";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Maintains Customer Information";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.BarButtonItem10.SuperTip = superToolTip2;
             // 
             // statusStrip1
             // 
@@ -406,6 +412,20 @@
             this.label1.Size = new System.Drawing.Size(154, 13);
             this.label1.TabIndex = 18;
             this.label1.Text = "Version 1.4 (06-03-2017)";
+            // 
+            // btnTyp
+            // 
+            this.btnTyp.Caption = "Typ";
+            this.btnTyp.Id = 32;
+            this.btnTyp.Name = "btnTyp";
+            this.btnTyp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTyp_ItemClick);
+            // 
+            // btnRabatt
+            // 
+            this.btnRabatt.Caption = "Rabatt";
+            this.btnRabatt.Id = 33;
+            this.btnRabatt.Name = "btnRabatt";
+            this.btnRabatt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRabatt_ItemClick);
             // 
             // frmOTTOPro
             // 
@@ -479,5 +499,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage rpSetting;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgTextModule;
         private DevExpress.XtraBars.BarButtonItem btnDesignReport;
+        private DevExpress.XtraBars.BarButtonItem btnTyp;
+        private DevExpress.XtraBars.BarButtonItem btnRabatt;
     }
 }
