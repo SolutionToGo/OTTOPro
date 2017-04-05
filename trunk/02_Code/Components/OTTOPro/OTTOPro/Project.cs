@@ -5528,8 +5528,14 @@ e.Column.FieldName == "GB")
 
         private void btnSubmitProposal_Click(object sender, EventArgs e)
         {
-            //frmDesignReport Obj = new frmDesignReport("Report", ObjEProject.ProjectID, ObjEProject.KundeID);
-            //Obj.ShowDialog();
+            frmDesignReport Obj = new frmDesignReport(ObjEProject.ProjectID);
+            Obj.ShowDialog();
+
+            //Delivery Notes related report
+            //rptDeliveryNotes rpt = new rptDeliveryNotes(ObjEProject.ProjectID, ObjEProject.KundeID);
+            //ReportPrintTool printTool = new ReportPrintTool(rpt);
+            //// Invoke the Print dialog.
+            //printTool.ShowRibbonPreview();
         }
 
         private void txtType_Leave(object sender, EventArgs e)

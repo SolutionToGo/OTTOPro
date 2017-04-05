@@ -72,6 +72,9 @@
             // 
             this.cmbReportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbReportType.FormattingEnabled = true;
+            this.cmbReportType.Items.AddRange(new object[] {
+            "Proposal with Price",
+            "Proposal without Price"});
             this.cmbReportType.Location = new System.Drawing.Point(141, 24);
             this.cmbReportType.Name = "cmbReportType";
             this.cmbReportType.Size = new System.Drawing.Size(264, 21);
