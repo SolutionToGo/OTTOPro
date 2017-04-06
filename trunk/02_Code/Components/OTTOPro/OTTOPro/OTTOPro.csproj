@@ -308,6 +308,10 @@
     <Compile Include="frmSupplierMaster.Designer.cs">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSupplierProposal.cs" />
+    <Compile Include="frmSupplierProposal.Designer.cs">
+      <DependentUpon>frmSupplierProposal.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTextModule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,6 +382,10 @@
     </Compile>
     <Compile Include="Report Design\rptProposalCoverPage1.Designer.cs">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalwithoutprice.cs" />
+    <Compile Include="Report Design\rptProposalwithoutprice.Designer.cs">
+      <DependentUpon>rptProposalwithoutprice.cs</DependentUpon>
     </Compile>
     <Compile Include="Report Design\rptProposalwithprice.cs">
       <SubType>Component</SubType>
@@ -473,6 +481,9 @@
     <EmbeddedResource Include="frmSupplierMaster.resx">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplierProposal.resx">
+      <DependentUpon>frmSupplierProposal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTextModule.resx">
       <DependentUpon>frmTextModule.cs</DependentUpon>
     </EmbeddedResource>
@@ -505,6 +516,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalCoverPage1.resx">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalwithoutprice.resx">
+      <DependentUpon>rptProposalwithoutprice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalwithprice.resx">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
