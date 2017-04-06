@@ -88,14 +88,14 @@ namespace OTTOPro
 
                     case "Proposal with Price":
                         this.Hide();
-                        Report_Design.rptProposalwithprice rptwithPrice = new Report_Design.rptProposalwithprice(_Projectid, "With Price");
+                        Report_Design.rptProposalwithprice rptwithPrice = new Report_Design.rptProposalwithprice(_Projectid);
                         ReportPrintTool printTool1 = new ReportPrintTool(rptwithPrice);
                         printTool1.ShowRibbonPreview();
                         break;
 
                     case "Proposal without Price":
                         this.Hide();
-                        Report_Design.rptProposalwithprice rptwithoutPrice = new Report_Design.rptProposalwithprice(_Projectid, "Without Price");
+                        Report_Design.rptProposalwithoutprice rptwithoutPrice = new Report_Design.rptProposalwithoutprice(_Projectid);
                         ReportPrintTool printTool2 = new ReportPrintTool(rptwithoutPrice);
                         printTool2.ShowRibbonPreview();
                         break;
