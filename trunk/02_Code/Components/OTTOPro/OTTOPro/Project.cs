@@ -5552,7 +5552,7 @@ e.Column.FieldName == "GB")
                 txtWG.Text = ObjEPosition.WG;
                 txtWA.Text = ObjEPosition.WA;
                 txtWI.Text = ObjEPosition.WI;
-                txtFabrikat.Text = ObjEPosition.Fabricate;
+                txtFabrikate.Text = ObjEPosition.Fabricate;
                 txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
                 cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
                 txtDim1.Text = ObjEPosition.Dim1;
@@ -5596,7 +5596,8 @@ e.Column.FieldName == "GB")
                 ObjEPosition.WI = txtWI.Text;
                 ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                 ObjEPosition = ObjBPosition.GetArticleByWI(ObjEPosition);
-                txtFabrikat.Text = ObjEPosition.Fabricate;
+                txtType.Text = ObjEPosition.Type;
+                txtFabrikate.Text = ObjEPosition.Fabricate;
                 txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
                 cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
                 txtDim1.Text = ObjEPosition.Dim1;

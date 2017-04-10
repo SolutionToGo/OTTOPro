@@ -547,6 +547,7 @@ namespace DataAccess
                     }
                     if (dt != null && dt.Rows.Count > 0)
                     {
+                        ObjEPositon.Type = dt.Rows[0]["Typ"] == DBNull.Value ? "" : dt.Rows[0]["Typ"].ToString();
                         ObjEPositon.Fabricate = dt.Rows[0]["Fabrikate"] == DBNull.Value ? "" : dt.Rows[0]["Fabrikate"].ToString();
                         ObjEPositon.ME = dt.Rows[0]["Menegenheit"] == DBNull.Value ? "" : dt.Rows[0]["Menegenheit"].ToString();
                         ObjEPositon.Dim1 = dt.Rows[0]["A"] == DBNull.Value ? "" : dt.Rows[0]["A"].ToString();
@@ -567,6 +568,7 @@ namespace DataAccess
                     }
                     else
                     {
+                        ObjEPositon.Type = string.Empty;
                         ObjEPositon.Fabricate = string.Empty;
                         ObjEPositon.ME = string.Empty;
                         ObjEPositon.Dim1 = string.Empty;

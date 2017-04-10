@@ -46,14 +46,14 @@ namespace OTTOPro
                     if (ctrlToFocus == null)
                         ctrlToFocus = ctrl;
                 }
-                else if (ctrl is ComboBoxEdit && ((ComboBoxEdit)ctrl).SelectedItem == null)
+                else if (ctrl is System.Windows.Forms.ComboBox && ((System.Windows.Forms.ComboBox)ctrl).SelectedItem == null)
                 {
                     IsValid = false;
                     sb.AppendLine(" * " + ctrl.Tag);
                     if (ctrlToFocus == null)
                         ctrlToFocus = ctrl;
                 }
-                else if (ctrl is ComboBoxEdit && ((ComboBoxEdit)ctrl).SelectedText.ToString() == "Select")
+                else if (ctrl is System.Windows.Forms.ComboBox && ((System.Windows.Forms.ComboBox)ctrl).SelectedText.ToString() == "Select")
                 {
                     IsValid = false;
                     sb.AppendLine(" * " + ctrl.Tag);

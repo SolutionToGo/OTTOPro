@@ -155,6 +155,7 @@
             this.txtMulti4.Size = new System.Drawing.Size(275, 20);
             this.txtMulti4.StyleController = this.layoutControl1;
             this.txtMulti4.TabIndex = 7;
+            this.txtMulti4.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti3
             // 
@@ -172,6 +173,7 @@
             this.txtMulti3.Size = new System.Drawing.Size(275, 20);
             this.txtMulti3.StyleController = this.layoutControl1;
             this.txtMulti3.TabIndex = 6;
+            this.txtMulti3.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti2
             // 
@@ -189,6 +191,7 @@
             this.txtMulti2.Size = new System.Drawing.Size(275, 20);
             this.txtMulti2.StyleController = this.layoutControl1;
             this.txtMulti2.TabIndex = 5;
+            this.txtMulti2.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti1
             // 
@@ -206,6 +209,7 @@
             this.txtMulti1.Size = new System.Drawing.Size(275, 20);
             this.txtMulti1.StyleController = this.layoutControl1;
             this.txtMulti1.TabIndex = 4;
+            this.txtMulti1.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // gcRabatt
             // 

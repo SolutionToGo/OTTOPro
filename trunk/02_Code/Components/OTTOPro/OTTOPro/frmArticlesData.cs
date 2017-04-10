@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using EL;
 using BL;
 using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
 
 namespace OTTOPro
 {
@@ -33,10 +34,6 @@ namespace OTTOPro
             _IsNew = true;
             ObjEArticle.WGID = -1;
             ObjEArticle.WIID = -1;
-            //txtWG.Text = string.Empty;
-            //txtWGDescription.Text = string.Empty;
-            //txtWA.Text = string.Empty;
-            //txtWADescription.Text = string.Empty;
             txtWI.Text = string.Empty;
             txtWIDescription.Text = string.Empty;
             txtFabrikat.Text = string.Empty;
@@ -48,11 +45,14 @@ namespace OTTOPro
             txtMasseinheit.Text = string.Empty;
             txtTextKZ.Text = string.Empty;
             txtremark.Text = string.Empty;
-            txtMulti1.Text = string.Empty;
-            txtMulti2.Text = string.Empty;
-            txtMulti3.Text = string.Empty;
-            txtMulti4.Text = string.Empty;
+            txtMulti1.Text = "1";
+            txtMulti2.Text = "1";
+            txtMulti3.Text = "1";
+            txtMulti4.Text = "1";
             txtDatanormNr.Text = string.Empty;
+            dateEditGultigkeit.DateTime = DateTime.Now;
+            lblArticle.Text = "Info's zur Aktuellen Abmessung : ";
+            BindDimensions(ObjEArticle.WIID);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -71,9 +71,12 @@ namespace OTTOPro
                 Setfocus(gvWGWA, "WGID", _WGID);
                 BindWIData(ObjEArticle.WGID);
                 Setfocus(gvWI, "WIID", _WIID);
-                if(chkIsNew.Checked == true)
+                if (chkIsNew.Checked == true)
+                    btnNew_Click(null, null);
+                else
                 {
-                    btnNew_Click(null,null);
+                    _IsNew = false;
+                    gvWGWA_FocusedRowChanged(null, null);
                 }
             }
             catch (Exception ex)
@@ -147,6 +150,7 @@ namespace OTTOPro
                         txtTyp.Text = gvWI.GetFocusedRowCellValue("Typ") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Typ").ToString();
                         txtLiferent.Text = gvWI.GetFocusedRowCellValue("FullName") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("FullName").ToString();
                         txtRabattgruppe.Text = gvWI.GetFocusedRowCellValue("Rabatt") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Rabatt").ToString();
+                        lblArticle.Text = "Info's zur Aktuellen Abmessung : " + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
                         BindDimensions(_IDValue);
                     }
                 }
@@ -161,9 +165,9 @@ namespace OTTOPro
         {
             if (ObjEArticle == null)
                 ObjEArticle = new EArticles();
-            ObjEArticle.WG = txtWG.Text;
-            ObjEArticle.WA = txtWA.Text;
-            ObjEArticle.WI = txtWI.Text;
+            ObjEArticle.WG = txtWG.Text == string.Empty ? "0" : txtWG.Text;
+            ObjEArticle.WA = txtWA.Text == string.Empty ? "0" : txtWA.Text;
+            ObjEArticle.WI = txtWI.Text == string.Empty ? "0" : txtWI.Text;
             ObjEArticle.WGDescription = txtWGDescription.Text;
             ObjEArticle.WADescription = txtWADescription.Text;
             ObjEArticle.WIDescription = txtWIDescription.Text;
@@ -206,6 +210,7 @@ namespace OTTOPro
                     ObjEArticle = new EArticles();
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
+                dateEditGultigkeit.DateTime = DateTime.Now;
                 ObjBArticle.GetArticle(ObjEArticle);
                 BindWGdata();
             }
@@ -286,6 +291,11 @@ namespace OTTOPro
                     ObjEArticle = new EArticles();
                 if (ObjEArticle.WIID < 0)
                     throw new Exception("Please Select The Article");
+                if (_IsSave)
+                {
+                    int RowHandle = gvDimensions.FocusedRowHandle;
+                    SaveDimension(RowHandle);
+                }
                 DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
                 dvDimensions.RowFilter = "WIID = '" + ObjEArticle.WIID + "'";
                 DataRowView rowView = dvDimensions.AddNew();
@@ -316,7 +326,30 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtMulti4.Text))
                     rowView["Multi4"] = txtMulti4.Text;
                 else
-                    rowView["Multi4"] = 1;    
+                    rowView["Multi4"] = 1;
+
+                decimal dValue = 0;
+                decimal GMulti = 1;
+                if (!decimal.TryParse(txtMulti1.Text, out dValue))
+                    GMulti = 1;
+                else
+                    GMulti = dValue;
+                if (!decimal.TryParse(txtMulti2.Text, out dValue))
+                    GMulti = GMulti * 1;
+                else
+                    GMulti = GMulti * dValue;
+
+                if (!decimal.TryParse(txtMulti3.Text, out dValue))
+                    GMulti = GMulti * 1;
+                else
+                    GMulti = GMulti * dValue;
+
+                if (!decimal.TryParse(txtMulti4.Text, out dValue))
+                    GMulti = GMulti * 1;
+                else
+                    GMulti = GMulti * dValue;
+
+                rowView["GMulti"] = GMulti;
                 
                 rowView.EndEdit();
                 gcDimensions.DataSource = dvDimensions;
@@ -330,15 +363,15 @@ namespace OTTOPro
 
         private void gvDimensions_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
         {
-            try
-            {
-                int RowHandle = e.RowHandle;
-                SaveDimension(RowHandle);
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            //try
+            //{
+            //    int RowHandle = e.RowHandle;
+            //    SaveDimension(RowHandle);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
         }
 
         private void SaveDimension(int RowHandle)
@@ -351,9 +384,9 @@ namespace OTTOPro
                     ObjEArticle = new EArticles();
                 ObjEArticle.DimensionID = Convert.ToInt32(gvDimensions.GetRowCellValue(RowHandle, "DimensionID"));
                 ObjEArticle.WIID = Convert.ToInt32(gvDimensions.GetRowCellValue(RowHandle, "WIID"));
-                ObjEArticle.A = gvDimensions.GetRowCellValue(RowHandle, "B") == DBNull.Value ? "" : gvDimensions.GetRowCellValue(RowHandle, "A").ToString();
-                ObjEArticle.B = gvDimensions.GetRowCellValue(RowHandle, "B") == DBNull.Value ? "" : gvDimensions.GetRowCellValue(RowHandle, "B").ToString();
-                ObjEArticle.L = gvDimensions.GetRowCellValue(RowHandle, "L") == DBNull.Value ? "" : gvDimensions.GetRowCellValue(RowHandle, "L").ToString();
+                ObjEArticle.A = gvDimensions.GetRowCellValue(RowHandle, "A") == string.Empty ? "0" : gvDimensions.GetRowCellValue(RowHandle, "A").ToString();
+                ObjEArticle.B = gvDimensions.GetRowCellValue(RowHandle, "B") == string.Empty ? "0" : gvDimensions.GetRowCellValue(RowHandle, "B").ToString();
+                ObjEArticle.L = gvDimensions.GetRowCellValue(RowHandle, "L") == string.Empty ? "0" : gvDimensions.GetRowCellValue(RowHandle, "L").ToString();
                 ObjEArticle.ListPrice = gvDimensions.GetRowCellValue(RowHandle, "ListPrice") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "ListPrice"));
                 ObjEArticle.Minuten = gvDimensions.GetRowCellValue(RowHandle, "Minuten") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "Minuten"));
                 ObjEArticle.GMulti = gvDimensions.GetRowCellValue(RowHandle, "GMulti") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "GMulti"));
@@ -385,15 +418,58 @@ namespace OTTOPro
         {
             try
             {
-                if (ObjBArticle == null)
-                    ObjBArticle = new BArticles();
-                ObjEArticle.ValidityDate = dateEditGultigkeit.DateTime;
-                ObjEArticle = ObjBArticle.SaveDimensionCopy(ObjEArticle);
+                frmSaveDimension Obj = new frmSaveDimension();
+                Obj.ObjEArticle = ObjEArticle;
+                Obj.ObjBArticle = ObjBArticle;
+                Obj.strArticle = "Info's zur Aktuellen Abmessung : " + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
+                Obj.ShowDialog();
+                ObjEArticle = Obj.ObjEArticle;
+                ObjBArticle = Obj.ObjBArticle;
                 BindDimensions(ObjEArticle.WIID);
+                int _iWIID = ObjEArticle.WIID;
+                ObjEArticle = ObjBArticle.GetArticle(ObjEArticle);
+                BindWIData(ObjEArticle.WGID);
+                Setfocus(gvWI, "WIID", _iWIID);
+                gvWI_FocusedRowChanged(null, null);
+             }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDimensions_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    int RowHandle = gvDimensions.FocusedRowHandle;
+                    SaveDimension(RowHandle);
+                }
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
+            }
+        }
+
+        private void gcDimensions_EditorKeyPress(object sender, KeyPressEventArgs e)
+        {
+            GridControl grid = sender as GridControl;
+            gvDimensions_KeyPress(grid.FocusedView, e);
+        }
+
+        private void txtMulti1_Leave(object sender, EventArgs e)
+        {
+            TextEdit textbox = (TextEdit)sender;
+            decimal dValue = 0;
+            if (textbox.Text == string.Empty || decimal.TryParse(textbox.Text, out dValue))
+            {
+                if (dValue == 0)
+                {
+                    textbox.Text = "1";
+                }
             }
         }
     }

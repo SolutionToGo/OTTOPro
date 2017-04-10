@@ -165,6 +165,7 @@
             this.gcArticles.TabIndex = 23;
             this.gcArticles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvArticles});
+            this.gcArticles.EditorKeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gcArticles_EditorKeyPress);
             // 
             // gvArticles
             // 
@@ -192,6 +193,7 @@
             this.gvArticles.OptionsView.ShowGroupPanel = false;
             this.gvArticles.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvArticles_CellValueChanged);
             this.gvArticles.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvArticles_BeforeLeaveRow);
+            this.gvArticles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gvArticles_KeyPress);
             // 
             // gridColumn1
             // 
@@ -917,8 +919,8 @@
             this.ClientSize = new System.Drawing.Size(1364, 738);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmLoadSupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Supplier Master Data";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLoadSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

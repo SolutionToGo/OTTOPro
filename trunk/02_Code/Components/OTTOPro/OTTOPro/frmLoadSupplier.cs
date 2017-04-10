@@ -13,6 +13,7 @@ using DevExpress.XtraGrid.Columns;
 using BL;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DevExpress.XtraGrid;
 
 namespace OTTOPro
 {
@@ -43,6 +44,11 @@ namespace OTTOPro
             {
                 if (ObjESupplier == null)
                     ObjESupplier = new ESupplier();
+                if(_IsSave)
+                {
+                    int RowHandle = gvArticles.FocusedRowHandle;
+                    GetArticleDetails(RowHandle);
+                }
                 ObjESupplier.WGWAID = -1;
                 ObjESupplier.SupplierID = _SupplierID;
                 if (ObjESupplier.dtArticle != null)
@@ -298,10 +304,39 @@ namespace OTTOPro
 
         private void gvArticles_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
         {
+            //try
+            //{
+            //    int RowHandle = e.RowHandle;
+            //    GetArticleDetails(RowHandle);
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
+        }
+
+        private void gcArticles_EditorKeyPress(object sender, KeyPressEventArgs e)
+        {
             try
             {
-                int RowHandle = e.RowHandle;
-                GetArticleDetails(RowHandle);
+                GridControl grid = sender as GridControl;
+                gvArticles_KeyPress(grid.FocusedView, e);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void gvArticles_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    int RowHandle = gvArticles.FocusedRowHandle;
+                    GetArticleDetails(RowHandle);
+                }
             }
             catch (Exception ex)
             {

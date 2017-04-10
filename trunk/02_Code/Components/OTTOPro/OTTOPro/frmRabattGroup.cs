@@ -182,5 +182,18 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void txtMulti1_Leave(object sender, EventArgs e)
+        {
+            TextEdit textbox = (TextEdit)sender;
+            decimal dValue = 0;
+            if (textbox.Text == string.Empty || decimal.TryParse(textbox.Text, out dValue))
+            {
+                if (dValue == 0)
+                {
+                    textbox.Text = "1";
+                }
+            }
+        }
     }
 }

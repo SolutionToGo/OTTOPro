@@ -333,8 +333,8 @@ namespace DataAccess
            }
            catch (Exception ex)
            {
-               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("To Be Updated");
+               if (ex.Message.Contains("UNIQUE"))
+                   throw new Exception("Selected Validity Date Already Exists with Dimensions");
                else
                    throw new Exception("Error While Saving the Dimension");
            }

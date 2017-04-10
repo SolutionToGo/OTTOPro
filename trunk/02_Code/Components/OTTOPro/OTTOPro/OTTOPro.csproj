@@ -284,6 +284,12 @@
     <Compile Include="frmRabattGroup.Designer.cs">
       <DependentUpon>frmRabattGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSaveDimension.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSaveDimension.Designer.cs">
+      <DependentUpon>frmSaveDimension.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSelectCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -308,7 +314,9 @@
     <Compile Include="frmSupplierMaster.Designer.cs">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSupplierProposal.cs" />
+    <Compile Include="frmSupplierProposal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSupplierProposal.Designer.cs">
       <DependentUpon>frmSupplierProposal.cs</DependentUpon>
     </Compile>
@@ -383,7 +391,9 @@
     <Compile Include="Report Design\rptProposalCoverPage1.Designer.cs">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Report Design\rptProposalwithoutprice.cs" />
+    <Compile Include="Report Design\rptProposalwithoutprice.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Report Design\rptProposalwithoutprice.Designer.cs">
       <DependentUpon>rptProposalwithoutprice.cs</DependentUpon>
     </Compile>
@@ -468,6 +478,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRabattGroup.resx">
       <DependentUpon>frmRabattGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSaveDimension.resx">
+      <DependentUpon>frmSaveDimension.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectCustomer.resx">
       <DependentUpon>frmSelectCustomer.cs</DependentUpon>
