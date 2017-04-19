@@ -148,7 +148,6 @@ namespace OTTOPro
             {
                 splitContainerControl1.CollapsePanel = SplitCollapsePanel.Panel1;
 
-                btnProjectDetails.BackColor = Color.DeepSkyBlue;
                 tbLVDetails.PageVisible = false;
                 tbBulkProcess.PageVisible = false;
                 tbMulti5.PageVisible = false;
@@ -1180,67 +1179,6 @@ namespace OTTOPro
 
         XtraTabPage ObjTabDetails = null;
 
-        private void btnProjectDetails_Click(object sender, EventArgs e)
-        {
-            btnProjectDetails.BackColor = Color.DeepSkyBlue;
-            btnLvdetails.BackColor = Color.Silver;
-            btnBulkProcess.BackColor = Color.Silver;
-            btnMulti5.BackColor = Color.Silver;
-            btnMulti6.BackColor = Color.Silver;
-            btnOmlage.BackColor = Color.Silver;
-            ObjTabDetails = tbProjectDetails;
-            TabChange(ObjTabDetails);
-            ObjBProject.GetProjectDetails(ObjEProject);
-        }
-
-        private void btnLvdetails_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                tlPositions.Cursor = Cursors.Default;
-                if (ObjEProject.ProjectID > 0)
-                {
-                    setMask();
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnLvdetails.BackColor = Color.DeepSkyBlue;
-                    btnOmlage.BackColor = Color.Silver;
-                    IntializeLVPositions();
-                    ObjTabDetails = tbLVDetails;
-                    if (tbLVDetails.PageVisible == false)
-                    {
-                        BindPositionData();
-                        tlPositions.BestFitColumns();
-                    }
-                    if (tlPositions.Nodes != null && tlPositions.Nodes.Count > 0)
-                    {
-                        tlPositions.SetFocusedNode(tlPositions.MoveLastVisible());
-                    }
-                    else
-                    {
-                        btnNext.Enabled = false;
-                        btnPrevious.Enabled = false;
-                    }
-                    TabChange(ObjTabDetails);
-                }
-                SetMaskForMaulties();
-                if(txtkommissionNumber.Text!="")
-                {
-                    cmbLVSection.Enabled = true;
-                    btnAddLVSection.Enabled = true;
-                }
-                else
-                {
-                    cmbLVSection.Enabled = false;
-                    btnAddLVSection.Enabled = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
-        }
 
         private void xtraTabControl1_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
         {
@@ -2351,12 +2289,6 @@ namespace OTTOPro
 
                 if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                 {
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnLvdetails.BackColor = Color.DeepSkyBlue;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnMulti5.BackColor = Color.Silver;
-                    btnMulti6.BackColor = Color.Silver;
-                    btnLvdetails.Focus();
                     tsProjectStatus.Text = "";
                     IntializeLVPositions();
                 }
@@ -2364,11 +2296,6 @@ namespace OTTOPro
                 {
                     FormatLVFields();
                     setMask();
-                    btnProjectDetails.BackColor = Color.DeepSkyBlue;
-                    btnLvdetails.BackColor = Color.Silver;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnMulti5.BackColor = Color.Silver;
-                    btnMulti6.BackColor = Color.Silver;
                     if (tlPositions.Nodes.Count > 0)
                     {
                         txtkommissionNumber.ReadOnly = false;
@@ -2382,11 +2309,6 @@ namespace OTTOPro
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbBulkProcess")
                 {
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnLvdetails.BackColor = Color.Silver;
-                    btnBulkProcess.BackColor = Color.DeepSkyBlue;
-                    btnMulti5.BackColor = Color.Silver;
-                    btnMulti6.BackColor = Color.Silver;
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbMulti5")
                 {
@@ -2402,28 +2324,12 @@ namespace OTTOPro
                             cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
                         }
                     }
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnLvdetails.BackColor = Color.Silver;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnMulti5.BackColor = Color.DeepSkyBlue;
-                    btnMulti6.BackColor = Color.Silver;
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbMulti6")
                 {
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnLvdetails.BackColor = Color.Silver;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnMulti5.BackColor = Color.Silver;
-                    btnMulti6.BackColor = Color.DeepSkyBlue;
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbOmlage")
                 {
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnLvdetails.BackColor = Color.Silver;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnMulti5.BackColor = Color.Silver;
-                    btnMulti6.BackColor = Color.Silver;
-                    btnOmlage.BackColor = Color.DeepSkyBlue;
                 }
             }
             catch (Exception ex)
@@ -3702,75 +3608,6 @@ namespace OTTOPro
 
         #region BULK PROCESS
 
-        private void btnBulkProcess_Click(object sender, EventArgs e)
-        {
-            if (ObjEProject.ActualLvs == 0)
-                return;
-            if (GetCommisssionNo() != "")
-            {
-                checkEditSectionAMulti5MA.Enabled = false;
-                checkEditSectionAMulti5MO.Enabled = false;
-                checkEditSectionAMulti6MA.Enabled = false;
-                checkEditSectionAMulti6MO.Enabled = false;
-                btnSaveActionA.Enabled = false;
-
-                //checkEditLVPositionKZ.Enabled = false;
-                checkEditPositionMenge.Enabled = false;
-                checkEditMaterialKz.Enabled = false;
-                checkEditMontageKZ.Enabled = false;
-                checkEditPreisErstaztext.Enabled = false;
-                checkEditArtikelnummerWG.Enabled = false;
-                checkEditFabrikat.Enabled = false;
-                checkEditTyp.Enabled = false;
-                checkEditLieferantMA.Enabled = false;
-                btnSavesectionB.Enabled = false;
-                checkEditNachtragsnummer.Enabled = true;
-            }
-            else
-            {
-                checkEditSectionAMulti5MA.Enabled = true;
-                checkEditSectionAMulti5MO.Enabled = true;
-                checkEditSectionAMulti6MA.Enabled = true;
-                checkEditSectionAMulti6MO.Enabled = true;
-                btnSaveActionA.Enabled = true;
-
-                //checkEditLVPositionKZ.Enabled = true;
-                checkEditPositionMenge.Enabled = true;
-                checkEditMaterialKz.Enabled = true;
-                checkEditMontageKZ.Enabled = true;
-                checkEditPreisErstaztext.Enabled = true;
-                checkEditArtikelnummerWG.Enabled = true;
-                checkEditFabrikat.Enabled = true;
-                checkEditTyp.Enabled = true;
-                checkEditLieferantMA.Enabled = true;
-                btnSavesectionB.Enabled = true;
-                checkEditNachtragsnummer.Enabled = false;
-
-            }
-            if (cmbLVStatus.Text == "A")
-            {
-                if(Utility._IsGermany == true)
-                {
-                    XtraMessageBox.Show("Die globale LV Bearbeitung wird nicht auf abgelehnte LV Positionen angewandt.");
-                }
-                else
-                {
-                    XtraMessageBox.Show("Bulk Process should not happend for Rejected LVs.");
-                }
-                return;
-            }
-            if (ObjEProject.ProjectID > 0)
-            {
-                tlBulkProcessPositionDetails.Cursor = Cursors.Default;
-                btnProjectDetails.BackColor = Color.Silver;
-                btnBulkProcess.BackColor = Color.DeepSkyBlue;
-                btnLvdetails.BackColor = Color.Silver;
-                btnOmlage.BackColor = Color.Silver;
-                ObjTabDetails = tbBulkProcess;
-                TabChange(ObjTabDetails);
-                tlBulkProcessPositionDetails.BestFitColumns();
-            }
-        }
 
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -5093,71 +4930,6 @@ e.Column.FieldName == "GB")
 
         #region MULTIES
 
-        private void btnMulti5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ObjBProject.GetProjectDetails(ObjEProject);
-                if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
-                {
-                    if (objBGAEB == null)
-                        objBGAEB = new BGAEB();
-                    DataTable dtLVSection = new DataTable();
-                    cmbLVSectionFilter.Properties.Items.Clear();
-                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
-                    foreach(DataRow dr in dtLVSection.Rows)
-                    {
-                        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
-                    }
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnMulti5.BackColor = Color.DeepSkyBlue;
-                    btnLvdetails.BackColor = Color.Silver;
-                    btnMulti6.BackColor = Color.Silver;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnOmlage.BackColor = Color.Silver;
-                    ObjTabDetails = tbMulti5;
-                    TabChange(ObjTabDetails);
-                    gvMulti5.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void btnMulti6_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ObjBProject.GetProjectDetails(ObjEProject);
-                if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
-                {
-                    if (objBGAEB == null)
-                        objBGAEB = new BGAEB();
-                    DataTable dtLVSection = new DataTable();
-                    cmbLVSectionFilter.Properties.Items.Clear();
-                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
-                    foreach (DataRow dr in dtLVSection.Rows)
-                    {
-                        cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
-                    }
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnMulti5.BackColor = Color.Silver;
-                    btnLvdetails.BackColor = Color.Silver;
-                    btnMulti6.BackColor = Color.DeepSkyBlue;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnOmlage.BackColor = Color.Silver;
-                    ObjTabDetails = tbMulti6;
-                    TabChange(ObjTabDetails);
-                    gvMulti6.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         private void btnMulti5LoadArticles_Click(object sender, EventArgs e)
         {
@@ -5381,36 +5153,6 @@ e.Column.FieldName == "GB")
             chkVerkaufspreisMO.Enabled = result;
         }
 
-        private void btnOmlage_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                ObjBProject.GetProjectDetails(ObjEProject);
-                if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber == string.Empty && ObjEProject.ActualLvs > 0)
-                {
-                    if (ObjEUmlage == null)
-                        ObjEUmlage = new EUmlage();
-                    if (ObjBUmlage == null)
-                        ObjBUmlage = new BUmlage();
-                    ObjEUmlage.ProjectID = ObjEProject.ProjectID;
-                    ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
-                    gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
-
-                    btnProjectDetails.BackColor = Color.Silver;
-                    btnMulti5.BackColor = Color.Silver;
-                    btnLvdetails.BackColor = Color.Silver;
-                    btnMulti6.BackColor = Color.Silver;
-                    btnBulkProcess.BackColor = Color.Silver;
-                    btnOmlage.BackColor = Color.DeepSkyBlue;
-                    ObjTabDetails = tbOmlage;
-                    TabChange(ObjTabDetails);
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         private void btnAddedCost_Click(object sender, EventArgs e)
         {
@@ -5652,6 +5394,312 @@ e.Column.FieldName == "GB")
             if (e.KeyChar == (char)Keys.Enter)
                 txtDim1_Leave(null, null);
         }
+
+        private void navBarItemProject_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            ObjTabDetails = tbProjectDetails;
+            TabChange(ObjTabDetails);
+            ObjBProject.GetProjectDetails(ObjEProject);
+        }
+
+        private void navBarItemLVDetails_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            tlPositions.Cursor = Cursors.Default;
+            if (ObjEProject.ProjectID > 0)
+            {
+                setMask();
+                IntializeLVPositions();
+                ObjTabDetails = tbLVDetails;
+                if (tbLVDetails.PageVisible == false)
+                {
+                    BindPositionData();
+                    tlPositions.BestFitColumns();
+                }
+                if (tlPositions.Nodes != null && tlPositions.Nodes.Count > 0)
+                {
+                    tlPositions.SetFocusedNode(tlPositions.MoveLastVisible());
+                }
+                else
+                {
+                    btnNext.Enabled = false;
+                    btnPrevious.Enabled = false;
+                }
+                TabChange(ObjTabDetails);
+            }
+            SetMaskForMaulties();
+            if (txtkommissionNumber.Text != "")
+            {
+                cmbLVSection.Enabled = true;
+                btnAddLVSection.Enabled = true;
+            }
+            else
+            {
+                cmbLVSection.Enabled = false;
+                btnAddLVSection.Enabled = false;
+            }
+        }
+
+        private void navBarItemBulkProcess_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            if (ObjEProject.ActualLvs == 0)
+                return;
+            if (GetCommisssionNo() != "")
+            {
+                checkEditSectionAMulti5MA.Enabled = false;
+                checkEditSectionAMulti5MO.Enabled = false;
+                checkEditSectionAMulti6MA.Enabled = false;
+                checkEditSectionAMulti6MO.Enabled = false;
+                btnSaveActionA.Enabled = false;
+
+                //checkEditLVPositionKZ.Enabled = false;
+                checkEditPositionMenge.Enabled = false;
+                checkEditMaterialKz.Enabled = false;
+                checkEditMontageKZ.Enabled = false;
+                checkEditPreisErstaztext.Enabled = false;
+                checkEditArtikelnummerWG.Enabled = false;
+                checkEditFabrikat.Enabled = false;
+                checkEditTyp.Enabled = false;
+                checkEditLieferantMA.Enabled = false;
+                btnSavesectionB.Enabled = false;
+                checkEditNachtragsnummer.Enabled = true;
+            }
+            else
+            {
+                checkEditSectionAMulti5MA.Enabled = true;
+                checkEditSectionAMulti5MO.Enabled = true;
+                checkEditSectionAMulti6MA.Enabled = true;
+                checkEditSectionAMulti6MO.Enabled = true;
+                btnSaveActionA.Enabled = true;
+
+                //checkEditLVPositionKZ.Enabled = true;
+                checkEditPositionMenge.Enabled = true;
+                checkEditMaterialKz.Enabled = true;
+                checkEditMontageKZ.Enabled = true;
+                checkEditPreisErstaztext.Enabled = true;
+                checkEditArtikelnummerWG.Enabled = true;
+                checkEditFabrikat.Enabled = true;
+                checkEditTyp.Enabled = true;
+                checkEditLieferantMA.Enabled = true;
+                btnSavesectionB.Enabled = true;
+                checkEditNachtragsnummer.Enabled = false;
+
+            }
+            if (cmbLVStatus.Text == "A")
+            {
+                if (Utility._IsGermany == true)
+                {
+                    XtraMessageBox.Show("Die globale LV Bearbeitung wird nicht auf abgelehnte LV Positionen angewandt.");
+                }
+                else
+                {
+                    XtraMessageBox.Show("Bulk Process should not happend for Rejected LVs.");
+                }
+                return;
+            }
+            if (ObjEProject.ProjectID > 0)
+            {
+                tlBulkProcessPositionDetails.Cursor = Cursors.Default;
+                ObjTabDetails = tbBulkProcess;
+                TabChange(ObjTabDetails);
+                tlBulkProcessPositionDetails.BestFitColumns();
+            }
+        }
+
+        private void navBarItemMulti5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                ObjBProject.GetProjectDetails(ObjEProject);
+                if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
+                {
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    DataTable dtLVSection = new DataTable();
+                    cmbLVSectionFilter.Properties.Items.Clear();
+                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
+                    foreach (DataRow dr in dtLVSection.Rows)
+                    {
+                        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
+                    }
+
+                    ObjTabDetails = tbMulti5;
+                    TabChange(ObjTabDetails);
+                    gvMulti5.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void navBarItemMulti6_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                ObjBProject.GetProjectDetails(ObjEProject);
+                if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
+                {
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    DataTable dtLVSection = new DataTable();
+                    cmbLVSectionFilter.Properties.Items.Clear();
+                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
+                    foreach (DataRow dr in dtLVSection.Rows)
+                    {
+                        cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
+                    }
+
+                    ObjTabDetails = tbMulti6;
+                    TabChange(ObjTabDetails);
+                    gvMulti6.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void navBarItemExport_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                ObjBProject.GetProjectDetails(ObjEProject);
+                BindPositionData();
+                if (ObjEProject.ActualLvs == 0)
+                {
+                    if (Utility._IsGermany == true)
+                    {
+                        XtraMessageBox.Show("Nein LV Positions to Export.!");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("No LV Positions to Export.!");
+                    }
+                    return;
+                }
+                if (ObjEProject.ProjectID > 0)
+                {
+                    int raster_count = ddlRaster.Text.Replace(".", string.Empty).Length;
+
+                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count);
+                    Obj.KNr = ObjEProject.CommissionNumber;
+                    Obj.ShowDialog();
+                    if (File.Exists(Obj.OutputFilePath))
+                        Process.Start("explorer.exe", "/select, \"" + Obj.OutputFilePath + "\"");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void navBarItemImport_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                if (ObjEProject.ProjectID > 0)
+                {
+                    frmGAEBImport Obj = new frmGAEBImport();
+                    Obj.ProjectID = ObjEProject.ProjectID;
+                    Obj.KNr = ObjEProject.CommissionNumber;
+                    Obj.ShowDialog();
+                    ProjectID = Obj.ProjectID;
+                    if (ProjectID > 0 && Obj.isbuild)
+                    {
+                        SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                        SplashScreenManager.Default.SetWaitFormDescription("Laden Projekt...");
+                        LoadExistingRasters();
+                        LoadExistingProject();
+                        BindPositionData();
+                        IntializeLVPositions();
+                        if (ObjEProject.ActualLvs == 0)
+                            ChkRaster.Enabled = true;
+                        else
+                            ChkRaster.Enabled = false;
+                        SplashScreenManager.CloseForm(false);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                if (Utility._IsGermany == true)
+                {
+                    throw new Exception("Das ausgewählte Datei-Raster ist nicht mit dem ausgewählten Projektraster kompatibel!");
+                }
+                else
+                {
+                    Utility.ShowError(ex);
+                }
+            }
+        }
+
+        private void navBarItemUmlage_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                ObjBProject.GetProjectDetails(ObjEProject);
+                if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber == string.Empty && ObjEProject.ActualLvs > 0)
+                {
+                    if (ObjEUmlage == null)
+                        ObjEUmlage = new EUmlage();
+                    if (ObjBUmlage == null)
+                        ObjBUmlage = new BUmlage();
+                    ObjEUmlage.ProjectID = ObjEProject.ProjectID;
+                    ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
+                    gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
+
+
+                    ObjTabDetails = tbOmlage;
+                    TabChange(ObjTabDetails);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void navBarItem5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmDesignReport Obj = new frmDesignReport(ObjEProject.ProjectID);
+            Obj.ShowDialog();
+
+            //Delivery Notes related report
+            //rptDeliveryNotes rpt = new rptDeliveryNotes(ObjEProject.ProjectID, ObjEProject.KundeID);
+            //ReportPrintTool printTool = new ReportPrintTool(rpt);
+            //// Invoke the Print dialog.
+            //printTool.ShowRibbonPreview();
+        }
+
+        private void navBarControl1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                navBarControl1.SelectedLink = e.Link;
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void navBarItemSupplierProposal_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmSupplierProposal frm = new frmSupplierProposal(ObjEProject.ProjectID, cmbLVSection.Text);
+            frm.ShowDialog();
+        }
+
+        private void navBarItemUpdateSupplierProposal_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmUpdateSupplierProposal frm = new frmUpdateSupplierProposal(ObjEProject.ProjectID);
+            frm.ShowDialog();
+        }
+
     }
 }
  
