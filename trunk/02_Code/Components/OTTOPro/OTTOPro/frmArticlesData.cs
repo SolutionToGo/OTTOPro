@@ -41,7 +41,7 @@ namespace OTTOPro
             txtLiferent.Text = string.Empty;
             txtRabattgruppe.Text = string.Empty;
             txtDimension.Text = string.Empty;
-            txtMengeneinheit.Text = string.Empty;
+            cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf("h");
             txtMasseinheit.Text = string.Empty;
             txtTextKZ.Text = string.Empty;
             txtremark.Text = string.Empty;
@@ -138,7 +138,7 @@ namespace OTTOPro
                         txtFabrikat.Text = gvWI.GetFocusedRowCellValue("Fabrikate") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Fabrikate").ToString();
                         txtMasseinheit.Text = gvWI.GetFocusedRowCellValue("Masseinheit") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Masseinheit").ToString();
                         txtDimension.Text = gvWI.GetFocusedRowCellValue("Dimension") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Dimension").ToString();
-                        txtMengeneinheit.Text = gvWI.GetFocusedRowCellValue("Menegenheit") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Menegenheit").ToString();
+                        cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(gvWI.GetFocusedRowCellValue("Menegenheit") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Menegenheit").ToString());
                         txtremark.Text = gvWI.GetFocusedRowCellValue("Remarks") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Remarks").ToString();
                         txtTextKZ.Text = gvWI.GetFocusedRowCellValue("TextKZ") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("TextKZ").ToString();
                         dateEditGultigkeit.DateTime = gvWI.GetFocusedRowCellValue("ValidityDate") == DBNull.Value ? DateTime.Now : Convert.ToDateTime(gvWI.GetFocusedRowCellValue("ValidityDate"));
@@ -174,7 +174,7 @@ namespace OTTOPro
             ObjEArticle.Fabrikate = txtFabrikat.Text;
             ObjEArticle.Typ = txtTyp.Text;
             ObjEArticle.Dimension = txtDimension.Text;
-            ObjEArticle.Menegenheit = txtMengeneinheit.Text;
+            ObjEArticle.Menegenheit = cmbME.Text;
             ObjEArticle.Masseinheit = txtMasseinheit.Text;
             ObjEArticle.TextKZ = txtTextKZ.Text;
             ObjEArticle.Remarks = txtremark.Text;
@@ -211,6 +211,7 @@ namespace OTTOPro
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
                 dateEditGultigkeit.DateTime = DateTime.Now;
+                cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf("h");
                 ObjBArticle.GetArticle(ObjEArticle);
                 BindWGdata();
             }

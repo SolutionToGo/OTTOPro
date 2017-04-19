@@ -30,6 +30,7 @@ namespace OTTOPro
                 lblArticle.Text = strArticle;
                 dateEditGultigkeit.DateTime = DateTime.Now;
                 BindDimensions(ObjEArticle.WIID);
+                dateEditGultigkeit.Properties.MinValue = DateTime.Now;
             }
             catch (Exception ex)
             {

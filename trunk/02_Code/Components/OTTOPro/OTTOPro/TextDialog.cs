@@ -34,9 +34,18 @@ namespace OTTOPro
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-            this._IsSave = true;
-            _NewLVSection = txtNewLVSection.Text;
-            this.Close();
+            try
+            {
+                this._IsSave = true;
+                if (string.IsNullOrEmpty(txtNewLVSection.Text))
+                    throw new Exception("Please Enter Valid Value");
+                    _NewLVSection = txtNewLVSection.Text;
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

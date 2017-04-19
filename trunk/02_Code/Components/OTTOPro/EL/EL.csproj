@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="EArticles.cs" />
     <Compile Include="ECustomer.cs" />
+    <Compile Include="EDeliveryNotes.cs" />
     <Compile Include="EGAEB.cs" />
     <Compile Include="EMulti.cs" />
     <Compile Include="EOTTO.cs" />

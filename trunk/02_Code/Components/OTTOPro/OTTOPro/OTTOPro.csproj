@@ -191,22 +191,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dsDeliveryNotes.Designer.cs">
+    <Compile Include="Report Design\dsDeliveryNotes.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDeliveryNotes.xsd</DependentUpon>
     </Compile>
-    <Compile Include="dsDeliveryNotes_MSR.Designer.cs">
+    <Compile Include="Report Design\dsDeliveryNotes_MSR.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDeliveryNotes_MSR.xsd</DependentUpon>
     </Compile>
-    <Compile Include="dsLVDetails.Designer.cs">
+    <Compile Include="Report Design\dsLVDetails.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsLVDetails.xsd</DependentUpon>
     </Compile>
-    <Compile Include="DSPositions.Designer.cs">
+    <Compile Include="Report Design\DSPositions.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DSPositions.xsd</DependentUpon>
@@ -414,34 +414,34 @@
     <Compile Include="Report Design\rptProposalwithprice.Designer.cs">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
     </Compile>
-    <Compile Include="rptDeliverNote_MSR.cs">
+    <Compile Include="Report Design\rptDeliverNote_MSR.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptDeliverNote_MSR.Designer.cs">
+    <Compile Include="Report Design\rptDeliverNote_MSR.Designer.cs">
       <DependentUpon>rptDeliverNote_MSR.cs</DependentUpon>
     </Compile>
-    <Compile Include="rptDeliveryNotes.cs">
+    <Compile Include="Report Design\rptDeliveryNotes.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptDeliveryNotes.Designer.cs">
+    <Compile Include="Report Design\rptDeliveryNotes.Designer.cs">
       <DependentUpon>rptDeliveryNotes.cs</DependentUpon>
     </Compile>
-    <Compile Include="rptLVDetails.cs">
+    <Compile Include="Report Design\rptLVDetails.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptLVDetails.Designer.cs">
+    <Compile Include="Report Design\rptLVDetails.Designer.cs">
       <DependentUpon>rptLVDetails.cs</DependentUpon>
     </Compile>
-    <Compile Include="rptPositions.cs">
+    <Compile Include="Report Design\rptPositions.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptPositions.Designer.cs">
+    <Compile Include="Report Design\rptPositions.Designer.cs">
       <DependentUpon>rptPositions.cs</DependentUpon>
     </Compile>
-    <Compile Include="rptSubReport.cs">
+    <Compile Include="Report Design\rptSubReport.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="rptSubReport.Designer.cs">
+    <Compile Include="Report Design\rptSubReport.Designer.cs">
       <DependentUpon>rptSubReport.cs</DependentUpon>
     </Compile>
     <Compile Include="TextDialog.cs">
@@ -556,19 +556,19 @@
     <EmbeddedResource Include="Report Design\rptProposalwithprice.resx">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptDeliverNote_MSR.resx">
+    <EmbeddedResource Include="Report Design\rptDeliverNote_MSR.resx">
       <DependentUpon>rptDeliverNote_MSR.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptDeliveryNotes.resx">
+    <EmbeddedResource Include="Report Design\rptDeliveryNotes.resx">
       <DependentUpon>rptDeliveryNotes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptLVDetails.resx">
+    <EmbeddedResource Include="Report Design\rptLVDetails.resx">
       <DependentUpon>rptLVDetails.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptPositions.resx">
+    <EmbeddedResource Include="Report Design\rptPositions.resx">
       <DependentUpon>rptPositions.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="rptSubReport.resx">
+    <EmbeddedResource Include="Report Design\rptSubReport.resx">
       <DependentUpon>rptSubReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TextDialog.resx">
@@ -577,48 +577,48 @@
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="dsDeliveryNotes.xsc">
+    <None Include="Report Design\dsDeliveryNotes.xsc">
       <DependentUpon>dsDeliveryNotes.xsd</DependentUpon>
     </None>
-    <None Include="dsDeliveryNotes.xsd">
+    <None Include="Report Design\dsDeliveryNotes.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsDeliveryNotes.Designer.cs</LastGenOutput>
     </None>
-    <None Include="dsDeliveryNotes.xss">
+    <None Include="Report Design\dsDeliveryNotes.xss">
       <DependentUpon>dsDeliveryNotes.xsd</DependentUpon>
     </None>
-    <None Include="dsDeliveryNotes_MSR.xsc">
+    <None Include="Report Design\dsDeliveryNotes_MSR.xsc">
       <DependentUpon>dsDeliveryNotes_MSR.xsd</DependentUpon>
     </None>
-    <None Include="dsDeliveryNotes_MSR.xsd">
+    <None Include="Report Design\dsDeliveryNotes_MSR.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsDeliveryNotes_MSR.Designer.cs</LastGenOutput>
     </None>
-    <None Include="dsDeliveryNotes_MSR.xss">
+    <None Include="Report Design\dsDeliveryNotes_MSR.xss">
       <DependentUpon>dsDeliveryNotes_MSR.xsd</DependentUpon>
     </None>
-    <None Include="dsLVDetails.xsc">
+    <None Include="Report Design\dsLVDetails.xsc">
       <DependentUpon>dsLVDetails.xsd</DependentUpon>
     </None>
-    <None Include="dsLVDetails.xsd">
+    <None Include="Report Design\dsLVDetails.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dsLVDetails.Designer.cs</LastGenOutput>
     </None>
-    <None Include="dsLVDetails.xss">
+    <None Include="Report Design\dsLVDetails.xss">
       <DependentUpon>dsLVDetails.xsd</DependentUpon>
     </None>
-    <None Include="DSPositions.xsc">
+    <None Include="Report Design\DSPositions.xsc">
       <DependentUpon>DSPositions.xsd</DependentUpon>
     </None>
-    <None Include="DSPositions.xsd">
+    <None Include="Report Design\DSPositions.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>DSPositions.Designer.cs</LastGenOutput>
     </None>
-    <None Include="DSPositions.xss">
+    <None Include="Report Design\DSPositions.xss">
       <DependentUpon>DSPositions.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">

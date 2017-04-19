@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DArticles.cs" />
     <Compile Include="DCustomer.cs" />
+    <Compile Include="DDeliveryNotes.cs" />
     <Compile Include="DGAEB.cs" />
     <Compile Include="DMulti.cs" />
     <Compile Include="DOTTO.cs" />

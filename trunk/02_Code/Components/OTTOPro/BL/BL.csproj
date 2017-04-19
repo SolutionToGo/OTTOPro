@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="BArticles.cs" />
     <Compile Include="BCustomer.cs" />
+    <Compile Include="BDeliveryNotes.cs" />
     <Compile Include="BGAEB.cs" />
     <Compile Include="BMulti.cs" />
     <Compile Include="BOTTO.cs" />

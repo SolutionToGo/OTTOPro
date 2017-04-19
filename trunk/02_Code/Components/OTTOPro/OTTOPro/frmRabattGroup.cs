@@ -66,6 +66,7 @@ namespace OTTOPro
                 cmbType.DisplayMember = "Typ";
                 BindRabattData();
                 dateEditValidityDate.DateTime = DateTime.Now;
+                dateEditValidityDate.Properties.MinValue = DateTime.Now;
                 cmbType_SelectedValueChanged(null, null);
                 ReqFields.Add(txtRabatt);
                 ReqFields.Add(cmbType);

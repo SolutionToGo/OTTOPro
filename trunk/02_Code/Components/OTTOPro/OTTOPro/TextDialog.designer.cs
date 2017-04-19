@@ -46,7 +46,7 @@
             // txtNewLVSection
             // 
             this.txtNewLVSection.Location = new System.Drawing.Point(128, 12);
-            this.txtNewLVSection.MaxLength = 6;
+            this.txtNewLVSection.MaxLength = 20;
             this.txtNewLVSection.Name = "txtNewLVSection";
             this.txtNewLVSection.Size = new System.Drawing.Size(99, 21);
             this.txtNewLVSection.TabIndex = 1;

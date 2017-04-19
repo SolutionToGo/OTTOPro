@@ -13,60 +13,60 @@ namespace DataAccess
 {
    public class DArticles
     {
-       public EArticles SaveArticle(XmlDocument xml, EArticles ObjEArticle)
-        {
-            DataSet dsArticles = new DataSet();
-            try
+           public EArticles SaveArticle(XmlDocument xml, EArticles ObjEArticle)
             {
-                using (SqlCommand cmd = new SqlCommand())
+                DataSet dsArticles = new DataSet();
+                try
                 {
-                    string innerxml = xml.InnerXml.Replace(',', '.');
-                    cmd.Connection = SQLCon.Sqlconn();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Ins_Article]";
-                    SqlParameter param = new SqlParameter("@XMLArticle", SqlDbType.Xml);
-                    param.Value = innerxml;
-                    cmd.Parameters.Add(param);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    using (SqlCommand cmd = new SqlCommand())
                     {
-                        da.Fill(dsArticles);
-                    }
-                    if(dsArticles != null && dsArticles.Tables.Count > 0)
-                    {
-                        int iValue = 0;
-                        int iValue1 = 0;
-                        string str = dsArticles.Tables[0].Rows[0][0] == DBNull.Value ? "" : dsArticles.Tables[0].Rows[0][0].ToString();
-                        if(int.TryParse(str,out iValue))
+                        string innerxml = xml.InnerXml.Replace(',', '.');
+                        cmd.Connection = SQLCon.Sqlconn();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "[P_Ins_Article]";
+                        SqlParameter param = new SqlParameter("@XMLArticle", SqlDbType.Xml);
+                        param.Value = innerxml;
+                        cmd.Parameters.Add(param);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
-                            ObjEArticle.WGID = iValue;
-                            string str1 = dsArticles.Tables[0].Rows[0][1] == DBNull.Value ? "" : dsArticles.Tables[0].Rows[0][1].ToString();
-                            if (int.TryParse(str1, out iValue1))
-                            {
-                                ObjEArticle.WIID = iValue1;
-                                ObjEArticle.dtWG = dsArticles.Tables[1];
-                                ObjEArticle.dtWI = dsArticles.Tables[2];
-                            }
+                            da.Fill(dsArticles);
                         }
-                        else
+                        if(dsArticles != null && dsArticles.Tables.Count > 0)
                         {
-                            if (str.Contains("UNIQUE"))
-                                throw new Exception("Article Already Exists");
+                            int iValue = 0;
+                            int iValue1 = 0;
+                            string str = dsArticles.Tables[0].Rows[0][0] == DBNull.Value ? "" : dsArticles.Tables[0].Rows[0][0].ToString();
+                            if(int.TryParse(str,out iValue))
+                            {
+                                ObjEArticle.WGID = iValue;
+                                string str1 = dsArticles.Tables[0].Rows[0][1] == DBNull.Value ? "" : dsArticles.Tables[0].Rows[0][1].ToString();
+                                if (int.TryParse(str1, out iValue1))
+                                {
+                                    ObjEArticle.WIID = iValue1;
+                                    ObjEArticle.dtWG = dsArticles.Tables[1];
+                                    ObjEArticle.dtWI = dsArticles.Tables[2];
+                                }
+                            }
                             else
-                                throw new Exception("Error While Saving the Article");
+                            {
+                                if (str.Contains("UNIQUE"))
+                                    throw new Exception("Article Already Exists");
+                                else
+                                    throw new Exception("Error While Saving the Article");
+                            }
                         }
                     }
                 }
+                catch (Exception ex)
+                {
+                    throw;
+                }
+                finally
+                {
+                    SQLCon.Sqlconn().Close();
+                }
+                return ObjEArticle;
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
-            return ObjEArticle;
-        }
 
        public EArticles GetArticle(EArticles ObjEArticle)
        {
