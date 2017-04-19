@@ -91,6 +91,7 @@ namespace OTTOPro
                         Report_Design.rptProposalwithprice rptwithPrice = new Report_Design.rptProposalwithprice(_Projectid);
                         ReportPrintTool printTool1 = new ReportPrintTool(rptwithPrice);
                         printTool1.ShowRibbonPreview();
+                        //rptwithPrice.ExportToPdf("D:\\report.pdf");
                         break;
 
                     case "Proposal without Price":

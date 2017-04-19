@@ -259,5 +259,163 @@ namespace DataAccess
             }
             return ObjESupplier;
         }
+
+
+        //SUPPLIER PROPOSAL
+        public DataSet GetWGWaforProposal(int _Pid, string _LvSection, int wg, int wa)
+        {
+            DataSet dsWGWA = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_WGWAForProposal]";
+                    cmd.Parameters.AddWithValue("@ProjectID", _Pid);
+                    cmd.Parameters.AddWithValue("@LVSection", _LvSection);
+                    cmd.Parameters.AddWithValue("@WG", wg);
+                    cmd.Parameters.AddWithValue("@WA", wa);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsWGWA);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                   // throw new Exception("Fehler beim Laden des Kunden");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving records");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dsWGWA;
+        }
+
+        public DataSet GetLVSectionforProposal(int _Pid)
+        {
+            DataSet dsWGWA = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_LVSectionForProposal]";
+                    cmd.Parameters.AddWithValue("@ProjectID", _Pid);
+                   // cmd.Parameters.AddWithValue("@LVSection", _LvSection);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsWGWA);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    // throw new Exception("Fehler beim Laden des Kunden");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving records");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dsWGWA;
+        }
+
+        public DataSet SaveSupplierProposal(int _Pid, string _LvSection, int wg, int wa,DataTable _dtPosition,DataTable _dtSupplier)
+        {
+            DataSet ds = new DataSet();
+            int ProposalID = -1;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_SupplierProposal]";
+                    cmd.Parameters.AddWithValue("@ProjectID", _Pid);
+                    cmd.Parameters.AddWithValue("@LVSection", _LvSection);
+                    cmd.Parameters.AddWithValue("@WG", wg);
+                    cmd.Parameters.AddWithValue("@WA", wa);
+                    cmd.Parameters.AddWithValue("@dtPositionID", _dtPosition);
+                    cmd.Parameters.AddWithValue("@dtSupplierID", _dtSupplier);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ds);
+                    }
+                    string str = ds.Tables[0].Rows[0][0] == DBNull.Value ? "" : ds.Tables[0].Rows[0][0].ToString();
+                    if (!string.IsNullOrEmpty(str))
+                    {
+                        if (int.TryParse(str, out ProposalID))
+                        {
+                        }
+                        else
+                            throw new Exception(str);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ds;
+        }
+
+        public DataSet GetProposalNumber(int _Pid)
+        {
+            DataSet dsWGWA = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_SupplierProposal]";
+                    cmd.Parameters.AddWithValue("@ProjectID", _Pid);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsWGWA);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    // throw new Exception("Fehler beim Laden des Kunden");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving records");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dsWGWA;
+        }
+
     }
 }

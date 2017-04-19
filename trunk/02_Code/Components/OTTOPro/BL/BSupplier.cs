@@ -2,6 +2,7 @@
 using EL;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -111,5 +112,71 @@ namespace BL
             }
             return ObjEsupplier;
         }
+
+        public ESupplier GetWGWAForProposal(ESupplier ObjEsupplier,int _Pid,string _LvSection,int wg,int wa)
+        {
+            try
+            {
+                if (ObjEsupplier != null)
+                {
+                    ObjEsupplier.dsSupplier = ObjDSupplier.GetWGWaforProposal(_Pid, _LvSection,wg,wa);
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEsupplier;
+        }
+
+        public ESupplier GetLVSectionForProposal(ESupplier ObjEsupplier, int _Pid)
+        {
+            try
+            {
+                if (ObjEsupplier != null)
+                {
+                    ObjEsupplier.Article = ObjDSupplier.GetLVSectionforProposal(_Pid);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEsupplier;
+        }
+
+        public ESupplier SaveSupplierProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, int wg, int wa, DataTable _dtPosition, DataTable _dtSupplier)
+        {
+            try
+            {
+                ObjEsupplier.SupplierProposal = ObjDSupplier.SaveSupplierProposal(_Pid, _LvSection, wg, wa, _dtPosition, _dtSupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEsupplier;
+        }
+
+        public ESupplier GetProposalNumber(ESupplier ObjEsupplier, int _Pid)
+        {
+            try
+            {
+                if (ObjEsupplier != null)
+                {
+                    ObjEsupplier.SupplierProposal = ObjDSupplier.GetProposalNumber(_Pid);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEsupplier;
+        }
+
+
     }
 }

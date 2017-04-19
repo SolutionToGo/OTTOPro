@@ -53,6 +53,8 @@ namespace EL
         private string _WA;
         private string _WGDescription;
         private DataTable _dtArticle;
+        private DataSet _Articles;
+        private DataSet _SupplierProposal;
 
         // Article Properties and entities
         public int WGWAID
@@ -80,7 +82,16 @@ namespace EL
             get { return _dtArticle; }
             set { _dtArticle = value; }
         }
-        
+        public DataSet Article
+        {
+            get { return _Articles; }
+            set { _Articles = value; }
+        }
+        public DataSet SupplierProposal
+        {
+            get { return _SupplierProposal; }
+            set { _SupplierProposal = value; }
+        }
         // Supplier Properties
         public DataSet dsSupplier
         {
