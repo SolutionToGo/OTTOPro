@@ -30,6 +30,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using OTTOPro.Report_Design;
 
 namespace OTTOPro
 {
@@ -5771,7 +5772,7 @@ e.Column.FieldName == "GB")
                 if (row != null && table != null && row.Table != table)
                 {
                     DataRow[] BlattRows = table.Select("BlattNumber = '" + strBlattNumber + "'");
-                    if (BlattRows.Count() > 4)
+                    if (BlattRows.Count() > 21)
                     {
                         var result1 = MessageBox.Show("Blatt Is Full, Do You Want to Continue..?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (result1.ToString().ToLower() == "yes")
@@ -6010,11 +6011,21 @@ e.Column.FieldName == "GB")
         {
             try
             {
-
+                if (gvDeliveryNumbers.FocusedRowHandle != null && gvDeliveryNumbers.GetFocusedRowCellValue("DeliveryNumberID") != null)
+                {
+                    int IValue = 0;
+                    string strDeliveryNumberID = gvDeliveryNumbers.GetFocusedRowCellValue("DeliveryNumberID").ToString();
+                    if (int.TryParse(strDeliveryNumberID, out IValue))
+                    {
+                        rptDeliveryNotes Obj = new rptDeliveryNotes();
+                        Obj.DeliveryNumberID = IValue;
+                        Obj.ShowPreviewDialog();
+                    }
+                }
             }
             catch (Exception ex)
             {
-                throw;
+                Utility.ShowError(ex);
             }
         }
     }

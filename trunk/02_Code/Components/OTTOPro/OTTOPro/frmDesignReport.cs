@@ -86,7 +86,7 @@ namespace OTTOPro
 
                         break;
 
-                    case "Proposal with Price":
+                    case "mit Montage und Montagezeiten":
                         this.Hide();
                         Report_Design.rptProposalwithprice rptwithPrice = new Report_Design.rptProposalwithprice(_Projectid);
                         ReportPrintTool printTool1 = new ReportPrintTool(rptwithPrice);
@@ -94,7 +94,7 @@ namespace OTTOPro
                         //rptwithPrice.ExportToPdf("D:\\report.pdf");
                         break;
 
-                    case "Proposal without Price":
+                    case "Einzelpreise und Gesamtpreise":
                         this.Hide();
                         Report_Design.rptProposalwithoutprice rptwithoutPrice = new Report_Design.rptProposalwithoutprice(_Projectid);
                         ReportPrintTool printTool2 = new ReportPrintTool(rptwithoutPrice);
@@ -120,7 +120,5 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
-        //************
     }
 }

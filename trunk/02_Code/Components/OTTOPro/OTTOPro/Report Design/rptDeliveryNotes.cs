@@ -8,10 +8,15 @@ namespace OTTOPro.Report_Design
 {
     public partial class rptDeliveryNotes : DevExpress.XtraReports.UI.XtraReport
     {
+        private int _DeliveryNumberID = -1;
+        public int DeliveryNumberID
+        {
+            get { return _DeliveryNumberID; }
+            set { _DeliveryNumberID = value; }
+        }
         public rptDeliveryNotes()
         {
             InitializeComponent();
         }
-
     }
 }

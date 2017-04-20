@@ -295,7 +295,7 @@
             this.btnSaveAs.Size = new System.Drawing.Size(148, 22);
             this.btnSaveAs.StyleController = this.layoutControl1;
             this.btnSaveAs.TabIndex = 32;
-            this.btnSaveAs.Text = "Create New Validity Date";
+            this.btnSaveAs.Text = "Change List Prices";
             this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
             // 
             // btnAddDimension
