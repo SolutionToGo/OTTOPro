@@ -282,6 +282,7 @@
             this.gvProposal.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvProposal.OptionsView.RowAutoHeight = true;
             this.gvProposal.OptionsView.ShowGroupPanel = false;
+            this.gvProposal.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvProposal_FocusedRowChanged);
             // 
             // gridColumn1
             // 

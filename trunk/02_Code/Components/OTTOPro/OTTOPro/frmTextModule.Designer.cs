@@ -126,6 +126,7 @@
             this.cmbTextArea.Size = new System.Drawing.Size(231, 21);
             this.cmbTextArea.TabIndex = 14;
             this.cmbTextArea.SelectedIndexChanged += new System.EventHandler(this.cmbTextArea_SelectedIndexChanged);
+            this.cmbTextArea.SelectionChangeCommitted += new System.EventHandler(this.cmbTextArea_SelectionChangeCommitted);
             // 
             // richEditControlContent
             // 

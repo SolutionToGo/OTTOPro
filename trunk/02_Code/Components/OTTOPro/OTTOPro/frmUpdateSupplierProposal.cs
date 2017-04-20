@@ -44,6 +44,11 @@ namespace OTTOPro
                 gvProposal.BestFitColumns();
             }
         }
+
+        private void gvProposal_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+
+        }
 //*****************
     }
 }

@@ -114,23 +114,23 @@ namespace OTTOPro
         int _TextAreaID;
         private void cmbTextArea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (cmbTextArea.Text != string.Empty)
-                {
-                    if (int.TryParse(cmbTextArea.SelectedValue.ToString(), out _TextAreaID))
+            //try
+            //{
+            //    if (cmbTextArea.Text != string.Empty)
+            //    {
+            //        if (int.TryParse(cmbTextArea.SelectedValue.ToString(), out _TextAreaID))
 
-                        if (_TextAreaID > 0)
-                        {
-                            BindCategories();
-                            richEditControlContent.Text = "";
-                        }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            //            if (_TextAreaID > 0)
+            //            {
+            //                BindCategories();
+            //                richEditControlContent.Text = "";
+            //            }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
         }
 
 
@@ -248,6 +248,27 @@ namespace OTTOPro
         }
 
         #endregion
+
+        private void cmbTextArea_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbTextArea.Text != string.Empty)
+                {
+                    if (int.TryParse(cmbTextArea.SelectedValue.ToString(), out _TextAreaID))
+
+                        if (_TextAreaID > 0)
+                        {
+                            BindCategories();
+                            richEditControlContent.Text = "";
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
 
 
 
