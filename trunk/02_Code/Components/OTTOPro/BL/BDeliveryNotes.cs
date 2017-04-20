@@ -50,5 +50,18 @@ namespace BL
             }
             return ObjEDeliveryNotes;
         }
+
+        public EDeliveryNotes GetdeliveryNumbers(EDeliveryNotes ObjEDeliveryNotes)
+        {
+            try
+            {
+                ObjEDeliveryNotes = ObjDdeliveryNotes.GetdeliveryNumbers(ObjEDeliveryNotes);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEDeliveryNotes;
+        }
     }
 }

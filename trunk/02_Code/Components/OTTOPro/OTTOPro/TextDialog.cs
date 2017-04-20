@@ -13,6 +13,7 @@ namespace OTTOPro
 {
     public partial class frmTextDialog : DevExpress.XtraEditors.XtraForm
     {
+        public string strName = string.Empty;
         private string _NewLVSection = string.Empty;
         private bool _IsSave = false;
         private bool _ISUpdated = false;
@@ -59,6 +60,8 @@ namespace OTTOPro
             if (_NewLVSection != null)
             {
                 txtNewLVSection.Text = _NewLVSection;
+                this.Text = strName;
+                label1.Text = strName;
             }
         }
 

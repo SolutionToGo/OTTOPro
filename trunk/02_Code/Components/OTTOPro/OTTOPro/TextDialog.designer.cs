@@ -49,24 +49,28 @@
             this.txtNewLVSection.MaxLength = 20;
             this.txtNewLVSection.Name = "txtNewLVSection";
             this.txtNewLVSection.Size = new System.Drawing.Size(99, 21);
-            this.txtNewLVSection.TabIndex = 1;
+            this.txtNewLVSection.TabIndex = 2;
             this.txtNewLVSection.TextChanged += new System.EventHandler(this.txtNewLVSection_TextChanged);
             // 
             // btnOK
             // 
+            this.btnOK.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnOK.Appearance.Options.UseFont = true;
             this.btnOK.Location = new System.Drawing.Point(71, 39);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 2;
+            this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
+            this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Location = new System.Drawing.Point(152, 39);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 2;
+            this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 

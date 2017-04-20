@@ -18,6 +18,7 @@ namespace EL
         private DataTable _dtNonActivedelivery;
         private int _BlattNumber = 0;
         private string _BlattName;
+        private DataTable _dtDeliveryNumbers;
         
         public int ProjectID
         {
@@ -71,6 +72,12 @@ namespace EL
         {
             get { return _BlattName; }
             set { _BlattName = value; }
+        }
+
+        public DataTable dtDeliveryNumbers
+        {
+            get { return _dtDeliveryNumbers; }
+            set { _dtDeliveryNumbers = value; }
         }
     }
 }

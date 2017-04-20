@@ -46,7 +46,7 @@ namespace DataAccess
 
         public EDeliveryNotes SaveDelivery(EDeliveryNotes ObjEDeliveryNotes)
         {
-            DataSet dsNonActiveDelivery = new DataSet();
+            DataSet dsDeliveryNumbers = new DataSet();
             try
             {
                 using (SqlCommand cmd = new SqlCommand())
@@ -59,12 +59,24 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@DeliveryNumber", ObjEDeliveryNotes.DeliveryNumber);
                     cmd.Parameters.AddWithValue("@dtPositions", ObjEDeliveryNotes.dtDelivery);
                     cmd.Parameters.AddWithValue("@ISActiveDelivery", ObjEDeliveryNotes.ISActiveDelivery);
-                    object Objereturn = cmd.ExecuteScalar();
-                    int iValue =0;
-                    if (Objereturn != null && !int.TryParse(Objereturn.ToString(),out iValue))
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        throw new Exception(Objereturn.ToString());
+                        da.Fill(dsDeliveryNumbers);
                     }
+                    int iValue =0;
+                    if(dsDeliveryNumbers != null && dsDeliveryNumbers.Tables.Count > 0)
+                    {
+                        string strDNID = dsDeliveryNumbers.Tables[0].Rows[0][0].ToString();
+                        if(!string.IsNullOrEmpty(strDNID) && int.TryParse(strDNID,out iValue))
+                        {
+                            ObjEDeliveryNotes.DeliveryNumberID = iValue;
+                            ObjEDeliveryNotes.dtDeliveryNumbers = dsDeliveryNumbers.Tables[1];
+                        }
+                        else
+                            throw new Exception("Error While Saving Delivery");
+                    }
+                    else
+                        throw new Exception("Error While Saving Delivery");
                 }
             }
             catch (Exception ex)
@@ -123,5 +135,38 @@ namespace DataAccess
             }
             return ObjEDeliveryNotes;
         }
+
+        public EDeliveryNotes GetdeliveryNumbers(EDeliveryNotes ObjEDeliveryNotes)
+        {
+            DataSet dsDeliveryNumbers = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_DeliveryNumbers]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEDeliveryNotes.ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsDeliveryNumbers);
+                    }
+                    ObjEDeliveryNotes.dtDeliveryNumbers = dsDeliveryNumbers.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("To Be Updated");
+                else
+                    throw new Exception("Error While Retrieving the Delivery Numbers");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEDeliveryNotes;
+        }
+
     }
 }

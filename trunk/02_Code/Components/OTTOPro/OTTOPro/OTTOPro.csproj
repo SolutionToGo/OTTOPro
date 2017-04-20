@@ -66,10 +66,12 @@
     <Reference Include="Accessibility" />
     <Reference Include="DevExpress.BonusSkins.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.DataAccess.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -208,6 +210,12 @@
     </Compile>
     <Compile Include="frmCustomerMaster.Designer.cs">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDeliveryNotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDeliveryNotes.Designer.cs">
+      <DependentUpon>frmDeliveryNotes.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDesignReport.cs">
       <SubType>Form</SubType>
@@ -376,6 +384,12 @@
     <Compile Include="Report Design\frmProposalCoverPage1.Designer.cs">
       <DependentUpon>frmProposalCoverPage1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptDeliveryNotes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptDeliveryNotes.Designer.cs">
+      <DependentUpon>rptDeliveryNotes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptProposalCoverPage1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -415,6 +429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerMaster.resx">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDeliveryNotes.resx">
+      <DependentUpon>frmDeliveryNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDesignReport.resx">
       <DependentUpon>frmDesignReport.cs</DependentUpon>
@@ -496,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\frmProposalCoverPage1.resx">
       <DependentUpon>frmProposalCoverPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptDeliveryNotes.resx">
+      <DependentUpon>rptDeliveryNotes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalCoverPage1.resx">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
@@ -634,6 +654,7 @@
     <None Include="Resources\BOFileAttachment_32x32.png" />
     <None Include="Resources\DesignReport_16x16.png" />
     <None Include="Resources\DesignReport_32x32.png" />
+    <None Include="Resources\Diary-icon.png" />
     <Content Include="Resources\edit-icon %281%29.png" />
     <Content Include="Resources\edit-icon.png" />
     <None Include="Resources\Save_16x16.png" />
