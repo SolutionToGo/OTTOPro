@@ -17,32 +17,25 @@ namespace OTTOPro.Report_Design
 
         private void rptProposalwithprice_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            //PositionTableAdapter _tdPosition = new PositionTableAdapter();
-            //_tdPosition.FillByPID(dsProposalwithprice1.Position,_PID);
-
-            //OTTOMasterTableAdapter _tdOtto = new OTTOMasterTableAdapter();
-            //_tdOtto.FillByBranchAndIsActive(dsProposalwithprice1.OTTOMaster, false, true);
-
-            //ProjectTableAdapter _tdProject = new ProjectTableAdapter();
-            //_tdProject.FillByProjectID(dsProposalwithprice1.Project,_PID);
         }
 
+       
         double totalUnits = 0;
-        private void xrLabel16_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        private void xrLabel10_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = totalUnits;
             e.Handled = true;
         }
 
-        private void xrLabel16_SummaryReset(object sender, EventArgs e)
+        private void xrLabel10_SummaryReset(object sender, EventArgs e)
         {
             totalUnits = 0;
         }
 
-        private void xrLabel16_SummaryRowChanged(object sender, EventArgs e)
+        private void xrLabel10_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                totalUnits += Convert.ToDouble(GetCurrentColumnValue("FinalGB"));
+            if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
         }
 //*********************
     }
