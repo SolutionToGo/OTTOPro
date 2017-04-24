@@ -44,6 +44,7 @@
     <Compile Include="DCustomer.cs" />
     <Compile Include="DDeliveryNotes.cs" />
     <Compile Include="DGAEB.cs" />
+    <Compile Include="DInvoice.cs" />
     <Compile Include="DMulti.cs" />
     <Compile Include="DOTTO.cs" />
     <Compile Include="DPosition.cs" />

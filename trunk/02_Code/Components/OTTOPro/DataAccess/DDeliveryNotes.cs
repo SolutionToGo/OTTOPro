@@ -71,9 +71,11 @@ namespace DataAccess
                         {
                             ObjEDeliveryNotes.DeliveryNumberID = iValue;
                             ObjEDeliveryNotes.dtDeliveryNumbers = dsDeliveryNumbers.Tables[1];
+                            if(dsDeliveryNumbers.Tables.Count > 1)
+                                ObjEDeliveryNotes.dtPositions = dsDeliveryNumbers.Tables[2];
                         }
                         else
-                            throw new Exception("Error While Saving Delivery");
+                            throw new Exception(strDNID);
                     }
                     else
                         throw new Exception("Error While Saving Delivery");

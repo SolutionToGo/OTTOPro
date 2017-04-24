@@ -78,6 +78,8 @@ namespace OTTOPro
         BMulti ObjBMulti = null;
         EUmlage ObjEUmlage = null;
         BUmlage ObjBUmlage = null;
+        EInvoice ObjEInvoice = null;
+        BInvoice oBJBInvoice = null;
         /// <summary>
         /// Properties to bind the internal variables
         /// </summary>
@@ -165,7 +167,9 @@ namespace OTTOPro
                 tbMulti6.PageVisible = false;
                 tbOmlage.PageVisible = false;
                 tbDeliveryNotes.PageVisible = false;
+                tbInvoices.PageVisible = false;
                 cmbPositionKZ.Text = "N";
+                chkCumulated.Checked = true;
 
                 RequiredFields.Add(txtProjectNumber);
                 RequiredFields.Add(txtMWST);
@@ -324,7 +328,8 @@ namespace OTTOPro
 
                 ObjEProject.RoundingPriceID = 1;
                 ObjEProject.Remarks = txtRemarks.Text;
-                ObjEProject.LockHierarchy = chkLockHierarchy.Checked;
+                ObjEProject.LockHierarchy = chkLockHierarchy.Checked == true ? true : false;
+                ObjEProject.IsCumulated = chkCumulated.Checked == true ? true : false;
 
                 if (int.TryParse(ddlRounding.Text, out iValue))
                     ObjEProject.RoundingPrice = iValue;
@@ -427,6 +432,7 @@ namespace OTTOPro
                     txtActualLVs.Text = ObjEProject.ActualLvs.ToString();
                     txtRemarks.Text = ObjEProject.Remarks;
                     chkLockHierarchy.Checked = ObjEProject.LockHierarchy;
+                    chkCumulated.Checked = ObjEProject.IsCumulated;
                     ddlRounding.SelectedIndex = ddlRounding.Properties.Items.IndexOf(ObjEProject.RoundingPrice.ToString());
                     dtpProjectStartDate.DateTime = ObjEProject.ProjectStartDate;
                     dtpProjectEndDate.DateTime = ObjEProject.ProjectEndDate;
@@ -5943,6 +5949,7 @@ e.Column.FieldName == "GB")
                     txtDeliveryNumber.Text = string.Empty;
                     lblSelectedLVPosition.Text = "Selected LV Position : ";
                     gcDeliveryNumbers.DataSource = ObjEDeliveryNotes.dtDeliveryNumbers;
+                    gcPositions.DataSource = ObjEDeliveryNotes.dtPositions;
                     Utility.Setfocus(gvDeliveryNumbers, "DeliveryNumberID", ObjEDeliveryNotes.DeliveryNumberID);
                     ObjEDeliveryNotes.DeliveryNumberID = -1;
                 }
@@ -6017,11 +6024,71 @@ e.Column.FieldName == "GB")
                     string strDeliveryNumberID = gvDeliveryNumbers.GetFocusedRowCellValue("DeliveryNumberID").ToString();
                     if (int.TryParse(strDeliveryNumberID, out IValue))
                     {
+                        //rptDeliveryNotes Obj = new rptDeliveryNotes();
+                        //Obj.DeliveryNumberID = IValue;
+                        //Obj.ShowPreviewDialog();
+
                         rptDeliveryNotes Obj = new rptDeliveryNotes();
-                        Obj.DeliveryNumberID = IValue;
-                        Obj.ShowPreviewDialog();
+                        ReportPrintTool printTool = new ReportPrintTool(Obj);
+                        Obj.Parameters["ID"].Value = IValue;
+                        Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                        printTool.ShowRibbonPreview();
+
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void nbInvoices_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                TabChange(tbInvoices);
+                if (ObjEInvoice == null)
+                    ObjEInvoice = new EInvoice();
+                if (oBJBInvoice == null)
+                    oBJBInvoice = new BInvoice();
+                ObjEInvoice.ProjectID = ObjEProject.ProjectID;
+                ObjEInvoice = oBJBInvoice.GetDeliveryNotes(ObjEInvoice);
+                gcDeliveryNotes.DataSource = ObjEInvoice.dtDeliveryNumbers;
+                gcInvoices.DataSource = ObjEInvoice.dtInvoices;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnGenerate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtInvoiceNumber.Text))
+                    throw new Exception("Please Enter Invoice Number");
+                if (ObjEInvoice == null)
+                    ObjEInvoice = new EInvoice();
+                if (oBJBInvoice == null)
+                    oBJBInvoice = new BInvoice();
+                ObjEInvoice.InvoiceID = -1;
+                ObjEInvoice.ProjectID = ObjEProject.ProjectID;
+                ObjEInvoice.InvoiceNumber = txtInvoiceNumber.Text;
+                ObjEInvoice.IsFinalInvoice = chkFinalInvoice.Checked == true ? true : false;
+                DataTable dtTemp = ObjEInvoice.dtDeliveryNumbers.Copy();
+                dtTemp.Columns.Remove("ProjectID");
+                dtTemp.Columns.Remove("DeliveryNumberName");
+                dtTemp.Columns.Remove("IsActiveDelivery");
+                dtTemp.Columns.Remove("CreatedBy");
+                dtTemp.Columns.Remove("CreatedDate");
+                dtTemp.Columns.Remove("NoOfBlatts");
+                ObjEInvoice.dtInvoice = dtTemp;
+                ObjEInvoice = oBJBInvoice.SaveInvoice(ObjEInvoice);
+                gcDeliveryNotes.DataSource = ObjEInvoice.dtDeliveryNumbers;
+                gcInvoices.DataSource = ObjEInvoice.dtInvoices;
+                txtInvoiceNumber.Text = string.Empty;
             }
             catch (Exception ex)
             {

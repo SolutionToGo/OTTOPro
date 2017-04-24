@@ -58,6 +58,7 @@
     <Compile Include="BCustomer.cs" />
     <Compile Include="BDeliveryNotes.cs" />
     <Compile Include="BGAEB.cs" />
+    <Compile Include="BInvoice.cs" />
     <Compile Include="BMulti.cs" />
     <Compile Include="BOTTO.cs" />
     <Compile Include="BPosition.cs" />

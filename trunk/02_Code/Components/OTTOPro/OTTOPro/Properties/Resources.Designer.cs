@@ -233,6 +233,16 @@ namespace OTTOPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap currency_euro_green {
+            get {
+                object obj = ResourceManager.GetObject("currency_euro_green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap DesignReport_16x16 {
             get {
                 object obj = ResourceManager.GetObject("DesignReport_16x16", resourceCulture);

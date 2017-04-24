@@ -13,7 +13,7 @@ namespace DataAccess
 {
    public class DArticles
     {
-           public EArticles SaveArticle(XmlDocument xml, EArticles ObjEArticle)
+       public EArticles SaveArticle(XmlDocument xml, EArticles ObjEArticle)
             {
                 DataSet dsArticles = new DataSet();
                 try

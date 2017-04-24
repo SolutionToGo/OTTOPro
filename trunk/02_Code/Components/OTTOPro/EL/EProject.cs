@@ -49,6 +49,7 @@ namespace EL
         private string _KundeName;
         private int _RoundingPrice = 3;
         private DataTable _dtLVSection;
+        private bool _IsCumulated = false;
 
         /// <summary>
         /// Public Properties for Project Module
@@ -212,6 +213,11 @@ namespace EL
         {
             get { return _dtLVSection; }
             set { _dtLVSection = value; }
+        }
+        public bool IsCumulated
+        {
+            get { return _IsCumulated; }
+            set { _IsCumulated = value; }
         }
     }
 }

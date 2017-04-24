@@ -54,6 +54,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@PlannerName", ObjEProject.PlannerName);
                     cmd.Parameters.AddWithValue("@ProjectStartDate", ObjEProject.ProjectStartDate);
                     cmd.Parameters.AddWithValue("@ProjectEndDate", ObjEProject.ProjectEndDate);
+                    cmd.Parameters.AddWithValue("@IsCummulated", ObjEProject.IsCumulated);
                     object returnObj = cmd.ExecuteScalar();
                     if (returnObj != null)
                     {
