@@ -3,6 +3,10 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
+
 
 namespace OTTOPro.Report_Design
 {
@@ -18,5 +22,7 @@ namespace OTTOPro.Report_Design
         {
             InitializeComponent();
         }
+
+       
     }
 }

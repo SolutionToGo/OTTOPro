@@ -9,28 +9,22 @@ namespace OTTOPro.Report_Design
 {
     public partial class rptProposalwithprice : DevExpress.XtraReports.UI.XtraReport
     {
-        int _PID;
         public rptProposalwithprice()
         {
             InitializeComponent();
         }
 
-        public rptProposalwithprice(int _id)
-        {
-            InitializeComponent();
-            _PID = _id;
-        }       
 
         private void rptProposalwithprice_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            PositionTableAdapter _tdPosition = new PositionTableAdapter();
-            _tdPosition.FillByPID(dsProposalwithprice1.Position,_PID);
+            //PositionTableAdapter _tdPosition = new PositionTableAdapter();
+            //_tdPosition.FillByPID(dsProposalwithprice1.Position,_PID);
 
-            OTTOMasterTableAdapter _tdOtto = new OTTOMasterTableAdapter();
-            _tdOtto.FillByBranchAndIsActive(dsProposalwithprice1.OTTOMaster, false, true);
+            //OTTOMasterTableAdapter _tdOtto = new OTTOMasterTableAdapter();
+            //_tdOtto.FillByBranchAndIsActive(dsProposalwithprice1.OTTOMaster, false, true);
 
-            ProjectTableAdapter _tdProject = new ProjectTableAdapter();
-            _tdProject.FillByProjectID(dsProposalwithprice1.Project,_PID);
+            //ProjectTableAdapter _tdProject = new ProjectTableAdapter();
+            //_tdProject.FillByProjectID(dsProposalwithprice1.Project,_PID);
         }
 
         double totalUnits = 0;

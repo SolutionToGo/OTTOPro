@@ -88,16 +88,18 @@ namespace OTTOPro
 
                     case "mit Montage und Montagezeiten":
                         this.Hide();
-                        Report_Design.rptProposalwithprice rptwithPrice = new Report_Design.rptProposalwithprice(_Projectid);
+                        Report_Design.rptProposalwithprice rptwithPrice = new Report_Design.rptProposalwithprice();
                         ReportPrintTool printTool1 = new ReportPrintTool(rptwithPrice);
+                        rptwithPrice.Parameters["ProjectID"].Value = _Projectid;
                         printTool1.ShowRibbonPreview();
                         //rptwithPrice.ExportToPdf("D:\\report.pdf");
                         break;
 
                     case "Einzelpreise und Gesamtpreise":
                         this.Hide();
-                        Report_Design.rptProposalwithoutprice rptwithoutPrice = new Report_Design.rptProposalwithoutprice(_Projectid);
+                        Report_Design.rptProposalwithoutprice rptwithoutPrice = new Report_Design.rptProposalwithoutprice();
                         ReportPrintTool printTool2 = new ReportPrintTool(rptwithoutPrice);
+                        rptwithoutPrice.Parameters["ProjectID"].Value = _Projectid;
                         printTool2.ShowRibbonPreview();
                         break;
 
