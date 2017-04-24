@@ -3,7 +3,6 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
-using OTTOPro.Report_Design.dsProposalwithpriceTableAdapters;
 
 namespace OTTOPro.Report_Design
 {

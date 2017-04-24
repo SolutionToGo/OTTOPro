@@ -213,12 +213,6 @@
     <Compile Include="frmCustomerMaster.Designer.cs">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmDeliveryNotes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDeliveryNotes.Designer.cs">
-      <DependentUpon>frmDeliveryNotes.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmDesignReport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,12 +254,6 @@
     </Compile>
     <Compile Include="frmLoadSupplier.Designer.cs">
       <DependentUpon>frmLoadSupplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="frmOTTOMaster.cs">
       <SubType>Form</SubType>
@@ -339,12 +327,6 @@
     <Compile Include="frmViewdescription.Designer.cs">
       <DependentUpon>frmViewdescription.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmWGWA.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWGWA.Designer.cs">
-      <DependentUpon>frmWGWA.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoadProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,24 +352,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Report Design\DataSet1.cs">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Report Design\DataSet1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Report Design\dsProposalCoverPage1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Report Design\dsProposalwithprice.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dsProposalwithprice.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report Design\frmProposalCoverPage1.cs">
       <SubType>Form</SubType>
@@ -441,9 +409,6 @@
     <EmbeddedResource Include="frmCustomerMaster.resx">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDeliveryNotes.resx">
-      <DependentUpon>frmDeliveryNotes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDesignReport.resx">
       <DependentUpon>frmDesignReport.cs</DependentUpon>
     </EmbeddedResource>
@@ -464,9 +429,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoadSupplier.resx">
       <DependentUpon>frmLoadSupplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOTTOMaster.resx">
       <DependentUpon>frmOTTOMaster.cs</DependentUpon>
@@ -503,9 +465,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewdescription.resx">
       <DependentUpon>frmViewdescription.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWGWA.resx">
-      <DependentUpon>frmWGWA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadProject.resx">
       <DependentUpon>LoadProject.cs</DependentUpon>
@@ -559,17 +518,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Report Design\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Report Design\DataSet1.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Report Design\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
     <None Include="Report Design\dsProposalCoverPage1.xsc">
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
     </None>
@@ -580,17 +528,6 @@
     </None>
     <None Include="Report Design\dsProposalCoverPage1.xss">
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
-    </None>
-    <None Include="Report Design\dsProposalwithprice.xsc">
-      <DependentUpon>dsProposalwithprice.xsd</DependentUpon>
-    </None>
-    <None Include="Report Design\dsProposalwithprice.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsProposalwithprice.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Report Design\dsProposalwithprice.xss">
-      <DependentUpon>dsProposalwithprice.xsd</DependentUpon>
     </None>
     <None Include="Resources\1470736995_User_Customers.png" />
   </ItemGroup>
