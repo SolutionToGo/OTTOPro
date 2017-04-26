@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 
+
 namespace DataAccess
 {
     public class DSupplier
@@ -338,7 +339,7 @@ namespace DataAccess
             return dsWGWA;
         }
 
-        public DataSet SaveSupplierProposal(int _Pid, string _LvSection, int wg, int wa,DataTable _dtPosition,DataTable _dtSupplier)
+        public int SaveSupplierProposal(int _Pid, string _LvSection, int wg, int wa,DataTable _dtPosition,DataTable _dtSupplier)
         {
             DataSet ds = new DataSet();
             int ProposalID = -1;
@@ -364,6 +365,7 @@ namespace DataAccess
                     {
                         if (int.TryParse(str, out ProposalID))
                         {
+                            
                         }
                         else
                             throw new Exception(str);
@@ -378,7 +380,7 @@ namespace DataAccess
             {
                 SQLCon.Sqlconn().Close();
             }
-            return ds;
+            return ProposalID;
         }
 
         public DataSet GetProposalNumber(int _Pid)

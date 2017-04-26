@@ -151,6 +151,9 @@
     <Reference Include="DevExpress.XtraTreeList.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System">
@@ -387,6 +390,12 @@
     <Compile Include="Report Design\rptProposalwithprice.Designer.cs">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptSupplierProposal.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptSupplierProposal.Designer.cs">
+      <DependentUpon>rptSupplierProposal.cs</DependentUpon>
+    </Compile>
     <Compile Include="TextDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -496,6 +505,9 @@
     <EmbeddedResource Include="Report Design\rptProposalwithprice.resx">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptSupplierProposal.resx">
+      <DependentUpon>rptSupplierProposal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TextDialog.resx">
       <DependentUpon>TextDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -541,6 +553,10 @@
     <ProjectReference Include="..\BL\BL.csproj">
       <Project>{b8a14bcd-6d96-4bdb-915b-f9518bbd23f9}</Project>
       <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DAL.csproj">
+      <Project>{5b5ed23c-d2d6-4720-96bb-ca197e4d048f}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\EL\EL.csproj">
       <Project>{fb99b4cf-8ff8-44a8-bb92-2bd32f222925}</Project>

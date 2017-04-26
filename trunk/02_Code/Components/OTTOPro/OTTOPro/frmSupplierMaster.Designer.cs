@@ -111,6 +111,8 @@
             this.dxValidationProviderSupplierSname = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxValidationProviderContactName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxValidationProviderAddrSName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.txtSupplierEmail = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcSupplier)).BeginInit();
@@ -186,6 +188,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderSupplierSname)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderContactName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderAddrSName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierEmail.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -226,6 +230,7 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.Controls.Add(this.txtSupplierEmail);
             this.layoutControl2.Controls.Add(this.btnSave);
             this.layoutControl2.Controls.Add(this.btnCancel);
             this.layoutControl2.Controls.Add(this.txtCommentary);
@@ -267,17 +272,17 @@
             // 
             // txtCommentary
             // 
-            this.txtCommentary.Location = new System.Drawing.Point(24, 282);
+            this.txtCommentary.Location = new System.Drawing.Point(24, 296);
             this.txtCommentary.Name = "txtCommentary";
-            this.txtCommentary.Size = new System.Drawing.Size(410, 171);
+            this.txtCommentary.Size = new System.Drawing.Size(410, 157);
             this.txtCommentary.TabIndex = 7;
             this.txtCommentary.Text = "";
             // 
             // txtPaymentCondition
             // 
-            this.txtPaymentCondition.Location = new System.Drawing.Point(24, 112);
+            this.txtPaymentCondition.Location = new System.Drawing.Point(24, 136);
             this.txtPaymentCondition.Name = "txtPaymentCondition";
-            this.txtPaymentCondition.Size = new System.Drawing.Size(410, 126);
+            this.txtPaymentCondition.Size = new System.Drawing.Size(410, 116);
             this.txtPaymentCondition.TabIndex = 6;
             this.txtPaymentCondition.Text = "";
             // 
@@ -358,10 +363,11 @@
             // 
             this.layoutControlGroup5.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem2,
-            this.layoutControlItem3});
+            this.layoutControlItem3,
+            this.layoutControlItem25});
             this.layoutControlGroup5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup5.Name = "layoutControlGroup5";
-            this.layoutControlGroup5.Size = new System.Drawing.Size(438, 72);
+            this.layoutControlGroup5.Size = new System.Drawing.Size(438, 96);
             this.layoutControlGroup5.TextVisible = false;
             // 
             // layoutControlItem2
@@ -386,9 +392,9 @@
             // 
             this.layoutControlGroup6.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4});
-            this.layoutControlGroup6.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlGroup6.Location = new System.Drawing.Point(0, 96);
             this.layoutControlGroup6.Name = "layoutControlGroup6";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(438, 170);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(438, 160);
             this.layoutControlGroup6.TextVisible = false;
             // 
             // layoutControlItem4
@@ -396,7 +402,7 @@
             this.layoutControlItem4.Control = this.txtPaymentCondition;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(414, 146);
+            this.layoutControlItem4.Size = new System.Drawing.Size(414, 136);
             this.layoutControlItem4.Text = "Payment Condition :";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(98, 13);
@@ -405,9 +411,9 @@
             // 
             this.layoutControlGroup7.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem5});
-            this.layoutControlGroup7.Location = new System.Drawing.Point(0, 242);
+            this.layoutControlGroup7.Location = new System.Drawing.Point(0, 256);
             this.layoutControlGroup7.Name = "layoutControlGroup7";
-            this.layoutControlGroup7.Size = new System.Drawing.Size(438, 215);
+            this.layoutControlGroup7.Size = new System.Drawing.Size(438, 201);
             this.layoutControlGroup7.TextVisible = false;
             // 
             // layoutControlItem5
@@ -415,7 +421,7 @@
             this.layoutControlItem5.Control = this.txtCommentary;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(414, 191);
+            this.layoutControlItem5.Size = new System.Drawing.Size(414, 177);
             this.layoutControlItem5.Text = "Commentary :";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(98, 13);
@@ -982,6 +988,23 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // txtSupplierEmail
+            // 
+            this.txtSupplierEmail.Location = new System.Drawing.Point(125, 72);
+            this.txtSupplierEmail.Name = "txtSupplierEmail";
+            this.txtSupplierEmail.Size = new System.Drawing.Size(309, 20);
+            this.txtSupplierEmail.StyleController = this.layoutControl2;
+            this.txtSupplierEmail.TabIndex = 10;
+            // 
+            // layoutControlItem25
+            // 
+            this.layoutControlItem25.Control = this.txtSupplierEmail;
+            this.layoutControlItem25.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem25.Name = "layoutControlItem25";
+            this.layoutControlItem25.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem25.Text = "Email :";
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(98, 13);
+            // 
             // frmSupplierMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1074,6 +1097,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderSupplierSname)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderContactName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderAddrSName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierEmail.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1158,5 +1183,7 @@
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderSupplierSname;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderContactName;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderAddrSName;
+        private DevExpress.XtraEditors.TextEdit txtSupplierEmail;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem25;
     }
 }

@@ -25,6 +25,8 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ShortName", ObjEsupplier.SupplierShortName);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PaymentCondition", ObjEsupplier.PaymentCondition);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Commentary", ObjEsupplier.Commentary.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjEsupplier.SupplierEmailID.ToString());
+
                 ObjEsupplier = ObjDSupplier.SaveSupplierDetails(Xdoc, ObjEsupplier);
                 return ObjEsupplier;
             }
@@ -147,17 +149,17 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public ESupplier SaveSupplierProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, int wg, int wa, DataTable _dtPosition, DataTable _dtSupplier)
+        public int SaveSupplierProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, int wg, int wa, DataTable _dtPosition, DataTable _dtSupplier)
         {
             try
             {
-                ObjEsupplier.SupplierProposal = ObjDSupplier.SaveSupplierProposal(_Pid, _LvSection, wg, wa, _dtPosition, _dtSupplier);
+                ObjEsupplier.ProposalID = ObjDSupplier.SaveSupplierProposal(_Pid, _LvSection, wg, wa, _dtPosition, _dtSupplier);
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return ObjEsupplier;
+            return ObjEsupplier.ProposalID;
         }
 
         public ESupplier GetProposalNumber(ESupplier ObjEsupplier, int _Pid)

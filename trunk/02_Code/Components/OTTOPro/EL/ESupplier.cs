@@ -11,6 +11,7 @@ namespace EL
     {
         //To hold the Supplier Details
         private int _SupplierID = -1;
+        private string _SupplierEmailID;
         private string _SupplierFullName;
         private string _SupplierShortName;
         private string _PaymentCondition;
@@ -102,6 +103,11 @@ namespace EL
         {
             get { return _SupplierID; }
             set { _SupplierID = value; }
+        }
+        public string SupplierEmailID
+        {
+            get { return _SupplierEmailID; }
+            set { _SupplierEmailID = value; }
         }
         public string SupplierFullName
         {
@@ -251,6 +257,15 @@ namespace EL
         {
             get { return _dtAddress; }
             set { _dtAddress = value; }
+        }
+
+
+        //Supplier Proposal
+        private int _ProposalID = -1;
+        public int ProposalID
+        {
+            get { return _ProposalID; }
+            set { _ProposalID = value; }
         }
 
     }

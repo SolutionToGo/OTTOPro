@@ -5706,7 +5706,7 @@ e.Column.FieldName == "GB")
 
         private void navBarItemSupplierProposal_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            frmSupplierProposal frm = new frmSupplierProposal(ObjEProject.ProjectID, cmbLVSection.Text);
+            frmSupplierProposal frm = new frmSupplierProposal(ObjEProject.ProjectID, cmbLVSection.Text,txtProjectNumber.Text);
             frm.ShowDialog();
         }
 

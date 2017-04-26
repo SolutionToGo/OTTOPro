@@ -447,6 +447,7 @@ namespace OTTOPro
                     ObjESupplier.SupplierShortName = gvSupplier.GetFocusedRowCellValue("ShortName") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("ShortName").ToString();
                     ObjESupplier.Commentary = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
                     ObjESupplier.PaymentCondition = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
+                    ObjESupplier.SupplierEmailID = gvSupplier.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("EmailID").ToString();
 
                 }
 

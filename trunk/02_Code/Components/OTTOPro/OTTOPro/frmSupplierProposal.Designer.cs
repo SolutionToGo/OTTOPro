@@ -58,6 +58,7 @@
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSupplierLists)).BeginInit();
@@ -154,6 +155,7 @@
             this.btnSendEmail.StyleController = this.layoutControl1;
             this.btnSendEmail.TabIndex = 8;
             this.btnSendEmail.Text = "Send\r\nSupplier Proposal Email";
+            this.btnSendEmail.Click += new System.EventHandler(this.btnSendEmail_Click);
             // 
             // chkSupplierLists
             // 
@@ -261,7 +263,7 @@
             this.gridColumn28.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn28.AppearanceHeader.Options.UseFont = true;
             this.gridColumn28.Caption = "Quantity";
-            this.gridColumn28.FieldNameSortGroup = "Menge";
+            this.gridColumn28.FieldName = "Menge";
             this.gridColumn28.Name = "gridColumn28";
             this.gridColumn28.OptionsColumn.ReadOnly = true;
             this.gridColumn28.Visible = true;
@@ -504,5 +506,6 @@
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

@@ -66,7 +66,7 @@ namespace OTTOPro
                     this.Text = "Stammdaten Lieferanten";
                     ObjTabDetails = tbSupplier;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(504, 610);
+                    this.MinimumSize = new System.Drawing.Size(504, 603);
 
                 }
                 if (_SupplierType == "Contact")
@@ -236,6 +236,7 @@ namespace OTTOPro
                 txtShortName.Text = _ObjEsupplier.SupplierShortName;
                 txtCommentary.Text = _ObjEsupplier.Commentary;
                 txtPaymentCondition.Text = _ObjEsupplier.PaymentCondition;
+                txtSupplierEmail.Text = _ObjEsupplier.SupplierEmailID;
             }
             catch (Exception ex)
             {
@@ -332,6 +333,7 @@ namespace OTTOPro
                 _ObjEsupplier.SupplierShortName = txtShortName.Text;
                 _ObjEsupplier.Commentary = txtCommentary.Text;
                 _ObjEsupplier.PaymentCondition = txtPaymentCondition.Text;
+                _ObjEsupplier.SupplierEmailID = txtSupplierEmail.Text;
             }
             catch (Exception ex)
             {

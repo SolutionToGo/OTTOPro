@@ -12,15 +12,23 @@ using BL;
 using EL;
 using System.Collections;
 using DevExpress.XtraEditors.Controls;
+using DevExpress.XtraReports.UI;
+using System.IO;
+using System.Diagnostics;
+using DevExpress.XtraReports.UserDesigner;
+using DevExpress.XtraPrinting;
 
 namespace OTTOPro
 {
     public partial class frmSupplierProposal : DevExpress.XtraEditors.XtraForm
     {
         private int _ProjectID = 0;
+        private int _ProposalID = 0;
         string _LvSection;
         string _WG = null;
         string _WA = null;
+        string _ProjectName;
+        string _pdfpath = null;
         BGAEB ObjBGAEB = new BGAEB();
         ESupplier ObjESupplier = new ESupplier();
         BSupplier ObjBSupplier = new BSupplier();
@@ -32,11 +40,12 @@ namespace OTTOPro
             InitializeComponent();
         }
 
-        public frmSupplierProposal(int ProjectID,string LvSection)
+        public frmSupplierProposal(int ProjectID,string LvSection,string PrName)
         {
             InitializeComponent();
             _ProjectID = ProjectID;
             _LvSection = LvSection;
+            _ProjectName = PrName;
         }
 
         private void frmSupplierProposal_Load(object sender, EventArgs e)
@@ -131,7 +140,7 @@ namespace OTTOPro
                 chkSupplierLists.SetItemChecked(checkedItemIndex, false);
             }
         }
-
+        bool _Process = false;
         private void btnGeneratePDF_Click(object sender, EventArgs e)
         {
             try
@@ -155,7 +164,29 @@ namespace OTTOPro
                     dr["SupplierID"] = row["id"];
                     _dtSupplier.Rows.Add(dr);
                 }
-                ObjESupplier = ObjBSupplier.SaveSupplierProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WG), Convert.ToInt32(_WA), _dtPosotion, _dtSupplier);
+                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WG), Convert.ToInt32(_WA), _dtPosotion, _dtSupplier);
+                if(_ProposalID > 0)
+                {
+                    Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    rpt.Parameters["LVSection"].Value = cmbLVSection.Text;
+                    rpt.Parameters["WG"].Value = Convert.ToInt32(_WG);
+                    rpt.Parameters["WA"].Value = Convert.ToInt32(_WA);
+                    rpt.Parameters["ProjectID"].Value = _ProjectID;
+
+                    saveFileDialog1.Filter = "PDF Files|*.pdf";
+                    saveFileDialog1.ShowDialog();
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        rpt.ExportToPdf(saveFileDialog1.FileName);
+                        if (_Process != true)
+                        {
+                            StartProcess(saveFileDialog1.FileName);
+                        }
+                        _pdfpath = saveFileDialog1.FileName;
+                    }                   
+                }
+                               
             }
             catch (Exception ex)
             {
@@ -163,8 +194,68 @@ namespace OTTOPro
             }
         }
 
+        public void StartProcess(string path)
+        {
+            Process process = new Process();
+            try
+            {
+                process.StartInfo.FileName = path;
+                process.Start();
+                process.WaitForInputIdle();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
+        private void btnSendEmail_Click(object sender, EventArgs e)
+        {
+            StringBuilder strArr = new StringBuilder();
+            string delimiter = "";
+            try
+            {
+                _Process = true;
+                btnGeneratePDF_Click(null,null);
+                Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+                mailItem.Subject = "This is the subject";
 
+                DataTable _dtSuppliermail = new DataTable();
+                _dtSuppliermail.Columns.Add("Suppliermail");
+                foreach (object item in chkSupplierLists.CheckedItems)
+                {
+                    DataRowView row = item as DataRowView;
+                    DataRow dr = _dtSuppliermail.NewRow();
+                    dr["Suppliermail"] = row["SupplierMail"];
+                    _dtSuppliermail.Rows.Add(dr);
+                }
+                if (_dtSuppliermail.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in _dtSuppliermail.Rows)
+                    {
+                        if (dr["Suppliermail"].ToString() != null || dr["Suppliermail"].ToString() != "")
+                        {
+                            strArr.Append(delimiter);
+                            strArr.Append(dr["Suppliermail"]);
+                            delimiter = ";";
+                        }
+                    }
+                }                
+                mailItem.To = strArr.ToString();
+                mailItem.Body = "This is the message.";
+
+                mailItem.Attachments.Add(_pdfpath);//logPath is a string holding path to the log.txt file
+                mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
+                mailItem.Display(false);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        
 //************
     }
 }
