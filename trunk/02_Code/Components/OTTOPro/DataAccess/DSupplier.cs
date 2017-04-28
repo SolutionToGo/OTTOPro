@@ -261,7 +261,6 @@ namespace DataAccess
             return ObjESupplier;
         }
 
-
         //SUPPLIER PROPOSAL
         public DataSet GetWGWaforProposal(int _Pid, string _LvSection, int wg, int wa)
         {
@@ -383,7 +382,7 @@ namespace DataAccess
             return ProposalID;
         }
 
-        public DataSet GetProposalNumber(int _Pid)
+        public ESupplier GetProposalNumber(ESupplier ObjESupplier)
         {
             DataSet dsWGWA = new DataSet();
             try
@@ -393,30 +392,58 @@ namespace DataAccess
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_SupplierProposal]";
-                    cmd.Parameters.AddWithValue("@ProjectID", _Pid);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsWGWA);
+                    }
+                    if(dsWGWA != null && dsWGWA.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtProposal = dsWGWA.Tables[0];
                     }
                 }
             }
             catch (Exception ex)
             {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    // throw new Exception("Fehler beim Laden des Kunden");
-                }
-                else
-                {
                     throw new Exception("Error Occured While Retreiving records");
-
-                }
             }
             finally
             {
                 SQLCon.Sqlconn().Close();
             }
-            return dsWGWA;
+            return ObjESupplier;
+        }
+
+        public ESupplier GetProposalPostions(ESupplier ObjESupplier)
+        {
+            DataSet dsPositions = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_PositionsForProposal]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsPositions);
+                    }
+                    if (dsPositions != null && dsPositions.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtPositions = dsPositions.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Occured While Retreiving Positions");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
         }
 
     }

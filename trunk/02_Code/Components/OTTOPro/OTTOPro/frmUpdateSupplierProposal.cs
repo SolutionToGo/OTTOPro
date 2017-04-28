@@ -29,26 +29,47 @@ namespace OTTOPro
             InitializeComponent();
             _ProjectID = ProjectID;
         }
+
         private void frmUpdateSupplierProposal_Load(object sender, EventArgs e)
         {
             FillProposalNumbers();
         }
 
-
         private void FillProposalNumbers()
         {
-            ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier, _ProjectID);
-            if (ObjESupplier.SupplierProposal != null)
+            try
             {
-                gcProposal.DataSource = ObjESupplier.SupplierProposal.Tables[0].DefaultView;
-                gvProposal.BestFitColumns();
+                ObjESupplier.ProjectID = _ProjectID;
+                ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
+                gcProposal.DataSource = ObjESupplier.dtProposal;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
         private void gvProposal_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
+            try
+            {
+                if (gvProposal != null && gvProposal.GetFocusedRowCellValue("SupplierProposalID") != null)
+                {
+                    int iValue = 0;
+                    if (int.TryParse(gvProposal.GetFocusedRowCellValue("SupplierProposalID").ToString(), out iValue))
+                    {
+                        ObjESupplier.SupplierProposalID = iValue;
+                        ObjESupplier = ObjBSupplier.GetProposalPostions(ObjESupplier);
+                        //gcSupplier.DataSource = ObjESupplier.dtPositions;
 
+                        
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
-//*****************
     }
 }

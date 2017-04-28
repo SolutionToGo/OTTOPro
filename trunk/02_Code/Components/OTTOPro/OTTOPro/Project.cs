@@ -59,11 +59,7 @@ namespace OTTOPro
         public EDeliveryNotes ObjEDeliveryNotes = null;
         public BDeliveryNotes ObjBDeliveryNotes = null;
         GridHitInfo downHitInfo = null;
-        private int _BlattNumber = 0;
-        private string strBlattNumber = string.Empty;
         private int SNO = 1;
-        private string strTemp = string.Empty;
-
 
         /// <summary>
         /// Instances for Entity layer and business layer
@@ -5716,6 +5712,7 @@ e.Column.FieldName == "GB")
             frm.ShowDialog();
         }
 
+        #region "Delivery Notes Code"
         private void nbDeliveryNotes_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             try
@@ -5726,14 +5723,13 @@ e.Column.FieldName == "GB")
                 if (ObjBDeliveryNotes == null)
                     ObjBDeliveryNotes = new BDeliveryNotes();
                 chkActiveDelivery.Checked = true;
-                strTemp = strBlattNumber;
-                btnNewBlattNumber_Click(null, null);
                 ObjEDeliveryNotes.ProjectID = _ProjectID;
                 ObjEDeliveryNotes = ObjBDeliveryNotes.GetPositions(ObjEDeliveryNotes);
                 gcPositions.DataSource = ObjEDeliveryNotes.dtPositions;
+                NewBlattnumber();
                 LoadNonActiveDelivery();
-                ObjEDeliveryNotes = ObjBDeliveryNotes.GetdeliveryNumbers(ObjEDeliveryNotes);
-                gcDeliveryNumbers.DataSource = ObjEDeliveryNotes.dtDeliveryNumbers;
+                ObjEDeliveryNotes = ObjBDeliveryNotes.GetBlattNumbers(ObjEDeliveryNotes);
+                gcDeliveryNumbers.DataSource = ObjEDeliveryNotes.dtBlattNumbers;
                 
             }
             catch (Exception ex)
@@ -5761,53 +5757,17 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                if (gvDelivery.RowCount == 0)
-                {
-                    frmTextDialog Obj = new frmTextDialog();
-                    Obj.NewLVSection = strBlattNumber;
-                    Obj.strName = "Blatt Number";
-                    Obj.ShowDialog();
-                    if (Obj.IsSave)
-                        strBlattNumber = Obj.NewLVSection;
-                    else
-                        return;
-                }
                 GridControl grid = sender as GridControl;
                 DataTable table = grid.DataSource as DataTable;
                 DataRow row = e.Data.GetData(typeof(DataRow)) as DataRow;
                 if (row != null && table != null && row.Table != table)
                 {
-                    DataRow[] BlattRows = table.Select("BlattNumber = '" + strBlattNumber + "'");
-                    if (BlattRows.Count() > 21)
-                    {
-                        var result1 = MessageBox.Show("Blatt Is Full, Do You Want to Continue..?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (result1.ToString().ToLower() == "yes")
-                        {
-                            SNO = 1;
-                            btnNewBlattNumber_Click(null, null);
-                            frmTextDialog Obj = new frmTextDialog();
-                            Obj.NewLVSection = strBlattNumber;
-                            Obj.strName = "Blatt Number";
-                            Obj.ShowDialog();
-                            if (Obj.IsSave)
-                                strBlattNumber = Obj.NewLVSection;
-                            else
-                            {
-                                strBlattNumber = strTemp;
-                                _BlattNumber--;
-                                return;
-                            }
-                        }
-                        else
-                            return;
-                    }
                     object strPositionID = row["PositionID"].ToString();
-                    DataRow[] foundRows = table.Select("PositionID = '" + strPositionID + "' AND BlattNumber = '" + strBlattNumber + "'");
+                    DataRow[] foundRows = table.Select("PositionID = '" + strPositionID + "'");
                     if (foundRows.Count() <= 0)
                     {
                         DataRow drTemp = table.NewRow();
                         drTemp.ItemArray = row.ItemArray.Clone() as object[];
-                        drTemp["BlattNumber"] = strBlattNumber;
                         drTemp["Menge"] = 0;
                         drTemp["SNO"] = SNO;
                         table.Rows.Add(drTemp);
@@ -5867,21 +5827,6 @@ e.Column.FieldName == "GB")
             }
         }
 
-        private void btnNewBlattNumber_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                _BlattNumber++;
-                strTemp = strBlattNumber;
-                string strValue = _BlattNumber.ToString().PadLeft(3, '0');
-                strBlattNumber = "Blatt " + strValue;
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void gvDelivery_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             try
@@ -5904,8 +5849,8 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                if (string.IsNullOrEmpty(txtDeliveryNumber.Text))
-                    throw new Exception("Please Enter Delivery Number");
+                if (string.IsNullOrEmpty(txtBlattNumber.Text))
+                    throw new Exception("Please Enter Blatt Number");
                 if (gvDelivery.RowCount == 0)
                     throw new Exception("Select Positions for Delivery");
                 if (!chkActiveDelivery.Checked)
@@ -5913,15 +5858,13 @@ e.Column.FieldName == "GB")
                     string strConfirmation = XtraMessageBox.Show("Do you want to save it as non active delivery..?", "Question"
                         , MessageBoxButtons.OKCancel, MessageBoxIcon.Question).ToString();
                     if (strConfirmation.ToLower() == "cancel")
-                    {
                         return;
-                    }
                 }
                 if (ObjEDeliveryNotes == null)
                     ObjEDeliveryNotes = new EDeliveryNotes();
                 if (ObjBDeliveryNotes == null)
                     ObjBDeliveryNotes = new BDeliveryNotes();
-                ObjEDeliveryNotes.DeliveryNumber = txtDeliveryNumber.Text;
+                ObjEDeliveryNotes.BlattName = txtBlattNumber.Text;
                 ObjEDeliveryNotes.ISActiveDelivery = chkActiveDelivery.Checked == true ? true : false;
                 DataTable table = gcDelivery.DataSource as DataTable;
 
@@ -5938,7 +5881,7 @@ e.Column.FieldName == "GB")
                 ObjEDeliveryNotes.dtDelivery = Temp;
 
                 ObjEDeliveryNotes = ObjBDeliveryNotes.SaveDelivery(ObjEDeliveryNotes);
-                Utility.ShowSucces(ObjEDeliveryNotes.DeliveryNumber + "Saved Successfully");
+                Utility.ShowSucces( "'" + txtBlattNumber.Text + "'" + " Saved Successfully");
                 if (chkActiveDelivery.Checked == false)
                     LoadNonActiveDelivery();
                 else
@@ -5946,12 +5889,13 @@ e.Column.FieldName == "GB")
                     table.Rows.Clear();
                     txtDeliveredQnty.Text = string.Empty;
                     txtOrderedQnty.Text = string.Empty;
-                    txtDeliveryNumber.Text = string.Empty;
                     lblSelectedLVPosition.Text = "Selected LV Position : ";
-                    gcDeliveryNumbers.DataSource = ObjEDeliveryNotes.dtDeliveryNumbers;
+                    gcDeliveryNumbers.DataSource = ObjEDeliveryNotes.dtBlattNumbers;
                     gcPositions.DataSource = ObjEDeliveryNotes.dtPositions;
-                    Utility.Setfocus(gvDeliveryNumbers, "DeliveryNumberID", ObjEDeliveryNotes.DeliveryNumberID);
-                    ObjEDeliveryNotes.DeliveryNumberID = -1;
+                    Utility.Setfocus(gvDeliveryNumbers, "BlattID", ObjEDeliveryNotes.BlattID);
+                    ObjEDeliveryNotes.BlattID = -1;
+                    SNO = 0;
+                    NewBlattnumber();
                 }
                 
             }
@@ -5997,11 +5941,10 @@ e.Column.FieldName == "GB")
                 ObjEDeliveryNotes = ObjBDeliveryNotes.GetNonActiveDelivery(ObjEDeliveryNotes);
                 if (ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count > 0)
                 {
-                    txtDeliveryNumber.Text = ObjEDeliveryNotes.DeliveryNumber;
+                    txtBlattNumber.Text = ObjEDeliveryNotes.BlattName;
                     chkActiveDelivery.Checked = false;
-                    _BlattNumber = ObjEDeliveryNotes.BlattNumber;
-                    strBlattNumber = ObjEDeliveryNotes.BlattName;
                     gcDelivery.DataSource = ObjEDeliveryNotes.dtNonActivedelivery;
+                    SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count;
                 }
                 else
                 {
@@ -6024,10 +5967,6 @@ e.Column.FieldName == "GB")
                     string strDeliveryNumberID = gvDeliveryNumbers.GetFocusedRowCellValue("DeliveryNumberID").ToString();
                     if (int.TryParse(strDeliveryNumberID, out IValue))
                     {
-                        //rptDeliveryNotes Obj = new rptDeliveryNotes();
-                        //Obj.DeliveryNumberID = IValue;
-                        //Obj.ShowPreviewDialog();
-
                         rptDeliveryNotes Obj = new rptDeliveryNotes();
                         ReportPrintTool printTool = new ReportPrintTool(Obj);
                         Obj.Parameters["ID"].Value = IValue;
@@ -6043,6 +5982,47 @@ e.Column.FieldName == "GB")
             }
         }
 
+        private void gvDelivery_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gcDeliveryDelete_ItemClick));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcDeliveryDelete_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                int iRowHandle = gvDelivery.FocusedRowHandle;
+                DataTable table = gcDelivery.DataSource as DataTable;
+                table.Rows.RemoveAt(iRowHandle);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void NewBlattnumber()
+        {
+            try
+            {
+                ObjEDeliveryNotes = ObjBDeliveryNotes.GetNewBlattNumber(ObjEDeliveryNotes);
+                txtBlattNumber.Text = ObjEDeliveryNotes.BlattName;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
+
         private void nbInvoices_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             try
@@ -6053,8 +6033,9 @@ e.Column.FieldName == "GB")
                 if (oBJBInvoice == null)
                     oBJBInvoice = new BInvoice();
                 ObjEInvoice.ProjectID = ObjEProject.ProjectID;
-                ObjEInvoice = oBJBInvoice.GetDeliveryNotes(ObjEInvoice);
-                gcDeliveryNotes.DataSource = ObjEInvoice.dtDeliveryNumbers;
+                ObjEInvoice = oBJBInvoice.GeTBlattNumbers(ObjEInvoice);
+                gcDeliveryNotes.DataSource = ObjEInvoice.dtBlattNumbers;
+                ObjEInvoice = oBJBInvoice.GetInvoices(ObjEInvoice);
                 gcInvoices.DataSource = ObjEInvoice.dtInvoices;
             }
             catch (Exception ex)
@@ -6077,16 +6058,16 @@ e.Column.FieldName == "GB")
                 ObjEInvoice.ProjectID = ObjEProject.ProjectID;
                 ObjEInvoice.InvoiceNumber = txtInvoiceNumber.Text;
                 ObjEInvoice.IsFinalInvoice = chkFinalInvoice.Checked == true ? true : false;
-                DataTable dtTemp = ObjEInvoice.dtDeliveryNumbers.Copy();
-                dtTemp.Columns.Remove("ProjectID");
-                dtTemp.Columns.Remove("DeliveryNumberName");
+                DataTable dtTemp = ObjEInvoice.dtBlattNumbers.Copy();
+                dtTemp.Columns.Remove("BlattNumber");
                 dtTemp.Columns.Remove("IsActiveDelivery");
+                dtTemp.Columns.Remove("IsInvoiced");
                 dtTemp.Columns.Remove("CreatedBy");
                 dtTemp.Columns.Remove("CreatedDate");
-                dtTemp.Columns.Remove("NoOfBlatts");
+                dtTemp.Columns.Remove("NoOfPositions");
                 ObjEInvoice.dtInvoice = dtTemp;
                 ObjEInvoice = oBJBInvoice.SaveInvoice(ObjEInvoice);
-                gcDeliveryNotes.DataSource = ObjEInvoice.dtDeliveryNumbers;
+                gcDeliveryNotes.DataSource = ObjEInvoice.dtBlattNumbers;
                 gcInvoices.DataSource = ObjEInvoice.dtInvoices;
                 txtInvoiceNumber.Text = string.Empty;
             }
@@ -6095,6 +6076,38 @@ e.Column.FieldName == "GB")
                 Utility.ShowError(ex);
             }
         }
+
+        private bool IsDisable(GridView view, int row)
+        {
+            bool result = false;
+            try
+            {
+                
+                string val = Convert.ToString(view.GetRowCellValue(row, "IsInvoiced"));
+                if (val == "YES")
+                    result = true;
+                else if (val == "NO")
+                    result = false;
+            }
+            catch
+            {
+                result = false;
+            }
+            return result;
+        }
+
+        private void gvDeliveryNotes_ShowingEditor(object sender, CancelEventArgs e)
+        {
+            try
+            {
+                if (gvDeliveryNotes.FocusedColumn.FieldName == "SELCETED"
+                                && IsDisable(gvDeliveryNotes, gvDeliveryNotes.FocusedRowHandle))
+                    e.Cancel = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }
- 

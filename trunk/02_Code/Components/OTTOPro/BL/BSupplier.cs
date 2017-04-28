@@ -162,15 +162,11 @@ namespace BL
             return ObjEsupplier.ProposalID;
         }
 
-        public ESupplier GetProposalNumber(ESupplier ObjEsupplier, int _Pid)
+        public ESupplier GetProposalNumber(ESupplier ObjEsupplier)
         {
             try
             {
-                if (ObjEsupplier != null)
-                {
-                    ObjEsupplier.SupplierProposal = ObjDSupplier.GetProposalNumber(_Pid);
-
-                }
+                ObjEsupplier = ObjDSupplier.GetProposalNumber(ObjEsupplier);
             }
             catch (Exception ex)
             {
@@ -179,6 +175,17 @@ namespace BL
             return ObjEsupplier;
         }
 
-
+        public ESupplier GetProposalPostions(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier = ObjDSupplier.GetProposalPostions(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
     }
 }

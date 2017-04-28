@@ -12,14 +12,12 @@ namespace EL
         private int _ProjectID = -1;
         private DataTable _dtPositions;
         private DataTable _dtDelivery;
-        private int _DeliveryNumberID = -1;
-        private string _DeliveryNumber;
         private bool _ISActiveDelivery;
         private DataTable _dtNonActivedelivery;
-        private int _BlattNumber = 0;
         private string _BlattName;
-        private DataTable _dtDeliveryNumbers;
-        
+        private DataTable _dtBlattNumbers;
+        private int _BlattID = -1;
+
         public int ProjectID
         {
             get { return _ProjectID; }
@@ -38,18 +36,6 @@ namespace EL
             set { _dtDelivery = value; }
         }
 
-        public int DeliveryNumberID
-        {
-            get { return _DeliveryNumberID; }
-            set { _DeliveryNumberID = value; }
-        }
-
-        public string DeliveryNumber
-        {
-            get { return _DeliveryNumber; }
-            set { _DeliveryNumber = value; }
-        }
-
         public bool ISActiveDelivery
         {
             get { return _ISActiveDelivery; }
@@ -62,22 +48,22 @@ namespace EL
             set { _dtNonActivedelivery = value; }
         }
 
-        public int BlattNumber
-        {
-            get { return _BlattNumber; }
-            set { _BlattNumber = value; }
-        }
-
         public string BlattName
         {
             get { return _BlattName; }
             set { _BlattName = value; }
         }
 
-        public DataTable dtDeliveryNumbers
+        public DataTable dtBlattNumbers
         {
-            get { return _dtDeliveryNumbers; }
-            set { _dtDeliveryNumbers = value; }
+            get { return _dtBlattNumbers; }
+            set { _dtBlattNumbers = value; }
+        }
+
+        public int BlattID
+        {
+            get { return _BlattID; }
+            set { _BlattID = value; }
         }
     }
 }

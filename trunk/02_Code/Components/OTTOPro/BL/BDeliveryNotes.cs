@@ -51,11 +51,24 @@ namespace BL
             return ObjEDeliveryNotes;
         }
 
-        public EDeliveryNotes GetdeliveryNumbers(EDeliveryNotes ObjEDeliveryNotes)
+        public EDeliveryNotes GetBlattNumbers(EDeliveryNotes ObjEDeliveryNotes)
         {
             try
             {
-                ObjEDeliveryNotes = ObjDdeliveryNotes.GetdeliveryNumbers(ObjEDeliveryNotes);
+                ObjEDeliveryNotes = ObjDdeliveryNotes.GetBlattNumbers(ObjEDeliveryNotes);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEDeliveryNotes;
+        }
+
+        public EDeliveryNotes GetNewBlattNumber(EDeliveryNotes ObjEDeliveryNotes)
+        {
+            try
+            {
+                ObjEDeliveryNotes = ObjDdeliveryNotes.GetNewBlattNumber(ObjEDeliveryNotes);
             }
             catch (Exception ex)
             {

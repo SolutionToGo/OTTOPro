@@ -12,11 +12,11 @@ namespace BL
     {
         DInvoice ObjDInvoice = new DInvoice();
 
-        public EInvoice GetDeliveryNotes(EInvoice ObjEInvoice)
+        public EInvoice GeTBlattNumbers(EInvoice ObjEInvoice)
         {
             try
             {
-                ObjEInvoice = ObjDInvoice.GetDeliveryNotes(ObjEInvoice);
+                ObjEInvoice = ObjDInvoice.GeTBlattNumbers(ObjEInvoice);
             }
             catch (Exception ex)
             {
@@ -30,6 +30,19 @@ namespace BL
             try
             {
                 ObjEInvoice = ObjDInvoice.SaveInvoice(ObjEInvoice);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEInvoice;
+        }
+
+        public EInvoice GetInvoices(EInvoice ObjEInvoice)
+        {
+            try
+            {
+                ObjEInvoice = ObjDInvoice.GetInvoices(ObjEInvoice);
             }
             catch (Exception ex)
             {

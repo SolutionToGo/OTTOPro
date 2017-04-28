@@ -46,45 +46,46 @@ namespace DataAccess
 
         public EDeliveryNotes SaveDelivery(EDeliveryNotes ObjEDeliveryNotes)
         {
-            DataSet dsDeliveryNumbers = new DataSet();
+            DataSet dsBlattDetails = new DataSet();
             try
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Ins_Delivery]";
-                    cmd.Parameters.AddWithValue("@ProjectID", ObjEDeliveryNotes.ProjectID);
-                    cmd.Parameters.AddWithValue("@DeliveryNumberID", ObjEDeliveryNotes.DeliveryNumberID);
-                    cmd.Parameters.AddWithValue("@DeliveryNumber", ObjEDeliveryNotes.DeliveryNumber);
-                    cmd.Parameters.AddWithValue("@dtPositions", ObjEDeliveryNotes.dtDelivery);
-                    cmd.Parameters.AddWithValue("@ISActiveDelivery", ObjEDeliveryNotes.ISActiveDelivery);
+                    cmd.CommandText = "[P_Ins_BlattDetails]";
+                    cmd.Parameters.AddWithValue("@BlattID", ObjEDeliveryNotes.BlattID);
+                    cmd.Parameters.AddWithValue("@ProjetcID", ObjEDeliveryNotes.ProjectID);
+                    cmd.Parameters.AddWithValue("@BlattNumber", ObjEDeliveryNotes.BlattName);
+                    cmd.Parameters.AddWithValue("@IsActiveDelivery", ObjEDeliveryNotes.ISActiveDelivery);
+                    cmd.Parameters.AddWithValue("@Delivery", ObjEDeliveryNotes.dtDelivery);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        da.Fill(dsDeliveryNumbers);
+                        da.Fill(dsBlattDetails);
                     }
-                    int iValue =0;
-                    if(dsDeliveryNumbers != null && dsDeliveryNumbers.Tables.Count > 0)
+                    int iValue = 0;
+                    if(dsBlattDetails != null & dsBlattDetails.Tables.Count > 0)
                     {
-                        string strDNID = dsDeliveryNumbers.Tables[0].Rows[0][0].ToString();
-                        if(!string.IsNullOrEmpty(strDNID) && int.TryParse(strDNID,out iValue))
+                        string str = dsBlattDetails.Tables[0].Rows[0][0].ToString();
+                        if (!int.TryParse(str, out iValue))
+                            throw new Exception(str);
+                        else if(dsBlattDetails.Tables.Count > 1)
                         {
-                            ObjEDeliveryNotes.DeliveryNumberID = iValue;
-                            ObjEDeliveryNotes.dtDeliveryNumbers = dsDeliveryNumbers.Tables[1];
-                            if(dsDeliveryNumbers.Tables.Count > 1)
-                                ObjEDeliveryNotes.dtPositions = dsDeliveryNumbers.Tables[2];
+                            ObjEDeliveryNotes.BlattID = iValue;
+                            ObjEDeliveryNotes.dtPositions = dsBlattDetails.Tables[1];
+                            if(dsBlattDetails.Tables.Count > 2)
+                                ObjEDeliveryNotes.dtBlattNumbers = dsBlattDetails.Tables[2];    
                         }
-                        else
-                            throw new Exception(strDNID);
                     }
-                    else
-                        throw new Exception("Error While Saving Delivery");
                 }
             }
             catch (Exception ex)
             {
                 if (ex.Message.Contains("UNIQUE"))
-                    throw new Exception("Delivery Number Already Exists, Enter Another One");
+                    throw new Exception("Blatt Number Already Exists, Enter Another One");
+                else if 
+                    (ex.Message.Contains("Valid"))
+                    throw;
                 else
                     throw new Exception("Error While Saving Delivery");
             }
@@ -113,14 +114,10 @@ namespace DataAccess
                     ObjEDeliveryNotes.dtNonActivedelivery = dsPositions.Tables[0];
                     if (ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count > 0)
                     {
-                        ObjEDeliveryNotes.DeliveryNumberID = dsPositions.Tables[1].Rows[0]["DeliveryNumberID"] == DBNull.Value
-                            ? -1 : Convert.ToInt32(dsPositions.Tables[1].Rows[0]["DeliveryNumberID"]);
-                        ObjEDeliveryNotes.DeliveryNumber = dsPositions.Tables[1].Rows[0]["DeliveryNumberName"] == DBNull.Value
-                            ? "" : dsPositions.Tables[1].Rows[0]["DeliveryNumberName"].ToString();
-
-                        ObjEDeliveryNotes.BlattNumber = dsPositions.Tables[2].Rows.Count;
-                        ObjEDeliveryNotes.BlattName = dsPositions.Tables[2].Rows[0]["BlattNumberName"] == DBNull.Value
-                            ? "" : dsPositions.Tables[2].Rows[0]["BlattNumberName"].ToString();
+                        ObjEDeliveryNotes.BlattID = dsPositions.Tables[1].Rows[0]["BlattID"] == DBNull.Value
+                            ? -1 : Convert.ToInt32(dsPositions.Tables[1].Rows[0]["BlattID"]);
+                        ObjEDeliveryNotes.BlattName = dsPositions.Tables[1].Rows[0]["BlattNumber"] == DBNull.Value
+                            ? "" : dsPositions.Tables[1].Rows[0]["BlattNumber"].ToString();
                     }
                 }
             }
@@ -138,22 +135,22 @@ namespace DataAccess
             return ObjEDeliveryNotes;
         }
 
-        public EDeliveryNotes GetdeliveryNumbers(EDeliveryNotes ObjEDeliveryNotes)
+        public EDeliveryNotes GetBlattNumbers(EDeliveryNotes ObjEDeliveryNotes)
         {
-            DataSet dsDeliveryNumbers = new DataSet();
+            DataSet dsBlattNumbers = new DataSet();
             try
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_DeliveryNumbers]";
+                    cmd.CommandText = "[P_Get_BlattNumbers]";
                     cmd.Parameters.AddWithValue("@ProjectID", ObjEDeliveryNotes.ProjectID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        da.Fill(dsDeliveryNumbers);
+                        da.Fill(dsBlattNumbers);
                     }
-                    ObjEDeliveryNotes.dtDeliveryNumbers = dsDeliveryNumbers.Tables[0];
+                    ObjEDeliveryNotes.dtBlattNumbers = dsBlattNumbers.Tables[0];
                 }
             }
             catch (Exception ex)
@@ -170,5 +167,34 @@ namespace DataAccess
             return ObjEDeliveryNotes;
         }
 
+        public EDeliveryNotes GetNewBlattNumber(EDeliveryNotes ObjEDeliveryNotes)
+        {
+            DataSet dsDeliveryNumbers = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_NewBlattNumber]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEDeliveryNotes.ProjectID);
+                    object ObjReturn = cmd.ExecuteScalar();
+                    if (ObjReturn != null)
+                        ObjEDeliveryNotes.BlattName = ObjReturn.ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("To Be Updated");
+                else
+                    throw new Exception("Error While Retrieving the New Blatt Number");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEDeliveryNotes;
+        }
     }
-}
+}   

@@ -12,7 +12,7 @@ namespace DataAccess
 {
     public class DInvoice
     {
-        public EInvoice GetDeliveryNotes(EInvoice ObjEInvoice)
+        public EInvoice GeTBlattNumbers(EInvoice ObjEInvoice)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace DataAccess
                     {
                         cmd.Connection = SQLCon.Sqlconn();
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.CommandText = "[P_Get_DeliveryNotes]";
+                        cmd.CommandText = "[P_Get_BlattNumbers]";
                         cmd.Parameters.AddWithValue("@ProjectID", ObjEInvoice.ProjectID);
                         using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         {
@@ -33,10 +33,7 @@ namespace DataAccess
                     if (dsInvoices != null)
                     {
                         if(dsInvoices.Tables.Count > 0)
-                            ObjEInvoice.dtDeliveryNumbers = dsInvoices.Tables[0];
-                        if (dsInvoices.Tables.Count > 1)
-                            ObjEInvoice.dtInvoices = dsInvoices.Tables[1];
-                        
+                            ObjEInvoice.dtBlattNumbers = dsInvoices.Tables[0];
                     }
                 }
                 catch (Exception ex)
@@ -82,27 +79,75 @@ namespace DataAccess
                 {
                     if (dsInvoices.Tables[0].Rows.Count > 0)
                     {
+                        int iValue =  0;
                         string strError = dsInvoices.Tables[0].Rows[0][0].ToString();
-                        if (strError.Contains("Atleast"))
-                        {
+                        if (!int.TryParse(strError, out iValue))
                             throw new Exception(strError);
+                        else
+                        {
+                            ObjEInvoice.InvoiceID = iValue;
+                            ObjEInvoice.dtBlattNumbers = dsInvoices.Tables[1];
+                            if (dsInvoices.Tables.Count > 1)
+                                ObjEInvoice.dtInvoices = dsInvoices.Tables[2];
                         }
                     }
-                    ObjEInvoice.dtDeliveryNumbers = dsInvoices.Tables[0];
-                    if(dsInvoices.Tables.Count > 1)
-                        ObjEInvoice.dtInvoices = dsInvoices.Tables[1];
                 }
             }
             catch (Exception ex)
             {
                 if (ex.Message.Contains("Atleast"))
                     throw new Exception(ex.Message);
+                else if(ex.Message.Contains("UNIQUE"))
+                    throw new Exception("Invoice Number Already Exists Under This Project");
                 else
                     throw new Exception("Error While Saving the Invoice");
             }
             finally
             {
                 SQLCon.Sqlconn().Close();
+            }
+            return ObjEInvoice;
+        }
+
+        public EInvoice GetInvoices(EInvoice ObjEInvoice)
+        {
+            try
+            {
+                DataSet dsInvoices = new DataSet();
+                try
+                {
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = SQLCon.Sqlconn();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "[p_Get_Invoices]";
+                        cmd.Parameters.AddWithValue("@ProjectID", ObjEInvoice.ProjectID);
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(dsInvoices);
+                        }
+                    }
+                    if (dsInvoices != null)
+                    {
+                        if (dsInvoices.Tables.Count > 0)
+                            ObjEInvoice.dtInvoices = dsInvoices.Tables[0];
+                    }
+                }
+                catch (Exception ex)
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("To Be Updated");
+                    else
+                        throw new Exception("Error While Retrieving the Delivery Notes");
+                }
+                finally
+                {
+                    SQLCon.Sqlconn().Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
             return ObjEInvoice;
         }

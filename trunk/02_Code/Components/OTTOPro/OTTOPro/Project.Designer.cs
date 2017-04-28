@@ -712,7 +712,7 @@
             this.groupControl1 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl11 = new DevExpress.XtraLayout.LayoutControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
-            this.txtDeliveryNumber = new DevExpress.XtraEditors.TextEdit();
+            this.txtBlattNumber = new DevExpress.XtraEditors.TextEdit();
             this.chkActiveDelivery = new DevExpress.XtraEditors.CheckEdit();
             this.layoutControlGroup14 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem150 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -744,7 +744,6 @@
             this.rtfdeliverydescription = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblSelectedLVPosition = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItem146 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup8 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -777,6 +776,7 @@
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkInvoiced = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.layoutControlGroup22 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem139 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -1315,7 +1315,7 @@
             this.groupControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl11)).BeginInit();
             this.layoutControl11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDeliveryNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBlattNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActiveDelivery.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem150)).BeginInit();
@@ -10047,7 +10047,7 @@
             // 
             this.layoutControl11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl11.Controls.Add(this.btnSave);
-            this.layoutControl11.Controls.Add(this.txtDeliveryNumber);
+            this.layoutControl11.Controls.Add(this.txtBlattNumber);
             this.layoutControl11.Controls.Add(this.chkActiveDelivery);
             this.layoutControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl11.Location = new System.Drawing.Point(2, 20);
@@ -10068,14 +10068,14 @@
             this.btnSave.Text = "Save Delivery";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // txtDeliveryNumber
+            // txtBlattNumber
             // 
-            this.txtDeliveryNumber.Location = new System.Drawing.Point(65, 12);
-            this.txtDeliveryNumber.MenuManager = this.barManager1;
-            this.txtDeliveryNumber.Name = "txtDeliveryNumber";
-            this.txtDeliveryNumber.Size = new System.Drawing.Size(224, 20);
-            this.txtDeliveryNumber.StyleController = this.layoutControl11;
-            this.txtDeliveryNumber.TabIndex = 10;
+            this.txtBlattNumber.Location = new System.Drawing.Point(48, 12);
+            this.txtBlattNumber.MenuManager = this.barManager1;
+            this.txtBlattNumber.Name = "txtBlattNumber";
+            this.txtBlattNumber.Size = new System.Drawing.Size(241, 20);
+            this.txtBlattNumber.StyleController = this.layoutControl11;
+            this.txtBlattNumber.TabIndex = 10;
             // 
             // chkActiveDelivery
             // 
@@ -10106,12 +10106,12 @@
             // 
             this.layoutControlItem150.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem150.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem150.Control = this.txtDeliveryNumber;
+            this.layoutControlItem150.Control = this.txtBlattNumber;
             this.layoutControlItem150.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem150.Name = "layoutControlItem150";
             this.layoutControlItem150.Size = new System.Drawing.Size(281, 24);
-            this.layoutControlItem150.Text = "Delivery #";
-            this.layoutControlItem150.TextSize = new System.Drawing.Size(50, 13);
+            this.layoutControlItem150.Text = "Blatt #";
+            this.layoutControlItem150.TextSize = new System.Drawing.Size(33, 13);
             // 
             // layoutControlItem143
             // 
@@ -10260,31 +10260,31 @@
             // 
             // gridColumn25
             // 
-            this.gridColumn25.Caption = "Delivery Number";
-            this.gridColumn25.FieldName = "DeliveryNumberName";
+            this.gridColumn25.Caption = "Blatt Number";
+            this.gridColumn25.FieldName = "BlattNumber";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.Visible = true;
             this.gridColumn25.VisibleIndex = 0;
             // 
             // gridColumn24
             // 
-            this.gridColumn24.Caption = "No Of Blatts";
-            this.gridColumn24.FieldName = "NoOfBlatts";
+            this.gridColumn24.Caption = "No Of Positions";
+            this.gridColumn24.FieldName = "NoOfPositions";
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.Visible = true;
             this.gridColumn24.VisibleIndex = 1;
             // 
             // gridColumn31
             // 
-            this.gridColumn31.Caption = "Delivery Price";
-            this.gridColumn31.FieldName = "DeliveryNotePrice";
+            this.gridColumn31.Caption = "Blatt Price";
+            this.gridColumn31.FieldName = "BlattPrice";
             this.gridColumn31.Name = "gridColumn31";
             this.gridColumn31.Visible = true;
             this.gridColumn31.VisibleIndex = 2;
             // 
             // gridColumn32
             // 
-            this.gridColumn32.Caption = "Delivered By";
+            this.gridColumn32.Caption = "Blatt By";
             this.gridColumn32.FieldName = "CreatedBy";
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.Visible = true;
@@ -10292,7 +10292,7 @@
             // 
             // gridColumn33
             // 
-            this.gridColumn33.Caption = "Delivered On";
+            this.gridColumn33.Caption = "Blatt On";
             this.gridColumn33.FieldName = "CreatedDate";
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
@@ -10320,11 +10320,11 @@
             this.gridColumn13,
             this.gridColumn14,
             this.gridColumn15,
-            this.gridColumn16,
-            this.gridColumn17});
+            this.gridColumn16});
             this.gvDelivery.GridControl = this.gcDelivery;
             this.gvDelivery.Name = "gvDelivery";
             this.gvDelivery.OptionsView.ShowGroupPanel = false;
+            this.gvDelivery.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvDelivery_PopupMenuShowing);
             this.gvDelivery.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvDelivery_FocusedRowChanged);
             this.gvDelivery.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDelivery_CellValueChanged);
             this.gvDelivery.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvPositions_MouseDown);
@@ -10378,15 +10378,6 @@
             this.gridColumn16.FieldName = "PositionKZ";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Width = 85;
-            // 
-            // gridColumn17
-            // 
-            this.gridColumn17.Caption = "Blatt Number";
-            this.gridColumn17.ColumnEdit = this.txttext;
-            this.gridColumn17.FieldName = "BlattNumber";
-            this.gridColumn17.Name = "gridColumn17";
-            this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 3;
             // 
             // lblSelectedLVPosition
             // 
@@ -10570,8 +10561,8 @@
             // 
             // gridColumn39
             // 
-            this.gridColumn39.Caption = "No Of Delivery";
-            this.gridColumn39.FieldName = "NoOfDelivery";
+            this.gridColumn39.Caption = "No Of Blatts";
+            this.gridColumn39.FieldName = "NoOfBlatts";
             this.gridColumn39.Name = "gridColumn39";
             this.gridColumn39.Visible = true;
             this.gridColumn39.VisibleIndex = 2;
@@ -10634,16 +10625,18 @@
             this.gridColumn28,
             this.gridColumn29,
             this.gridColumn30,
-            this.gridColumn34});
+            this.gridColumn34,
+            this.gridColumn17});
             this.gvDeliveryNotes.GridControl = this.gcDeliveryNotes;
             this.gvDeliveryNotes.Name = "gvDeliveryNotes";
             this.gvDeliveryNotes.OptionsView.ShowGroupPanel = false;
+            this.gvDeliveryNotes.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gvDeliveryNotes_ShowingEditor);
             // 
             // gridColumn26
             // 
-            this.gridColumn26.Caption = "Delivery Number";
+            this.gridColumn26.Caption = "Blatt Number";
             this.gridColumn26.ColumnEdit = this.txttextbox;
-            this.gridColumn26.FieldName = "DeliveryNumberName";
+            this.gridColumn26.FieldName = "BlattNumber";
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.Visible = true;
             this.gridColumn26.VisibleIndex = 0;
@@ -10656,7 +10649,7 @@
             // 
             // gridColumn27
             // 
-            this.gridColumn27.Caption = "Delivery By";
+            this.gridColumn27.Caption = "Blatt By";
             this.gridColumn27.ColumnEdit = this.txttextbox;
             this.gridColumn27.FieldName = "CreatedBy";
             this.gridColumn27.Name = "gridColumn27";
@@ -10665,7 +10658,7 @@
             // 
             // gridColumn28
             // 
-            this.gridColumn28.Caption = "Delivered On";
+            this.gridColumn28.Caption = "Blatt On";
             this.gridColumn28.ColumnEdit = this.dtpdeliveredOn;
             this.gridColumn28.FieldName = "CreatedDate";
             this.gridColumn28.Name = "gridColumn28";
@@ -10684,30 +10677,39 @@
             // 
             // gridColumn29
             // 
-            this.gridColumn29.Caption = "No Of Blatts";
+            this.gridColumn29.Caption = "No Of Positions";
             this.gridColumn29.ColumnEdit = this.txttextbox;
-            this.gridColumn29.FieldName = "NoOfBlatts";
+            this.gridColumn29.FieldName = "NoOfPositions";
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.Visible = true;
             this.gridColumn29.VisibleIndex = 1;
             // 
             // gridColumn30
             // 
-            this.gridColumn30.Caption = "Delivery Price";
+            this.gridColumn30.Caption = "Blatt Price";
             this.gridColumn30.ColumnEdit = this.txttextbox;
-            this.gridColumn30.FieldName = "DeliveryNotePrice";
+            this.gridColumn30.FieldName = "BlattPrice";
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.Visible = true;
             this.gridColumn30.VisibleIndex = 2;
             // 
             // gridColumn34
             // 
-            this.gridColumn34.Caption = "Select";
-            this.gridColumn34.ColumnEdit = this.chkInvoiced;
+            this.gridColumn34.Caption = "Invoiced";
+            this.gridColumn34.ColumnEdit = this.txttextbox;
             this.gridColumn34.FieldName = "IsInvoiced";
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.Visible = true;
             this.gridColumn34.VisibleIndex = 5;
+            // 
+            // gridColumn17
+            // 
+            this.gridColumn17.Caption = "Select";
+            this.gridColumn17.ColumnEdit = this.chkInvoiced;
+            this.gridColumn17.FieldName = "SELCETED";
+            this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.Visible = true;
+            this.gridColumn17.VisibleIndex = 6;
             // 
             // chkInvoiced
             // 
@@ -11410,7 +11412,7 @@
             this.groupControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl11)).EndInit();
             this.layoutControl11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtDeliveryNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBlattNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkActiveDelivery.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem150)).EndInit();
@@ -12162,7 +12164,6 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit rtfdeliverydescription;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn15;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn16;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem145;
         private DevExpress.XtraGrid.GridControl gcDeliveryNumbers;
         private DevExpress.XtraGrid.Views.Grid.GridView gvDeliveryNumbers;
@@ -12184,7 +12185,7 @@
         private DevExpress.XtraEditors.GroupControl groupControl1;
         private DevExpress.XtraLayout.LayoutControl layoutControl11;
         private DevExpress.XtraEditors.SimpleButton btnSave;
-        private DevExpress.XtraEditors.TextEdit txtDeliveryNumber;
+        private DevExpress.XtraEditors.TextEdit txtBlattNumber;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup14;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem150;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem151;
@@ -12237,6 +12238,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem154;
         private DevExpress.XtraEditors.CheckEdit chkCumulated;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
 
 
     }

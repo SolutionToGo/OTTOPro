@@ -10,6 +10,7 @@ namespace EL
     public class ESupplier
     {
         //To hold the Supplier Details
+        private int _ProjectID = -1;
         private int _SupplierID = -1;
         private string _SupplierEmailID;
         private string _SupplierFullName;
@@ -56,6 +57,10 @@ namespace EL
         private DataTable _dtArticle;
         private DataSet _Articles;
         private DataSet _SupplierProposal;
+
+        private DataTable _dtProposal;
+        private DataTable _dtPositions;
+        private int _SupplierProposalID;
 
         // Article Properties and entities
         public int WGWAID
@@ -258,6 +263,16 @@ namespace EL
             get { return _dtAddress; }
             set { _dtAddress = value; }
         }
+        public DataTable dtProposal
+        {
+            get { return _dtProposal; }
+            set { _dtProposal = value; }
+        }
+        public DataTable dtPositions
+        {
+            get { return _dtPositions; }
+            set { _dtPositions = value; }
+        }
 
 
         //Supplier Proposal
@@ -266,6 +281,17 @@ namespace EL
         {
             get { return _ProposalID; }
             set { _ProposalID = value; }
+        }
+
+        public int ProjectID
+        {
+            get { return _ProjectID; }
+            set { _ProjectID = value; }
+        }
+        public int SupplierProposalID
+        {
+            get { return _SupplierProposalID; }
+            set { _SupplierProposalID = value; }
         }
 
     }

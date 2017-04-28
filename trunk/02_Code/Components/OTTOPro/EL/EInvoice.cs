@@ -12,7 +12,7 @@ namespace EL
         private int _ProjectID = -1;
         private int _InvoiceID = -1;
         private string _InvoiceNumber;
-        private DataTable _dtDeliveryNumbers;
+        private DataTable _dtBlattNumbers;
         private DataTable _dtInvoice;
         private bool _IsFinalInvoice;
         private DataTable _dtInvoices;
@@ -32,10 +32,10 @@ namespace EL
             get { return _InvoiceNumber; }
             set { _InvoiceNumber = value; }
         }
-        public DataTable dtDeliveryNumbers
+        public DataTable dtBlattNumbers
         {
-            get { return _dtDeliveryNumbers; }
-            set { _dtDeliveryNumbers = value; }
+            get { return _dtBlattNumbers; }
+            set { _dtBlattNumbers = value; }
         }
         public DataTable dtInvoice
         {
