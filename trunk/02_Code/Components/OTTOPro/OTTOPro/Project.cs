@@ -5961,11 +5961,11 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                if (gvDeliveryNumbers.FocusedRowHandle != null && gvDeliveryNumbers.GetFocusedRowCellValue("DeliveryNumberID") != null)
+                if (gvDeliveryNumbers.FocusedRowHandle != null && gvDeliveryNumbers.GetFocusedRowCellValue("BlattID") != null)
                 {
                     int IValue = 0;
-                    string strDeliveryNumberID = gvDeliveryNumbers.GetFocusedRowCellValue("DeliveryNumberID").ToString();
-                    if (int.TryParse(strDeliveryNumberID, out IValue))
+                    string strBlattID = gvDeliveryNumbers.GetFocusedRowCellValue("BlattID").ToString();
+                    if (int.TryParse(strBlattID, out IValue))
                     {
                         rptDeliveryNotes Obj = new rptDeliveryNotes();
                         ReportPrintTool printTool = new ReportPrintTool(Obj);

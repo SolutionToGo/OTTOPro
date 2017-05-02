@@ -1,0 +1,237 @@
+﻿using System;
+using System.Drawing;
+using System.Collections;
+using System.ComponentModel;
+using DevExpress.XtraReports.UI;
+
+namespace OTTOPro.Report_Design
+{
+    public partial class rptMusterLangtextohneMengen : DevExpress.XtraReports.UI.XtraReport
+    {
+        public rptMusterLangtextohneMengen()
+        {
+            InitializeComponent();
+        }
+
+        double totalUnits = 0;
+        private void xrLabel18_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalUnits;
+            e.Handled = true;
+        }
+
+        private void xrLabel18_SummaryReset(object sender, EventArgs e)
+        {
+            totalUnits = 0;
+        }
+
+        private void xrLabel18_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+        }
+
+        double totalEP = 0;
+        private void xrLabelEP1_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalEP;
+            e.Handled = true;
+        }
+
+        private void xrLabelEP1_SummaryReset(object sender, EventArgs e)
+        {
+            totalEP = 0;
+        }
+
+        private void xrLabelEP1_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport.GetCurrentColumnValue("EP") != DBNull.Value)
+                totalEP += Convert.ToDouble(DetailReport.GetCurrentColumnValue("EP"));
+        }
+
+        double totalGB2 = 0;
+        private void xrLabelGB2_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalGB2;
+            e.Handled = true;
+        }
+
+        private void xrLabelGB2_SummaryReset(object sender, EventArgs e)
+        {
+            totalGB2 = 0;
+        }
+
+        private void xrLabelGB2_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+        }
+
+        double totalMOPrice = 0;
+        private void xrLabelMO1_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalMOPrice;
+            e.Handled = true;
+        }
+
+        private void xrLabelMO1_SummaryReset(object sender, EventArgs e)
+        {
+            totalMOPrice = 0;
+        }
+
+        private void xrLabelMO1_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport.GetCurrentColumnValue("MO_verkaufspreis") != DBNull.Value)
+                totalMOPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MO_verkaufspreis"));
+        }
+
+        double totalMAPrice = 0;
+        private void xrLabelMA1_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalMAPrice;
+            e.Handled = true;
+        }
+
+        private void xrLabelMA1_SummaryReset(object sender, EventArgs e)
+        {
+            totalMAPrice = 0;
+        }
+
+        private void xrLabelMA1_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
+                totalMAPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
+        }
+
+        double totalMOPrice1 = 0;
+        private void xrLabel27_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalMOPrice1;
+            e.Handled = true;
+        }
+
+        private void xrLabel27_SummaryReset(object sender, EventArgs e)
+        {
+            totalMOPrice1 = 0;
+        }
+
+        private void xrLabel27_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
+                totalMOPrice1 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
+        }
+
+
+        double totalFinalGB3 = 0;
+        private void xrLabelGB3_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalFinalGB3;
+            e.Handled = true;
+        }
+
+        private void xrLabelGB3_SummaryReset(object sender, EventArgs e)
+        {
+            totalFinalGB3 = 0;
+        }
+
+        private void xrLabelGB3_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport1.GetCurrentColumnValue("GB") != DBNull.Value)
+                totalFinalGB3 += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("GB"));
+            xrLblGB.Text = Convert.ToString(totalFinalGB3);
+        }
+
+        double totalEP2 = 0;
+        private void xrLabelEP2_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalEP2;
+            e.Handled = true;
+        }
+
+        private void xrLabelEP2_SummaryReset(object sender, EventArgs e)
+        {
+            totalEP2 = 0;
+        }
+
+        private void xrLabelEP2_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport1.GetCurrentColumnValue("EP") != DBNull.Value)
+                totalEP2 += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("EP"));
+        }
+
+        double totalMO2Price = 0;
+        private void xrLabelMO2_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalMO2Price;
+            e.Handled = true;
+        }
+
+        private void xrLabelMO2_SummaryReset(object sender, EventArgs e)
+        {
+            totalMO2Price = 0;
+        }
+
+        private void xrLabelMO2_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport1.GetCurrentColumnValue("MoPrice") != DBNull.Value)
+                totalMO2Price += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MoPrice"));
+            xrLblMO.Text = Convert.ToString(totalMO2Price);
+        }
+
+        double totalMA2Price = 0;
+        private void xrLabelMA2_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalMA2Price;
+            e.Handled = true;
+        }
+
+        private void xrLabelMA2_SummaryReset(object sender, EventArgs e)
+        {
+            totalMA2Price = 0;
+        }
+
+        private void xrLabelMA2_SummaryRowChanged(object sender, EventArgs e)
+        {
+            if (DetailReport1.GetCurrentColumnValue("MAPrice") != DBNull.Value)
+                totalMA2Price += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MAPrice"));
+            xrLblMA.Text = Convert.ToString(totalMA2Price);
+        }
+
+        Double totalvat = 0;
+        Double GBValue = 0;
+        Double GB1 = 0;
+        Double GBWithVat = 0;
+        private void xrTableCell22_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Double dValue = 0;
+            Double GValue = 0;
+            Double Value1 = 0;
+            Double Value2 = 0;
+            try
+            {
+                if (double.TryParse(GetCurrentColumnValue("Vat").ToString(), out dValue))
+                    totalvat = dValue;
+                if (double.TryParse(xrLblGB.Text, out GValue))
+                    GBValue = GValue;
+                double _result = Convert.ToDouble((GBValue * totalvat) / 100);
+                xrLblTotalVat.Text = Convert.ToString(_result);
+
+                if (double.TryParse(xrLblGB.Text, out Value1))
+                    GB1 = Value1;
+                if (double.TryParse(xrLblTotalVat.Text, out Value2))
+                    GBWithVat = Value2;
+                double _resultVat = Convert.ToDouble(GB1 + GBWithVat);
+                xrLabelFinalResult.Text = Convert.ToString(_resultVat);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+
+    
+//**********************
+
+    }
+}

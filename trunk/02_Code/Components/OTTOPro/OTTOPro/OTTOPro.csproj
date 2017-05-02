@@ -372,6 +372,36 @@
     <Compile Include="Report Design\rptDeliveryNotes.Designer.cs">
       <DependentUpon>rptDeliveryNotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptMusterLangtext.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptMusterLangtext.Designer.cs">
+      <DependentUpon>rptMusterLangtext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptMusterLangtextMontMatgetrennt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptMusterLangtextMontMatgetrennt.Designer.cs">
+      <DependentUpon>rptMusterLangtextMontMatgetrennt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptMusterLangtextohneMengen.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptMusterLangtextohneMengen.Designer.cs">
+      <DependentUpon>rptMusterLangtextohneMengen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptMusterohneEPs.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptMusterohneEPs.Designer.cs">
+      <DependentUpon>rptMusterohneEPs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptMusterohneEPsohneMengen.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptMusterohneEPsohneMengen.Designer.cs">
+      <DependentUpon>rptMusterohneEPsohneMengen.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptProposalCoverPage1.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -495,6 +525,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptDeliveryNotes.resx">
       <DependentUpon>rptDeliveryNotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptMusterLangtext.resx">
+      <DependentUpon>rptMusterLangtext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptMusterLangtextMontMatgetrennt.resx">
+      <DependentUpon>rptMusterLangtextMontMatgetrennt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptMusterLangtextohneMengen.resx">
+      <DependentUpon>rptMusterLangtextohneMengen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptMusterohneEPs.resx">
+      <DependentUpon>rptMusterohneEPs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptMusterohneEPsohneMengen.resx">
+      <DependentUpon>rptMusterohneEPsohneMengen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalCoverPage1.resx">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>

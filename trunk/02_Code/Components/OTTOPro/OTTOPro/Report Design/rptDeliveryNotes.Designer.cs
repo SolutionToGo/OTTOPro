@@ -568,7 +568,7 @@
             // 
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1});
-            this.DetailReport.DataMember = "P_Rpt_DeliveryNotes(@DeliveryNumberID)";
+            this.DetailReport.DataMember = "P_Rpt_Blattdetails(@BlattID)";
             this.DetailReport.DataSource = this.sqlDataSource1;
             this.DetailReport.Dpi = 100F;
             this.DetailReport.Level = 0;
@@ -609,9 +609,9 @@
             // 
             // xrTableCell4
             // 
-            this.xrTableCell4.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTableCell4.Borders = DevExpress.XtraPrinting.BorderSide.Right;
             this.xrTableCell4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_DeliveryNotes(@DeliveryNumberID).SNO")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Blattdetails(@BlattID).Position_OZ")});
             this.xrTableCell4.Dpi = 100F;
             this.xrTableCell4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell4.Name = "xrTableCell4";
@@ -627,7 +627,7 @@
             // 
             this.xrTableCell5.Borders = DevExpress.XtraPrinting.BorderSide.Right;
             this.xrTableCell5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_DeliveryNotes(@DeliveryNumberID).Quantity")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Blattdetails(@BlattID).Quantity")});
             this.xrTableCell5.Dpi = 100F;
             this.xrTableCell5.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell5.Name = "xrTableCell5";
@@ -655,14 +655,16 @@
             // 
             // xrRichText1
             // 
+            this.xrRichText1.Borders = DevExpress.XtraPrinting.BorderSide.Right;
             this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_DeliveryNotes(@DeliveryNumberID).ShortDescription")});
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_Blattdetails(@BlattID).ShortDescription")});
             this.xrRichText1.Dpi = 100F;
             this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 0F);
             this.xrRichText1.Name = "xrRichText1";
             this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
             this.xrRichText1.SizeF = new System.Drawing.SizeF(326.4373F, 27.08333F);
+            this.xrRichText1.StylePriority.UseBorders = false;
             this.xrRichText1.StylePriority.UseFont = false;
             // 
             // xrTableCell10
@@ -697,13 +699,12 @@
             // 
             this.sqlDataSource1.ConnectionName = "OTTOPro";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            storedProcQuery1.MetaSerializable = "20|20|100|207";
-            storedProcQuery1.Name = "P_Rpt_DeliveryNotes(@DeliveryNumberID)";
-            queryParameter1.Name = "@DeliveryNumberID";
+            storedProcQuery1.Name = "P_Rpt_Blattdetails(@BlattID)";
+            queryParameter1.Name = "@BlattID";
             queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
             queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.ID]", typeof(string));
             storedProcQuery1.Parameters.Add(queryParameter1);
-            storedProcQuery1.StoredProcName = "P_Rpt_DeliveryNotes";
+            storedProcQuery1.StoredProcName = "P_Rpt_Blattdetails";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1});
             this.sqlDataSource1.ResultSchemaSerializable = resources.GetString("sqlDataSource1.ResultSchemaSerializable");
@@ -739,8 +740,8 @@
             this.PageFooter,
             this.DetailReport});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
-            this.sqlDataSource1,
-            this.sqlDataSource2});
+            this.sqlDataSource2,
+            this.sqlDataSource1});
             this.DataMember = "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID)";
             this.DataSource = this.sqlDataSource2;
             this.Margins = new System.Drawing.Printing.Margins(100, 100, 476, 100);
@@ -792,7 +793,6 @@
         private DevExpress.XtraReports.UI.XRRichText xrRichText1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel23;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo2;
         private DevExpress.XtraReports.UI.XRLabel xrLabel21;
@@ -812,5 +812,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
         private DevExpress.XtraReports.UI.XRLine xrLine4;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
     }
 }

@@ -74,7 +74,12 @@
             this.cmbReportType.FormattingEnabled = true;
             this.cmbReportType.Items.AddRange(new object[] {
             "mit Montage und Montagezeiten",
-            "Einzelpreise und Gesamtpreise"});
+            "Einzelpreise und Gesamtpreise",
+            "Muster Langtext Mont Mat getrennt",
+            "Muster Langtext ohne Mengen",
+            "Muster Langtext",
+            "Muster ohne EPs ohne Mengen",
+            "Muster ohne EPs"});
             this.cmbReportType.Location = new System.Drawing.Point(141, 24);
             this.cmbReportType.Name = "cmbReportType";
             this.cmbReportType.Size = new System.Drawing.Size(264, 21);

@@ -92,7 +92,6 @@ namespace OTTOPro
                         ReportPrintTool printTool1 = new ReportPrintTool(rptwithPrice);
                         rptwithPrice.Parameters["ProjectID"].Value = _Projectid;
                         printTool1.ShowRibbonPreview();
-                        //rptwithPrice.ExportToPdf("D:\\report.pdf");
                         break;
 
                     case "Einzelpreise und Gesamtpreise":
@@ -103,18 +102,46 @@ namespace OTTOPro
                         printTool2.ShowRibbonPreview();
                         break;
 
-                    case "Proposal Cover Page 2":
-
+                    case "Muster Langtext Mont Mat getrennt":
+                         this.Hide();
+                         Report_Design.rptMusterLangtextMontMatgetrennt rptMatgetrennt = new Report_Design.rptMusterLangtextMontMatgetrennt();
+                         ReportPrintTool printTool3 = new ReportPrintTool(rptMatgetrennt);
+                         rptMatgetrennt.Parameters["ProjectID"].Value = _Projectid;
+                         printTool3.ShowRibbonPreview();
                         break;
 
-                    case "Proposal Main Page 1":
-
+                    case "Muster Langtext ohne Mengen":
+                         this.Hide();
+                         Report_Design.rptMusterLangtextohneMengen rptohneMengen = new Report_Design.rptMusterLangtextohneMengen();
+                         ReportPrintTool printTool4 = new ReportPrintTool(rptohneMengen);
+                         rptohneMengen.Parameters["ProjectID"].Value = _Projectid;
+                         printTool4.ShowRibbonPreview();
                         break;
 
-                    case "Proposal Main Page 2":
-
+                    case "Muster Langtext":
+                         this.Hide();
+                         Report_Design.rptMusterLangtext rptMusterLangtext = new Report_Design.rptMusterLangtext();
+                         ReportPrintTool printTool5 = new ReportPrintTool(rptMusterLangtext);
+                         rptMusterLangtext.Parameters["ProjectID"].Value = _Projectid;
+                         printTool5.ShowRibbonPreview();
                         break;
 
+                    case "Muster ohne EPs ohne Mengen":
+                         this.Hide();
+                         Report_Design.rptMusterohneEPsohneMengen rptEPsohneMengen = new Report_Design.rptMusterohneEPsohneMengen();
+                         ReportPrintTool printTool6 = new ReportPrintTool(rptEPsohneMengen);
+                         rptEPsohneMengen.Parameters["ProjectID"].Value = _Projectid;
+                         printTool6.ShowRibbonPreview();
+                        break;
+
+                    case "Muster ohne EPs":
+                         this.Hide();
+                         Report_Design.rptMusterohneEPs rptMusterohneEPs = new Report_Design.rptMusterohneEPs();
+                         ReportPrintTool printTool7 = new ReportPrintTool(rptMusterohneEPs);
+                         rptMusterohneEPs.Parameters["ProjectID"].Value = _Projectid;
+                         printTool7.ShowRibbonPreview();
+                        break;
+                        
                 }
             }
             catch (Exception ex)

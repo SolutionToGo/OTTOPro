@@ -37,6 +37,7 @@
             this.tcSupplier = new DevExpress.XtraTab.XtraTabControl();
             this.tbSupplier = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtSupplierEmail = new DevExpress.XtraEditors.TextEdit();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.txtCommentary = new System.Windows.Forms.RichTextBox();
@@ -49,6 +50,7 @@
             this.layoutControlGroup5 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -111,8 +113,6 @@
             this.dxValidationProviderSupplierSname = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxValidationProviderContactName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.dxValidationProviderAddrSName = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.txtSupplierEmail = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tcSupplier)).BeginInit();
@@ -120,6 +120,7 @@
             this.tbSupplier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierEmail.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShortName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullName.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
@@ -128,6 +129,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).BeginInit();
@@ -188,8 +190,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderSupplierSname)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderContactName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderAddrSName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierEmail.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -246,6 +246,14 @@
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
+            // txtSupplierEmail
+            // 
+            this.txtSupplierEmail.Location = new System.Drawing.Point(125, 72);
+            this.txtSupplierEmail.Name = "txtSupplierEmail";
+            this.txtSupplierEmail.Size = new System.Drawing.Size(309, 20);
+            this.txtSupplierEmail.StyleController = this.layoutControl2;
+            this.txtSupplierEmail.TabIndex = 10;
+            // 
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
@@ -300,7 +308,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Bitte eingeben Kurz Name";
             this.dxValidationProviderSupplierSname.SetValidationRule(this.txtShortName, conditionValidationRule1);
-            this.txtShortName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtShortName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtShortName_KeyPress);
             // 
             // txtFullName
             // 
@@ -387,6 +395,15 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(414, 24);
             this.layoutControlItem3.Text = "Kurz Name : ";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(98, 13);
+            // 
+            // layoutControlItem25
+            // 
+            this.layoutControlItem25.Control = this.txtSupplierEmail;
+            this.layoutControlItem25.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem25.Name = "layoutControlItem25";
+            this.layoutControlItem25.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem25.Text = "Email :";
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(98, 13);
             // 
             // layoutControlGroup6
             // 
@@ -988,23 +1005,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // txtSupplierEmail
-            // 
-            this.txtSupplierEmail.Location = new System.Drawing.Point(125, 72);
-            this.txtSupplierEmail.Name = "txtSupplierEmail";
-            this.txtSupplierEmail.Size = new System.Drawing.Size(309, 20);
-            this.txtSupplierEmail.StyleController = this.layoutControl2;
-            this.txtSupplierEmail.TabIndex = 10;
-            // 
-            // layoutControlItem25
-            // 
-            this.layoutControlItem25.Control = this.txtSupplierEmail;
-            this.layoutControlItem25.Location = new System.Drawing.Point(0, 48);
-            this.layoutControlItem25.Name = "layoutControlItem25";
-            this.layoutControlItem25.Size = new System.Drawing.Size(414, 24);
-            this.layoutControlItem25.Text = "Email :";
-            this.layoutControlItem25.TextSize = new System.Drawing.Size(98, 13);
-            // 
             // frmSupplierMaster
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1029,6 +1029,7 @@
             this.tbSupplier.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierEmail.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtShortName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtFullName.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
@@ -1037,6 +1038,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup7)).EndInit();
@@ -1097,8 +1099,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderSupplierSname)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderContactName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderAddrSName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSupplierEmail.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
             this.ResumeLayout(false);
 
         }

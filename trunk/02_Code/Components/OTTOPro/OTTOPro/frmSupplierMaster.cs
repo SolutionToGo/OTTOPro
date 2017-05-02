@@ -381,6 +381,12 @@ namespace OTTOPro
 
         #endregion
 
+        private void txtShortName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+
 //***************
     }
 }
