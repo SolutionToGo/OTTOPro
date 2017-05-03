@@ -211,6 +211,20 @@ namespace OTTOPro
             }
         }
 
+        private void txtShortName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtShortName.Text.Length >= 0 && e.KeyChar == ' ')
+            {
+                e.Handled = true;
+            }
+            else
+            {
+                e.Handled = false;
+            }
+            e.KeyChar = Char.ToUpper(e.KeyChar);
+        }
+
+
         #endregion
 
 
@@ -381,18 +395,6 @@ namespace OTTOPro
 
         #endregion
 
-        private void txtShortName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (txtShortName.Text.Length == 0 && e.KeyChar == ' ')
-            {
-                e.Handled = true;
-            }
-            else
-            {
-                e.Handled = false;
-            }
-            e.KeyChar = Char.ToUpper(e.KeyChar);
-        }
 
 
 //***************
