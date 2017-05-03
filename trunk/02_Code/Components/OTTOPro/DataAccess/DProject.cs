@@ -31,7 +31,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@Location", ObjEProject.Location);
                     cmd.Parameters.AddWithValue("@ProjectNumber", ObjEProject.ProjectNumber);
                     cmd.Parameters.AddWithValue("@ComissionNumber", ObjEProject.CommissionNumber);
-                    cmd.Parameters.AddWithValue("@CustomerID", ObjEProject.KundeID);
+                    cmd.Parameters.AddWithValue("@CustomerID", ObjEProject.KundeNr);
                     cmd.Parameters.AddWithValue("@ProjectDescription", ObjEProject.ProjectDescription);
                     cmd.Parameters.AddWithValue("@PlannerID", ObjEProject.PlannedID);
                     cmd.Parameters.AddWithValue("@LV_Raster", ObjEProject.LVRaster);
@@ -50,7 +50,6 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@Lock_LVHierarchy", ObjEProject.LockHierarchy);
                     cmd.Parameters.AddWithValue("@UserID", ObjEProject.UserID);
                     cmd.Parameters.AddWithValue("@CustomerName", ObjEProject.KundeName);
-                    cmd.Parameters.AddWithValue("@CustomerNumber", ObjEProject.KundeNr);
                     cmd.Parameters.AddWithValue("@PlannerName", ObjEProject.PlannerName);
                     cmd.Parameters.AddWithValue("@ProjectStartDate", ObjEProject.ProjectStartDate);
                     cmd.Parameters.AddWithValue("@ProjectEndDate", ObjEProject.ProjectEndDate);
