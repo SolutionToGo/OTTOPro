@@ -446,5 +446,28 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        public ESupplier UpdateSupplierPrice(ESupplier ObjESupplier)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[p_Upd_SupplierPrice]";
+                    cmd.Parameters.AddWithValue("@dtPositons", ObjESupplier.dtUpdateSupplierPrice);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
     }
 }

@@ -5894,7 +5894,7 @@ e.Column.FieldName == "GB")
                     gcPositions.DataSource = ObjEDeliveryNotes.dtPositions;
                     Utility.Setfocus(gvDeliveryNumbers, "BlattID", ObjEDeliveryNotes.BlattID);
                     ObjEDeliveryNotes.BlattID = -1;
-                    SNO = 0;
+                    SNO = 1;
                     NewBlattnumber();
                 }
                 

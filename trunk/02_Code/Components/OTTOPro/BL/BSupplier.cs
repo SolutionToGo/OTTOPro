@@ -180,6 +180,42 @@ namespace BL
             try
             {
                 ObjESupplier = ObjDSupplier.GetProposalPostions(ObjESupplier);
+                DataTable dtTemp = ObjESupplier.dtPositions.Copy();
+                int i = -1;
+                foreach (DataColumn c in dtTemp.Columns)
+                {
+                    if(c.ColumnName != "SupplierProposalID" && c.ColumnName != "PositionID"
+                        && c.ColumnName != "Position_OZ" && c.ColumnName != "Cheapest"
+                        && c.ColumnName != "MA_listprice" && c.ColumnName != "ShortDescription"
+                        && c.ColumnName != "Menge" && c.ColumnName != "A"
+                        && c.ColumnName != "B" && c.ColumnName != "L"
+                        && c.ColumnName != "ME" && c.ColumnName != "MA_Multi1"
+                        && c.ColumnName != "MA_multi2" && c.ColumnName != "MA_multi3"
+                        && c.ColumnName != "MA_multi4" && c.ColumnName != "LiefrantMA"
+                        && c.ColumnName != "Fabricate" && c.ColumnName != "PID")
+                    {
+                        int iIndex = 0;
+                        i++;
+                        iIndex = c.Ordinal + i;
+                        DataColumn dc = ObjESupplier.dtPositions.Columns.Add(c.ColumnName + "Check", typeof(bool));
+                        dc.SetOrdinal(iIndex + 1);
+                        dc.DefaultValue = false;
+                        dc.Caption = "";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier UpdateSupplierPrice(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier = ObjDSupplier.UpdateSupplierPrice(ObjESupplier);
             }
             catch (Exception ex)
             {

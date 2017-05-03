@@ -61,6 +61,7 @@ namespace EL
         private DataTable _dtProposal;
         private DataTable _dtPositions;
         private int _SupplierProposalID;
+        private DataTable _dtUpdateSupplierPrice;
 
         // Article Properties and entities
         public int WGWAID
@@ -293,6 +294,10 @@ namespace EL
             get { return _SupplierProposalID; }
             set { _SupplierProposalID = value; }
         }
-
+        public DataTable dtUpdateSupplierPrice
+        {
+            get { return _dtUpdateSupplierPrice; }
+            set { _dtUpdateSupplierPrice = value; }
+        }
     }
 }

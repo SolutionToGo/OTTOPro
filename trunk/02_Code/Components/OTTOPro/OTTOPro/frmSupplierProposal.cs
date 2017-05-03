@@ -29,11 +29,11 @@ namespace OTTOPro
         string _WA = null;
         string _ProjectName;
         string _pdfpath = null;
-        BGAEB ObjBGAEB = new BGAEB();
         ESupplier ObjESupplier = new ESupplier();
         BSupplier ObjBSupplier = new BSupplier();
         DataTable _dtPosotion = new DataTable();
         DataTable _dtSupplier=null;
+        bool _Process = false;
 
         public frmSupplierProposal()
         {
@@ -50,8 +50,15 @@ namespace OTTOPro
 
         private void frmSupplierProposal_Load(object sender, EventArgs e)
         {
-            FillLVSection();
-            cmbLVSection.SelectedIndex = -1;
+            try
+            {
+                FillLVSection();
+                cmbLVSection.SelectedIndex = -1;
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
 
         private void FillLVSection()
@@ -140,7 +147,7 @@ namespace OTTOPro
                 chkSupplierLists.SetItemChecked(checkedItemIndex, false);
             }
         }
-        bool _Process = false;
+
         private void btnGeneratePDF_Click(object sender, EventArgs e)
         {
             try
@@ -175,7 +182,6 @@ namespace OTTOPro
                     rpt.Parameters["ProjectID"].Value = _ProjectID;
 
                     saveFileDialog1.Filter = "PDF Files|*.pdf";
-                    saveFileDialog1.ShowDialog();
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         rpt.ExportToPdf(saveFileDialog1.FileName);
@@ -245,7 +251,7 @@ namespace OTTOPro
                 mailItem.To = strArr.ToString();
                 mailItem.Body = "This is the message.";
 
-                mailItem.Attachments.Add(_pdfpath);//logPath is a string holding path to the log.txt file
+                mailItem.Attachments.Add(_pdfpath);
                 mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
                 mailItem.Display(false);
             }
@@ -254,8 +260,5 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
-        
-//************
     }
 }
