@@ -19,6 +19,10 @@ namespace OTTOPro
     {
         EProposal ObjEProposal = new EProposal();
         BProposal ObjBProposal = new BProposal();
+        DataTable _dtContents = new DataTable();
+        int _TextAreaID;
+                int _CategoryID;
+
         bool _isValidate = true;
         int _IDValue = -1;
 
@@ -55,7 +59,8 @@ namespace OTTOPro
         private void frmTextModule_Load(object sender, EventArgs e)
         {
             BindTextModuleAreas();
-            BindTextModuleGrid();
+            cmbTextArea_SelectionChangeCommitted(null,null);
+           // BindTextModuleGrid();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -70,9 +75,10 @@ namespace OTTOPro
                     ObjEProposal = new EProposal();
                 ParseTextModuleDetails();
                 ObjBProposal = new BProposal();
-                ObjEProposal.TextID = ObjBProposal.SaveTextModule(ObjEProposal);
-                BindTextModuleGrid();
-                Setfocus(gvContentDetails, "TextID", ObjEProposal.TextID);
+                ObjBProposal.SaveTextModule(ObjEProposal);
+                cmbCategory_SelectionChangeCommitted(null,null);
+               // BindTextModuleGrid();
+               // Setfocus(gvContentDetails, "TextID", ObjEProposal.TextID);
 
             }
             catch (Exception ex)
@@ -101,7 +107,7 @@ namespace OTTOPro
                         return;
                     }
                     ObjEProposal = new EProposal();
-                    BindTextModuleAreas();
+                  //  BindTextModuleAreas();
                     GetTextModuleDetails();
                 }
             }
@@ -111,27 +117,57 @@ namespace OTTOPro
             }
         }
 
-        int _TextAreaID;
-        private void cmbTextArea_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbTextArea_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    if (cmbTextArea.Text != string.Empty)
-            //    {
-            //        if (int.TryParse(cmbTextArea.SelectedValue.ToString(), out _TextAreaID))
+            try
+            {
+                if (cmbTextArea.Text != string.Empty)
+                {
+                    if (int.TryParse(cmbTextArea.SelectedValue.ToString(), out _TextAreaID))
 
-            //            if (_TextAreaID > 0)
-            //            {
-            //                BindCategories();
-            //                richEditControlContent.Text = "";
-            //            }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
+                        if (_TextAreaID > 0)
+                        {
+                            BindCategories();
+                            richEditControlContent.Text = "";
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
+
+        private void cmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cmbCategory.Text != string.Empty)
+                {
+                    if (int.TryParse(cmbCategory.SelectedValue.ToString(), out _CategoryID))
+
+                        if (_CategoryID > 0)
+                        {
+                            gcContentDetails.DataSource = null;
+                            richEditControlContent.Text = "";
+                            ObjBProposal.GetTextModuleAreas(ObjEProposal);
+                            if (ObjEProposal.dsTextModuleAreas != null)
+                            {
+                                DataView dvProposalContents = ObjEProposal.dsTextModuleAreas.Tables[1].DefaultView;
+                                dvProposalContents.RowFilter = "TextAreaID = " + _TextAreaID + " AND CategoryID = '" + _CategoryID + "'";
+                                _dtContents = dvProposalContents.ToTable();
+                                gcContentDetails.DataSource = _dtContents;
+                                //this.gvContentDetails.Columns[4].Visible = false;
+                            }
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
 
 
         #endregion
@@ -185,6 +221,7 @@ namespace OTTOPro
                     cmbCategory.DataSource = ObjEProposal.dsCategory.Tables[0];
                     cmbCategory.DisplayMember = "CategoryName";
                     cmbCategory.ValueMember = "CategoryID";
+                    cmbCategory.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
@@ -217,6 +254,8 @@ namespace OTTOPro
                 ObjEProposal.TextModuleArea = cmbTextArea.Text;
                 ObjEProposal.Category = cmbCategory.Text;
                 ObjEProposal.Contents = richEditControlContent.Text;
+                ObjEProposal.TextAreaID = _TextAreaID;
+                ObjEProposal.TextCategoryID = _CategoryID;
             }
             catch (Exception ex)
             {
@@ -248,27 +287,6 @@ namespace OTTOPro
         }
 
         #endregion
-
-        private void cmbTextArea_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cmbTextArea.Text != string.Empty)
-                {
-                    if (int.TryParse(cmbTextArea.SelectedValue.ToString(), out _TextAreaID))
-
-                        if (_TextAreaID > 0)
-                        {
-                            BindCategories();
-                            richEditControlContent.Text = "";
-                        }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
 
 

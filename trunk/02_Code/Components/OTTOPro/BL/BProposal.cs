@@ -25,7 +25,8 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Category", ObjEProposal.Category);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Contents", ObjEProposal.Contents.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "IsSelect", ObjEProposal.IsSelect.ToString());
-
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TextAreaID", ObjEProposal.TextAreaID.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CategoryID", ObjEProposal.TextCategoryID.ToString());
 
                 TextID = ObjDProposal.SaveTextModuleDetails(Xdoc);
                 if (TextID < 0)

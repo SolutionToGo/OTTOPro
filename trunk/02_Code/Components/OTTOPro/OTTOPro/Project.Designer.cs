@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -2780,6 +2780,8 @@
             // 
             // navBarItem5
             // 
+            this.navBarItem5.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItem5.Appearance.Options.UseFont = true;
             this.navBarItem5.Caption = "     Submit Proposal";
             this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
             this.navBarItem5.Name = "navBarItem5";
@@ -7480,17 +7482,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -9961,9 +9963,9 @@
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.layoutControl12);
-            this.groupControl2.Location = new System.Drawing.Point(321, 32);
+            this.groupControl2.Location = new System.Drawing.Point(302, 32);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(301, 92);
+            this.groupControl2.Size = new System.Drawing.Size(320, 92);
             this.groupControl2.TabIndex = 17;
             this.groupControl2.Text = "Quantity Details";
             // 
@@ -9976,25 +9978,25 @@
             this.layoutControl12.Location = new System.Drawing.Point(2, 20);
             this.layoutControl12.Name = "layoutControl12";
             this.layoutControl12.Root = this.layoutControlGroup21;
-            this.layoutControl12.Size = new System.Drawing.Size(297, 70);
+            this.layoutControl12.Size = new System.Drawing.Size(316, 70);
             this.layoutControl12.TabIndex = 0;
             this.layoutControl12.Text = "layoutControl12";
             // 
             // txtDeliveredQnty
             // 
-            this.txtDeliveredQnty.Location = new System.Drawing.Point(87, 36);
+            this.txtDeliveredQnty.Location = new System.Drawing.Point(96, 36);
             this.txtDeliveredQnty.MenuManager = this.barManager1;
             this.txtDeliveredQnty.Name = "txtDeliveredQnty";
-            this.txtDeliveredQnty.Size = new System.Drawing.Size(198, 20);
+            this.txtDeliveredQnty.Size = new System.Drawing.Size(208, 20);
             this.txtDeliveredQnty.StyleController = this.layoutControl12;
             this.txtDeliveredQnty.TabIndex = 6;
             // 
             // txtOrderedQnty
             // 
-            this.txtOrderedQnty.Location = new System.Drawing.Point(87, 12);
+            this.txtOrderedQnty.Location = new System.Drawing.Point(96, 12);
             this.txtOrderedQnty.MenuManager = this.barManager1;
             this.txtOrderedQnty.Name = "txtOrderedQnty";
-            this.txtOrderedQnty.Size = new System.Drawing.Size(198, 20);
+            this.txtOrderedQnty.Size = new System.Drawing.Size(208, 20);
             this.txtOrderedQnty.StyleController = this.layoutControl12;
             this.txtOrderedQnty.TabIndex = 4;
             // 
@@ -10007,30 +10009,34 @@
             this.layoutControlItem153});
             this.layoutControlGroup21.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup21.Name = "layoutControlGroup21";
-            this.layoutControlGroup21.Size = new System.Drawing.Size(297, 70);
+            this.layoutControlGroup21.Size = new System.Drawing.Size(316, 70);
             this.layoutControlGroup21.TextVisible = false;
             // 
             // layoutControlItem144
             // 
+            this.layoutControlItem144.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem144.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem144.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem144.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem144.Control = this.txtOrderedQnty;
             this.layoutControlItem144.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem144.Name = "layoutControlItem144";
-            this.layoutControlItem144.Size = new System.Drawing.Size(277, 24);
+            this.layoutControlItem144.Size = new System.Drawing.Size(296, 24);
             this.layoutControlItem144.Text = "Ordered Qnty";
-            this.layoutControlItem144.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem144.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem153
             // 
+            this.layoutControlItem153.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem153.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem153.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem153.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem153.Control = this.txtDeliveredQnty;
             this.layoutControlItem153.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem153.Name = "layoutControlItem153";
-            this.layoutControlItem153.Size = new System.Drawing.Size(277, 26);
+            this.layoutControlItem153.Size = new System.Drawing.Size(296, 26);
             this.layoutControlItem153.Text = "Delivered Qnty";
-            this.layoutControlItem153.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem153.TextSize = new System.Drawing.Size(81, 14);
             // 
             // groupControl1
             // 
@@ -10039,7 +10045,7 @@
             this.groupControl1.Controls.Add(this.layoutControl11);
             this.groupControl1.Location = new System.Drawing.Point(12, 32);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(305, 92);
+            this.groupControl1.Size = new System.Drawing.Size(286, 92);
             this.groupControl1.TabIndex = 16;
             this.groupControl1.Text = "Delivery Details";
             // 
@@ -10049,7 +10055,6 @@
             this.layoutControl11.Controls.Add(this.btnSave);
             this.layoutControl11.Controls.Add(this.txtBlattNumber);
             this.layoutControl11.Controls.Add(this.chkActiveDelivery);
-            this.layoutControl11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl11.Location = new System.Drawing.Point(2, 20);
             this.layoutControl11.Name = "layoutControl11";
             this.layoutControl11.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(756, 239, 450, 400);
@@ -10060,9 +10065,10 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(110, 36);
+            this.btnSave.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSave.Location = new System.Drawing.Point(184, 36);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(179, 22);
+            this.btnSave.Size = new System.Drawing.Size(105, 22);
             this.btnSave.StyleController = this.layoutControl11;
             this.btnSave.TabIndex = 11;
             this.btnSave.Text = "Save Delivery";
@@ -10070,10 +10076,10 @@
             // 
             // txtBlattNumber
             // 
-            this.txtBlattNumber.Location = new System.Drawing.Point(48, 12);
+            this.txtBlattNumber.Location = new System.Drawing.Point(53, 12);
             this.txtBlattNumber.MenuManager = this.barManager1;
             this.txtBlattNumber.Name = "txtBlattNumber";
-            this.txtBlattNumber.Size = new System.Drawing.Size(241, 20);
+            this.txtBlattNumber.Size = new System.Drawing.Size(236, 20);
             this.txtBlattNumber.StyleController = this.layoutControl11;
             this.txtBlattNumber.TabIndex = 10;
             // 
@@ -10082,10 +10088,12 @@
             this.chkActiveDelivery.Location = new System.Drawing.Point(12, 36);
             this.chkActiveDelivery.MenuManager = this.barManager1;
             this.chkActiveDelivery.Name = "chkActiveDelivery";
+            this.chkActiveDelivery.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkActiveDelivery.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.chkActiveDelivery.Properties.Appearance.Options.UseFont = true;
             this.chkActiveDelivery.Properties.Appearance.Options.UseForeColor = true;
             this.chkActiveDelivery.Properties.Caption = "Active Delivery";
-            this.chkActiveDelivery.Size = new System.Drawing.Size(94, 19);
+            this.chkActiveDelivery.Size = new System.Drawing.Size(168, 19);
             this.chkActiveDelivery.StyleController = this.layoutControl11;
             this.chkActiveDelivery.TabIndex = 9;
             // 
@@ -10104,30 +10112,35 @@
             // 
             // layoutControlItem150
             // 
+            this.layoutControlItem150.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem150.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem150.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem150.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem150.Control = this.txtBlattNumber;
             this.layoutControlItem150.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem150.Name = "layoutControlItem150";
             this.layoutControlItem150.Size = new System.Drawing.Size(281, 24);
             this.layoutControlItem150.Text = "Blatt #";
-            this.layoutControlItem150.TextSize = new System.Drawing.Size(33, 13);
+            this.layoutControlItem150.TextSize = new System.Drawing.Size(38, 14);
             // 
             // layoutControlItem143
             // 
             this.layoutControlItem143.Control = this.chkActiveDelivery;
             this.layoutControlItem143.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem143.Name = "layoutControlItem143";
-            this.layoutControlItem143.Size = new System.Drawing.Size(98, 26);
+            this.layoutControlItem143.Size = new System.Drawing.Size(172, 26);
             this.layoutControlItem143.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem143.TextVisible = false;
             // 
             // layoutControlItem151
             // 
             this.layoutControlItem151.Control = this.btnSave;
-            this.layoutControlItem151.Location = new System.Drawing.Point(98, 24);
+            this.layoutControlItem151.Location = new System.Drawing.Point(172, 24);
+            this.layoutControlItem151.MaxSize = new System.Drawing.Size(109, 26);
+            this.layoutControlItem151.MinSize = new System.Drawing.Size(109, 26);
             this.layoutControlItem151.Name = "layoutControlItem151";
-            this.layoutControlItem151.Size = new System.Drawing.Size(183, 26);
+            this.layoutControlItem151.Size = new System.Drawing.Size(109, 26);
+            this.layoutControlItem151.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem151.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem151.TextVisible = false;
             // 
@@ -10149,6 +10162,10 @@
             // 
             // gvPositions
             // 
+            this.gvPositions.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvPositions.Appearance.Empty.Options.UseBackColor = true;
+            this.gvPositions.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvPositions.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvPositions.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.LVPositionNr,
             this.gridColumn18,
@@ -10166,6 +10183,8 @@
             // 
             // LVPositionNr
             // 
+            this.LVPositionNr.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LVPositionNr.AppearanceHeader.Options.UseFont = true;
             this.LVPositionNr.Caption = "LV Position Nr";
             this.LVPositionNr.FieldName = "Position_OZ";
             this.LVPositionNr.Name = "LVPositionNr";
@@ -10175,6 +10194,8 @@
             // 
             // gridColumn18
             // 
+            this.gridColumn18.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn18.AppearanceHeader.Options.UseFont = true;
             this.gridColumn18.Caption = "LV Position Description";
             this.gridColumn18.ColumnEdit = this.rtfDescription;
             this.gridColumn18.FieldName = "ShortDescription";
@@ -10190,6 +10211,8 @@
             // 
             // gridColumn19
             // 
+            this.gridColumn19.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn19.AppearanceHeader.Options.UseFont = true;
             this.gridColumn19.Caption = "Quantity";
             this.gridColumn19.FieldName = "Menge";
             this.gridColumn19.Name = "gridColumn19";
@@ -10199,6 +10222,8 @@
             // 
             // gridColumn20
             // 
+            this.gridColumn20.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn20.AppearanceHeader.Options.UseFont = true;
             this.gridColumn20.Caption = "Ordered";
             this.gridColumn20.ColumnEdit = this.ChkOrdered;
             this.gridColumn20.FieldName = "Ordered";
@@ -10212,6 +10237,8 @@
             // 
             // gridColumn21
             // 
+            this.gridColumn21.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn21.AppearanceHeader.Options.UseFont = true;
             this.gridColumn21.Caption = "Type Of LV";
             this.gridColumn21.FieldName = "PositionKZ";
             this.gridColumn21.Name = "gridColumn21";
@@ -10219,6 +10246,8 @@
             // 
             // gridColumn22
             // 
+            this.gridColumn22.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn22.AppearanceHeader.Options.UseFont = true;
             this.gridColumn22.Caption = "LV Section";
             this.gridColumn22.FieldName = "LVSection";
             this.gridColumn22.Name = "gridColumn22";
@@ -10227,6 +10256,8 @@
             // 
             // gridColumn23
             // 
+            this.gridColumn23.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn23.AppearanceHeader.Options.UseFont = true;
             this.gridColumn23.Caption = "LV Status";
             this.gridColumn23.FieldName = "LVStatus";
             this.gridColumn23.Name = "gridColumn23";
@@ -10247,6 +10278,10 @@
             // 
             // gvDeliveryNumbers
             // 
+            this.gvDeliveryNumbers.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvDeliveryNumbers.Appearance.Empty.Options.UseBackColor = true;
+            this.gvDeliveryNumbers.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvDeliveryNumbers.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvDeliveryNumbers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn25,
             this.gridColumn24,
@@ -10260,6 +10295,8 @@
             // 
             // gridColumn25
             // 
+            this.gridColumn25.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn25.AppearanceHeader.Options.UseFont = true;
             this.gridColumn25.Caption = "Blatt Number";
             this.gridColumn25.FieldName = "BlattNumber";
             this.gridColumn25.Name = "gridColumn25";
@@ -10268,6 +10305,8 @@
             // 
             // gridColumn24
             // 
+            this.gridColumn24.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn24.AppearanceHeader.Options.UseFont = true;
             this.gridColumn24.Caption = "No Of Positions";
             this.gridColumn24.FieldName = "NoOfPositions";
             this.gridColumn24.Name = "gridColumn24";
@@ -10276,6 +10315,8 @@
             // 
             // gridColumn31
             // 
+            this.gridColumn31.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn31.AppearanceHeader.Options.UseFont = true;
             this.gridColumn31.Caption = "Blatt Price";
             this.gridColumn31.FieldName = "BlattPrice";
             this.gridColumn31.Name = "gridColumn31";
@@ -10284,6 +10325,8 @@
             // 
             // gridColumn32
             // 
+            this.gridColumn32.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn32.AppearanceHeader.Options.UseFont = true;
             this.gridColumn32.Caption = "Blatt By";
             this.gridColumn32.FieldName = "CreatedBy";
             this.gridColumn32.Name = "gridColumn32";
@@ -10292,6 +10335,8 @@
             // 
             // gridColumn33
             // 
+            this.gridColumn33.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn33.AppearanceHeader.Options.UseFont = true;
             this.gridColumn33.Caption = "Blatt On";
             this.gridColumn33.FieldName = "CreatedDate";
             this.gridColumn33.Name = "gridColumn33";
@@ -10316,6 +10361,12 @@
             // 
             // gvDelivery
             // 
+            this.gvDelivery.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvDelivery.Appearance.Empty.Options.UseBackColor = true;
+            this.gvDelivery.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvDelivery.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvDelivery.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gvDelivery.AppearancePrint.HeaderPanel.Options.UseFont = true;
             this.gvDelivery.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn13,
             this.gridColumn14,
@@ -10332,6 +10383,8 @@
             // 
             // gridColumn13
             // 
+            this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn13.AppearanceHeader.Options.UseFont = true;
             this.gridColumn13.Caption = "LV Position Nr";
             this.gridColumn13.ColumnEdit = this.txttext;
             this.gridColumn13.FieldName = "Position_OZ";
@@ -10348,6 +10401,8 @@
             // 
             // gridColumn14
             // 
+            this.gridColumn14.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn14.AppearanceHeader.Options.UseFont = true;
             this.gridColumn14.Caption = "LV Position Description";
             this.gridColumn14.ColumnEdit = this.rtfdeliverydescription;
             this.gridColumn14.FieldName = "ShortDescription";
@@ -10364,6 +10419,8 @@
             // 
             // gridColumn15
             // 
+            this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn15.AppearanceHeader.Options.UseFont = true;
             this.gridColumn15.Caption = "Quantity";
             this.gridColumn15.FieldName = "Menge";
             this.gridColumn15.Name = "gridColumn15";
@@ -10373,6 +10430,8 @@
             // 
             // gridColumn16
             // 
+            this.gridColumn16.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn16.AppearanceHeader.Options.UseFont = true;
             this.gridColumn16.Caption = "Type Of LV";
             this.gridColumn16.ColumnEdit = this.txttext;
             this.gridColumn16.FieldName = "PositionKZ";
@@ -10440,7 +10499,7 @@
             this.layoutControlItem149.Control = this.groupControl1;
             this.layoutControlItem149.Location = new System.Drawing.Point(0, 20);
             this.layoutControlItem149.Name = "layoutControlItem149";
-            this.layoutControlItem149.Size = new System.Drawing.Size(309, 96);
+            this.layoutControlItem149.Size = new System.Drawing.Size(290, 96);
             this.layoutControlItem149.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem149.TextVisible = false;
             // 
@@ -10455,9 +10514,9 @@
             // layoutControlItem142
             // 
             this.layoutControlItem142.Control = this.groupControl2;
-            this.layoutControlItem142.Location = new System.Drawing.Point(309, 20);
+            this.layoutControlItem142.Location = new System.Drawing.Point(290, 20);
             this.layoutControlItem142.Name = "layoutControlItem142";
-            this.layoutControlItem142.Size = new System.Drawing.Size(305, 96);
+            this.layoutControlItem142.Size = new System.Drawing.Size(324, 96);
             this.layoutControlItem142.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem142.TextVisible = false;
             // 
@@ -10516,6 +10575,10 @@
             // 
             // gvInvoices
             // 
+            this.gvInvoices.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvInvoices.Appearance.Empty.Options.UseBackColor = true;
+            this.gvInvoices.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvInvoices.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvInvoices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn35,
             this.gridColumn36,
@@ -10529,6 +10592,8 @@
             // 
             // gridColumn35
             // 
+            this.gridColumn35.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn35.AppearanceHeader.Options.UseFont = true;
             this.gridColumn35.Caption = "Invoice Number";
             this.gridColumn35.FieldName = "InvoiceNumber";
             this.gridColumn35.Name = "gridColumn35";
@@ -10537,6 +10602,8 @@
             // 
             // gridColumn36
             // 
+            this.gridColumn36.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn36.AppearanceHeader.Options.UseFont = true;
             this.gridColumn36.Caption = "Invoice Amount";
             this.gridColumn36.FieldName = "InvoiceAmount";
             this.gridColumn36.Name = "gridColumn36";
@@ -10545,6 +10612,8 @@
             // 
             // gridColumn37
             // 
+            this.gridColumn37.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn37.AppearanceHeader.Options.UseFont = true;
             this.gridColumn37.Caption = "Invoiced By";
             this.gridColumn37.FieldName = "CreatedBy";
             this.gridColumn37.Name = "gridColumn37";
@@ -10553,6 +10622,8 @@
             // 
             // gridColumn38
             // 
+            this.gridColumn38.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn38.AppearanceHeader.Options.UseFont = true;
             this.gridColumn38.Caption = "Invoiced Date";
             this.gridColumn38.FieldName = "CreatedDate";
             this.gridColumn38.Name = "gridColumn38";
@@ -10561,6 +10632,8 @@
             // 
             // gridColumn39
             // 
+            this.gridColumn39.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn39.AppearanceHeader.Options.UseFont = true;
             this.gridColumn39.Caption = "No Of Blatts";
             this.gridColumn39.FieldName = "NoOfBlatts";
             this.gridColumn39.Name = "gridColumn39";
@@ -10572,12 +10645,12 @@
             this.chkFinalInvoice.Location = new System.Drawing.Point(12, 422);
             this.chkFinalInvoice.MenuManager = this.barManager1;
             this.chkFinalInvoice.Name = "chkFinalInvoice";
-            this.chkFinalInvoice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.chkFinalInvoice.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkFinalInvoice.Properties.Appearance.ForeColor = System.Drawing.Color.White;
             this.chkFinalInvoice.Properties.Appearance.Options.UseFont = true;
             this.chkFinalInvoice.Properties.Appearance.Options.UseForeColor = true;
             this.chkFinalInvoice.Properties.Caption = "Final Invoice";
-            this.chkFinalInvoice.Size = new System.Drawing.Size(93, 19);
+            this.chkFinalInvoice.Size = new System.Drawing.Size(97, 19);
             this.chkFinalInvoice.StyleController = this.layoutControl13;
             this.chkFinalInvoice.TabIndex = 7;
             // 
@@ -10595,10 +10668,10 @@
             // 
             // txtInvoiceNumber
             // 
-            this.txtInvoiceNumber.Location = new System.Drawing.Point(590, 422);
+            this.txtInvoiceNumber.Location = new System.Drawing.Point(544, 422);
             this.txtInvoiceNumber.MenuManager = this.barManager1;
             this.txtInvoiceNumber.Name = "txtInvoiceNumber";
-            this.txtInvoiceNumber.Size = new System.Drawing.Size(119, 20);
+            this.txtInvoiceNumber.Size = new System.Drawing.Size(165, 20);
             this.txtInvoiceNumber.StyleController = this.layoutControl13;
             this.txtInvoiceNumber.TabIndex = 5;
             // 
@@ -10619,6 +10692,10 @@
             // 
             // gvDeliveryNotes
             // 
+            this.gvDeliveryNotes.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvDeliveryNotes.Appearance.Empty.Options.UseBackColor = true;
+            this.gvDeliveryNotes.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvDeliveryNotes.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvDeliveryNotes.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn26,
             this.gridColumn27,
@@ -10634,6 +10711,8 @@
             // 
             // gridColumn26
             // 
+            this.gridColumn26.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn26.AppearanceHeader.Options.UseFont = true;
             this.gridColumn26.Caption = "Blatt Number";
             this.gridColumn26.ColumnEdit = this.txttextbox;
             this.gridColumn26.FieldName = "BlattNumber";
@@ -10649,6 +10728,8 @@
             // 
             // gridColumn27
             // 
+            this.gridColumn27.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn27.AppearanceHeader.Options.UseFont = true;
             this.gridColumn27.Caption = "Blatt By";
             this.gridColumn27.ColumnEdit = this.txttextbox;
             this.gridColumn27.FieldName = "CreatedBy";
@@ -10658,6 +10739,8 @@
             // 
             // gridColumn28
             // 
+            this.gridColumn28.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn28.AppearanceHeader.Options.UseFont = true;
             this.gridColumn28.Caption = "Blatt On";
             this.gridColumn28.ColumnEdit = this.dtpdeliveredOn;
             this.gridColumn28.FieldName = "CreatedDate";
@@ -10677,6 +10760,8 @@
             // 
             // gridColumn29
             // 
+            this.gridColumn29.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn29.AppearanceHeader.Options.UseFont = true;
             this.gridColumn29.Caption = "No Of Positions";
             this.gridColumn29.ColumnEdit = this.txttextbox;
             this.gridColumn29.FieldName = "NoOfPositions";
@@ -10686,6 +10771,8 @@
             // 
             // gridColumn30
             // 
+            this.gridColumn30.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn30.AppearanceHeader.Options.UseFont = true;
             this.gridColumn30.Caption = "Blatt Price";
             this.gridColumn30.ColumnEdit = this.txttextbox;
             this.gridColumn30.FieldName = "BlattPrice";
@@ -10695,6 +10782,8 @@
             // 
             // gridColumn34
             // 
+            this.gridColumn34.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn34.AppearanceHeader.Options.UseFont = true;
             this.gridColumn34.Caption = "Invoiced";
             this.gridColumn34.ColumnEdit = this.txttextbox;
             this.gridColumn34.FieldName = "IsInvoiced";
@@ -10704,6 +10793,8 @@
             // 
             // gridColumn17
             // 
+            this.gridColumn17.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn17.AppearanceHeader.Options.UseFont = true;
             this.gridColumn17.Caption = "Select";
             this.gridColumn17.ColumnEdit = this.chkInvoiced;
             this.gridColumn17.FieldName = "SELCETED";
@@ -10761,16 +10852,16 @@
             // 
             // layoutControlItem140
             // 
-            this.layoutControlItem140.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem140.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem140.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem140.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem140.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem140.Control = this.txtInvoiceNumber;
-            this.layoutControlItem140.Location = new System.Drawing.Point(489, 410);
+            this.layoutControlItem140.Location = new System.Drawing.Point(426, 410);
             this.layoutControlItem140.Name = "layoutControlItem140";
-            this.layoutControlItem140.Size = new System.Drawing.Size(212, 26);
-            this.layoutControlItem140.Text = "InvoiceNumber";
-            this.layoutControlItem140.TextSize = new System.Drawing.Size(86, 13);
+            this.layoutControlItem140.Size = new System.Drawing.Size(275, 26);
+            this.layoutControlItem140.Text = "Invoice Number :";
+            this.layoutControlItem140.TextSize = new System.Drawing.Size(103, 14);
             // 
             // layoutControlItem141
             // 
@@ -10786,16 +10877,16 @@
             this.layoutControlItem152.Control = this.chkFinalInvoice;
             this.layoutControlItem152.Location = new System.Drawing.Point(0, 410);
             this.layoutControlItem152.Name = "layoutControlItem152";
-            this.layoutControlItem152.Size = new System.Drawing.Size(97, 26);
+            this.layoutControlItem152.Size = new System.Drawing.Size(101, 26);
             this.layoutControlItem152.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem152.TextVisible = false;
             // 
             // emptySpaceItem113
             // 
             this.emptySpaceItem113.AllowHotTrack = false;
-            this.emptySpaceItem113.Location = new System.Drawing.Point(97, 410);
+            this.emptySpaceItem113.Location = new System.Drawing.Point(101, 410);
             this.emptySpaceItem113.Name = "emptySpaceItem113";
-            this.emptySpaceItem113.Size = new System.Drawing.Size(392, 26);
+            this.emptySpaceItem113.Size = new System.Drawing.Size(325, 26);
             this.emptySpaceItem113.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem154

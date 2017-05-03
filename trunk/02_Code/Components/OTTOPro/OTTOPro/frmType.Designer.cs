@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmType));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.gcTyp = new DevExpress.XtraGrid.GridControl();
@@ -96,9 +97,10 @@
             // 
             // btnNew
             // 
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.Location = new System.Drawing.Point(12, 552);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(95, 22);
+            this.btnNew.Size = new System.Drawing.Size(76, 22);
             this.btnNew.StyleController = this.layoutControl1;
             this.btnNew.TabIndex = 8;
             this.btnNew.Text = "New";
@@ -116,6 +118,10 @@
             // 
             // gvTyp
             // 
+            this.gvTyp.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvTyp.Appearance.Empty.Options.UseBackColor = true;
+            this.gvTyp.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvTyp.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvTyp.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -137,30 +143,40 @@
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
             this.gridColumn1.Caption = "TypID";
             this.gridColumn1.FieldName = "TypID";
             this.gridColumn1.Name = "gridColumn1";
             // 
             // gridColumn2
             // 
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
             this.gridColumn2.Caption = "WIID";
             this.gridColumn2.FieldName = "WIID";
             this.gridColumn2.Name = "gridColumn2";
             // 
             // gridColumn3
             // 
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
             this.gridColumn3.Caption = "SupplierID";
             this.gridColumn3.FieldName = "SupplierID";
             this.gridColumn3.Name = "gridColumn3";
             // 
             // gridColumn4
             // 
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
             this.gridColumn4.Caption = "WGID";
             this.gridColumn4.FieldName = "WGID";
             this.gridColumn4.Name = "gridColumn4";
             // 
             // gridColumn5
             // 
+            this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn5.AppearanceHeader.Options.UseFont = true;
             this.gridColumn5.Caption = "Typ";
             this.gridColumn5.FieldName = "Typ";
             this.gridColumn5.Name = "gridColumn5";
@@ -169,6 +185,8 @@
             // 
             // gridColumn6
             // 
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn6.AppearanceHeader.Options.UseFont = true;
             this.gridColumn6.Caption = "WG";
             this.gridColumn6.FieldName = "WG";
             this.gridColumn6.Name = "gridColumn6";
@@ -177,6 +195,8 @@
             // 
             // gridColumn7
             // 
+            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn7.AppearanceHeader.Options.UseFont = true;
             this.gridColumn7.Caption = "WA";
             this.gridColumn7.FieldName = "WA";
             this.gridColumn7.Name = "gridColumn7";
@@ -185,6 +205,8 @@
             // 
             // gridColumn8
             // 
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
             this.gridColumn8.Caption = "WI";
             this.gridColumn8.FieldName = "WI";
             this.gridColumn8.Name = "gridColumn8";
@@ -193,6 +215,8 @@
             // 
             // gridColumn9
             // 
+            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn9.AppearanceHeader.Options.UseFont = true;
             this.gridColumn9.Caption = "Supplier";
             this.gridColumn9.FieldName = "FullName";
             this.gridColumn9.Name = "gridColumn9";
@@ -204,9 +228,9 @@
             this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(53, 86);
+            this.cmbSupplier.Location = new System.Drawing.Point(65, 86);
             this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(668, 21);
+            this.cmbSupplier.Size = new System.Drawing.Size(656, 21);
             this.cmbSupplier.TabIndex = 6;
             this.cmbSupplier.Tag = "Supplier";
             // 
@@ -215,9 +239,9 @@
             this.cmbWI.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbWI.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbWI.FormattingEnabled = true;
-            this.cmbWI.Location = new System.Drawing.Point(53, 61);
+            this.cmbWI.Location = new System.Drawing.Point(65, 61);
             this.cmbWI.Name = "cmbWI";
-            this.cmbWI.Size = new System.Drawing.Size(668, 21);
+            this.cmbWI.Size = new System.Drawing.Size(656, 21);
             this.cmbWI.TabIndex = 5;
             this.cmbWI.Tag = "WI";
             // 
@@ -226,9 +250,9 @@
             this.cmbWGWA.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbWGWA.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbWGWA.FormattingEnabled = true;
-            this.cmbWGWA.Location = new System.Drawing.Point(53, 36);
+            this.cmbWGWA.Location = new System.Drawing.Point(65, 36);
             this.cmbWGWA.Name = "cmbWGWA";
-            this.cmbWGWA.Size = new System.Drawing.Size(668, 21);
+            this.cmbWGWA.Size = new System.Drawing.Size(656, 21);
             this.cmbWGWA.TabIndex = 4;
             this.cmbWGWA.Tag = "WG/WA";
             this.cmbWGWA.SelectedValueChanged += new System.EventHandler(this.cmbWGWA_SelectedValueChanged);
@@ -236,7 +260,7 @@
             // btnSave
             // 
             this.btnSave.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(111, 552);
+            this.btnSave.Location = new System.Drawing.Point(92, 552);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 22);
             this.btnSave.StyleController = this.layoutControl1;
@@ -247,7 +271,7 @@
             // btnCancel
             // 
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(195, 552);
+            this.btnCancel.Location = new System.Drawing.Point(176, 552);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(76, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -257,9 +281,9 @@
             // 
             // txtTyp
             // 
-            this.txtTyp.Location = new System.Drawing.Point(53, 12);
+            this.txtTyp.Location = new System.Drawing.Point(65, 12);
             this.txtTyp.Name = "txtTyp";
-            this.txtTyp.Size = new System.Drawing.Size(668, 20);
+            this.txtTyp.Size = new System.Drawing.Size(656, 20);
             this.txtTyp.StyleController = this.layoutControl1;
             this.txtTyp.TabIndex = 0;
             this.txtTyp.Tag = "Typ";
@@ -286,7 +310,7 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnCancel;
-            this.layoutControlItem5.Location = new System.Drawing.Point(183, 540);
+            this.layoutControlItem5.Location = new System.Drawing.Point(164, 540);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(80, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -298,7 +322,7 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnSave;
-            this.layoutControlItem6.Location = new System.Drawing.Point(99, 540);
+            this.layoutControlItem6.Location = new System.Drawing.Point(80, 540);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -311,42 +335,56 @@
             // 
             this.layoutControlItem4.AppearanceItemCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem4.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem4.AppearanceItemCaption.Options.UseBackColor = true;
             this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem4.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem4.Control = this.txtTyp;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(713, 24);
             this.layoutControlItem4.Text = "Typ :";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(38, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(50, 14);
             // 
             // layoutControlItem1
             // 
+            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem1.Control = this.cmbWGWA;
             this.layoutControlItem1.CustomizationFormText = "WG/WA";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(713, 25);
             this.layoutControlItem1.Text = "WG/WA";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(38, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(50, 14);
             // 
             // layoutControlItem2
             // 
+            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem2.Control = this.cmbWI;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 49);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(713, 25);
             this.layoutControlItem2.Text = "WI";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(38, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(50, 14);
             // 
             // layoutControlItem3
             // 
+            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem3.Control = this.cmbSupplier;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 74);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(713, 25);
             this.layoutControlItem3.Text = "Supplier";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(38, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(50, 14);
             // 
             // layoutControlItem7
             // 
@@ -362,16 +400,16 @@
             this.layoutControlItem8.Control = this.btnNew;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 540);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(99, 26);
+            this.layoutControlItem8.Size = new System.Drawing.Size(80, 26);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(263, 540);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(244, 540);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(450, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(469, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // frmType

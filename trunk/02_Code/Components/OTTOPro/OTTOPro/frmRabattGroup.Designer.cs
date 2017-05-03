@@ -120,10 +120,10 @@
             // 
             // txtArt
             // 
-            this.txtArt.Location = new System.Drawing.Point(87, 85);
+            this.txtArt.Location = new System.Drawing.Point(96, 85);
             this.txtArt.Name = "txtArt";
             this.txtArt.Properties.ReadOnly = true;
-            this.txtArt.Size = new System.Drawing.Size(205, 20);
+            this.txtArt.Size = new System.Drawing.Size(196, 20);
             this.txtArt.StyleController = this.layoutControl1;
             this.txtArt.TabIndex = 3;
             // 
@@ -132,16 +132,16 @@
             this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(87, 60);
+            this.cmbType.Location = new System.Drawing.Point(96, 60);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(205, 21);
+            this.cmbType.Size = new System.Drawing.Size(196, 21);
             this.cmbType.TabIndex = 2;
             this.cmbType.Tag = "Typ";
             this.cmbType.SelectedValueChanged += new System.EventHandler(this.cmbType_SelectedValueChanged);
             // 
             // txtMulti4
             // 
-            this.txtMulti4.Location = new System.Drawing.Point(371, 85);
+            this.txtMulti4.Location = new System.Drawing.Point(380, 85);
             this.txtMulti4.Name = "txtMulti4";
             this.txtMulti4.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti4.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -152,14 +152,14 @@
             this.txtMulti4.Properties.Mask.ShowPlaceHolders = false;
             this.txtMulti4.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti4.Properties.MaxLength = 5;
-            this.txtMulti4.Size = new System.Drawing.Size(275, 20);
+            this.txtMulti4.Size = new System.Drawing.Size(266, 20);
             this.txtMulti4.StyleController = this.layoutControl1;
             this.txtMulti4.TabIndex = 7;
             this.txtMulti4.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti3
             // 
-            this.txtMulti3.Location = new System.Drawing.Point(371, 60);
+            this.txtMulti3.Location = new System.Drawing.Point(380, 60);
             this.txtMulti3.Name = "txtMulti3";
             this.txtMulti3.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -170,14 +170,14 @@
             this.txtMulti3.Properties.Mask.ShowPlaceHolders = false;
             this.txtMulti3.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti3.Properties.MaxLength = 5;
-            this.txtMulti3.Size = new System.Drawing.Size(275, 20);
+            this.txtMulti3.Size = new System.Drawing.Size(266, 20);
             this.txtMulti3.StyleController = this.layoutControl1;
             this.txtMulti3.TabIndex = 6;
             this.txtMulti3.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti2
             // 
-            this.txtMulti2.Location = new System.Drawing.Point(371, 36);
+            this.txtMulti2.Location = new System.Drawing.Point(380, 36);
             this.txtMulti2.Name = "txtMulti2";
             this.txtMulti2.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -188,14 +188,14 @@
             this.txtMulti2.Properties.Mask.ShowPlaceHolders = false;
             this.txtMulti2.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti2.Properties.MaxLength = 5;
-            this.txtMulti2.Size = new System.Drawing.Size(275, 20);
+            this.txtMulti2.Size = new System.Drawing.Size(266, 20);
             this.txtMulti2.StyleController = this.layoutControl1;
             this.txtMulti2.TabIndex = 5;
             this.txtMulti2.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti1
             // 
-            this.txtMulti1.Location = new System.Drawing.Point(371, 12);
+            this.txtMulti1.Location = new System.Drawing.Point(380, 12);
             this.txtMulti1.Name = "txtMulti1";
             this.txtMulti1.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -206,7 +206,7 @@
             this.txtMulti1.Properties.Mask.ShowPlaceHolders = false;
             this.txtMulti1.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti1.Properties.MaxLength = 5;
-            this.txtMulti1.Size = new System.Drawing.Size(275, 20);
+            this.txtMulti1.Size = new System.Drawing.Size(266, 20);
             this.txtMulti1.StyleController = this.layoutControl1;
             this.txtMulti1.TabIndex = 4;
             this.txtMulti1.Leave += new System.EventHandler(this.txtMulti1_Leave);
@@ -226,6 +226,10 @@
             // 
             // gvRabatt
             // 
+            this.gvRabatt.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvRabatt.Appearance.Empty.Options.UseBackColor = true;
+            this.gvRabatt.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvRabatt.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvRabatt.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -247,18 +251,24 @@
             // 
             // gridColumn1
             // 
+            this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn1.AppearanceHeader.Options.UseFont = true;
             this.gridColumn1.Caption = "RabattID";
             this.gridColumn1.FieldName = "RabattID";
             this.gridColumn1.Name = "gridColumn1";
             // 
             // gridColumn2
             // 
+            this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn2.AppearanceHeader.Options.UseFont = true;
             this.gridColumn2.Caption = "TypeID";
             this.gridColumn2.FieldName = "TypeID";
             this.gridColumn2.Name = "gridColumn2";
             // 
             // gridColumn3
             // 
+            this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn3.AppearanceHeader.Options.UseFont = true;
             this.gridColumn3.Caption = "Rabatt";
             this.gridColumn3.FieldName = "Rabatt";
             this.gridColumn3.Name = "gridColumn3";
@@ -267,6 +277,8 @@
             // 
             // gridColumn9
             // 
+            this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn9.AppearanceHeader.Options.UseFont = true;
             this.gridColumn9.Caption = "Typ";
             this.gridColumn9.FieldName = "Typ";
             this.gridColumn9.Name = "gridColumn9";
@@ -275,6 +287,8 @@
             // 
             // gridColumn8
             // 
+            this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn8.AppearanceHeader.Options.UseFont = true;
             this.gridColumn8.Caption = "ValidityDate";
             this.gridColumn8.ColumnEdit = this.repositoryItemDateEdit1;
             this.gridColumn8.FieldName = "ValidityDate";
@@ -302,6 +316,8 @@
             // 
             // gridColumn4
             // 
+            this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn4.AppearanceHeader.Options.UseFont = true;
             this.gridColumn4.Caption = "Multi1";
             this.gridColumn4.ColumnEdit = this.rpMulti;
             this.gridColumn4.FieldName = "Multi1";
@@ -325,6 +341,8 @@
             // 
             // gridColumn5
             // 
+            this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn5.AppearanceHeader.Options.UseFont = true;
             this.gridColumn5.Caption = "Multi2";
             this.gridColumn5.ColumnEdit = this.rpMulti;
             this.gridColumn5.FieldName = "Multi2";
@@ -334,6 +352,8 @@
             // 
             // gridColumn6
             // 
+            this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn6.AppearanceHeader.Options.UseFont = true;
             this.gridColumn6.Caption = "Multi3";
             this.gridColumn6.ColumnEdit = this.rpMulti;
             this.gridColumn6.FieldName = "Multi3";
@@ -343,6 +363,8 @@
             // 
             // gridColumn7
             // 
+            this.gridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn7.AppearanceHeader.Options.UseFont = true;
             this.gridColumn7.Caption = "Multi4";
             this.gridColumn7.ColumnEdit = this.rpMulti;
             this.gridColumn7.FieldName = "Multi4";
@@ -375,7 +397,7 @@
             // dateEditValidityDate
             // 
             this.dateEditValidityDate.EditValue = null;
-            this.dateEditValidityDate.Location = new System.Drawing.Point(87, 36);
+            this.dateEditValidityDate.Location = new System.Drawing.Point(96, 36);
             this.dateEditValidityDate.Name = "dateEditValidityDate";
             this.dateEditValidityDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -389,15 +411,15 @@
             this.dateEditValidityDate.Properties.Mask.EditMask = "y";
             this.dateEditValidityDate.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
             this.dateEditValidityDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dateEditValidityDate.Size = new System.Drawing.Size(205, 20);
+            this.dateEditValidityDate.Size = new System.Drawing.Size(196, 20);
             this.dateEditValidityDate.StyleController = this.layoutControl1;
             this.dateEditValidityDate.TabIndex = 1;
             // 
             // txtRabatt
             // 
-            this.txtRabatt.Location = new System.Drawing.Point(87, 12);
+            this.txtRabatt.Location = new System.Drawing.Point(96, 12);
             this.txtRabatt.Name = "txtRabatt";
-            this.txtRabatt.Size = new System.Drawing.Size(205, 20);
+            this.txtRabatt.Size = new System.Drawing.Size(196, 20);
             this.txtRabatt.StyleController = this.layoutControl1;
             this.txtRabatt.TabIndex = 0;
             this.txtRabatt.Tag = "Rabatt";
@@ -458,12 +480,16 @@
             // 
             // layoutControlItem2
             // 
+            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem2.Control = this.txtRabatt;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(284, 24);
             this.layoutControlItem2.Text = "Rabatt Group :";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem6
             // 
@@ -476,66 +502,94 @@
             // 
             // layoutControlItem3
             // 
+            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem3.Control = this.txtMulti1;
             this.layoutControlItem3.Location = new System.Drawing.Point(284, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(354, 24);
             this.layoutControlItem3.Text = "Multi1";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem4
             // 
+            this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem4.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem4.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem4.Control = this.txtMulti2;
             this.layoutControlItem4.Location = new System.Drawing.Point(284, 24);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(354, 24);
             this.layoutControlItem4.Text = "Multi2";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem7
             // 
+            this.layoutControlItem7.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem7.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem7.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem7.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem7.Control = this.txtMulti4;
             this.layoutControlItem7.Location = new System.Drawing.Point(284, 73);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(354, 24);
             this.layoutControlItem7.Text = "Multi4";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem1
             // 
+            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem1.Control = this.cmbType;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(284, 25);
             this.layoutControlItem1.Text = "Typ";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem9
             // 
+            this.layoutControlItem9.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem9.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem9.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem9.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem9.Control = this.dateEditValidityDate;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(284, 24);
             this.layoutControlItem9.Text = "Validity Date :";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem5
             // 
+            this.layoutControlItem5.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem5.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem5.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem5.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem5.Control = this.txtMulti3;
             this.layoutControlItem5.Location = new System.Drawing.Point(284, 48);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(354, 25);
             this.layoutControlItem5.Text = "Multi3";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(81, 14);
             // 
             // layoutControlItem12
             // 
+            this.layoutControlItem12.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem12.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem12.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem12.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem12.Control = this.txtArt;
             this.layoutControlItem12.Location = new System.Drawing.Point(0, 73);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(284, 24);
             this.layoutControlItem12.Text = "Art-Supplier";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(72, 13);
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(81, 14);
             // 
             // frmRabattGroup
             // 

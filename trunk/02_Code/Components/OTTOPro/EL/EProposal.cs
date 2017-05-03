@@ -15,6 +15,8 @@ namespace EL
         private string _Category;
         private bool _IsSelect;
         private string _Contents;
+        private int _TextAreaID = -1;
+        private int _TextCategoryID = -1;
         private DataSet _dsTextModule;
 
 
@@ -59,6 +61,17 @@ namespace EL
         {
             get { return _Contents; }
             set { _Contents = value; }
+        }
+
+        public int TextAreaID
+        {
+            get { return _TextAreaID; }
+            set { _TextAreaID = value; }
+        }
+        public int TextCategoryID
+        {
+            get { return _TextCategoryID; }
+            set { _TextCategoryID = value; }
         }
 
         // Category Properties
