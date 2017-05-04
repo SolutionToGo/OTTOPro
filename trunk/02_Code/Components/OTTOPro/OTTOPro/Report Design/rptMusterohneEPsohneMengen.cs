@@ -25,11 +25,6 @@ namespace OTTOPro.Report_Design
             totalUnits = 0;
         }
 
-        private void xrLabel18_SummaryRowChanged(object sender, EventArgs e)
-        {
-            //if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-            //    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
-        }
         Double totalvat = 0;
         Double GBValue = 0;
         Double GB1 = 0;
@@ -42,7 +37,7 @@ namespace OTTOPro.Report_Design
             Double Value2 = 0;
             try
             {
-                if (double.TryParse(GetCurrentColumnValue("Vat").ToString(), out dValue))
+                if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out dValue))
                     totalvat = dValue;
                 if (double.TryParse(xrLblGB.Text, out GValue))
                     GBValue = GValue;

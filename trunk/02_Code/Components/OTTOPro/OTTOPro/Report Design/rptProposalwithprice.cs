@@ -33,8 +33,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabel10_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 //*********************
     }

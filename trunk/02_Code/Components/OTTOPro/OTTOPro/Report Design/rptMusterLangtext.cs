@@ -27,10 +27,16 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelGB1_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
-            xrLblGB.Text = Convert.ToString(totalUnits);
-            
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+                xrLblGB.Text = Convert.ToString(totalUnits);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }            
         }
 
         double totalGB2 = 0;
@@ -47,8 +53,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelGB2_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                    totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         Double totalvat = 0;
@@ -57,23 +70,30 @@ namespace OTTOPro.Report_Design
         Double GBWithVat = 0;
         private void xrTableCell1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            Double dValue = 0;
-            Double GValue = 0;
-            Double Value1 = 0;
-            Double Value2 = 0;
-            if (double.TryParse(GetCurrentColumnValue("Vat").ToString(), out dValue))
-                totalvat = dValue;
-            if (double.TryParse(xrLblGB.Text, out GValue))
-                GBValue = GValue;
-            double _result = Convert.ToDouble((GBValue * totalvat) / 100);
-            xrLblTotalVat.Text = Convert.ToString(_result);
+            try
+            {
+                Double dValue = 0;
+                Double GValue = 0;
+                Double Value1 = 0;
+                Double Value2 = 0;
+                if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out dValue))
+                    totalvat = dValue;
+                if (double.TryParse(xrLblGB.Text, out GValue))
+                    GBValue = GValue;
+                double _result = Convert.ToDouble((GBValue * totalvat) / 100);
+                xrLblTotalVat.Text = Convert.ToString(_result);
 
-            if (double.TryParse(xrLblGB.Text, out Value1))
-                GB1 = Value1;
-            if (double.TryParse(xrLblTotalVat.Text, out Value2))
-                GBWithVat = Value2;
-            double _resultVat = Convert.ToDouble(GB1 + GBWithVat);
-            xrLabelFinalResult.Text = Convert.ToString(_resultVat);
+                if (double.TryParse(xrLblGB.Text, out Value1))
+                    GB1 = Value1;
+                if (double.TryParse(xrLblTotalVat.Text, out Value2))
+                    GBWithVat = Value2;
+                double _resultVat = Convert.ToDouble(GB1 + GBWithVat);
+                xrLabelFinalResult.Text = Convert.ToString(_resultVat);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
 

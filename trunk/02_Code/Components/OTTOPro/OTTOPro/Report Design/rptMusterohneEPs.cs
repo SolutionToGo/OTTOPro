@@ -29,8 +29,6 @@ namespace OTTOPro.Report_Design
         {
             xrLblGB.Text = "0.00";
             xrLblMO.Text = "0.00";
-            //if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-            //    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
         }
 
     }

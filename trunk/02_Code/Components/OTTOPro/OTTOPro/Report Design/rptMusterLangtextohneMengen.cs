@@ -27,8 +27,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabel18_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         double totalEP = 0;
@@ -45,8 +52,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelEP1_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("EP") != DBNull.Value)
-                totalEP += Convert.ToDouble(DetailReport.GetCurrentColumnValue("EP"));
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("EP") != DBNull.Value)
+                    totalEP += Convert.ToDouble(DetailReport.GetCurrentColumnValue("EP"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         double totalGB2 = 0;
@@ -63,8 +77,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelGB2_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                    totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         double totalMOPrice = 0;
@@ -81,8 +102,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelMO1_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("MO_verkaufspreis") != DBNull.Value)
-                totalMOPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MO_verkaufspreis"));
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("MO_verkaufspreis") != DBNull.Value)
+                    totalMOPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MO_verkaufspreis"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         double totalMAPrice = 0;
@@ -99,8 +127,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelMA1_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
-                totalMAPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
+                    totalMAPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         double totalMOPrice1 = 0;
@@ -117,8 +152,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabel27_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
-                totalMOPrice1 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
+                    totalMOPrice1 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
 
@@ -136,9 +178,16 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelGB3_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport1.GetCurrentColumnValue("GB") != DBNull.Value)
-                totalFinalGB3 += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("GB"));
-            xrLblGB.Text = Convert.ToString(totalFinalGB3);
+            try
+            {
+                if (DetailReport1.GetCurrentColumnValue("GB") != DBNull.Value)
+                    totalFinalGB3 += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("GB"));
+                xrLblGB.Text = Convert.ToString(totalFinalGB3);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         double totalEP2 = 0;
@@ -155,8 +204,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelEP2_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport1.GetCurrentColumnValue("EP") != DBNull.Value)
-                totalEP2 += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("EP"));
+            try
+            {
+                if (DetailReport1.GetCurrentColumnValue("EP") != DBNull.Value)
+                    totalEP2 += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("EP"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         double totalMO2Price = 0;
@@ -173,9 +229,16 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelMO2_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport1.GetCurrentColumnValue("MoPrice") != DBNull.Value)
-                totalMO2Price += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MoPrice"));
-            xrLblMO.Text = Convert.ToString(totalMO2Price);
+            try
+            {
+                if (DetailReport1.GetCurrentColumnValue("MoPrice") != DBNull.Value)
+                    totalMO2Price += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MoPrice"));
+                xrLblMO.Text = Convert.ToString(totalMO2Price);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         double totalMA2Price = 0;
@@ -192,9 +255,16 @@ namespace OTTOPro.Report_Design
 
         private void xrLabelMA2_SummaryRowChanged(object sender, EventArgs e)
         {
-            if (DetailReport1.GetCurrentColumnValue("MAPrice") != DBNull.Value)
-                totalMA2Price += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MAPrice"));
-            xrLblMA.Text = Convert.ToString(totalMA2Price);
+            try
+            {
+                if (DetailReport1.GetCurrentColumnValue("MAPrice") != DBNull.Value)
+                    totalMA2Price += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MAPrice"));
+                xrLblMA.Text = Convert.ToString(totalMA2Price);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         Double totalvat = 0;
@@ -209,7 +279,7 @@ namespace OTTOPro.Report_Design
             Double Value2 = 0;
             try
             {
-                if (double.TryParse(GetCurrentColumnValue("Vat").ToString(), out dValue))
+                if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out dValue))
                     totalvat = dValue;
                 if (double.TryParse(xrLblGB.Text, out GValue))
                     GBValue = GValue;
