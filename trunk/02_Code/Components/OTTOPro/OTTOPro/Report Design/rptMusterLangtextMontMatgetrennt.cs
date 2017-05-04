@@ -282,8 +282,11 @@ namespace OTTOPro.Report_Design
             Double Value2 = 0;
             try
             {
-                if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out dValue))
-                    totalvat = dValue;
+                if (GetCurrentColumnValue("Vat") != DBNull.Value)
+                {
+                    if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out dValue))
+                        totalvat = dValue;
+                }                
                 if (double.TryParse(xrLblGB.Text, out GValue))
                     GBValue = GValue;
                 double _result = Convert.ToDouble((GBValue * totalvat) / 100);
