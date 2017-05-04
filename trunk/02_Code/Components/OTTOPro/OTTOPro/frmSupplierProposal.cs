@@ -57,19 +57,26 @@ namespace OTTOPro
             }
             catch (Exception ex)
             {
-                
+                Utility.ShowError(ex);
             }
         }
 
         private void FillLVSection()
         {
-            ObjESupplier = ObjBSupplier.GetLVSectionForProposal(ObjESupplier, _ProjectID);            
-            if (ObjESupplier.Article != null)
+            try
             {
-                cmbLVSection.DataSource = ObjESupplier.Article.Tables[0];
-                cmbLVSection.DisplayMember = "LVSection";
-                cmbLVSection.ValueMember = "LVSection";
-            }            
+                ObjESupplier = ObjBSupplier.GetLVSectionForProposal(ObjESupplier, _ProjectID);
+                if (ObjESupplier.Article != null)
+                {
+                    cmbLVSection.DataSource = ObjESupplier.Article.Tables[0];
+                    cmbLVSection.DisplayMember = "LVSection";
+                    cmbLVSection.ValueMember = "LVSection";
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         public void GetWGWA()
@@ -129,22 +136,43 @@ namespace OTTOPro
 
         private void cmbWGWA_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GetLVDetailsAndSupplier();
+            try
+            {
+                GetLVDetailsAndSupplier();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void cmbLVSection_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            GetWGWA();
-            gcLVDetails.DataSource = null;
-            chkSupplierLists.DataSource = null;
+            try
+            {
+                GetWGWA();
+                gcLVDetails.DataSource = null;
+                chkSupplierLists.DataSource = null;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void chkSupplierLists_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
         {
-            if (chkSupplierLists.CheckedItems.Count == 9)
+            try
             {
-                Int32 checkedItemIndex = chkSupplierLists.CheckedIndices[0];
-                chkSupplierLists.SetItemChecked(checkedItemIndex, false);
+                if (chkSupplierLists.CheckedItems.Count == 9)
+                {
+                    Int32 checkedItemIndex = chkSupplierLists.CheckedIndices[0];
+                    chkSupplierLists.SetItemChecked(checkedItemIndex, false);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
 

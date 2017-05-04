@@ -58,9 +58,16 @@ namespace OTTOPro
 
         private void frmTextModule_Load(object sender, EventArgs e)
         {
-            BindTextModuleAreas();
-            cmbTextArea_SelectionChangeCommitted(null,null);
-           // BindTextModuleGrid();
+            try
+            {
+                BindTextModuleAreas();
+                cmbTextArea_SelectionChangeCommitted(null, null);
+                // BindTextModuleGrid();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
