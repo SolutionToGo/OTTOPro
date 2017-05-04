@@ -288,5 +288,32 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void gvLVDetails_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gcLVDetailsDelete_ItemClick));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcLVDetailsDelete_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                int iRowHandle = gvLVDetails.FocusedRowHandle;
+                DataTable table = gcLVDetails.DataSource as DataTable;
+                table.Rows.RemoveAt(iRowHandle);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }
