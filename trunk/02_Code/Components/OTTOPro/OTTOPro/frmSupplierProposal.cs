@@ -179,7 +179,11 @@ namespace OTTOPro
         private void btnGeneratePDF_Click(object sender, EventArgs e)
         {
             try
-            {               
+            {
+                if (chkSupplierLists.CheckedItems.Count==0)
+                {
+                    throw new Exception("Please select atleast one Supplier.");
+                }
                 for (int i = ObjESupplier.dsSupplier.Tables[0].Columns.Count - 1; i >= 0; i--)
                 {
                     string strcolname = ObjESupplier.dsSupplier.Tables[0].Columns[i].ColumnName.ToString();
@@ -270,18 +274,20 @@ namespace OTTOPro
                     {
                         if (dr["Suppliermail"].ToString() != null || dr["Suppliermail"].ToString() != "")
                         {
-                            strArr.Append(delimiter);
-                            strArr.Append(dr["Suppliermail"]);
-                            delimiter = ";";
-                        }
-                    }
-                }                
-                mailItem.To = strArr.ToString();
-                mailItem.Body = "This is the message.";
+                            //strArr.Append(delimiter);
+                            //strArr.Append(dr["Suppliermail"]);
+                            //delimiter = ";";
 
-                mailItem.Attachments.Add(_pdfpath);
-                mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
-                mailItem.Display(false);
+                            mailItem.To = dr["Suppliermail"].ToString();
+                            mailItem.Body = "This is the message.";
+
+                            mailItem.Attachments.Add(_pdfpath);
+                        }
+                        mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
+                        mailItem.Display(true);
+                    }
+                    
+                }
             }
             catch (Exception ex)
             {
@@ -305,15 +311,46 @@ namespace OTTOPro
         private void gcLVDetailsDelete_ItemClick(object sender, EventArgs e)
         {
             try
-            {
+            {                
                 int iRowHandle = gvLVDetails.FocusedRowHandle;
                 DataTable table = gcLVDetails.DataSource as DataTable;
+
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
+                ParsePositionDelete();
+                ObjBSupplier = new BSupplier();
+                ObjESupplier = ObjBSupplier.SaveDeletePosition(ObjESupplier);
+
                 table.Rows.RemoveAt(iRowHandle);
+                
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
+
+        private void ParsePositionDelete()
+        {
+            int _IDValue = -1;
+            try
+            {
+                if (gvLVDetails.FocusedColumn != null && gvLVDetails.GetFocusedRowCellValue("PositionID") != null)
+                {
+                    if (int.TryParse(gvLVDetails.GetFocusedRowCellValue("PositionID").ToString(), out _IDValue))
+                    {
+                        ObjESupplier.PositionID = _IDValue;
+                    }
+                    ObjESupplier.DeletePositionID = -1;
+                    ObjESupplier.ProjectID = _ProjectID;
+                }                    
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
     }
 }

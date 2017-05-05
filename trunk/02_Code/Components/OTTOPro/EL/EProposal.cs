@@ -17,7 +17,7 @@ namespace EL
         private string _Contents;
         private int _TextAreaID = -1;
         private int _TextCategoryID = -1;
-        private DataSet _dsTextModule;
+        private DataSet _dsTextModule;       
 
 
         //To Hold Category
@@ -96,5 +96,10 @@ namespace EL
             get { return _dsTextModuleAreas; }
             set { _dsTextModuleAreas = value; }
         }
+
+
+        
+
+
     }
 }

@@ -63,6 +63,10 @@ namespace EL
         private int _SupplierProposalID;
         private DataTable _dtUpdateSupplierPrice;
 
+        //To hold delete position
+        private int _DeletePositionID = -1;
+        private int _PositionID = -1;
+
         // Article Properties and entities
         public int WGWAID
         {
@@ -298,6 +302,18 @@ namespace EL
         {
             get { return _dtUpdateSupplierPrice; }
             set { _dtUpdateSupplierPrice = value; }
+        }
+
+        //Position status
+        public int DeletePositionID
+        {
+            get { return _DeletePositionID; }
+            set { _DeletePositionID = value; }
+        }
+        public int PositionID
+        {
+            get { return _PositionID; }
+            set { _PositionID = value; }
         }
     }
 }
