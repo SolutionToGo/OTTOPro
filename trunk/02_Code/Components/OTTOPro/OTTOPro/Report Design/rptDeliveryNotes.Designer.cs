@@ -171,11 +171,11 @@
             // 
             this.xrLabel23.Dpi = 100F;
             this.xrLabel23.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(486.6666F, 260.8958F);
+            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(486.6666F, 250.1041F);
             this.xrLabel23.Multiline = true;
             this.xrLabel23.Name = "xrLabel23";
             this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel23.SizeF = new System.Drawing.SizeF(60.12396F, 14.66666F);
+            this.xrLabel23.SizeF = new System.Drawing.SizeF(60.12396F, 25.45839F);
             this.xrLabel23.StylePriority.UseFont = false;
             this.xrLabel23.Text = "Datum";
             // 
@@ -309,7 +309,7 @@
             this.xrTableCell8.Dpi = 100F;
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.StylePriority.UseBorders = false;
-            this.xrTableCell8.Text = "Eienkaufpreis";
+            this.xrTableCell8.Text = "Einzelpreis";
             this.xrTableCell8.Weight = 0.78635817307692313D;
             // 
             // xrTableCell3
@@ -346,12 +346,12 @@
             // xrLabel8
             // 
             this.xrLabel8.Dpi = 100F;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(598.6262F, 259.9376F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(598.6262F, 250.1041F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(41.37396F, 14.66666F);
-            this.xrLabel8.Text = "Blatt";
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(41.3739F, 24.5002F);
+            this.xrLabel8.Text = "Seite";
             // 
             // xrPictureBox1
             // 

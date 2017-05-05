@@ -43,11 +43,9 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rpiLangtext = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.rpiText = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -62,13 +60,12 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.rpiDescription = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSupplierLists)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLVDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLVDetails)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpiLangtext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpiText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -82,6 +79,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpiDescription)).BeginInit();
             this.SuspendLayout();
             // 
             // gridColumnPositionsStatus
@@ -185,8 +183,7 @@
             this.gcLVDetails.MainView = this.gvLVDetails;
             this.gcLVDetails.Name = "gcLVDetails";
             this.gcLVDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.rpiText,
-            this.rpiLangtext});
+            this.rpiDescription});
             this.gcLVDetails.Size = new System.Drawing.Size(550, 233);
             this.gcLVDetails.TabIndex = 14;
             this.gcLVDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -257,19 +254,12 @@
             this.gridColumn27.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn27.AppearanceHeader.Options.UseFont = true;
             this.gridColumn27.Caption = "Description";
-            this.gridColumn27.ColumnEdit = this.rpiLangtext;
+            this.gridColumn27.ColumnEdit = this.rpiDescription;
             this.gridColumn27.FieldName = "Longdiscription";
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.OptionsColumn.ReadOnly = true;
             this.gridColumn27.Visible = true;
             this.gridColumn27.VisibleIndex = 1;
-            // 
-            // rpiLangtext
-            // 
-            this.rpiLangtext.AutoHeight = false;
-            this.rpiLangtext.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.rpiLangtext.Name = "rpiLangtext";
             // 
             // gridColumn28
             // 
@@ -302,11 +292,6 @@
             this.gridColumn2.Caption = "SeqNo";
             this.gridColumn2.FieldName = "sequenceNo";
             this.gridColumn2.Name = "gridColumn2";
-            // 
-            // rpiText
-            // 
-            this.rpiText.AutoHeight = false;
-            this.rpiText.Name = "rpiText";
             // 
             // layoutControlGroup1
             // 
@@ -457,6 +442,11 @@
             // 
             this.popupMenu1.Name = "popupMenu1";
             // 
+            // rpiDescription
+            // 
+            this.rpiDescription.Name = "rpiDescription";
+            this.rpiDescription.ShowCaretInReadOnly = false;
+            // 
             // frmSupplierProposal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -476,8 +466,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSupplierLists)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLVDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLVDetails)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpiLangtext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpiText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -491,6 +479,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpiDescription)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -521,13 +510,12 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpiText;
         private System.Windows.Forms.Label label1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumnPositionsStatus;
-        private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit rpiLangtext;
+        private DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit rpiDescription;
     }
 }
