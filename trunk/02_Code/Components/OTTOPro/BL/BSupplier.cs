@@ -223,5 +223,19 @@ namespace BL
             }
             return ObjESupplier;
         }
+
+        public ESupplier SaveDeletePosition(ESupplier ObjEsupplier)
+        {
+            try
+            {
+                ObjEsupplier = ObjDSupplier.SaveDeletePosition(ObjEsupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEsupplier;
+        }
+
     }
 }

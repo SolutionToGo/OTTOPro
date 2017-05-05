@@ -469,5 +469,35 @@ namespace DataAccess
             }
             return ObjESupplier;
         }
+
+        public ESupplier SaveDeletePosition(ESupplier ObjESupplier)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_DeletePosition]";
+                    cmd.Parameters.AddWithValue("@PositionID", ObjESupplier.PositionID);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ds);
+                    }                  
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
     }
 }

@@ -233,5 +233,33 @@ namespace OTTOPro
             pictureBox1.Visible = false;
             Obj.Show();
         }
+
+        private void xtraTabbedMdiManager1_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
+        {
+            //if (xtraTabbedMdiManager1.Pages.Count > 0)
+            //{
+            //    BackgroudImageVisibility(false);
+            //}
+            //else { BackgroudImageVisibility(true); }
+        }
+
+        public void BackgroudImageVisibility(bool visibility)
+        {
+            //if (visibility)
+            //{
+            //    pictureBox1.Visible = true;
+            //    label2.Visible = true;
+            //}
+            //else
+            //{
+            //    pictureBox1.Visible = false;
+            //    label2.Visible = false;
+            //}
+        }
+
+        private void frmOTTOPro_MdiChildActivate(object sender, EventArgs e)
+        {
+          //  BackgroudImageVisibility(false);
+        }
     }
 }
