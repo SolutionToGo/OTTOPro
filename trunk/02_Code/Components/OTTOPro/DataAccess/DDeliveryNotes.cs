@@ -196,5 +196,37 @@ namespace DataAccess
             }
             return ObjEDeliveryNotes;
         }
+
+        public EDeliveryNotes GetBlattDetails(EDeliveryNotes ObjEDeliveryNotes)
+        {
+            DataSet dsPositions = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_BlattDetails]";
+                    cmd.Parameters.AddWithValue("@BlattID", ObjEDeliveryNotes.BlattID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsPositions);
+                    }
+                    ObjEDeliveryNotes.dtNonActivedelivery = dsPositions.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("To Be Updated");
+                else
+                    throw new Exception("Error While Retrieving the Positions");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEDeliveryNotes;
+        }
     }
 }   

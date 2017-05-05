@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -733,10 +733,12 @@
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcDelivery = new DevExpress.XtraGrid.GridControl();
             this.gvDelivery = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txttext = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -795,6 +797,7 @@
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.txtrpMenge = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1366,6 +1369,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtrpMenge)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -1733,10 +1737,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -7471,17 +7475,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -9976,6 +9980,7 @@
             this.txtDeliveredQnty.Location = new System.Drawing.Point(96, 36);
             this.txtDeliveredQnty.MenuManager = this.barManager1;
             this.txtDeliveredQnty.Name = "txtDeliveredQnty";
+            this.txtDeliveredQnty.Properties.ReadOnly = true;
             this.txtDeliveredQnty.Size = new System.Drawing.Size(208, 20);
             this.txtDeliveredQnty.StyleController = this.layoutControl12;
             this.txtDeliveredQnty.TabIndex = 6;
@@ -9985,6 +9990,7 @@
             this.txtOrderedQnty.Location = new System.Drawing.Point(96, 12);
             this.txtOrderedQnty.MenuManager = this.barManager1;
             this.txtOrderedQnty.Name = "txtOrderedQnty";
+            this.txtOrderedQnty.Properties.ReadOnly = true;
             this.txtOrderedQnty.Size = new System.Drawing.Size(208, 20);
             this.txtOrderedQnty.StyleController = this.layoutControl12;
             this.txtOrderedQnty.TabIndex = 4;
@@ -10179,7 +10185,7 @@
             this.LVPositionNr.Name = "LVPositionNr";
             this.LVPositionNr.Visible = true;
             this.LVPositionNr.VisibleIndex = 0;
-            this.LVPositionNr.Width = 91;
+            this.LVPositionNr.Width = 110;
             // 
             // gridColumn18
             // 
@@ -10191,7 +10197,7 @@
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 1;
-            this.gridColumn18.Width = 191;
+            this.gridColumn18.Width = 237;
             // 
             // rtfDescription
             // 
@@ -10207,7 +10213,7 @@
             this.gridColumn19.Name = "gridColumn19";
             this.gridColumn19.Visible = true;
             this.gridColumn19.VisibleIndex = 2;
-            this.gridColumn19.Width = 69;
+            this.gridColumn19.Width = 63;
             // 
             // gridColumn20
             // 
@@ -10231,7 +10237,9 @@
             this.gridColumn21.Caption = "Type Of LV";
             this.gridColumn21.FieldName = "PositionKZ";
             this.gridColumn21.Name = "gridColumn21";
-            this.gridColumn21.Width = 74;
+            this.gridColumn21.Visible = true;
+            this.gridColumn21.VisibleIndex = 3;
+            this.gridColumn21.Width = 164;
             // 
             // gridColumn22
             // 
@@ -10241,7 +10249,8 @@
             this.gridColumn22.FieldName = "LVSection";
             this.gridColumn22.Name = "gridColumn22";
             this.gridColumn22.Visible = true;
-            this.gridColumn22.VisibleIndex = 3;
+            this.gridColumn22.VisibleIndex = 4;
+            this.gridColumn22.Width = 73;
             // 
             // gridColumn23
             // 
@@ -10251,7 +10260,8 @@
             this.gridColumn23.FieldName = "LVStatus";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.Visible = true;
-            this.gridColumn23.VisibleIndex = 4;
+            this.gridColumn23.VisibleIndex = 5;
+            this.gridColumn23.Width = 76;
             // 
             // gcDeliveryNumbers
             // 
@@ -10263,7 +10273,6 @@
             this.gcDeliveryNumbers.TabIndex = 14;
             this.gcDeliveryNumbers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDeliveryNumbers});
-            this.gcDeliveryNumbers.DoubleClick += new System.EventHandler(this.gcDeliveryNumbers_DoubleClick);
             // 
             // gvDeliveryNumbers
             // 
@@ -10275,12 +10284,14 @@
             this.gridColumn25,
             this.gridColumn24,
             this.gridColumn31,
+            this.gridColumn41,
             this.gridColumn32,
             this.gridColumn33});
             this.gvDeliveryNumbers.GridControl = this.gcDeliveryNumbers;
             this.gvDeliveryNumbers.Name = "gvDeliveryNumbers";
             this.gvDeliveryNumbers.OptionsBehavior.Editable = false;
             this.gvDeliveryNumbers.OptionsView.ShowGroupPanel = false;
+            this.gvDeliveryNumbers.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvDeliveryNumbers_PopupMenuShowing);
             // 
             // gridColumn25
             // 
@@ -10312,6 +10323,16 @@
             this.gridColumn31.Visible = true;
             this.gridColumn31.VisibleIndex = 2;
             // 
+            // gridColumn41
+            // 
+            this.gridColumn41.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn41.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn41.Caption = "Invoiced";
+            this.gridColumn41.FieldName = "IsInvoiced";
+            this.gridColumn41.Name = "gridColumn41";
+            this.gridColumn41.Visible = true;
+            this.gridColumn41.VisibleIndex = 3;
+            // 
             // gridColumn32
             // 
             this.gridColumn32.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -10320,7 +10341,7 @@
             this.gridColumn32.FieldName = "CreatedBy";
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 3;
+            this.gridColumn32.VisibleIndex = 4;
             // 
             // gridColumn33
             // 
@@ -10330,7 +10351,7 @@
             this.gridColumn33.FieldName = "CreatedDate";
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 4;
+            this.gridColumn33.VisibleIndex = 5;
             // 
             // gcDelivery
             // 
@@ -10340,7 +10361,8 @@
             this.gcDelivery.Name = "gcDelivery";
             this.gcDelivery.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rtfdeliverydescription,
-            this.txttext});
+            this.txttext,
+            this.txtrpMenge});
             this.gcDelivery.Size = new System.Drawing.Size(751, 384);
             this.gcDelivery.TabIndex = 12;
             this.gcDelivery.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -10357,6 +10379,7 @@
             this.gvDelivery.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gvDelivery.AppearancePrint.HeaderPanel.Options.UseFont = true;
             this.gvDelivery.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn40,
             this.gridColumn13,
             this.gridColumn14,
             this.gridColumn15,
@@ -10370,6 +10393,17 @@
             this.gvDelivery.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvPositions_MouseDown);
             this.gvDelivery.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvPositions_MouseMove);
             // 
+            // gridColumn40
+            // 
+            this.gridColumn40.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn40.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn40.Caption = "SNO";
+            this.gridColumn40.FieldName = "SNO";
+            this.gridColumn40.Name = "gridColumn40";
+            this.gridColumn40.Visible = true;
+            this.gridColumn40.VisibleIndex = 0;
+            this.gridColumn40.Width = 51;
+            // 
             // gridColumn13
             // 
             this.gridColumn13.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -10379,8 +10413,8 @@
             this.gridColumn13.FieldName = "Position_OZ";
             this.gridColumn13.Name = "gridColumn13";
             this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 0;
-            this.gridColumn13.Width = 107;
+            this.gridColumn13.VisibleIndex = 1;
+            this.gridColumn13.Width = 117;
             // 
             // txttext
             // 
@@ -10397,8 +10431,8 @@
             this.gridColumn14.FieldName = "ShortDescription";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
-            this.gridColumn14.VisibleIndex = 2;
-            this.gridColumn14.Width = 172;
+            this.gridColumn14.VisibleIndex = 3;
+            this.gridColumn14.Width = 327;
             // 
             // rtfdeliverydescription
             // 
@@ -10411,11 +10445,12 @@
             this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn15.AppearanceHeader.Options.UseFont = true;
             this.gridColumn15.Caption = "Quantity";
+            this.gridColumn15.ColumnEdit = this.txtrpMenge;
             this.gridColumn15.FieldName = "Menge";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
-            this.gridColumn15.VisibleIndex = 1;
-            this.gridColumn15.Width = 66;
+            this.gridColumn15.VisibleIndex = 2;
+            this.gridColumn15.Width = 74;
             // 
             // gridColumn16
             // 
@@ -10425,7 +10460,9 @@
             this.gridColumn16.ColumnEdit = this.txttext;
             this.gridColumn16.FieldName = "PositionKZ";
             this.gridColumn16.Name = "gridColumn16";
-            this.gridColumn16.Width = 85;
+            this.gridColumn16.Visible = true;
+            this.gridColumn16.VisibleIndex = 4;
+            this.gridColumn16.Width = 164;
             // 
             // lblSelectedLVPosition
             // 
@@ -10945,6 +10982,14 @@
             this.emptySpaceItem17.Name = "emptySpaceItem17";
             this.emptySpaceItem17.Size = new System.Drawing.Size(686, 73);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // txtrpMenge
+            // 
+            this.txtrpMenge.AutoHeight = false;
+            this.txtrpMenge.Mask.EditMask = "n0";
+            this.txtrpMenge.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtrpMenge.Mask.ShowPlaceHolders = false;
+            this.txtrpMenge.Name = "txtrpMenge";
             // 
             // frmProject
             // 
@@ -11545,6 +11590,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtrpMenge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -12317,6 +12363,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem154;
         private DevExpress.XtraEditors.CheckEdit chkCumulated;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn17;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtrpMenge;
 
 
     }
