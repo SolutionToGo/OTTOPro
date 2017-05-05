@@ -30,15 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSupplierProposal));
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule1 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression1 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule2 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.XtraGrid.GridFormatRule gridFormatRule3 = new DevExpress.XtraGrid.GridFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression3 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            this.gridColumnProposed = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnIsNew = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumnIsDelete = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumnPositionsStatus = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbWGWA = new System.Windows.Forms.ComboBox();
@@ -51,6 +43,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpiLangtext = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -69,12 +62,12 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.rpiLangtext = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSupplierLists)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLVDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLVDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpiLangtext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
@@ -89,26 +82,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpiLangtext)).BeginInit();
             this.SuspendLayout();
             // 
-            // gridColumnProposed
+            // gridColumnPositionsStatus
             // 
-            this.gridColumnProposed.Caption = "IsProposed";
-            this.gridColumnProposed.FieldName = "IsProposed";
-            this.gridColumnProposed.Name = "gridColumnProposed";
-            // 
-            // gridColumnIsNew
-            // 
-            this.gridColumnIsNew.Caption = "IsNew";
-            this.gridColumnIsNew.FieldName = "IsNew";
-            this.gridColumnIsNew.Name = "gridColumnIsNew";
-            // 
-            // gridColumnIsDelete
-            // 
-            this.gridColumnIsDelete.Caption = "IsDelete";
-            this.gridColumnIsDelete.FieldName = "IsDelete";
-            this.gridColumnIsDelete.Name = "gridColumnIsDelete";
+            this.gridColumnPositionsStatus.Caption = "PositionsStatus";
+            this.gridColumnPositionsStatus.FieldName = "PositionsStatus";
+            this.gridColumnPositionsStatus.Name = "gridColumnPositionsStatus";
             // 
             // layoutControl1
             // 
@@ -233,34 +213,8 @@
             this.gridColumn28,
             this.gridColumn29,
             this.gridColumn2,
-            this.gridColumnProposed,
-            this.gridColumnIsNew,
-            this.gridColumnIsDelete});
+            this.gridColumnPositionsStatus});
             this.gvLVDetails.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            gridFormatRule1.ApplyToRow = true;
-            gridFormatRule1.Column = this.gridColumnProposed;
-            gridFormatRule1.Name = "FormatProposed";
-            formatConditionRuleExpression1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            formatConditionRuleExpression1.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression1.Expression = "[IsProposed] = \'YES\'";
-            gridFormatRule1.Rule = formatConditionRuleExpression1;
-            gridFormatRule2.ApplyToRow = true;
-            gridFormatRule2.Column = this.gridColumnIsNew;
-            gridFormatRule2.Name = "FormatNew";
-            formatConditionRuleExpression2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            formatConditionRuleExpression2.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression2.Expression = "[IsNew] = \'YES\'";
-            gridFormatRule2.Rule = formatConditionRuleExpression2;
-            gridFormatRule3.ApplyToRow = true;
-            gridFormatRule3.Column = this.gridColumnIsDelete;
-            gridFormatRule3.Name = "FormatDelete";
-            formatConditionRuleExpression3.Appearance.BackColor = System.Drawing.Color.Red;
-            formatConditionRuleExpression3.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression3.Expression = "[IsDelete] = \'YES\'";
-            gridFormatRule3.Rule = formatConditionRuleExpression3;
-            this.gvLVDetails.FormatRules.Add(gridFormatRule1);
-            this.gvLVDetails.FormatRules.Add(gridFormatRule2);
-            this.gvLVDetails.FormatRules.Add(gridFormatRule3);
             this.gvLVDetails.GridControl = this.gcLVDetails;
             this.gvLVDetails.Name = "gvLVDetails";
             this.gvLVDetails.OptionsCustomization.AllowColumnMoving = false;
@@ -274,6 +228,7 @@
             this.gvLVDetails.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvLVDetails.OptionsView.RowAutoHeight = true;
             this.gvLVDetails.OptionsView.ShowGroupPanel = false;
+            this.gvLVDetails.RowStyle += new DevExpress.XtraGrid.Views.Grid.RowStyleEventHandler(this.gvLVDetails_RowStyle);
             this.gvLVDetails.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvLVDetails_PopupMenuShowing);
             // 
             // gridColumn1
@@ -308,6 +263,13 @@
             this.gridColumn27.OptionsColumn.ReadOnly = true;
             this.gridColumn27.Visible = true;
             this.gridColumn27.VisibleIndex = 1;
+            // 
+            // rpiLangtext
+            // 
+            this.rpiLangtext.AutoHeight = false;
+            this.rpiLangtext.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.rpiLangtext.Name = "rpiLangtext";
             // 
             // gridColumn28
             // 
@@ -495,13 +457,6 @@
             // 
             this.popupMenu1.Name = "popupMenu1";
             // 
-            // rpiLangtext
-            // 
-            this.rpiLangtext.AutoHeight = false;
-            this.rpiLangtext.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.rpiLangtext.Name = "rpiLangtext";
-            // 
             // frmSupplierProposal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -521,6 +476,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSupplierLists)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLVDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLVDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpiLangtext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
@@ -535,7 +491,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpiLangtext)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -572,9 +527,7 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn2;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private DevExpress.XtraBars.PopupMenu popupMenu1;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnProposed;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnIsNew;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumnIsDelete;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumnPositionsStatus;
         private DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit rpiLangtext;
     }
 }

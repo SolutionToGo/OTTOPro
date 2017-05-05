@@ -17,6 +17,7 @@ using System.IO;
 using System.Diagnostics;
 using DevExpress.XtraReports.UserDesigner;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraGrid.Views.Grid;
 
 namespace OTTOPro
 {
@@ -208,9 +209,7 @@ namespace OTTOPro
                 {
                     Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
-                    rpt.Parameters["LVSection"].Value = cmbLVSection.Text;
-                    rpt.Parameters["WG"].Value = Convert.ToInt32(_WG);
-                    rpt.Parameters["WA"].Value = Convert.ToInt32(_WA);
+                    rpt.Parameters["ProposalID"].Value = _ProposalID;
                     rpt.Parameters["ProjectID"].Value = _ProjectID;
 
                     saveFileDialog1.Filter = "PDF Files|*.pdf";
@@ -224,7 +223,12 @@ namespace OTTOPro
                         _pdfpath = saveFileDialog1.FileName;
                     }                   
                 }
-                               
+                 ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WG), Convert.ToInt32(_WA));
+                 if (ObjESupplier.dsSupplier != null)
+                 {
+                     gcLVDetails.DataSource = ObjESupplier.dsSupplier.Tables[0];
+                     gvLVDetails.BestFitColumns();
+                 }
             }
             catch (Exception ex)
             {
@@ -350,6 +354,36 @@ namespace OTTOPro
                 throw;
             }
 
+        }
+
+        private void gvLVDetails_RowStyle(object sender, DevExpress.XtraGrid.Views.Grid.RowStyleEventArgs e)
+        {
+            GridView View = sender as GridView;
+            if (e.RowHandle >= 0)
+            {
+                if (gvLVDetails.FocusedColumn != null && gvLVDetails.GetFocusedRowCellValue("PositionID") != null)
+                {
+                    if (View.Columns["PositionsStatus"] !=null)
+                    {
+                        string _status = View.GetRowCellDisplayText(e.RowHandle, View.Columns["PositionsStatus"]);
+                        if (_status == "P")
+                        {
+                            e.Appearance.BackColor = Color.LightPink;
+                        }
+                        if (_status == "D")
+                        {
+                            e.Appearance.BackColor = Color.Salmon;
+                            e.Appearance.BackColor2 = Color.SeaShell;
+                        }
+                        if (_status == "N")
+                        {
+                            e.Appearance.BackColor = Color.LightSeaGreen;
+                            e.Appearance.BackColor2 = Color.LightCyan;
+                        }
+                    }
+                }
+                
+            }
         }
 
     }

@@ -33,8 +33,6 @@
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
-            DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
-            DevExpress.DataAccess.Sql.QueryParameter queryParameter4 = new DevExpress.DataAccess.Sql.QueryParameter();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
@@ -67,9 +65,7 @@
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.xrPageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
-            this.LVSection = new DevExpress.XtraReports.Parameters.Parameter();
-            this.WG = new DevExpress.XtraReports.Parameters.Parameter();
-            this.WA = new DevExpress.XtraReports.Parameters.Parameter();
+            this.ProposalID = new DevExpress.XtraReports.Parameters.Parameter();
             this.xrCrossBandBox1 = new DevExpress.XtraReports.UI.XRCrossBandBox();
             this.ProjectID = new DevExpress.XtraReports.Parameters.Parameter();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
@@ -121,7 +117,7 @@
             // xrTableCell6
             // 
             this.xrTableCell6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA).Position_OZ")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID).Position_OZ")});
             this.xrTableCell6.Dpi = 100F;
             this.xrTableCell6.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell6.Name = "xrTableCell6";
@@ -143,7 +139,7 @@
             // xrTableCell15
             // 
             this.xrTableCell15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA).Menge")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID).Menge")});
             this.xrTableCell15.Dpi = 100F;
             this.xrTableCell15.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell15.Name = "xrTableCell15";
@@ -156,7 +152,7 @@
             // xrRichText1
             // 
             this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA).Longdiscription")});
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID).Longdiscription")});
             this.xrRichText1.Dpi = 100F;
             this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(131.2064F, 25F);
@@ -185,7 +181,7 @@
             this.xrLabel7,
             this.xrLabel9});
             this.TopMargin.Dpi = 100F;
-            this.TopMargin.HeightF = 317.7084F;
+            this.TopMargin.HeightF = 301.0417F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -200,7 +196,7 @@
             this.xrTable1.Dpi = 100F;
             this.xrTable1.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTable1.ForeColor = System.Drawing.Color.White;
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(3.083457F, 292.5F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(3.083457F, 275.5F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -247,7 +243,7 @@
             this.xrTableCell3.StylePriority.UseFont = false;
             this.xrTableCell3.StylePriority.UseForeColor = false;
             this.xrTableCell3.StylePriority.UseTextAlignment = false;
-            this.xrTableCell3.Text = "Description of LV Position(Lang Text)";
+            this.xrTableCell3.Text = "Beschreibung(Lang Text)";
             this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrTableCell3.Weight = 1.2913325548564347D;
             // 
@@ -267,7 +263,7 @@
             // xrLabel2
             // 
             this.xrLabel2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA).ProjectNumber")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID).ProjectNumber")});
             this.xrLabel2.Dpi = 100F;
             this.xrLabel2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(133.1481F, 121.4584F);
@@ -286,7 +282,7 @@
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(121F, 23F);
             this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.Text = "Project Description";
+            this.xrLabel5.Text = "Bauvorhaben";
             // 
             // xrLabel6
             // 
@@ -319,12 +315,12 @@
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel8.SizeF = new System.Drawing.SizeF(121F, 23F);
             this.xrLabel8.StylePriority.UseFont = false;
-            this.xrLabel8.Text = "Project Name";
+            this.xrLabel8.Text = "Projekt Nummer";
             // 
             // xrLabel4
             // 
             this.xrLabel4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA).ProjectDescription")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID).ProjectDescription")});
             this.xrLabel4.Dpi = 100F;
             this.xrLabel4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(133.1481F, 144.4584F);
@@ -337,7 +333,7 @@
             // xrLabel12
             // 
             this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA).WGWA")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID).WGWA")});
             this.xrLabel12.Dpi = 100F;
             this.xrLabel12.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(133.1481F, 197.9167F);
@@ -356,7 +352,7 @@
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel11.SizeF = new System.Drawing.SizeF(121F, 23F);
             this.xrLabel11.StylePriority.UseFont = false;
-            this.xrLabel11.Text = "Article No";
+            this.xrLabel11.Text = "Artikel Nummer";
             // 
             // xrLabel10
             // 
@@ -380,8 +376,6 @@
             // 
             // xrLabel15
             // 
-            this.xrLabel15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA).ProposalNo")});
             this.xrLabel15.Dpi = 100F;
             this.xrLabel15.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(133.1481F, 220.9167F);
@@ -390,6 +384,7 @@
             this.xrLabel15.SizeF = new System.Drawing.SizeF(220.8333F, 23F);
             this.xrLabel15.StylePriority.UseFont = false;
             this.xrLabel15.Text = "xrLabel2";
+            this.xrLabel15.Visible = false;
             // 
             // xrLabel14
             // 
@@ -401,6 +396,7 @@
             this.xrLabel14.SizeF = new System.Drawing.SizeF(121F, 23F);
             this.xrLabel14.StylePriority.UseFont = false;
             this.xrLabel14.Text = "Proposal No";
+            this.xrLabel14.Visible = false;
             // 
             // xrLabel13
             // 
@@ -412,6 +408,7 @@
             this.xrLabel13.StylePriority.UseTextAlignment = false;
             this.xrLabel13.Text = ":";
             this.xrLabel13.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrLabel13.Visible = false;
             // 
             // xrLabel1
             // 
@@ -462,7 +459,7 @@
             // xrPageInfo1
             // 
             this.xrPageInfo1.Dpi = 100F;
-            this.xrPageInfo1.Format = "Page {1} of {0}";
+            this.xrPageInfo1.Format = "Page {0} of {1}";
             this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(534.9999F, 8.999974F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -474,27 +471,12 @@
             this.ReportFooter.HeightF = 44.16669F;
             this.ReportFooter.Name = "ReportFooter";
             // 
-            // LVSection
+            // ProposalID
             // 
-            this.LVSection.Description = "LVSection";
-            this.LVSection.Name = "LVSection";
-            this.LVSection.Visible = false;
-            // 
-            // WG
-            // 
-            this.WG.Description = "WG";
-            this.WG.Name = "WG";
-            this.WG.Type = typeof(int);
-            this.WG.ValueInfo = "0";
-            this.WG.Visible = false;
-            // 
-            // WA
-            // 
-            this.WA.Description = "WA";
-            this.WA.Name = "WA";
-            this.WA.Type = typeof(int);
-            this.WA.ValueInfo = "0";
-            this.WA.Visible = false;
+            this.ProposalID.Name = "ProposalID";
+            this.ProposalID.Type = typeof(int);
+            this.ProposalID.ValueInfo = "0";
+            this.ProposalID.Visible = false;
             // 
             // xrCrossBandBox1
             // 
@@ -520,23 +502,15 @@
             // 
             this.sqlDataSource1.ConnectionName = "OTTOPro";
             this.sqlDataSource1.Name = "sqlDataSource1";
-            storedProcQuery1.Name = "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA)";
+            storedProcQuery1.Name = "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID)";
             queryParameter1.Name = "@ProjectID";
             queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
             queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.ProjectID]", typeof(int));
-            queryParameter2.Name = "@LVSection";
+            queryParameter2.Name = "@ProposalID";
             queryParameter2.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter2.Value = new DevExpress.DataAccess.Expression("[Parameters.LVSection]", typeof(string));
-            queryParameter3.Name = "@WG";
-            queryParameter3.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter3.Value = new DevExpress.DataAccess.Expression("[Parameters.WG]", typeof(int));
-            queryParameter4.Name = "@WA";
-            queryParameter4.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter4.Value = new DevExpress.DataAccess.Expression("[Parameters.WA]", typeof(int));
+            queryParameter2.Value = new DevExpress.DataAccess.Expression("[Parameters.ProposalID]", typeof(int));
             storedProcQuery1.Parameters.Add(queryParameter1);
             storedProcQuery1.Parameters.Add(queryParameter2);
-            storedProcQuery1.Parameters.Add(queryParameter3);
-            storedProcQuery1.Parameters.Add(queryParameter4);
             storedProcQuery1.StoredProcName = "P_Rpt_GetSupplierProposal";
             this.sqlDataSource1.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
             storedProcQuery1});
@@ -553,13 +527,11 @@
             this.sqlDataSource1});
             this.CrossBandControls.AddRange(new DevExpress.XtraReports.UI.XRCrossBandControl[] {
             this.xrCrossBandBox1});
-            this.DataMember = "P_Rpt_GetSupplierProposal(@ProjectID, @LVSection, @WG, @WA)";
+            this.DataMember = "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID)";
             this.DataSource = this.sqlDataSource1;
-            this.Margins = new System.Drawing.Printing.Margins(99, 100, 318, 77);
+            this.Margins = new System.Drawing.Printing.Margins(99, 100, 301, 77);
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
-            this.LVSection,
-            this.WG,
-            this.WA,
+            this.ProposalID,
             this.ProjectID});
             this.Version = "16.2";
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
@@ -592,15 +564,12 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell15;
         private DevExpress.XtraReports.UI.XRPageInfo xrPageInfo1;
         private DevExpress.XtraReports.UI.XRRichText xrRichText1;
-        private DevExpress.XtraReports.Parameters.Parameter LVSection;
-        private DevExpress.XtraReports.Parameters.Parameter WG;
-        private DevExpress.XtraReports.Parameters.Parameter WA;
+        private DevExpress.XtraReports.Parameters.Parameter ProposalID;
         private DevExpress.XtraReports.UI.XRCrossBandBox xrCrossBandBox1;
         private DevExpress.XtraReports.Parameters.Parameter ProjectID;
         private DevExpress.XtraReports.UI.XRLabel xrLabel13;
         private DevExpress.XtraReports.UI.XRLabel xrLabel14;
         private DevExpress.XtraReports.UI.XRLabel xrLabel15;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
         private DevExpress.XtraReports.UI.XRLabel xrLabel7;
         private DevExpress.XtraReports.UI.XRLabel xrLabel1;
@@ -609,5 +578,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell11;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell3;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
     }
 }
