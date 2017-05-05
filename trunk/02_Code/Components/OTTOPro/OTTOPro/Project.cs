@@ -1488,10 +1488,20 @@ namespace OTTOPro
                 decimal Sum = 0;
                 if (strPosition == "z")
                 {
-                    Obj = dt.Compute("SUM(" + strField + ")", "SNO >=" + ifromValue +
+                    object ObjMA = null;
+                    object ObjMO = null;
+
+                    ObjMA = dt.Compute("SUM(MAWithMulti)", "SNO >=" + ifromValue +
                        "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M')");
-                    Sum = Obj == DBNull.Value ? 0 : Convert.ToDecimal(Obj);
-                    TotalValue = ((strPer + strPerMO) * Sum) / 100;
+
+                    ObjMO = dt.Compute("SUM(MOWithMulti)", "SNO >=" + ifromValue +
+                       "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M')");
+
+                    decimal MAPrice = Convert.ToDecimal(ObjMA);
+                    decimal MOPrice = Convert.ToDecimal(ObjMO);
+                    decimal MaSurcharge = (MAPrice * strPer) / 100;
+                    decimal MOSurcharge = (MOPrice * strPerMO) / 100;
+                    TotalValue = MaSurcharge + MOSurcharge;
                 }
                 else
                 {
