@@ -75,6 +75,18 @@ namespace OTTOPro
         BUmlage ObjBUmlage = null;
         EInvoice ObjEInvoice = null;
         BInvoice oBJBInvoice = null;
+
+        ESupplier ObjESupplier = new ESupplier();
+        BSupplier ObjBSupplier = new BSupplier();
+        DataTable _dtPosotion = new DataTable();
+        DataTable _dtSupplier = null;
+        bool _Process = false;
+
+        private int _ProposalID = 0;
+        string _LvSection;
+        string _WGforSupplier = null;
+        string _WAforSupplier = null;
+        string _pdfpath = null;
         /// <summary>
         /// Properties to bind the internal variables
         /// </summary>
@@ -163,6 +175,7 @@ namespace OTTOPro
                 tbOmlage.PageVisible = false;
                 tbDeliveryNotes.PageVisible = false;
                 tbInvoices.PageVisible = false;
+                tbSupplierProposal.PageVisible = false;
                 cmbPositionKZ.Text = "N";
                 chkCumulated.Checked = true;
 
@@ -5705,8 +5718,20 @@ e.Column.FieldName == "GB")
 
         private void navBarItemSupplierProposal_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            frmSupplierProposal frm = new frmSupplierProposal(ObjEProject.ProjectID, cmbLVSection.Text, txtProjectNumber.Text);
-            frm.ShowDialog();
+            try
+            {
+                if (ObjEProject.ProjectID > 0)
+                {
+                    ObjTabDetails = tbSupplierProposal;
+                    TabChange(ObjTabDetails);
+                    FillLVSection();
+                    cmbLVSectionforSupplier.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void navBarItemUpdateSupplierProposal_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -6168,5 +6193,349 @@ e.Column.FieldName == "GB")
             }
         }
         #endregion
+
+
+        #region Supplier Proposal
+
+
+        private void FillLVSection()
+        {
+            try
+            {
+                ObjESupplier = ObjBSupplier.GetLVSectionForProposal(ObjESupplier, ObjEProject.ProjectID);
+                if (ObjESupplier.Article != null)
+                {
+                    cmbLVSectionforSupplier.DataSource = ObjESupplier.Article.Tables[0];
+                    cmbLVSectionforSupplier.DisplayMember = "LVSection";
+                    cmbLVSectionforSupplier.ValueMember = "LVSection";
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        public void GetWGWA()
+        {
+            try
+            {
+                if (ObjESupplier.Article != null)
+                {                    
+                    cmbWGWA.DataSource = null;
+                    DataView dvWGWA = ObjESupplier.Article.Tables[1].DefaultView;
+                    dvWGWA.RowFilter = "LVSection = '" + cmbLVSectionforSupplier.Text + "'";
+                    cmbWGWA.DataSource = dvWGWA;
+                    cmbWGWA.DisplayMember = "WGWA";
+                    cmbWGWA.ValueMember = "WGWA";
+                    cmbWGWA.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void GetLVDetailsAndSupplier()
+        {
+            try
+            {
+                string[] strArr = null;
+                char[] splitchar = { '-' };
+                strArr = cmbWGWA.SelectedValue.ToString().Split(splitchar);
+                for (int count = 0; count <= strArr.Length - 1; count++)
+                {
+                    _WGforSupplier = strArr[0];
+                    _WAforSupplier = strArr[1];
+                }
+
+                if (_WGforSupplier != null && _WAforSupplier != null)
+                {
+                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSection.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
+                    if (ObjESupplier.dsSupplier != null)
+                    {
+                        DataView dvNewDetails = ObjESupplier.dsSupplier.Tables[0].DefaultView;
+                        dvNewDetails.RowFilter = "PositionsStatus = '" + "N" + "'";
+                        gcLVDetailsforSupplier.DataSource = dvNewDetails;
+
+                        DataView dvDeleteDetails = ObjESupplier.dsSupplier.Tables[0].DefaultView;
+                        dvDeleteDetails.RowFilter = "PositionsStatus = '" + "D" + "'";
+                        gcDeletedDetails.DataSource = dvDeleteDetails;
+
+                        DataView dvProposedDetails = ObjESupplier.dsSupplier.Tables[0].DefaultView;
+                        dvProposedDetails.RowFilter = "PositionsStatus = '" + "P" + "'";
+                        gcProposedDetails.DataSource = dvProposedDetails;
+
+                        gvLVDetailsforSupplier.BestFitColumns();
+                        gvDeletedDetails.BestFitColumns();
+                        gvProposedDetails.BestFitColumns();
+
+                        chkSupplierLists.DataSource = ObjESupplier.dsSupplier.Tables[1];
+                        chkSupplierLists.DisplayMember = "ShortName";
+                        chkSupplierLists.ValueMember = "id";
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void StartProcess(string path)
+        {
+            Process process = new Process();
+            try
+            {
+                process.StartInfo.FileName = path;
+                process.Start();
+                process.WaitForInputIdle();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void ParsePositionDelete()
+        {
+            int _IDValue = -1;
+            try
+            {
+                if (gvLVDetailsforSupplier.FocusedColumn != null && gvLVDetailsforSupplier.GetFocusedRowCellValue("PositionID") != null)
+                {
+                    if (int.TryParse(gvLVDetailsforSupplier.GetFocusedRowCellValue("PositionID").ToString(), out _IDValue))
+                    {
+                        ObjESupplier.PositionID = _IDValue;
+                    }
+                    ObjESupplier.DeletePositionID = -1;
+                    ObjESupplier.ProjectID = ObjEProject.ProjectID;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }       
+
+        private void cmbLVSectionforSupplier_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                GetWGWA();
+                gcLVDetailsforSupplier.DataSource = null;
+                chkSupplierLists.DataSource = null;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void cmbWGWA_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                GetLVDetailsAndSupplier();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void chkSupplierLists_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
+        {
+            try
+            {
+                if (chkSupplierLists.CheckedItems.Count == 9)
+                {
+                    Int32 checkedItemIndex = chkSupplierLists.CheckedIndices[0];
+                    chkSupplierLists.SetItemChecked(checkedItemIndex, false);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnGeneratePDF_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkSupplierLists.CheckedItems.Count == 0)
+                {
+                    throw new Exception("Please select atleast one Supplier.");
+                }
+                for (int i = ObjESupplier.dsSupplier.Tables[0].Columns.Count - 1; i >= 0; i--)
+                {
+                    string strcolname = ObjESupplier.dsSupplier.Tables[0].Columns[i].ColumnName.ToString();
+                    if (strcolname != "PositionID")
+                    {
+                        ObjESupplier.dsSupplier.Tables[0].Columns.RemoveAt(i);
+                    }
+                }
+                _dtPosotion = ObjESupplier.dsSupplier.Tables[0];
+
+                _dtSupplier = new DataTable();
+                _dtSupplier.Columns.Add("SupplierID");
+                foreach (object item in chkSupplierLists.CheckedItems)
+                {
+                    DataRowView row = item as DataRowView;
+                    DataRow dr = _dtSupplier.NewRow();
+                    dr["SupplierID"] = row["id"];
+                    _dtSupplier.Rows.Add(dr);
+                }
+                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, _ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier), _dtPosotion, _dtSupplier);
+                if (_ProposalID > 0)
+                {
+                    Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    rpt.Parameters["ProposalID"].Value = _ProposalID;
+                    rpt.Parameters["ProjectID"].Value = _ProjectID;
+
+                    saveFileDialog1.Filter = "PDF Files|*.pdf";
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        rpt.ExportToPdf(saveFileDialog1.FileName);
+                        if (_Process != true)
+                        {
+                            StartProcess(saveFileDialog1.FileName);
+                        }
+                        _pdfpath = saveFileDialog1.FileName;
+                    }
+                }
+                //ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
+                //if (ObjESupplier.dsSupplier != null)
+                //{
+                //    gcLVDetailsforSupplier.DataSource = ObjESupplier.dsSupplier.Tables[0];
+                //    gvLVDetailsforSupplier.BestFitColumns();
+                //}
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnSendEmail_Click(object sender, EventArgs e)
+        {
+            StringBuilder strArr = new StringBuilder();
+            string delimiter = "";
+            try
+            {
+                _Process = true;
+                btnGeneratePDF_Click(null, null);
+                
+
+                DataTable _dtSuppliermail = new DataTable();
+                _dtSuppliermail.Columns.Add("Suppliermail");
+                foreach (object item in chkSupplierLists.CheckedItems)
+                {
+                    DataRowView row = item as DataRowView;
+                    DataRow dr = _dtSuppliermail.NewRow();
+                    dr["Suppliermail"] = row["SupplierMail"];
+                    _dtSuppliermail.Rows.Add(dr);
+                }
+                if (_dtSuppliermail.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in _dtSuppliermail.Rows)
+                    {
+                        Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                        Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+                        mailItem.Subject = "This is the subject";
+                        if (dr["Suppliermail"].ToString() != null || dr["Suppliermail"].ToString() != "")
+                        {
+                            //strArr.Append(delimiter);
+                            //strArr.Append(dr["Suppliermail"]);
+                            //delimiter = ";";
+                            
+                            mailItem.To = dr["Suppliermail"].ToString();
+                            mailItem.Body = "This is the message.";
+
+                            mailItem.Attachments.Add(_pdfpath);
+                        }
+                        mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
+                        mailItem.Display(true);
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvLVDetailsforSupplier_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gcLVDetailsDeletefoSupplier_ItemClick));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcLVDetailsDeletefoSupplier_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                int iRowHandle = gvLVDetailsforSupplier.FocusedRowHandle;
+                DataTable table = gcLVDetailsforSupplier.DataSource as DataTable;
+
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
+                ParsePositionDelete();
+                ObjBSupplier = new BSupplier();
+                ObjESupplier = ObjBSupplier.SaveDeletePosition(ObjESupplier);
+
+                table.Rows.RemoveAt(iRowHandle);
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvLVDetailsforSupplier_RowStyle(object sender, RowStyleEventArgs e)
+        {
+            //GridView View = sender as GridView;
+            //if (e.RowHandle >= 0)
+            //{
+            //    if (gvLVDetailsforSupplier.FocusedColumn != null && gvLVDetailsforSupplier.GetFocusedRowCellValue("PositionID") != null)
+            //    {
+            //        if (View.Columns["PositionsStatus"] != null)
+            //        {
+            //            string _status = View.GetRowCellDisplayText(e.RowHandle, View.Columns["PositionsStatus"]);
+            //            if (_status == "P")
+            //            {
+            //                e.Appearance.BackColor = Color.LightPink;
+            //            }
+            //            if (_status == "D")
+            //            {
+            //                e.Appearance.BackColor = Color.Salmon;
+            //            }
+            //            if (_status == "N")
+            //            {
+            //                e.Appearance.BackColor = Color.LightSeaGreen;
+            //            }
+            //        }
+            //    }
+
+           // }
+        }
+
+        #endregion
+
     }
 }

@@ -49,6 +49,9 @@ namespace OTTOPro
             _ProjectName = PrName;
         }
 
+
+
+
         private void frmSupplierProposal_Load(object sender, EventArgs e)
         {
             try
