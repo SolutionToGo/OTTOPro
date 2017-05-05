@@ -744,6 +744,7 @@
             this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.rtfdeliverydescription = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             this.gridColumn15 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtrpMenge = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn16 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.lblSelectedLVPosition = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItem146 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -797,7 +798,6 @@
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.txtrpMenge = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1332,6 +1332,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvDelivery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttext)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rtfdeliverydescription)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtrpMenge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem146)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem138)).BeginInit();
@@ -1369,7 +1370,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtrpMenge)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -10452,6 +10452,14 @@
             this.gridColumn15.VisibleIndex = 2;
             this.gridColumn15.Width = 74;
             // 
+            // txtrpMenge
+            // 
+            this.txtrpMenge.AutoHeight = false;
+            this.txtrpMenge.Mask.EditMask = "n0";
+            this.txtrpMenge.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtrpMenge.Mask.ShowPlaceHolders = false;
+            this.txtrpMenge.Name = "txtrpMenge";
+            // 
             // gridColumn16
             // 
             this.gridColumn16.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -10982,14 +10990,6 @@
             this.emptySpaceItem17.Name = "emptySpaceItem17";
             this.emptySpaceItem17.Size = new System.Drawing.Size(686, 73);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // txtrpMenge
-            // 
-            this.txtrpMenge.AutoHeight = false;
-            this.txtrpMenge.Mask.EditMask = "n0";
-            this.txtrpMenge.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtrpMenge.Mask.ShowPlaceHolders = false;
-            this.txtrpMenge.Name = "txtrpMenge";
             // 
             // frmProject
             // 
@@ -11552,6 +11552,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvDelivery)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttext)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rtfdeliverydescription)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtrpMenge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem146)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem138)).EndInit();
@@ -11590,7 +11591,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtrpMenge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

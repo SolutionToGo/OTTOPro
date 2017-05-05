@@ -43,7 +43,6 @@ namespace OTTOPro
         private List<Control> RequiredPositionFields = new List<Control>();
         private List<Control> RequiredPositionFieldsforTitle = new List<Control>();
         private int _ProjectID = -1;
-        private int _PositionID = -1;
         private bool _IsCopy = false;
         private string LongDescription = string.Empty;
         private bool _IsEditMode = false;
@@ -583,7 +582,6 @@ namespace OTTOPro
                 decimal dValue = 0;
                 DateTime dt = DateTime.Now;
                 ObjEPosition.RasterCount = iRasterCount;
-                ObjEPosition.PositionID = _PositionID;
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
                 ObjEPosition.Stufe1 = txtStufe1Short.Text;
                 ObjEPosition.Stufe2 = txtStufe2Short.Text;
@@ -1667,7 +1665,6 @@ namespace OTTOPro
                 int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
                 BindPositionData();
                 SetFocus(NewPositionID);
-                _PositionID = -1;
                 if (chkCreateNew.Checked == true)
                 {
                     btnNew_Click(null, null);
@@ -2369,9 +2366,9 @@ namespace OTTOPro
         {
             try
             {
+                ObjEPosition.PositionID = -1;
                 if (strPositiontype == string.Empty)
                 {
-                    ObjEPosition.PositionID = -1;
                     chkCreateNew.Enabled = true;
                     txtMo.Text = "X";
                     txtMa.Text = "X";
@@ -2428,7 +2425,6 @@ namespace OTTOPro
                 }
                 else if (strPositiontype.ToLower() == "h")
                 {
-                    ObjEPosition.PositionID = -1;
                     chkCreateNew.Checked = false;
                     chkCreateNew.Enabled = false;
                     txtMo.Text = "";
@@ -2481,7 +2477,6 @@ namespace OTTOPro
                 }
                 else if (strPositiontype.ToLower() == "n")
                 {
-                    ObjEPosition.PositionID = -1;
                     chkCreateNew.Enabled = true;
                     txtMo.Text = "X";
                     txtMa.Text = "X";
@@ -2560,7 +2555,7 @@ namespace OTTOPro
                     && Int32.TryParse(tlPositions.FocusedNode["PositionID"].ToString(), out iValue)
                     )
                 {
-                    _PositionID = iValue;
+                    ObjEPosition.PositionID = iValue;
                     if (string.IsNullOrEmpty(ObjEProject.CommissionNumber))
                         cmbLVSection.Enabled = false;
                 }
@@ -2671,11 +2666,6 @@ namespace OTTOPro
             if (e.KeyCode == Keys.Escape)
             {
                 btnCancel_Click(null, null);
-                //EnableDisableLVAndCostDetails(false, false, false, false);
-                //EnableDisableButtons(true, true, false, true, true);
-                //ObjEPosition.PositionID = -1;
-                //chkCreateNew.Checked = false;
-                //tlPositions_FocusedNodeChanged(null, null);
             }
         }
 
@@ -2844,7 +2834,6 @@ namespace OTTOPro
             {
                 EnableDisableLVAndCostDetails(false, false, false, false);
                 EnableDisableButtons(true, true, false, true, true);
-                ObjEPosition.PositionID = -1;
                 _IsEditMode = false;
                 chkCreateNew.Checked = false;
                 chkCreateNew.Enabled = false;
@@ -2934,7 +2923,7 @@ namespace OTTOPro
                     else if (_IsEditMode)
                     {
                         DataView dvPositionEdit = ObjEPosition.dsPositionList.Tables[0].DefaultView;
-                        dvPositionEdit.RowFilter = "PositionID = '" + _PositionID + "'";
+                        dvPositionEdit.RowFilter = "PositionID = '" + ObjEPosition.PositionID + "'";
                         DataTable dtTemp1 = dvPositionEdit.ToTable();
                         if (textbox == txtSurchargeFrom)
                             textbox.Text = dtTemp1.Rows[0]["surchargefrom"] == DBNull.Value ? "" : dtTemp1.Rows[0]["surchargefrom"].ToString();
