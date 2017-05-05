@@ -43,6 +43,7 @@
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.rpiDescription = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -60,12 +61,12 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
-            this.rpiDescription = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chkSupplierLists)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLVDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLVDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpiDescription)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
@@ -79,7 +80,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpiDescription)).BeginInit();
             this.SuspendLayout();
             // 
             // gridColumnPositionsStatus
@@ -260,6 +260,11 @@
             this.gridColumn27.OptionsColumn.ReadOnly = true;
             this.gridColumn27.Visible = true;
             this.gridColumn27.VisibleIndex = 1;
+            // 
+            // rpiDescription
+            // 
+            this.rpiDescription.Name = "rpiDescription";
+            this.rpiDescription.ShowCaretInReadOnly = false;
             // 
             // gridColumn28
             // 
@@ -442,11 +447,6 @@
             // 
             this.popupMenu1.Name = "popupMenu1";
             // 
-            // rpiDescription
-            // 
-            this.rpiDescription.Name = "rpiDescription";
-            this.rpiDescription.ShowCaretInReadOnly = false;
-            // 
             // frmSupplierProposal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -466,6 +466,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.chkSupplierLists)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcLVDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvLVDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpiDescription)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
@@ -479,7 +480,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpiDescription)).EndInit();
             this.ResumeLayout(false);
 
         }

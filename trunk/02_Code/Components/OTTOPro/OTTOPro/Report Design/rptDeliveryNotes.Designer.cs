@@ -460,7 +460,7 @@
             this.xrLabel5.Name = "xrLabel5";
             this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel5.SizeF = new System.Drawing.SizeF(100F, 23F);
-            this.xrLabel5.Text = "Ort. Datum:";
+            this.xrLabel5.Text = "Ort, Datum";
             // 
             // PageFooter
             // 
