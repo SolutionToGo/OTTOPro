@@ -207,7 +207,7 @@ namespace OTTOPro
                     dr["SupplierID"] = row["id"];
                     _dtSupplier.Rows.Add(dr);
                 }
-                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WG), Convert.ToInt32(_WA), _dtPosotion, _dtSupplier);
+              //  _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WG), Convert.ToInt32(_WA), _dtPosotion, _dtSupplier);
                 if(_ProposalID > 0)
                 {
                     Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();

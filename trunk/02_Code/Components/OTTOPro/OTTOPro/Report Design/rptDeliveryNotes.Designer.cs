@@ -90,7 +90,7 @@
             // Detail
             // 
             this.Detail.Dpi = 100F;
-            this.Detail.HeightF = 0F;
+            this.Detail.HeightF = 1.041667F;
             this.Detail.Name = "Detail";
             this.Detail.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.Detail.SortFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
@@ -171,7 +171,7 @@
             // 
             this.xrLabel23.Dpi = 100F;
             this.xrLabel23.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(486.6666F, 250.1041F);
+            this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(448.6666F, 250.1041F);
             this.xrLabel23.Multiline = true;
             this.xrLabel23.Name = "xrLabel23";
             this.xrLabel23.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -184,7 +184,7 @@
             this.xrPageInfo2.Dpi = 100F;
             this.xrPageInfo2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrPageInfo2.Format = "{0:M/d/yyyy}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(486.6667F, 281.8958F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(448.6667F, 281.8958F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo2.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
@@ -325,11 +325,11 @@
             // xrPageInfo1
             // 
             this.xrPageInfo1.Dpi = 100F;
-            this.xrPageInfo1.Format = "{0} of  {1}";
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(598.626F, 283.8958F);
+            this.xrPageInfo1.Format = "{0} von  {1}";
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(579.7073F, 283.8958F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(41.37396F, 23F);
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(60.29266F, 23F);
             // 
             // xrLabel9
             // 
@@ -346,11 +346,11 @@
             // xrLabel8
             // 
             this.xrLabel8.Dpi = 100F;
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(598.6262F, 250.1041F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(579.7073F, 250.1041F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel8.SizeF = new System.Drawing.SizeF(41.3739F, 24.5002F);
+            this.xrLabel8.SizeF = new System.Drawing.SizeF(60.29285F, 24.5002F);
             this.xrLabel8.Text = "Seite";
             // 
             // xrPictureBox1

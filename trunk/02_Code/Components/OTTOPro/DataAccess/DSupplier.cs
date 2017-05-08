@@ -338,7 +338,7 @@ namespace DataAccess
             return dsWGWA;
         }
 
-        public int SaveSupplierProposal(int _Pid, string _LvSection, int wg, int wa,DataTable _dtPosition,DataTable _dtSupplier)
+        public int SaveSupplierProposal(int _Pid, string _LvSection, int wg, int wa, DataTable _dtPosition, DataTable _dtSupplier, DataTable _dtDeletedPositions)
         {
             DataSet ds = new DataSet();
             int ProposalID = -1;
@@ -355,6 +355,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@WA", wa);
                     cmd.Parameters.AddWithValue("@dtPositionID", _dtPosition);
                     cmd.Parameters.AddWithValue("@dtSupplierID", _dtSupplier);
+                    cmd.Parameters.AddWithValue("@dtDeletedPositions", _dtDeletedPositions);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(ds);
@@ -362,12 +363,11 @@ namespace DataAccess
                     string str = ds.Tables[0].Rows[0][0] == DBNull.Value ? "" : ds.Tables[0].Rows[0][0].ToString();
                     if (!string.IsNullOrEmpty(str))
                     {
-                        if (int.TryParse(str, out ProposalID))
+                        if (!int.TryParse(str, out ProposalID))
                         {
-                            
-                        }
-                        else
                             throw new Exception(str);
+                        }
+                           
                     }
                 }
             }

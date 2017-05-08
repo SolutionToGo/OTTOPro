@@ -31,6 +31,9 @@ using DevExpress.XtraGrid;
 using DevExpress.XtraReports.UI;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using OTTOPro.Report_Design;
+using DevExpress.XtraBars;
+using DevExpress.Utils.Menu;
+using DevExpress.XtraGrid.Views.Layout.Modes;
 
 namespace OTTOPro
 {
@@ -78,7 +81,6 @@ namespace OTTOPro
 
         ESupplier ObjESupplier = new ESupplier();
         BSupplier ObjBSupplier = new BSupplier();
-        DataTable _dtPosotion = new DataTable();
         DataTable _dtSupplier = null;
         bool _Process = false;
 
@@ -6036,10 +6038,19 @@ e.Column.FieldName == "GB")
                     if(gvDeliveryNumbers.FocusedRowHandle != null)
                     {
                         string str = gvDeliveryNumbers.GetFocusedRowCellValue("IsInvoiced").ToString();
-                        if(str.ToLower() != "yes" && gvDelivery.RowCount <=0)
+                        if (str.ToLower() != "yes" && gvDelivery.RowCount <= 0)
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Edit", gcBlattEdit_Click));
+
                     }
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("View", gcBlattView_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcBlattViewAddress_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß ohne Adresskopf, mit LV Positionsnr", gcBlattViewWithouAddress_Click));
+
+                    //DXSubMenuItem item = CreateSubItem("View");
+                    //item.Items.Add(CreateItem("Aufmaß mit Adresskopf"));
+
+                    //item.Items.Add(CreateItem("Aufmaß ohne Adresskopf, mit LV Positionsnr"));
+                    //e.Menu.Items.Add(item);
+
                 }
             }
             catch (Exception ex)
@@ -6048,6 +6059,15 @@ e.Column.FieldName == "GB")
             }
         }
 
+        DXMenuItem CreateItem(string caption)
+        {
+            return new DXMenuItem(caption);
+        }
+
+        DXSubMenuItem CreateSubItem(string caption)
+        {
+            return new DXSubMenuItem(caption);
+        }
         private void gcBlattEdit_Click(object sender, EventArgs e)
         {
             try
@@ -6077,7 +6097,7 @@ e.Column.FieldName == "GB")
             }
         }
 
-        private void gcBlattView_Click(object sender, EventArgs e)
+        private void gcBlattViewAddress_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6085,22 +6105,51 @@ e.Column.FieldName == "GB")
                 {
                     int IValue = 0;
                     string strBlattID = gvDeliveryNumbers.GetFocusedRowCellValue("BlattID").ToString();
-                    if (int.TryParse(strBlattID, out IValue))
-                    {
-                        rptDeliveryNotes Obj = new rptDeliveryNotes();
-                        ReportPrintTool printTool = new ReportPrintTool(Obj);
-                        Obj.Parameters["ID"].Value = IValue;
-                        Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
-                        printTool.ShowRibbonPreview();
+                        if (int.TryParse(strBlattID, out IValue))
+                        {
+                            rptDeliveryNotes Obj = new rptDeliveryNotes();
+                            ReportPrintTool printTool = new ReportPrintTool(Obj);
+                            Obj.Parameters["ID"].Value = IValue;
+                            Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                            printTool.ShowRibbonPreview();
 
-                    }
-                }
+                        }
+                }               
+                
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
+
+        private void gcBlattViewWithouAddress_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvDeliveryNumbers.FocusedRowHandle != null && gvDeliveryNumbers.GetFocusedRowCellValue("BlattID") != null)
+                {
+                    int IValue = 0;
+                    string strBlattID = gvDeliveryNumbers.GetFocusedRowCellValue("BlattID").ToString();
+
+                    if (int.TryParse(strBlattID, out IValue))
+                    {
+                        rptDeliveryNotesWithoutAddress Obj = new rptDeliveryNotesWithoutAddress();
+                        ReportPrintTool printTool = new ReportPrintTool(Obj);
+                        Obj.Parameters["BlattID"].Value = IValue;
+                        Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+
+                        printTool.ShowRibbonPreview();
+                    }                   
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
 
         #endregion
 
@@ -6194,7 +6243,6 @@ e.Column.FieldName == "GB")
         }
         #endregion
 
-
         #region Supplier Proposal
 
 
@@ -6255,23 +6303,15 @@ e.Column.FieldName == "GB")
                     ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSection.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
                     if (ObjESupplier.dsSupplier != null)
                     {
-                        DataView dvNewDetails = ObjESupplier.dsSupplier.Tables[0].DefaultView;
-                        dvNewDetails.RowFilter = "PositionsStatus = '" + "N" + "'";
-                        gcLVDetailsforSupplier.DataSource = dvNewDetails;
-
-                        DataView dvDeleteDetails = ObjESupplier.dsSupplier.Tables[0].DefaultView;
-                        dvDeleteDetails.RowFilter = "PositionsStatus = '" + "D" + "'";
-                        gcDeletedDetails.DataSource = dvDeleteDetails;
-
-                        DataView dvProposedDetails = ObjESupplier.dsSupplier.Tables[0].DefaultView;
-                        dvProposedDetails.RowFilter = "PositionsStatus = '" + "P" + "'";
-                        gcProposedDetails.DataSource = dvProposedDetails;
+                        gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;
+                        gcDeletedDetails.DataSource = ObjESupplier.dtDeletedPositions;
+                        gcProposedDetails.DataSource = ObjESupplier.dtProposedPositions;
 
                         gvLVDetailsforSupplier.BestFitColumns();
                         gvDeletedDetails.BestFitColumns();
                         gvProposedDetails.BestFitColumns();
 
-                        chkSupplierLists.DataSource = ObjESupplier.dsSupplier.Tables[1];
+                        chkSupplierLists.DataSource = ObjESupplier.dsSupplier.Tables[3];
                         chkSupplierLists.DisplayMember = "ShortName";
                         chkSupplierLists.ValueMember = "id";
                     }
@@ -6371,15 +6411,21 @@ e.Column.FieldName == "GB")
                 {
                     throw new Exception("Please select atleast one Supplier.");
                 }
-                for (int i = ObjESupplier.dsSupplier.Tables[0].Columns.Count - 1; i >= 0; i--)
+                if (gvLVDetailsforSupplier.DataRowCount==0)
                 {
-                    string strcolname = ObjESupplier.dsSupplier.Tables[0].Columns[i].ColumnName.ToString();
-                    if (strcolname != "PositionID")
+                    throw new Exception("No Positions to generate.");
+                }
+                DataTable _dtPosition = ObjESupplier.dtNewPositions.Copy();
+                DataTable _dtDeletedPositions = ObjESupplier.dtDeletedPositions.Copy();
+
+                foreach(DataColumn dc in ObjESupplier.dtNewPositions.Columns)
+                {
+                    if(dc.ColumnName!="PositionID")
                     {
-                        ObjESupplier.dsSupplier.Tables[0].Columns.RemoveAt(i);
+                        _dtPosition.Columns.Remove(dc.ColumnName);
+                        _dtDeletedPositions.Columns.Remove(dc.ColumnName);
                     }
                 }
-                _dtPosotion = ObjESupplier.dsSupplier.Tables[0];
 
                 _dtSupplier = new DataTable();
                 _dtSupplier.Columns.Add("SupplierID");
@@ -6390,7 +6436,7 @@ e.Column.FieldName == "GB")
                     dr["SupplierID"] = row["id"];
                     _dtSupplier.Rows.Add(dr);
                 }
-                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, _ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier), _dtPosotion, _dtSupplier);
+                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, _ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier), _dtPosition, _dtSupplier, _dtDeletedPositions);
                 if (_ProposalID > 0)
                 {
                     Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
@@ -6462,7 +6508,6 @@ e.Column.FieldName == "GB")
                         mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
                         mailItem.Display(true);
                     }
-
                 }
 
             }
@@ -6485,20 +6530,20 @@ e.Column.FieldName == "GB")
             }
         }
 
+        DataTable _DeletedRecords = new DataTable();
         private void gcLVDetailsDeletefoSupplier_ItemClick(object sender, EventArgs e)
         {
+            
             try
             {
-                int iRowHandle = gvLVDetailsforSupplier.FocusedRowHandle;
-                DataTable table = gcLVDetailsforSupplier.DataSource as DataTable;
+                int iIndex = gvLVDetailsforSupplier.FocusedRowHandle;
 
-                if (ObjESupplier == null)
-                    ObjESupplier = new ESupplier();
-                ParsePositionDelete();
-                ObjBSupplier = new BSupplier();
-                ObjESupplier = ObjBSupplier.SaveDeletePosition(ObjESupplier);
+                DataRow dr = gvLVDetailsforSupplier.GetDataRow(gvLVDetailsforSupplier.FocusedRowHandle);
+                DataTable _dt = gcDeletedDetails.DataSource as DataTable;
+                _dt.ImportRow(dr);
 
-                table.Rows.RemoveAt(iRowHandle);
+                Utility.Setfocus(gvDeletedDetails, "PositionID", Convert.ToInt32(gvLVDetailsforSupplier.GetFocusedRowCellValue("PositionID").ToString()));
+                ObjESupplier.dtNewPositions.Rows.RemoveAt(iIndex);
 
             }
             catch (Exception ex)
@@ -6535,7 +6580,93 @@ e.Column.FieldName == "GB")
            // }
         }
 
+        private void gvLVDetailsforSupplier_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                GridView view = sender as GridView;
+                downHitInfo = null;
+                GridHitInfo hitInfo = view.CalcHitInfo(new Point(e.X, e.Y));
+                if (Control.ModifierKeys != Keys.None) return;
+                if (e.Button == MouseButtons.Left && hitInfo.RowHandle >= 0)
+                    downHitInfo = hitInfo;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvLVDetailsforSupplier_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                GridView view = sender as GridView;
+                if (e.Button == MouseButtons.Left && downHitInfo != null)
+                {
+                    Size dragSize = SystemInformation.DragSize;
+                    Rectangle dragRect = new Rectangle(new Point(downHitInfo.HitPoint.X - dragSize.Width / 2,
+                        downHitInfo.HitPoint.Y - dragSize.Height / 2), dragSize);
+
+                    if (!dragRect.Contains(new Point(e.X, e.Y)))
+                    {
+                        DataRow row = view.GetDataRow(downHitInfo.RowHandle);
+                        view.GridControl.DoDragDrop(row, DragDropEffects.Move);
+                        downHitInfo = null;
+                        DevExpress.Utils.DXMouseEventArgs.GetMouseArgs(e).Handled = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcLVDetailsforSupplier_DragDrop(object sender, DragEventArgs e)
+        {
+            try
+            {
+                GridControl grid = sender as GridControl;
+                DataTable table = grid.DataSource as DataTable;
+                DataRow row = e.Data.GetData(typeof(DataRow)) as DataRow;
+                if (row != null && table != null && row.Table != table)
+                {
+                    object strPositionID = row["PositionID"].ToString();
+                    DataRow[] foundRows = table.Select("PositionID = '" + strPositionID + "'");
+                    if (foundRows.Count() <= 0)
+                    {
+                        table.ImportRow(row);
+                        string _type =Convert.ToString(row["PositionsStatus"]);
+                        if(_type=="D")
+                        {
+                            DataRow[] result = ObjESupplier.dtDeletedPositions.Select("PositionID = '" + strPositionID + "'");
+                            foreach (DataRow dr in result)
+                            {                                
+                                    ObjESupplier.dtDeletedPositions.Rows.Remove(row);
+                            }
+                        }
+                        Utility.Setfocus(gvLVDetailsforSupplier, "PositionID", Convert.ToInt32(strPositionID));
+                    }
+                    else
+                        throw new Exception("Position Already Exists");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        
+
         #endregion
+
+        
+
+       
+
+        
 
     }
 }

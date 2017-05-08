@@ -378,7 +378,7 @@
             // xrPageInfo1
             // 
             this.xrPageInfo1.Dpi = 100F;
-            this.xrPageInfo1.Format = "Seite {0} of {1}";
+            this.xrPageInfo1.Format = "Seite {0} von {1}";
             this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(534.9999F, 8.999974F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);

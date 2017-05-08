@@ -122,7 +122,19 @@ namespace BL
                 if (ObjEsupplier != null)
                 {
                     ObjEsupplier.dsSupplier = ObjDSupplier.GetWGWaforProposal(_Pid, _LvSection,wg,wa);
-                    
+                    if (ObjEsupplier.dsSupplier != null && ObjEsupplier.dsSupplier.Tables.Count >0)
+                    {
+                        ObjEsupplier.dtNewPositions = ObjEsupplier.dsSupplier.Tables[0];
+                        if(ObjEsupplier.dsSupplier.Tables.Count >1)
+                        {
+                            ObjEsupplier.dtDeletedPositions = ObjEsupplier.dsSupplier.Tables[1];
+                            if (ObjEsupplier.dsSupplier.Tables.Count > 2)
+                            {
+                                ObjEsupplier.dtProposedPositions = ObjEsupplier.dsSupplier.Tables[2];
+                            }
+                        }
+                        
+                    }
                 }
             }
             catch (Exception ex)
@@ -149,11 +161,11 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public int SaveSupplierProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, int wg, int wa, DataTable _dtPosition, DataTable _dtSupplier)
+        public int SaveSupplierProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, int wg, int wa, DataTable _dtPosition, DataTable _dtSupplier, DataTable _dtDeletedPositions)
         {
             try
             {
-                ObjEsupplier.ProposalID = ObjDSupplier.SaveSupplierProposal(_Pid, _LvSection, wg, wa, _dtPosition, _dtSupplier);
+                ObjEsupplier.ProposalID = ObjDSupplier.SaveSupplierProposal(_Pid, _LvSection, wg, wa, _dtPosition, _dtSupplier, _dtDeletedPositions);
             }
             catch (Exception ex)
             {

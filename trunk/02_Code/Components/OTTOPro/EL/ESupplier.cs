@@ -67,6 +67,25 @@ namespace EL
         private int _DeletePositionID = -1;
         private int _PositionID = -1;
 
+        private DataTable _dtNewPositions;
+        private DataTable _dtDeletedPositions;
+        private DataTable _dtProposedPositions;
+
+        public DataTable dtNewPositions
+        {
+            get { return _dtNewPositions; }
+            set { _dtNewPositions = value; }
+        }
+        public DataTable dtDeletedPositions
+        {
+            get { return _dtDeletedPositions; }
+            set { _dtDeletedPositions = value; }
+        }
+        public DataTable dtProposedPositions
+        {
+            get { return _dtProposedPositions; }
+            set { _dtProposedPositions = value; }
+        }
         // Article Properties and entities
         public int WGWAID
         {
