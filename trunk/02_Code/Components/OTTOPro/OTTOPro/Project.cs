@@ -5434,7 +5434,6 @@ e.Column.FieldName == "GB")
             }
         }
 
-
         #region "NavigationBar Events"
 
         private void navBarItemProject_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -6692,7 +6691,6 @@ e.Column.FieldName == "GB")
             }
         }
 
-
         private void FillProposalNumbers()
         {
             try
@@ -6718,8 +6716,13 @@ e.Column.FieldName == "GB")
                     {
                         gvSupplier.Columns.Clear();
                         ObjESupplier.SupplierProposalID = iValue;
-                        ObjESupplier = ObjBSupplier.GetProposalPostions(ObjESupplier);
-                        gcSupplier.DataSource = ObjESupplier.dtPositions;
+                        if (radioGroup1.SelectedIndex == 0)
+                        {
+                            ObjESupplier = ObjBSupplier.GetProposalPostions(ObjESupplier);
+                            gcSupplier.DataSource = ObjESupplier.dtPositions;
+                        }
+                        else
+                            radioGroup1.SelectedIndex = 0;
                         int Columncount = ObjESupplier.dtPositions.Columns.Count;
                         gvSupplier.Columns.ColumnByFieldName("PositionID").Visible = false;
                         gvSupplier.Columns.ColumnByFieldName("PositionID1").Visible = false;
@@ -6738,6 +6741,8 @@ e.Column.FieldName == "GB")
                         gvSupplier.Columns.ColumnByFieldName("Fabricate").Visible = false;
                         gvSupplier.Columns.ColumnByFieldName("Cheapest").VisibleIndex = Columncount - 1;
                         gvSupplier.Columns.ColumnByFieldName("Position_OZ").VisibleIndex = 0;
+                        gvSupplier.Columns.ColumnByFieldName("Cheapest").OptionsColumn.ReadOnly = true;
+                        gvSupplier.Columns.ColumnByFieldName("Position_OZ").OptionsColumn.ReadOnly = true;
 
                         foreach (DevExpress.XtraGrid.Columns.GridColumn col in ((ColumnView)gcSupplier.Views[0]).Columns)
                         {
@@ -6788,9 +6793,9 @@ e.Column.FieldName == "GB")
                         }
                     }
                     if (l != null && l.Count() > 0)
-                        ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = l.Min();
+                        ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = Math.Round(Convert.ToDecimal(l.Min()),3);
                     else
-                        ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = 0;
+                        ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = 0.000;
                 }
             }
             catch (Exception ex)
@@ -6929,6 +6934,8 @@ e.Column.FieldName == "GB")
         {
             try
             {
+                if (radioGroup1.SelectedIndex != 0)
+                    throw new Exception("Please Select List Price Per Unit Proposal View");
                 List<string> LBoolColumns = new List<string>();
                 foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
                 {
@@ -6960,6 +6967,8 @@ e.Column.FieldName == "GB")
         {
             try
             {
+                if (radioGroup1.SelectedIndex != 0)
+                    throw new Exception("Please Select List Price Per Unit Proposal View");
                 string strSupliercolumnName = gvSupplier.FocusedColumn.FieldName;
                 string strBoolColumnName = gvSupplier.FocusedColumn.FieldName + "Check";
                 if (gvSupplier.Columns[strBoolColumnName] != null)
@@ -7021,10 +7030,5 @@ e.Column.FieldName == "GB")
         }
 
         #endregion
-
-       
-
-        
-
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -920,7 +920,10 @@
             this.layoutControlItem173 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem187 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem189 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem125 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem190 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem126 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem127 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.tmrStatus = new System.Windows.Forms.Timer(this.components);
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -931,9 +934,6 @@
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.emptySpaceItem125 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem126 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem127 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1604,16 +1604,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem173)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem187)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem189)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem125)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem190)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem126)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem127)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem125)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem126)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem127)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -1981,10 +1981,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -2876,7 +2876,7 @@
             // 
             // navBarForms
             // 
-            this.navBarForms.Caption = "FORMEN";
+            this.navBarForms.Caption = "MODULE";
             this.navBarForms.Expanded = true;
             this.navBarForms.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
             this.navBarForms.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
@@ -7732,17 +7732,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -12589,7 +12589,9 @@
             // 
             this.gvSupplier.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
             this.gvSupplier.Appearance.Empty.Options.UseBackColor = true;
-            this.gvSupplier.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvSupplier.Appearance.FocusedCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvSupplier.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvSupplier.Appearance.FocusedRow.BackColor = System.Drawing.Color.Silver;
             this.gvSupplier.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvSupplier.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.gvSupplier.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -12599,7 +12601,6 @@
             this.gvSupplier.Appearance.Row.Options.UseBackColor = true;
             this.gvSupplier.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gvSupplier.Appearance.SelectedRow.Options.UseFont = true;
-            this.gvSupplier.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvSupplier.GridControl = this.gcSupplier;
             this.gvSupplier.Name = "gvSupplier";
             this.gvSupplier.OptionsCustomization.AllowColumnMoving = false;
@@ -12609,7 +12610,6 @@
             this.gvSupplier.OptionsMenu.EnableColumnMenu = false;
             this.gvSupplier.OptionsMenu.EnableFooterMenu = false;
             this.gvSupplier.OptionsMenu.EnableGroupPanelMenu = false;
-            this.gvSupplier.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvSupplier.OptionsView.RowAutoHeight = true;
             this.gvSupplier.OptionsView.ShowGroupPanel = false;
             this.gvSupplier.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvSupplier_FocusedRowChanged);
@@ -12807,6 +12807,14 @@
             this.layoutControlItem189.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem189.TextVisible = false;
             // 
+            // emptySpaceItem125
+            // 
+            this.emptySpaceItem125.AllowHotTrack = false;
+            this.emptySpaceItem125.Location = new System.Drawing.Point(1373, 0);
+            this.emptySpaceItem125.Name = "emptySpaceItem125";
+            this.emptySpaceItem125.Size = new System.Drawing.Size(129, 729);
+            this.emptySpaceItem125.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // layoutControlItem190
             // 
             this.layoutControlItem190.Control = this.btnSubmit;
@@ -12816,6 +12824,22 @@
             this.layoutControlItem190.Size = new System.Drawing.Size(179, 42);
             this.layoutControlItem190.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem190.TextVisible = false;
+            // 
+            // emptySpaceItem126
+            // 
+            this.emptySpaceItem126.AllowHotTrack = false;
+            this.emptySpaceItem126.Location = new System.Drawing.Point(1194, 654);
+            this.emptySpaceItem126.Name = "emptySpaceItem126";
+            this.emptySpaceItem126.Size = new System.Drawing.Size(179, 14);
+            this.emptySpaceItem126.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem127
+            // 
+            this.emptySpaceItem127.AllowHotTrack = false;
+            this.emptySpaceItem127.Location = new System.Drawing.Point(1194, 710);
+            this.emptySpaceItem127.Name = "emptySpaceItem127";
+            this.emptySpaceItem127.Size = new System.Drawing.Size(179, 19);
+            this.emptySpaceItem127.TextSize = new System.Drawing.Size(0, 0);
             // 
             // navBarItem1
             // 
@@ -12875,30 +12899,6 @@
             this.emptySpaceItem17.Name = "emptySpaceItem17";
             this.emptySpaceItem17.Size = new System.Drawing.Size(686, 73);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem125
-            // 
-            this.emptySpaceItem125.AllowHotTrack = false;
-            this.emptySpaceItem125.Location = new System.Drawing.Point(1373, 0);
-            this.emptySpaceItem125.Name = "emptySpaceItem125";
-            this.emptySpaceItem125.Size = new System.Drawing.Size(129, 729);
-            this.emptySpaceItem125.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem126
-            // 
-            this.emptySpaceItem126.AllowHotTrack = false;
-            this.emptySpaceItem126.Location = new System.Drawing.Point(1194, 654);
-            this.emptySpaceItem126.Name = "emptySpaceItem126";
-            this.emptySpaceItem126.Size = new System.Drawing.Size(179, 14);
-            this.emptySpaceItem126.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem127
-            // 
-            this.emptySpaceItem127.AllowHotTrack = false;
-            this.emptySpaceItem127.Location = new System.Drawing.Point(1194, 710);
-            this.emptySpaceItem127.Name = "emptySpaceItem127";
-            this.emptySpaceItem127.Size = new System.Drawing.Size(179, 19);
-            this.emptySpaceItem127.TextSize = new System.Drawing.Size(0, 0);
             // 
             // frmProject
             // 
@@ -13597,7 +13597,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem173)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem187)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem189)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem125)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem190)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem126)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem127)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -13605,9 +13608,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem125)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem126)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem127)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

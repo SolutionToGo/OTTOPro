@@ -200,7 +200,7 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public ESupplier GetProposalPostions(ESupplier ObjESupplier)
+        public ESupplier GetProposalPostions(ESupplier ObjESupplier,bool _IsCalculate = true)
         {
             try
             {
@@ -214,37 +214,14 @@ namespace BL
                         dc.Caption = "";
                     }
                 }
-
-                List<string> TableColumnNAmes = new List<string>();
-                foreach(DataColumn dc in dtTemp.Columns)
-                {
-                   if(dtTemp.Columns[dc.ColumnName + "Check"] != null)
-                   {
-                       TableColumnNAmes.Add(dc.ColumnName);
-                   }
-                }
-
-                foreach(DataRow drTemp in ObjESupplier.dtPositions.Rows)
-                {
-                    List<decimal> SupplierPirces = new List<decimal>();
-                    foreach(string s in TableColumnNAmes)
-                    {
-                        decimal DValue = drTemp[s] == DBNull.Value ? 0 : Convert.ToDecimal(drTemp[s]);
-                        if (DValue > 0)
-                            SupplierPirces.Add(DValue);
-                    }
-                    if (SupplierPirces != null && SupplierPirces.Count() > 0)
-                        drTemp["Cheapest"] = SupplierPirces.Min();
-                    else
-                        drTemp["Cheapest"] = 0;
-                }
-
                 foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
                 {
                     dtTemp.ImportRow(dr);
                 }
                 ObjESupplier.dtPositions = new DataTable();
                 ObjESupplier.dtPositions = dtTemp.Copy();
+                if (_IsCalculate)
+                ObjESupplier = CalculateCheapestValues(ObjESupplier);
             }
             catch (Exception ex)
             {
@@ -335,19 +312,98 @@ namespace BL
             {
                 if(ViewMode == 0)
                 {
-                    
+                    ObjESupplier = GetProposalPostions(ObjESupplier);
                 }
-                else if (ViewMode == 1)
+                else
                 {
+                    ObjESupplier = GetProposalPostions(ObjESupplier,false);
+                    List<string> TableColumnNAmes = new List<string>();
+                    foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                    {
+                        if (ObjESupplier.dtPositions.Columns[dc.ColumnName + "Check"] != null)
+                        {
+                            TableColumnNAmes.Add(dc.ColumnName);
+                        }
+                    }
 
+                    foreach (DataRow drTemp in ObjESupplier.dtPositions.Rows)
+                    {
+                        foreach (string s in TableColumnNAmes)
+                        {
+                            decimal DValue = 0;
+                            string strValue = drTemp[s] == DBNull.Value ? "" : drTemp[s].ToString();
+                            if (decimal.TryParse(strValue, out DValue))
+                            {
+                                if (ViewMode == 1 || ViewMode == 3)
+                                {
+                                    string strMulti1 = drTemp[s + "Multi1"] == DBNull.Value ? "" : drTemp[s + "Multi1"].ToString();
+                                    string strMulti2 = drTemp[s + "Multi2"] == DBNull.Value ? "" : drTemp[s + "Multi2"].ToString();
+                                    string strMulti3 = drTemp[s + "Multi3"] == DBNull.Value ? "" : drTemp[s + "Multi3"].ToString();
+                                    string strMulti4 = drTemp[s + "Multi4"] == DBNull.Value ? "" : drTemp[s + "Multi4"].ToString();
+                                    decimal dMulti1 = 1;
+                                    decimal dMulti2 = 1;
+                                    decimal dMulti3 = 1;
+                                    decimal dMulti4 = 1;
+
+                                    if (decimal.TryParse(strMulti1, out dMulti1))
+                                        DValue = DValue * dMulti1;
+                                    if (decimal.TryParse(strMulti2, out dMulti2))
+                                        DValue = DValue * dMulti2;
+                                    if (decimal.TryParse(strMulti3, out dMulti3))
+                                        DValue = DValue * dMulti3;
+                                    if (decimal.TryParse(strMulti4, out dMulti4))
+                                        DValue = DValue * dMulti4;
+                                }
+                                if(ViewMode ==2 || ViewMode ==3)
+                                {
+                                    decimal dMenge = 0;
+                                    string strMenge = drTemp["Menge"] == DBNull.Value ? "" : drTemp["Menge"].ToString();
+                                    if (decimal.TryParse(strMenge, out dMenge))
+                                        DValue = DValue * dMenge;
+                                }
+                            }
+                            drTemp[s] = Math.Round(DValue,3);
+                        }
+                    }
+                    ObjESupplier = CalculateCheapestValues(ObjESupplier);
                 }
-                else if (ViewMode == 2)
-                {
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
 
+        private ESupplier CalculateCheapestValues(ESupplier ObjESupplier)
+        {
+            try
+            {
+                List<string> TableColumnNAmes = new List<string>();
+                foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                {
+                    if (ObjESupplier.dtPositions.Columns[dc.ColumnName + "Check"] != null)
+                    {
+                        TableColumnNAmes.Add(dc.ColumnName);
+                    }
                 }
-                else if (ViewMode == 3)
-                {
 
+                foreach (DataRow drTemp in ObjESupplier.dtPositions.Rows)
+                {
+                    List<double> SupplierPirces = new List<double>();
+                    foreach (string s in TableColumnNAmes)
+                    {
+                        double DValue = drTemp[s] == DBNull.Value ? 0 : Math.Round(Convert.ToDouble(drTemp[s]), 3);
+                        if (DValue > 0)
+                            SupplierPirces.Add(DValue);
+                    }
+                    if (SupplierPirces != null && SupplierPirces.Count() > 0)
+                    {
+                        var i = Math.Round(SupplierPirces.Min(), 3);
+                        drTemp["Cheapest"] = i;
+                    }
+                    else
+                        drTemp["Cheapest"] = 0;
                 }
             }
             catch (Exception ex)
