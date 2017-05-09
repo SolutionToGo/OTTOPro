@@ -864,10 +864,10 @@
             this.txtMulti2 = new DevExpress.XtraEditors.TextEdit();
             this.txtMulti1 = new DevExpress.XtraEditors.TextEdit();
             this.txtME = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit2 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
-            this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+            this.txtProposalDim3 = new DevExpress.XtraEditors.TextEdit();
+            this.txtProposalDim2 = new DevExpress.XtraEditors.TextEdit();
+            this.txtProposalDim1 = new DevExpress.XtraEditors.TextEdit();
+            this.txtProposalMenge = new DevExpress.XtraEditors.TextEdit();
             this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem174 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup26 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -1552,10 +1552,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMulti2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMulti1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtME.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProposalDim3.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProposalDim2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProposalDim1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProposalMenge.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem174)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup26)).BeginInit();
@@ -12014,10 +12014,10 @@
             this.layoutControl17.Controls.Add(this.txtMulti2);
             this.layoutControl17.Controls.Add(this.txtMulti1);
             this.layoutControl17.Controls.Add(this.txtME);
-            this.layoutControl17.Controls.Add(this.textEdit1);
-            this.layoutControl17.Controls.Add(this.textEdit2);
-            this.layoutControl17.Controls.Add(this.textEdit3);
-            this.layoutControl17.Controls.Add(this.textEdit4);
+            this.layoutControl17.Controls.Add(this.txtProposalDim3);
+            this.layoutControl17.Controls.Add(this.txtProposalDim2);
+            this.layoutControl17.Controls.Add(this.txtProposalDim1);
+            this.layoutControl17.Controls.Add(this.txtProposalMenge);
             this.layoutControl17.Controls.Add(this.textEdit9);
             this.layoutControl17.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl17.HiddenItems.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -12138,41 +12138,41 @@
             this.txtME.StyleController = this.layoutControl17;
             this.txtME.TabIndex = 12;
             // 
-            // textEdit1
+            // txtProposalDim3
             // 
-            this.textEdit1.Location = new System.Drawing.Point(336, 60);
-            this.textEdit1.Name = "textEdit1";
-            this.textEdit1.Properties.ReadOnly = true;
-            this.textEdit1.Size = new System.Drawing.Size(115, 20);
-            this.textEdit1.StyleController = this.layoutControl17;
-            this.textEdit1.TabIndex = 11;
+            this.txtProposalDim3.Location = new System.Drawing.Point(336, 60);
+            this.txtProposalDim3.Name = "txtProposalDim3";
+            this.txtProposalDim3.Properties.ReadOnly = true;
+            this.txtProposalDim3.Size = new System.Drawing.Size(115, 20);
+            this.txtProposalDim3.StyleController = this.layoutControl17;
+            this.txtProposalDim3.TabIndex = 11;
             // 
-            // textEdit2
+            // txtProposalDim2
             // 
-            this.textEdit2.Location = new System.Drawing.Point(208, 60);
-            this.textEdit2.Name = "textEdit2";
-            this.textEdit2.Properties.ReadOnly = true;
-            this.textEdit2.Size = new System.Drawing.Size(124, 20);
-            this.textEdit2.StyleController = this.layoutControl17;
-            this.textEdit2.TabIndex = 10;
+            this.txtProposalDim2.Location = new System.Drawing.Point(208, 60);
+            this.txtProposalDim2.Name = "txtProposalDim2";
+            this.txtProposalDim2.Properties.ReadOnly = true;
+            this.txtProposalDim2.Size = new System.Drawing.Size(124, 20);
+            this.txtProposalDim2.StyleController = this.layoutControl17;
+            this.txtProposalDim2.TabIndex = 10;
             // 
-            // textEdit3
+            // txtProposalDim1
             // 
-            this.textEdit3.Location = new System.Drawing.Point(65, 60);
-            this.textEdit3.Name = "textEdit3";
-            this.textEdit3.Properties.ReadOnly = true;
-            this.textEdit3.Size = new System.Drawing.Size(139, 20);
-            this.textEdit3.StyleController = this.layoutControl17;
-            this.textEdit3.TabIndex = 9;
+            this.txtProposalDim1.Location = new System.Drawing.Point(65, 60);
+            this.txtProposalDim1.Name = "txtProposalDim1";
+            this.txtProposalDim1.Properties.ReadOnly = true;
+            this.txtProposalDim1.Size = new System.Drawing.Size(139, 20);
+            this.txtProposalDim1.StyleController = this.layoutControl17;
+            this.txtProposalDim1.TabIndex = 9;
             // 
-            // textEdit4
+            // txtProposalMenge
             // 
-            this.textEdit4.Location = new System.Drawing.Point(509, 36);
-            this.textEdit4.Name = "textEdit4";
-            this.textEdit4.Properties.ReadOnly = true;
-            this.textEdit4.Size = new System.Drawing.Size(217, 20);
-            this.textEdit4.StyleController = this.layoutControl17;
-            this.textEdit4.TabIndex = 8;
+            this.txtProposalMenge.Location = new System.Drawing.Point(509, 36);
+            this.txtProposalMenge.Name = "txtProposalMenge";
+            this.txtProposalMenge.Properties.ReadOnly = true;
+            this.txtProposalMenge.Size = new System.Drawing.Size(217, 20);
+            this.txtProposalMenge.StyleController = this.layoutControl17;
+            this.txtProposalMenge.TabIndex = 8;
             // 
             // textEdit9
             // 
@@ -12217,7 +12217,7 @@
             // 
             this.layoutControlItem175.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem175.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem175.Control = this.textEdit4;
+            this.layoutControlItem175.Control = this.txtProposalMenge;
             this.layoutControlItem175.Location = new System.Drawing.Point(444, 24);
             this.layoutControlItem175.Name = "layoutControlItem18";
             this.layoutControlItem175.Size = new System.Drawing.Size(274, 24);
@@ -12228,7 +12228,7 @@
             // 
             this.layoutControlItem176.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem176.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem176.Control = this.textEdit3;
+            this.layoutControlItem176.Control = this.txtProposalDim1;
             this.layoutControlItem176.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem176.Name = "layoutControlItem20";
             this.layoutControlItem176.Size = new System.Drawing.Size(196, 24);
@@ -12237,7 +12237,7 @@
             // 
             // layoutControlItem177
             // 
-            this.layoutControlItem177.Control = this.textEdit2;
+            this.layoutControlItem177.Control = this.txtProposalDim2;
             this.layoutControlItem177.Location = new System.Drawing.Point(196, 48);
             this.layoutControlItem177.Name = "layoutControlItem21";
             this.layoutControlItem177.Size = new System.Drawing.Size(128, 24);
@@ -12246,7 +12246,7 @@
             // 
             // layoutControlItem178
             // 
-            this.layoutControlItem178.Control = this.textEdit1;
+            this.layoutControlItem178.Control = this.txtProposalDim3;
             this.layoutControlItem178.Location = new System.Drawing.Point(324, 48);
             this.layoutControlItem178.Name = "layoutControlItem22";
             this.layoutControlItem178.Size = new System.Drawing.Size(119, 24);
@@ -12718,6 +12718,7 @@
             this.gridColumn66.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn66.AppearanceHeader.Options.UseFont = true;
             this.gridColumn66.Caption = "Date of Proposal Sent";
+            this.gridColumn66.FieldName = "CreatedDate";
             this.gridColumn66.Name = "gridColumn66";
             this.gridColumn66.OptionsColumn.ReadOnly = true;
             this.gridColumn66.Visible = true;
@@ -13545,10 +13546,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMulti2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMulti1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtME.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit1.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit2.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit3.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProposalDim3.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProposalDim2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProposalDim1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProposalMenge.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem174)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup26)).EndInit();
@@ -14488,10 +14489,10 @@
         private DevExpress.XtraEditors.TextEdit txtMulti2;
         private DevExpress.XtraEditors.TextEdit txtMulti1;
         private DevExpress.XtraEditors.TextEdit txtME;
-        private DevExpress.XtraEditors.TextEdit textEdit1;
-        private DevExpress.XtraEditors.TextEdit textEdit2;
-        private DevExpress.XtraEditors.TextEdit textEdit3;
-        private DevExpress.XtraEditors.TextEdit textEdit4;
+        private DevExpress.XtraEditors.TextEdit txtProposalDim3;
+        private DevExpress.XtraEditors.TextEdit txtProposalDim2;
+        private DevExpress.XtraEditors.TextEdit txtProposalDim1;
+        private DevExpress.XtraEditors.TextEdit txtProposalMenge;
         private DevExpress.XtraEditors.TextEdit textEdit9;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem174;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup26;

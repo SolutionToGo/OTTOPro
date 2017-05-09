@@ -6796,6 +6796,8 @@ e.Column.FieldName == "GB")
                         ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = Math.Round(Convert.ToDecimal(l.Min()),3);
                     else
                         ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = 0.000;
+
+                    SaveListPrice(iIvalue, e.Column.FieldName);
                 }
             }
             catch (Exception ex)
@@ -6824,9 +6826,9 @@ e.Column.FieldName == "GB")
                                 DataRow drNew = ObjESupplier.dtStrings.NewRow();
                                 drNew["Item"] = dc.ColumnName;
                                 ObjESupplier.dtStrings.Rows.Add(drNew);
-                                ObjESupplier.IsSelected = true;
                             }
                         }
+                        ObjESupplier.IsSelected = true;
                     }
                     else
                         ObjESupplier.IsSelected = false;
@@ -6901,13 +6903,13 @@ e.Column.FieldName == "GB")
                         : ObjESupplier.dtPositions.Rows[iRowindex]["MA_listprice"].ToString();
                     txtUpdatesuppliertext.Rtf = ObjESupplier.dtPositions.Rows[iRowindex]["ShortDescription"] == DBNull.Value ? ""
                         : ObjESupplier.dtPositions.Rows[iRowindex]["ShortDescription"].ToString();
-                    txtMenge.Text = ObjESupplier.dtPositions.Rows[iRowindex]["Menge"] == DBNull.Value ? ""
+                    txtProposalMenge.Text = ObjESupplier.dtPositions.Rows[iRowindex]["Menge"] == DBNull.Value ? ""
                         : ObjESupplier.dtPositions.Rows[iRowindex]["Menge"].ToString();
-                    txtDim1.Text = ObjESupplier.dtPositions.Rows[iRowindex]["A"] == DBNull.Value ? ""
+                    txtProposalDim1.Text = ObjESupplier.dtPositions.Rows[iRowindex]["A"] == DBNull.Value ? ""
                         : ObjESupplier.dtPositions.Rows[iRowindex]["A"].ToString();
-                    txtDim2.Text = ObjESupplier.dtPositions.Rows[iRowindex]["B"] == DBNull.Value ? ""
+                    txtProposalDim2.Text = ObjESupplier.dtPositions.Rows[iRowindex]["B"] == DBNull.Value ? ""
                         : ObjESupplier.dtPositions.Rows[iRowindex]["B"].ToString();
-                    txtDim3.Text = ObjESupplier.dtPositions.Rows[iRowindex]["L"] == DBNull.Value ? ""
+                    txtProposalDim3.Text = ObjESupplier.dtPositions.Rows[iRowindex]["L"] == DBNull.Value ? ""
                         : ObjESupplier.dtPositions.Rows[iRowindex]["L"].ToString();
                     txtME.Text = ObjESupplier.dtPositions.Rows[iRowindex]["ME"] == DBNull.Value ? ""
                         : ObjESupplier.dtPositions.Rows[iRowindex]["ME"].ToString();
@@ -6934,6 +6936,9 @@ e.Column.FieldName == "GB")
         {
             try
             {
+                if (gvSupplier.RowCount == 0)
+                    return;
+
                 if (radioGroup1.SelectedIndex != 0)
                     throw new Exception("Please Select List Price Per Unit Proposal View");
                 List<string> LBoolColumns = new List<string>();
@@ -6967,6 +6972,8 @@ e.Column.FieldName == "GB")
         {
             try
             {
+                if (gvSupplier.RowCount == 0)
+                    return;
                 if (radioGroup1.SelectedIndex != 0)
                     throw new Exception("Please Select List Price Per Unit Proposal View");
                 string strSupliercolumnName = gvSupplier.FocusedColumn.FieldName;
@@ -7019,9 +7026,13 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                RadioGroup edit = sender as RadioGroup;
-                ObjESupplier = ObjBSupplier.ChangeProposalView(ObjESupplier, edit.SelectedIndex);
-                gcSupplier.DataSource = ObjESupplier.dtPositions;
+                if (gvProposal.RowCount > 0)
+                {
+                    RadioGroup edit = sender as RadioGroup;
+                    ObjESupplier = ObjBSupplier.ChangeProposalView(ObjESupplier, edit.SelectedIndex);
+                    gcSupplier.DataSource = ObjESupplier.dtPositions;
+
+                }
             }
             catch (Exception ex)
             {
@@ -7029,6 +7040,55 @@ e.Column.FieldName == "GB")
             }
         }
 
+        private void SaveListPrice(int iRowIndex, string strSupliercolumnName)
+        {
+            try
+            {
+                if (radioGroup1.SelectedIndex != 0)
+                    throw new Exception("Please Select List Price Per Unit Proposal View");
+                string strBoolColumnName = strSupliercolumnName + "Check";
+                if (gvSupplier.Columns[strBoolColumnName] != null)
+                {
+                    ObjESupplier.PositionID = Convert.ToInt32(ObjESupplier.dtPositions.Rows[iRowIndex]["PositionID"]);
+                    ObjESupplier.SupplierProposalID = Convert.ToInt32(gvProposal.GetFocusedRowCellValue("SupplierProposalID"));
+                    ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Fabricate"] = ObjESupplier.Fabrikate = txtNewFabrikate.Text;
+                    ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "SupplierName"] = ObjESupplier.SupplierName = txtNewSupplierName.Text;
+
+                    decimal dValue = 1;
+                    string strName = Convert.ToString(ObjESupplier.dtPositions.Rows[iRowIndex][txtNewSupplierName.Text]);
+                    if (decimal.TryParse(strName, out  dValue))
+                        ObjESupplier.SupplierPrice = dValue;
+                    else
+                        ObjESupplier.SupplierPrice = 0;
+
+                    if (decimal.TryParse(txtNewMulti1.Text, out  dValue))
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi1"] = ObjESupplier.Multi1 = dValue;
+                    else
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi1"] = ObjESupplier.Multi1 = 1;
+
+                    if (decimal.TryParse(txtNewMulti2.Text, out  dValue))
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi2"] = ObjESupplier.Multi2 = dValue;
+                    else
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi2"] = ObjESupplier.Multi2 = 1;
+
+                    if (decimal.TryParse(txtNewMulti3.Text, out  dValue))
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi3"] = ObjESupplier.Multi3 = dValue;
+                    else
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi3"] = ObjESupplier.Multi3 = 1;
+
+                    if (decimal.TryParse(txtNewMulti4.Text, out  dValue))
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = dValue;
+                    else
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
+
+                    ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         #endregion
     }
 }
