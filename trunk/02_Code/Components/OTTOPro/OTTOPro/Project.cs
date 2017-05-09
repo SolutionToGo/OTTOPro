@@ -5695,8 +5695,11 @@ e.Column.FieldName == "GB")
 
         private void navBarItem5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            frmDesignReport Obj = new frmDesignReport(ObjEProject.ProjectID);
-            Obj.ShowDialog();
+            if (ObjEProject.ProjectID > 0)
+            {
+                frmDesignReport Obj = new frmDesignReport(ObjEProject.ProjectID);
+                Obj.ShowDialog();
+            }           
 
             //Delivery Notes related report
             //rptDeliveryNotes rpt = new rptDeliveryNotes(ObjEProject.ProjectID, ObjEProject.KundeID);
@@ -6661,6 +6664,14 @@ e.Column.FieldName == "GB")
         
 
         #endregion
+
+        private void navBarItemConsolidateBlatt_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            rptConsolidatedBlatt rpt = new rptConsolidatedBlatt();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+            printTool.ShowRibbonPreview();
+        }
 
         
 

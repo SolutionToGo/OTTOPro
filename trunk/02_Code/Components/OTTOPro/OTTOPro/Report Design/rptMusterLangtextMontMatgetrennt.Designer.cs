@@ -45,6 +45,7 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary7 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary8 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary9 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.XtraReports.UI.XRSummary xrSummary10 = new DevExpress.XtraReports.UI.XRSummary();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
@@ -944,7 +945,7 @@
             this.GroupHeader1.Dpi = 100F;
             this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("Parent_OZ", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.GroupHeader1.HeightF = 4.166667F;
+            this.GroupHeader1.HeightF = 0F;
             this.GroupHeader1.Name = "GroupHeader1";
             // 
             // sqlDataSource2
@@ -1003,7 +1004,7 @@
             this.xrRichText2,
             this.xrTable3});
             this.Detail2.Dpi = 100F;
-            this.Detail2.HeightF = 56.64577F;
+            this.Detail2.HeightF = 59.77077F;
             this.Detail2.Name = "Detail2";
             // 
             // xrRichText2
@@ -1114,7 +1115,7 @@
             this.xrTableCell20.StylePriority.UseForeColor = false;
             this.xrTableCell20.StylePriority.UseTextAlignment = false;
             this.xrTableCell20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell20.Weight = 0.52616866705586673D;
+            this.xrTableCell20.Weight = 0.52817428678157008D;
             // 
             // xrTableCell21
             // 
@@ -1128,7 +1129,7 @@
             this.xrTableCell21.StylePriority.UseForeColor = false;
             this.xrTableCell21.StylePriority.UseTextAlignment = false;
             this.xrTableCell21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell21.Weight = 0.53306844508740636D;
+            this.xrTableCell21.Weight = 0.531062825361703D;
             // 
             // sqlDataSource3
             // 
@@ -1209,10 +1210,10 @@
             this.xrLabel29.Dpi = 100F;
             this.xrLabel29.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel29.ForeColor = System.Drawing.Color.Maroon;
-            this.xrLabel29.LocationFloat = new DevExpress.Utils.PointFloat(522.8359F, 3.000005F);
+            this.xrLabel29.LocationFloat = new DevExpress.Utils.PointFloat(521.6153F, 3.000005F);
             this.xrLabel29.Name = "xrLabel29";
             this.xrLabel29.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel29.SizeF = new System.Drawing.SizeF(131.7217F, 22.99999F);
+            this.xrLabel29.SizeF = new System.Drawing.SizeF(132.9423F, 22.99999F);
             this.xrLabel29.StylePriority.UseFont = false;
             this.xrLabel29.StylePriority.UseForeColor = false;
             this.xrLabel29.StylePriority.UseTextAlignment = false;
@@ -1369,6 +1370,7 @@
             this.xrLabelFinalResult.SizeF = new System.Drawing.SizeF(130.9426F, 23F);
             this.xrLabelFinalResult.StylePriority.UseFont = false;
             this.xrLabelFinalResult.StylePriority.UseTextAlignment = false;
+            this.xrLabelFinalResult.Text = "0.00";
             this.xrLabelFinalResult.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLblGB
@@ -1381,6 +1383,7 @@
             this.xrLblGB.SizeF = new System.Drawing.SizeF(129.6909F, 23F);
             this.xrLblGB.StylePriority.UseFont = false;
             this.xrLblGB.StylePriority.UseTextAlignment = false;
+            this.xrLblGB.Text = "0.00";
             this.xrLblGB.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLblTotalVat
@@ -1393,6 +1396,7 @@
             this.xrLblTotalVat.SizeF = new System.Drawing.SizeF(130.9424F, 23F);
             this.xrLblTotalVat.StylePriority.UseFont = false;
             this.xrLblTotalVat.StylePriority.UseTextAlignment = false;
+            this.xrLblTotalVat.Text = "0.00";
             this.xrLblTotalVat.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLblMA
@@ -1405,6 +1409,9 @@
             this.xrLblMA.SizeF = new System.Drawing.SizeF(129.6909F, 23F);
             this.xrLblMA.StylePriority.UseFont = false;
             this.xrLblMA.StylePriority.UseTextAlignment = false;
+            xrSummary10.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
+            this.xrLblMA.Summary = xrSummary10;
+            this.xrLblMA.Text = "0.00";
             this.xrLblMA.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLblMO
@@ -1417,6 +1424,7 @@
             this.xrLblMO.SizeF = new System.Drawing.SizeF(129.6909F, 23F);
             this.xrLblMO.StylePriority.UseFont = false;
             this.xrLblMO.StylePriority.UseTextAlignment = false;
+            this.xrLblMO.Text = "0.00";
             this.xrLblMO.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLabel37

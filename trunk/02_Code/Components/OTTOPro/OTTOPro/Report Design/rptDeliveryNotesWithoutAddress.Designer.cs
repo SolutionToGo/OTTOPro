@@ -536,7 +536,7 @@
             this.Detail1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable1});
             this.Detail1.Dpi = 100F;
-            this.Detail1.HeightF = 25F;
+            this.Detail1.HeightF = 24.99998F;
             this.Detail1.Name = "Detail1";
             // 
             // ProjectID

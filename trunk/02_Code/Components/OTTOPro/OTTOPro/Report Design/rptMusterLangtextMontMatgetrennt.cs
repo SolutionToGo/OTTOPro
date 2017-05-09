@@ -8,6 +8,7 @@ namespace OTTOPro.Report_Design
 {
     public partial class rptMusterLangtextMontMatgetrennt : DevExpress.XtraReports.UI.XtraReport
     {
+
         public rptMusterLangtextMontMatgetrennt()
         {
             InitializeComponent();

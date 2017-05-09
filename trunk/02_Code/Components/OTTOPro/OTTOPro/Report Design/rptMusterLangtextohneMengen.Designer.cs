@@ -907,7 +907,7 @@
             this.xrLabelMO1.LocationFloat = new DevExpress.Utils.PointFloat(406.4698F, 25.7918F);
             this.xrLabelMO1.Name = "xrLabelMO1";
             this.xrLabelMO1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabelMO1.SizeF = new System.Drawing.SizeF(121.144F, 22.99999F);
+            this.xrLabelMO1.SizeF = new System.Drawing.SizeF(125.5598F, 22.99999F);
             this.xrLabelMO1.StylePriority.UseFont = false;
             this.xrLabelMO1.StylePriority.UseForeColor = false;
             this.xrLabelMO1.StylePriority.UseTextAlignment = false;
@@ -930,7 +930,7 @@
             this.xrLabelEP1.LocationFloat = new DevExpress.Utils.PointFloat(532.0296F, 25.87503F);
             this.xrLabelEP1.Name = "xrLabelEP1";
             this.xrLabelEP1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabelEP1.SizeF = new System.Drawing.SizeF(123.5278F, 22.99999F);
+            this.xrLabelEP1.SizeF = new System.Drawing.SizeF(125.4634F, 22.99999F);
             this.xrLabelEP1.StylePriority.UseFont = false;
             this.xrLabelEP1.StylePriority.UseForeColor = false;
             this.xrLabelEP1.StylePriority.UseTextAlignment = false;
@@ -1071,7 +1071,7 @@
             this.xrTableCell17.StylePriority.UseFont = false;
             this.xrTableCell17.StylePriority.UseTextAlignment = false;
             this.xrTableCell17.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell17.Weight = 0.52812920246430539D;
+            this.xrTableCell17.Weight = 0.36818927946657853D;
             // 
             // xrTableCell18
             // 
@@ -1087,7 +1087,7 @@
             this.xrTableCell18.StylePriority.UsePadding = false;
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell18.Weight = 0.56216540277654792D;
+            this.xrTableCell18.Weight = 0.72210532577427478D;
             // 
             // xrTableCell19
             // 
@@ -1199,7 +1199,7 @@
             this.xrLabelMO2.LocationFloat = new DevExpress.Utils.PointFloat(406.4697F, 4.43751F);
             this.xrLabelMO2.Name = "xrLabelMO2";
             this.xrLabelMO2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabelMO2.SizeF = new System.Drawing.SizeF(121.144F, 22.99999F);
+            this.xrLabelMO2.SizeF = new System.Drawing.SizeF(125.5599F, 22.99999F);
             this.xrLabelMO2.StylePriority.UseFont = false;
             this.xrLabelMO2.StylePriority.UseForeColor = false;
             this.xrLabelMO2.StylePriority.UseTextAlignment = false;
@@ -1245,7 +1245,7 @@
             this.xrLabelEP2.LocationFloat = new DevExpress.Utils.PointFloat(532.0296F, 4.43751F);
             this.xrLabelEP2.Name = "xrLabelEP2";
             this.xrLabelEP2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabelEP2.SizeF = new System.Drawing.SizeF(123.5278F, 22.99999F);
+            this.xrLabelEP2.SizeF = new System.Drawing.SizeF(125.4634F, 22.99999F);
             this.xrLabelEP2.StylePriority.UseFont = false;
             this.xrLabelEP2.StylePriority.UseForeColor = false;
             this.xrLabelEP2.StylePriority.UseTextAlignment = false;

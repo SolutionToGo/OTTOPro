@@ -141,7 +141,9 @@ namespace OTTOPro
                          rptMusterohneEPs.Parameters["ProjectID"].Value = _Projectid;
                          printTool7.ShowRibbonPreview();
                         break;
-                        
+                    default:
+                        throw new Exception("Please select Report Type");
+                        break;
                 }
             }
             catch (Exception ex)

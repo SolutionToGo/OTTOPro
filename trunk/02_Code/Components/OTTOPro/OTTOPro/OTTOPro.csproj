@@ -369,6 +369,12 @@
     <Compile Include="Report Design\frmProposalCoverPage1.Designer.cs">
       <DependentUpon>frmProposalCoverPage1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptConsolidatedBlatt.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptConsolidatedBlatt.Designer.cs">
+      <DependentUpon>rptConsolidatedBlatt.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptDeliveryNotes.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -531,6 +537,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\frmProposalCoverPage1.resx">
       <DependentUpon>frmProposalCoverPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptConsolidatedBlatt.resx">
+      <DependentUpon>rptConsolidatedBlatt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptDeliveryNotes.resx">
       <DependentUpon>rptDeliveryNotes.cs</DependentUpon>

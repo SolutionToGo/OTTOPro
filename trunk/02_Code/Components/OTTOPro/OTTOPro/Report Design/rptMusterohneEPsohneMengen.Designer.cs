@@ -1245,7 +1245,7 @@
             this.xrTableCell19.StylePriority.UseForeColor = false;
             this.xrTableCell19.StylePriority.UseTextAlignment = false;
             this.xrTableCell19.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell19.Weight = 0.62249374185280337D;
+            this.xrTableCell19.Weight = 0.65667985969002185D;
             // 
             // xrTableCell20
             // 
@@ -1257,7 +1257,7 @@
             this.xrTableCell20.StylePriority.UseForeColor = false;
             this.xrTableCell20.StylePriority.UseTextAlignment = false;
             this.xrTableCell20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell20.Weight = 0.59209745972959071D;
+            this.xrTableCell20.Weight = 0.55791134189237224D;
             // 
             // xrTableCell21
             // 
