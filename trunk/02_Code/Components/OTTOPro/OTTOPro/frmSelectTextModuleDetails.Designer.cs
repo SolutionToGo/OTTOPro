@@ -170,7 +170,7 @@
             // 
             this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn3.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn3.Caption = "Text Module Area";
+            this.gridColumn3.Caption = "Textmodul Bereich";
             this.gridColumn3.FieldName = "TextModuleArea";
             this.gridColumn3.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn3.Name = "gridColumn3";
@@ -182,7 +182,7 @@
             // 
             this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn4.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn4.Caption = "Category";
+            this.gridColumn4.Caption = "Kategorie";
             this.gridColumn4.FieldName = "Category";
             this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn4.Name = "gridColumn4";
@@ -193,7 +193,7 @@
             // 
             this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn5.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn5.Caption = "Contents";
+            this.gridColumn5.Caption = "Inhalt";
             this.gridColumn5.FieldName = "Contents";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -264,7 +264,7 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(481, 139);
-            this.layoutControlItem4.Text = "Contents :";
+            this.layoutControlItem4.Text = "Inhalt :";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(65, 14);
             // 

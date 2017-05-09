@@ -82,10 +82,10 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (ex.Message.Contains("UNIQUE"))
-                    throw new Exception("Blatt Number Already Exists, Enter Another One");
+                    throw new Exception("Diese BLATT Nummer wurde bereits vergeben, bitte machen Sie eine neue Angabe. ");
                 else if 
                     (ex.Message.Contains("Valid"))
-                    throw;
+                    throw new Exception("Bitte machen Sie einige gültige Mengenangabe");
                 else
                     throw new Exception("Error While Saving Delivery");
             }

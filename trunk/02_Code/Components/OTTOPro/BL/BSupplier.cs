@@ -3,6 +3,7 @@ using EL;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -206,6 +207,7 @@ namespace BL
             {
                 ObjESupplier = ObjDSupplier.GetProposalPostions(ObjESupplier);
                 DataTable dtTemp = ObjESupplier.dtPositions.Clone();
+                ChangeCultureInfo(dtTemp);
                 foreach (DataColumn dc in dtTemp.Columns)
                 {
                     if (dc.ColumnName.Contains("Check"))
@@ -213,12 +215,21 @@ namespace BL
                         dc.DataType = System.Type.GetType("System.Boolean");
                         dc.Caption = "";
                     }
+                    else if(dtTemp.Columns[dc.ColumnName + "Check"] != null)
+                    {
+                        dc.DataType = System.Type.GetType("System.Decimal");
+                    }
+                    else if(dc.ColumnName.Contains("Multi"))
+                    {
+                        dc.DataType = System.Type.GetType("System.Decimal");
+                    }
                 }
                 foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
                 {
                     dtTemp.ImportRow(dr);
                 }
                 ObjESupplier.dtPositions = new DataTable();
+                ChangeCultureInfo(ObjESupplier.dtPositions);
                 ObjESupplier.dtPositions = dtTemp.Copy();
                 if (_IsCalculate)
                 ObjESupplier = CalculateCheapestValues(ObjESupplier);
@@ -411,6 +422,12 @@ namespace BL
                 throw;
             }
             return ObjESupplier;
+        }
+
+        private void ChangeCultureInfo(DataTable table)
+        {
+            CultureInfo myCultureInfo = new CultureInfo("en-gb");
+            table.Locale = myCultureInfo;
         }
     }
 }

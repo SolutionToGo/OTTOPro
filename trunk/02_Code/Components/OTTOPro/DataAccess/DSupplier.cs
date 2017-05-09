@@ -461,7 +461,12 @@ namespace DataAccess
                     {
                         string str =Convert.ToString(ObjReturn);
                         if (!string.IsNullOrEmpty(str))
-                            throw new Exception(str);
+                        {
+                            if(str.Contains("Zero"))
+                            {
+                                throw new Exception("Einige LV Positionen haben keinen Preiseintrag");
+                            }
+                        }
                     }
                 }
             }
@@ -516,11 +521,11 @@ namespace DataAccess
                     cmd.CommandText = "[P_Ins_ProposalValues]";
                     cmd.Parameters.AddWithValue("@PostionID", ObjESupplier.PositionID);
                     cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
-                    cmd.Parameters.AddWithValue("@SupplierPrice", Convert.ToString(ObjESupplier.SupplierPrice).Replace(",", "."));
-                    cmd.Parameters.AddWithValue("@Multi1", Convert.ToString(ObjESupplier.Multi1).Replace(",","."));
-                    cmd.Parameters.AddWithValue("@Multi2", Convert.ToString(ObjESupplier.Multi2).Replace(",", "."));
-                    cmd.Parameters.AddWithValue("@Multi3", Convert.ToString(ObjESupplier.Multi3).Replace(",", "."));
-                    cmd.Parameters.AddWithValue("@Multi4", Convert.ToString(ObjESupplier.Multi4).Replace(",", "."));
+                    cmd.Parameters.AddWithValue("@SupplierPrice", ObjESupplier.SupplierPrice);
+                    cmd.Parameters.AddWithValue("@Multi1", ObjESupplier.Multi1);
+                    cmd.Parameters.AddWithValue("@Multi2", ObjESupplier.Multi2);
+                    cmd.Parameters.AddWithValue("@Multi3", ObjESupplier.Multi3);
+                    cmd.Parameters.AddWithValue("@Multi4", ObjESupplier.Multi4);
                     cmd.Parameters.AddWithValue("@Fabrikate", ObjESupplier.Fabrikate);
                     cmd.Parameters.AddWithValue("@SupplierName", ObjESupplier.SupplierName);
                     object Objreturn = cmd.ExecuteScalar();
@@ -534,7 +539,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception("Error While Saving the ListPrice");
             }
             finally
             {

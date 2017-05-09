@@ -200,7 +200,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="dsLVDetails.Designer.cs" />
     <Compile Include="frmArticlesData.cs">
       <SubType>Form</SubType>
     </Compile>

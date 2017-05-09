@@ -517,7 +517,7 @@
             this.xrLabel27.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel27.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel27.StylePriority.UseFont = false;
-            this.xrLabel27.Text = "Managing Director";
+            this.xrLabel27.Text = "Geschäftsführer";
             // 
             // xrLabel26
             // 
@@ -539,7 +539,7 @@
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel25.SizeF = new System.Drawing.SizeF(100F, 23F);
             this.xrLabel25.StylePriority.UseFont = false;
-            this.xrLabel25.Text = "Seat of company";
+            this.xrLabel25.Text = "Firmensitz";
             // 
             // xrLabel24
             // 

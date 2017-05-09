@@ -142,7 +142,7 @@ namespace OTTOPro
                          printTool7.ShowRibbonPreview();
                         break;
                     default:
-                        throw new Exception("Please select Report Type");
+                        throw new Exception("Bitte wählen Sie eine Berichtsvorlage");
                         break;
                 }
             }

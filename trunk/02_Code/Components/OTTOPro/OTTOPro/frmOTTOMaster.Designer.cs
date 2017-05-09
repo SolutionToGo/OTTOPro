@@ -1043,7 +1043,7 @@
             this.layoutControlItem40.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem40.Name = "layoutControlItem40";
             this.layoutControlItem40.Size = new System.Drawing.Size(328, 24);
-            this.layoutControlItem40.Text = "Seat of Company :";
+            this.layoutControlItem40.Text = "Firmensitz :";
             this.layoutControlItem40.TextSize = new System.Drawing.Size(98, 13);
             // 
             // layoutControlItem41
@@ -1052,7 +1052,7 @@
             this.layoutControlItem41.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem41.Name = "layoutControlItem41";
             this.layoutControlItem41.Size = new System.Drawing.Size(328, 24);
-            this.layoutControlItem41.Text = "Managing Director :";
+            this.layoutControlItem41.Text = "Geschäftsführer :";
             this.layoutControlItem41.TextSize = new System.Drawing.Size(98, 13);
             // 
             // layoutControlItem42

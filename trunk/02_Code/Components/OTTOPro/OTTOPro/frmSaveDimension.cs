@@ -40,12 +40,19 @@ namespace OTTOPro
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (ObjBArticle == null)
-                ObjBArticle = new BArticles();
-            ObjEArticle.ValidityDate = dateEditGultigkeit.DateTime;
-            ObjEArticle = ObjBArticle.SaveDimensionCopy(ObjEArticle);
-            MessageBox.Show("Dimensions Saved With New Validity Date : " + string.Format("{0:y}", dateEditGultigkeit.DateTime));
-            this.Close();
+            try
+            {
+                if (ObjBArticle == null)
+                    ObjBArticle = new BArticles();
+                ObjEArticle.ValidityDate = dateEditGultigkeit.DateTime;
+                ObjEArticle = ObjBArticle.SaveDimensionCopy(ObjEArticle);
+                MessageBox.Show("Dimensions Saved With New Validity Date : " + string.Format("{0:y}", dateEditGultigkeit.DateTime));
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

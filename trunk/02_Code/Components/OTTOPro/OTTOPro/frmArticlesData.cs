@@ -165,9 +165,21 @@ namespace OTTOPro
         {
             if (ObjEArticle == null)
                 ObjEArticle = new EArticles();
-            ObjEArticle.WG = txtWG.Text == string.Empty ? "0" : txtWG.Text;
-            ObjEArticle.WA = txtWA.Text == string.Empty ? "0" : txtWA.Text;
-            ObjEArticle.WI = txtWI.Text == string.Empty ? "0" : txtWI.Text;
+            if (!string.IsNullOrEmpty(txtWG.Text.Trim()) && txtWG.Text != "0")
+                ObjEArticle.WG = txtWG.Text;
+            else
+                throw new Exception("Please Enter Valid WG Value");
+
+            if (!string.IsNullOrEmpty(txtWA.Text.Trim()) && txtWA.Text != "0")
+                ObjEArticle.WA = txtWA.Text;
+            else
+                throw new Exception("Please Enter Valid WA Value");
+            if (!string.IsNullOrEmpty(txtWI.Text) && txtWI.Text != "0")
+                ObjEArticle.WI = txtWI.Text;
+            else
+                throw new Exception("Please Enter Valid WI Value");
+        
+
             ObjEArticle.WGDescription = txtWGDescription.Text;
             ObjEArticle.WADescription = txtWADescription.Text;
             ObjEArticle.WIDescription = txtWIDescription.Text;
@@ -385,9 +397,22 @@ namespace OTTOPro
                     ObjEArticle = new EArticles();
                 ObjEArticle.DimensionID = Convert.ToInt32(gvDimensions.GetRowCellValue(RowHandle, "DimensionID"));
                 ObjEArticle.WIID = Convert.ToInt32(gvDimensions.GetRowCellValue(RowHandle, "WIID"));
-                ObjEArticle.A = gvDimensions.GetRowCellValue(RowHandle, "A") == string.Empty ? "0" : gvDimensions.GetRowCellValue(RowHandle, "A").ToString();
-                ObjEArticle.B = gvDimensions.GetRowCellValue(RowHandle, "B") == string.Empty ? "0" : gvDimensions.GetRowCellValue(RowHandle, "B").ToString();
-                ObjEArticle.L = gvDimensions.GetRowCellValue(RowHandle, "L") == string.Empty ? "0" : gvDimensions.GetRowCellValue(RowHandle, "L").ToString();
+
+                if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "A"))) && gvDimensions.GetRowCellValue(RowHandle, "A") != "0")
+                    ObjEArticle.A = gvDimensions.GetRowCellValue(RowHandle, "A").ToString();
+                else
+                    throw new Exception("Please Enter Valid Dimension");
+
+                if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "B"))) && gvDimensions.GetRowCellValue(RowHandle, "B") != "0")
+                    ObjEArticle.B = gvDimensions.GetRowCellValue(RowHandle, "B").ToString();
+                else
+                    throw new Exception("Please Enter Valid Dimension");
+
+                if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "L"))) && gvDimensions.GetRowCellValue(RowHandle, "L") != "0")
+                    ObjEArticle.L = gvDimensions.GetRowCellValue(RowHandle, "L").ToString();
+                else
+                    throw new Exception("Please Enter Valid Dimension");
+
                 ObjEArticle.ListPrice = gvDimensions.GetRowCellValue(RowHandle, "ListPrice") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "ListPrice"));
                 ObjEArticle.Minuten = gvDimensions.GetRowCellValue(RowHandle, "Minuten") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "Minuten"));
                 ObjEArticle.GMulti = gvDimensions.GetRowCellValue(RowHandle, "GMulti") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "GMulti"));
@@ -419,6 +444,8 @@ namespace OTTOPro
         {
             try
             {
+                if (gvDimensions.RowCount == 0)
+                    return;
                 frmSaveDimension Obj = new frmSaveDimension();
                 Obj.ObjEArticle = ObjEArticle;
                 Obj.ObjBArticle = ObjBArticle;

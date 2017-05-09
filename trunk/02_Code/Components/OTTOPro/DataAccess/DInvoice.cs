@@ -82,7 +82,12 @@ namespace DataAccess
                         int iValue =  0;
                         string strError = dsInvoices.Tables[0].Rows[0][0].ToString();
                         if (!int.TryParse(strError, out iValue))
-                            throw new Exception(strError);
+                        {
+                            if (strError.Contains("Atleast"))
+                                throw new Exception("Bitte wählen Sie mindestens ein Aufmass");
+                            else
+                                throw new Exception(strError);
+                        }
                         else
                         {
                             ObjEInvoice.InvoiceID = iValue;
@@ -98,7 +103,9 @@ namespace DataAccess
                 if (ex.Message.Contains("Atleast"))
                     throw new Exception(ex.Message);
                 else if(ex.Message.Contains("UNIQUE"))
-                    throw new Exception("Invoice Number Already Exists Under This Project");
+                {
+                    throw new Exception("Diese Rechnungsnummer wurde für dieses Projekt bereits vergeben");
+                }
                 else
                     throw new Exception("Error While Saving the Invoice");
             }
