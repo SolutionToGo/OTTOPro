@@ -190,6 +190,7 @@ namespace OTTOPro
                 RequiredFields.Add(txtInternS);
                 RequiredFields.Add(txtInternX);
                 dtpSubmitDate.Properties.VistaEditTime = DefaultBoolean.True;
+                dtpSubmitDate.Properties.MinValue = DateTime.Now;
 
                 LoadExistingRasters();
                 LoadExistingProject();
@@ -5818,7 +5819,12 @@ e.Column.FieldName == "GB")
                         Utility.Setfocus(gvDelivery, "PositionID", Convert.ToInt32(strPositionID));
                     }
                     else
-                        throw new Exception("Position Already Exists in Blatt");
+                    {
+                        if (!Utility._IsGermany)
+                            throw new Exception("Position Already Exists in Blatt");
+                        else
+                            throw new Exception("Diese LV Position wurde für dieses BLATT bereits einmal ausgewählt");
+                    }
                 }
             }
             catch (Exception ex)
@@ -5895,11 +5901,16 @@ e.Column.FieldName == "GB")
                 if (string.IsNullOrEmpty(txtBlattNumber.Text))
                     throw new Exception("Please Enter Blatt Number");
                 if (gvDelivery.RowCount == 0)
-                    throw new Exception("Select Positions for Delivery");
+                {
+                    if (!Utility._IsGermany)
+                        throw new Exception("Select Positions for Delivery");
+                    else
+                        throw new Exception("Bitte wählen Sie LV Positionen für das Aufmass");
+                }
                 if (!chkActiveDelivery.Checked)
                 {
-                    string strConfirmation = XtraMessageBox.Show("Do you want to save it as non active delivery..?", "Question"
-                        , MessageBoxButtons.OKCancel, MessageBoxIcon.Question).ToString();
+                    string strConfirmation = XtraMessageBox.Show("Wollen Sie dies als nicht-aktives Aufmass abspeichern?", "Frage"
+                            , MessageBoxButtons.OKCancel, MessageBoxIcon.Question).ToString();
                     if (strConfirmation.ToLower() == "cancel")
                         return;
                 }
@@ -6429,11 +6440,17 @@ e.Column.FieldName == "GB")
             {
                 if (chkSupplierLists.CheckedItems.Count == 0)
                 {
-                    throw new Exception("Please select atleast one Supplier.");
+                    if (!Utility._IsGermany)
+                        throw new Exception("Please select atleast one Supplier");
+                    else
+                        throw new Exception("Bitte wählen Sie mindestens einen Lieferanten aus");
                 }
                 if (gvLVDetailsforSupplier.DataRowCount==0)
                 {
-                    throw new Exception("No Positions to generate.");
+                    if (!Utility._IsGermany)
+                        throw new Exception("No Positions to generate.");
+                    else
+                        throw new Exception("Es wurden keine LV Positionen ausgewählt");
                 }
                 DataTable _dtPosition = ObjESupplier.dtNewPositions.Copy();
                 DataTable _dtDeletedPositions = ObjESupplier.dtDeletedPositions.Copy();
@@ -6956,7 +6973,12 @@ e.Column.FieldName == "GB")
                     return;
 
                 if (radioGroup1.SelectedIndex != 0)
-                    throw new Exception("Please Select List Price Per Unit Proposal View");
+                {
+                    if (!Utility._IsGermany)
+                        throw new Exception("Please Select List Price Per Unit Proposal View");
+                    else
+                        throw new Exception("Bitte wählen Sie die Ansicht 'Listenpreise pro Einheit'");
+                }
                 List<string> LBoolColumns = new List<string>();
                 foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
                 {
@@ -6972,7 +6994,12 @@ e.Column.FieldName == "GB")
                             _isContinue = true;
                     }
                     if (!_isContinue)
-                        throw new Exception("Some positions are not selected to update the prices");
+                    {
+                        if (!Utility._IsGermany)
+                            throw new Exception("Some positions are not selected to update the prices");
+                        else
+                            throw new Exception("Für die Datenübernahme muss für alle LV Positionen ein Lieferant ausgewählt sein");
+                    }
 
                 }
                 ObjESupplier = ObjBSupplier.UpdateSupplierPrice(ObjESupplier);
@@ -6991,7 +7018,12 @@ e.Column.FieldName == "GB")
                 if (gvSupplier.RowCount == 0)
                     return;
                 if (radioGroup1.SelectedIndex != 0)
-                    throw new Exception("Please Select List Price Per Unit Proposal View");
+                {
+                    if (!Utility._IsGermany)
+                        throw new Exception("Please Select List Price Per Unit Proposal View");
+                    else
+                        throw new Exception("Bitte wählen Sie die Ansicht 'Listenpreise pro Einheit'");
+                }
                 string strSupliercolumnName = gvSupplier.FocusedColumn.FieldName;
                 string strBoolColumnName = gvSupplier.FocusedColumn.FieldName + "Check";
                 if (gvSupplier.Columns[strBoolColumnName] != null)
@@ -7061,7 +7093,12 @@ e.Column.FieldName == "GB")
             try
             {
                 if (radioGroup1.SelectedIndex != 0)
-                    throw new Exception("Please Select List Price Per Unit Proposal View");
+                {
+                    if (!Utility._IsGermany)
+                        throw new Exception("Please Select List Price Per Unit Proposal View");
+                    else
+                        throw new Exception("Bitte wählen Sie die Ansicht 'Listenpreise pro Einheit'");
+                }
                 string strBoolColumnName = strSupliercolumnName + "Check";
                 if (gvSupplier.Columns[strBoolColumnName] != null)
                 {
