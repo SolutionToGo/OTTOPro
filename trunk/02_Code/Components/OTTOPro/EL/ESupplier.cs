@@ -334,5 +334,75 @@ namespace EL
             get { return _PositionID; }
             set { _PositionID = value; }
         }
+
+        private string _Suppliers;
+        public string Suppliers
+        {
+            get { return _Suppliers; }
+            set { _Suppliers = value; }
+        }
+
+        private decimal _SupplierPrice = 0;
+        private decimal _Multi1 = 1;
+        private decimal _Multi2 = 1;
+        private decimal _Multi3 = 1;
+        private decimal _Multi4 = 1;
+        private string _Fabrikate;
+        private string _SupplierName;
+        private bool _IsSelected;
+
+        public decimal SupplierPrice
+        {
+            get { return _SupplierPrice; }
+            set { _SupplierPrice = value; }
+        }
+        public decimal Multi1
+        {
+            get { return _Multi1; }
+            set { _Multi1 = value; }
+        }
+        public decimal Multi2
+        {
+            get { return _Multi2; }
+            set { _Multi2 = value; }
+        }
+        public decimal Multi3
+        {
+            get { return _Multi3; }
+            set { _Multi3 = value; }
+        }
+        public decimal Multi4
+        {
+            get { return _Multi4; }
+            set { _Multi4 = value; }
+        }
+        public string Fabrikate
+        {
+            get { return _Fabrikate; }
+            set { _Fabrikate = value; }
+        }
+        public string SupplierName
+        {
+            get { return _SupplierName; }
+            set { _SupplierName = value; }
+        }
+        public bool IsSelected
+        {
+            get { return _IsSelected; }
+            set { _IsSelected = value; }
+        }
+
+        private DataTable _dtStrings;
+        private string _SelectedColumn;
+        public DataTable dtStrings
+        {
+            get { return _dtStrings; }
+            set { _dtStrings = value; }
+        }
+        public string SelectedColumn
+        {
+            get { return _SelectedColumn; }
+            set { _SelectedColumn = value; }
+        }
     }
 }

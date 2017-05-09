@@ -187,55 +187,6 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public ESupplier GetProposalPostions(ESupplier ObjESupplier)
-        {
-            try
-            {
-                ObjESupplier = ObjDSupplier.GetProposalPostions(ObjESupplier);
-                DataTable dtTemp = ObjESupplier.dtPositions.Copy();
-                int i = -1;
-                foreach (DataColumn c in dtTemp.Columns)
-                {
-                    if(c.ColumnName != "SupplierProposalID" && c.ColumnName != "PositionID"
-                        && c.ColumnName != "Position_OZ" && c.ColumnName != "Cheapest"
-                        && c.ColumnName != "MA_listprice" && c.ColumnName != "ShortDescription"
-                        && c.ColumnName != "Menge" && c.ColumnName != "A"
-                        && c.ColumnName != "B" && c.ColumnName != "L"
-                        && c.ColumnName != "ME" && c.ColumnName != "MA_Multi1"
-                        && c.ColumnName != "MA_multi2" && c.ColumnName != "MA_multi3"
-                        && c.ColumnName != "MA_multi4" && c.ColumnName != "LiefrantMA"
-                        && c.ColumnName != "Fabricate" && c.ColumnName != "PID")
-                    {
-                        int iIndex = 0;
-                        i++;
-                        iIndex = c.Ordinal + i;
-                        DataColumn dc = ObjESupplier.dtPositions.Columns.Add(c.ColumnName + "Check", typeof(bool));
-                        dc.SetOrdinal(iIndex + 1);
-                        dc.DefaultValue = false;
-                        dc.Caption = "";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return ObjESupplier;
-        }
-
-        public ESupplier UpdateSupplierPrice(ESupplier ObjESupplier)
-        {
-            try
-            {
-                ObjESupplier = ObjDSupplier.UpdateSupplierPrice(ObjESupplier);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return ObjESupplier;
-        }
-
         public ESupplier SaveDeletePosition(ESupplier ObjEsupplier)
         {
             try
@@ -249,5 +200,134 @@ namespace BL
             return ObjEsupplier;
         }
 
+        public ESupplier GetProposalPostions(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier = ObjDSupplier.GetProposalPostions(ObjESupplier);
+                DataTable dtTemp = ObjESupplier.dtPositions.Clone();
+                foreach (DataColumn dc in dtTemp.Columns)
+                {
+                    if (dc.ColumnName.Contains("Check"))
+                    {
+                        dc.DataType = System.Type.GetType("System.Boolean");
+                        dc.Caption = "";
+                    }
+                }
+
+                List<string> TableColumnNAmes = new List<string>();
+                foreach(DataColumn dc in dtTemp.Columns)
+                {
+                   if(dtTemp.Columns[dc.ColumnName + "Check"] != null)
+                   {
+                       TableColumnNAmes.Add(dc.ColumnName);
+                   }
+                }
+
+                foreach(DataRow drTemp in ObjESupplier.dtPositions.Rows)
+                {
+                    List<decimal> SupplierPirces = new List<decimal>();
+                    foreach(string s in TableColumnNAmes)
+                    {
+                        decimal DValue = drTemp[s] == DBNull.Value ? 0 : Convert.ToDecimal(drTemp[s]);
+                        if (DValue > 0)
+                            SupplierPirces.Add(DValue);
+                    }
+                    if (SupplierPirces != null && SupplierPirces.Count() > 0)
+                        drTemp["Cheapest"] = SupplierPirces.Min();
+                    else
+                        drTemp["Cheapest"] = 0;
+                }
+
+                foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
+                {
+                    dtTemp.ImportRow(dr);
+                }
+                ObjESupplier.dtPositions = new DataTable();
+                ObjESupplier.dtPositions = dtTemp.Copy();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier UpdateSupplierPrice(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier.dtUpdateSupplierPrice = new DataTable();
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("PositionID", typeof(int));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("ListPrice", typeof(decimal));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Fabrikate", typeof(string));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Supplier", typeof(string));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi1", typeof(decimal));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi2", typeof(decimal));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi3", typeof(decimal));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi4", typeof(decimal));
+
+                List<string> boolColumnNames = new List<string>();
+                foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                {
+                    if (dc.ColumnName.Contains("Check"))
+                        boolColumnNames.Add(dc.ColumnName);
+                }
+
+                foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
+                {
+                    foreach (string s in boolColumnNames)
+                    {
+                        if (Convert.ToBoolean(dr[s]))
+                        {
+                            string strSupplierColumnName = s.Replace("Check", "");
+                            DataRow drNew = ObjESupplier.dtUpdateSupplierPrice.NewRow();
+                            drNew["PositionID"] = dr["PositionID"] == DBNull.Value ? -1 : dr["PositionID"];
+                            drNew["ListPrice"] = dr[strSupplierColumnName] == DBNull.Value ? 0 : dr[strSupplierColumnName];
+                            drNew["Fabrikate"] = dr[strSupplierColumnName + "Fabricate"] == DBNull.Value ? "" : dr[strSupplierColumnName + "Fabricate"];
+                            drNew["Supplier"] = dr[strSupplierColumnName + "SupplierName"] == DBNull.Value ? "" : dr[strSupplierColumnName + "SupplierName"];
+                            drNew["Multi1"] = dr[strSupplierColumnName + "Multi1"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi1"];
+                            drNew["Multi2"] = dr[strSupplierColumnName + "Multi2"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi2"];
+                            drNew["Multi3"] = dr[strSupplierColumnName + "Multi3"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi3"];
+                            drNew["Multi4"] = dr[strSupplierColumnName + "Multi4"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi4"];
+                            ObjESupplier.dtUpdateSupplierPrice.Rows.Add(drNew);
+                        }
+                    }
+                }
+                ObjESupplier = ObjDSupplier.UpdateSupplierPrice(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier SaveProposaleValues(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier = ObjDSupplier.SaveProposaleValues(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier SaveSelection(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier = ObjDSupplier.SaveSelection(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
     }
 }
+

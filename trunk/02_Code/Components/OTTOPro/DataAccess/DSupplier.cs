@@ -456,7 +456,13 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[p_Upd_SupplierPrice]";
                     cmd.Parameters.AddWithValue("@dtPositons", ObjESupplier.dtUpdateSupplierPrice);
-                    cmd.ExecuteNonQuery();
+                    object ObjReturn = cmd.ExecuteScalar();
+                    if(ObjReturn != null)
+                    {
+                        string str =Convert.ToString(ObjReturn);
+                        if (!string.IsNullOrEmpty(str))
+                            throw new Exception(str);
+                    }
                 }
             }
             catch (Exception ex)
@@ -486,6 +492,72 @@ namespace DataAccess
                     {
                         da.Fill(ds);
                     }                  
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier SaveProposaleValues(ESupplier ObjESupplier)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_ProposalValues]";
+                    cmd.Parameters.AddWithValue("@PostionID", ObjESupplier.PositionID);
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    cmd.Parameters.AddWithValue("@SupplierPrice", ObjESupplier.SupplierPrice);
+                    cmd.Parameters.AddWithValue("@Multi1", ObjESupplier.Multi1);
+                    cmd.Parameters.AddWithValue("@Multi2", ObjESupplier.Multi2);
+                    cmd.Parameters.AddWithValue("@Multi3", ObjESupplier.Multi3);
+                    cmd.Parameters.AddWithValue("@Multi4", ObjESupplier.Multi4);
+                    cmd.Parameters.AddWithValue("@Fabrikate", ObjESupplier.Fabrikate);
+                    cmd.Parameters.AddWithValue("@SupplierName", ObjESupplier.SupplierName);
+                    object Objreturn = cmd.ExecuteScalar();
+                    if (Objreturn != null)
+                    {
+                        int iValue = 0;
+                        if (!int.TryParse(Convert.ToString(Objreturn), out iValue))
+                            throw new Exception(Objreturn.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier SaveSelection(ESupplier ObjESupplier)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_SaveSelection]";
+                    cmd.Parameters.AddWithValue("@PositionID", ObjESupplier.PositionID);
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    cmd.Parameters.AddWithValue("@SelectedSupplier", ObjESupplier.SelectedColumn);
+                    cmd.Parameters.AddWithValue("@dtStrings", ObjESupplier.dtStrings);
+                    cmd.Parameters.AddWithValue("@IsSelected", ObjESupplier.IsSelected);
+                    cmd.ExecuteNonQuery();
                 }
             }
             catch (Exception ex)
