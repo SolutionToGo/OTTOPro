@@ -228,7 +228,7 @@
             // 
             this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn5.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn5.Caption = "WGDescription";
+            this.gridColumn5.Caption = "WG Beschreibung";
             this.gridColumn5.FieldName = "WGDescription";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -266,7 +266,7 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(627, 22);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Supplying Articles :";
+            this.label4.Text = "Artikel :";
             // 
             // label3
             // 
@@ -275,7 +275,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(627, 22);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Address for the Company :";
+            this.label3.Text = "Firmenadresse :";
             // 
             // label2
             // 
@@ -284,7 +284,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(285, 22);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Contact Person for the Project :";
+            this.label2.Text = "Ansprechpartner für das Projekt :";
             // 
             // label1
             // 
@@ -293,7 +293,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(346, 22);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Supplier :";
+            this.label1.Text = "Lieferant :";
             // 
             // btnAddArticles
             // 
@@ -405,7 +405,7 @@
             // 
             this.gridColumn28.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn28.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn28.Caption = "DefaultAddress";
+            this.gridColumn28.Caption = "Standard Addresse";
             this.gridColumn28.FieldName = "DefaultAddress";
             this.gridColumn28.Name = "gridColumn28";
             this.gridColumn28.Visible = true;
@@ -415,7 +415,7 @@
             // 
             this.gridColumn23.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn23.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn23.Caption = "Short Name";
+            this.gridColumn23.Caption = "Kurz Name";
             this.gridColumn23.FieldName = "ShortName";
             this.gridColumn23.Name = "gridColumn23";
             this.gridColumn23.Visible = true;
@@ -425,7 +425,7 @@
             // 
             this.gridColumn24.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn24.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn24.Caption = "StreetNo";
+            this.gridColumn24.Caption = "StrasseNr";
             this.gridColumn24.FieldName = "StreetNo";
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.Visible = true;
@@ -435,7 +435,7 @@
             // 
             this.gridColumn25.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn25.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn25.Caption = "Postal Code";
+            this.gridColumn25.Caption = "PLZ";
             this.gridColumn25.FieldName = "PostalCode";
             this.gridColumn25.Name = "gridColumn25";
             this.gridColumn25.Visible = true;
@@ -445,7 +445,7 @@
             // 
             this.gridColumn26.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn26.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn26.Caption = "City";
+            this.gridColumn26.Caption = "Ort";
             this.gridColumn26.FieldName = "City";
             this.gridColumn26.Name = "gridColumn26";
             this.gridColumn26.Visible = true;
@@ -455,7 +455,7 @@
             // 
             this.gridColumn27.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn27.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn27.Caption = "Country";
+            this.gridColumn27.Caption = "LandBez";
             this.gridColumn27.FieldName = "Country";
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.Visible = true;
@@ -528,7 +528,7 @@
             // 
             this.gridColumn20.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn20.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn20.Caption = "DefaultContact";
+            this.gridColumn20.Caption = "Standardkontakt";
             this.gridColumn20.FieldName = "DefaultContact";
             this.gridColumn20.Name = "gridColumn20";
             this.gridColumn20.Visible = true;
@@ -538,7 +538,7 @@
             // 
             this.gridColumn15.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn15.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn15.Caption = "Salutation";
+            this.gridColumn15.Caption = "Anrede";
             this.gridColumn15.FieldName = "Salutation";
             this.gridColumn15.Name = "gridColumn15";
             this.gridColumn15.Visible = true;
@@ -548,7 +548,7 @@
             // 
             this.gridColumn14.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn14.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn14.Caption = "Contact Name";
+            this.gridColumn14.Caption = "AnsprPartner";
             this.gridColumn14.FieldName = "ContactName";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.Visible = true;
@@ -558,7 +558,7 @@
             // 
             this.gridColumn16.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn16.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn16.Caption = "Designation";
+            this.gridColumn16.Caption = "Position";
             this.gridColumn16.FieldName = "Designation";
             this.gridColumn16.Name = "gridColumn16";
             this.gridColumn16.Visible = true;
@@ -568,7 +568,7 @@
             // 
             this.gridColumn17.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn17.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn17.Caption = "Mail";
+            this.gridColumn17.Caption = "Email";
             this.gridColumn17.FieldName = "EmailID";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
@@ -578,7 +578,7 @@
             // 
             this.gridColumn18.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn18.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn18.Caption = "Telephone";
+            this.gridColumn18.Caption = "Telefon";
             this.gridColumn18.FieldName = "Telephone";
             this.gridColumn18.Name = "gridColumn18";
             this.gridColumn18.Visible = true;
@@ -652,7 +652,7 @@
             // 
             this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn8.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn8.Caption = "Full Name";
+            this.gridColumn8.Caption = "Vollständiger Name";
             this.gridColumn8.FieldName = "FullName";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
@@ -662,7 +662,7 @@
             // 
             this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn9.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn9.Caption = "Short Name";
+            this.gridColumn9.Caption = "Kurzbezeichnung";
             this.gridColumn9.FieldName = "ShortName";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
@@ -672,7 +672,7 @@
             // 
             this.gridColumn10.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn10.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn10.Caption = "Payment Condition";
+            this.gridColumn10.Caption = "Zahlungsbedingungen";
             this.gridColumn10.FieldName = "PaymentCondition";
             this.gridColumn10.Name = "gridColumn10";
             // 
@@ -680,7 +680,7 @@
             // 
             this.gridColumn11.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn11.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn11.Caption = "Commentary";
+            this.gridColumn11.Caption = "Kommentar";
             this.gridColumn11.FieldName = "Commentary";
             this.gridColumn11.Name = "gridColumn11";
             // 
@@ -890,9 +890,9 @@
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 409);
             this.layoutControlItem18.Name = "layoutControlItem18";
             this.layoutControlItem18.Size = new System.Drawing.Size(627, 99);
-            this.layoutControlItem18.Text = "Payment Conditions :";
+            this.layoutControlItem18.Text = "Zahlungsbedingungen :";
             this.layoutControlItem18.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(132, 14);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(144, 14);
             // 
             // layoutControlItem13
             // 
@@ -902,9 +902,9 @@
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 583);
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.Size = new System.Drawing.Size(627, 109);
-            this.layoutControlItem13.Text = "Commentary :";
+            this.layoutControlItem13.Text = "Kommentar :";
             this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(132, 14);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(144, 14);
             // 
             // layoutControlItem4
             // 
@@ -932,7 +932,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmLoadSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Supplier Master Data";
+            this.Text = "Lieferant Stammdaten";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLoadSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

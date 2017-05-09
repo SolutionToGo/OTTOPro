@@ -63,7 +63,7 @@ namespace OTTOPro
             }
             if (!IsValid)
             {
-                XtraMessageBox.Show(sb.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                XtraMessageBox.Show(sb.ToString(), "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 ctrlToFocus.Focus();
             }
             return IsValid;
@@ -71,12 +71,12 @@ namespace OTTOPro
 
         public static void ShowError(Exception ex)
         {
-            XtraMessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            XtraMessageBox.Show(ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static void ShowSucces(string Status)
         {
-            XtraMessageBox.Show(Status, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            XtraMessageBox.Show(Status, "abgeschlossen", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         
         public static string CreateVBSFile(string strInputfile,string strOutPutfile ,string strVBSFilePath)

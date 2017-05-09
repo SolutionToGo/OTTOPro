@@ -226,7 +226,7 @@
             this.tbSupplier.Name = "tbSupplier";
             this.tbSupplier.PageVisible = false;
             this.tbSupplier.Size = new System.Drawing.Size(458, 513);
-            this.tbSupplier.Text = "Supplier Master";
+            this.tbSupplier.Text = "Lieferant";
             // 
             // layoutControl2
             // 
@@ -248,9 +248,9 @@
             // 
             // txtSupplierEmail
             // 
-            this.txtSupplierEmail.Location = new System.Drawing.Point(125, 72);
+            this.txtSupplierEmail.Location = new System.Drawing.Point(139, 72);
             this.txtSupplierEmail.Name = "txtSupplierEmail";
-            this.txtSupplierEmail.Size = new System.Drawing.Size(309, 20);
+            this.txtSupplierEmail.Size = new System.Drawing.Size(295, 20);
             this.txtSupplierEmail.StyleController = this.layoutControl2;
             this.txtSupplierEmail.TabIndex = 10;
             // 
@@ -300,9 +300,9 @@
             this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderAddrSName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.txtShortName.Location = new System.Drawing.Point(125, 48);
+            this.txtShortName.Location = new System.Drawing.Point(139, 48);
             this.txtShortName.Name = "txtShortName";
-            this.txtShortName.Size = new System.Drawing.Size(309, 20);
+            this.txtShortName.Size = new System.Drawing.Size(295, 20);
             this.txtShortName.StyleController = this.layoutControl2;
             this.txtShortName.TabIndex = 5;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -316,9 +316,9 @@
             this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderAddrSName.SetIconAlignment(this.txtFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.txtFullName.Location = new System.Drawing.Point(125, 24);
+            this.txtFullName.Location = new System.Drawing.Point(139, 24);
             this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new System.Drawing.Size(309, 20);
+            this.txtFullName.Size = new System.Drawing.Size(295, 20);
             this.txtFullName.StyleController = this.layoutControl2;
             this.txtFullName.TabIndex = 4;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -385,7 +385,7 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(414, 24);
             this.layoutControlItem2.Text = "Vollständiger Name :";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(98, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(112, 13);
             // 
             // layoutControlItem3
             // 
@@ -394,7 +394,7 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(414, 24);
             this.layoutControlItem3.Text = "Kurz Name : ";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(98, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(112, 13);
             // 
             // layoutControlItem25
             // 
@@ -403,7 +403,7 @@
             this.layoutControlItem25.Name = "layoutControlItem25";
             this.layoutControlItem25.Size = new System.Drawing.Size(414, 24);
             this.layoutControlItem25.Text = "Email :";
-            this.layoutControlItem25.TextSize = new System.Drawing.Size(98, 13);
+            this.layoutControlItem25.TextSize = new System.Drawing.Size(112, 13);
             // 
             // layoutControlGroup6
             // 
@@ -420,9 +420,9 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(414, 136);
-            this.layoutControlItem4.Text = "Payment Condition :";
+            this.layoutControlItem4.Text = "Zahlungsbedingungen :";
             this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(98, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(112, 13);
             // 
             // layoutControlGroup7
             // 
@@ -439,9 +439,9 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(414, 177);
-            this.layoutControlItem5.Text = "Commentary :";
+            this.layoutControlItem5.Text = "Kommentar :";
             this.layoutControlItem5.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(98, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(112, 13);
             // 
             // emptySpaceItem1
             // 
@@ -465,7 +465,7 @@
             this.tbSupplierContact.Name = "tbSupplierContact";
             this.tbSupplierContact.PageVisible = false;
             this.tbSupplierContact.Size = new System.Drawing.Size(458, 513);
-            this.tbSupplierContact.Text = "SupplierContact";
+            this.tbSupplierContact.Text = "Lieferant Kontakt";
             // 
             // layoutControl3
             // 
@@ -740,7 +740,7 @@
             this.tbSupplierAddress.Name = "tbSupplierAddress";
             this.tbSupplierAddress.PageVisible = false;
             this.tbSupplierAddress.Size = new System.Drawing.Size(458, 513);
-            this.tbSupplierAddress.Text = "SupplierAddress";
+            this.tbSupplierAddress.Text = "Lieferant Adresse";
             // 
             // layoutControl4
             // 
@@ -1019,7 +1019,7 @@
             this.Name = "frmSupplierMaster";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Supplier Master";
+            this.Text = "Lieferant Stammdaten";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSupplierMaster_FormClosing);
             this.Load += new System.EventHandler(this.frmSupplierMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

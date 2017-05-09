@@ -74,13 +74,13 @@
             this.cmbLVSection.FormattingEnabled = true;
             this.cmbLVSection.Location = new System.Drawing.Point(105, 38);
             this.cmbLVSection.Name = "cmbLVSection";
-            this.cmbLVSection.Size = new System.Drawing.Size(112, 21);
+            this.cmbLVSection.Size = new System.Drawing.Size(103, 21);
             this.cmbLVSection.TabIndex = 10;
             // 
             // btnOk
             // 
             this.btnOk.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOk.Location = new System.Drawing.Point(221, 38);
+            this.btnOk.Location = new System.Drawing.Point(212, 38);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(60, 24);
             this.btnOk.StyleController = this.layoutControl1;
@@ -91,19 +91,19 @@
             // btnCancel
             // 
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(285, 38);
+            this.btnCancel.Location = new System.Drawing.Point(276, 38);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(71, 24);
+            this.btnCancel.Size = new System.Drawing.Size(80, 24);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(285, 12);
+            this.btnBrowse.Location = new System.Drawing.Point(276, 12);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(71, 22);
+            this.btnBrowse.Size = new System.Drawing.Size(80, 22);
             this.btnBrowse.StyleController = this.layoutControl1;
             this.btnBrowse.TabIndex = 6;
             this.btnBrowse.Text = "Durchsuchen";
@@ -114,7 +114,7 @@
             this.txtImportFilePath.Location = new System.Drawing.Point(105, 12);
             this.txtImportFilePath.Name = "txtImportFilePath";
             this.txtImportFilePath.Properties.ReadOnly = true;
-            this.txtImportFilePath.Size = new System.Drawing.Size(176, 20);
+            this.txtImportFilePath.Size = new System.Drawing.Size(167, 20);
             this.txtImportFilePath.StyleController = this.layoutControl1;
             this.txtImportFilePath.TabIndex = 4;
             // 
@@ -138,18 +138,18 @@
             this.layoutControlItem1.Control = this.txtImportFilePath;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(273, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(264, 26);
             this.layoutControlItem1.Text = "Import-Dateipfad :";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(90, 13);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnBrowse;
-            this.layoutControlItem3.Location = new System.Drawing.Point(273, 0);
-            this.layoutControlItem3.MaxSize = new System.Drawing.Size(75, 26);
-            this.layoutControlItem3.MinSize = new System.Drawing.Size(75, 26);
+            this.layoutControlItem3.Location = new System.Drawing.Point(264, 0);
+            this.layoutControlItem3.MaxSize = new System.Drawing.Size(84, 26);
+            this.layoutControlItem3.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(75, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
@@ -157,11 +157,11 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnCancel;
-            this.layoutControlItem5.Location = new System.Drawing.Point(273, 26);
-            this.layoutControlItem5.MaxSize = new System.Drawing.Size(75, 28);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(75, 28);
+            this.layoutControlItem5.Location = new System.Drawing.Point(264, 26);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(84, 28);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(84, 28);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(75, 28);
+            this.layoutControlItem5.Size = new System.Drawing.Size(84, 28);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -169,7 +169,7 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnOk;
-            this.layoutControlItem4.Location = new System.Drawing.Point(209, 26);
+            this.layoutControlItem4.Location = new System.Drawing.Point(200, 26);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(64, 28);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(64, 28);
             this.layoutControlItem4.Name = "layoutControlItem4";
@@ -183,8 +183,8 @@
             this.layoutControlItem2.Control = this.cmbLVSection;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(209, 28);
-            this.layoutControlItem2.Text = "LV Section :";
+            this.layoutControlItem2.Size = new System.Drawing.Size(200, 28);
+            this.layoutControlItem2.Text = "LV Sektion :";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(90, 13);
             // 
             // frmGAEBImport

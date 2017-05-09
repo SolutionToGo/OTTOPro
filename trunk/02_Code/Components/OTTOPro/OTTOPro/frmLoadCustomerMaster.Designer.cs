@@ -220,7 +220,6 @@
             this.gvInvoiceHistory.Name = "gvInvoiceHistory";
             this.gvInvoiceHistory.OptionsBehavior.Editable = false;
             this.gvInvoiceHistory.OptionsBehavior.ReadOnly = true;
-            this.gvInvoiceHistory.OptionsFind.AlwaysVisible = true;
             this.gvInvoiceHistory.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvInvoiceHistory.OptionsFind.ShowFindButton = false;
             this.gvInvoiceHistory.OptionsMenu.EnableColumnMenu = false;

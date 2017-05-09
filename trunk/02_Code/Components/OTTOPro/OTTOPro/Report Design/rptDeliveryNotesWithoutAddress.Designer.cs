@@ -362,7 +362,7 @@
             this.xrTableCell10.Dpi = 100F;
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
-            this.xrTableCell10.Text = "Stuck";
+            this.xrTableCell10.Text = "Menge / Einh.";
             this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableCell10.Weight = 0.42603548851238904D;
             // 

@@ -153,7 +153,7 @@
             // 
             this.ComissionNumber.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ComissionNumber.AppearanceHeader.Options.UseFont = true;
-            this.ComissionNumber.Caption = "Kommission Number";
+            this.ComissionNumber.Caption = "Kommission Nummer";
             this.ComissionNumber.FieldName = "ComissionNumber";
             this.ComissionNumber.Name = "ComissionNumber";
             this.ComissionNumber.Visible = true;

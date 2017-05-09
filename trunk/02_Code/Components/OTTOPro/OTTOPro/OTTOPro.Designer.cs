@@ -332,13 +332,13 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemSave, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemExitProject, true);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "Project";
+            this.ribbonPageGroup1.Text = "Projekt";
             // 
             // rpgSupplier
             // 
             this.rpgSupplier.ItemLinks.Add(this.btnSupplier);
             this.rpgSupplier.Name = "rpgSupplier";
-            this.rpgSupplier.Text = "Supplier";
+            this.rpgSupplier.Text = "Lieferant";
             // 
             // rpgArticleMaster
             // 
@@ -346,7 +346,7 @@
             this.rpgArticleMaster.ItemLinks.Add(this.btnTyp, true, "", "", true);
             this.rpgArticleMaster.ItemLinks.Add(this.btnRabatt, true, "", "", true);
             this.rpgArticleMaster.Name = "rpgArticleMaster";
-            this.rpgArticleMaster.Text = "Article Master";
+            this.rpgArticleMaster.Text = "Artikelstammdaten";
             // 
             // rpSetting
             // 

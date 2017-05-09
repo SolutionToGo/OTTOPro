@@ -120,10 +120,10 @@
             // 
             // txtArt
             // 
-            this.txtArt.Location = new System.Drawing.Point(96, 85);
+            this.txtArt.Location = new System.Drawing.Point(114, 85);
             this.txtArt.Name = "txtArt";
             this.txtArt.Properties.ReadOnly = true;
-            this.txtArt.Size = new System.Drawing.Size(196, 20);
+            this.txtArt.Size = new System.Drawing.Size(178, 20);
             this.txtArt.StyleController = this.layoutControl1;
             this.txtArt.TabIndex = 3;
             // 
@@ -132,16 +132,16 @@
             this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(96, 60);
+            this.cmbType.Location = new System.Drawing.Point(114, 60);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(196, 21);
+            this.cmbType.Size = new System.Drawing.Size(178, 21);
             this.cmbType.TabIndex = 2;
             this.cmbType.Tag = "Typ";
             this.cmbType.SelectedValueChanged += new System.EventHandler(this.cmbType_SelectedValueChanged);
             // 
             // txtMulti4
             // 
-            this.txtMulti4.Location = new System.Drawing.Point(380, 85);
+            this.txtMulti4.Location = new System.Drawing.Point(398, 85);
             this.txtMulti4.Name = "txtMulti4";
             this.txtMulti4.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti4.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -152,14 +152,14 @@
             this.txtMulti4.Properties.Mask.ShowPlaceHolders = false;
             this.txtMulti4.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti4.Properties.MaxLength = 5;
-            this.txtMulti4.Size = new System.Drawing.Size(266, 20);
+            this.txtMulti4.Size = new System.Drawing.Size(248, 20);
             this.txtMulti4.StyleController = this.layoutControl1;
             this.txtMulti4.TabIndex = 7;
             this.txtMulti4.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti3
             // 
-            this.txtMulti3.Location = new System.Drawing.Point(380, 60);
+            this.txtMulti3.Location = new System.Drawing.Point(398, 60);
             this.txtMulti3.Name = "txtMulti3";
             this.txtMulti3.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -170,14 +170,14 @@
             this.txtMulti3.Properties.Mask.ShowPlaceHolders = false;
             this.txtMulti3.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti3.Properties.MaxLength = 5;
-            this.txtMulti3.Size = new System.Drawing.Size(266, 20);
+            this.txtMulti3.Size = new System.Drawing.Size(248, 20);
             this.txtMulti3.StyleController = this.layoutControl1;
             this.txtMulti3.TabIndex = 6;
             this.txtMulti3.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti2
             // 
-            this.txtMulti2.Location = new System.Drawing.Point(380, 36);
+            this.txtMulti2.Location = new System.Drawing.Point(398, 36);
             this.txtMulti2.Name = "txtMulti2";
             this.txtMulti2.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -188,14 +188,14 @@
             this.txtMulti2.Properties.Mask.ShowPlaceHolders = false;
             this.txtMulti2.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti2.Properties.MaxLength = 5;
-            this.txtMulti2.Size = new System.Drawing.Size(266, 20);
+            this.txtMulti2.Size = new System.Drawing.Size(248, 20);
             this.txtMulti2.StyleController = this.layoutControl1;
             this.txtMulti2.TabIndex = 5;
             this.txtMulti2.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti1
             // 
-            this.txtMulti1.Location = new System.Drawing.Point(380, 12);
+            this.txtMulti1.Location = new System.Drawing.Point(398, 12);
             this.txtMulti1.Name = "txtMulti1";
             this.txtMulti1.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
@@ -206,7 +206,7 @@
             this.txtMulti1.Properties.Mask.ShowPlaceHolders = false;
             this.txtMulti1.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti1.Properties.MaxLength = 5;
-            this.txtMulti1.Size = new System.Drawing.Size(266, 20);
+            this.txtMulti1.Size = new System.Drawing.Size(248, 20);
             this.txtMulti1.StyleController = this.layoutControl1;
             this.txtMulti1.TabIndex = 4;
             this.txtMulti1.Leave += new System.EventHandler(this.txtMulti1_Leave);
@@ -289,7 +289,7 @@
             // 
             this.gridColumn8.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn8.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn8.Caption = "ValidityDate";
+            this.gridColumn8.Caption = "Gültigkeit Datum";
             this.gridColumn8.ColumnEdit = this.repositoryItemDateEdit1;
             this.gridColumn8.FieldName = "ValidityDate";
             this.gridColumn8.Name = "gridColumn8";
@@ -397,7 +397,7 @@
             // dateEditValidityDate
             // 
             this.dateEditValidityDate.EditValue = null;
-            this.dateEditValidityDate.Location = new System.Drawing.Point(96, 36);
+            this.dateEditValidityDate.Location = new System.Drawing.Point(114, 36);
             this.dateEditValidityDate.Name = "dateEditValidityDate";
             this.dateEditValidityDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -411,15 +411,15 @@
             this.dateEditValidityDate.Properties.Mask.EditMask = "y";
             this.dateEditValidityDate.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
             this.dateEditValidityDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dateEditValidityDate.Size = new System.Drawing.Size(196, 20);
+            this.dateEditValidityDate.Size = new System.Drawing.Size(178, 20);
             this.dateEditValidityDate.StyleController = this.layoutControl1;
             this.dateEditValidityDate.TabIndex = 1;
             // 
             // txtRabatt
             // 
-            this.txtRabatt.Location = new System.Drawing.Point(96, 12);
+            this.txtRabatt.Location = new System.Drawing.Point(114, 12);
             this.txtRabatt.Name = "txtRabatt";
-            this.txtRabatt.Size = new System.Drawing.Size(196, 20);
+            this.txtRabatt.Size = new System.Drawing.Size(178, 20);
             this.txtRabatt.StyleController = this.layoutControl1;
             this.txtRabatt.TabIndex = 0;
             this.txtRabatt.Tag = "Rabatt";
@@ -488,8 +488,8 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(284, 24);
-            this.layoutControlItem2.Text = "Rabatt Group :";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem2.Text = "Rabatt Gruppe :";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(99, 14);
             // 
             // layoutControlItem6
             // 
@@ -511,7 +511,7 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(354, 24);
             this.layoutControlItem3.Text = "Multi1";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(99, 14);
             // 
             // layoutControlItem4
             // 
@@ -524,7 +524,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(354, 24);
             this.layoutControlItem4.Text = "Multi2";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(99, 14);
             // 
             // layoutControlItem7
             // 
@@ -537,7 +537,7 @@
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(354, 24);
             this.layoutControlItem7.Text = "Multi4";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(99, 14);
             // 
             // layoutControlItem1
             // 
@@ -550,7 +550,7 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(284, 25);
             this.layoutControlItem1.Text = "Typ";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(99, 14);
             // 
             // layoutControlItem9
             // 
@@ -562,8 +562,8 @@
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(284, 24);
-            this.layoutControlItem9.Text = "Validity Date :";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem9.Text = "Gültigkeit Datum :";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(99, 14);
             // 
             // layoutControlItem5
             // 
@@ -576,7 +576,7 @@
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(354, 25);
             this.layoutControlItem5.Text = "Multi3";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(99, 14);
             // 
             // layoutControlItem12
             // 
@@ -588,8 +588,8 @@
             this.layoutControlItem12.Location = new System.Drawing.Point(0, 73);
             this.layoutControlItem12.Name = "layoutControlItem12";
             this.layoutControlItem12.Size = new System.Drawing.Size(284, 24);
-            this.layoutControlItem12.Text = "Art-Supplier";
-            this.layoutControlItem12.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem12.Text = "Art-Lieferant";
+            this.layoutControlItem12.TextSize = new System.Drawing.Size(99, 14);
             // 
             // frmRabattGroup
             // 

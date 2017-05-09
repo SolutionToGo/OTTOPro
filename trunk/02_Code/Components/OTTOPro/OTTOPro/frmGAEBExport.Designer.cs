@@ -230,7 +230,7 @@
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(342, 26);
             this.layoutControlItem7.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem7.Text = "LV Section :";
+            this.layoutControlItem7.Text = "LV Sektion :";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(138, 13);
             // 
             // frmGAEBExport

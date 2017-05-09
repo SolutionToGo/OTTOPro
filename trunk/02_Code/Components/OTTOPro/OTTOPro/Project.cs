@@ -5389,6 +5389,8 @@ e.Column.FieldName == "GB")
 
         private void txtWI_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsDigit(e.KeyChar))
+                e.Handled = true;
             if (e.KeyChar == (char)Keys.Enter)
                 txtWI_Leave(null, null);
         }
@@ -5955,6 +5957,15 @@ e.Column.FieldName == "GB")
                 double RemainingQuantity = 0;
                 double notSavedQnty = 0;
                 double AvailedQnty = 0;
+                double Mvalue=0;
+                double Mengevalue=0;
+
+                if (double.TryParse(gvDelivery.GetFocusedRowCellValue("Menge").ToString(), out Mvalue))
+                    Mengevalue = dValue;
+                if(Mengevalue <= 0)
+                {
+                    throw new Exception("Menge should be greater than 0");
+                }
                 string sPositionID = gvDelivery.GetFocusedRowCellValue("PositionID").ToString();
                 if (double.TryParse(gvDelivery.GetFocusedRowCellValue("OrderedQuantity").ToString(), out dValue))
                     OrderedQuantity = dValue;
@@ -6309,7 +6320,7 @@ e.Column.FieldName == "GB")
 
                 if (_WGforSupplier != null && _WAforSupplier != null)
                 {
-                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSection.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
+                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
                     if (ObjESupplier.dsSupplier != null)
                     {
                         gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;
@@ -6445,13 +6456,13 @@ e.Column.FieldName == "GB")
                     dr["SupplierID"] = row["id"];
                     _dtSupplier.Rows.Add(dr);
                 }
-                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, _ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier), _dtPosition, _dtSupplier, _dtDeletedPositions);
+                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier), _dtPosition, _dtSupplier, _dtDeletedPositions);
                 if (_ProposalID > 0)
                 {
                     Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
                     rpt.Parameters["ProposalID"].Value = _ProposalID;
-                    rpt.Parameters["ProjectID"].Value = _ProjectID;
+                    rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
 
                     saveFileDialog1.Filter = "PDF Files|*.pdf";
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -6464,12 +6475,7 @@ e.Column.FieldName == "GB")
                         _pdfpath = saveFileDialog1.FileName;
                     }
                 }
-                //ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
-                //if (ObjESupplier.dsSupplier != null)
-                //{
-                //    gcLVDetailsforSupplier.DataSource = ObjESupplier.dsSupplier.Tables[0];
-                //    gvLVDetailsforSupplier.BestFitColumns();
-                //}
+                //cmbWGWA_SelectionChangeCommitted(null,null);
             }
             catch (Exception ex)
             {
@@ -6483,41 +6489,51 @@ e.Column.FieldName == "GB")
             string delimiter = "";
             try
             {
-                _Process = true;
-                btnGeneratePDF_Click(null, null);
-                
+                Type officeType = Type.GetTypeFromProgID("Outlook.Application");
 
-                DataTable _dtSuppliermail = new DataTable();
-                _dtSuppliermail.Columns.Add("Suppliermail");
-                foreach (object item in chkSupplierLists.CheckedItems)
+                if (officeType == null)
                 {
-                    DataRowView row = item as DataRowView;
-                    DataRow dr = _dtSuppliermail.NewRow();
-                    dr["Suppliermail"] = row["SupplierMail"];
-                    _dtSuppliermail.Rows.Add(dr);
+                    throw new Exception("Outlook wird konfiguriert / installiert");
                 }
-                if (_dtSuppliermail.Rows.Count > 0)
+                else
                 {
-                    foreach (DataRow dr in _dtSuppliermail.Rows)
+                    _Process = true;
+                    btnGeneratePDF_Click(null, null);
+
+
+                    DataTable _dtSuppliermail = new DataTable();
+                    _dtSuppliermail.Columns.Add("Suppliermail");
+
+                    foreach (object Chkitem in chkSupplierLists.CheckedItems)
                     {
-                        Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-                        Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
-                        mailItem.Subject = "This is the subject";
-                        if (dr["Suppliermail"].ToString() != null || dr["Suppliermail"].ToString() != "")
-                        {
-                            //strArr.Append(delimiter);
-                            //strArr.Append(dr["Suppliermail"]);
-                            //delimiter = ";";
-                            
-                            mailItem.To = dr["Suppliermail"].ToString();
-                            mailItem.Body = "This is the message.";
-
-                            mailItem.Attachments.Add(_pdfpath);
-                        }
-                        mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
-                        mailItem.Display(true);
+                        var row = (Chkitem as DataRowView).Row;
+                        DataRow dr = _dtSuppliermail.NewRow();
+                        dr["Suppliermail"] = row["SupplierMail"];
+                        _dtSuppliermail.Rows.Add(dr);
                     }
-                }
+                    Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                    Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+                    if (_dtSuppliermail.Rows.Count > 0)
+                    {
+                        foreach (DataRow dr in _dtSuppliermail.Rows)
+                        {                           
+                            
+                            if (dr["Suppliermail"].ToString() != null || dr["Suppliermail"].ToString() != "")
+                            {
+                                strArr.Append(delimiter);
+                                strArr.Append(dr["Suppliermail"]);
+                                delimiter = ";";                                
+                            }                           
+                        }
+                        mailItem.Subject = "This is the subject";
+                        mailItem.BCC = strArr.ToString();
+                        mailItem.Body = "This is the message.";
+
+                        mailItem.Attachments.Add(_pdfpath);
+                        mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
+                        mailItem.Display(false);
+                    }
+                }               
 
             }
             catch (Exception ex)
