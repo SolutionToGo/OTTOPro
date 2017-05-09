@@ -348,5 +348,19 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void radioGroup1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                RadioGroup edit = sender as RadioGroup;
+                ObjESupplier = ObjBSupplier.ChangeProposalView(ObjESupplier, edit.SelectedIndex);
+                gcSupplier.DataSource = ObjESupplier.dtPositions;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

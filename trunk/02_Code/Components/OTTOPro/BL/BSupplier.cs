@@ -328,6 +328,34 @@ namespace BL
             }
             return ObjESupplier;
         }
+
+        public ESupplier ChangeProposalView(ESupplier ObjESupplier, int ViewMode)
+        {
+            try
+            {
+                if(ViewMode == 0)
+                {
+                    
+                }
+                else if (ViewMode == 1)
+                {
+
+                }
+                else if (ViewMode == 2)
+                {
+
+                }
+                else if (ViewMode == 3)
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
     }
 }
 

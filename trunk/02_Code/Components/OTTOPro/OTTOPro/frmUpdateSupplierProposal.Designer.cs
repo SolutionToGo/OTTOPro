@@ -238,6 +238,7 @@
             this.radioGroup1.Size = new System.Drawing.Size(1284, 25);
             this.radioGroup1.StyleController = this.layoutControl2;
             this.radioGroup1.TabIndex = 4;
+            this.radioGroup1.SelectedIndexChanged += new System.EventHandler(this.radioGroup1_SelectedIndexChanged);
             // 
             // layoutControlGroup2
             // 
