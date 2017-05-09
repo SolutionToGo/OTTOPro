@@ -32,15 +32,9 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
-            this.chkListPriceWithMultiPerQnty = new DevExpress.XtraEditors.CheckEdit();
-            this.chkListPricePerQnty = new DevExpress.XtraEditors.CheckEdit();
-            this.ChkListPricewithMultiPerUnit = new DevExpress.XtraEditors.CheckEdit();
-            this.ChkListPricePerUnit = new DevExpress.XtraEditors.CheckEdit();
+            this.radioGroup1 = new DevExpress.XtraEditors.RadioGroup();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.gcSupplier = new DevExpress.XtraGrid.GridControl();
             this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -116,15 +110,9 @@
             this.groupControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).BeginInit();
             this.layoutControl2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkListPriceWithMultiPerQnty.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkListPricePerQnty.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChkListPricewithMultiPerUnit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChkListPricePerUnit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
@@ -214,129 +202,71 @@
             this.groupControl3.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.groupControl3.AppearanceCaption.Options.UseFont = true;
             this.groupControl3.Controls.Add(this.layoutControl2);
-            this.groupControl3.Location = new System.Drawing.Point(12, 696);
+            this.groupControl3.Location = new System.Drawing.Point(12, 694);
             this.groupControl3.Name = "groupControl3";
-            this.groupControl3.Size = new System.Drawing.Size(1312, 69);
+            this.groupControl3.Size = new System.Drawing.Size(1312, 71);
             this.groupControl3.TabIndex = 19;
             this.groupControl3.Text = "Various Proposal Views";
             // 
             // layoutControl2
             // 
             this.layoutControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControl2.Controls.Add(this.chkListPriceWithMultiPerQnty);
-            this.layoutControl2.Controls.Add(this.chkListPricePerQnty);
-            this.layoutControl2.Controls.Add(this.ChkListPricewithMultiPerUnit);
-            this.layoutControl2.Controls.Add(this.ChkListPricePerUnit);
+            this.layoutControl2.Controls.Add(this.radioGroup1);
             this.layoutControl2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl2.Location = new System.Drawing.Point(2, 20);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(1308, 47);
+            this.layoutControl2.Size = new System.Drawing.Size(1308, 49);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
-            // chkListPriceWithMultiPerQnty
+            // radioGroup1
             // 
-            this.chkListPriceWithMultiPerQnty.Location = new System.Drawing.Point(978, 12);
-            this.chkListPriceWithMultiPerQnty.Name = "chkListPriceWithMultiPerQnty";
-            this.chkListPriceWithMultiPerQnty.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.chkListPriceWithMultiPerQnty.Properties.Appearance.Options.UseForeColor = true;
-            this.chkListPriceWithMultiPerQnty.Properties.Caption = "List Price With Multi Per Qnty";
-            this.chkListPriceWithMultiPerQnty.Size = new System.Drawing.Size(318, 19);
-            this.chkListPriceWithMultiPerQnty.StyleController = this.layoutControl2;
-            this.chkListPriceWithMultiPerQnty.TabIndex = 7;
-            // 
-            // chkListPricePerQnty
-            // 
-            this.chkListPricePerQnty.Location = new System.Drawing.Point(663, 12);
-            this.chkListPricePerQnty.Name = "chkListPricePerQnty";
-            this.chkListPricePerQnty.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.chkListPricePerQnty.Properties.Appearance.Options.UseForeColor = true;
-            this.chkListPricePerQnty.Properties.Caption = "List Price Per Qnty";
-            this.chkListPricePerQnty.Size = new System.Drawing.Size(311, 19);
-            this.chkListPricePerQnty.StyleController = this.layoutControl2;
-            this.chkListPricePerQnty.TabIndex = 6;
-            // 
-            // ChkListPricewithMultiPerUnit
-            // 
-            this.ChkListPricewithMultiPerUnit.Location = new System.Drawing.Point(307, 12);
-            this.ChkListPricewithMultiPerUnit.Name = "ChkListPricewithMultiPerUnit";
-            this.ChkListPricewithMultiPerUnit.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.ChkListPricewithMultiPerUnit.Properties.Appearance.Options.UseForeColor = true;
-            this.ChkListPricewithMultiPerUnit.Properties.Caption = "List Price With Multi Per Unit";
-            this.ChkListPricewithMultiPerUnit.Size = new System.Drawing.Size(352, 19);
-            this.ChkListPricewithMultiPerUnit.StyleController = this.layoutControl2;
-            this.ChkListPricewithMultiPerUnit.TabIndex = 5;
-            // 
-            // ChkListPricePerUnit
-            // 
-            this.ChkListPricePerUnit.Location = new System.Drawing.Point(12, 12);
-            this.ChkListPricePerUnit.Name = "ChkListPricePerUnit";
-            this.ChkListPricePerUnit.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.ChkListPricePerUnit.Properties.Appearance.Options.UseForeColor = true;
-            this.ChkListPricePerUnit.Properties.Caption = "List Price Per Unit";
-            this.ChkListPricePerUnit.Size = new System.Drawing.Size(291, 19);
-            this.ChkListPricePerUnit.StyleController = this.layoutControl2;
-            this.ChkListPricePerUnit.TabIndex = 4;
+            this.radioGroup1.Location = new System.Drawing.Point(12, 12);
+            this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.radioGroup1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.radioGroup1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.radioGroup1.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroup1.Properties.Appearance.Options.UseFont = true;
+            this.radioGroup1.Properties.Appearance.Options.UseForeColor = true;
+            this.radioGroup1.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(1, "List Price Per Unit"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(2, "List Price Per Unit With Multi"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(3, "List Price Per Qnty"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(4, "List Price Per Qnty With Milti")});
+            this.radioGroup1.Size = new System.Drawing.Size(1284, 25);
+            this.radioGroup1.StyleController = this.layoutControl2;
+            this.radioGroup1.TabIndex = 4;
             // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem7,
-            this.layoutControlItem8,
-            this.layoutControlItem9,
-            this.layoutControlItem10});
+            this.layoutControlItem7});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(1308, 47);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(1308, 49);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem7
             // 
-            this.layoutControlItem7.Control = this.ChkListPricePerUnit;
+            this.layoutControlItem7.Control = this.radioGroup1;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(295, 27);
+            this.layoutControlItem7.Size = new System.Drawing.Size(1288, 29);
             this.layoutControlItem7.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem7.TextVisible = false;
             // 
-            // layoutControlItem8
-            // 
-            this.layoutControlItem8.Control = this.ChkListPricewithMultiPerUnit;
-            this.layoutControlItem8.Location = new System.Drawing.Point(295, 0);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(356, 27);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
-            // 
-            // layoutControlItem9
-            // 
-            this.layoutControlItem9.Control = this.chkListPricePerQnty;
-            this.layoutControlItem9.Location = new System.Drawing.Point(651, 0);
-            this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(315, 27);
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem9.TextVisible = false;
-            // 
-            // layoutControlItem10
-            // 
-            this.layoutControlItem10.Control = this.chkListPriceWithMultiPerQnty;
-            this.layoutControlItem10.Location = new System.Drawing.Point(966, 0);
-            this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(322, 27);
-            this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem10.TextVisible = false;
-            // 
             // gcSupplier
             // 
-            this.gcSupplier.Location = new System.Drawing.Point(12, 288);
+            this.gcSupplier.Location = new System.Drawing.Point(12, 287);
             this.gcSupplier.MainView = this.gvSupplier;
             this.gcSupplier.Name = "gcSupplier";
             this.gcSupplier.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemCheckEdit1});
-            this.gcSupplier.Size = new System.Drawing.Size(1312, 257);
+            this.gcSupplier.Size = new System.Drawing.Size(1312, 256);
             this.gcSupplier.TabIndex = 16;
             this.gcSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier});
@@ -383,7 +313,7 @@
             this.gcNewValues.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.gcNewValues.AppearanceCaption.Options.UseFont = true;
             this.gcNewValues.Controls.Add(this.layoutControl3);
-            this.gcNewValues.Location = new System.Drawing.Point(12, 549);
+            this.gcNewValues.Location = new System.Drawing.Point(12, 547);
             this.gcNewValues.Name = "gcNewValues";
             this.gcNewValues.Size = new System.Drawing.Size(630, 143);
             this.gcNewValues.TabIndex = 0;
@@ -615,7 +545,7 @@
             this.gcExistingValues.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.gcExistingValues.AppearanceCaption.Options.UseFont = true;
             this.gcExistingValues.Controls.Add(this.layoutControl4);
-            this.gcExistingValues.Location = new System.Drawing.Point(646, 549);
+            this.gcExistingValues.Location = new System.Drawing.Point(646, 547);
             this.gcExistingValues.Name = "gcExistingValues";
             this.gcExistingValues.Size = new System.Drawing.Size(678, 143);
             this.gcExistingValues.TabIndex = 18;
@@ -980,7 +910,7 @@
             this.gcProposal.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpiText,
             this.rpiRich});
-            this.gcProposal.Size = new System.Drawing.Size(1136, 272);
+            this.gcProposal.Size = new System.Drawing.Size(1136, 271);
             this.gcProposal.TabIndex = 15;
             this.gcProposal.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProposal});
@@ -1106,14 +1036,14 @@
             this.layoutControlItem1.Control = this.gcProposal;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1140, 276);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1140, 275);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.gcNewValues;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 537);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 535);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(634, 147);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -1122,9 +1052,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gcSupplier;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 276);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 275);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(1316, 261);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1316, 260);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -1145,13 +1075,13 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(1140, 42);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(176, 234);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(176, 233);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.gcExistingValues;
-            this.layoutControlItem4.Location = new System.Drawing.Point(634, 537);
+            this.layoutControlItem4.Location = new System.Drawing.Point(634, 535);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(682, 147);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -1160,9 +1090,9 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.groupControl3;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 684);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 682);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(1316, 73);
+            this.layoutControlItem6.Size = new System.Drawing.Size(1316, 75);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
             // 
@@ -1190,15 +1120,9 @@
             this.groupControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl2)).EndInit();
             this.layoutControl2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chkListPriceWithMultiPerQnty.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkListPricePerQnty.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChkListPricewithMultiPerUnit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChkListPricePerUnit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroup1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
@@ -1291,15 +1215,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraEditors.GroupControl groupControl3;
         private DevExpress.XtraLayout.LayoutControl layoutControl2;
-        private DevExpress.XtraEditors.CheckEdit chkListPriceWithMultiPerQnty;
-        private DevExpress.XtraEditors.CheckEdit chkListPricePerQnty;
-        private DevExpress.XtraEditors.CheckEdit ChkListPricewithMultiPerUnit;
-        private DevExpress.XtraEditors.CheckEdit ChkListPricePerUnit;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem9;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem10;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
@@ -1350,5 +1266,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem30;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraEditors.RadioGroup radioGroup1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
     }
 }
