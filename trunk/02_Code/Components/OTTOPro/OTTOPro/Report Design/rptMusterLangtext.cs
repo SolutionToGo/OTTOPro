@@ -29,8 +29,8 @@ namespace OTTOPro.Report_Design
         {
             try
             {
-                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+                if (DetailReport1.GetCurrentColumnValue("GB") != DBNull.Value)
+                    totalUnits += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("GB"));
                 xrLblGB.Text = Convert.ToString(totalUnits);
             }
             catch (Exception ex)
@@ -56,7 +56,7 @@ namespace OTTOPro.Report_Design
             try
             {
                 if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                    totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+                    xrLabelGB2.Text += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
             }
             catch (Exception ex)
             {

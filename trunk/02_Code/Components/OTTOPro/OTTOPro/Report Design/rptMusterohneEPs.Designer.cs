@@ -104,7 +104,6 @@
             this.xrTableCell19 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell20 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell21 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.sqlDataSource3 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.xrLabel41 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine7 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel39 = new DevExpress.XtraReports.UI.XRLabel();
@@ -124,6 +123,7 @@
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell1 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrLabel32 = new DevExpress.XtraReports.UI.XRLabel();
+            this.sqlDataSource3 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
@@ -827,6 +827,7 @@
             // 
             this.DetailReport1.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail2});
+            this.DetailReport1.DataMember = "P_Rpt_GetTotalSummery(@ProjectID)";
             this.DetailReport1.DataSource = this.sqlDataSource3;
             this.DetailReport1.Dpi = 100F;
             this.DetailReport1.Level = 1;
@@ -965,20 +966,6 @@
             this.xrTableCell21.StylePriority.UseTextAlignment = false;
             this.xrTableCell21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell21.Weight = 0.549714437562483D;
-            // 
-            // sqlDataSource3
-            // 
-            this.sqlDataSource3.ConnectionName = "OTTOPro";
-            this.sqlDataSource3.Name = "sqlDataSource3";
-            storedProcQuery3.Name = "P_Rpt_GetTotalSummery(@ProjectID)";
-            queryParameter3.Name = "@ProjectID";
-            queryParameter3.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter3.Value = new DevExpress.DataAccess.Expression("[Parameters.ProjectID]", typeof(int));
-            storedProcQuery3.Parameters.Add(queryParameter3);
-            storedProcQuery3.StoredProcName = "P_Rpt_GetTotalSummery";
-            this.sqlDataSource3.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            storedProcQuery3});
-            this.sqlDataSource3.ResultSchemaSerializable = resources.GetString("sqlDataSource3.ResultSchemaSerializable");
             // 
             // xrLabel41
             // 
@@ -1223,6 +1210,20 @@
             this.xrLabel32.Text = "% MWST";
             this.xrLabel32.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
+            // sqlDataSource3
+            // 
+            this.sqlDataSource3.ConnectionName = "OTTOPro";
+            this.sqlDataSource3.Name = "sqlDataSource3";
+            storedProcQuery3.Name = "P_Rpt_GetTotalSummery(@ProjectID)";
+            queryParameter3.Name = "@ProjectID";
+            queryParameter3.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter3.Value = new DevExpress.DataAccess.Expression("[Parameters.ProjectID]", typeof(int));
+            storedProcQuery3.Parameters.Add(queryParameter3);
+            storedProcQuery3.StoredProcName = "P_Rpt_GetTotalSummery";
+            this.sqlDataSource3.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            storedProcQuery3});
+            this.sqlDataSource3.ResultSchemaSerializable = resources.GetString("sqlDataSource3.ResultSchemaSerializable");
+            // 
             // rptMusterohneEPs
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1322,7 +1323,6 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell19;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell20;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell21;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource3;
         private DevExpress.XtraReports.UI.XRLabel xrLabel41;
         private DevExpress.XtraReports.UI.XRLine xrLine7;
         private DevExpress.XtraReports.UI.XRLabel xrLabel39;
@@ -1343,5 +1343,6 @@
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow4;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         private DevExpress.XtraReports.UI.XRRichText xrRichText2;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource3;
     }
 }
