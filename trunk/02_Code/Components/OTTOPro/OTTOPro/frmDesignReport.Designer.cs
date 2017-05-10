@@ -65,7 +65,7 @@
             this.btnOpen.Size = new System.Drawing.Size(81, 28);
             this.btnOpen.StyleController = this.layoutControl1;
             this.btnOpen.TabIndex = 5;
-            this.btnOpen.Text = "Open";
+            this.btnOpen.Text = "öffnen";
             this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
             // 
             // cmbReportType

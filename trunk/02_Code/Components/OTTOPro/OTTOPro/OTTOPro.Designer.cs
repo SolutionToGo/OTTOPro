@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -204,13 +204,13 @@
             // 
             // 
             // 
-            galleryItemGroup1.Caption = "Group1";
-            galleryItemGroup2.Caption = "Group2";
-            galleryItemGroup3.Caption = "Group3";
+            galleryItemGroup4.Caption = "Group1";
+            galleryItemGroup5.Caption = "Group2";
+            galleryItemGroup6.Caption = "Group3";
             this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1,
-            galleryItemGroup2,
-            galleryItemGroup3});
+            galleryItemGroup4,
+            galleryItemGroup5,
+            galleryItemGroup6});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -263,7 +263,7 @@
             // 
             // btnSupplier
             // 
-            this.btnSupplier.Caption = "Supplier";
+            this.btnSupplier.Caption = "Lieferant";
             this.btnSupplier.Id = 28;
             this.btnSupplier.ImageOptions.Image = global::OTTOPro.Properties.Resources._1470736995_User_Customers;
             this.btnSupplier.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources._1470736995_User_Customers;
@@ -272,7 +272,7 @@
             // 
             // btnArticledata
             // 
-            this.btnArticledata.Caption = "Article Data";
+            this.btnArticledata.Caption = "Articles daten";
             this.btnArticledata.Id = 29;
             this.btnArticledata.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnArticledata.ImageOptions.Image")));
             this.btnArticledata.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnArticledata.ImageOptions.LargeImage")));
@@ -281,7 +281,7 @@
             // 
             // btnTextModule
             // 
-            this.btnTextModule.Caption = "Text Module";
+            this.btnTextModule.Caption = "Textmodul";
             this.btnTextModule.Id = 30;
             this.btnTextModule.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.TextBox_32x32;
             this.btnTextModule.Name = "btnTextModule";
@@ -353,7 +353,7 @@
             this.rpSetting.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgTextModule});
             this.rpSetting.Name = "rpSetting";
-            this.rpSetting.Text = "Settings";
+            this.rpSetting.Text = "Einstellungen";
             // 
             // rpgTextModule
             // 
@@ -370,12 +370,12 @@
             this.BarButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BarButtonItem10.ImageOptions.Image")));
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem1.Text = "Otto Pro";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Maintains Customer Information";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.BarButtonItem10.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Otto Pro";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Maintains Customer Information";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.BarButtonItem10.SuperTip = superToolTip2;
             // 
             // statusStrip1
             // 
@@ -432,7 +432,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 13);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 1.4 (06-03-2017)";
+            this.label1.Text = "Version 1.5 (10-05-2017)";
             // 
             // frmOTTOPro
             // 

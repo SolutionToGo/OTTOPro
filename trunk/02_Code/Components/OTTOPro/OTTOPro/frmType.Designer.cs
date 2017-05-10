@@ -201,7 +201,7 @@
             // 
             this.gridColumn9.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn9.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn9.Caption = "Supplier";
+            this.gridColumn9.Caption = "Lieferant";
             this.gridColumn9.FieldName = "FullName";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
@@ -212,9 +212,9 @@
             this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbSupplier.FormattingEnabled = true;
-            this.cmbSupplier.Location = new System.Drawing.Point(65, 86);
+            this.cmbSupplier.Location = new System.Drawing.Point(70, 86);
             this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(608, 21);
+            this.cmbSupplier.Size = new System.Drawing.Size(603, 21);
             this.cmbSupplier.TabIndex = 6;
             this.cmbSupplier.Tag = "Supplier";
             // 
@@ -223,9 +223,9 @@
             this.cmbWI.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbWI.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbWI.FormattingEnabled = true;
-            this.cmbWI.Location = new System.Drawing.Point(65, 61);
+            this.cmbWI.Location = new System.Drawing.Point(70, 61);
             this.cmbWI.Name = "cmbWI";
-            this.cmbWI.Size = new System.Drawing.Size(608, 21);
+            this.cmbWI.Size = new System.Drawing.Size(603, 21);
             this.cmbWI.TabIndex = 5;
             this.cmbWI.Tag = "WI";
             // 
@@ -234,9 +234,9 @@
             this.cmbWGWA.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbWGWA.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbWGWA.FormattingEnabled = true;
-            this.cmbWGWA.Location = new System.Drawing.Point(65, 36);
+            this.cmbWGWA.Location = new System.Drawing.Point(70, 36);
             this.cmbWGWA.Name = "cmbWGWA";
-            this.cmbWGWA.Size = new System.Drawing.Size(608, 21);
+            this.cmbWGWA.Size = new System.Drawing.Size(603, 21);
             this.cmbWGWA.TabIndex = 4;
             this.cmbWGWA.Tag = "WG/WA";
             this.cmbWGWA.SelectedValueChanged += new System.EventHandler(this.cmbWGWA_SelectedValueChanged);
@@ -249,7 +249,7 @@
             this.btnSave.Size = new System.Drawing.Size(80, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 2;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Speichern";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
@@ -260,14 +260,14 @@
             this.btnCancel.Size = new System.Drawing.Size(76, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 3;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtTyp
             // 
-            this.txtTyp.Location = new System.Drawing.Point(65, 12);
+            this.txtTyp.Location = new System.Drawing.Point(70, 12);
             this.txtTyp.Name = "txtTyp";
-            this.txtTyp.Size = new System.Drawing.Size(608, 20);
+            this.txtTyp.Size = new System.Drawing.Size(603, 20);
             this.txtTyp.StyleController = this.layoutControl1;
             this.txtTyp.TabIndex = 0;
             this.txtTyp.Tag = "Typ";
@@ -327,7 +327,7 @@
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(665, 24);
             this.layoutControlItem4.Text = "Typ :";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(50, 14);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(55, 14);
             // 
             // layoutControlItem1
             // 
@@ -341,7 +341,7 @@
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(665, 25);
             this.layoutControlItem1.Text = "WG/WA";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(50, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(55, 14);
             // 
             // layoutControlItem2
             // 
@@ -354,7 +354,7 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(665, 25);
             this.layoutControlItem2.Text = "WI";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(50, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(55, 14);
             // 
             // layoutControlItem3
             // 
@@ -366,8 +366,8 @@
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 74);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(665, 25);
-            this.layoutControlItem3.Text = "Supplier";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(50, 14);
+            this.layoutControlItem3.Text = "Lieferant";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(55, 14);
             // 
             // layoutControlItem7
             // 

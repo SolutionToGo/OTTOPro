@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -40,7 +39,7 @@
             this.txtStufe2Title = new System.Windows.Forms.TextBox();
             this.txtStufe1Title = new System.Windows.Forms.TextBox();
             this.txtLiefrantMA = new DevExpress.XtraEditors.TextEdit();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -919,14 +918,14 @@
             this.emptySpaceItem126 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem127 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
-            this.tmrStatus = new System.Windows.Forms.Timer(this.components);
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.tmrStatus = new System.Windows.Forms.Timer();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsProjectStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
@@ -3008,6 +3007,7 @@
             // navBarReports
             // 
             this.navBarReports.Caption = "BERICHTE";
+            this.navBarReports.Expanded = true;
             this.navBarReports.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
             this.navBarReports.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
@@ -3019,7 +3019,7 @@
             // 
             this.navBarItem5.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.navBarItem5.Appearance.Options.UseFont = true;
-            this.navBarItem5.Caption = "     Submit Proposal";
+            this.navBarItem5.Caption = "     Angebot ausgeben";
             this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
             this.navBarItem5.Name = "navBarItem5";
             this.navBarItem5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.SmallImage")));
@@ -5932,6 +5932,7 @@
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnCancel.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnCancel.Location = new System.Drawing.Point(765, 12);
@@ -5946,6 +5947,7 @@
             // 
             this.btnSaveLVDetails.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveLVDetails.Appearance.Options.UseFont = true;
+            this.btnSaveLVDetails.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveLVDetails.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSaveLVDetails.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnSaveLVDetails.Location = new System.Drawing.Point(625, 12);
@@ -5974,6 +5976,7 @@
             // 
             this.btnNew.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.Appearance.Options.UseFont = true;
+            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnNew.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnNew.Location = new System.Drawing.Point(418, 12);
@@ -7721,17 +7724,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -11489,9 +11492,9 @@
             // 
             this.cmbLVSectionforSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLVSectionforSupplier.FormattingEnabled = true;
-            this.cmbLVSectionforSupplier.Location = new System.Drawing.Point(162, 12);
+            this.cmbLVSectionforSupplier.Location = new System.Drawing.Point(267, 12);
             this.cmbLVSectionforSupplier.Name = "cmbLVSectionforSupplier";
-            this.cmbLVSectionforSupplier.Size = new System.Drawing.Size(307, 21);
+            this.cmbLVSectionforSupplier.Size = new System.Drawing.Size(202, 21);
             this.cmbLVSectionforSupplier.TabIndex = 20;
             this.cmbLVSectionforSupplier.SelectionChangeCommitted += new System.EventHandler(this.cmbLVSectionforSupplier_SelectionChangeCommitted);
             // 
@@ -11501,9 +11504,9 @@
             this.cmbWGWA.FormattingEnabled = true;
             this.cmbWGWA.Items.AddRange(new object[] {
             ""});
-            this.cmbWGWA.Location = new System.Drawing.Point(162, 37);
+            this.cmbWGWA.Location = new System.Drawing.Point(267, 37);
             this.cmbWGWA.Name = "cmbWGWA";
-            this.cmbWGWA.Size = new System.Drawing.Size(307, 21);
+            this.cmbWGWA.Size = new System.Drawing.Size(202, 21);
             this.cmbWGWA.TabIndex = 19;
             this.cmbWGWA.SelectionChangeCommitted += new System.EventHandler(this.cmbWGWA_SelectionChangeCommitted);
             // 
@@ -11695,7 +11698,7 @@
             this.layoutControlItem155.Size = new System.Drawing.Size(914, 669);
             this.layoutControlItem155.Text = "Neue Positionen :";
             this.layoutControlItem155.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem155.TextSize = new System.Drawing.Size(147, 14);
+            this.layoutControlItem155.TextSize = new System.Drawing.Size(252, 14);
             // 
             // emptySpaceItem109
             // 
@@ -11721,7 +11724,7 @@
             this.layoutControlItem159.Size = new System.Drawing.Size(461, 25);
             this.layoutControlItem159.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem159.Text = "LV Sektion :";
-            this.layoutControlItem159.TextSize = new System.Drawing.Size(147, 14);
+            this.layoutControlItem159.TextSize = new System.Drawing.Size(252, 14);
             // 
             // layoutControlItem160
             // 
@@ -11738,8 +11741,8 @@
             this.layoutControlItem160.Name = "layoutControlItem160";
             this.layoutControlItem160.Size = new System.Drawing.Size(461, 25);
             this.layoutControlItem160.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem160.Text = "Liste of WG/WA :";
-            this.layoutControlItem160.TextSize = new System.Drawing.Size(147, 14);
+            this.layoutControlItem160.Text = "Auswahlliste zu WG/WA Kombinationen :";
+            this.layoutControlItem160.TextSize = new System.Drawing.Size(252, 14);
             // 
             // layoutControlItem162
             // 
@@ -11753,7 +11756,7 @@
             this.layoutControlItem162.Size = new System.Drawing.Size(588, 232);
             this.layoutControlItem162.Text = "Gelöschte Positionen :";
             this.layoutControlItem162.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem162.TextSize = new System.Drawing.Size(147, 14);
+            this.layoutControlItem162.TextSize = new System.Drawing.Size(252, 14);
             // 
             // layoutControlItem163
             // 
@@ -11767,7 +11770,7 @@
             this.layoutControlItem163.Size = new System.Drawing.Size(588, 246);
             this.layoutControlItem163.Text = "Angefragte Positionen :";
             this.layoutControlItem163.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem163.TextSize = new System.Drawing.Size(147, 14);
+            this.layoutControlItem163.TextSize = new System.Drawing.Size(252, 14);
             // 
             // layoutControlItem161
             // 

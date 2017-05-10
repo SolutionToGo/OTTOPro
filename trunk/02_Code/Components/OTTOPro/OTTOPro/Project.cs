@@ -6003,7 +6003,7 @@ e.Column.FieldName == "GB")
                     txtBlattNumber.Text = ObjEDeliveryNotes.BlattName;
                     chkActiveDelivery.Checked = false;
                     gcDelivery.DataSource = ObjEDeliveryNotes.dtNonActivedelivery;
-                    SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count + 1;
+                    SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count;
                 }
                 else
                 {
@@ -6066,7 +6066,7 @@ e.Column.FieldName == "GB")
                     {
                         string str = gvDeliveryNumbers.GetFocusedRowCellValue("IsInvoiced").ToString();
                         if (str.ToLower() != "yes" && gvDelivery.RowCount <= 0)
-                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Edit", gcBlattEdit_Click));
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ändern", gcBlattEdit_Click));
 
                     }
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcBlattViewAddress_Click));
@@ -6114,7 +6114,7 @@ e.Column.FieldName == "GB")
                        txtBlattNumber.Text = ObjEDeliveryNotes.BlattName;
                        ObjEDeliveryNotes = ObjBDeliveryNotes.GetBlattDetails(ObjEDeliveryNotes);
                        gcDelivery.DataSource = ObjEDeliveryNotes.dtNonActivedelivery;
-                       SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count + 1;
+                       SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count;
                    }
                }
             }

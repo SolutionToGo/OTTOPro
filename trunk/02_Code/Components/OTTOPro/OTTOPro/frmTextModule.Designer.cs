@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.cmbTextArea = new System.Windows.Forms.ComboBox();
@@ -59,8 +58,8 @@
             this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.dxValidationProviderTextAreas = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
-            this.dxValidationProviderCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProviderTextAreas = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.dxValidationProviderCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.tabFormContentContainer1 = new DevExpress.XtraBars.TabFormContentContainer();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -112,9 +111,9 @@
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(143, 49);
+            this.cmbCategory.Location = new System.Drawing.Point(148, 49);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(185, 21);
+            this.cmbCategory.Size = new System.Drawing.Size(180, 21);
             this.cmbCategory.TabIndex = 15;
             this.cmbCategory.SelectionChangeCommitted += new System.EventHandler(this.cmbCategory_SelectionChangeCommitted);
             // 
@@ -122,9 +121,9 @@
             // 
             this.cmbTextArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTextArea.FormattingEnabled = true;
-            this.cmbTextArea.Location = new System.Drawing.Point(143, 24);
+            this.cmbTextArea.Location = new System.Drawing.Point(148, 24);
             this.cmbTextArea.Name = "cmbTextArea";
-            this.cmbTextArea.Size = new System.Drawing.Size(231, 21);
+            this.cmbTextArea.Size = new System.Drawing.Size(226, 21);
             this.cmbTextArea.TabIndex = 14;
             this.cmbTextArea.SelectionChangeCommitted += new System.EventHandler(this.cmbTextArea_SelectionChangeCommitted);
             // 
@@ -155,7 +154,7 @@
             this.btnSave.Size = new System.Drawing.Size(83, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Speichern";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
@@ -166,7 +165,7 @@
             this.btnCancel.Size = new System.Drawing.Size(76, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // gcContentDetails
@@ -232,7 +231,7 @@
             // 
             this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn3.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn3.Caption = "Text Module Area";
+            this.gridColumn3.Caption = "Textmodul Bereich";
             this.gridColumn3.FieldName = "TextModuleArea";
             this.gridColumn3.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn3.Name = "gridColumn3";
@@ -243,7 +242,7 @@
             // 
             this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn4.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn4.Caption = "Category";
+            this.gridColumn4.Caption = "Kategorie";
             this.gridColumn4.FieldName = "Category";
             this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn4.Name = "gridColumn4";
@@ -254,7 +253,7 @@
             // 
             this.gridColumn5.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn5.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn5.Caption = "Description";
+            this.gridColumn5.Caption = "Beschreibung";
             this.gridColumn5.FieldName = "Contents";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
@@ -366,8 +365,8 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(354, 25);
-            this.layoutControlItem4.Text = "Text Module Area :";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(116, 14);
+            this.layoutControlItem4.Text = "Textmodul Bereich :";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(121, 14);
             // 
             // layoutControlItem8
             // 
@@ -377,8 +376,8 @@
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(308, 26);
-            this.layoutControlItem8.Text = "Category :";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(116, 14);
+            this.layoutControlItem8.Text = "Kategorie :";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(121, 14);
             // 
             // layoutControlGroup3
             // 
@@ -397,9 +396,9 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(721, 290);
-            this.layoutControlItem2.Text = "Content :";
+            this.layoutControlItem2.Text = "Inhalt :";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(116, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(121, 14);
             // 
             // layoutControlGroup4
             // 
