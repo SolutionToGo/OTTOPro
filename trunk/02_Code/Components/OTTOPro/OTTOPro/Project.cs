@@ -5968,24 +5968,20 @@ e.Column.FieldName == "GB")
                 double RemainingQuantity = 0;
                 double notSavedQnty = 0;
                 double AvailedQnty = 0;
-                double Mvalue=0;
-                double Mengevalue=0;
 
-                if (double.TryParse(gvDelivery.GetFocusedRowCellValue("Menge").ToString(), out Mvalue))
-                    Mengevalue = dValue;
-                if(Mengevalue <= 0)
-                {
-                    throw new Exception("Menge should be greater than 0");
-                }
                 string sPositionID = gvDelivery.GetFocusedRowCellValue("PositionID").ToString();
                 if (double.TryParse(gvDelivery.GetFocusedRowCellValue("OrderedQuantity").ToString(), out dValue))
                     OrderedQuantity = dValue;
                 if (double.TryParse(gvDelivery.GetFocusedRowCellValue("RemainingQuantity").ToString(), out dValue))
                     RemainingQuantity = dValue;
                 DataTable table = gcDelivery.DataSource as DataTable;
+                int i = e.RowHandle;
+                string str = table.Rows[i][e.Column.FieldName] == DBNull.Value ? "" : table.Rows[i][e.Column.FieldName].ToString();
+                if (string.IsNullOrEmpty(str))
+                    table.Rows[i][e.Column.FieldName] = 0;
                 notSavedQnty = Convert.ToDouble(table.Compute("SUM(Menge)", "PositionID = " + sPositionID));
                 AvailedQnty = RemainingQuantity + (OrderedQuantity * 0.1);
-                if (notSavedQnty > AvailedQnty)
+                if (notSavedQnty != 0 && notSavedQnty > AvailedQnty)
                 {
                     XtraMessageBox.Show("Total Quantity Exceeding Ordered Quantity");
                     gvDelivery.SetFocusedRowCellValue("Menge", 0);
@@ -6492,7 +6488,17 @@ e.Column.FieldName == "GB")
                         _pdfpath = saveFileDialog1.FileName;
                     }
                 }
-                //cmbWGWA_SelectionChangeCommitted(null,null);
+                ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
+                if (ObjESupplier.dsSupplier != null)
+                {
+                    gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;
+                    gcDeletedDetails.DataSource = ObjESupplier.dtDeletedPositions;
+                    gcProposedDetails.DataSource = ObjESupplier.dtProposedPositions;
+
+                    gvLVDetailsforSupplier.BestFitColumns();
+                    gvDeletedDetails.BestFitColumns();
+                    gvProposedDetails.BestFitColumns();
+                }
             }
             catch (Exception ex)
             {

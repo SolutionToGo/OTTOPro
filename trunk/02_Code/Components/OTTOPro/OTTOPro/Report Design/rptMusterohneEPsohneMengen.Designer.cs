@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptMusterohneEPsohneMengen));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary4 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
@@ -88,9 +85,6 @@
             this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrLabelEP2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabelMA2 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabelMO2 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLine1 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLine2 = new DevExpress.XtraReports.UI.XRLine();
             this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
@@ -727,9 +721,6 @@
             // GroupFooter2
             // 
             this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabelEP2,
-            this.xrLabelMA2,
-            this.xrLabelMO2,
             this.xrLine1,
             this.xrLine2,
             this.xrLabel18,
@@ -737,60 +728,6 @@
             this.GroupFooter2.Dpi = 100F;
             this.GroupFooter2.HeightF = 57.37495F;
             this.GroupFooter2.Name = "GroupFooter2";
-            // 
-            // xrLabelEP2
-            // 
-            this.xrLabelEP2.Dpi = 100F;
-            this.xrLabelEP2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabelEP2.ForeColor = System.Drawing.Color.Maroon;
-            this.xrLabelEP2.LocationFloat = new DevExpress.Utils.PointFloat(217.3681F, 2.87501F);
-            this.xrLabelEP2.Name = "xrLabelEP2";
-            this.xrLabelEP2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabelEP2.SizeF = new System.Drawing.SizeF(317.2267F, 22.99999F);
-            this.xrLabelEP2.StylePriority.UseFont = false;
-            this.xrLabelEP2.StylePriority.UseForeColor = false;
-            this.xrLabelEP2.StylePriority.UseTextAlignment = false;
-            xrSummary1.FormatString = "{0:n2}";
-            xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
-            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrLabelEP2.Summary = xrSummary1;
-            this.xrLabelEP2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            // 
-            // xrLabelMA2
-            // 
-            this.xrLabelMA2.Dpi = 100F;
-            this.xrLabelMA2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabelMA2.ForeColor = System.Drawing.Color.Maroon;
-            this.xrLabelMA2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 2.87501F);
-            this.xrLabelMA2.Name = "xrLabelMA2";
-            this.xrLabelMA2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabelMA2.SizeF = new System.Drawing.SizeF(96.43955F, 22.99999F);
-            this.xrLabelMA2.StylePriority.UseFont = false;
-            this.xrLabelMA2.StylePriority.UseForeColor = false;
-            this.xrLabelMA2.StylePriority.UseTextAlignment = false;
-            xrSummary2.FormatString = "{0:n2}";
-            xrSummary2.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
-            xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrLabelMA2.Summary = xrSummary2;
-            this.xrLabelMA2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            // 
-            // xrLabelMO2
-            // 
-            this.xrLabelMO2.Dpi = 100F;
-            this.xrLabelMO2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.xrLabelMO2.ForeColor = System.Drawing.Color.Maroon;
-            this.xrLabelMO2.LocationFloat = new DevExpress.Utils.PointFloat(166.3802F, 2.87501F);
-            this.xrLabelMO2.Name = "xrLabelMO2";
-            this.xrLabelMO2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabelMO2.SizeF = new System.Drawing.SizeF(50.98787F, 22.99999F);
-            this.xrLabelMO2.StylePriority.UseFont = false;
-            this.xrLabelMO2.StylePriority.UseForeColor = false;
-            this.xrLabelMO2.StylePriority.UseTextAlignment = false;
-            xrSummary3.FormatString = "{0:n2}";
-            xrSummary3.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
-            xrSummary3.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrLabelMO2.Summary = xrSummary3;
-            this.xrLabelMO2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLine1
             // 
@@ -824,10 +761,10 @@
             this.xrLabel18.StylePriority.UseFont = false;
             this.xrLabel18.StylePriority.UseForeColor = false;
             this.xrLabel18.StylePriority.UseTextAlignment = false;
-            xrSummary4.FormatString = "{0:n2}";
-            xrSummary4.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
-            xrSummary4.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrLabel18.Summary = xrSummary4;
+            xrSummary1.FormatString = "{0:n2}";
+            xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
+            xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            this.xrLabel18.Summary = xrSummary1;
             this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrLabel18.SummaryGetResult += new DevExpress.XtraReports.UI.SummaryGetResultHandler(this.xrLabel18_SummaryGetResult);
             this.xrLabel18.SummaryReset += new System.EventHandler(this.xrLabel18_SummaryReset);
@@ -1374,9 +1311,6 @@
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter2;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
         private DevExpress.XtraReports.UI.XRLine xrLine2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabelEP2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabelMA2;
-        private DevExpress.XtraReports.UI.XRLabel xrLabelMO2;
         private DevExpress.XtraReports.UI.DetailReportBand DetailReport1;
         private DevExpress.XtraReports.UI.DetailBand Detail2;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource3;
