@@ -5935,7 +5935,7 @@ e.Column.FieldName == "GB")
                 ObjEDeliveryNotes.dtDelivery = Temp;
 
                 ObjEDeliveryNotes = ObjBDeliveryNotes.SaveDelivery(ObjEDeliveryNotes);
-                Utility.ShowSucces("'" + txtBlattNumber.Text + "'" + " Saved Successfully");
+                Utility.ShowSucces("'" + txtBlattNumber.Text + "'" + " wurde erfolgreich gespeichert");
                 if (chkActiveDelivery.Checked == false)
                     LoadNonActiveDelivery();
                 else
@@ -6208,7 +6208,7 @@ e.Column.FieldName == "GB")
             try
             {
                 if (string.IsNullOrEmpty(txtInvoiceNumber.Text))
-                    throw new Exception("Please Enter Invoice Number");
+                    throw new Exception("Bitte geben Sie eine Rechnungsnummer ein");
                 if (ObjEInvoice == null)
                     ObjEInvoice = new EInvoice();
                 if (oBJBInvoice == null)
@@ -6897,8 +6897,8 @@ e.Column.FieldName == "GB")
                     {
                         string strPositionOZ = ObjESupplier.dtPositions.Rows[iIndex]["Position_OZ"] == DBNull.Value ? "" :
                             ObjESupplier.dtPositions.Rows[iIndex]["Position_OZ"].ToString();
-                        gcNewValues.Text = "New Values : " + strPositionOZ + "/" + strSuppliercolumnName;
-                        gcExistingValues.Text = "Existing Values : " + strPositionOZ + "/" + strSuppliercolumnName;
+                        gcNewValues.Text = "spezifische Angaben : " + strPositionOZ + "/" + strSuppliercolumnName;
+                        gcExistingValues.Text = "Bestehende Angaben je LV  : " + strPositionOZ + "/" + strSuppliercolumnName;
 
                         txtNewSupplierName.Text = strSuppliercolumnName;
                         txtNewFabrikate.Text = ObjESupplier.dtPositions.Rows[iIndex][strSuppliercolumnName + "Fabricate"] == DBNull.Value ? "" :
@@ -6920,8 +6920,8 @@ e.Column.FieldName == "GB")
                         txtMulti2.Text = "1";
                         txtMulti3.Text = "1";
                         txtMulti4.Text = "1";
-                        gcNewValues.Text = "New Values For Entry";
-                        gcExistingValues.Text = "Existing Values";
+                        gcNewValues.Text = "Lieferantenspezifische Angaben";
+                        gcExistingValues.Text = "Bestehende Angaben je LV ";
                     }
                 }
             }
@@ -7009,7 +7009,7 @@ e.Column.FieldName == "GB")
 
                 }
                 ObjESupplier = ObjBSupplier.UpdateSupplierPrice(ObjESupplier);
-                Utility.ShowSucces("Supplier Prices Updated Sucessfully");
+                Utility.ShowSucces("Preisübersicht für Lieferanten wurde erfolgreich aktualisiert");
             }
             catch (Exception ex)
             {

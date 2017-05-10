@@ -80,9 +80,9 @@
             "Muster Langtext",
             "Muster ohne EPs ohne Mengen",
             "Muster ohne EPs"});
-            this.cmbReportType.Location = new System.Drawing.Point(141, 24);
+            this.cmbReportType.Location = new System.Drawing.Point(185, 24);
             this.cmbReportType.Name = "cmbReportType";
-            this.cmbReportType.Size = new System.Drawing.Size(264, 21);
+            this.cmbReportType.Size = new System.Drawing.Size(220, 21);
             this.cmbReportType.TabIndex = 4;
             // 
             // layoutControlGroup1
@@ -135,8 +135,8 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(385, 25);
-            this.layoutControlItem1.Text = "Select Report Type :";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(114, 13);
+            this.layoutControlItem1.Text = "Berichtsvorlage auswählen :";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(158, 13);
             // 
             // frmDesignReport
             // 
@@ -150,7 +150,7 @@
             this.Name = "frmDesignReport";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Report Design";
+            this.Text = "Berichtsvorlage";
             this.Load += new System.EventHandler(this.frmDesignReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
