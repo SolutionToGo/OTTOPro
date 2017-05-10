@@ -6003,7 +6003,7 @@ e.Column.FieldName == "GB")
                     txtBlattNumber.Text = ObjEDeliveryNotes.BlattName;
                     chkActiveDelivery.Checked = false;
                     gcDelivery.DataSource = ObjEDeliveryNotes.dtNonActivedelivery;
-                    SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count;
+                    SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count + 1;
                 }
                 else
                 {
@@ -6114,7 +6114,7 @@ e.Column.FieldName == "GB")
                        txtBlattNumber.Text = ObjEDeliveryNotes.BlattName;
                        ObjEDeliveryNotes = ObjBDeliveryNotes.GetBlattDetails(ObjEDeliveryNotes);
                        gcDelivery.DataSource = ObjEDeliveryNotes.dtNonActivedelivery;
-                       SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count;
+                       SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count + 1;
                    }
                }
             }

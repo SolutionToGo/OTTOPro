@@ -64,9 +64,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Accessibility" />
-    <Reference Include="DevExpress.BonusSkins.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
-    <Reference Include="DevExpress.CodeParser.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.BonusSkins.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Charts.v16.2.Core, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.CodeParser.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Data.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -108,7 +114,9 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.Utils.v16.2.UI, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v16.2.UI, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.Xpo.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -116,12 +124,16 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraCharts.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.XtraEditors.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
-    <Reference Include="DevExpress.XtraGauges.v16.2.Core, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGauges.v16.2.Core, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="DevExpress.XtraGrid.v16.2, Version=16.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>

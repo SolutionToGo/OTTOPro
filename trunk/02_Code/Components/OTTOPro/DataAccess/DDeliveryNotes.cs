@@ -112,7 +112,7 @@ namespace DataAccess
                         da.Fill(dsPositions);
                     }
                     ObjEDeliveryNotes.dtNonActivedelivery = dsPositions.Tables[0];
-                    if (ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count > 0)
+                    if (ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count > 0 && dsPositions.Tables[1].Rows.Count > 0)
                     {
                         ObjEDeliveryNotes.BlattID = dsPositions.Tables[1].Rows[0]["BlattID"] == DBNull.Value
                             ? -1 : Convert.ToInt32(dsPositions.Tables[1].Rows[0]["BlattID"]);
@@ -124,7 +124,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("To Be Updated");
+                    throw new Exception("Error While Retrieving the Positions");
                 else
                     throw new Exception("Error While Retrieving the Positions");
             }
