@@ -38,7 +38,10 @@ namespace OTTOPro
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(frmOTTOPro.Instance);
+
+
+            //Application.Run(frmOTTOPro.Instance);
+            Application.Run(new frmLogin());
         }
     }
 }

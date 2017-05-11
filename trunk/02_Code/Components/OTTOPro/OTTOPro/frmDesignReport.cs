@@ -145,7 +145,9 @@ namespace OTTOPro
                         throw new Exception("Bitte wählen Sie eine Berichtsvorlage");
                         break;
                 }
+                this.Close();
             }
+
             catch (Exception ex)
             {
                 Utility.ShowError(ex);

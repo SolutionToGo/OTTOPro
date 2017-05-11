@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraBars;
 using DevExpress.XtraBars.Helpers;
+using System.Threading;
+using DevExpress.XtraSplashScreen;
 
 namespace OTTOPro
 {
@@ -33,6 +35,10 @@ namespace OTTOPro
             get { return frmObject; }
         }
 
+        public static void LoadParentForm()
+        {
+            Instance.Show();
+        }
         public void SetPictureBoxVisible(bool _result)
         {
             this.pictureBox1.Visible = _result;
