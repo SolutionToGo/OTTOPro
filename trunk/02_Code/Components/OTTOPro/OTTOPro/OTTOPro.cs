@@ -267,5 +267,53 @@ namespace OTTOPro
         {
           //  BackgroudImageVisibility(false);
         }
+
+        private void btnUserData_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form.Name == "frmLoadUsers")
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+                frmLoadUsers Obj = new frmLoadUsers();
+                Obj.MdiParent = this;
+                label2.Visible = false;
+                pictureBox1.Visible = false;
+                Obj.Show();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnFeature_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                foreach (Form form in Application.OpenForms)
+                {
+                    if (form.Name == "frmFeature")
+                    {
+                        form.Activate();
+                        return;
+                    }
+                }
+                frmFeature Obj = new frmFeature();
+                Obj.MdiParent = this;
+                label2.Visible = false;
+                pictureBox1.Visible = false;
+                Obj.Show();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

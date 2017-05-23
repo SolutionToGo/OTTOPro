@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -928,6 +928,29 @@
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.tbCopyLVs = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl19 = new DevExpress.XtraLayout.LayoutControl();
+            this.layoutControlGroup28 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.cmbNewProject = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbLoadProject = new System.Windows.Forms.ComboBox();
+            this.layoutControlItem191 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem47 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem192 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem114 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.RadioGroupCopy = new DevExpress.XtraEditors.RadioGroup();
+            this.layoutControlItem193 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gcNewProject = new DevExpress.XtraGrid.GridControl();
+            this.gvNewProject = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlItem194 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.gcOldProject = new DevExpress.XtraGrid.GridControl();
+            this.gvOldProject = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.layoutControlItem195 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnLoadProject = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem196 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnSaveNew = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem197 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem116 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.nbCopyLVs = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1602,6 +1625,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            this.tbCopyLVs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).BeginInit();
+            this.layoutControl19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbNewProject.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem192)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RadioGroupCopy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem193)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvNewProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem196)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem197)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem116)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -2852,7 +2895,8 @@
             this.navBarItemUpdateSupplierProposal,
             this.nbDeliveryNotes,
             this.nbInvoices,
-            this.navBarItemConsolidateBlatt});
+            this.navBarItemConsolidateBlatt,
+            this.nbCopyLVs});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 209;
@@ -2880,7 +2924,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemSupplierProposal),
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemUpdateSupplierProposal),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbDeliveryNotes),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbInvoices)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbInvoices),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCopyLVs)});
             this.navBarForms.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarForms.LargeImage")));
             this.navBarForms.LargeImageIndex = 0;
             this.navBarForms.Name = "navBarForms";
@@ -3056,7 +3101,8 @@
             this.tbDeliveryNotes,
             this.tbInvoices,
             this.tbSupplierProposal,
-            this.tbUpdateSupplier});
+            this.tbUpdateSupplier,
+            this.tbCopyLVs});
             this.tcProjectDetails.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.tcProjectDetails_SelectedPageChanged);
             this.tcProjectDetails.CloseButtonClick += new System.EventHandler(this.txProjectDetails_CloseButtonClick);
             // 
@@ -7724,17 +7770,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -12833,6 +12879,259 @@
             this.emptySpaceItem17.Size = new System.Drawing.Size(686, 73);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // tbCopyLVs
+            // 
+            this.tbCopyLVs.Controls.Add(this.layoutControl19);
+            this.tbCopyLVs.Name = "tbCopyLVs";
+            this.tbCopyLVs.Size = new System.Drawing.Size(1522, 749);
+            this.tbCopyLVs.Text = "Copy LVs";
+            // 
+            // layoutControl19
+            // 
+            this.layoutControl19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl19.Controls.Add(this.btnSaveNew);
+            this.layoutControl19.Controls.Add(this.btnLoadProject);
+            this.layoutControl19.Controls.Add(this.gcOldProject);
+            this.layoutControl19.Controls.Add(this.gcNewProject);
+            this.layoutControl19.Controls.Add(this.RadioGroupCopy);
+            this.layoutControl19.Controls.Add(this.cmbNewProject);
+            this.layoutControl19.Controls.Add(this.cmbLoadProject);
+            this.layoutControl19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl19.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl19.Name = "layoutControl19";
+            this.layoutControl19.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(398, 480, 450, 400);
+            this.layoutControl19.Root = this.layoutControlGroup28;
+            this.layoutControl19.Size = new System.Drawing.Size(1522, 749);
+            this.layoutControl19.TabIndex = 0;
+            this.layoutControl19.Text = "layoutControl19";
+            // 
+            // layoutControlGroup28
+            // 
+            this.layoutControlGroup28.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup28.GroupBordersVisible = false;
+            this.layoutControlGroup28.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem191,
+            this.emptySpaceItem47,
+            this.emptySpaceItem114,
+            this.layoutControlItem192,
+            this.layoutControlItem193,
+            this.layoutControlItem194,
+            this.layoutControlItem195,
+            this.layoutControlItem196,
+            this.layoutControlItem197,
+            this.emptySpaceItem116});
+            this.layoutControlGroup28.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup28.Name = "Root";
+            this.layoutControlGroup28.Size = new System.Drawing.Size(1522, 749);
+            this.layoutControlGroup28.TextVisible = false;
+            // 
+            // cmbNewProject
+            // 
+            this.cmbNewProject.Location = new System.Drawing.Point(98, 12);
+            this.cmbNewProject.Name = "cmbNewProject";
+            this.cmbNewProject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbNewProject.Size = new System.Drawing.Size(283, 20);
+            this.cmbNewProject.StyleController = this.layoutControl19;
+            this.cmbNewProject.TabIndex = 7;
+            // 
+            // cmbLoadProject
+            // 
+            this.cmbLoadProject.FormattingEnabled = true;
+            this.cmbLoadProject.Location = new System.Drawing.Point(471, 12);
+            this.cmbLoadProject.Name = "cmbLoadProject";
+            this.cmbLoadProject.Size = new System.Drawing.Size(268, 21);
+            this.cmbLoadProject.TabIndex = 6;
+            // 
+            // layoutControlItem191
+            // 
+            this.layoutControlItem191.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem191.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem191.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem191.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem191.Control = this.cmbNewProject;
+            this.layoutControlItem191.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem191.Name = "layoutControlItem191";
+            this.layoutControlItem191.Size = new System.Drawing.Size(373, 25);
+            this.layoutControlItem191.Text = "Old Project :";
+            this.layoutControlItem191.TextSize = new System.Drawing.Size(82, 14);
+            // 
+            // emptySpaceItem47
+            // 
+            this.emptySpaceItem47.AllowHotTrack = false;
+            this.emptySpaceItem47.Location = new System.Drawing.Point(1284, 25);
+            this.emptySpaceItem47.Name = "emptySpaceItem47";
+            this.emptySpaceItem47.Size = new System.Drawing.Size(218, 46);
+            this.emptySpaceItem47.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem192
+            // 
+            this.layoutControlItem192.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem192.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem192.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem192.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem192.Control = this.cmbLoadProject;
+            this.layoutControlItem192.Location = new System.Drawing.Point(373, 0);
+            this.layoutControlItem192.Name = "layoutControlItem192";
+            this.layoutControlItem192.Size = new System.Drawing.Size(358, 25);
+            this.layoutControlItem192.Text = "New Project :";
+            this.layoutControlItem192.TextSize = new System.Drawing.Size(82, 14);
+            // 
+            // emptySpaceItem114
+            // 
+            this.emptySpaceItem114.AllowHotTrack = false;
+            this.emptySpaceItem114.Location = new System.Drawing.Point(731, 0);
+            this.emptySpaceItem114.Name = "emptySpaceItem114";
+            this.emptySpaceItem114.Size = new System.Drawing.Size(771, 25);
+            this.emptySpaceItem114.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // RadioGroupCopy
+            // 
+            this.RadioGroupCopy.Location = new System.Drawing.Point(12, 54);
+            this.RadioGroupCopy.Name = "RadioGroupCopy";
+            this.RadioGroupCopy.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Top LV in the Hierarchy"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bottom LV in the Hierarchy"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Selected Location")});
+            this.RadioGroupCopy.Size = new System.Drawing.Size(727, 25);
+            this.RadioGroupCopy.StyleController = this.layoutControl19;
+            this.RadioGroupCopy.TabIndex = 8;
+            // 
+            // layoutControlItem193
+            // 
+            this.layoutControlItem193.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem193.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem193.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem193.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem193.Control = this.RadioGroupCopy;
+            this.layoutControlItem193.Location = new System.Drawing.Point(0, 25);
+            this.layoutControlItem193.Name = "layoutControlItem193";
+            this.layoutControlItem193.Size = new System.Drawing.Size(731, 46);
+            this.layoutControlItem193.Text = "Copt To :";
+            this.layoutControlItem193.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem193.TextSize = new System.Drawing.Size(82, 14);
+            // 
+            // gcNewProject
+            // 
+            this.gcNewProject.Location = new System.Drawing.Point(12, 100);
+            this.gcNewProject.MainView = this.gvNewProject;
+            this.gcNewProject.Name = "gcNewProject";
+            this.gcNewProject.Size = new System.Drawing.Size(727, 637);
+            this.gcNewProject.TabIndex = 9;
+            this.gcNewProject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvNewProject});
+            // 
+            // gvNewProject
+            // 
+            this.gvNewProject.GridControl = this.gcNewProject;
+            this.gvNewProject.Name = "gvNewProject";
+            this.gvNewProject.OptionsView.ShowGroupPanel = false;
+            // 
+            // layoutControlItem194
+            // 
+            this.layoutControlItem194.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem194.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem194.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem194.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem194.Control = this.gcNewProject;
+            this.layoutControlItem194.Location = new System.Drawing.Point(0, 71);
+            this.layoutControlItem194.Name = "layoutControlItem194";
+            this.layoutControlItem194.Size = new System.Drawing.Size(731, 658);
+            this.layoutControlItem194.Text = "New Project :";
+            this.layoutControlItem194.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem194.TextSize = new System.Drawing.Size(82, 14);
+            // 
+            // gcOldProject
+            // 
+            this.gcOldProject.Location = new System.Drawing.Point(743, 100);
+            this.gcOldProject.MainView = this.gvOldProject;
+            this.gcOldProject.Name = "gcOldProject";
+            this.gcOldProject.Size = new System.Drawing.Size(767, 637);
+            this.gcOldProject.TabIndex = 10;
+            this.gcOldProject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvOldProject});
+            // 
+            // gvOldProject
+            // 
+            this.gvOldProject.GridControl = this.gcOldProject;
+            this.gvOldProject.Name = "gvOldProject";
+            this.gvOldProject.OptionsView.ShowGroupPanel = false;
+            // 
+            // layoutControlItem195
+            // 
+            this.layoutControlItem195.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem195.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem195.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem195.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem195.Control = this.gcOldProject;
+            this.layoutControlItem195.Location = new System.Drawing.Point(731, 71);
+            this.layoutControlItem195.Name = "layoutControlItem195";
+            this.layoutControlItem195.Size = new System.Drawing.Size(771, 658);
+            this.layoutControlItem195.Text = "Old Project :";
+            this.layoutControlItem195.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem195.TextSize = new System.Drawing.Size(82, 14);
+            // 
+            // btnLoadProject
+            // 
+            this.btnLoadProject.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadProject.Image")));
+            this.btnLoadProject.Location = new System.Drawing.Point(743, 37);
+            this.btnLoadProject.Name = "btnLoadProject";
+            this.btnLoadProject.Size = new System.Drawing.Size(171, 38);
+            this.btnLoadProject.StyleController = this.layoutControl19;
+            this.btnLoadProject.TabIndex = 11;
+            this.btnLoadProject.Text = "Load Project\r\nwith LVs";
+            // 
+            // layoutControlItem196
+            // 
+            this.layoutControlItem196.Control = this.btnLoadProject;
+            this.layoutControlItem196.Location = new System.Drawing.Point(731, 25);
+            this.layoutControlItem196.MaxSize = new System.Drawing.Size(175, 42);
+            this.layoutControlItem196.MinSize = new System.Drawing.Size(175, 42);
+            this.layoutControlItem196.Name = "layoutControlItem196";
+            this.layoutControlItem196.Size = new System.Drawing.Size(175, 46);
+            this.layoutControlItem196.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem196.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem196.TextVisible = false;
+            // 
+            // btnSaveNew
+            // 
+            this.btnSaveNew.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
+            this.btnSaveNew.Location = new System.Drawing.Point(1121, 37);
+            this.btnSaveNew.Name = "btnSaveNew";
+            this.btnSaveNew.Size = new System.Drawing.Size(171, 38);
+            this.btnSaveNew.StyleController = this.layoutControl19;
+            this.btnSaveNew.TabIndex = 12;
+            this.btnSaveNew.Text = "Save New\r\nProject LVs";
+            // 
+            // layoutControlItem197
+            // 
+            this.layoutControlItem197.Control = this.btnSaveNew;
+            this.layoutControlItem197.Location = new System.Drawing.Point(1109, 25);
+            this.layoutControlItem197.MaxSize = new System.Drawing.Size(175, 42);
+            this.layoutControlItem197.MinSize = new System.Drawing.Size(175, 42);
+            this.layoutControlItem197.Name = "layoutControlItem197";
+            this.layoutControlItem197.Size = new System.Drawing.Size(175, 46);
+            this.layoutControlItem197.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem197.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem197.TextVisible = false;
+            // 
+            // emptySpaceItem116
+            // 
+            this.emptySpaceItem116.AllowHotTrack = false;
+            this.emptySpaceItem116.Location = new System.Drawing.Point(906, 25);
+            this.emptySpaceItem116.Name = "emptySpaceItem116";
+            this.emptySpaceItem116.Size = new System.Drawing.Size(203, 46);
+            this.emptySpaceItem116.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // nbCopyLVs
+            // 
+            this.nbCopyLVs.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbCopyLVs.Appearance.Options.UseFont = true;
+            this.nbCopyLVs.Caption = "     Copy LVs";
+            this.nbCopyLVs.Name = "nbCopyLVs";
+            this.nbCopyLVs.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCopyLVs.SmallImage")));
+            this.nbCopyLVs.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCopyLVs_LinkClicked);
+            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -13535,6 +13834,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            this.tbCopyLVs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).EndInit();
+            this.layoutControl19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbNewProject.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem192)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.RadioGroupCopy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem193)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvNewProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem196)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem197)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem116)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -14440,6 +14759,29 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem127;
         private DevExpress.XtraEditors.CheckedListBoxControl chkSupplierLists;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem156;
+        private DevExpress.XtraTab.XtraTabPage tbCopyLVs;
+        private DevExpress.XtraLayout.LayoutControl layoutControl19;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup28;
+        private DevExpress.XtraEditors.ComboBoxEdit cmbNewProject;
+        private System.Windows.Forms.ComboBox cmbLoadProject;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem191;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem47;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem114;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem192;
+        private DevExpress.XtraEditors.RadioGroup RadioGroupCopy;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem193;
+        private DevExpress.XtraGrid.GridControl gcNewProject;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvNewProject;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem194;
+        private DevExpress.XtraGrid.GridControl gcOldProject;
+        private DevExpress.XtraGrid.Views.Grid.GridView gvOldProject;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem195;
+        private DevExpress.XtraEditors.SimpleButton btnLoadProject;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem196;
+        private DevExpress.XtraEditors.SimpleButton btnSaveNew;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem197;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem116;
+        private DevExpress.XtraNavBar.NavBarItem nbCopyLVs;
 
 
     }

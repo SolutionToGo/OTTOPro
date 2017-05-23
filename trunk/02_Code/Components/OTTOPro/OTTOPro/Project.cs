@@ -180,6 +180,7 @@ namespace OTTOPro
                 tbInvoices.PageVisible = false;
                 tbSupplierProposal.PageVisible = false;
                 tbUpdateSupplier.PageVisible = false;
+                tbCopyLVs.PageVisible = false;
                 cmbPositionKZ.Text = "N";
                 chkCumulated.Checked = true;
 
@@ -7149,5 +7150,21 @@ e.Column.FieldName == "GB")
             }
         }
         #endregion
+
+        private void nbCopyLVs_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                if (ObjEProject.ProjectID > 0)
+                {
+                    ObjTabDetails = tbCopyLVs;
+                    TabChange(ObjTabDetails);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

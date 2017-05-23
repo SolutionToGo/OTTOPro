@@ -62,10 +62,12 @@
             this.btnDesignReport = new DevExpress.XtraBars.BarButtonItem();
             this.btnTyp = new DevExpress.XtraBars.BarButtonItem();
             this.btnRabatt = new DevExpress.XtraBars.BarButtonItem();
+            this.btnUserData = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgSupplier = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgArticleMaster = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpSetting = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgTextModule = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.BarButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
@@ -75,6 +77,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnFeature = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -110,14 +113,16 @@
             this.btnTextModule,
             this.btnDesignReport,
             this.btnTyp,
-            this.btnRabatt});
+            this.btnRabatt,
+            this.btnUserData,
+            this.btnFeature});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 34;
+            this.ribbon.MaxItemId = 36;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
             this.rpSetting});
-            this.ribbon.Size = new System.Drawing.Size(890, 143);
+            this.ribbon.Size = new System.Drawing.Size(1073, 143);
             // 
             // btnNewProject
             // 
@@ -314,12 +319,22 @@
             this.btnRabatt.Name = "btnRabatt";
             this.btnRabatt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRabatt_ItemClick);
             // 
+            // btnUserData
+            // 
+            this.btnUserData.Caption = "User Data";
+            this.btnUserData.Id = 34;
+            this.btnUserData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUserData.ImageOptions.Image")));
+            this.btnUserData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUserData.ImageOptions.LargeImage")));
+            this.btnUserData.Name = "btnUserData";
+            this.btnUserData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserData_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
             this.rpgSupplier,
-            this.rpgArticleMaster});
+            this.rpgArticleMaster,
+            this.ribbonPageGroup2});
             this.miHome.Name = "miHome";
             this.miHome.Text = "OTTOPro";
             // 
@@ -347,6 +362,13 @@
             this.rpgArticleMaster.ItemLinks.Add(this.btnRabatt, true, "", "", true);
             this.rpgArticleMaster.Name = "rpgArticleMaster";
             this.rpgArticleMaster.Text = "Artikelstammdaten";
+            // 
+            // ribbonPageGroup2
+            // 
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnUserData, true);
+            this.ribbonPageGroup2.ItemLinks.Add(this.btnFeature, true);
+            this.ribbonPageGroup2.Name = "ribbonPageGroup2";
+            this.ribbonPageGroup2.Text = "User Management ";
             // 
             // rpSetting
             // 
@@ -381,9 +403,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 637);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 669);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(890, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1073, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -404,9 +426,9 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 618);
+            this.label2.Location = new System.Drawing.Point(0, 650);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(890, 19);
+            this.label2.Size = new System.Drawing.Size(1073, 19);
             this.label2.TabIndex = 12;
             this.label2.Text = "Powered by www.softwaretogo.de \r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -417,7 +439,7 @@
             this.pictureBox1.Image = global::OTTOPro.Properties.Resources.LogoLatest;
             this.pictureBox1.Location = new System.Drawing.Point(0, 143);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(890, 475);
+            this.pictureBox1.Size = new System.Drawing.Size(1073, 507);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -428,11 +450,20 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(733, 123);
+            this.label1.Location = new System.Drawing.Point(916, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 13);
             this.label1.TabIndex = 18;
             this.label1.Text = "Version 1.5 (10-05-2017)";
+            // 
+            // btnFeature
+            // 
+            this.btnFeature.Caption = "Feature";
+            this.btnFeature.Id = 35;
+            this.btnFeature.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.Image")));
+            this.btnFeature.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.LargeImage")));
+            this.btnFeature.Name = "btnFeature";
+            this.btnFeature.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFeature_ItemClick);
             // 
             // frmOTTOPro
             // 
@@ -443,7 +474,7 @@
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(890, 659);
+            this.ClientSize = new System.Drawing.Size(1073, 691);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -509,5 +540,8 @@
         private DevExpress.XtraBars.BarButtonItem btnDesignReport;
         private DevExpress.XtraBars.BarButtonItem btnTyp;
         private DevExpress.XtraBars.BarButtonItem btnRabatt;
+        private DevExpress.XtraBars.BarButtonItem btnUserData;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
+        private DevExpress.XtraBars.BarButtonItem btnFeature;
     }
 }
