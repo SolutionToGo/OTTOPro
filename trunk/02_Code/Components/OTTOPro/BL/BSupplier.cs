@@ -206,6 +206,7 @@ namespace BL
             try
             {
                 ObjESupplier = ObjDSupplier.GetProposalPostions(ObjESupplier);
+                ObjESupplier.dtPositions.Columns["Cheapest"].Caption = "Niedrigstpreis";
                 DataTable dtTemp = ObjESupplier.dtPositions.Clone();
                 ChangeCultureInfo(dtTemp);
                 foreach (DataColumn dc in dtTemp.Columns)

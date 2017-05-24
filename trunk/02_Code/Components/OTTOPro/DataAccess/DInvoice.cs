@@ -83,10 +83,7 @@ namespace DataAccess
                         string strError = dsInvoices.Tables[0].Rows[0][0].ToString();
                         if (!int.TryParse(strError, out iValue))
                         {
-                            if (strError.Contains("Atleast"))
-                                throw new Exception("Bitte wählen Sie mindestens ein Aufmass");
-                            else
-                                throw new Exception(strError);
+                            throw new Exception(strError);
                         }
                         else
                         {
@@ -101,7 +98,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (ex.Message.Contains("Atleast"))
-                    throw new Exception(ex.Message);
+                    throw new Exception("Bitte wählen Sie mindestens ein Aufmass");
                 else if(ex.Message.Contains("UNIQUE"))
                 {
                     throw new Exception("Diese Rechnungsnummer wurde für dieses Projekt bereits vergeben");

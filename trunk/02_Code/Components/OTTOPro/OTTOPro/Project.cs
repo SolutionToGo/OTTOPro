@@ -1276,15 +1276,15 @@ namespace OTTOPro
             {
                 foreach (DataRow dr in dt.Rows)
                 {
-                    if (dr["DetailKZ"].ToString() == "1")
+                    if (Convert.ToString(dr["DetailKZ"]) == "1")
                     {
-                        string strOZ = dr["Position_OZ"].ToString();
+                        string strOZ = Convert.ToString(dr["Position_OZ"]);
                         DataRow[] FilteredRows = dt.Select("Position_OZ = '" + strOZ + "' and DetailKZ > 0");
                         decimal iValue = 0;
                         foreach (DataRow drnew in FilteredRows)
                         {
                             decimal OutValue = 0;
-                            if (drnew["Position_OZ"].ToString() == strOZ && decimal.TryParse(drnew[strField].ToString(), out OutValue))
+                            if (Convert.ToString(drnew["Position_OZ"]) == strOZ && decimal.TryParse(drnew[strField].ToString(), out OutValue))
                             {
                                 iValue += OutValue;
                             }
@@ -1294,7 +1294,7 @@ namespace OTTOPro
                         {
                             TargetRow[0][strField] = iValue.ToString();
                             int Menge = 0;
-                            if (int.TryParse(TargetRow[0]["Menge"].ToString(), out Menge))
+                            if (int.TryParse(Convert.ToString(TargetRow[0]["Menge"]), out Menge))
                             {
                                 TargetRow[0]["GB"] = Menge * iValue;
                             }
@@ -1468,7 +1468,7 @@ namespace OTTOPro
             {
                 foreach (DataRow dr in dt.Rows)
                 {
-                    string strPosition = dr["PositionKZ"].ToString().ToLower();
+                    string strPosition = Convert.ToString(dr["PositionKZ"]).ToLower();
                     if (strPosition == "z" || strPosition == "zs")
                     {
                         dr[strField] = GetTotalValue(dt, dr, strField, strPosition);
@@ -1516,8 +1516,8 @@ namespace OTTOPro
                     ObjMO = dt.Compute("SUM(MOWithMulti)", "SNO >=" + ifromValue +
                        "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M')");
 
-                    decimal MAPrice = Convert.ToDecimal(ObjMA);
-                    decimal MOPrice = Convert.ToDecimal(ObjMO);
+                    decimal MAPrice = ObjMA == null ? 0 : Convert.ToDecimal(ObjMA);
+                    decimal MOPrice = ObjMO == null ? 0 : Convert.ToDecimal(ObjMO);
                     decimal MaSurcharge = (MAPrice * strPer) / 100;
                     decimal MOSurcharge = (MOPrice * strPerMO) / 100;
                     TotalValue = MaSurcharge + MOSurcharge;
@@ -1526,7 +1526,7 @@ namespace OTTOPro
                 {
                     Obj = dt.Compute("SUM(" + strField + ")", "SNO >=" + ifromValue +
                           "And SNO <=" + itoValue + "And DetailKZ = 0 AND (PositionKZ = 'N' OR PositionKZ = 'Z' OR PositionKZ = 'M')");
-                    Sum = Obj == DBNull.Value ? 0 : Convert.ToDecimal(Obj);
+                    Sum = Obj == null ? 0 : Convert.ToDecimal(Obj);
                     TotalValue = Sum;
                 }
             }

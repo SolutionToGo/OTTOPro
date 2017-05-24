@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -40,7 +39,7 @@
             this.txtStufe2Title = new System.Windows.Forms.TextBox();
             this.txtStufe1Title = new System.Windows.Forms.TextBox();
             this.txtLiefrantMA = new DevExpress.XtraEditors.TextEdit();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -921,6 +920,7 @@
             this.emptySpaceItem127 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tbCopyLVs = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl19 = new DevExpress.XtraLayout.LayoutControl();
+            this.lookUpEditOldProject = new DevExpress.XtraEditors.LookUpEdit();
             this.gcOldProject = new DevExpress.XtraGrid.GridControl();
             this.gvOldProject = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn76 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -948,18 +948,17 @@
             this.layoutControlItem194 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem195 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem117 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem191 = new DevExpress.XtraLayout.LayoutControlItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
-            this.tmrStatus = new System.Windows.Forms.Timer(this.components);
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.tmrStatus = new System.Windows.Forms.Timer();
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsProjectStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.lookUpEditOldProject = new DevExpress.XtraEditors.LookUpEdit();
-            this.layoutControlItem191 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1631,6 +1630,7 @@
             this.tbCopyLVs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).BeginInit();
             this.layoutControl19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditOldProject.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).BeginInit();
@@ -1640,14 +1640,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditOldProject.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -2015,10 +2014,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -7782,17 +7781,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -10544,7 +10543,7 @@
             // 
             this.gridColumn21.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn21.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn21.Caption = "Typ Of LV";
+            this.gridColumn21.Caption = "Position KZ";
             this.gridColumn21.FieldName = "PositionKZ";
             this.gridColumn21.Name = "gridColumn21";
             this.gridColumn21.Visible = true;
@@ -10774,7 +10773,7 @@
             // 
             this.gridColumn16.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn16.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn16.Caption = "Typ Of LV";
+            this.gridColumn16.Caption = "Position KZ";
             this.gridColumn16.ColumnEdit = this.txttext;
             this.gridColumn16.FieldName = "PositionKZ";
             this.gridColumn16.Name = "gridColumn16";
@@ -12854,6 +12853,20 @@
             this.layoutControl19.TabIndex = 0;
             this.layoutControl19.Text = "layoutControl19";
             // 
+            // lookUpEditOldProject
+            // 
+            this.lookUpEditOldProject.Location = new System.Drawing.Point(841, 12);
+            this.lookUpEditOldProject.MenuManager = this.barManager1;
+            this.lookUpEditOldProject.Name = "lookUpEditOldProject";
+            this.lookUpEditOldProject.Properties.AllowMouseWheel = false;
+            this.lookUpEditOldProject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.lookUpEditOldProject.Properties.NullText = "";
+            this.lookUpEditOldProject.Size = new System.Drawing.Size(197, 20);
+            this.lookUpEditOldProject.StyleController = this.layoutControl19;
+            this.lookUpEditOldProject.TabIndex = 11;
+            this.lookUpEditOldProject.EditValueChanged += new System.EventHandler(this.lookUpEditOldProject_EditValueChanged);
+            // 
             // gcOldProject
             // 
             this.gcOldProject.AllowDrop = true;
@@ -13172,6 +13185,19 @@
             this.emptySpaceItem117.Size = new System.Drawing.Size(744, 24);
             this.emptySpaceItem117.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem191
+            // 
+            this.layoutControlItem191.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem191.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem191.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem191.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem191.Control = this.lookUpEditOldProject;
+            this.layoutControlItem191.Location = new System.Drawing.Point(744, 0);
+            this.layoutControlItem191.Name = "layoutControlItem191";
+            this.layoutControlItem191.Size = new System.Drawing.Size(286, 24);
+            this.layoutControlItem191.Text = "Old Project :";
+            this.layoutControlItem191.TextSize = new System.Drawing.Size(82, 14);
+            // 
             // navBarItem1
             // 
             this.navBarItem1.Name = "navBarItem1";
@@ -13230,33 +13256,6 @@
             this.emptySpaceItem17.Name = "emptySpaceItem17";
             this.emptySpaceItem17.Size = new System.Drawing.Size(686, 73);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // lookUpEditOldProject
-            // 
-            this.lookUpEditOldProject.Location = new System.Drawing.Point(841, 12);
-            this.lookUpEditOldProject.MenuManager = this.barManager1;
-            this.lookUpEditOldProject.Name = "lookUpEditOldProject";
-            this.lookUpEditOldProject.Properties.AllowMouseWheel = false;
-            this.lookUpEditOldProject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.lookUpEditOldProject.Properties.NullText = "";
-            this.lookUpEditOldProject.Size = new System.Drawing.Size(197, 20);
-            this.lookUpEditOldProject.StyleController = this.layoutControl19;
-            this.lookUpEditOldProject.TabIndex = 11;
-            this.lookUpEditOldProject.EditValueChanged += new System.EventHandler(this.lookUpEditOldProject_EditValueChanged);
-            // 
-            // layoutControlItem191
-            // 
-            this.layoutControlItem191.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem191.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem191.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem191.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem191.Control = this.lookUpEditOldProject;
-            this.layoutControlItem191.Location = new System.Drawing.Point(744, 0);
-            this.layoutControlItem191.Name = "layoutControlItem191";
-            this.layoutControlItem191.Size = new System.Drawing.Size(286, 24);
-            this.layoutControlItem191.Text = "Old Project :";
-            this.layoutControlItem191.TextSize = new System.Drawing.Size(82, 14);
             // 
             // frmProject
             // 
@@ -13956,6 +13955,7 @@
             this.tbCopyLVs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).EndInit();
             this.layoutControl19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditOldProject.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).EndInit();
@@ -13965,6 +13965,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -13972,8 +13973,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditOldProject.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
