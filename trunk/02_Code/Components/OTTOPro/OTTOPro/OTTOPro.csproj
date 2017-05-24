@@ -224,6 +224,12 @@
     <Compile Include="FrmCategory.Designer.cs">
       <DependentUpon>FrmCategory.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCopyLVs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCopyLVs.Designer.cs">
+      <DependentUpon>frmCopyLVs.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCustomerMaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -495,6 +501,9 @@
     <EmbeddedResource Include="FrmCategory.resx">
       <DependentUpon>FrmCategory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCopyLVs.resx">
+      <DependentUpon>frmCopyLVs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerMaster.resx">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
     </EmbeddedResource>
@@ -698,6 +707,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Multi6.png" />
+    <None Include="Resources\Multi5.png" />
     <None Include="Resources\user %281%29.png" />
     <None Include="Resources\images %283%29.png" />
     <None Include="Resources\images %282%29.png" />

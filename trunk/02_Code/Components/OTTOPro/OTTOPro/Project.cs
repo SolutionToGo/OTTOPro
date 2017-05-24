@@ -7151,6 +7151,9 @@ e.Column.FieldName == "GB")
         }
         #endregion
 
+
+        #region Copy LVs
+
         private void nbCopyLVs_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             try
@@ -7159,6 +7162,7 @@ e.Column.FieldName == "GB")
                 {
                     ObjTabDetails = tbCopyLVs;
                     TabChange(ObjTabDetails);
+                    FillProjectNumber();
                 }
             }
             catch (Exception ex)
@@ -7166,5 +7170,160 @@ e.Column.FieldName == "GB")
                 Utility.ShowError(ex);
             }
         }
+
+        private void FillProjectNumber()
+        {
+            try
+            {
+                ObjBProject.GetProjectNumber(ObjEProject);
+                if (ObjEProject.dtProjecNumber != null)
+                {
+                    lookUpEditOldProject.Properties.DataSource = null;
+                    lookUpEditOldProject.Properties.DataSource = ObjEProject.dtProjecNumber;
+                    lookUpEditOldProject.Properties.DisplayMember = "ProjectNumber";
+                    lookUpEditOldProject.Properties.ValueMember = "ProjectID";
+                    lookUpEditOldProject.Properties.Columns[0].Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void cmbOldProject_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                ObjBPosition.GetPositionList(ObjEPosition, ObjEProject.ProjectID);
+                if (ObjEPosition.dtCopyOldLVs != null)
+                {
+                    gcOldProject.DataSource = null;
+                    gcOldProject.DataSource = ObjEPosition.dtCopyOldLVs;
+                    gvOldProject.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+
+        private void gvNewProject_MouseDown(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                GridView view = sender as GridView;
+                downHitInfo = null;
+                GridHitInfo hitInfo = view.CalcHitInfo(new Point(e.X, e.Y));
+                if (Control.ModifierKeys != Keys.None) return;
+                if (e.Button == MouseButtons.Left && hitInfo.RowHandle >= 0)
+                    downHitInfo = hitInfo;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvNewProject_MouseMove(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                GridView view = sender as GridView;
+                if (e.Button == MouseButtons.Left && downHitInfo != null)
+                {
+                    Size dragSize = SystemInformation.DragSize;
+                    Rectangle dragRect = new Rectangle(new Point(downHitInfo.HitPoint.X - dragSize.Width / 2,
+                        downHitInfo.HitPoint.Y - dragSize.Height / 2), dragSize);
+
+                    if (!dragRect.Contains(new Point(e.X, e.Y)))
+                    {
+                        DataRow row = view.GetDataRow(downHitInfo.RowHandle);
+                        view.GridControl.DoDragDrop(row, DragDropEffects.Move);
+                        downHitInfo = null;
+                        DevExpress.Utils.DXMouseEventArgs.GetMouseArgs(e).Handled = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcNewProject_DragDrop(object sender, DragEventArgs e)
+        {
+            try
+            {
+                GridControl grid = sender as GridControl;
+                DataTable table = grid.DataSource as DataTable;
+                DataRow row = e.Data.GetData(typeof(DataRow)) as DataRow;
+                if (row != null && table != null && row.Table != table)
+                {
+                    object strPositionID = row["PositionID"].ToString();
+                    DataRow[] foundRows = table.Select("PositionID = '" + strPositionID + "'");
+                    if (foundRows.Count() <= 0)
+                    {
+                        table.ImportRow(row);
+                        //string _type = Convert.ToString(row["PositionsStatus"]);
+                        //if (_type == "D")
+                        //{
+                        //    DataRow[] result = ObjESupplier.dtDeletedPositions.Select("PositionID = '" + strPositionID + "'");
+                        //    foreach (DataRow dr in result)
+                        //    {
+                        //        ObjESupplier.dtDeletedPositions.Rows.Remove(row);
+                        //    }
+                        //}
+                        Utility.Setfocus(gvLVDetailsforSupplier, "PositionID", Convert.ToInt32(strPositionID));
+                    }
+                    else
+                        throw new Exception("Position Already Exists");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcNewProject_DragOver(object sender, DragEventArgs e)
+        {
+            try
+            {
+                if (e.Data.GetDataPresent(typeof(DataRow)))
+                    e.Effect = DragDropEffects.Move;
+                else
+                    e.Effect = DragDropEffects.None;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void lookUpEditOldProject_EditValueChanged(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    lookUpEditOldProject.EditValue = lookUpEditOldProject.Properties.GetKeyValueByDisplayText("ProjectNumber");
+            //    ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(lookUpEditOldProject.EditValue));
+            //    if (ObjEPosition.dtCopyOldLVs != null)
+            //    {
+            //        gcOldProject.DataSource = null;
+            //        gcOldProject.DataSource = ObjEPosition.dtCopyOldLVs;
+            //        gvOldProject.BestFitColumns();
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
+        }
+
+
+        #endregion
+
     }
 }

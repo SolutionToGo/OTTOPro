@@ -184,5 +184,47 @@ namespace DAL
             }
             return dsProjectList;
         }
+
+
+        //Copy of LVs
+        public EProject GetProjectNumber(EProject ObjEProject)
+        {
+            DataSet dsProjectNo = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ProjectNumber]";
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsProjectNo);
+                    }
+                    if (dsProjectNo != null && dsProjectNo.Tables.Count > 0)
+                    {
+                        ObjEProject.dtProjecNumber = dsProjectNo.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    // throw new Exception("Fehler beim Laden des Kunden");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving Projects");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEProject;
+        }
+
     }
 }

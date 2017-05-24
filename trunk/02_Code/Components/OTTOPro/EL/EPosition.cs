@@ -99,6 +99,22 @@ namespace EL
         private int _SNO;
         private int _RasterCount;
 
+
+        //Copy of LVs
+        private DataTable _dtCopyNewLVs;
+        private DataTable _dtCopyOldLVs;
+
+        public DataTable dtCopyNewLVs
+        {
+            get { return _dtCopyNewLVs; }
+            set { _dtCopyNewLVs = value; }
+        }
+        public DataTable dtCopyOldLVs
+        {
+            get { return _dtCopyOldLVs; }
+            set { _dtCopyOldLVs = value; }
+        }
+
         // LV DEtails Properties
         public int PositionID
         {

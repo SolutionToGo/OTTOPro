@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -136,6 +136,7 @@
             this.navBarItemUpdateSupplierProposal = new DevExpress.XtraNavBar.NavBarItem();
             this.nbDeliveryNotes = new DevExpress.XtraNavBar.NavBarItem();
             this.nbInvoices = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbCopyLVs = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarReports = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemConsolidateBlatt = new DevExpress.XtraNavBar.NavBarItem();
@@ -918,6 +919,35 @@
             this.layoutControlItem190 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem126 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem127 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.tbCopyLVs = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl19 = new DevExpress.XtraLayout.LayoutControl();
+            this.gcOldProject = new DevExpress.XtraGrid.GridControl();
+            this.gvOldProject = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn76 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn77 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn78 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn80 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn81 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn82 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn83 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn84 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gcNewProject = new DevExpress.XtraGrid.GridControl();
+            this.gvNewProject = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn68 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn69 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn72 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn74 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn75 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup28 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem114 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem194 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem195 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem117 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.tmrStatus = new System.Windows.Forms.Timer(this.components);
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
@@ -928,29 +958,8 @@
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.tbCopyLVs = new DevExpress.XtraTab.XtraTabPage();
-            this.layoutControl19 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup28 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.cmbNewProject = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbLoadProject = new System.Windows.Forms.ComboBox();
+            this.lookUpEditOldProject = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlItem191 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem47 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem192 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem114 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.RadioGroupCopy = new DevExpress.XtraEditors.RadioGroup();
-            this.layoutControlItem193 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gcNewProject = new DevExpress.XtraGrid.GridControl();
-            this.gvNewProject = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem194 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.gcOldProject = new DevExpress.XtraGrid.GridControl();
-            this.gvOldProject = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.layoutControlItem195 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnLoadProject = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem196 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnSaveNew = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem197 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem116 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.nbCopyLVs = new DevExpress.XtraNavBar.NavBarItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1619,32 +1628,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem190)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem126)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem127)).BeginInit();
+            this.tbCopyLVs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).BeginInit();
+            this.layoutControl19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvNewProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            this.tbCopyLVs.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).BeginInit();
-            this.layoutControl19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNewProject.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditOldProject.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem47)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem192)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RadioGroupCopy.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem193)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvNewProject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem196)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem197)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem116)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -2012,10 +2015,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -2973,7 +2976,7 @@
             this.navBarItemMulti5.Appearance.Options.UseFont = true;
             this.navBarItemMulti5.Caption = "     Multi-5";
             this.navBarItemMulti5.Name = "navBarItemMulti5";
-            this.navBarItemMulti5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemMulti5.SmallImage")));
+            this.navBarItemMulti5.SmallImage = global::OTTOPro.Properties.Resources.Multi5;
             this.navBarItemMulti5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemMulti5_LinkClicked);
             // 
             // navBarItemMulti6
@@ -2982,7 +2985,7 @@
             this.navBarItemMulti6.Appearance.Options.UseFont = true;
             this.navBarItemMulti6.Caption = "     Multi-6";
             this.navBarItemMulti6.Name = "navBarItemMulti6";
-            this.navBarItemMulti6.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemMulti6.SmallImage")));
+            this.navBarItemMulti6.SmallImage = global::OTTOPro.Properties.Resources.Multi6;
             this.navBarItemMulti6.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemMulti6_LinkClicked);
             // 
             // navBarItemExport
@@ -3049,6 +3052,15 @@
             this.nbInvoices.Name = "nbInvoices";
             this.nbInvoices.SmallImage = global::OTTOPro.Properties.Resources.currency_euro_green;
             this.nbInvoices.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbInvoices_LinkClicked);
+            // 
+            // nbCopyLVs
+            // 
+            this.nbCopyLVs.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbCopyLVs.Appearance.Options.UseFont = true;
+            this.nbCopyLVs.Caption = "     Copy LVs";
+            this.nbCopyLVs.Name = "nbCopyLVs";
+            this.nbCopyLVs.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCopyLVs.SmallImage")));
+            this.nbCopyLVs.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCopyLVs_LinkClicked);
             // 
             // navBarReports
             // 
@@ -7770,17 +7782,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -12820,6 +12832,346 @@
             this.emptySpaceItem127.Size = new System.Drawing.Size(179, 19);
             this.emptySpaceItem127.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // tbCopyLVs
+            // 
+            this.tbCopyLVs.Controls.Add(this.layoutControl19);
+            this.tbCopyLVs.Name = "tbCopyLVs";
+            this.tbCopyLVs.Size = new System.Drawing.Size(1522, 749);
+            this.tbCopyLVs.Text = "Copy LVs";
+            // 
+            // layoutControl19
+            // 
+            this.layoutControl19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl19.Controls.Add(this.lookUpEditOldProject);
+            this.layoutControl19.Controls.Add(this.gcOldProject);
+            this.layoutControl19.Controls.Add(this.gcNewProject);
+            this.layoutControl19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl19.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl19.Name = "layoutControl19";
+            this.layoutControl19.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(398, 480, 450, 400);
+            this.layoutControl19.Root = this.layoutControlGroup28;
+            this.layoutControl19.Size = new System.Drawing.Size(1522, 749);
+            this.layoutControl19.TabIndex = 0;
+            this.layoutControl19.Text = "layoutControl19";
+            // 
+            // gcOldProject
+            // 
+            this.gcOldProject.AllowDrop = true;
+            this.gcOldProject.Location = new System.Drawing.Point(756, 53);
+            this.gcOldProject.MainView = this.gvOldProject;
+            this.gcOldProject.Name = "gcOldProject";
+            this.gcOldProject.Size = new System.Drawing.Size(754, 684);
+            this.gcOldProject.TabIndex = 10;
+            this.gcOldProject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvOldProject});
+            this.gcOldProject.DragOver += new System.Windows.Forms.DragEventHandler(this.gcPositions_DragOver);
+            // 
+            // gvOldProject
+            // 
+            this.gvOldProject.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvOldProject.Appearance.Empty.Options.UseBackColor = true;
+            this.gvOldProject.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvOldProject.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvOldProject.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvOldProject.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gvOldProject.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.gvOldProject.Appearance.Row.Options.UseBackColor = true;
+            this.gvOldProject.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvOldProject.Appearance.SelectedRow.Options.UseFont = true;
+            this.gvOldProject.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn76,
+            this.gridColumn77,
+            this.gridColumn78,
+            this.gridColumn79,
+            this.gridColumn80,
+            this.gridColumn81,
+            this.gridColumn82,
+            this.gridColumn83,
+            this.gridColumn84});
+            this.gvOldProject.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
+            this.gvOldProject.GridControl = this.gcOldProject;
+            this.gvOldProject.Name = "gvOldProject";
+            this.gvOldProject.OptionsBehavior.Editable = false;
+            this.gvOldProject.OptionsCustomization.AllowColumnMoving = false;
+            this.gvOldProject.OptionsFilter.AllowFilterEditor = false;
+            this.gvOldProject.OptionsMenu.EnableColumnMenu = false;
+            this.gvOldProject.OptionsMenu.EnableFooterMenu = false;
+            this.gvOldProject.OptionsMenu.EnableGroupPanelMenu = false;
+            this.gvOldProject.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gvOldProject.OptionsView.ShowGroupPanel = false;
+            this.gvOldProject.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvNewProject_MouseDown);
+            this.gvOldProject.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvNewProject_MouseMove);
+            // 
+            // gridColumn76
+            // 
+            this.gridColumn76.Caption = "PositionID";
+            this.gridColumn76.FieldName = "PositionID";
+            this.gridColumn76.Name = "gridColumn76";
+            // 
+            // gridColumn77
+            // 
+            this.gridColumn77.Caption = "ProjectID";
+            this.gridColumn77.FieldName = "ProjectID";
+            this.gridColumn77.Name = "gridColumn77";
+            // 
+            // gridColumn78
+            // 
+            this.gridColumn78.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn78.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn78.Caption = "Position_OZ";
+            this.gridColumn78.FieldName = "Position_OZ";
+            this.gridColumn78.Name = "gridColumn78";
+            this.gridColumn78.Visible = true;
+            this.gridColumn78.VisibleIndex = 0;
+            // 
+            // gridColumn79
+            // 
+            this.gridColumn79.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn79.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn79.Caption = "Parent_OZ";
+            this.gridColumn79.FieldName = "Parent_OZ";
+            this.gridColumn79.Name = "gridColumn79";
+            this.gridColumn79.Visible = true;
+            this.gridColumn79.VisibleIndex = 1;
+            // 
+            // gridColumn80
+            // 
+            this.gridColumn80.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn80.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn80.Caption = "PositionKZ";
+            this.gridColumn80.FieldName = "PositionKZ";
+            this.gridColumn80.Name = "gridColumn80";
+            this.gridColumn80.Visible = true;
+            this.gridColumn80.VisibleIndex = 2;
+            // 
+            // gridColumn81
+            // 
+            this.gridColumn81.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn81.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn81.Caption = "LVSection";
+            this.gridColumn81.FieldName = "LVSection";
+            this.gridColumn81.Name = "gridColumn81";
+            this.gridColumn81.Visible = true;
+            this.gridColumn81.VisibleIndex = 3;
+            // 
+            // gridColumn82
+            // 
+            this.gridColumn82.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn82.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn82.Caption = "WG";
+            this.gridColumn82.FieldName = "WG";
+            this.gridColumn82.Name = "gridColumn82";
+            this.gridColumn82.Visible = true;
+            this.gridColumn82.VisibleIndex = 4;
+            // 
+            // gridColumn83
+            // 
+            this.gridColumn83.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn83.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn83.Caption = "WA";
+            this.gridColumn83.FieldName = "WA";
+            this.gridColumn83.Name = "gridColumn83";
+            this.gridColumn83.Visible = true;
+            this.gridColumn83.VisibleIndex = 5;
+            // 
+            // gridColumn84
+            // 
+            this.gridColumn84.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn84.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn84.Caption = "WI";
+            this.gridColumn84.FieldName = "WI";
+            this.gridColumn84.Name = "gridColumn84";
+            this.gridColumn84.Visible = true;
+            this.gridColumn84.VisibleIndex = 6;
+            // 
+            // gcNewProject
+            // 
+            this.gcNewProject.AllowDrop = true;
+            this.gcNewProject.Location = new System.Drawing.Point(12, 53);
+            this.gcNewProject.MainView = this.gvNewProject;
+            this.gcNewProject.Name = "gcNewProject";
+            this.gcNewProject.Size = new System.Drawing.Size(740, 684);
+            this.gcNewProject.TabIndex = 9;
+            this.gcNewProject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gvNewProject});
+            this.gcNewProject.DragDrop += new System.Windows.Forms.DragEventHandler(this.gcNewProject_DragDrop);
+            this.gcNewProject.DragOver += new System.Windows.Forms.DragEventHandler(this.gcNewProject_DragOver);
+            // 
+            // gvNewProject
+            // 
+            this.gvNewProject.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.gvNewProject.Appearance.Empty.Options.UseBackColor = true;
+            this.gvNewProject.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvNewProject.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvNewProject.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvNewProject.Appearance.HeaderPanel.Options.UseBackColor = true;
+            this.gvNewProject.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.gvNewProject.Appearance.Row.Options.UseBackColor = true;
+            this.gvNewProject.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvNewProject.Appearance.SelectedRow.Options.UseFont = true;
+            this.gvNewProject.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn67,
+            this.gridColumn68,
+            this.gridColumn69,
+            this.gridColumn70,
+            this.gridColumn71,
+            this.gridColumn72,
+            this.gridColumn73,
+            this.gridColumn74,
+            this.gridColumn75});
+            this.gvNewProject.GridControl = this.gcNewProject;
+            this.gvNewProject.Name = "gvNewProject";
+            this.gvNewProject.OptionsCustomization.AllowColumnMoving = false;
+            this.gvNewProject.OptionsFilter.AllowFilterEditor = false;
+            this.gvNewProject.OptionsMenu.EnableColumnMenu = false;
+            this.gvNewProject.OptionsMenu.EnableFooterMenu = false;
+            this.gvNewProject.OptionsMenu.EnableGroupPanelMenu = false;
+            this.gvNewProject.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gvNewProject.OptionsView.ShowGroupPanel = false;
+            this.gvNewProject.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvNewProject_MouseDown);
+            this.gvNewProject.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvNewProject_MouseMove);
+            // 
+            // gridColumn67
+            // 
+            this.gridColumn67.Caption = "PositionID";
+            this.gridColumn67.FieldName = "PositionID";
+            this.gridColumn67.Name = "gridColumn67";
+            // 
+            // gridColumn68
+            // 
+            this.gridColumn68.Caption = "ProjectID";
+            this.gridColumn68.FieldName = "ProjectID";
+            this.gridColumn68.Name = "gridColumn68";
+            // 
+            // gridColumn69
+            // 
+            this.gridColumn69.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn69.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn69.Caption = "Position_OZ";
+            this.gridColumn69.FieldName = "Position_OZ";
+            this.gridColumn69.Name = "gridColumn69";
+            this.gridColumn69.Visible = true;
+            this.gridColumn69.VisibleIndex = 0;
+            // 
+            // gridColumn70
+            // 
+            this.gridColumn70.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn70.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn70.Caption = "Parent_OZ";
+            this.gridColumn70.FieldName = "Parent_OZ";
+            this.gridColumn70.Name = "gridColumn70";
+            this.gridColumn70.Visible = true;
+            this.gridColumn70.VisibleIndex = 1;
+            // 
+            // gridColumn71
+            // 
+            this.gridColumn71.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn71.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn71.Caption = "PositionKZ";
+            this.gridColumn71.FieldName = "PositionKZ";
+            this.gridColumn71.Name = "gridColumn71";
+            this.gridColumn71.Visible = true;
+            this.gridColumn71.VisibleIndex = 2;
+            // 
+            // gridColumn72
+            // 
+            this.gridColumn72.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn72.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn72.Caption = "LVSection";
+            this.gridColumn72.FieldName = "LVSection";
+            this.gridColumn72.Name = "gridColumn72";
+            this.gridColumn72.Visible = true;
+            this.gridColumn72.VisibleIndex = 3;
+            // 
+            // gridColumn73
+            // 
+            this.gridColumn73.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn73.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn73.Caption = "WG";
+            this.gridColumn73.FieldName = "WG";
+            this.gridColumn73.Name = "gridColumn73";
+            this.gridColumn73.Visible = true;
+            this.gridColumn73.VisibleIndex = 4;
+            // 
+            // gridColumn74
+            // 
+            this.gridColumn74.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn74.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn74.Caption = "WA";
+            this.gridColumn74.FieldName = "WA";
+            this.gridColumn74.Name = "gridColumn74";
+            this.gridColumn74.Visible = true;
+            this.gridColumn74.VisibleIndex = 5;
+            // 
+            // gridColumn75
+            // 
+            this.gridColumn75.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridColumn75.AppearanceHeader.Options.UseFont = true;
+            this.gridColumn75.Caption = "WI";
+            this.gridColumn75.FieldName = "WI";
+            this.gridColumn75.Name = "gridColumn75";
+            this.gridColumn75.Visible = true;
+            this.gridColumn75.VisibleIndex = 6;
+            // 
+            // layoutControlGroup28
+            // 
+            this.layoutControlGroup28.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup28.GroupBordersVisible = false;
+            this.layoutControlGroup28.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.emptySpaceItem114,
+            this.layoutControlItem194,
+            this.layoutControlItem195,
+            this.emptySpaceItem117,
+            this.layoutControlItem191});
+            this.layoutControlGroup28.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup28.Name = "Root";
+            this.layoutControlGroup28.Size = new System.Drawing.Size(1522, 749);
+            this.layoutControlGroup28.TextVisible = false;
+            // 
+            // emptySpaceItem114
+            // 
+            this.emptySpaceItem114.AllowHotTrack = false;
+            this.emptySpaceItem114.Location = new System.Drawing.Point(1030, 0);
+            this.emptySpaceItem114.Name = "emptySpaceItem114";
+            this.emptySpaceItem114.Size = new System.Drawing.Size(472, 24);
+            this.emptySpaceItem114.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem194
+            // 
+            this.layoutControlItem194.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem194.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem194.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem194.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem194.Control = this.gcNewProject;
+            this.layoutControlItem194.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem194.Name = "layoutControlItem194";
+            this.layoutControlItem194.Size = new System.Drawing.Size(744, 705);
+            this.layoutControlItem194.Text = "New Project :";
+            this.layoutControlItem194.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem194.TextSize = new System.Drawing.Size(82, 14);
+            // 
+            // layoutControlItem195
+            // 
+            this.layoutControlItem195.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem195.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem195.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem195.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem195.Control = this.gcOldProject;
+            this.layoutControlItem195.Location = new System.Drawing.Point(744, 24);
+            this.layoutControlItem195.Name = "layoutControlItem195";
+            this.layoutControlItem195.Size = new System.Drawing.Size(758, 705);
+            this.layoutControlItem195.Text = "Old Project :";
+            this.layoutControlItem195.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem195.TextSize = new System.Drawing.Size(82, 14);
+            // 
+            // emptySpaceItem117
+            // 
+            this.emptySpaceItem117.AllowHotTrack = false;
+            this.emptySpaceItem117.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem117.Name = "emptySpaceItem117";
+            this.emptySpaceItem117.Size = new System.Drawing.Size(744, 24);
+            this.emptySpaceItem117.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // navBarItem1
             // 
             this.navBarItem1.Name = "navBarItem1";
@@ -12879,69 +13231,19 @@
             this.emptySpaceItem17.Size = new System.Drawing.Size(686, 73);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // tbCopyLVs
+            // lookUpEditOldProject
             // 
-            this.tbCopyLVs.Controls.Add(this.layoutControl19);
-            this.tbCopyLVs.Name = "tbCopyLVs";
-            this.tbCopyLVs.Size = new System.Drawing.Size(1522, 749);
-            this.tbCopyLVs.Text = "Copy LVs";
-            // 
-            // layoutControl19
-            // 
-            this.layoutControl19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControl19.Controls.Add(this.btnSaveNew);
-            this.layoutControl19.Controls.Add(this.btnLoadProject);
-            this.layoutControl19.Controls.Add(this.gcOldProject);
-            this.layoutControl19.Controls.Add(this.gcNewProject);
-            this.layoutControl19.Controls.Add(this.RadioGroupCopy);
-            this.layoutControl19.Controls.Add(this.cmbNewProject);
-            this.layoutControl19.Controls.Add(this.cmbLoadProject);
-            this.layoutControl19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl19.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl19.Name = "layoutControl19";
-            this.layoutControl19.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(398, 480, 450, 400);
-            this.layoutControl19.Root = this.layoutControlGroup28;
-            this.layoutControl19.Size = new System.Drawing.Size(1522, 749);
-            this.layoutControl19.TabIndex = 0;
-            this.layoutControl19.Text = "layoutControl19";
-            // 
-            // layoutControlGroup28
-            // 
-            this.layoutControlGroup28.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup28.GroupBordersVisible = false;
-            this.layoutControlGroup28.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem191,
-            this.emptySpaceItem47,
-            this.emptySpaceItem114,
-            this.layoutControlItem192,
-            this.layoutControlItem193,
-            this.layoutControlItem194,
-            this.layoutControlItem195,
-            this.layoutControlItem196,
-            this.layoutControlItem197,
-            this.emptySpaceItem116});
-            this.layoutControlGroup28.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup28.Name = "Root";
-            this.layoutControlGroup28.Size = new System.Drawing.Size(1522, 749);
-            this.layoutControlGroup28.TextVisible = false;
-            // 
-            // cmbNewProject
-            // 
-            this.cmbNewProject.Location = new System.Drawing.Point(98, 12);
-            this.cmbNewProject.Name = "cmbNewProject";
-            this.cmbNewProject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.lookUpEditOldProject.Location = new System.Drawing.Point(841, 12);
+            this.lookUpEditOldProject.MenuManager = this.barManager1;
+            this.lookUpEditOldProject.Name = "lookUpEditOldProject";
+            this.lookUpEditOldProject.Properties.AllowMouseWheel = false;
+            this.lookUpEditOldProject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbNewProject.Size = new System.Drawing.Size(283, 20);
-            this.cmbNewProject.StyleController = this.layoutControl19;
-            this.cmbNewProject.TabIndex = 7;
-            // 
-            // cmbLoadProject
-            // 
-            this.cmbLoadProject.FormattingEnabled = true;
-            this.cmbLoadProject.Location = new System.Drawing.Point(471, 12);
-            this.cmbLoadProject.Name = "cmbLoadProject";
-            this.cmbLoadProject.Size = new System.Drawing.Size(268, 21);
-            this.cmbLoadProject.TabIndex = 6;
+            this.lookUpEditOldProject.Properties.NullText = "";
+            this.lookUpEditOldProject.Size = new System.Drawing.Size(197, 20);
+            this.lookUpEditOldProject.StyleController = this.layoutControl19;
+            this.lookUpEditOldProject.TabIndex = 11;
+            this.lookUpEditOldProject.EditValueChanged += new System.EventHandler(this.lookUpEditOldProject_EditValueChanged);
             // 
             // layoutControlItem191
             // 
@@ -12949,188 +13251,12 @@
             this.layoutControlItem191.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem191.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem191.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem191.Control = this.cmbNewProject;
-            this.layoutControlItem191.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem191.Control = this.lookUpEditOldProject;
+            this.layoutControlItem191.Location = new System.Drawing.Point(744, 0);
             this.layoutControlItem191.Name = "layoutControlItem191";
-            this.layoutControlItem191.Size = new System.Drawing.Size(373, 25);
+            this.layoutControlItem191.Size = new System.Drawing.Size(286, 24);
             this.layoutControlItem191.Text = "Old Project :";
             this.layoutControlItem191.TextSize = new System.Drawing.Size(82, 14);
-            // 
-            // emptySpaceItem47
-            // 
-            this.emptySpaceItem47.AllowHotTrack = false;
-            this.emptySpaceItem47.Location = new System.Drawing.Point(1284, 25);
-            this.emptySpaceItem47.Name = "emptySpaceItem47";
-            this.emptySpaceItem47.Size = new System.Drawing.Size(218, 46);
-            this.emptySpaceItem47.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem192
-            // 
-            this.layoutControlItem192.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem192.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem192.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem192.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem192.Control = this.cmbLoadProject;
-            this.layoutControlItem192.Location = new System.Drawing.Point(373, 0);
-            this.layoutControlItem192.Name = "layoutControlItem192";
-            this.layoutControlItem192.Size = new System.Drawing.Size(358, 25);
-            this.layoutControlItem192.Text = "New Project :";
-            this.layoutControlItem192.TextSize = new System.Drawing.Size(82, 14);
-            // 
-            // emptySpaceItem114
-            // 
-            this.emptySpaceItem114.AllowHotTrack = false;
-            this.emptySpaceItem114.Location = new System.Drawing.Point(731, 0);
-            this.emptySpaceItem114.Name = "emptySpaceItem114";
-            this.emptySpaceItem114.Size = new System.Drawing.Size(771, 25);
-            this.emptySpaceItem114.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // RadioGroupCopy
-            // 
-            this.RadioGroupCopy.Location = new System.Drawing.Point(12, 54);
-            this.RadioGroupCopy.Name = "RadioGroupCopy";
-            this.RadioGroupCopy.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Top LV in the Hierarchy"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bottom LV in the Hierarchy"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Selected Location")});
-            this.RadioGroupCopy.Size = new System.Drawing.Size(727, 25);
-            this.RadioGroupCopy.StyleController = this.layoutControl19;
-            this.RadioGroupCopy.TabIndex = 8;
-            // 
-            // layoutControlItem193
-            // 
-            this.layoutControlItem193.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem193.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem193.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem193.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem193.Control = this.RadioGroupCopy;
-            this.layoutControlItem193.Location = new System.Drawing.Point(0, 25);
-            this.layoutControlItem193.Name = "layoutControlItem193";
-            this.layoutControlItem193.Size = new System.Drawing.Size(731, 46);
-            this.layoutControlItem193.Text = "Copt To :";
-            this.layoutControlItem193.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem193.TextSize = new System.Drawing.Size(82, 14);
-            // 
-            // gcNewProject
-            // 
-            this.gcNewProject.Location = new System.Drawing.Point(12, 100);
-            this.gcNewProject.MainView = this.gvNewProject;
-            this.gcNewProject.Name = "gcNewProject";
-            this.gcNewProject.Size = new System.Drawing.Size(727, 637);
-            this.gcNewProject.TabIndex = 9;
-            this.gcNewProject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvNewProject});
-            // 
-            // gvNewProject
-            // 
-            this.gvNewProject.GridControl = this.gcNewProject;
-            this.gvNewProject.Name = "gvNewProject";
-            this.gvNewProject.OptionsView.ShowGroupPanel = false;
-            // 
-            // layoutControlItem194
-            // 
-            this.layoutControlItem194.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem194.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem194.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem194.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem194.Control = this.gcNewProject;
-            this.layoutControlItem194.Location = new System.Drawing.Point(0, 71);
-            this.layoutControlItem194.Name = "layoutControlItem194";
-            this.layoutControlItem194.Size = new System.Drawing.Size(731, 658);
-            this.layoutControlItem194.Text = "New Project :";
-            this.layoutControlItem194.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem194.TextSize = new System.Drawing.Size(82, 14);
-            // 
-            // gcOldProject
-            // 
-            this.gcOldProject.Location = new System.Drawing.Point(743, 100);
-            this.gcOldProject.MainView = this.gvOldProject;
-            this.gcOldProject.Name = "gcOldProject";
-            this.gcOldProject.Size = new System.Drawing.Size(767, 637);
-            this.gcOldProject.TabIndex = 10;
-            this.gcOldProject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvOldProject});
-            // 
-            // gvOldProject
-            // 
-            this.gvOldProject.GridControl = this.gcOldProject;
-            this.gvOldProject.Name = "gvOldProject";
-            this.gvOldProject.OptionsView.ShowGroupPanel = false;
-            // 
-            // layoutControlItem195
-            // 
-            this.layoutControlItem195.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem195.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem195.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem195.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem195.Control = this.gcOldProject;
-            this.layoutControlItem195.Location = new System.Drawing.Point(731, 71);
-            this.layoutControlItem195.Name = "layoutControlItem195";
-            this.layoutControlItem195.Size = new System.Drawing.Size(771, 658);
-            this.layoutControlItem195.Text = "Old Project :";
-            this.layoutControlItem195.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem195.TextSize = new System.Drawing.Size(82, 14);
-            // 
-            // btnLoadProject
-            // 
-            this.btnLoadProject.Image = ((System.Drawing.Image)(resources.GetObject("btnLoadProject.Image")));
-            this.btnLoadProject.Location = new System.Drawing.Point(743, 37);
-            this.btnLoadProject.Name = "btnLoadProject";
-            this.btnLoadProject.Size = new System.Drawing.Size(171, 38);
-            this.btnLoadProject.StyleController = this.layoutControl19;
-            this.btnLoadProject.TabIndex = 11;
-            this.btnLoadProject.Text = "Load Project\r\nwith LVs";
-            // 
-            // layoutControlItem196
-            // 
-            this.layoutControlItem196.Control = this.btnLoadProject;
-            this.layoutControlItem196.Location = new System.Drawing.Point(731, 25);
-            this.layoutControlItem196.MaxSize = new System.Drawing.Size(175, 42);
-            this.layoutControlItem196.MinSize = new System.Drawing.Size(175, 42);
-            this.layoutControlItem196.Name = "layoutControlItem196";
-            this.layoutControlItem196.Size = new System.Drawing.Size(175, 46);
-            this.layoutControlItem196.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem196.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem196.TextVisible = false;
-            // 
-            // btnSaveNew
-            // 
-            this.btnSaveNew.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
-            this.btnSaveNew.Location = new System.Drawing.Point(1121, 37);
-            this.btnSaveNew.Name = "btnSaveNew";
-            this.btnSaveNew.Size = new System.Drawing.Size(171, 38);
-            this.btnSaveNew.StyleController = this.layoutControl19;
-            this.btnSaveNew.TabIndex = 12;
-            this.btnSaveNew.Text = "Save New\r\nProject LVs";
-            // 
-            // layoutControlItem197
-            // 
-            this.layoutControlItem197.Control = this.btnSaveNew;
-            this.layoutControlItem197.Location = new System.Drawing.Point(1109, 25);
-            this.layoutControlItem197.MaxSize = new System.Drawing.Size(175, 42);
-            this.layoutControlItem197.MinSize = new System.Drawing.Size(175, 42);
-            this.layoutControlItem197.Name = "layoutControlItem197";
-            this.layoutControlItem197.Size = new System.Drawing.Size(175, 46);
-            this.layoutControlItem197.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem197.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem197.TextVisible = false;
-            // 
-            // emptySpaceItem116
-            // 
-            this.emptySpaceItem116.AllowHotTrack = false;
-            this.emptySpaceItem116.Location = new System.Drawing.Point(906, 25);
-            this.emptySpaceItem116.Name = "emptySpaceItem116";
-            this.emptySpaceItem116.Size = new System.Drawing.Size(203, 46);
-            this.emptySpaceItem116.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // nbCopyLVs
-            // 
-            this.nbCopyLVs.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.nbCopyLVs.Appearance.Options.UseFont = true;
-            this.nbCopyLVs.Caption = "     Copy LVs";
-            this.nbCopyLVs.Name = "nbCopyLVs";
-            this.nbCopyLVs.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCopyLVs.SmallImage")));
-            this.nbCopyLVs.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCopyLVs_LinkClicked);
             // 
             // frmProject
             // 
@@ -13827,6 +13953,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem190)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem126)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem127)).EndInit();
+            this.tbCopyLVs.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).EndInit();
+            this.layoutControl19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gvNewProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -13834,26 +13972,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            this.tbCopyLVs.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).EndInit();
-            this.layoutControl19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbNewProject.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lookUpEditOldProject.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem47)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem192)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.RadioGroupCopy.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem193)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvNewProject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem196)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem197)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem116)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -14762,26 +14882,35 @@
         private DevExpress.XtraTab.XtraTabPage tbCopyLVs;
         private DevExpress.XtraLayout.LayoutControl layoutControl19;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup28;
-        private DevExpress.XtraEditors.ComboBoxEdit cmbNewProject;
-        private System.Windows.Forms.ComboBox cmbLoadProject;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem191;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem47;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem114;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem192;
-        private DevExpress.XtraEditors.RadioGroup RadioGroupCopy;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem193;
         private DevExpress.XtraGrid.GridControl gcNewProject;
         private DevExpress.XtraGrid.Views.Grid.GridView gvNewProject;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem194;
         private DevExpress.XtraGrid.GridControl gcOldProject;
         private DevExpress.XtraGrid.Views.Grid.GridView gvOldProject;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem195;
-        private DevExpress.XtraEditors.SimpleButton btnLoadProject;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem196;
-        private DevExpress.XtraEditors.SimpleButton btnSaveNew;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem197;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem116;
         private DevExpress.XtraNavBar.NavBarItem nbCopyLVs;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem117;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn76;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn77;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn78;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn79;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn80;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn81;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn82;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn83;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn84;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn67;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn68;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn69;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn70;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn71;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn72;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn73;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn74;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn75;
+        private DevExpress.XtraEditors.LookUpEdit lookUpEditOldProject;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem191;
 
 
     }

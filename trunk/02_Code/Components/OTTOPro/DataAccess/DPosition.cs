@@ -92,7 +92,7 @@ namespace DataAccess
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsPositionsList, "Positions");
-                    }
+                    }                   
                 }
             }
             catch (Exception ex)

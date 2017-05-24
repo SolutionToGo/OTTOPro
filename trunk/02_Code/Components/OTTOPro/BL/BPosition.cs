@@ -129,6 +129,10 @@ namespace BL
                 {
                     ObjEPosition.dsPositionList = ObjDPosition.GetPsoitionList(ProjectID);
                 }
+                if (ObjEPosition.dsPositionList != null && ObjEPosition.dsPositionList.Tables.Count > 0)
+                {
+                    ObjEPosition.dtCopyOldLVs = ObjEPosition.dsPositionList.Tables[0];
+                }
             }
             catch (Exception ex)
             {

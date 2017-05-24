@@ -184,6 +184,24 @@ namespace BL
                 }
             }
         }
+
+        //Copy of LVs
+        public EProject GetProjectNumber(EProject ObjEProject)
+        {
+            try
+            {
+                if (ObjEProject != null)
+                {
+                    ObjEProject = ObjDAL.GetProjectNumber(ObjEProject);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
+
     }
 }
     

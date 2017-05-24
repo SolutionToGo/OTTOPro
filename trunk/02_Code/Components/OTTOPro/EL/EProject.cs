@@ -51,6 +51,15 @@ namespace EL
         private DataTable _dtLVSection;
         private bool _IsCumulated = false;
 
+        //Project Copy LVs
+        private DataTable _dtProjecNumber = null;
+
+        public DataTable dtProjecNumber
+        {
+            get { return _dtProjecNumber; }
+            set { _dtProjecNumber = value; }
+        }
+
         /// <summary>
         /// Public Properties for Project Module
         /// </summary>
