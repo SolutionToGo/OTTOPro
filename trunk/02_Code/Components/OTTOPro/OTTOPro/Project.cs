@@ -7256,6 +7256,11 @@ e.Column.FieldName == "GB")
 
                 TreeListNode node = args.TargetNode;
 
+                if (args.TargetNode == null)
+                {
+                    e.Effect = DragDropEffects.None;
+                    return;
+                }
                 string _PosKZ = node["PositionKZ"].ToString();
                 if (_PosKZ == "NG")
                 {
