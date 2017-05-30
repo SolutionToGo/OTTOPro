@@ -132,6 +132,7 @@ namespace BL
                 if (ObjEPosition.dsPositionList != null && ObjEPosition.dsPositionList.Tables.Count > 0)
                 {
                     ObjEPosition.dtCopyOldLVs = ObjEPosition.dsPositionList.Tables[0];
+                    ObjEPosition.dtCopyNewLVs = ObjEPosition.dsPositionList.Tables[0];
                 }
             }
             catch (Exception ex)

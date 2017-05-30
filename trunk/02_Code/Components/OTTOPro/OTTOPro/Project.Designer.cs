@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,7 +40,7 @@
             this.txtStufe2Title = new System.Windows.Forms.TextBox();
             this.txtStufe1Title = new System.Windows.Forms.TextBox();
             this.txtLiefrantMA = new DevExpress.XtraEditors.TextEdit();
-            this.barManager1 = new DevExpress.XtraBars.BarManager();
+            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -920,44 +921,109 @@
             this.emptySpaceItem127 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tbCopyLVs = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl19 = new DevExpress.XtraLayout.LayoutControl();
+            this.rgDropMode = new DevExpress.XtraEditors.RadioGroup();
+            this.tlOldProject = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn103 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn104 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn105 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn106 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn107 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn108 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn109 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn110 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn111 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn112 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn113 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn114 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn115 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repositoryItemTextEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.treeListColumn116 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn117 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn118 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn119 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn120 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn121 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn122 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn123 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn124 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn125 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn126 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn127 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn128 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn129 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn130 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn131 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn132 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn133 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn134 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn135 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn136 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn137 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn138 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.treeListColumn139 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn140 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.tlNewProject = new DevExpress.XtraTreeList.TreeList();
+            this.treeListColumn66 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn67 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn68 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn69 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn70 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn71 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn72 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn73 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn74 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn75 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn76 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn77 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn78 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.treeListColumn79 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn80 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn81 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn82 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn83 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn84 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn85 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn86 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn87 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn88 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn89 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn90 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn91 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn92 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn93 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn94 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn95 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn96 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn97 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn98 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn99 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn100 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn101 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+            this.treeListColumn65 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn102 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lblNewProject = new System.Windows.Forms.Label();
             this.lookUpEditOldProject = new DevExpress.XtraEditors.LookUpEdit();
-            this.gcOldProject = new DevExpress.XtraGrid.GridControl();
-            this.gvOldProject = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn76 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn77 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn78 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn80 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn81 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn82 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn83 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn84 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gcNewProject = new DevExpress.XtraGrid.GridControl();
-            this.gvNewProject = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn68 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn69 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn72 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn74 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gridColumn75 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup28 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem114 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem194 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem195 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem117 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem191 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem192 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem193 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem196 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem194 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem197 = new DevExpress.XtraLayout.LayoutControlItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
-            this.tmrStatus = new System.Windows.Forms.Timer();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
+            this.tmrStatus = new System.Windows.Forms.Timer(this.components);
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsProjectStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
@@ -1630,17 +1696,22 @@
             this.tbCopyLVs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).BeginInit();
             this.layoutControl19.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.rgDropMode.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tlOldProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tlNewProject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditOldProject.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvNewProject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem192)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem193)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem196)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem197)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
@@ -3310,12 +3381,12 @@
             // 
             // txtPreisText
             // 
-            this.txtPreisText.Location = new System.Drawing.Point(13, 249);
+            this.txtPreisText.Location = new System.Drawing.Point(13, 245);
             this.txtPreisText.MenuManager = this.barManager1;
             this.txtPreisText.Name = "txtPreisText";
             this.txtPreisText.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreisText.Properties.Appearance.Options.UseFont = true;
-            this.txtPreisText.Size = new System.Drawing.Size(245, 39);
+            this.txtPreisText.Size = new System.Drawing.Size(245, 37);
             this.txtPreisText.StyleController = this.layoutControl6;
             this.txtPreisText.TabIndex = 0;
             // 
@@ -3579,7 +3650,7 @@
             // 
             // chkVerkaufspreisMO
             // 
-            this.chkVerkaufspreisMO.Location = new System.Drawing.Point(841, 307);
+            this.chkVerkaufspreisMO.Location = new System.Drawing.Point(841, 308);
             this.chkVerkaufspreisMO.MenuManager = this.barManager1;
             this.chkVerkaufspreisMO.Name = "chkVerkaufspreisMO";
             this.chkVerkaufspreisMO.Properties.Caption = "";
@@ -3787,7 +3858,7 @@
             // 
             // txtMo
             // 
-            this.txtMo.Location = new System.Drawing.Point(96, 185);
+            this.txtMo.Location = new System.Drawing.Point(96, 184);
             this.txtMo.Name = "txtMo";
             this.txtMo.Properties.AllowMouseWheel = false;
             this.txtMo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3804,7 +3875,7 @@
             // 
             // chkSelbstkostenMO
             // 
-            this.chkSelbstkostenMO.Location = new System.Drawing.Point(841, 267);
+            this.chkSelbstkostenMO.Location = new System.Drawing.Point(841, 274);
             this.chkSelbstkostenMO.MenuManager = this.barManager1;
             this.chkSelbstkostenMO.Name = "chkSelbstkostenMO";
             this.chkSelbstkostenMO.Properties.Caption = "";
@@ -3969,7 +4040,7 @@
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(13, 185);
+            this.txtMa.Location = new System.Drawing.Point(13, 184);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.AllowMouseWheel = false;
             this.txtMa.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4008,7 +4079,7 @@
             // txtStdSatz
             // 
             this.txtStdSatz.Enabled = false;
-            this.txtStdSatz.Location = new System.Drawing.Point(179, 185);
+            this.txtStdSatz.Location = new System.Drawing.Point(179, 184);
             this.txtStdSatz.Name = "txtStdSatz";
             this.txtStdSatz.Properties.AllowMouseWheel = false;
             this.txtStdSatz.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4025,7 +4096,7 @@
             // 
             // chkEinkaufspreisMO
             // 
-            this.chkEinkaufspreisMO.Location = new System.Drawing.Point(841, 244);
+            this.chkEinkaufspreisMO.Location = new System.Drawing.Point(841, 251);
             this.chkEinkaufspreisMO.MenuManager = this.barManager1;
             this.chkEinkaufspreisMO.Name = "chkEinkaufspreisMO";
             this.chkEinkaufspreisMO.Properties.Caption = "";
@@ -4036,7 +4107,7 @@
             // 
             // chkEinkaufspreisME
             // 
-            this.chkEinkaufspreisME.Location = new System.Drawing.Point(604, 244);
+            this.chkEinkaufspreisME.Location = new System.Drawing.Point(604, 241);
             this.chkEinkaufspreisME.MenuManager = this.barManager1;
             this.chkEinkaufspreisME.Name = "chkEinkaufspreisME";
             this.chkEinkaufspreisME.Properties.Caption = "";
@@ -4276,7 +4347,7 @@
             this.layoutControlItem36.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem36.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem36.Control = this.txtMo;
-            this.layoutControlItem36.Location = new System.Drawing.Point(84, 153);
+            this.layoutControlItem36.Location = new System.Drawing.Point(84, 152);
             this.layoutControlItem36.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem36.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem36.Name = "layoutControlItem36";
@@ -4390,7 +4461,7 @@
             this.layoutControlItem37.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem37.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem37.Control = this.txtStdSatz;
-            this.layoutControlItem37.Location = new System.Drawing.Point(167, 153);
+            this.layoutControlItem37.Location = new System.Drawing.Point(167, 152);
             this.layoutControlItem37.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem37.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem37.Name = "layoutControlItem37";
@@ -4413,15 +4484,15 @@
             this.emptySpaceItem20.AllowHotTrack = false;
             this.emptySpaceItem20.Location = new System.Drawing.Point(1, 142);
             this.emptySpaceItem20.Name = "emptySpaceItem20";
-            this.emptySpaceItem20.Size = new System.Drawing.Size(249, 11);
+            this.emptySpaceItem20.Size = new System.Drawing.Size(249, 10);
             this.emptySpaceItem20.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem22
             // 
             this.emptySpaceItem22.AllowHotTrack = false;
-            this.emptySpaceItem22.Location = new System.Drawing.Point(1, 197);
+            this.emptySpaceItem22.Location = new System.Drawing.Point(1, 196);
             this.emptySpaceItem22.Name = "emptySpaceItem22";
-            this.emptySpaceItem22.Size = new System.Drawing.Size(249, 20);
+            this.emptySpaceItem22.Size = new System.Drawing.Size(249, 17);
             this.emptySpaceItem22.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem40
@@ -4431,9 +4502,9 @@
             this.layoutControlItem40.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem40.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem40.Control = this.txtPreisText;
-            this.layoutControlItem40.Location = new System.Drawing.Point(1, 217);
+            this.layoutControlItem40.Location = new System.Drawing.Point(1, 213);
             this.layoutControlItem40.Name = "layoutControlItem40";
-            this.layoutControlItem40.Size = new System.Drawing.Size(249, 63);
+            this.layoutControlItem40.Size = new System.Drawing.Size(249, 61);
             this.layoutControlItem40.Text = "Preis Text";
             this.layoutControlItem40.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem40.TextSize = new System.Drawing.Size(79, 17);
@@ -4762,7 +4833,7 @@
             this.emptySpaceItem24.MaxSize = new System.Drawing.Size(80, 0);
             this.emptySpaceItem24.MinSize = new System.Drawing.Size(80, 24);
             this.emptySpaceItem24.Name = "emptySpaceItem24";
-            this.emptySpaceItem24.Size = new System.Drawing.Size(80, 326);
+            this.emptySpaceItem24.Size = new System.Drawing.Size(80, 313);
             this.emptySpaceItem24.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem24.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -4790,9 +4861,9 @@
             // emptySpaceItem19
             // 
             this.emptySpaceItem19.AllowHotTrack = false;
-            this.emptySpaceItem19.Location = new System.Drawing.Point(1, 280);
+            this.emptySpaceItem19.Location = new System.Drawing.Point(1, 274);
             this.emptySpaceItem19.Name = "emptySpaceItem19";
-            this.emptySpaceItem19.Size = new System.Drawing.Size(249, 29);
+            this.emptySpaceItem19.Size = new System.Drawing.Size(249, 35);
             this.emptySpaceItem19.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem25
@@ -4809,7 +4880,7 @@
             this.emptySpaceItem49.Location = new System.Drawing.Point(829, 0);
             this.emptySpaceItem49.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem49.Name = "emptySpaceItem49";
-            this.emptySpaceItem49.Size = new System.Drawing.Size(104, 232);
+            this.emptySpaceItem49.Size = new System.Drawing.Size(104, 239);
             this.emptySpaceItem49.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem49.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -4953,17 +5024,17 @@
             this.emptySpaceItem31.AllowHotTrack = false;
             this.emptySpaceItem31.Location = new System.Drawing.Point(592, 0);
             this.emptySpaceItem31.Name = "emptySpaceItem31";
-            this.emptySpaceItem31.Size = new System.Drawing.Size(23, 232);
+            this.emptySpaceItem31.Size = new System.Drawing.Size(23, 229);
             this.emptySpaceItem31.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem56
             // 
             this.emptySpaceItem56.AllowHotTrack = false;
-            this.emptySpaceItem56.Location = new System.Drawing.Point(331, 313);
+            this.emptySpaceItem56.Location = new System.Drawing.Point(251, 313);
             this.emptySpaceItem56.MaxSize = new System.Drawing.Size(294, 13);
             this.emptySpaceItem56.MinSize = new System.Drawing.Size(294, 13);
             this.emptySpaceItem56.Name = "emptySpaceItem56";
-            this.emptySpaceItem56.Size = new System.Drawing.Size(294, 13);
+            this.emptySpaceItem56.Size = new System.Drawing.Size(374, 13);
             this.emptySpaceItem56.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem56.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -5019,7 +5090,7 @@
             // layoutControlItem66
             // 
             this.layoutControlItem66.Control = this.chkEinkaufspreisMO;
-            this.layoutControlItem66.Location = new System.Drawing.Point(829, 232);
+            this.layoutControlItem66.Location = new System.Drawing.Point(829, 239);
             this.layoutControlItem66.Name = "layoutControlItem66";
             this.layoutControlItem66.Size = new System.Drawing.Size(104, 23);
             this.layoutControlItem66.TextSize = new System.Drawing.Size(0, 0);
@@ -5028,7 +5099,7 @@
             // layoutControlItem72
             // 
             this.layoutControlItem72.Control = this.chkSelbstkostenMO;
-            this.layoutControlItem72.Location = new System.Drawing.Point(829, 255);
+            this.layoutControlItem72.Location = new System.Drawing.Point(829, 262);
             this.layoutControlItem72.Name = "layoutControlItem72";
             this.layoutControlItem72.Size = new System.Drawing.Size(104, 23);
             this.layoutControlItem72.TextSize = new System.Drawing.Size(0, 0);
@@ -5062,7 +5133,7 @@
             this.emptySpaceItem33.AllowHotTrack = false;
             this.emptySpaceItem33.Location = new System.Drawing.Point(933, 0);
             this.emptySpaceItem33.Name = "emptySpaceItem33";
-            this.emptySpaceItem33.Size = new System.Drawing.Size(10, 318);
+            this.emptySpaceItem33.Size = new System.Drawing.Size(10, 319);
             this.emptySpaceItem33.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem34
@@ -5101,7 +5172,7 @@
             // layoutControlItem64
             // 
             this.layoutControlItem64.Control = this.chkEinkaufspreisME;
-            this.layoutControlItem64.Location = new System.Drawing.Point(592, 232);
+            this.layoutControlItem64.Location = new System.Drawing.Point(592, 229);
             this.layoutControlItem64.Name = "layoutControlItem64";
             this.layoutControlItem64.Size = new System.Drawing.Size(23, 23);
             this.layoutControlItem64.TextSize = new System.Drawing.Size(0, 0);
@@ -5128,7 +5199,7 @@
             // layoutControlItem78
             // 
             this.layoutControlItem78.Control = this.chkVerkaufspreisMO;
-            this.layoutControlItem78.Location = new System.Drawing.Point(829, 295);
+            this.layoutControlItem78.Location = new System.Drawing.Point(829, 296);
             this.layoutControlItem78.Name = "layoutControlItem78";
             this.layoutControlItem78.Size = new System.Drawing.Size(104, 23);
             this.layoutControlItem78.TextSize = new System.Drawing.Size(0, 0);
@@ -5241,25 +5312,25 @@
             // emptySpaceItem50
             // 
             this.emptySpaceItem50.AllowHotTrack = false;
-            this.emptySpaceItem50.Location = new System.Drawing.Point(829, 318);
+            this.emptySpaceItem50.Location = new System.Drawing.Point(829, 319);
             this.emptySpaceItem50.Name = "emptySpaceItem50";
-            this.emptySpaceItem50.Size = new System.Drawing.Size(114, 36);
+            this.emptySpaceItem50.Size = new System.Drawing.Size(114, 35);
             this.emptySpaceItem50.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem43
             // 
             this.emptySpaceItem43.AllowHotTrack = false;
-            this.emptySpaceItem43.Location = new System.Drawing.Point(829, 278);
+            this.emptySpaceItem43.Location = new System.Drawing.Point(829, 285);
             this.emptySpaceItem43.Name = "emptySpaceItem43";
-            this.emptySpaceItem43.Size = new System.Drawing.Size(104, 17);
+            this.emptySpaceItem43.Size = new System.Drawing.Size(104, 11);
             this.emptySpaceItem43.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem23
             // 
             this.emptySpaceItem23.AllowHotTrack = false;
-            this.emptySpaceItem23.Location = new System.Drawing.Point(592, 255);
+            this.emptySpaceItem23.Location = new System.Drawing.Point(592, 252);
             this.emptySpaceItem23.Name = "emptySpaceItem23";
-            this.emptySpaceItem23.Size = new System.Drawing.Size(23, 10);
+            this.emptySpaceItem23.Size = new System.Drawing.Size(23, 13);
             this.emptySpaceItem23.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem19
@@ -5285,7 +5356,7 @@
             this.layoutControlItem35.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem35.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem35.Control = this.txtMa;
-            this.layoutControlItem35.Location = new System.Drawing.Point(1, 153);
+            this.layoutControlItem35.Location = new System.Drawing.Point(1, 152);
             this.layoutControlItem35.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem35.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem35.Name = "layoutControlItem35";
@@ -5992,9 +6063,9 @@
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnCancel.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnCancel.Location = new System.Drawing.Point(765, 12);
+            this.btnCancel.Location = new System.Drawing.Point(774, 12);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(105, 22);
+            this.btnCancel.Size = new System.Drawing.Size(98, 22);
             this.btnCancel.StyleController = this.layoutControl4;
             this.btnCancel.TabIndex = 33;
             this.btnCancel.Text = "&Abbrechen";
@@ -6009,7 +6080,7 @@
             this.btnSaveLVDetails.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnSaveLVDetails.Location = new System.Drawing.Point(625, 12);
             this.btnSaveLVDetails.Name = "btnSaveLVDetails";
-            this.btnSaveLVDetails.Size = new System.Drawing.Size(98, 22);
+            this.btnSaveLVDetails.Size = new System.Drawing.Size(93, 22);
             this.btnSaveLVDetails.StyleController = this.layoutControl4;
             this.btnSaveLVDetails.TabIndex = 46;
             this.btnSaveLVDetails.Text = "&Speichern";
@@ -6036,9 +6107,9 @@
             this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
             this.btnNew.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnNew.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnNew.Location = new System.Drawing.Point(418, 12);
+            this.btnNew.Location = new System.Drawing.Point(441, 12);
             this.btnNew.Name = "btnNew";
-            this.btnNew.Size = new System.Drawing.Size(88, 22);
+            this.btnNew.Size = new System.Drawing.Size(59, 22);
             this.btnNew.StyleController = this.layoutControl4;
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "&Neu";
@@ -6073,7 +6144,7 @@
             this.emptySpaceItem37.Location = new System.Drawing.Point(60, 0);
             this.emptySpaceItem37.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem37.Name = "emptySpaceItem37";
-            this.emptySpaceItem37.Size = new System.Drawing.Size(346, 26);
+            this.emptySpaceItem37.Size = new System.Drawing.Size(369, 26);
             this.emptySpaceItem37.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem37.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -6081,17 +6152,23 @@
             // 
             this.layoutControlItem83.Control = this.chkCreateNew;
             this.layoutControlItem83.Location = new System.Drawing.Point(880, 0);
+            this.layoutControlItem83.MaxSize = new System.Drawing.Size(153, 26);
+            this.layoutControlItem83.MinSize = new System.Drawing.Size(153, 26);
             this.layoutControlItem83.Name = "layoutControlItem83";
             this.layoutControlItem83.Size = new System.Drawing.Size(153, 26);
+            this.layoutControlItem83.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem83.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem83.TextVisible = false;
             // 
             // layoutControlItem87
             // 
             this.layoutControlItem87.Control = this.btnCancel;
-            this.layoutControlItem87.Location = new System.Drawing.Point(753, 0);
+            this.layoutControlItem87.Location = new System.Drawing.Point(762, 0);
+            this.layoutControlItem87.MaxSize = new System.Drawing.Size(102, 26);
+            this.layoutControlItem87.MinSize = new System.Drawing.Size(102, 26);
             this.layoutControlItem87.Name = "layoutControlItem87";
-            this.layoutControlItem87.Size = new System.Drawing.Size(109, 26);
+            this.layoutControlItem87.Size = new System.Drawing.Size(102, 26);
+            this.layoutControlItem87.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem87.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem87.TextVisible = false;
             // 
@@ -6108,10 +6185,11 @@
             // layoutControlItem84
             // 
             this.layoutControlItem84.Control = this.btnNew;
-            this.layoutControlItem84.Location = new System.Drawing.Point(406, 0);
-            this.layoutControlItem84.MinSize = new System.Drawing.Size(45, 26);
+            this.layoutControlItem84.Location = new System.Drawing.Point(429, 0);
+            this.layoutControlItem84.MaxSize = new System.Drawing.Size(63, 26);
+            this.layoutControlItem84.MinSize = new System.Drawing.Size(63, 26);
             this.layoutControlItem84.Name = "layoutControlItem84";
-            this.layoutControlItem84.Size = new System.Drawing.Size(92, 26);
+            this.layoutControlItem84.Size = new System.Drawing.Size(63, 26);
             this.layoutControlItem84.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem84.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem84.TextVisible = false;
@@ -6119,9 +6197,9 @@
             // emptySpaceItem39
             // 
             this.emptySpaceItem39.AllowHotTrack = false;
-            this.emptySpaceItem39.Location = new System.Drawing.Point(498, 0);
+            this.emptySpaceItem39.Location = new System.Drawing.Point(492, 0);
             this.emptySpaceItem39.Name = "emptySpaceItem39";
-            this.emptySpaceItem39.Size = new System.Drawing.Size(19, 26);
+            this.emptySpaceItem39.Size = new System.Drawing.Size(25, 26);
             this.emptySpaceItem39.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem40
@@ -6135,26 +6213,29 @@
             // emptySpaceItem41
             // 
             this.emptySpaceItem41.AllowHotTrack = false;
-            this.emptySpaceItem41.Location = new System.Drawing.Point(862, 0);
+            this.emptySpaceItem41.Location = new System.Drawing.Point(864, 0);
             this.emptySpaceItem41.Name = "emptySpaceItem41";
-            this.emptySpaceItem41.Size = new System.Drawing.Size(18, 26);
+            this.emptySpaceItem41.Size = new System.Drawing.Size(16, 26);
             this.emptySpaceItem41.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem86
             // 
             this.layoutControlItem86.Control = this.btnSaveLVDetails;
             this.layoutControlItem86.Location = new System.Drawing.Point(613, 0);
+            this.layoutControlItem86.MaxSize = new System.Drawing.Size(97, 26);
+            this.layoutControlItem86.MinSize = new System.Drawing.Size(97, 26);
             this.layoutControlItem86.Name = "layoutControlItem86";
-            this.layoutControlItem86.Size = new System.Drawing.Size(102, 26);
+            this.layoutControlItem86.Size = new System.Drawing.Size(97, 26);
+            this.layoutControlItem86.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem86.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem86.TextVisible = false;
             // 
             // emptySpaceItem42
             // 
             this.emptySpaceItem42.AllowHotTrack = false;
-            this.emptySpaceItem42.Location = new System.Drawing.Point(715, 0);
+            this.emptySpaceItem42.Location = new System.Drawing.Point(710, 0);
             this.emptySpaceItem42.Name = "emptySpaceItem42";
-            this.emptySpaceItem42.Size = new System.Drawing.Size(38, 26);
+            this.emptySpaceItem42.Size = new System.Drawing.Size(52, 26);
             this.emptySpaceItem42.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem88
@@ -12841,9 +12922,12 @@
             // layoutControl19
             // 
             this.layoutControl19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl19.Controls.Add(this.rgDropMode);
+            this.layoutControl19.Controls.Add(this.tlOldProject);
+            this.layoutControl19.Controls.Add(this.tlNewProject);
+            this.layoutControl19.Controls.Add(this.label25);
+            this.layoutControl19.Controls.Add(this.lblNewProject);
             this.layoutControl19.Controls.Add(this.lookUpEditOldProject);
-            this.layoutControl19.Controls.Add(this.gcOldProject);
-            this.layoutControl19.Controls.Add(this.gcNewProject);
             this.layoutControl19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl19.Location = new System.Drawing.Point(0, 0);
             this.layoutControl19.Name = "layoutControl19";
@@ -12853,278 +12937,983 @@
             this.layoutControl19.TabIndex = 0;
             this.layoutControl19.Text = "layoutControl19";
             // 
+            // rgDropMode
+            // 
+            this.rgDropMode.Location = new System.Drawing.Point(291, 12);
+            this.rgDropMode.MenuManager = this.barManager1;
+            this.rgDropMode.Name = "rgDropMode";
+            this.rgDropMode.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Top LV in the Hierarchy"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bottom LV in the Hierarchy"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Selected Location")});
+            this.rgDropMode.Size = new System.Drawing.Size(461, 25);
+            this.rgDropMode.StyleController = this.layoutControl19;
+            this.rgDropMode.TabIndex = 35;
+            // 
+            // tlOldProject
+            // 
+            this.tlOldProject.AllowDrop = true;
+            this.tlOldProject.Appearance.BandPanel.BackColor = System.Drawing.Color.Gray;
+            this.tlOldProject.Appearance.BandPanel.Options.UseBackColor = true;
+            this.tlOldProject.Appearance.Caption.BackColor = System.Drawing.Color.White;
+            this.tlOldProject.Appearance.Caption.Options.UseBackColor = true;
+            this.tlOldProject.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.tlOldProject.Appearance.Empty.Options.UseBackColor = true;
+            this.tlOldProject.Appearance.FocusedCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.tlOldProject.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.tlOldProject.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.tlOldProject.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.tlOldProject.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tlOldProject.Appearance.HeaderPanel.Options.UseFont = true;
+            this.tlOldProject.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.tlOldProject.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.tlOldProject.Appearance.HeaderPanelBackground.BackColor = System.Drawing.Color.White;
+            this.tlOldProject.Appearance.HeaderPanelBackground.Options.UseBackColor = true;
+            this.tlOldProject.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.tlOldProject.Appearance.Row.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlOldProject.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.tlOldProject.Appearance.Row.Options.UseBackColor = true;
+            this.tlOldProject.Appearance.Row.Options.UseFont = true;
+            this.tlOldProject.Appearance.Row.Options.UseForeColor = true;
+            this.tlOldProject.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlOldProject.Appearance.SelectedRow.Options.UseFont = true;
+            this.tlOldProject.Appearance.TreeLine.BackColor = System.Drawing.Color.Gray;
+            this.tlOldProject.Appearance.TreeLine.Options.UseBackColor = true;
+            this.tlOldProject.Appearance.VertLine.BackColor = System.Drawing.Color.White;
+            this.tlOldProject.Appearance.VertLine.Options.UseBackColor = true;
+            this.tlOldProject.AppearancePrint.Caption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlOldProject.AppearancePrint.Caption.Options.UseFont = true;
+            this.tlOldProject.AppearancePrint.HeaderPanel.BackColor = System.Drawing.Color.White;
+            this.tlOldProject.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlOldProject.AppearancePrint.HeaderPanel.Options.UseBackColor = true;
+            this.tlOldProject.AppearancePrint.HeaderPanel.Options.UseFont = true;
+            this.tlOldProject.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn103,
+            this.treeListColumn104,
+            this.treeListColumn105,
+            this.treeListColumn106,
+            this.treeListColumn107,
+            this.treeListColumn108,
+            this.treeListColumn109,
+            this.treeListColumn110,
+            this.treeListColumn111,
+            this.treeListColumn112,
+            this.treeListColumn113,
+            this.treeListColumn114,
+            this.treeListColumn115,
+            this.treeListColumn116,
+            this.treeListColumn117,
+            this.treeListColumn118,
+            this.treeListColumn119,
+            this.treeListColumn120,
+            this.treeListColumn121,
+            this.treeListColumn122,
+            this.treeListColumn123,
+            this.treeListColumn124,
+            this.treeListColumn125,
+            this.treeListColumn126,
+            this.treeListColumn127,
+            this.treeListColumn128,
+            this.treeListColumn129,
+            this.treeListColumn130,
+            this.treeListColumn131,
+            this.treeListColumn132,
+            this.treeListColumn133,
+            this.treeListColumn134,
+            this.treeListColumn135,
+            this.treeListColumn136,
+            this.treeListColumn137,
+            this.treeListColumn138,
+            this.treeListColumn139,
+            this.treeListColumn140});
+            this.tlOldProject.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlOldProject.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlOldProject.Location = new System.Drawing.Point(756, 41);
+            this.tlOldProject.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tlOldProject.Name = "tlOldProject";
+            this.tlOldProject.OptionsBehavior.Editable = false;
+            this.tlOldProject.OptionsBehavior.ReadOnly = true;
+            this.tlOldProject.OptionsCustomization.AllowColumnMoving = false;
+            this.tlOldProject.OptionsDragAndDrop.DragNodesMode = DevExpress.XtraTreeList.DragNodesMode.Single;
+            this.tlOldProject.OptionsFilter.AllowFilterEditor = false;
+            this.tlOldProject.OptionsMenu.EnableColumnMenu = false;
+            this.tlOldProject.OptionsMenu.EnableFooterMenu = false;
+            this.tlOldProject.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.tlOldProject.OptionsView.AllowBandColumnsMultiRow = true;
+            this.tlOldProject.OptionsView.AnimationType = DevExpress.XtraTreeList.TreeListAnimationType.AnimateAllContent;
+            this.tlOldProject.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tlOldProject.OptionsView.ShowIndentAsRowStyle = true;
+            this.tlOldProject.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit3,
+            this.repositoryItemTextEdit2});
+            this.tlOldProject.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
+            this.tlOldProject.Size = new System.Drawing.Size(754, 696);
+            this.tlOldProject.TabIndex = 34;
+            // 
+            // treeListColumn103
+            // 
+            this.treeListColumn103.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn103.AppearanceCell.Options.UseFont = true;
+            this.treeListColumn103.AppearanceHeader.BackColor = System.Drawing.Color.White;
+            this.treeListColumn103.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn103.AppearanceHeader.Options.UseBackColor = true;
+            this.treeListColumn103.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn103.AppearanceHeader.Options.UseTextOptions = true;
+            this.treeListColumn103.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.treeListColumn103.Caption = "OZ";
+            this.treeListColumn103.FieldName = "Position_OZ";
+            this.treeListColumn103.Name = "treeListColumn103";
+            this.treeListColumn103.OptionsColumn.AllowFocus = false;
+            this.treeListColumn103.OptionsColumn.AllowSort = false;
+            this.treeListColumn103.OptionsColumn.ReadOnly = true;
+            this.treeListColumn103.Visible = true;
+            this.treeListColumn103.VisibleIndex = 0;
+            this.treeListColumn103.Width = 148;
+            // 
+            // treeListColumn104
+            // 
+            this.treeListColumn104.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn104.AppearanceCell.Options.UseFont = true;
+            this.treeListColumn104.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn104.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn104.Caption = "Det-KZ";
+            this.treeListColumn104.FieldName = "DetailKZ";
+            this.treeListColumn104.Name = "treeListColumn104";
+            this.treeListColumn104.OptionsColumn.AllowSort = false;
+            this.treeListColumn104.OptionsColumn.FixedWidth = true;
+            this.treeListColumn104.OptionsColumn.ReadOnly = true;
+            this.treeListColumn104.Visible = true;
+            this.treeListColumn104.VisibleIndex = 1;
+            this.treeListColumn104.Width = 60;
+            // 
+            // treeListColumn105
+            // 
+            this.treeListColumn105.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn105.AppearanceCell.Options.UseFont = true;
+            this.treeListColumn105.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn105.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn105.Caption = "Pos-KZ";
+            this.treeListColumn105.FieldName = "PositionKZ";
+            this.treeListColumn105.Name = "treeListColumn105";
+            this.treeListColumn105.OptionsColumn.AllowSort = false;
+            this.treeListColumn105.OptionsColumn.FixedWidth = true;
+            this.treeListColumn105.OptionsColumn.ReadOnly = true;
+            this.treeListColumn105.Visible = true;
+            this.treeListColumn105.VisibleIndex = 2;
+            this.treeListColumn105.Width = 70;
+            // 
+            // treeListColumn106
+            // 
+            this.treeListColumn106.Caption = "WG";
+            this.treeListColumn106.FieldName = "WG";
+            this.treeListColumn106.Name = "treeListColumn106";
+            this.treeListColumn106.OptionsColumn.FixedWidth = true;
+            this.treeListColumn106.OptionsColumn.ReadOnly = true;
+            this.treeListColumn106.Visible = true;
+            this.treeListColumn106.VisibleIndex = 3;
+            this.treeListColumn106.Width = 50;
+            // 
+            // treeListColumn107
+            // 
+            this.treeListColumn107.Caption = "WA";
+            this.treeListColumn107.FieldName = "WA";
+            this.treeListColumn107.Name = "treeListColumn107";
+            this.treeListColumn107.OptionsColumn.FixedWidth = true;
+            this.treeListColumn107.OptionsColumn.ReadOnly = true;
+            this.treeListColumn107.Visible = true;
+            this.treeListColumn107.VisibleIndex = 4;
+            this.treeListColumn107.Width = 50;
+            // 
+            // treeListColumn108
+            // 
+            this.treeListColumn108.Caption = "WI";
+            this.treeListColumn108.FieldName = "WI";
+            this.treeListColumn108.Name = "treeListColumn108";
+            this.treeListColumn108.OptionsColumn.FixedWidth = true;
+            this.treeListColumn108.OptionsColumn.ReadOnly = true;
+            this.treeListColumn108.Visible = true;
+            this.treeListColumn108.VisibleIndex = 5;
+            this.treeListColumn108.Width = 50;
+            // 
+            // treeListColumn109
+            // 
+            this.treeListColumn109.Caption = "ME";
+            this.treeListColumn109.FieldName = "ME";
+            this.treeListColumn109.Name = "treeListColumn109";
+            this.treeListColumn109.OptionsColumn.AllowSort = false;
+            this.treeListColumn109.OptionsColumn.ReadOnly = true;
+            this.treeListColumn109.Width = 62;
+            // 
+            // treeListColumn110
+            // 
+            this.treeListColumn110.AllNodesSummary = true;
+            this.treeListColumn110.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn110.AppearanceCell.Options.UseFont = true;
+            this.treeListColumn110.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn110.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn110.Caption = "Menge";
+            this.treeListColumn110.FieldName = "Menge";
+            this.treeListColumn110.Name = "treeListColumn110";
+            this.treeListColumn110.OptionsColumn.AllowSort = false;
+            this.treeListColumn110.OptionsColumn.FixedWidth = true;
+            this.treeListColumn110.OptionsColumn.ReadOnly = true;
+            this.treeListColumn110.RowFooterSummary = DevExpress.XtraTreeList.SummaryItemType.Sum;
+            this.treeListColumn110.RowFooterSummaryStrFormat = "subtotal: {0:c0}";
+            this.treeListColumn110.SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Sum;
+            this.treeListColumn110.SummaryFooterStrFormat = "Total: {0:c0}";
+            this.treeListColumn110.Visible = true;
+            this.treeListColumn110.VisibleIndex = 6;
+            this.treeListColumn110.Width = 70;
+            // 
+            // treeListColumn111
+            // 
+            this.treeListColumn111.Caption = "PreisText";
+            this.treeListColumn111.FieldName = "PreisText";
+            this.treeListColumn111.Name = "treeListColumn111";
+            // 
+            // treeListColumn112
+            // 
+            this.treeListColumn112.Caption = "Fabricate";
+            this.treeListColumn112.FieldName = "Fabricate";
+            this.treeListColumn112.Name = "treeListColumn112";
+            // 
+            // treeListColumn113
+            // 
+            this.treeListColumn113.Caption = "Typ";
+            this.treeListColumn113.FieldName = "Type";
+            this.treeListColumn113.Name = "treeListColumn113";
+            // 
+            // treeListColumn114
+            // 
+            this.treeListColumn114.Caption = "LiefrantMA";
+            this.treeListColumn114.FieldName = "LiefrantMA";
+            this.treeListColumn114.Name = "treeListColumn114";
+            // 
+            // treeListColumn115
+            // 
+            this.treeListColumn115.Caption = "MA_Multi1";
+            this.treeListColumn115.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn115.FieldName = "MA_Multi1";
+            this.treeListColumn115.Name = "treeListColumn115";
+            this.treeListColumn115.OptionsColumn.AllowSort = false;
+            this.treeListColumn115.Width = 32;
+            // 
+            // repositoryItemTextEdit2
+            // 
+            this.repositoryItemTextEdit2.AutoHeight = false;
+            this.repositoryItemTextEdit2.Name = "repositoryItemTextEdit2";
+            // 
+            // treeListColumn116
+            // 
+            this.treeListColumn116.Caption = "MA_Multi2";
+            this.treeListColumn116.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn116.FieldName = "MA_multi2";
+            this.treeListColumn116.Name = "treeListColumn116";
+            this.treeListColumn116.OptionsColumn.AllowSort = false;
+            this.treeListColumn116.Width = 32;
+            // 
+            // treeListColumn117
+            // 
+            this.treeListColumn117.Caption = "MA_Multi3";
+            this.treeListColumn117.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn117.FieldName = "MA_multi3";
+            this.treeListColumn117.Name = "treeListColumn117";
+            this.treeListColumn117.OptionsColumn.AllowSort = false;
+            this.treeListColumn117.Width = 32;
+            // 
+            // treeListColumn118
+            // 
+            this.treeListColumn118.Caption = "MA_Multi4";
+            this.treeListColumn118.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn118.FieldName = "MA_multi4";
+            this.treeListColumn118.Name = "treeListColumn118";
+            this.treeListColumn118.OptionsColumn.AllowSort = false;
+            this.treeListColumn118.Width = 32;
+            // 
+            // treeListColumn119
+            // 
+            this.treeListColumn119.Caption = "MA_Einkaufspreis";
+            this.treeListColumn119.FieldName = "MA_einkaufspreis";
+            this.treeListColumn119.Name = "treeListColumn119";
+            this.treeListColumn119.OptionsColumn.AllowSort = false;
+            this.treeListColumn119.OptionsColumn.ReadOnly = true;
+            this.treeListColumn119.Width = 32;
+            // 
+            // treeListColumn120
+            // 
+            this.treeListColumn120.Caption = "MA_Selbstkosten";
+            this.treeListColumn120.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn120.FieldName = "MA_selbstkostenMulti";
+            this.treeListColumn120.Name = "treeListColumn120";
+            this.treeListColumn120.OptionsColumn.AllowSort = false;
+            this.treeListColumn120.Width = 32;
+            // 
+            // treeListColumn121
+            // 
+            this.treeListColumn121.Caption = "MA_Selb_Value";
+            this.treeListColumn121.FieldName = "MA_selbstkosten";
+            this.treeListColumn121.Name = "treeListColumn121";
+            this.treeListColumn121.OptionsColumn.ReadOnly = true;
+            // 
+            // treeListColumn122
+            // 
+            this.treeListColumn122.Caption = "MA_Verkaufspreis";
+            this.treeListColumn122.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn122.FieldName = "MA_verkaufspreis_Multi";
+            this.treeListColumn122.Name = "treeListColumn122";
+            this.treeListColumn122.OptionsColumn.AllowSort = false;
+            this.treeListColumn122.Width = 32;
+            // 
+            // treeListColumn123
+            // 
+            this.treeListColumn123.Caption = "MA_Verk_Value";
+            this.treeListColumn123.FieldName = "MA_verkaufspreis";
+            this.treeListColumn123.Name = "treeListColumn123";
+            this.treeListColumn123.OptionsColumn.ReadOnly = true;
+            // 
+            // treeListColumn124
+            // 
+            this.treeListColumn124.Caption = "MO_Multi1";
+            this.treeListColumn124.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn124.FieldName = "MO_multi1";
+            this.treeListColumn124.Name = "treeListColumn124";
+            this.treeListColumn124.OptionsColumn.AllowSort = false;
+            this.treeListColumn124.Width = 32;
+            // 
+            // treeListColumn125
+            // 
+            this.treeListColumn125.Caption = "MO_Multi2";
+            this.treeListColumn125.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn125.FieldName = "MO_multi2";
+            this.treeListColumn125.Name = "treeListColumn125";
+            this.treeListColumn125.OptionsColumn.AllowSort = false;
+            this.treeListColumn125.Width = 32;
+            // 
+            // treeListColumn126
+            // 
+            this.treeListColumn126.Caption = "MO_Multi3";
+            this.treeListColumn126.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn126.FieldName = "MO_multi3";
+            this.treeListColumn126.Name = "treeListColumn126";
+            this.treeListColumn126.OptionsColumn.AllowSort = false;
+            this.treeListColumn126.Width = 57;
+            // 
+            // treeListColumn127
+            // 
+            this.treeListColumn127.Caption = "MO_Multi4";
+            this.treeListColumn127.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn127.FieldName = "MO_multi4";
+            this.treeListColumn127.Name = "treeListColumn127";
+            this.treeListColumn127.OptionsColumn.AllowSort = false;
+            this.treeListColumn127.Width = 91;
+            // 
+            // treeListColumn128
+            // 
+            this.treeListColumn128.Caption = "MO_Einkaufspreis";
+            this.treeListColumn128.FieldName = "MO_Einkaufspreis";
+            this.treeListColumn128.Name = "treeListColumn128";
+            this.treeListColumn128.OptionsColumn.AllowSort = false;
+            this.treeListColumn128.OptionsColumn.ReadOnly = true;
+            this.treeListColumn128.Width = 48;
+            // 
+            // treeListColumn129
+            // 
+            this.treeListColumn129.Caption = "MO_Selbstkosten";
+            this.treeListColumn129.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn129.FieldName = "MO_selbstkostenMulti";
+            this.treeListColumn129.Name = "treeListColumn129";
+            this.treeListColumn129.OptionsColumn.AllowSort = false;
+            this.treeListColumn129.Width = 98;
+            // 
+            // treeListColumn130
+            // 
+            this.treeListColumn130.Caption = "MO_Selb_Value";
+            this.treeListColumn130.FieldName = "MO_selbstkosten";
+            this.treeListColumn130.Name = "treeListColumn130";
+            this.treeListColumn130.OptionsColumn.ReadOnly = true;
+            // 
+            // treeListColumn131
+            // 
+            this.treeListColumn131.Caption = "MO_Verkaufspreis";
+            this.treeListColumn131.ColumnEdit = this.repositoryItemTextEdit2;
+            this.treeListColumn131.FieldName = "MO_verkaufspreisMulti";
+            this.treeListColumn131.Name = "treeListColumn131";
+            this.treeListColumn131.OptionsColumn.AllowSort = false;
+            this.treeListColumn131.Width = 63;
+            // 
+            // treeListColumn132
+            // 
+            this.treeListColumn132.Caption = "MO_Verk_Value";
+            this.treeListColumn132.FieldName = "MO_verkaufspreis";
+            this.treeListColumn132.Name = "treeListColumn132";
+            this.treeListColumn132.OptionsColumn.ReadOnly = true;
+            // 
+            // treeListColumn133
+            // 
+            this.treeListColumn133.Caption = "GrandTotalME";
+            this.treeListColumn133.FieldName = "GrandTotalME";
+            this.treeListColumn133.Name = "treeListColumn133";
+            // 
+            // treeListColumn134
+            // 
+            this.treeListColumn134.Caption = "GrandTotalMO";
+            this.treeListColumn134.FieldName = "GrandTotalMO";
+            this.treeListColumn134.Name = "treeListColumn134";
+            // 
+            // treeListColumn135
+            // 
+            this.treeListColumn135.Caption = "FinalGB";
+            this.treeListColumn135.FieldName = "FinalGB";
+            this.treeListColumn135.Name = "treeListColumn135";
+            // 
+            // treeListColumn136
+            // 
+            this.treeListColumn136.Caption = "EP";
+            this.treeListColumn136.FieldName = "EP";
+            this.treeListColumn136.Name = "treeListColumn136";
+            this.treeListColumn136.OptionsColumn.AllowSort = false;
+            this.treeListColumn136.OptionsColumn.ReadOnly = true;
+            this.treeListColumn136.Visible = true;
+            this.treeListColumn136.VisibleIndex = 7;
+            this.treeListColumn136.Width = 105;
+            // 
+            // treeListColumn137
+            // 
+            this.treeListColumn137.Caption = "GB";
+            this.treeListColumn137.FieldName = "GB";
+            this.treeListColumn137.Name = "treeListColumn137";
+            this.treeListColumn137.OptionsColumn.AllowSort = false;
+            this.treeListColumn137.OptionsColumn.ReadOnly = true;
+            this.treeListColumn137.Visible = true;
+            this.treeListColumn137.VisibleIndex = 8;
+            this.treeListColumn137.Width = 105;
+            // 
+            // treeListColumn138
+            // 
+            this.treeListColumn138.AppearanceHeader.Options.UseTextOptions = true;
+            this.treeListColumn138.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.treeListColumn138.Caption = "Edit";
+            this.treeListColumn138.ColumnEdit = this.repositoryItemButtonEdit3;
+            this.treeListColumn138.FieldName = "Edit";
+            this.treeListColumn138.Name = "treeListColumn138";
+            // 
+            // repositoryItemButtonEdit3
+            // 
+            this.repositoryItemButtonEdit3.AutoHeight = false;
+            this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
+            this.repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // treeListColumn139
+            // 
+            this.treeListColumn139.Caption = "PositionID";
+            this.treeListColumn139.FieldName = "PositionID";
+            this.treeListColumn139.Name = "treeListColumn139";
+            // 
+            // treeListColumn140
+            // 
+            this.treeListColumn140.Caption = "Parent_OZ";
+            this.treeListColumn140.FieldName = "Parent_OZ";
+            this.treeListColumn140.Name = "treeListColumn140";
+            // 
+            // tlNewProject
+            // 
+            this.tlNewProject.Appearance.BandPanel.BackColor = System.Drawing.Color.Gray;
+            this.tlNewProject.Appearance.BandPanel.Options.UseBackColor = true;
+            this.tlNewProject.Appearance.Caption.BackColor = System.Drawing.Color.White;
+            this.tlNewProject.Appearance.Caption.Options.UseBackColor = true;
+            this.tlNewProject.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
+            this.tlNewProject.Appearance.Empty.Options.UseBackColor = true;
+            this.tlNewProject.Appearance.FocusedCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.tlNewProject.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.tlNewProject.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.tlNewProject.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.tlNewProject.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tlNewProject.Appearance.HeaderPanel.Options.UseFont = true;
+            this.tlNewProject.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.tlNewProject.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.tlNewProject.Appearance.HeaderPanelBackground.BackColor = System.Drawing.Color.White;
+            this.tlNewProject.Appearance.HeaderPanelBackground.Options.UseBackColor = true;
+            this.tlNewProject.Appearance.Row.BackColor = System.Drawing.Color.Silver;
+            this.tlNewProject.Appearance.Row.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlNewProject.Appearance.Row.ForeColor = System.Drawing.Color.Black;
+            this.tlNewProject.Appearance.Row.Options.UseBackColor = true;
+            this.tlNewProject.Appearance.Row.Options.UseFont = true;
+            this.tlNewProject.Appearance.Row.Options.UseForeColor = true;
+            this.tlNewProject.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlNewProject.Appearance.SelectedRow.Options.UseFont = true;
+            this.tlNewProject.Appearance.TreeLine.BackColor = System.Drawing.Color.Gray;
+            this.tlNewProject.Appearance.TreeLine.Options.UseBackColor = true;
+            this.tlNewProject.Appearance.VertLine.BackColor = System.Drawing.Color.White;
+            this.tlNewProject.Appearance.VertLine.Options.UseBackColor = true;
+            this.tlNewProject.AppearancePrint.Caption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlNewProject.AppearancePrint.Caption.Options.UseFont = true;
+            this.tlNewProject.AppearancePrint.HeaderPanel.BackColor = System.Drawing.Color.White;
+            this.tlNewProject.AppearancePrint.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlNewProject.AppearancePrint.HeaderPanel.Options.UseBackColor = true;
+            this.tlNewProject.AppearancePrint.HeaderPanel.Options.UseFont = true;
+            this.tlNewProject.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
+            this.treeListColumn66,
+            this.treeListColumn67,
+            this.treeListColumn68,
+            this.treeListColumn69,
+            this.treeListColumn70,
+            this.treeListColumn71,
+            this.treeListColumn72,
+            this.treeListColumn73,
+            this.treeListColumn74,
+            this.treeListColumn75,
+            this.treeListColumn76,
+            this.treeListColumn77,
+            this.treeListColumn78,
+            this.treeListColumn79,
+            this.treeListColumn80,
+            this.treeListColumn81,
+            this.treeListColumn82,
+            this.treeListColumn83,
+            this.treeListColumn84,
+            this.treeListColumn85,
+            this.treeListColumn86,
+            this.treeListColumn87,
+            this.treeListColumn88,
+            this.treeListColumn89,
+            this.treeListColumn90,
+            this.treeListColumn91,
+            this.treeListColumn92,
+            this.treeListColumn93,
+            this.treeListColumn94,
+            this.treeListColumn95,
+            this.treeListColumn96,
+            this.treeListColumn97,
+            this.treeListColumn98,
+            this.treeListColumn99,
+            this.treeListColumn100,
+            this.treeListColumn101,
+            this.treeListColumn65,
+            this.treeListColumn102});
+            this.tlNewProject.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tlNewProject.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlNewProject.Location = new System.Drawing.Point(12, 41);
+            this.tlNewProject.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.tlNewProject.Name = "tlNewProject";
+            this.tlNewProject.OptionsBehavior.Editable = false;
+            this.tlNewProject.OptionsBehavior.ReadOnly = true;
+            this.tlNewProject.OptionsCustomization.AllowColumnMoving = false;
+            this.tlNewProject.OptionsDragAndDrop.AcceptOuterNodes = true;
+            this.tlNewProject.OptionsDragAndDrop.DragNodesMode = DevExpress.XtraTreeList.DragNodesMode.Single;
+            this.tlNewProject.OptionsFilter.AllowFilterEditor = false;
+            this.tlNewProject.OptionsMenu.EnableColumnMenu = false;
+            this.tlNewProject.OptionsMenu.EnableFooterMenu = false;
+            this.tlNewProject.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.tlNewProject.OptionsView.AllowBandColumnsMultiRow = true;
+            this.tlNewProject.OptionsView.AnimationType = DevExpress.XtraTreeList.TreeListAnimationType.AnimateAllContent;
+            this.tlNewProject.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
+            this.tlNewProject.OptionsView.ShowIndentAsRowStyle = true;
+            this.tlNewProject.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1,
+            this.repositoryItemTextEdit1});
+            this.tlNewProject.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
+            this.tlNewProject.Size = new System.Drawing.Size(740, 696);
+            this.tlNewProject.TabIndex = 31;
+            this.tlNewProject.DragDrop += new System.Windows.Forms.DragEventHandler(this.tlNewProject_DragDrop);
+            this.tlNewProject.DragEnter += new System.Windows.Forms.DragEventHandler(this.tlNewProject_DragEnter);
+            // 
+            // treeListColumn66
+            // 
+            this.treeListColumn66.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn66.AppearanceCell.Options.UseFont = true;
+            this.treeListColumn66.AppearanceHeader.BackColor = System.Drawing.Color.White;
+            this.treeListColumn66.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn66.AppearanceHeader.Options.UseBackColor = true;
+            this.treeListColumn66.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn66.AppearanceHeader.Options.UseTextOptions = true;
+            this.treeListColumn66.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
+            this.treeListColumn66.Caption = "OZ";
+            this.treeListColumn66.FieldName = "Position_OZ";
+            this.treeListColumn66.Name = "treeListColumn66";
+            this.treeListColumn66.OptionsColumn.AllowFocus = false;
+            this.treeListColumn66.OptionsColumn.AllowSort = false;
+            this.treeListColumn66.OptionsColumn.ReadOnly = true;
+            this.treeListColumn66.Visible = true;
+            this.treeListColumn66.VisibleIndex = 0;
+            this.treeListColumn66.Width = 148;
+            // 
+            // treeListColumn67
+            // 
+            this.treeListColumn67.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn67.AppearanceCell.Options.UseFont = true;
+            this.treeListColumn67.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn67.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn67.Caption = "Det-KZ";
+            this.treeListColumn67.FieldName = "DetailKZ";
+            this.treeListColumn67.Name = "treeListColumn67";
+            this.treeListColumn67.OptionsColumn.AllowSort = false;
+            this.treeListColumn67.OptionsColumn.FixedWidth = true;
+            this.treeListColumn67.OptionsColumn.ReadOnly = true;
+            this.treeListColumn67.Visible = true;
+            this.treeListColumn67.VisibleIndex = 1;
+            this.treeListColumn67.Width = 60;
+            // 
+            // treeListColumn68
+            // 
+            this.treeListColumn68.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn68.AppearanceCell.Options.UseFont = true;
+            this.treeListColumn68.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn68.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn68.Caption = "Pos-KZ";
+            this.treeListColumn68.FieldName = "PositionKZ";
+            this.treeListColumn68.Name = "treeListColumn68";
+            this.treeListColumn68.OptionsColumn.AllowSort = false;
+            this.treeListColumn68.OptionsColumn.FixedWidth = true;
+            this.treeListColumn68.OptionsColumn.ReadOnly = true;
+            this.treeListColumn68.Visible = true;
+            this.treeListColumn68.VisibleIndex = 2;
+            this.treeListColumn68.Width = 70;
+            // 
+            // treeListColumn69
+            // 
+            this.treeListColumn69.Caption = "WG";
+            this.treeListColumn69.FieldName = "WG";
+            this.treeListColumn69.Name = "treeListColumn69";
+            this.treeListColumn69.OptionsColumn.FixedWidth = true;
+            this.treeListColumn69.OptionsColumn.ReadOnly = true;
+            this.treeListColumn69.Visible = true;
+            this.treeListColumn69.VisibleIndex = 3;
+            this.treeListColumn69.Width = 50;
+            // 
+            // treeListColumn70
+            // 
+            this.treeListColumn70.Caption = "WA";
+            this.treeListColumn70.FieldName = "WA";
+            this.treeListColumn70.Name = "treeListColumn70";
+            this.treeListColumn70.OptionsColumn.FixedWidth = true;
+            this.treeListColumn70.OptionsColumn.ReadOnly = true;
+            this.treeListColumn70.Visible = true;
+            this.treeListColumn70.VisibleIndex = 4;
+            this.treeListColumn70.Width = 50;
+            // 
+            // treeListColumn71
+            // 
+            this.treeListColumn71.Caption = "WI";
+            this.treeListColumn71.FieldName = "WI";
+            this.treeListColumn71.Name = "treeListColumn71";
+            this.treeListColumn71.OptionsColumn.FixedWidth = true;
+            this.treeListColumn71.OptionsColumn.ReadOnly = true;
+            this.treeListColumn71.Visible = true;
+            this.treeListColumn71.VisibleIndex = 5;
+            this.treeListColumn71.Width = 50;
+            // 
+            // treeListColumn72
+            // 
+            this.treeListColumn72.Caption = "ME";
+            this.treeListColumn72.FieldName = "ME";
+            this.treeListColumn72.Name = "treeListColumn72";
+            this.treeListColumn72.OptionsColumn.AllowSort = false;
+            this.treeListColumn72.OptionsColumn.ReadOnly = true;
+            this.treeListColumn72.Width = 62;
+            // 
+            // treeListColumn73
+            // 
+            this.treeListColumn73.AllNodesSummary = true;
+            this.treeListColumn73.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn73.AppearanceCell.Options.UseFont = true;
+            this.treeListColumn73.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn73.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn73.Caption = "Menge";
+            this.treeListColumn73.FieldName = "Menge";
+            this.treeListColumn73.Name = "treeListColumn73";
+            this.treeListColumn73.OptionsColumn.AllowSort = false;
+            this.treeListColumn73.OptionsColumn.FixedWidth = true;
+            this.treeListColumn73.OptionsColumn.ReadOnly = true;
+            this.treeListColumn73.RowFooterSummary = DevExpress.XtraTreeList.SummaryItemType.Sum;
+            this.treeListColumn73.RowFooterSummaryStrFormat = "subtotal: {0:c0}";
+            this.treeListColumn73.SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Sum;
+            this.treeListColumn73.SummaryFooterStrFormat = "Total: {0:c0}";
+            this.treeListColumn73.Visible = true;
+            this.treeListColumn73.VisibleIndex = 6;
+            this.treeListColumn73.Width = 70;
+            // 
+            // treeListColumn74
+            // 
+            this.treeListColumn74.Caption = "PreisText";
+            this.treeListColumn74.FieldName = "PreisText";
+            this.treeListColumn74.Name = "treeListColumn74";
+            // 
+            // treeListColumn75
+            // 
+            this.treeListColumn75.Caption = "Fabricate";
+            this.treeListColumn75.FieldName = "Fabricate";
+            this.treeListColumn75.Name = "treeListColumn75";
+            // 
+            // treeListColumn76
+            // 
+            this.treeListColumn76.Caption = "Typ";
+            this.treeListColumn76.FieldName = "Type";
+            this.treeListColumn76.Name = "treeListColumn76";
+            // 
+            // treeListColumn77
+            // 
+            this.treeListColumn77.Caption = "LiefrantMA";
+            this.treeListColumn77.FieldName = "LiefrantMA";
+            this.treeListColumn77.Name = "treeListColumn77";
+            // 
+            // treeListColumn78
+            // 
+            this.treeListColumn78.Caption = "MA_Multi1";
+            this.treeListColumn78.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn78.FieldName = "MA_Multi1";
+            this.treeListColumn78.Name = "treeListColumn78";
+            this.treeListColumn78.OptionsColumn.AllowSort = false;
+            this.treeListColumn78.Width = 32;
+            // 
+            // repositoryItemTextEdit1
+            // 
+            this.repositoryItemTextEdit1.AutoHeight = false;
+            this.repositoryItemTextEdit1.Name = "repositoryItemTextEdit1";
+            // 
+            // treeListColumn79
+            // 
+            this.treeListColumn79.Caption = "MA_Multi2";
+            this.treeListColumn79.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn79.FieldName = "MA_multi2";
+            this.treeListColumn79.Name = "treeListColumn79";
+            this.treeListColumn79.OptionsColumn.AllowSort = false;
+            this.treeListColumn79.Width = 32;
+            // 
+            // treeListColumn80
+            // 
+            this.treeListColumn80.Caption = "MA_Multi3";
+            this.treeListColumn80.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn80.FieldName = "MA_multi3";
+            this.treeListColumn80.Name = "treeListColumn80";
+            this.treeListColumn80.OptionsColumn.AllowSort = false;
+            this.treeListColumn80.Width = 32;
+            // 
+            // treeListColumn81
+            // 
+            this.treeListColumn81.Caption = "MA_Multi4";
+            this.treeListColumn81.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn81.FieldName = "MA_multi4";
+            this.treeListColumn81.Name = "treeListColumn81";
+            this.treeListColumn81.OptionsColumn.AllowSort = false;
+            this.treeListColumn81.Width = 32;
+            // 
+            // treeListColumn82
+            // 
+            this.treeListColumn82.Caption = "MA_Einkaufspreis";
+            this.treeListColumn82.FieldName = "MA_einkaufspreis";
+            this.treeListColumn82.Name = "treeListColumn82";
+            this.treeListColumn82.OptionsColumn.AllowSort = false;
+            this.treeListColumn82.OptionsColumn.ReadOnly = true;
+            this.treeListColumn82.Width = 32;
+            // 
+            // treeListColumn83
+            // 
+            this.treeListColumn83.Caption = "MA_Selbstkosten";
+            this.treeListColumn83.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn83.FieldName = "MA_selbstkostenMulti";
+            this.treeListColumn83.Name = "treeListColumn83";
+            this.treeListColumn83.OptionsColumn.AllowSort = false;
+            this.treeListColumn83.Width = 32;
+            // 
+            // treeListColumn84
+            // 
+            this.treeListColumn84.Caption = "MA_Selb_Value";
+            this.treeListColumn84.FieldName = "MA_selbstkosten";
+            this.treeListColumn84.Name = "treeListColumn84";
+            this.treeListColumn84.OptionsColumn.ReadOnly = true;
+            // 
+            // treeListColumn85
+            // 
+            this.treeListColumn85.Caption = "MA_Verkaufspreis";
+            this.treeListColumn85.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn85.FieldName = "MA_verkaufspreis_Multi";
+            this.treeListColumn85.Name = "treeListColumn85";
+            this.treeListColumn85.OptionsColumn.AllowSort = false;
+            this.treeListColumn85.Width = 32;
+            // 
+            // treeListColumn86
+            // 
+            this.treeListColumn86.Caption = "MA_Verk_Value";
+            this.treeListColumn86.FieldName = "MA_verkaufspreis";
+            this.treeListColumn86.Name = "treeListColumn86";
+            this.treeListColumn86.OptionsColumn.ReadOnly = true;
+            // 
+            // treeListColumn87
+            // 
+            this.treeListColumn87.Caption = "MO_Multi1";
+            this.treeListColumn87.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn87.FieldName = "MO_multi1";
+            this.treeListColumn87.Name = "treeListColumn87";
+            this.treeListColumn87.OptionsColumn.AllowSort = false;
+            this.treeListColumn87.Width = 32;
+            // 
+            // treeListColumn88
+            // 
+            this.treeListColumn88.Caption = "MO_Multi2";
+            this.treeListColumn88.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn88.FieldName = "MO_multi2";
+            this.treeListColumn88.Name = "treeListColumn88";
+            this.treeListColumn88.OptionsColumn.AllowSort = false;
+            this.treeListColumn88.Width = 32;
+            // 
+            // treeListColumn89
+            // 
+            this.treeListColumn89.Caption = "MO_Multi3";
+            this.treeListColumn89.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn89.FieldName = "MO_multi3";
+            this.treeListColumn89.Name = "treeListColumn89";
+            this.treeListColumn89.OptionsColumn.AllowSort = false;
+            this.treeListColumn89.Width = 57;
+            // 
+            // treeListColumn90
+            // 
+            this.treeListColumn90.Caption = "MO_Multi4";
+            this.treeListColumn90.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn90.FieldName = "MO_multi4";
+            this.treeListColumn90.Name = "treeListColumn90";
+            this.treeListColumn90.OptionsColumn.AllowSort = false;
+            this.treeListColumn90.Width = 91;
+            // 
+            // treeListColumn91
+            // 
+            this.treeListColumn91.Caption = "MO_Einkaufspreis";
+            this.treeListColumn91.FieldName = "MO_Einkaufspreis";
+            this.treeListColumn91.Name = "treeListColumn91";
+            this.treeListColumn91.OptionsColumn.AllowSort = false;
+            this.treeListColumn91.OptionsColumn.ReadOnly = true;
+            this.treeListColumn91.Width = 48;
+            // 
+            // treeListColumn92
+            // 
+            this.treeListColumn92.Caption = "MO_Selbstkosten";
+            this.treeListColumn92.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn92.FieldName = "MO_selbstkostenMulti";
+            this.treeListColumn92.Name = "treeListColumn92";
+            this.treeListColumn92.OptionsColumn.AllowSort = false;
+            this.treeListColumn92.Width = 98;
+            // 
+            // treeListColumn93
+            // 
+            this.treeListColumn93.Caption = "MO_Selb_Value";
+            this.treeListColumn93.FieldName = "MO_selbstkosten";
+            this.treeListColumn93.Name = "treeListColumn93";
+            this.treeListColumn93.OptionsColumn.ReadOnly = true;
+            // 
+            // treeListColumn94
+            // 
+            this.treeListColumn94.Caption = "MO_Verkaufspreis";
+            this.treeListColumn94.ColumnEdit = this.repositoryItemTextEdit1;
+            this.treeListColumn94.FieldName = "MO_verkaufspreisMulti";
+            this.treeListColumn94.Name = "treeListColumn94";
+            this.treeListColumn94.OptionsColumn.AllowSort = false;
+            this.treeListColumn94.Width = 63;
+            // 
+            // treeListColumn95
+            // 
+            this.treeListColumn95.Caption = "MO_Verk_Value";
+            this.treeListColumn95.FieldName = "MO_verkaufspreis";
+            this.treeListColumn95.Name = "treeListColumn95";
+            this.treeListColumn95.OptionsColumn.ReadOnly = true;
+            // 
+            // treeListColumn96
+            // 
+            this.treeListColumn96.Caption = "GrandTotalME";
+            this.treeListColumn96.FieldName = "GrandTotalME";
+            this.treeListColumn96.Name = "treeListColumn96";
+            // 
+            // treeListColumn97
+            // 
+            this.treeListColumn97.Caption = "GrandTotalMO";
+            this.treeListColumn97.FieldName = "GrandTotalMO";
+            this.treeListColumn97.Name = "treeListColumn97";
+            // 
+            // treeListColumn98
+            // 
+            this.treeListColumn98.Caption = "FinalGB";
+            this.treeListColumn98.FieldName = "FinalGB";
+            this.treeListColumn98.Name = "treeListColumn98";
+            // 
+            // treeListColumn99
+            // 
+            this.treeListColumn99.Caption = "EP";
+            this.treeListColumn99.FieldName = "EP";
+            this.treeListColumn99.Name = "treeListColumn99";
+            this.treeListColumn99.OptionsColumn.AllowSort = false;
+            this.treeListColumn99.OptionsColumn.ReadOnly = true;
+            this.treeListColumn99.Visible = true;
+            this.treeListColumn99.VisibleIndex = 7;
+            this.treeListColumn99.Width = 105;
+            // 
+            // treeListColumn100
+            // 
+            this.treeListColumn100.Caption = "GB";
+            this.treeListColumn100.FieldName = "GB";
+            this.treeListColumn100.Name = "treeListColumn100";
+            this.treeListColumn100.OptionsColumn.AllowSort = false;
+            this.treeListColumn100.OptionsColumn.ReadOnly = true;
+            this.treeListColumn100.Visible = true;
+            this.treeListColumn100.VisibleIndex = 8;
+            this.treeListColumn100.Width = 105;
+            // 
+            // treeListColumn101
+            // 
+            this.treeListColumn101.AppearanceHeader.Options.UseTextOptions = true;
+            this.treeListColumn101.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.treeListColumn101.Caption = "Edit";
+            this.treeListColumn101.ColumnEdit = this.repositoryItemButtonEdit1;
+            this.treeListColumn101.FieldName = "Edit";
+            this.treeListColumn101.Name = "treeListColumn101";
+            // 
+            // repositoryItemButtonEdit1
+            // 
+            this.repositoryItemButtonEdit1.AutoHeight = false;
+            this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+            this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+            // 
+            // treeListColumn65
+            // 
+            this.treeListColumn65.Caption = "PositionID";
+            this.treeListColumn65.FieldName = "PositionID";
+            this.treeListColumn65.Name = "treeListColumn65";
+            // 
+            // treeListColumn102
+            // 
+            this.treeListColumn102.Caption = "Parent_OZ";
+            this.treeListColumn102.FieldName = "Parent_OZ";
+            this.treeListColumn102.Name = "treeListColumn102";
+            // 
+            // label25
+            // 
+            this.label25.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.ForeColor = System.Drawing.Color.White;
+            this.label25.Location = new System.Drawing.Point(12, 12);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(89, 25);
+            this.label25.TabIndex = 13;
+            this.label25.Text = "New Project :";
+            // 
+            // lblNewProject
+            // 
+            this.lblNewProject.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNewProject.ForeColor = System.Drawing.Color.White;
+            this.lblNewProject.Location = new System.Drawing.Point(105, 12);
+            this.lblNewProject.Name = "lblNewProject";
+            this.lblNewProject.Size = new System.Drawing.Size(182, 25);
+            this.lblNewProject.TabIndex = 12;
+            // 
             // lookUpEditOldProject
             // 
-            this.lookUpEditOldProject.Location = new System.Drawing.Point(841, 12);
+            this.lookUpEditOldProject.Location = new System.Drawing.Point(835, 12);
             this.lookUpEditOldProject.MenuManager = this.barManager1;
             this.lookUpEditOldProject.Name = "lookUpEditOldProject";
             this.lookUpEditOldProject.Properties.AllowMouseWheel = false;
             this.lookUpEditOldProject.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.lookUpEditOldProject.Properties.NullText = "";
-            this.lookUpEditOldProject.Size = new System.Drawing.Size(197, 20);
+            this.lookUpEditOldProject.Size = new System.Drawing.Size(203, 20);
             this.lookUpEditOldProject.StyleController = this.layoutControl19;
             this.lookUpEditOldProject.TabIndex = 11;
             this.lookUpEditOldProject.EditValueChanged += new System.EventHandler(this.lookUpEditOldProject_EditValueChanged);
-            // 
-            // gcOldProject
-            // 
-            this.gcOldProject.AllowDrop = true;
-            this.gcOldProject.Location = new System.Drawing.Point(756, 53);
-            this.gcOldProject.MainView = this.gvOldProject;
-            this.gcOldProject.Name = "gcOldProject";
-            this.gcOldProject.Size = new System.Drawing.Size(754, 684);
-            this.gcOldProject.TabIndex = 10;
-            this.gcOldProject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvOldProject});
-            this.gcOldProject.DragOver += new System.Windows.Forms.DragEventHandler(this.gcPositions_DragOver);
-            // 
-            // gvOldProject
-            // 
-            this.gvOldProject.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
-            this.gvOldProject.Appearance.Empty.Options.UseBackColor = true;
-            this.gvOldProject.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gvOldProject.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gvOldProject.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gvOldProject.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.gvOldProject.Appearance.Row.BackColor = System.Drawing.Color.Silver;
-            this.gvOldProject.Appearance.Row.Options.UseBackColor = true;
-            this.gvOldProject.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.gvOldProject.Appearance.SelectedRow.Options.UseFont = true;
-            this.gvOldProject.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn76,
-            this.gridColumn77,
-            this.gridColumn78,
-            this.gridColumn79,
-            this.gridColumn80,
-            this.gridColumn81,
-            this.gridColumn82,
-            this.gridColumn83,
-            this.gridColumn84});
-            this.gvOldProject.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
-            this.gvOldProject.GridControl = this.gcOldProject;
-            this.gvOldProject.Name = "gvOldProject";
-            this.gvOldProject.OptionsBehavior.Editable = false;
-            this.gvOldProject.OptionsCustomization.AllowColumnMoving = false;
-            this.gvOldProject.OptionsFilter.AllowFilterEditor = false;
-            this.gvOldProject.OptionsMenu.EnableColumnMenu = false;
-            this.gvOldProject.OptionsMenu.EnableFooterMenu = false;
-            this.gvOldProject.OptionsMenu.EnableGroupPanelMenu = false;
-            this.gvOldProject.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gvOldProject.OptionsView.ShowGroupPanel = false;
-            this.gvOldProject.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvNewProject_MouseDown);
-            this.gvOldProject.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvNewProject_MouseMove);
-            // 
-            // gridColumn76
-            // 
-            this.gridColumn76.Caption = "PositionID";
-            this.gridColumn76.FieldName = "PositionID";
-            this.gridColumn76.Name = "gridColumn76";
-            // 
-            // gridColumn77
-            // 
-            this.gridColumn77.Caption = "ProjectID";
-            this.gridColumn77.FieldName = "ProjectID";
-            this.gridColumn77.Name = "gridColumn77";
-            // 
-            // gridColumn78
-            // 
-            this.gridColumn78.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn78.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn78.Caption = "Position_OZ";
-            this.gridColumn78.FieldName = "Position_OZ";
-            this.gridColumn78.Name = "gridColumn78";
-            this.gridColumn78.Visible = true;
-            this.gridColumn78.VisibleIndex = 0;
-            // 
-            // gridColumn79
-            // 
-            this.gridColumn79.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn79.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn79.Caption = "Parent_OZ";
-            this.gridColumn79.FieldName = "Parent_OZ";
-            this.gridColumn79.Name = "gridColumn79";
-            this.gridColumn79.Visible = true;
-            this.gridColumn79.VisibleIndex = 1;
-            // 
-            // gridColumn80
-            // 
-            this.gridColumn80.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn80.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn80.Caption = "PositionKZ";
-            this.gridColumn80.FieldName = "PositionKZ";
-            this.gridColumn80.Name = "gridColumn80";
-            this.gridColumn80.Visible = true;
-            this.gridColumn80.VisibleIndex = 2;
-            // 
-            // gridColumn81
-            // 
-            this.gridColumn81.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn81.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn81.Caption = "LVSection";
-            this.gridColumn81.FieldName = "LVSection";
-            this.gridColumn81.Name = "gridColumn81";
-            this.gridColumn81.Visible = true;
-            this.gridColumn81.VisibleIndex = 3;
-            // 
-            // gridColumn82
-            // 
-            this.gridColumn82.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn82.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn82.Caption = "WG";
-            this.gridColumn82.FieldName = "WG";
-            this.gridColumn82.Name = "gridColumn82";
-            this.gridColumn82.Visible = true;
-            this.gridColumn82.VisibleIndex = 4;
-            // 
-            // gridColumn83
-            // 
-            this.gridColumn83.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn83.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn83.Caption = "WA";
-            this.gridColumn83.FieldName = "WA";
-            this.gridColumn83.Name = "gridColumn83";
-            this.gridColumn83.Visible = true;
-            this.gridColumn83.VisibleIndex = 5;
-            // 
-            // gridColumn84
-            // 
-            this.gridColumn84.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn84.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn84.Caption = "WI";
-            this.gridColumn84.FieldName = "WI";
-            this.gridColumn84.Name = "gridColumn84";
-            this.gridColumn84.Visible = true;
-            this.gridColumn84.VisibleIndex = 6;
-            // 
-            // gcNewProject
-            // 
-            this.gcNewProject.AllowDrop = true;
-            this.gcNewProject.Location = new System.Drawing.Point(12, 53);
-            this.gcNewProject.MainView = this.gvNewProject;
-            this.gcNewProject.Name = "gcNewProject";
-            this.gcNewProject.Size = new System.Drawing.Size(740, 684);
-            this.gcNewProject.TabIndex = 9;
-            this.gcNewProject.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gvNewProject});
-            this.gcNewProject.DragDrop += new System.Windows.Forms.DragEventHandler(this.gcNewProject_DragDrop);
-            this.gcNewProject.DragOver += new System.Windows.Forms.DragEventHandler(this.gcNewProject_DragOver);
-            // 
-            // gvNewProject
-            // 
-            this.gvNewProject.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
-            this.gvNewProject.Appearance.Empty.Options.UseBackColor = true;
-            this.gvNewProject.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gvNewProject.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.gvNewProject.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.gvNewProject.Appearance.HeaderPanel.Options.UseBackColor = true;
-            this.gvNewProject.Appearance.Row.BackColor = System.Drawing.Color.Silver;
-            this.gvNewProject.Appearance.Row.Options.UseBackColor = true;
-            this.gvNewProject.Appearance.SelectedRow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.gvNewProject.Appearance.SelectedRow.Options.UseFont = true;
-            this.gvNewProject.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn67,
-            this.gridColumn68,
-            this.gridColumn69,
-            this.gridColumn70,
-            this.gridColumn71,
-            this.gridColumn72,
-            this.gridColumn73,
-            this.gridColumn74,
-            this.gridColumn75});
-            this.gvNewProject.GridControl = this.gcNewProject;
-            this.gvNewProject.Name = "gvNewProject";
-            this.gvNewProject.OptionsCustomization.AllowColumnMoving = false;
-            this.gvNewProject.OptionsFilter.AllowFilterEditor = false;
-            this.gvNewProject.OptionsMenu.EnableColumnMenu = false;
-            this.gvNewProject.OptionsMenu.EnableFooterMenu = false;
-            this.gvNewProject.OptionsMenu.EnableGroupPanelMenu = false;
-            this.gvNewProject.OptionsSelection.EnableAppearanceFocusedCell = false;
-            this.gvNewProject.OptionsView.ShowGroupPanel = false;
-            this.gvNewProject.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvNewProject_MouseDown);
-            this.gvNewProject.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvNewProject_MouseMove);
-            // 
-            // gridColumn67
-            // 
-            this.gridColumn67.Caption = "PositionID";
-            this.gridColumn67.FieldName = "PositionID";
-            this.gridColumn67.Name = "gridColumn67";
-            // 
-            // gridColumn68
-            // 
-            this.gridColumn68.Caption = "ProjectID";
-            this.gridColumn68.FieldName = "ProjectID";
-            this.gridColumn68.Name = "gridColumn68";
-            // 
-            // gridColumn69
-            // 
-            this.gridColumn69.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn69.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn69.Caption = "Position_OZ";
-            this.gridColumn69.FieldName = "Position_OZ";
-            this.gridColumn69.Name = "gridColumn69";
-            this.gridColumn69.Visible = true;
-            this.gridColumn69.VisibleIndex = 0;
-            // 
-            // gridColumn70
-            // 
-            this.gridColumn70.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn70.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn70.Caption = "Parent_OZ";
-            this.gridColumn70.FieldName = "Parent_OZ";
-            this.gridColumn70.Name = "gridColumn70";
-            this.gridColumn70.Visible = true;
-            this.gridColumn70.VisibleIndex = 1;
-            // 
-            // gridColumn71
-            // 
-            this.gridColumn71.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn71.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn71.Caption = "PositionKZ";
-            this.gridColumn71.FieldName = "PositionKZ";
-            this.gridColumn71.Name = "gridColumn71";
-            this.gridColumn71.Visible = true;
-            this.gridColumn71.VisibleIndex = 2;
-            // 
-            // gridColumn72
-            // 
-            this.gridColumn72.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn72.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn72.Caption = "LVSection";
-            this.gridColumn72.FieldName = "LVSection";
-            this.gridColumn72.Name = "gridColumn72";
-            this.gridColumn72.Visible = true;
-            this.gridColumn72.VisibleIndex = 3;
-            // 
-            // gridColumn73
-            // 
-            this.gridColumn73.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn73.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn73.Caption = "WG";
-            this.gridColumn73.FieldName = "WG";
-            this.gridColumn73.Name = "gridColumn73";
-            this.gridColumn73.Visible = true;
-            this.gridColumn73.VisibleIndex = 4;
-            // 
-            // gridColumn74
-            // 
-            this.gridColumn74.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn74.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn74.Caption = "WA";
-            this.gridColumn74.FieldName = "WA";
-            this.gridColumn74.Name = "gridColumn74";
-            this.gridColumn74.Visible = true;
-            this.gridColumn74.VisibleIndex = 5;
-            // 
-            // gridColumn75
-            // 
-            this.gridColumn75.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gridColumn75.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn75.Caption = "WI";
-            this.gridColumn75.FieldName = "WI";
-            this.gridColumn75.Name = "gridColumn75";
-            this.gridColumn75.Visible = true;
-            this.gridColumn75.VisibleIndex = 6;
             // 
             // layoutControlGroup28
             // 
@@ -13132,10 +13921,12 @@
             this.layoutControlGroup28.GroupBordersVisible = false;
             this.layoutControlGroup28.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem114,
+            this.layoutControlItem191,
+            this.layoutControlItem192,
+            this.layoutControlItem193,
+            this.layoutControlItem196,
             this.layoutControlItem194,
-            this.layoutControlItem195,
-            this.emptySpaceItem117,
-            this.layoutControlItem191});
+            this.layoutControlItem197});
             this.layoutControlGroup28.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup28.Name = "Root";
             this.layoutControlGroup28.Size = new System.Drawing.Size(1522, 749);
@@ -13146,44 +13937,8 @@
             this.emptySpaceItem114.AllowHotTrack = false;
             this.emptySpaceItem114.Location = new System.Drawing.Point(1030, 0);
             this.emptySpaceItem114.Name = "emptySpaceItem114";
-            this.emptySpaceItem114.Size = new System.Drawing.Size(472, 24);
+            this.emptySpaceItem114.Size = new System.Drawing.Size(472, 29);
             this.emptySpaceItem114.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem194
-            // 
-            this.layoutControlItem194.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem194.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem194.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem194.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem194.Control = this.gcNewProject;
-            this.layoutControlItem194.Location = new System.Drawing.Point(0, 24);
-            this.layoutControlItem194.Name = "layoutControlItem194";
-            this.layoutControlItem194.Size = new System.Drawing.Size(744, 705);
-            this.layoutControlItem194.Text = "New Project :";
-            this.layoutControlItem194.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem194.TextSize = new System.Drawing.Size(82, 14);
-            // 
-            // layoutControlItem195
-            // 
-            this.layoutControlItem195.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem195.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem195.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem195.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem195.Control = this.gcOldProject;
-            this.layoutControlItem195.Location = new System.Drawing.Point(744, 24);
-            this.layoutControlItem195.Name = "layoutControlItem195";
-            this.layoutControlItem195.Size = new System.Drawing.Size(758, 705);
-            this.layoutControlItem195.Text = "Old Project :";
-            this.layoutControlItem195.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem195.TextSize = new System.Drawing.Size(82, 14);
-            // 
-            // emptySpaceItem117
-            // 
-            this.emptySpaceItem117.AllowHotTrack = false;
-            this.emptySpaceItem117.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem117.Name = "emptySpaceItem117";
-            this.emptySpaceItem117.Size = new System.Drawing.Size(744, 24);
-            this.emptySpaceItem117.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem191
             // 
@@ -13194,9 +13949,54 @@
             this.layoutControlItem191.Control = this.lookUpEditOldProject;
             this.layoutControlItem191.Location = new System.Drawing.Point(744, 0);
             this.layoutControlItem191.Name = "layoutControlItem191";
-            this.layoutControlItem191.Size = new System.Drawing.Size(286, 24);
+            this.layoutControlItem191.Size = new System.Drawing.Size(286, 29);
             this.layoutControlItem191.Text = "Old Project :";
-            this.layoutControlItem191.TextSize = new System.Drawing.Size(82, 14);
+            this.layoutControlItem191.TextSize = new System.Drawing.Size(76, 14);
+            // 
+            // layoutControlItem192
+            // 
+            this.layoutControlItem192.Control = this.lblNewProject;
+            this.layoutControlItem192.Location = new System.Drawing.Point(93, 0);
+            this.layoutControlItem192.Name = "layoutControlItem192";
+            this.layoutControlItem192.Size = new System.Drawing.Size(186, 29);
+            this.layoutControlItem192.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem192.TextVisible = false;
+            // 
+            // layoutControlItem193
+            // 
+            this.layoutControlItem193.Control = this.label25;
+            this.layoutControlItem193.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem193.Name = "layoutControlItem193";
+            this.layoutControlItem193.Size = new System.Drawing.Size(93, 29);
+            this.layoutControlItem193.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem193.TextVisible = false;
+            // 
+            // layoutControlItem196
+            // 
+            this.layoutControlItem196.Control = this.tlNewProject;
+            this.layoutControlItem196.Location = new System.Drawing.Point(0, 29);
+            this.layoutControlItem196.Name = "layoutControlItem196";
+            this.layoutControlItem196.Size = new System.Drawing.Size(744, 700);
+            this.layoutControlItem196.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem196.TextVisible = false;
+            // 
+            // layoutControlItem194
+            // 
+            this.layoutControlItem194.Control = this.tlOldProject;
+            this.layoutControlItem194.Location = new System.Drawing.Point(744, 29);
+            this.layoutControlItem194.Name = "layoutControlItem194";
+            this.layoutControlItem194.Size = new System.Drawing.Size(758, 700);
+            this.layoutControlItem194.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem194.TextVisible = false;
+            // 
+            // layoutControlItem197
+            // 
+            this.layoutControlItem197.Control = this.rgDropMode;
+            this.layoutControlItem197.Location = new System.Drawing.Point(279, 0);
+            this.layoutControlItem197.Name = "layoutControlItem197";
+            this.layoutControlItem197.Size = new System.Drawing.Size(465, 29);
+            this.layoutControlItem197.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem197.TextVisible = false;
             // 
             // navBarItem1
             // 
@@ -13955,17 +14755,22 @@
             this.tbCopyLVs.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl19)).EndInit();
             this.layoutControl19.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.rgDropMode.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tlOldProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tlNewProject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lookUpEditOldProject.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcOldProject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvOldProject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gcNewProject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvNewProject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem192)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem193)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem196)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem197)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
@@ -14882,34 +15687,99 @@
         private DevExpress.XtraLayout.LayoutControl layoutControl19;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup28;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem114;
-        private DevExpress.XtraGrid.GridControl gcNewProject;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvNewProject;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem194;
-        private DevExpress.XtraGrid.GridControl gcOldProject;
-        private DevExpress.XtraGrid.Views.Grid.GridView gvOldProject;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem195;
         private DevExpress.XtraNavBar.NavBarItem nbCopyLVs;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem117;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn76;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn77;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn78;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn79;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn80;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn81;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn82;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn83;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn84;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn67;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn68;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn69;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn70;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn71;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn72;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn73;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn74;
-        private DevExpress.XtraGrid.Columns.GridColumn gridColumn75;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditOldProject;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem191;
+        private System.Windows.Forms.Label lblNewProject;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem192;
+        private System.Windows.Forms.Label label25;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem193;
+        private DevExpress.XtraTreeList.TreeList tlNewProject;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn66;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn67;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn68;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn69;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn70;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn71;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn72;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn73;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn74;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn75;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn76;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn77;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn78;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn79;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn80;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn81;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn82;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn83;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn84;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn85;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn86;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn87;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn88;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn89;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn90;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn91;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn92;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn93;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn94;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn95;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn96;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn97;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn98;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn99;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn100;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn101;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem196;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn65;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn102;
+        private DevExpress.XtraTreeList.TreeList tlOldProject;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn103;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn104;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn105;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn106;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn107;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn108;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn109;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn110;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn111;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn112;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn113;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn114;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn115;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit2;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn116;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn117;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn118;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn119;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn120;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn121;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn122;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn123;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn124;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn125;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn126;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn127;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn128;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn129;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn130;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn131;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn132;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn133;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn134;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn135;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn136;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn137;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn138;
+        private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn139;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn140;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem194;
+        private DevExpress.XtraEditors.RadioGroup rgDropMode;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem197;
 
 
     }

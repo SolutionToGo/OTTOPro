@@ -7151,7 +7151,6 @@ e.Column.FieldName == "GB")
         }
         #endregion
 
-
         #region Copy LVs
 
         private void nbCopyLVs_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -7182,7 +7181,19 @@ e.Column.FieldName == "GB")
                     lookUpEditOldProject.Properties.DataSource = ObjEProject.dtProjecNumber;
                     lookUpEditOldProject.Properties.DisplayMember = "ProjectNumber";
                     lookUpEditOldProject.Properties.ValueMember = "ProjectID";
-                    lookUpEditOldProject.Properties.Columns[0].Visible = false;
+
+                    lblNewProject.Text = ObjEProject.ProjectNumber;
+                    ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(ObjEProject.ProjectID));
+                    if (ObjEPosition.dtCopyNewLVs != null)
+                    {
+                        tlNewProject.DataSource = ObjEPosition.dtCopyNewLVs;
+                        tlNewProject.ParentFieldName = "Parent_OZ";
+                        tlNewProject.KeyFieldName = "PositionID";
+                        tlNewProject.ForceInitialize();
+                        tlNewProject.ExpandAll();
+
+                    }
+
                 }
             }
             catch (Exception ex)
@@ -7191,139 +7202,122 @@ e.Column.FieldName == "GB")
             }
         }
 
-        private void cmbOldProject_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            try
-            {
-                ObjBPosition.GetPositionList(ObjEPosition, ObjEProject.ProjectID);
-                if (ObjEPosition.dtCopyOldLVs != null)
-                {
-                    gcOldProject.DataSource = null;
-                    gcOldProject.DataSource = ObjEPosition.dtCopyOldLVs;
-                    gvOldProject.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-
-        private void gvNewProject_MouseDown(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                GridView view = sender as GridView;
-                downHitInfo = null;
-                GridHitInfo hitInfo = view.CalcHitInfo(new Point(e.X, e.Y));
-                if (Control.ModifierKeys != Keys.None) return;
-                if (e.Button == MouseButtons.Left && hitInfo.RowHandle >= 0)
-                    downHitInfo = hitInfo;
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void gvNewProject_MouseMove(object sender, MouseEventArgs e)
-        {
-            try
-            {
-                GridView view = sender as GridView;
-                if (e.Button == MouseButtons.Left && downHitInfo != null)
-                {
-                    Size dragSize = SystemInformation.DragSize;
-                    Rectangle dragRect = new Rectangle(new Point(downHitInfo.HitPoint.X - dragSize.Width / 2,
-                        downHitInfo.HitPoint.Y - dragSize.Height / 2), dragSize);
-
-                    if (!dragRect.Contains(new Point(e.X, e.Y)))
-                    {
-                        DataRow row = view.GetDataRow(downHitInfo.RowHandle);
-                        view.GridControl.DoDragDrop(row, DragDropEffects.Move);
-                        downHitInfo = null;
-                        DevExpress.Utils.DXMouseEventArgs.GetMouseArgs(e).Handled = true;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void gcNewProject_DragDrop(object sender, DragEventArgs e)
-        {
-            try
-            {
-                GridControl grid = sender as GridControl;
-                DataTable table = grid.DataSource as DataTable;
-                DataRow row = e.Data.GetData(typeof(DataRow)) as DataRow;
-                if (row != null && table != null && row.Table != table)
-                {
-                    object strPositionID = row["PositionID"].ToString();
-                    DataRow[] foundRows = table.Select("PositionID = '" + strPositionID + "'");
-                    if (foundRows.Count() <= 0)
-                    {
-                        table.ImportRow(row);
-                        //string _type = Convert.ToString(row["PositionsStatus"]);
-                        //if (_type == "D")
-                        //{
-                        //    DataRow[] result = ObjESupplier.dtDeletedPositions.Select("PositionID = '" + strPositionID + "'");
-                        //    foreach (DataRow dr in result)
-                        //    {
-                        //        ObjESupplier.dtDeletedPositions.Rows.Remove(row);
-                        //    }
-                        //}
-                        Utility.Setfocus(gvLVDetailsforSupplier, "PositionID", Convert.ToInt32(strPositionID));
-                    }
-                    else
-                        throw new Exception("Position Already Exists");
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void gcNewProject_DragOver(object sender, DragEventArgs e)
-        {
-            try
-            {
-                if (e.Data.GetDataPresent(typeof(DataRow)))
-                    e.Effect = DragDropEffects.Move;
-                else
-                    e.Effect = DragDropEffects.None;
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void lookUpEditOldProject_EditValueChanged(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    lookUpEditOldProject.EditValue = lookUpEditOldProject.Properties.GetKeyValueByDisplayText("ProjectNumber");
-            //    ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(lookUpEditOldProject.EditValue));
-            //    if (ObjEPosition.dtCopyOldLVs != null)
-            //    {
-            //        gcOldProject.DataSource = null;
-            //        gcOldProject.DataSource = ObjEPosition.dtCopyOldLVs;
-            //        gvOldProject.BestFitColumns();
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
+            try
+            {
+                ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(lookUpEditOldProject.EditValue));
+                if (ObjEPosition.dtCopyOldLVs != null)
+                {
+                    tlOldProject.DataSource = ObjEPosition.dtCopyOldLVs;
+                    tlOldProject.ParentFieldName = "Parent_OZ";
+                    tlOldProject.KeyFieldName = "PositionID";
+                    tlOldProject.ForceInitialize();
+                    tlOldProject.ExpandAll();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void tlNewProject_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Copy;
+        }
+
+        private void tlNewProject_DragDrop(object sender, DragEventArgs e)
+        {
+            try
+            {
+                if (tlNewProject.Nodes.Count() == 0)
+                {
+                    e.Effect = DragDropEffects.None;
+                    return;
+                }
+                DXDragEventArgs args = tlNewProject.GetDXDragEventArgs(e);
+                DragInsertPosition position = args.DragInsertPosition;
+
+                TreeList list = sender as TreeList;
+                DataTable table = list.DataSource as DataTable;
+
+                DataRow dataRow = (tlOldProject.GetDataRecordByNode(tlOldProject.FocusedNode) as DataRowView).Row;
+
+                if (dataRow == null) return;
+
+
+                string _OldPosKZ = tlOldProject.FocusedNode["PositionKZ"].ToString();
+                if (_OldPosKZ == "NG")
+                {
+                    e.Effect = DragDropEffects.None;
+                    return;
+                }
+
+                TreeListNode node = args.TargetNode;
+
+                string _PosKZ = node["PositionKZ"].ToString();
+                if (_PosKZ == "NG")
+                {
+                    string[] _Raster = ObjEProject.LVRaster.Split('.');
+                    int _Rastercount = _Raster.Count();
+                    string _PosOZ = node["Position_OZ"].ToString();
+                    string[] _OZ = _PosOZ.Split('.');
+                    int _OZCount = _OZ.Count();
+                    if (_OZCount != _Rastercount - 1)
+                    {
+                        e.Effect = DragDropEffects.None;
+                        return;
+                    }
+
+                    TreeListNode newNode = tlNewProject.AppendNode(dataRow, node);
+
+                    if (rgDropMode.SelectedIndex == 0)
+                        tlNewProject.SetNodeIndex(newNode, 0);
+                    else if (rgDropMode.SelectedIndex == 1)
+                    {
+                        tlNewProject.SetNodeIndex(newNode, node.Nodes.Count());
+                    }
+
+                    e.Effect = DragDropEffects.None;
+                }
+                else
+                {
+                    //string _Position_OZ = node.ParentNode.GetValue("Position_OZ").ToString();
+                    //string _Suggested_OZ=  SuggestOZ(_Position_OZ);
+                    //object Position_OZ = _Position_OZ + _Suggested_OZ + '.';
+
+                    //DataRow desRow = table.NewRow();
+                    //table.ImportRow(dataRow);
+
+                    //desRow["Position_OZ"] = Position_OZ;                   
+
+                    int I_index = 0;
+                    if (rgDropMode.SelectedIndex == 2)
+                    {
+                        I_index = node.ParentNode.Nodes.IndexOf(node) + 1;
+                    }
+                    else if (rgDropMode.SelectedIndex == 1)
+                    {
+                        I_index = node.ParentNode.Nodes.Count();
+                    }
+
+                    TreeListNode newNode = tlNewProject.AppendNode(dataRow, node.ParentNode);
+                    tlNewProject.SetNodeIndex(newNode, I_index);
+
+                    e.Effect = DragDropEffects.None;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
 
         #endregion
+
+
 
     }
 }
