@@ -29,6 +29,7 @@ namespace OTTOPro
             {
                 BindRoleData();
                 BindAccessLevels();
+                cmbRole.EditValue = 8;
             }
             catch (Exception ex)
             {
@@ -53,25 +54,6 @@ namespace OTTOPro
             }
         }
 
-        private void btnSaveRole_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ObjEUserInfo == null)
-                    ObjEUserInfo = new EUserInfo();
-                ObjEUserInfo.RoleID = -1;
-                ObjEUserInfo.RoleName = txtRoleName.Text;
-                ObjBUserInfo = new BUserInfo();
-                ObjEUserInfo.RoleID = ObjBUserInfo.SaveUserRoles(ObjEUserInfo);
-                txtRoleName.Text = string.Empty;
-                BindRoleData();
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         public void BindRoleData()
         {
             try
@@ -79,32 +61,14 @@ namespace OTTOPro
                 ObjBUserInfo.GetUserRoles(ObjEUserInfo);
                 if (ObjEUserInfo.dsUserRole != null)
                 {
-                    gcRole.DataSource = ObjEUserInfo.dsUserRole.Tables[0];
-                    gvRole.BestFitColumns();
+                    cmbRole.Properties.DataSource = ObjEUserInfo.dsUserRole.Tables[0];
+                    cmbRole.Properties.DisplayMember = "RoleName";
+                    cmbRole.Properties.ValueMember = "RoleID";
                 }
             }
             catch (Exception ex)
             {
                 throw;
-            }
-        }
-
-        private void gvRole_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            int _IDValue = -1;
-            try
-            {
-                if (gvRole.FocusedColumn != null && gvRole.GetFocusedRowCellValue("RoleID") != null)
-                {
-                    if (int.TryParse(gvRole.GetFocusedRowCellValue("RoleID").ToString(), out _IDValue))
-                        ObjEUserInfo.RoleID = _IDValue;                    
-                    BindFeatureData();
-                    
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
             }
         }
 
@@ -136,7 +100,6 @@ namespace OTTOPro
                 if (ObjEUserInfo == null)
                     ObjEUserInfo = new EUserInfo();
                  DataTable _FeatureTable = ObjEUserInfo.dtFeature.Copy();
-
                  foreach (DataColumn dc in ObjEUserInfo.dtFeature.Columns)
                     {
                         if (dc.ColumnName != "FeatureID" && dc.ColumnName != "AccessLevelID")
@@ -153,8 +116,22 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-        
 
-//*****************
+        private void cmbRole_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                int _IDValue = -1;
+                if (int.TryParse(Convert.ToString(cmbRole.EditValue), out _IDValue))
+                {
+                    ObjEUserInfo.RoleID = _IDValue;
+                    BindFeatureData();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

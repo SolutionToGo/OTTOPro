@@ -23,11 +23,10 @@ namespace BL
                 string XPath = "/Nouns/UserInfo";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserID", ObjEUserInfo.UserID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RoleID", ObjEUserInfo.RoleID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserName", ObjEUserInfo.UserName.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserName", ObjEUserInfo.UserName.ToString().ToLower());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FirstName", ObjEUserInfo.FirstName.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastName", ObjEUserInfo.LastName);
-                //Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Password", ObjEUserInfo.Password);
-                //Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PasswordSalt", ObjEUserInfo.PasswordSalt.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Password", ObjEUserInfo.Password);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "MobileNo", ObjEUserInfo.MobileNo.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjEUserInfo.EmailID.ToString());
 
@@ -140,6 +139,17 @@ namespace BL
             return ObjEUserInfo;
         }
 
-
+        public EUserInfo CheckUserCredentials(EUserInfo ObjEUserInfo)
+        {
+            try
+            {
+                ObjEUserInfo = ObjDUserInfo.CheckUserCredentials(ObjEUserInfo);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEUserInfo;
+        }
     }
 }

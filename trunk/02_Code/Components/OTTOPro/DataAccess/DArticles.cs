@@ -344,5 +344,31 @@ namespace DataAccess
            }
            return ObjEArticle;
        }
+
+       public EArticles ImportArticleData(EArticles ObjEArticle)
+       {
+           try
+           {
+               DataSet dsDimesions = new DataSet();
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Imp_ArticleData]";
+                   cmd.Parameters.AddWithValue("@dtArticle", ObjEArticle.dtArticleImport);
+                   cmd.Parameters.AddWithValue("@dtDimensions", ObjEArticle.dtDimensionImport);
+                   cmd.ExecuteNonQuery();
+               }
+           }
+           catch (Exception ex)
+           {
+               throw new Exception("Error While Importing");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
    }
 }

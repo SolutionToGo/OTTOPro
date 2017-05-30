@@ -20,7 +20,7 @@ namespace OTTOPro
         EUserInfo ObjEUserInfo = new EUserInfo();
         BUserInfo ObjBUserInfo = new BUserInfo();
         int _IDValue = -1;
-        int _RoleID;
+        int _RoleID = -1;
         public frmLoadUsers()
         {
             InitializeComponent();
@@ -77,7 +77,6 @@ namespace OTTOPro
                     txtMobileNo.Text = gvUser.GetFocusedRowCellValue("MobileNo") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("MobileNo").ToString();
                     txtMailId.Text = gvUser.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("EmailID").ToString();
                 }
-
             }
             catch (Exception ex)
             {
@@ -109,6 +108,7 @@ namespace OTTOPro
                 ObjBUserInfo = new BUserInfo();
                 ObjEUserInfo.UserID = ObjBUserInfo.SaveUserDetails(ObjEUserInfo);
                 BindUserData();
+                ClearData();
             }
             catch (Exception ex)
             {
@@ -126,6 +126,7 @@ namespace OTTOPro
                 ObjEUserInfo.LastName = txtLName.Text;
                 ObjEUserInfo.MobileNo = txtMobileNo.Text;
                 ObjEUserInfo.EmailID = txtMailId.Text;
+                ObjEUserInfo.Password = Utility.Encrypt("Password@1234");
             }
             catch (Exception ex)
             {
@@ -185,18 +186,6 @@ namespace OTTOPro
             }
         }
 
-        private void rpiEditbutton_Click(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    GetUserDetails();
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw;
-            //}
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             try
@@ -211,6 +200,7 @@ namespace OTTOPro
 
         private void ClearData()
         {
+            ObjEUserInfo.UserID = -1;
             cmbRoleName.SelectedIndex = -1;
             txtUserName.Text=string.Empty;
             txtFName.Text=string.Empty;
@@ -234,7 +224,5 @@ namespace OTTOPro
                 throw;
             }
         }
-
-//*********************
     }
 }

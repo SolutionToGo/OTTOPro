@@ -147,5 +147,12 @@ namespace EL
             get { return _RoleName; }
             set { _RoleName = value; }
         }
+
+        private DataTable _dtUserDetails;
+        public DataTable dtUserDetails
+        {
+            get { return _dtUserDetails; }
+            set { _dtUserDetails = value; }
+        }
     }
 }

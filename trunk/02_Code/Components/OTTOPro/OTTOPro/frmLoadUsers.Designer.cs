@@ -283,7 +283,6 @@
             this.rpiEditbutton.Name = "rpiEditbutton";
             this.rpiEditbutton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.rpiEditbutton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.rpiEditbutton_ButtonClick);
-            this.rpiEditbutton.Click += new System.EventHandler(this.rpiEditbutton_Click);
             // 
             // gridColumn5
             // 

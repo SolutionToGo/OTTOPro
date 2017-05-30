@@ -256,5 +256,18 @@ namespace EL
             get { return _Rabatt; }
             set { _Rabatt = value; }
         }
+
+        private DataTable _dtArticleImport = null;
+        private DataTable _dtDimensionImport = null;
+        public DataTable dtArticleImport
+        {
+            get { return _dtArticleImport; }
+            set { _dtArticleImport = value; }
+        }
+        public DataTable dtDimensionImport
+       {
+           get { return _dtDimensionImport; }
+           set { _dtDimensionImport = value; }
+       }
     }
 }

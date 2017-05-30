@@ -42,16 +42,9 @@ namespace DataAccess
                             ObjEUserInfo.UserID = UserID;
                             ObjEUserInfo.dtUserInfo = ds.Tables[0];
                         }
-                        else if (str.ToString().Contains("duplicate"))
+                        else if (str.ToString().Contains("UNIQUE"))
                         {
-                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
-                                //throw new Exception("Dieser Langname ist bereits vergeben");
-                            }
-                            else
-                            {
-                                throw new Exception("FirstName is already exists.!");
-                            }
+                            throw new Exception("UserName is already exists.!");
                         }
                         else
                             throw new Exception(str);
@@ -296,6 +289,50 @@ namespace DataAccess
                     throw new Exception("Error Occured While Retreiving Data");
 
                 }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEUserInfo;
+        }
+
+        public EUserInfo CheckUserCredentials(EUserInfo ObjEUserInfo)
+        {
+            DataSet dsFeature = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_CheckUserCredentials]";
+                    cmd.Parameters.Add("@UserName", ObjEUserInfo.UserName);
+                    cmd.Parameters.Add("@Password", ObjEUserInfo.Password);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsFeature);
+                    }
+                    if (dsFeature != null && dsFeature.Tables.Count > 0)
+                    {
+                        string strUserID = dsFeature.Tables[0].Rows[0][0].ToString();
+                        int UserID = 0;
+                        if (int.TryParse(strUserID, out UserID))
+                        {
+                            ObjEUserInfo.dtUserDetails = dsFeature.Tables[0];
+                            if (dsFeature.Tables.Count > 1)
+                                ObjEUserInfo.dtFeature = dsFeature.Tables[1];
+                        }
+                        else
+                        {
+                            throw new Exception(strUserID);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
             finally
             {

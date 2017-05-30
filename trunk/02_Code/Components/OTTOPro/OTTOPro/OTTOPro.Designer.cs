@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -63,6 +63,8 @@
             this.btnTyp = new DevExpress.XtraBars.BarButtonItem();
             this.btnRabatt = new DevExpress.XtraBars.BarButtonItem();
             this.btnUserData = new DevExpress.XtraBars.BarButtonItem();
+            this.btnFeature = new DevExpress.XtraBars.BarButtonItem();
+            this.btnImportArticleData = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgSupplier = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -77,7 +79,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnFeature = new DevExpress.XtraBars.BarButtonItem();
+            this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -115,9 +117,10 @@
             this.btnTyp,
             this.btnRabatt,
             this.btnUserData,
-            this.btnFeature});
+            this.btnFeature,
+            this.btnImportArticleData});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 36;
+            this.ribbon.MaxItemId = 37;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -209,13 +212,13 @@
             // 
             // 
             // 
-            galleryItemGroup1.Caption = "Group1";
-            galleryItemGroup2.Caption = "Group2";
-            galleryItemGroup3.Caption = "Group3";
+            galleryItemGroup4.Caption = "Group1";
+            galleryItemGroup5.Caption = "Group2";
+            galleryItemGroup6.Caption = "Group3";
             this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1,
-            galleryItemGroup2,
-            galleryItemGroup3});
+            galleryItemGroup4,
+            galleryItemGroup5,
+            galleryItemGroup6});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -328,6 +331,24 @@
             this.btnUserData.Name = "btnUserData";
             this.btnUserData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserData_ItemClick);
             // 
+            // btnFeature
+            // 
+            this.btnFeature.Caption = "Feature";
+            this.btnFeature.Id = 35;
+            this.btnFeature.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.Image")));
+            this.btnFeature.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.LargeImage")));
+            this.btnFeature.Name = "btnFeature";
+            this.btnFeature.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFeature_ItemClick);
+            // 
+            // btnImportArticleData
+            // 
+            this.btnImportArticleData.Caption = "Import Article Data";
+            this.btnImportArticleData.Id = 36;
+            this.btnImportArticleData.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_icon;
+            this.btnImportArticleData.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Save_icon__1_;
+            this.btnImportArticleData.Name = "btnImportArticleData";
+            this.btnImportArticleData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportArticleData_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -360,6 +381,7 @@
             this.rpgArticleMaster.ItemLinks.Add(this.btnArticledata, true);
             this.rpgArticleMaster.ItemLinks.Add(this.btnTyp, true, "", "", true);
             this.rpgArticleMaster.ItemLinks.Add(this.btnRabatt, true, "", "", true);
+            this.rpgArticleMaster.ItemLinks.Add(this.btnImportArticleData);
             this.rpgArticleMaster.Name = "rpgArticleMaster";
             this.rpgArticleMaster.Text = "Artikelstammdaten";
             // 
@@ -392,12 +414,12 @@
             this.BarButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BarButtonItem10.ImageOptions.Image")));
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem1.Text = "Otto Pro";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Maintains Customer Information";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.BarButtonItem10.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Otto Pro";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Maintains Customer Information";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.BarButtonItem10.SuperTip = superToolTip2;
             // 
             // statusStrip1
             // 
@@ -456,14 +478,9 @@
             this.label1.TabIndex = 18;
             this.label1.Text = "Version 1.5 (10-05-2017)";
             // 
-            // btnFeature
+            // fdImportFile
             // 
-            this.btnFeature.Caption = "Feature";
-            this.btnFeature.Id = 35;
-            this.btnFeature.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.Image")));
-            this.btnFeature.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.LargeImage")));
-            this.btnFeature.Name = "btnFeature";
-            this.btnFeature.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFeature_ItemClick);
+            this.fdImportFile.FileName = "openFileDialog1";
             // 
             // frmOTTOPro
             // 
@@ -543,5 +560,7 @@
         private DevExpress.XtraBars.BarButtonItem btnUserData;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem btnFeature;
+        private DevExpress.XtraBars.BarButtonItem btnImportArticleData;
+        private System.Windows.Forms.OpenFileDialog fdImportFile;
     }
 }

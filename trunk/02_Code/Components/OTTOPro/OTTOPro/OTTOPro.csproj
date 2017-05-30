@@ -707,6 +707,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Save-icon %281%29.png" />
+    <None Include="Resources\Save-icon.png" />
     <None Include="Resources\Multi6.png" />
     <None Include="Resources\Multi5.png" />
     <None Include="Resources\user %281%29.png" />

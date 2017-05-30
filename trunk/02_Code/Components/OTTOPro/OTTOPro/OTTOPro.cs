@@ -11,6 +11,8 @@ using DevExpress.XtraBars;
 using DevExpress.XtraBars.Helpers;
 using System.Threading;
 using DevExpress.XtraSplashScreen;
+using EL;
+using BL;
 
 namespace OTTOPro
 {
@@ -309,6 +311,26 @@ namespace OTTOPro
                 label2.Visible = false;
                 pictureBox1.Visible = false;
                 Obj.Show();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnImportArticleData_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                DialogResult result = fdImportFile.ShowDialog();
+                
+                if (result == DialogResult.OK)
+                {
+                    BArticles ObjBArticle = new BArticles();
+                    EArticles ObjEArticle = new EArticles();
+                    ObjEArticle = ObjBArticle.ImportExcelXLS(fdImportFile.FileName, ObjEArticle);
+                    ObjEArticle = ObjBArticle.ImportArticleData(ObjEArticle);
+                }
             }
             catch (Exception ex)
             {

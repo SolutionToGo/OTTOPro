@@ -8,6 +8,7 @@ using EL;
 using System.Data;
 using System.Xml;
 using System.Globalization;
+using System.Data.OleDb;
 
 namespace BL
 {
@@ -182,7 +183,125 @@ namespace BL
         {
             try
             {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
                 ObjEArticle = ObjDArticles.SaveDimensionCopy(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles ImportExcelXLS(string FilePath, EArticles ObjEArticle)
+        {
+            try
+            {
+                bool hasHeaders = true;
+                string HDR = hasHeaders ? "Yes" : "No";
+                string strConn;
+                if (FilePath.Substring(FilePath.LastIndexOf('.')).ToLower() == ".xlsx")
+                    strConn = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + FilePath + ";Extended Properties=\"Excel 12.0;HDR=" + HDR + ";IMEX=0\"";
+                else
+                    strConn = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + FilePath + ";Extended Properties=\"Excel 8.0;HDR=" + HDR + ";IMEX=0\"";
+
+                DataSet output = new DataSet();
+                using (OleDbConnection conn = new OleDbConnection(strConn))
+                {
+                    conn.Open();
+
+                    DataTable schemaTable = conn.GetOleDbSchemaTable(
+                        OleDbSchemaGuid.Tables, new object[] { null, null, null, "TABLE" });
+
+                    foreach (DataRow schemaRow in schemaTable.Rows)
+                    {
+                        string sheet = schemaRow["TABLE_NAME"].ToString();
+
+                        if (!sheet.EndsWith("_"))
+                        {
+                            try
+                            {
+                                OleDbCommand cmd = new OleDbCommand("SELECT * FROM [" + sheet + "]", conn);
+                                cmd.CommandType = CommandType.Text;
+
+                                DataTable outputTable = new DataTable(sheet);
+                                output.Tables.Add(outputTable);
+                                new OleDbDataAdapter(cmd).Fill(outputTable);
+                            }
+                            catch (Exception ex)
+                            {
+                                throw new Exception(ex.Message + string.Format("Sheet:{0}.File:F{1}", sheet, FilePath), ex);
+                            }
+                        }
+                    }
+                }
+                if (output != null && output.Tables.Count > 0)
+                {
+                    ObjEArticle.dtArticleImport = output.Tables[0];
+                    if(output.Tables.Count > 1)
+                        ObjEArticle.dtDimensionImport = output.Tables[1];
+                }
+                CultureInfo ObjCulture = new CultureInfo("en-gb");
+                if (ObjEArticle.dtArticleImport != null)
+                {
+                    DataTable dtTempArticle = ObjEArticle.dtArticleImport.Clone();
+                    dtTempArticle.Locale = ObjCulture;
+                    dtTempArticle.Columns["Key"].DataType = System.Type.GetType("System.Int32");
+                    dtTempArticle.Columns["Warengrouppe"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["WGDesc"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["Warenart"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["WADesc"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["Warennummer"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["WIDesc"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["Fabrikat"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["TYP"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["Lieferant"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["Dimension"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["Masseinheit"].DataType = System.Type.GetType("System.String");
+                    dtTempArticle.Columns["Rabattgruppe"].DataType = System.Type.GetType("System.String");
+                    foreach (DataRow dr in ObjEArticle.dtArticleImport.Rows)
+                        dtTempArticle.ImportRow(dr);
+                    ObjEArticle.dtArticleImport = new DataTable();
+                    ObjEArticle.dtArticleImport.Locale = ObjCulture;
+                    ObjEArticle.dtArticleImport = dtTempArticle.Copy();
+                }
+                if(ObjEArticle.dtDimensionImport != null)
+                {
+                    DataTable dtTempDimensions = ObjEArticle.dtDimensionImport.Clone();
+                    dtTempDimensions.Locale = ObjCulture;
+                    dtTempDimensions.Columns["Key"].DataType = System.Type.GetType("System.Int32");
+                    dtTempDimensions.Columns["A"].DataType = System.Type.GetType("System.String");
+                    dtTempDimensions.Columns["B"].DataType = System.Type.GetType("System.String");
+                    dtTempDimensions.Columns["L"].DataType = System.Type.GetType("System.String");
+                    dtTempDimensions.Columns["ValidityDate"].DataType = System.Type.GetType("System.DateTime");
+                    dtTempDimensions.Columns["L-Preis"].DataType = System.Type.GetType("System.Decimal");
+                    dtTempDimensions.Columns["Multi1"].DataType = System.Type.GetType("System.Decimal");
+                    dtTempDimensions.Columns["Multi2"].DataType = System.Type.GetType("System.Decimal");
+                    dtTempDimensions.Columns["Multi3"].DataType = System.Type.GetType("System.Decimal");
+                    dtTempDimensions.Columns["Multi4"].DataType = System.Type.GetType("System.Decimal");
+                    dtTempDimensions.Columns["Montage Zeit"].DataType = System.Type.GetType("System.Decimal");
+                    foreach (DataRow dr in ObjEArticle.dtDimensionImport.Rows)
+                        dtTempDimensions.ImportRow(dr);
+                    ObjEArticle.dtDimensionImport = new DataTable();
+                    ObjEArticle.dtDimensionImport.Locale = ObjCulture;
+                    ObjEArticle.dtDimensionImport = dtTempDimensions.Copy();
+                }
+            }
+            catch (Exception ex)    
+            {
+                throw new Exception("Error While Importing");
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles ImportArticleData(EArticles ObjEArticle)
+        {
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.ImportArticleData(ObjEArticle);
             }
             catch (Exception ex)
             {
