@@ -7227,6 +7227,7 @@ e.Column.FieldName == "GB")
             e.Effect = DragDropEffects.Copy;
         }
 
+        DataRow _CopyLVDataRow = null;
         private void tlNewProject_DragDrop(object sender, DragEventArgs e)
         {
             try
@@ -7288,14 +7289,13 @@ e.Column.FieldName == "GB")
                 }
                 else
                 {
-                    //string _Position_OZ = node.ParentNode.GetValue("Position_OZ").ToString();
-                    //string _Suggested_OZ=  SuggestOZ(_Position_OZ);
-                    //object Position_OZ = _Position_OZ + _Suggested_OZ + '.';
+                    string _Position_OZ = node.ParentNode.GetValue("Position_OZ").ToString();
+                    string _Suggested_OZ = SuggestOZ(_Position_OZ);
+                    object Position_OZ = _Position_OZ + _Suggested_OZ + '.';
 
-                    //DataRow desRow = table.NewRow();
-                    //table.ImportRow(dataRow);
-
-                    //desRow["Position_OZ"] = Position_OZ;                   
+                    _CopyLVDataRow = table.NewRow();
+                    table.ImportRow(dataRow);                    
+                    _CopyLVDataRow["Position_OZ"] = Position_OZ;                   
 
                     int I_index = 0;
                     if (rgDropMode.SelectedIndex == 2)
@@ -7307,15 +7307,97 @@ e.Column.FieldName == "GB")
                         I_index = node.ParentNode.Nodes.Count();
                     }
 
-                    TreeListNode newNode = tlNewProject.AppendNode(dataRow, node.ParentNode);
+                    TreeListNode newNode = tlNewProject.AppendNode(_CopyLVDataRow, node.ParentNode);
                     tlNewProject.SetNodeIndex(newNode, I_index);
 
                     e.Effect = DragDropEffects.None;
                 }
+                //if (ObjEPosition == null)
+                //    ObjEPosition = new EPosition();
+                //ParsePositionDetailsfoCopyLV();
+                //int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
+            }
+        }
+
+
+        private void ParsePositionDetailsfoCopyLV()
+        {
+            try
+            {
+                int iValue = 0;
+                decimal dValue = 0;
+                DateTime dt = DateTime.Now;
+                ObjEPosition.RasterCount = iRasterCount;
+                ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                
+                    ObjEPosition.PositionKZ = _CopyLVDataRow["PositionKZ"].ToString(); 
+                    ObjEPosition.DetailKZ = iValue;                
+                    ObjEPosition.LVSection = "HA";               
+                    ObjEPosition.WG = txtWG.Text;
+                    ObjEPosition.WA = txtWA.Text;
+                    ObjEPosition.WI = txtWI.Text;             
+                    ObjEPosition.Menge = dValue;
+                    ObjEPosition.ME = cmbME.Text;
+                    ObjEPosition.Fabricate = txtFabrikate.Text;
+                    ObjEPosition.LiefrantMA = txtLiefrantMA.Text;
+                    ObjEPosition.Type = txtType.Text;
+                    ObjEPosition.LongDescription = LongDescription;
+
+                    ObjEPosition.Surcharge_From = txtSurchargeFrom.Text;
+                    ObjEPosition.Surcharge_To = txtSurchargeTo.Text;                
+                    ObjEPosition.Surcharge_Per = dValue;               
+                    ObjEPosition.surchargePercentage_MO = dValue;
+                   ObjEPosition.ValidityDate = dtpValidityDate.Value;
+
+                    ObjEPosition.MA = txtMa.Text;
+                    ObjEPosition.MO = txtMo.Text;                
+                    ObjEPosition.Mins = dValue;                
+                    ObjEPosition.Faktor = dValue;                
+                    ObjEPosition.LPMA = dValue;                
+                    ObjEPosition.LPMO = dValue;                
+                    ObjEPosition.Multi1MA = dValue;                
+                    ObjEPosition.Multi2MA = dValue;                
+                    ObjEPosition.Multi3MA = dValue;               
+                    ObjEPosition.Multi4MA = dValue;               
+                    ObjEPosition.Multi1MO = dValue;                
+                    ObjEPosition.Multi2MO = dValue;               
+                    ObjEPosition.Multi3MO = dValue;                
+                    ObjEPosition.Multi4MO = dValue;                
+                    ObjEPosition.EinkaufspreisMA = dValue;               
+                    ObjEPosition.EinkaufspreisMO = dValue;                
+                    ObjEPosition.SelbstkostenMultiMA = dValue;                
+                    ObjEPosition.SelbstkostenValueMA = dValue;               
+                    ObjEPosition.SelbstkostenMultiMO = dValue;
+                    ObjEPosition.SelbstkostenValueMO = dValue;                
+                    ObjEPosition.VerkaufspreisMultiMA = dValue;
+                    ObjEPosition.VerkaufspreisValueMA = dValue;
+                    ObjEPosition.VerkaufspreisMultiMO = dValue;
+                    ObjEPosition.VerkaufspreisValueMO = dValue;
+                    ObjEPosition.StdSatz = dValue;
+                    ObjEPosition.PreisText = txtPreisText.Text;
+                    ObjEPosition.EinkaufspreisLockMA = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
+                    ObjEPosition.EinkaufspreisLockMO = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
+                    ObjEPosition.SelbstkostenLockMA = Convert.ToBoolean(chkSelbstkostenME.CheckState);
+                    ObjEPosition.SelbstkostenLockMO = Convert.ToBoolean(chkSelbstkostenMO.CheckState);
+                    ObjEPosition.VerkaufspreisLockMA = Convert.ToBoolean(chkVerkaufspreisME.CheckState);
+                    ObjEPosition.VerkaufspreisLockMO = Convert.ToBoolean(chkVerkaufspreisMO.CheckState);
+                    ObjEPosition.Dim1 = txtDim1.Text;
+                    ObjEPosition.Dim2 = txtDim2.Text;
+                    ObjEPosition.Dim3 = txtDim3.Text;
+                    ObjEPosition.LVStatus = cmbLVStatus.Text;
+                    ObjEPosition.GrandTotalME = dValue;
+                    ObjEPosition.GrandTotalMO = dValue;
+                    ObjEPosition.FinalGB = dValue;
+                    ObjEPosition.EP = dValue;
+                    ObjEPosition.SNO = iSNO;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
