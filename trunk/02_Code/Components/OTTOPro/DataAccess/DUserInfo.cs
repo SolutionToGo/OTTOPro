@@ -206,7 +206,7 @@ namespace DataAccess
                 }
                 else
                 {
-                    throw new Exception("Error Occured While Retreiving Data");
+                    throw new Exception("Error Occured While Retreiving Features");
 
                 }
             }
@@ -286,7 +286,7 @@ namespace DataAccess
                 }
                 else
                 {
-                    throw new Exception("Error Occured While Retreiving Data");
+                    throw new Exception("Error Occured While Mapping Features To Role");
 
                 }
             }

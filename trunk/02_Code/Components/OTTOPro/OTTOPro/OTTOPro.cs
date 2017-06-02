@@ -330,6 +330,7 @@ namespace OTTOPro
                     EArticles ObjEArticle = new EArticles();
                     ObjEArticle = ObjBArticle.ImportExcelXLS(fdImportFile.FileName, ObjEArticle);
                     ObjEArticle = ObjBArticle.ImportArticleData(ObjEArticle);
+                    Utility.ShowSucces("Data Imported Sucessfully");
                 }
             }
             catch (Exception ex)

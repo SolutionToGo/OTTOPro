@@ -16,19 +16,20 @@ namespace BL
     {
         DPosition ObjDPosition = new DPosition();
 
-        public int SavePositionDetails(EPosition ObjEPosition,string strRaster)
+        public int SavePositionDetails(EPosition ObjEPosition,string strRaster, bool _IsCopy = false)
         {
             try
             {
                 //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 int PositionID = -1;
                 XmlDocument Xdoc = new XmlDocument();
-                PrepareOZ(ObjEPosition, strRaster);
+                if (!_IsCopy)
+                    PrepareOZ(ObjEPosition, strRaster);
                 string XPath = "/Nouns/Position";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionID", ObjEPosition.PositionID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ProjectID", ObjEPosition.ProjectID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionOZ", ObjEPosition.Position_OZ);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ParentOZ", ObjEPosition.Parent_OZ.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ParentOZ", ObjEPosition.Parent_OZ);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Title", ObjEPosition.Title);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ShortDescription", ObjEPosition.ShortDescription);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionKZ", ObjEPosition.PositionKZ);
@@ -128,11 +129,6 @@ namespace BL
                 if (ObjEPosition != null)
                 {
                     ObjEPosition.dsPositionList = ObjDPosition.GetPsoitionList(ProjectID);
-                }
-                if (ObjEPosition.dsPositionList != null && ObjEPosition.dsPositionList.Tables.Count > 0)
-                {
-                    ObjEPosition.dtCopyOldLVs = ObjEPosition.dsPositionList.Tables[0];
-                    ObjEPosition.dtCopyNewLVs = ObjEPosition.dsPositionList.Tables[0];
                 }
             }
             catch (Exception ex)
@@ -411,6 +407,20 @@ namespace BL
                 throw;
             }
             return ObjEPositon;
+        }
+
+        public DataSet GetOldPositionList(int ProjectID)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                 ds = ObjDPosition.GetOldPositionList(ProjectID);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ds;
         }
     }
 }

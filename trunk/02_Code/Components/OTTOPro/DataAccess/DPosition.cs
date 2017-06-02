@@ -637,5 +637,36 @@ namespace DataAccess
             }
             return ObjEPositon;
         }
+
+        public DataSet GetOldPositionList(int ProjectID)
+        {
+            DataSet dsPositionsList = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_PositionList]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsPositionsList, "Positions");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler beim Laden der Positionsliste");
+                else
+                    throw new Exception("Error Occured While Retreiving Position List");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dsPositionsList;
+        }
     }
 }

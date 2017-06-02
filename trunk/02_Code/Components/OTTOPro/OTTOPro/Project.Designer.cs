@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -2085,10 +2085,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -7862,17 +7862,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -12944,20 +12944,19 @@
             // 
             // rgDropMode
             // 
-            this.rgDropMode.Location = new System.Drawing.Point(291, 12);
+            this.rgDropMode.Location = new System.Drawing.Point(129, 12);
             this.rgDropMode.MenuManager = this.barManager1;
             this.rgDropMode.Name = "rgDropMode";
             this.rgDropMode.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Top LV in the Hierarchy"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bottom LV in the Hierarchy"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Selected Location")});
-            this.rgDropMode.Size = new System.Drawing.Size(461, 25);
+            this.rgDropMode.Size = new System.Drawing.Size(623, 25);
             this.rgDropMode.StyleController = this.layoutControl19;
             this.rgDropMode.TabIndex = 35;
             // 
             // tlOldProject
             // 
-            this.tlOldProject.AllowDrop = true;
             this.tlOldProject.Appearance.BandPanel.BackColor = System.Drawing.Color.Gray;
             this.tlOldProject.Appearance.BandPanel.Options.UseBackColor = true;
             this.tlOldProject.Appearance.Caption.BackColor = System.Drawing.Color.White;
@@ -13037,7 +13036,6 @@
             this.tlOldProject.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tlOldProject.Name = "tlOldProject";
             this.tlOldProject.OptionsBehavior.Editable = false;
-            this.tlOldProject.OptionsBehavior.ReadOnly = true;
             this.tlOldProject.OptionsCustomization.AllowColumnMoving = false;
             this.tlOldProject.OptionsDragAndDrop.DragNodesMode = DevExpress.XtraTreeList.DragNodesMode.Single;
             this.tlOldProject.OptionsFilter.AllowFilterEditor = false;
@@ -13422,6 +13420,7 @@
             // 
             // tlNewProject
             // 
+            this.tlNewProject.AllowDrop = true;
             this.tlNewProject.Appearance.BandPanel.BackColor = System.Drawing.Color.Gray;
             this.tlNewProject.Appearance.BandPanel.Options.UseBackColor = true;
             this.tlNewProject.Appearance.Caption.BackColor = System.Drawing.Color.White;
@@ -13501,10 +13500,7 @@
             this.tlNewProject.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tlNewProject.Name = "tlNewProject";
             this.tlNewProject.OptionsBehavior.Editable = false;
-            this.tlNewProject.OptionsBehavior.ReadOnly = true;
             this.tlNewProject.OptionsCustomization.AllowColumnMoving = false;
-            this.tlNewProject.OptionsDragAndDrop.AcceptOuterNodes = true;
-            this.tlNewProject.OptionsDragAndDrop.DragNodesMode = DevExpress.XtraTreeList.DragNodesMode.Single;
             this.tlNewProject.OptionsFilter.AllowFilterEditor = false;
             this.tlNewProject.OptionsMenu.EnableColumnMenu = false;
             this.tlNewProject.OptionsMenu.EnableFooterMenu = false;
@@ -13903,7 +13899,7 @@
             this.lblNewProject.ForeColor = System.Drawing.Color.White;
             this.lblNewProject.Location = new System.Drawing.Point(105, 12);
             this.lblNewProject.Name = "lblNewProject";
-            this.lblNewProject.Size = new System.Drawing.Size(182, 25);
+            this.lblNewProject.Size = new System.Drawing.Size(20, 25);
             this.lblNewProject.TabIndex = 12;
             // 
             // lookUpEditOldProject
@@ -13963,7 +13959,7 @@
             this.layoutControlItem192.Control = this.lblNewProject;
             this.layoutControlItem192.Location = new System.Drawing.Point(93, 0);
             this.layoutControlItem192.Name = "layoutControlItem192";
-            this.layoutControlItem192.Size = new System.Drawing.Size(186, 29);
+            this.layoutControlItem192.Size = new System.Drawing.Size(24, 29);
             this.layoutControlItem192.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem192.TextVisible = false;
             // 
@@ -13997,9 +13993,9 @@
             // layoutControlItem197
             // 
             this.layoutControlItem197.Control = this.rgDropMode;
-            this.layoutControlItem197.Location = new System.Drawing.Point(279, 0);
+            this.layoutControlItem197.Location = new System.Drawing.Point(117, 0);
             this.layoutControlItem197.Name = "layoutControlItem197";
-            this.layoutControlItem197.Size = new System.Drawing.Size(465, 29);
+            this.layoutControlItem197.Size = new System.Drawing.Size(627, 29);
             this.layoutControlItem197.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem197.TextVisible = false;
             // 

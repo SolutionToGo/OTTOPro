@@ -63,6 +63,7 @@ namespace OTTOPro
         public BDeliveryNotes ObjBDeliveryNotes = null;
         GridHitInfo downHitInfo = null;
         private int SNO = 1;
+        DataRow _CopyLVDataRow = null;
 
         /// <summary>
         /// Instances for Entity layer and business layer
@@ -1008,7 +1009,7 @@ namespace OTTOPro
             }
         }
 
-        private void SetFocus(int PositionID)
+        private void SetFocus(int PositionID, TreeList tlPositions)
         {
             try
             {
@@ -1693,7 +1694,7 @@ namespace OTTOPro
                 }
                 int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
                 BindPositionData();
-                SetFocus(NewPositionID);
+                SetFocus(NewPositionID,tlPositions);
                 if (chkCreateNew.Checked == true)
                 {
                     btnNew_Click(null, null);
@@ -7201,16 +7202,14 @@ e.Column.FieldName == "GB")
 
                     lblNewProject.Text = ObjEProject.ProjectNumber;
                     ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(ObjEProject.ProjectID));
-                    if (ObjEPosition.dtCopyNewLVs != null)
+                    if (ObjEPosition.dsPositionList != null && ObjEPosition.dsPositionList.Tables.Count > 0)
                     {
-                        tlNewProject.DataSource = ObjEPosition.dtCopyNewLVs;
+                        tlNewProject.DataSource = ObjEPosition.dsPositionList.Tables[0];
                         tlNewProject.ParentFieldName = "Parent_OZ";
                         tlNewProject.KeyFieldName = "PositionID";
                         tlNewProject.ForceInitialize();
                         tlNewProject.ExpandAll();
-
                     }
-
                 }
             }
             catch (Exception ex)
@@ -7223,10 +7222,10 @@ e.Column.FieldName == "GB")
         {
             try
             {
-                ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(lookUpEditOldProject.EditValue));
-                if (ObjEPosition.dtCopyOldLVs != null)
+                DataSet ds = ObjBPosition.GetOldPositionList(Convert.ToInt32(lookUpEditOldProject.EditValue));
+                if (ds != null && ds.Tables.Count > 0)
                 {
-                    tlOldProject.DataSource = ObjEPosition.dtCopyOldLVs;
+                    tlOldProject.DataSource = ds.Tables[0];
                     tlOldProject.ParentFieldName = "Parent_OZ";
                     tlOldProject.KeyFieldName = "PositionID";
                     tlOldProject.ForceInitialize();
@@ -7244,7 +7243,6 @@ e.Column.FieldName == "GB")
             e.Effect = DragDropEffects.Copy;
         }
 
-        DataRow _CopyLVDataRow = null;
         private void tlNewProject_DragDrop(object sender, DragEventArgs e)
         {
             try
@@ -7255,84 +7253,111 @@ e.Column.FieldName == "GB")
                     return;
                 }
                 DXDragEventArgs args = tlNewProject.GetDXDragEventArgs(e);
-                DragInsertPosition position = args.DragInsertPosition;
-
-                TreeList list = sender as TreeList;
-                DataTable table = list.DataSource as DataTable;
-
                 DataRow dataRow = (tlOldProject.GetDataRecordByNode(tlOldProject.FocusedNode) as DataRowView).Row;
-
                 if (dataRow == null) return;
-
-
-                string _OldPosKZ = tlOldProject.FocusedNode["PositionKZ"].ToString();
+                string _OldPosKZ = dataRow["PositionKZ"] == DBNull.Value ? "" : dataRow["PositionKZ"].ToString();
+                int IPositionID = dataRow["PositionID"] == DBNull.Value ? -1 : Convert.ToInt32(dataRow["PositionID"]);
                 if (_OldPosKZ == "NG")
                 {
                     e.Effect = DragDropEffects.None;
                     return;
                 }
-
                 TreeListNode node = args.TargetNode;
-
                 if (args.TargetNode == null)
                 {
                     e.Effect = DragDropEffects.None;
                     return;
                 }
                 string _PosKZ = node["PositionKZ"].ToString();
+                int I_index = 0;
+                string ParentOZ = string.Empty;
+                string Position_OZ = string.Empty;
                 if (_PosKZ == "NG")
                 {
+                    if (rgDropMode.SelectedIndex == 2)
+                        throw new Exception("Please select different copy mode");
                     string[] _Raster = ObjEProject.LVRaster.Split('.');
                     int _Rastercount = _Raster.Count();
-                    string _PosOZ = node["Position_OZ"].ToString();
-                    string[] _OZ = _PosOZ.Split('.');
+                    ParentOZ = node["Position_OZ"].ToString();
+                    string[] _OZ = ParentOZ.Split('.');
                     int _OZCount = _OZ.Count();
                     if (_OZCount != _Rastercount - 1)
                     {
                         e.Effect = DragDropEffects.None;
-                        return;
+                        throw new Exception("Create Subtitles As Per The Raster Before Going Copy");
                     }
-
-                    TreeListNode newNode = tlNewProject.AppendNode(dataRow, node);
-
+                    string strSelectedOZ = "";
                     if (rgDropMode.SelectedIndex == 0)
-                        tlNewProject.SetNodeIndex(newNode, 0);
+                    {
+                        string strNO = Convert.ToString(node.FirstNode["SNO"]);
+                        strSelectedOZ = Convert.ToString(node.FirstNode["Position_OZ"]);
+                        int iTemp = 0;
+                        if (!int.TryParse(strNO, out iTemp))
+                            I_index = 0;
+                        else
+                            I_index = iTemp - 1;
+                    }
                     else if (rgDropMode.SelectedIndex == 1)
                     {
-                        tlNewProject.SetNodeIndex(newNode, node.Nodes.Count());
+                        string strNO = Convert.ToString(node.LastNode["SNO"]);
+                        strSelectedOZ = Convert.ToString(node.LastNode["Position_OZ"]);
+                        if (!int.TryParse(strNO, out I_index))
+                            I_index = 0;
                     }
-
-                    e.Effect = DragDropEffects.None;
+                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, "");
+                    Position_OZ = ParentOZ + _Suggested_OZ;
                 }
                 else
                 {
-                    string _Position_OZ = node.ParentNode.GetValue("Position_OZ").ToString();
-                    string _Suggested_OZ = SuggestOZ(_Position_OZ);
-                    object Position_OZ = _Position_OZ + _Suggested_OZ + '.';
-
-                    _CopyLVDataRow = table.NewRow();
-                    table.ImportRow(dataRow);                    
-                    _CopyLVDataRow["Position_OZ"] = Position_OZ;                   
-
-                    int I_index = 0;
+                    ParentOZ = Convert.ToString(node.ParentNode.GetValue("Position_OZ"));
+                    string strSelectedOZ = "";
+                    string strnextLV = "";
                     if (rgDropMode.SelectedIndex == 2)
                     {
-                        I_index = node.ParentNode.Nodes.IndexOf(node) + 1;
+                        strSelectedOZ = Convert.ToString(node["Position_OZ"]);
+                        int INodeIndex = tlNewProject.GetNodeIndex(node);
+                        if (INodeIndex != null)
+                        {
+                            if (node.ParentNode.Nodes.Count > INodeIndex + 1)
+                                strnextLV = Convert.ToString(node.ParentNode.Nodes[INodeIndex + 1]["Position_OZ"]);
+                        }
+                        string strNo = Convert.ToString(node["SNO"]);
+                        if (!int.TryParse(strNo, out I_index))
+                            I_index = 0;
                     }
                     else if (rgDropMode.SelectedIndex == 1)
                     {
-                        I_index = node.ParentNode.Nodes.Count();
+                        string strNO = Convert.ToString(node.ParentNode.LastNode["SNO"]);
+                        strSelectedOZ = Convert.ToString(node.ParentNode.LastNode["Position_OZ"]);
+                        if (!int.TryParse(strNO, out I_index))
+                            I_index = 0;
                     }
-
-                    TreeListNode newNode = tlNewProject.AppendNode(_CopyLVDataRow, node.ParentNode);
-                    tlNewProject.SetNodeIndex(newNode, I_index);
-
-                    e.Effect = DragDropEffects.None;
+                    else
+                    {
+                        string strNO = Convert.ToString(node.ParentNode.FirstNode["SNO"]);
+                        strSelectedOZ = Convert.ToString(node.ParentNode.FirstNode["Position_OZ"]);
+                        int iTemp = 0;
+                        if (!int.TryParse(strNO, out iTemp))
+                            I_index = 0;
+                        else
+                            I_index = iTemp - 1;
+                    }
+                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, strnextLV);
+                    Position_OZ = ParentOZ + _Suggested_OZ;
                 }
-                //if (ObjEPosition == null)
-                //    ObjEPosition = new EPosition();
-                //ParsePositionDetailsfoCopyLV();
-                //int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
+                string strLongDescription = ObjBPosition.GetLongDescription(IPositionID);
+                ParsePositionDetailsfoCopyLV(dataRow, Position_OZ, ParentOZ, I_index, strLongDescription);
+                int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
+                ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(ObjEProject.ProjectID));
+                if (ObjEPosition.dsPositionList != null && ObjEPosition.dsPositionList.Tables.Count > 0)
+                {
+                    tlNewProject.DataSource = ObjEPosition.dsPositionList.Tables[0];
+                    tlNewProject.ParentFieldName = "Parent_OZ";
+                    tlNewProject.KeyFieldName = "PositionID";
+                    tlNewProject.ForceInitialize();
+                    tlNewProject.ExpandAll();
+                }
+                SetFocus(NewPositionID, tlNewProject);
             }
             catch (Exception ex)
             {
@@ -7340,77 +7365,206 @@ e.Column.FieldName == "GB")
             }
         }
 
-
-        private void ParsePositionDetailsfoCopyLV()
+        private void ParsePositionDetailsfoCopyLV(DataRow dr, string strPositionsOZ, string strParetntOZ, int iTempSNO, string strLongDescription)
         {
             try
             {
                 int iValue = 0;
                 decimal dValue = 0;
                 DateTime dt = DateTime.Now;
-                ObjEPosition.RasterCount = iRasterCount;
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
-                
-                    ObjEPosition.PositionKZ = _CopyLVDataRow["PositionKZ"].ToString(); 
-                    ObjEPosition.DetailKZ = iValue;                
-                    ObjEPosition.LVSection = "HA";               
-                    ObjEPosition.WG = txtWG.Text;
-                    ObjEPosition.WA = txtWA.Text;
-                    ObjEPosition.WI = txtWI.Text;             
-                    ObjEPosition.Menge = dValue;
-                    ObjEPosition.ME = cmbME.Text;
-                    ObjEPosition.Fabricate = txtFabrikate.Text;
-                    ObjEPosition.LiefrantMA = txtLiefrantMA.Text;
-                    ObjEPosition.Type = txtType.Text;
-                    ObjEPosition.LongDescription = LongDescription;
+                ObjEPosition.PositionID = -1;
+                ObjEPosition.PositionKZ = Convert.ToString(dr["PositionKZ"]);
+                ObjEPosition.Position_OZ = strPositionsOZ;
+                ObjEPosition.Parent_OZ = strParetntOZ;
 
-                    ObjEPosition.Surcharge_From = txtSurchargeFrom.Text;
-                    ObjEPosition.Surcharge_To = txtSurchargeTo.Text;                
-                    ObjEPosition.Surcharge_Per = dValue;               
+                if (int.TryParse(Convert.ToString(dr["DetailKZ"]), out iValue))
+                    ObjEPosition.DetailKZ = iValue;
+                else
+                    ObjEPosition.DetailKZ = 0;
+
+                ObjEPosition.LVSection = "HA";
+                ObjEPosition.WG = Convert.ToString(dr["WG"]);
+                ObjEPosition.WA = Convert.ToString(dr["WA"]);
+                ObjEPosition.WI = Convert.ToString(dr["WI"]);
+
+                if (int.TryParse(Convert.ToString(dr["Menge"]), out iValue))
+                    ObjEPosition.Menge = iValue;
+                else
+                    ObjEPosition.Menge = 1;
+
+                ObjEPosition.ME = Convert.ToString(dr["ME"]);
+                ObjEPosition.Fabricate = Convert.ToString(dr["Fabricate"]);
+                ObjEPosition.LiefrantMA = Convert.ToString(dr["LiefrantMA"]);
+                ObjEPosition.Type = Convert.ToString(dr["Type"]);
+                ObjEPosition.LongDescription = strLongDescription;
+                ObjEPosition.ShortDescription = Convert.ToString(dr["ShortDescription"]);
+                ObjEPosition.Surcharge_From = Convert.ToString(dr["surchargefrom"]);
+                ObjEPosition.Surcharge_To = Convert.ToString(dr["surchargeto"]);
+
+                if (decimal.TryParse(Convert.ToString(dr["surchargePercentage"]), out dValue))
+                    ObjEPosition.Surcharge_Per = dValue;
+                else
+                    ObjEPosition.Surcharge_Per = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["surchargePercentage_MO"]), out dValue))
                     ObjEPosition.surchargePercentage_MO = dValue;
-                   ObjEPosition.ValidityDate = dtpValidityDate.Value;
+                else
+                    ObjEPosition.surchargePercentage_MO = 0;
 
-                    ObjEPosition.MA = txtMa.Text;
-                    ObjEPosition.MO = txtMo.Text;                
-                    ObjEPosition.Mins = dValue;                
-                    ObjEPosition.Faktor = dValue;                
-                    ObjEPosition.LPMA = dValue;                
-                    ObjEPosition.LPMO = dValue;                
-                    ObjEPosition.Multi1MA = dValue;                
-                    ObjEPosition.Multi2MA = dValue;                
-                    ObjEPosition.Multi3MA = dValue;               
-                    ObjEPosition.Multi4MA = dValue;               
-                    ObjEPosition.Multi1MO = dValue;                
-                    ObjEPosition.Multi2MO = dValue;               
-                    ObjEPosition.Multi3MO = dValue;                
-                    ObjEPosition.Multi4MO = dValue;                
-                    ObjEPosition.EinkaufspreisMA = dValue;               
-                    ObjEPosition.EinkaufspreisMO = dValue;                
-                    ObjEPosition.SelbstkostenMultiMA = dValue;                
-                    ObjEPosition.SelbstkostenValueMA = dValue;               
+                if (DateTime.TryParse(Convert.ToString(dr["validitydate"]), out dt))
+                    ObjEPosition.ValidityDate = dt;
+                else
+                    ObjEPosition.ValidityDate = DateTime.Now;
+
+                ObjEPosition.MA = Convert.ToString(dr["MA"]);
+                ObjEPosition.MO = Convert.ToString(dr["MO"]);
+
+                if (decimal.TryParse(Convert.ToString(dr["minutes"]), out dValue))
+                    ObjEPosition.Mins = dValue;
+                else
+                    ObjEPosition.Mins = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["Faktor"]), out dValue))
+                    ObjEPosition.Faktor = dValue;
+                else
+                    ObjEPosition.Faktor = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_listprice"]), out dValue))
+                    ObjEPosition.LPMA = dValue;
+                else
+                    ObjEPosition.LPMA = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_listprice"]), out dValue))
+                    ObjEPosition.LPMO = dValue;
+                else
+                    ObjEPosition.LPMO = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_Multi1"]), out dValue))
+                    ObjEPosition.Multi1MA = dValue;
+                else
+                    ObjEPosition.Multi1MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_multi2"]), out dValue))
+                    ObjEPosition.Multi2MA = dValue;
+                else
+                    ObjEPosition.Multi2MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_multi3"]), out dValue))
+                    ObjEPosition.Multi3MA = dValue;
+                else
+                    ObjEPosition.Multi3MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_multi4"]), out dValue))
+                    ObjEPosition.Multi4MA = dValue;
+                else
+                    ObjEPosition.Multi4MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_multi1"]), out dValue))
+                    ObjEPosition.Multi1MO = dValue;
+                else
+                    ObjEPosition.Multi1MO = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_multi2"]), out dValue))
+                    ObjEPosition.Multi2MO = dValue;
+                else
+                    ObjEPosition.Multi2MO = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_multi3"]), out dValue))
+                    ObjEPosition.Multi3MO = dValue;
+                else
+                    ObjEPosition.Multi3MO = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_multi4"]), out dValue))
+                    ObjEPosition.Multi4MO = dValue;
+                else
+                    ObjEPosition.Multi4MO = 1;
+                if (decimal.TryParse(Convert.ToString(dr["MA_einkaufspreis"]), out dValue))
+                    ObjEPosition.EinkaufspreisMA = dValue;
+                else
+                    ObjEPosition.EinkaufspreisMA = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_Einkaufspreis"]), out dValue))
+                    ObjEPosition.EinkaufspreisMO = dValue;
+                else
+                    ObjEPosition.EinkaufspreisMO = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_selbstkostenMulti"]), out dValue))
+                    ObjEPosition.SelbstkostenMultiMA = dValue;
+                else
+                    ObjEPosition.SelbstkostenMultiMA = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_selbstkosten"]), out dValue))
+                    ObjEPosition.SelbstkostenValueMA = dValue;
+                else
+                    ObjEPosition.SelbstkostenValueMA = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_selbstkostenMulti"]), out dValue))
                     ObjEPosition.SelbstkostenMultiMO = dValue;
-                    ObjEPosition.SelbstkostenValueMO = dValue;                
+                else
+                    ObjEPosition.SelbstkostenMultiMO = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_selbstkosten"]), out dValue))
+                    ObjEPosition.SelbstkostenValueMO = dValue;
+                else
+                    ObjEPosition.SelbstkostenValueMO = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_verkaufspreis_Multi"]), out dValue))
                     ObjEPosition.VerkaufspreisMultiMA = dValue;
+                else
+                    ObjEPosition.VerkaufspreisMultiMA = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MA_verkaufspreis"]), out dValue))
                     ObjEPosition.VerkaufspreisValueMA = dValue;
+                else
+                    ObjEPosition.VerkaufspreisValueMA = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_verkaufspreisMulti"]), out dValue))
                     ObjEPosition.VerkaufspreisMultiMO = dValue;
+                else
+                    ObjEPosition.VerkaufspreisMultiMO = 1;
+
+                if (decimal.TryParse(Convert.ToString(dr["MO_verkaufspreis"]), out dValue))
                     ObjEPosition.VerkaufspreisValueMO = dValue;
+                else
+                    ObjEPosition.VerkaufspreisValueMO = 0;
+                if (decimal.TryParse(Convert.ToString(dr["std_satz"]), out dValue))
                     ObjEPosition.StdSatz = dValue;
-                    ObjEPosition.PreisText = txtPreisText.Text;
-                    ObjEPosition.EinkaufspreisLockMA = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
-                    ObjEPosition.EinkaufspreisLockMO = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
-                    ObjEPosition.SelbstkostenLockMA = Convert.ToBoolean(chkSelbstkostenME.CheckState);
-                    ObjEPosition.SelbstkostenLockMO = Convert.ToBoolean(chkSelbstkostenMO.CheckState);
-                    ObjEPosition.VerkaufspreisLockMA = Convert.ToBoolean(chkVerkaufspreisME.CheckState);
-                    ObjEPosition.VerkaufspreisLockMO = Convert.ToBoolean(chkVerkaufspreisMO.CheckState);
-                    ObjEPosition.Dim1 = txtDim1.Text;
-                    ObjEPosition.Dim2 = txtDim2.Text;
-                    ObjEPosition.Dim3 = txtDim3.Text;
-                    ObjEPosition.LVStatus = cmbLVStatus.Text;
+                else
+                    ObjEPosition.StdSatz = 0;
+
+                ObjEPosition.PreisText = Convert.ToString(dr["PreisText"]);
+                ObjEPosition.EinkaufspreisLockMA = false;
+                ObjEPosition.EinkaufspreisLockMO = false;
+                ObjEPosition.SelbstkostenLockMA = false;
+                ObjEPosition.SelbstkostenLockMO = false;
+                ObjEPosition.VerkaufspreisLockMA = false;
+                ObjEPosition.VerkaufspreisLockMO = false;
+                ObjEPosition.Dim1 = Convert.ToString(dr["A"]);
+                ObjEPosition.Dim2 = Convert.ToString(dr["B"]);
+                ObjEPosition.Dim3 = Convert.ToString(dr["L"]);
+                ObjEPosition.LVStatus = Convert.ToString(dr["LVStatus"]);
+                if (decimal.TryParse(Convert.ToString(dr["GrandTotalME"]), out dValue))
                     ObjEPosition.GrandTotalME = dValue;
+                else
+                    ObjEPosition.GrandTotalME = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["GrandTotalMO"]), out dValue))
                     ObjEPosition.GrandTotalMO = dValue;
+                else
+                    ObjEPosition.GrandTotalMO = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["GB"]), out dValue))
                     ObjEPosition.FinalGB = dValue;
+                else
+                    ObjEPosition.FinalGB = 0;
+
+                if (decimal.TryParse(Convert.ToString(dr["EP"]), out dValue))
                     ObjEPosition.EP = dValue;
-                    ObjEPosition.SNO = iSNO;
+                else
+                    ObjEPosition.EP = 0;
+
+                ObjEPosition.SNO = iTempSNO;
             }
             catch (Exception ex)
             {
@@ -7418,6 +7572,180 @@ e.Column.FieldName == "GB")
             }
         }
 
+        private string SuggestOZForCopy(string PositionOZ, string strNextLV)
+        {
+            string strNewOZ = string.Empty;
+            try
+            {
+                if (rgDropMode.SelectedIndex == 0)
+                {
+                    string[] OZList = PositionOZ.Split('.');
+                    if (OZList != null && OZList.Count() > 0)
+                    {
+                        string OnheStufe = OZList[OZList.Count() - 2];
+                        int Ivalue = 0;
+                        if (int.TryParse(OnheStufe.Trim(), out Ivalue))
+                        {
+                            int iNewOZ = Ivalue - ObjEProject.LVSprunge;
+                            int iTemp = 0;
+                            if (iNewOZ <= 0)
+                            {
+                                iTemp = Ivalue - 1;
+                                if (iTemp <= 0)
+                                    throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                else
+                                    strNewOZ = iTemp.ToString() + ".";
+                            }
+                            else
+                                strNewOZ = iNewOZ.ToString() + ".";
+                        }
+                        else
+                            throw new Exception("Please select the copy mode OR target location");
+                    }
+                    else
+                        throw new Exception("Please select the copy mode OR target location");
+                }
+                else if (rgDropMode.SelectedIndex == 1)
+                {
+                    string[] OZList = PositionOZ.Split('.');
+                    if (OZList != null && OZList.Count() > 0)
+                    {
+                        string OnheStufe = OZList[OZList.Count() - 2];
+                        int Ivalue = 0;
+                        if (int.TryParse(OnheStufe.Trim(), out Ivalue))
+                        {
+                            int iNewOZ = Ivalue + ObjEProject.LVSprunge;
+                            strNewOZ = iNewOZ.ToString() + ".";
+                        }
+                        else
+                            throw new Exception("Please select the copy mode OR target location");
+                    }
+                    else
+                        throw new Exception("Please select the copy mode OR target location");
+                }
+                else
+                {
+                    if (string.IsNullOrEmpty(strNextLV))
+                    {
+                        string[] OZList = PositionOZ.Split('.');
+                        if (OZList != null && OZList.Count() > 0)
+                        {
+                            string OnheStufe = OZList[OZList.Count() - 2];
+                            int Ivalue = 0;
+                            if (int.TryParse(OnheStufe.Trim(), out Ivalue))
+                            {
+                                int iNewOZ = Ivalue + ObjEProject.LVSprunge;
+                                strNewOZ = iNewOZ.ToString() + ".";
+                            }
+                            else
+                                throw new Exception("Please select the copy mode OR target location");
+                        }
+                        else
+                            throw new Exception("Please select the copy mode OR target location");
+                    }
+                    else
+                    {
+                        string[] OZList = PositionOZ.Split('.');
+                        string[] NextOZList = strNextLV.Split('.');
+                        if (OZList != null && OZList.Count() > 0)
+                        {
+                            string SelectedOnheStufe = OZList[OZList.Count() - 2];
+                            string NextOnheStufe = NextOZList[NextOZList.Count() - 2];
+                            int ISelectedvalue = 0;
+                            int INextLVValue = 0;
+                            if (int.TryParse(SelectedOnheStufe.Trim(), out ISelectedvalue))
+                            {
+                                int iTemp = ISelectedvalue + ObjEProject.LVSprunge;
+                                if (int.TryParse(NextOnheStufe.Trim(), out INextLVValue))
+                                {
+                                    if (iTemp < INextLVValue)
+                                    {
+                                        strNewOZ = iTemp.ToString() + ".";
+                                    }
+                                    else if (iTemp >= INextLVValue)
+                                    {
+                                        int INewValue = ISelectedvalue + 1;
+                                        if (INewValue == INextLVValue)
+                                        {
+                                            string strIndex = "";
+                                            int iIndex = 0;
+                                            strIndex = OZList[OZList.Count() - 1];
+                                            if (int.TryParse(strIndex.Trim(), out iIndex))
+                                            {
+                                                string strNextIndex = NextOZList[NextOZList.Count() - 1];
+                                                int iNextOzIndex = 0;
+                                                if (int.TryParse(strNextIndex, out iNextOzIndex))
+                                                {
+                                                    if (iNextOzIndex != iIndex + 1)
+                                                    {
+                                                        if (iIndex < 9)
+                                                            strNewOZ = ISelectedvalue.ToString() + "." + (iIndex + 1).ToString();
+                                                        else
+                                                            throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                    }
+                                                    else
+                                                        throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                }
+                                                else
+                                                {
+                                                    if (iIndex < 9)
+                                                        strNewOZ = ISelectedvalue.ToString() + "." + (iIndex + 1).ToString();
+                                                    else
+                                                        throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                }
+                                            }
+                                            else
+                                            {
+                                                string strNextIndex = NextOZList[NextOZList.Count() - 1];
+                                                int iNextOzIndex = 0;
+                                                if (int.TryParse(strNextIndex, out iNextOzIndex))
+                                                {
+                                                    if (iNextOzIndex != iIndex + 1)
+                                                    {
+                                                        if (iIndex < 9)
+                                                            strNewOZ = ISelectedvalue.ToString() + "." + (iIndex + 1).ToString();
+                                                        else
+                                                            throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                    }
+                                                    else
+                                                    {
+                                                        throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    if (iIndex < 9)
+                                                        strNewOZ = ISelectedvalue.ToString() + "." + (iIndex + 1).ToString();
+                                                    else
+                                                        throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                }
+                                            }
+                                        }
+                                        else if (INewValue < INextLVValue)
+                                            strNewOZ = INewValue.ToString() + ".";
+                                        else
+                                            throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                    }
+                                }
+                                else
+                                {
+                                    strNewOZ = iTemp.ToString();
+                                }
+                            }
+                            else
+                                throw new Exception("Please select the copy mode OR target location");
+                        }
+                        else
+                            throw new Exception("Please select the copy mode OR target location");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return strNewOZ;
+        }
 
         #endregion
 
@@ -7425,9 +7753,5 @@ e.Column.FieldName == "GB")
         {
             gvMulti5.UpdateGroupSummary();
         }
-
-
-
-
     }
 }
