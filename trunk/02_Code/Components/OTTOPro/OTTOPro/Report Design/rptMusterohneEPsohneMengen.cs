@@ -45,14 +45,14 @@ namespace OTTOPro.Report_Design
                 if (double.TryParse(xrLblGB.Text, out GValue))
                     GBValue = GValue;
                 double _result = Convert.ToDouble((GBValue * totalvat) / 100);
-                xrLblTotalVat.Text = Convert.ToString(_result);
+                xrLblTotalVat.Text = Convert.ToDouble(_result).ToString("n2");
 
                 if (double.TryParse(xrLblGB.Text, out Value1))
                     GB1 = Value1;
                 if (double.TryParse(xrLblTotalVat.Text, out Value2))
                     GBWithVat = Value2;
                 double _resultVat = Convert.ToDouble(GB1 + GBWithVat);
-                xrLabelFinalResult.Text = Convert.ToString(_resultVat);
+                xrLabelFinalResult.Text = Convert.ToDouble(_resultVat).ToString("n2");
             }
             catch (Exception ex)
             {

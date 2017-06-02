@@ -82,6 +82,7 @@
             // 
             // cmbLVSection
             // 
+            this.cmbLVSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLVSection.Enabled = false;
             this.cmbLVSection.FormattingEnabled = true;
             this.cmbLVSection.Location = new System.Drawing.Point(153, 110);
@@ -115,8 +116,10 @@
             // 
             this.cmbFormatType.Location = new System.Drawing.Point(153, 86);
             this.cmbFormatType.Name = "cmbFormatType";
+            this.cmbFormatType.Properties.AllowMouseWheel = false;
             this.cmbFormatType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbFormatType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbFormatType.Size = new System.Drawing.Size(292, 20);
             this.cmbFormatType.StyleController = this.layoutControl1;
             this.cmbFormatType.TabIndex = 7;

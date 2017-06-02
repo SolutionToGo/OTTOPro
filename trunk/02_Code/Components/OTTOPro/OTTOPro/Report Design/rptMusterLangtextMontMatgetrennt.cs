@@ -185,7 +185,7 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport1.GetCurrentColumnValue("GB") != DBNull.Value)
                     totalFinalGB += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("GB"));
-                xrLblGB.Text = Convert.ToString(totalFinalGB);
+                xrLblGB.Text = Convert.ToDouble(totalFinalGB).ToString("n2");
             }
             catch (Exception ex)
             {
@@ -237,7 +237,7 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport1.GetCurrentColumnValue("MoPrice") != DBNull.Value)
                     totalFinalMOPrice += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MoPrice"));
-                xrLblMO.Text = Convert.ToString(totalFinalMOPrice);
+                xrLblMO.Text = Convert.ToDouble(totalFinalMOPrice).ToString("n2");
             }
             catch (Exception ex)
             {
@@ -263,7 +263,7 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport1.GetCurrentColumnValue("MAPrice") != DBNull.Value)
                     totalFinalMAPrice += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MAPrice"));
-                xrLblMA.Text = Convert.ToString(totalFinalMAPrice);
+                xrLblMA.Text = Convert.ToDouble(totalFinalMAPrice).ToString("n2");
             }
             catch (Exception ex)
             {
@@ -291,20 +291,21 @@ namespace OTTOPro.Report_Design
                 if (double.TryParse(xrLblGB.Text, out GValue))
                     GBValue = GValue;
                 double _result = Convert.ToDouble((GBValue * totalvat) / 100);
-                xrLblTotalVat.Text = Convert.ToString(_result);
+                xrLblTotalVat.Text = Convert.ToDouble(_result).ToString("n2");
 
                 if (double.TryParse(xrLblGB.Text, out Value1))
                     GB1 = Value1;
                 if (double.TryParse(xrLblTotalVat.Text, out Value2))
                     GBWithVat = Value2;
                 double _resultVat = Convert.ToDouble(GB1 + GBWithVat);
-                xrLabelFinalResult.Text = Convert.ToString(_resultVat);
+                xrLabelFinalResult.Text = Convert.ToDouble(_resultVat).ToString("n2");
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
+
 
        
 

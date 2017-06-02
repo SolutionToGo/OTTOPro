@@ -1632,7 +1632,7 @@ namespace OTTOPro
             chkLockHierarchy.Enabled = false;
             txtRemarks.Enabled = false;
             txtLVSprunge.Enabled = false;
-
+            chkCumulated.Enabled = false;
         }
 
         private void btnSaveLVDetails_Click(object sender, EventArgs e)
@@ -3292,15 +3292,18 @@ namespace OTTOPro
         {
             if (keyData == (Keys.F9))
             {
-                if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
+                    if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
+                    {
+                        btnSaveLVDetails.PerformClick();
+                        return true;
+                    }
+                if (txtkommissionNumber.Text == string.Empty)
                 {
-                    btnSaveLVDetails.PerformClick();
-                    return true;
-                }
-                if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails")
-                {
-                    btnProjectSave_Click(null, null);
-                    return true;
+                    if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails")
+                    {
+                        btnProjectSave_Click(null, null);
+                        return true;
+                    }
                 }
             }
             if (keyData == (Keys.PageDown))
@@ -5391,7 +5394,7 @@ e.Column.FieldName == "GB")
 
         private void txtWI_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar))
+            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
                 e.Handled = true;
             if (e.KeyChar == (char)Keys.Enter)
                 txtWI_Leave(null, null);
@@ -5561,6 +5564,7 @@ e.Column.FieldName == "GB")
                         objBGAEB = new BGAEB();
                     DataTable dtLVSection = new DataTable();
                     cmbLVSectionFilter.Properties.Items.Clear();
+                    gcMulti5.DataSource = null;
                     dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
                     foreach (DataRow dr in dtLVSection.Rows)
                     {
@@ -5588,7 +5592,8 @@ e.Column.FieldName == "GB")
                     if (objBGAEB == null)
                         objBGAEB = new BGAEB();
                     DataTable dtLVSection = new DataTable();
-                    cmbLVSectionFilter.Properties.Items.Clear();
+                    cmbMulti6LVFilter.Properties.Items.Clear();
+                    gcMulti6.DataSource = null;
                     dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
                     foreach (DataRow dr in dtLVSection.Rows)
                     {
@@ -5802,6 +5807,7 @@ e.Column.FieldName == "GB")
         {
             try
             {
+                int MaxValue = 0;
                 GridControl grid = sender as GridControl;
                 DataTable table = grid.DataSource as DataTable;
                 DataRow row = e.Data.GetData(typeof(DataRow)) as DataRow;
@@ -5809,14 +5815,18 @@ e.Column.FieldName == "GB")
                 {
                     object strPositionID = row["PositionID"].ToString();
                     DataRow[] foundRows = table.Select("PositionID = '" + strPositionID + "'");
+                    if(table.Rows.Count >0)
+                    {
+                        MaxValue = Convert.ToInt32(table.Compute("MAX([SNO])", string.Empty));
+                    }                    
                     if (foundRows.Count() <= 0)
                     {
+                        
                         DataRow drTemp = table.NewRow();
                         drTemp.ItemArray = row.ItemArray.Clone() as object[];
                         drTemp["Menge"] = 0;
-                        drTemp["SNO"] = SNO;
+                        drTemp["SNO"] = MaxValue +1;
                         table.Rows.Add(drTemp);
-                        SNO++;
                         Utility.Setfocus(gvDelivery, "PositionID", Convert.ToInt32(strPositionID));
                     }
                     else
@@ -5985,7 +5995,7 @@ e.Column.FieldName == "GB")
                 if (notSavedQnty != 0 && notSavedQnty > AvailedQnty)
                 {
                     XtraMessageBox.Show("Total Quantity Exceeding Ordered Quantity");
-                    gvDelivery.SetFocusedRowCellValue("Menge", 0);
+                    //gvDelivery.SetFocusedRowCellValue("Menge", notSavedQnty);
                 }
             }
             catch (Exception ex)
@@ -6037,6 +6047,13 @@ e.Column.FieldName == "GB")
                 int iRowHandle = gvDelivery.FocusedRowHandle;
                 DataTable table = gcDelivery.DataSource as DataTable;
                 table.Rows.RemoveAt(iRowHandle);
+
+                int SNo = 1;
+                foreach(DataRow row in table.Rows)
+                {                    
+                    row["SNO"] = SNo;
+                    SNo++;
+                }
             }
             catch (Exception ex)
             {
@@ -7403,6 +7420,12 @@ e.Column.FieldName == "GB")
 
 
         #endregion
+
+        private void gvMulti5_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            gvMulti5.UpdateGroupSummary();
+        }
+
 
 
 

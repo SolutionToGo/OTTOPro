@@ -31,7 +31,7 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport1.GetCurrentColumnValue("GB") != DBNull.Value)
                     totalUnits += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("GB"));
-                xrLblGB.Text = Convert.ToString(totalUnits);
+                xrLblGB.Text = Convert.ToDouble(totalUnits).ToString("n2");
             }
             catch (Exception ex)
             {
@@ -56,7 +56,7 @@ namespace OTTOPro.Report_Design
             try
             {
                 if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                    xrLabelGB2.Text += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+                    totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
             }
             catch (Exception ex)
             {
@@ -84,14 +84,14 @@ namespace OTTOPro.Report_Design
                 if (double.TryParse(xrLblGB.Text, out GValue))
                     GBValue = GValue;
                 double _result = Convert.ToDouble((GBValue * totalvat) / 100);
-                xrLblTotalVat.Text = Convert.ToString(_result);
+                xrLblTotalVat.Text = Convert.ToDouble(_result).ToString("n2");
 
                 if (double.TryParse(xrLblGB.Text, out Value1))
                     GB1 = Value1;
                 if (double.TryParse(xrLblTotalVat.Text, out Value2))
                     GBWithVat = Value2;
                 double _resultVat = Convert.ToDouble(GB1 + GBWithVat);
-                xrLabelFinalResult.Text = Convert.ToString(_resultVat);
+                xrLabelFinalResult.Text = Convert.ToDouble(_resultVat).ToString("n2");
             }
             catch (Exception ex)
             {
@@ -99,6 +99,33 @@ namespace OTTOPro.Report_Design
             }
         }
 
+        double totalUnits1 = 0;
+        private void xrLabel23_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalUnits1;
+            e.Handled = true;
+        }
+
+        private void xrLabel23_SummaryReset(object sender, EventArgs e)
+        {
+            totalUnits1 = 0;
+        }
+
+        private void xrLabel23_SummaryRowChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                    totalUnits1 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+
+       
 
 //*********************
     }

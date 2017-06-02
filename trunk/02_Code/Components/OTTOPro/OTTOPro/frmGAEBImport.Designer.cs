@@ -70,6 +70,7 @@
             // 
             // cmbLVSection
             // 
+            this.cmbLVSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLVSection.Enabled = false;
             this.cmbLVSection.FormattingEnabled = true;
             this.cmbLVSection.Location = new System.Drawing.Point(105, 38);
