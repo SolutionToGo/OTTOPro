@@ -115,19 +115,19 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>5Q9s95gYzfgZExkaEe0BJHCion1TCzI8tG0UlrAOA4M=</dsig:DigestValue>
+        <dsig:DigestValue>y1XYCoUP3vUec/AqG3f6AOYRqYlnWs/iKl68zg7tLbQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataAccess.dll" size="57344">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataAccess.dll" size="58368">
       <assemblyIdentity name="DataAccess" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>EsdfGUrEu+MWQyNWv8QpWVA8OTVGVMfbHdL7x9pUatM=</dsig:DigestValue>
+        <dsig:DigestValue>GoPtlWUE9QhLxR7ZwPLVz9QUXeM/0kXv/UEYram268w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1819,7 +1819,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>cmztszbz62dD3NQw06kFng359SBScFx8PPbKWl/zyGU=</dsig:DigestValue>
+        <dsig:DigestValue>RGu2Om0mMNsx9d+RFI1KNrpL/d3BJPcwKtEVQo7jkXw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1831,7 +1831,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zGvVDJXY2BVNhDjxlXee61h8JuKDhyL+3Dxnr+75cJk=</dsig:DigestValue>
+        <dsig:DigestValue>dSPHeTrRVSpArpY9HGcTwGhqlMZr6uOx3pqhmLfHFuQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -1908,14 +1908,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OTTOPro.exe" size="2166272">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="OTTOPro.exe" size="2173440">
       <assemblyIdentity name="OTTOPro" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>JV3nZEapsZTHV628cByFRsPJBDOQkKyLsyooSztr7DY=</dsig:DigestValue>
+        <dsig:DigestValue>8pSrlDBCpPIfbyelQcAj7eBB1drPlThY7lufQzrCTP8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

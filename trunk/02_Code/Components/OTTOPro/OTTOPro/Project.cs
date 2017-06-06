@@ -7200,7 +7200,7 @@ e.Column.FieldName == "GB")
                     lookUpEditOldProject.Properties.DisplayMember = "ProjectNumber";
                     lookUpEditOldProject.Properties.ValueMember = "ProjectID";
 
-                    lblNewProject.Text = ObjEProject.ProjectNumber;
+                    label25.Text = "New Project : " + ObjEProject.ProjectNumber;
                     ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(ObjEProject.ProjectID));
                     if (ObjEPosition.dsPositionList != null && ObjEPosition.dsPositionList.Tables.Count > 0)
                     {

@@ -154,5 +154,24 @@ namespace EL
             get { return _dtUserDetails; }
             set { _dtUserDetails = value; }
         }
+        private bool _IsAdmin;
+        private string _OldPassword = string.Empty;
+        private string _NewPassword = string.Empty;
+
+        public bool IsAdmin
+        {
+            get { return _IsAdmin; }
+            set { _IsAdmin = value; }
+        }
+        public string OldPassword
+        {
+            get { return _OldPassword; }
+            set { _OldPassword = value; }
+        }
+        public string NewPassword
+        {
+            get { return _NewPassword; }
+            set { _NewPassword = value; }
+        }
     }
 }

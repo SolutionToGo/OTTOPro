@@ -338,5 +338,18 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void btnChangePassword_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                frmResetPassword Obj = new frmResetPassword();
+                Obj.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

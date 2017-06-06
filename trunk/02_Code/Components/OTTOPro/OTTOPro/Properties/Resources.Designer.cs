@@ -703,6 +703,16 @@ namespace OTTOPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Status_dialog_password_icon {
+            get {
+                object obj = ResourceManager.GetObject("Status-dialog-password-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap TextBox_16x16 {
             get {
                 object obj = ResourceManager.GetObject("TextBox_16x16", resourceCulture);

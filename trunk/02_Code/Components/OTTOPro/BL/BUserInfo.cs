@@ -151,5 +151,18 @@ namespace BL
             }
             return ObjEUserInfo;
         }
+
+        public EUserInfo ResetPassword(EUserInfo ObjEUserInfo)
+        {
+            try
+            {
+                ObjEUserInfo = ObjDUserInfo.ResetPassword(ObjEUserInfo);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEUserInfo;
+        }
     }
 }

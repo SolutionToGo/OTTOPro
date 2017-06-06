@@ -1005,12 +1005,10 @@
             this.treeListColumn65 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn102 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.label25 = new System.Windows.Forms.Label();
-            this.lblNewProject = new System.Windows.Forms.Label();
             this.lookUpEditOldProject = new DevExpress.XtraEditors.LookUpEdit();
             this.layoutControlGroup28 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem114 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem191 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem192 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem193 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem196 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem194 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -1707,7 +1705,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem192)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem193)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem196)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).BeginInit();
@@ -12931,7 +12928,6 @@
             this.layoutControl19.Controls.Add(this.tlOldProject);
             this.layoutControl19.Controls.Add(this.tlNewProject);
             this.layoutControl19.Controls.Add(this.label25);
-            this.layoutControl19.Controls.Add(this.lblNewProject);
             this.layoutControl19.Controls.Add(this.lookUpEditOldProject);
             this.layoutControl19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl19.Location = new System.Drawing.Point(0, 0);
@@ -12944,14 +12940,14 @@
             // 
             // rgDropMode
             // 
-            this.rgDropMode.Location = new System.Drawing.Point(129, 12);
+            this.rgDropMode.Location = new System.Drawing.Point(211, 12);
             this.rgDropMode.MenuManager = this.barManager1;
             this.rgDropMode.Name = "rgDropMode";
             this.rgDropMode.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Top LV in the Hierarchy"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Bottom LV in the Hierarchy"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Selected Location")});
-            this.rgDropMode.Size = new System.Drawing.Size(623, 25);
+            this.rgDropMode.Size = new System.Drawing.Size(541, 25);
             this.rgDropMode.StyleController = this.layoutControl19;
             this.rgDropMode.TabIndex = 35;
             // 
@@ -13889,18 +13885,9 @@
             this.label25.ForeColor = System.Drawing.Color.White;
             this.label25.Location = new System.Drawing.Point(12, 12);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(89, 25);
+            this.label25.Size = new System.Drawing.Size(195, 25);
             this.label25.TabIndex = 13;
             this.label25.Text = "New Project :";
-            // 
-            // lblNewProject
-            // 
-            this.lblNewProject.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNewProject.ForeColor = System.Drawing.Color.White;
-            this.lblNewProject.Location = new System.Drawing.Point(105, 12);
-            this.lblNewProject.Name = "lblNewProject";
-            this.lblNewProject.Size = new System.Drawing.Size(20, 25);
-            this.lblNewProject.TabIndex = 12;
             // 
             // lookUpEditOldProject
             // 
@@ -13923,7 +13910,6 @@
             this.layoutControlGroup28.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem114,
             this.layoutControlItem191,
-            this.layoutControlItem192,
             this.layoutControlItem193,
             this.layoutControlItem196,
             this.layoutControlItem194,
@@ -13954,21 +13940,13 @@
             this.layoutControlItem191.Text = "Old Project :";
             this.layoutControlItem191.TextSize = new System.Drawing.Size(76, 14);
             // 
-            // layoutControlItem192
-            // 
-            this.layoutControlItem192.Control = this.lblNewProject;
-            this.layoutControlItem192.Location = new System.Drawing.Point(93, 0);
-            this.layoutControlItem192.Name = "layoutControlItem192";
-            this.layoutControlItem192.Size = new System.Drawing.Size(24, 29);
-            this.layoutControlItem192.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem192.TextVisible = false;
-            // 
             // layoutControlItem193
             // 
             this.layoutControlItem193.Control = this.label25;
+            this.layoutControlItem193.ControlAlignment = System.Drawing.ContentAlignment.MiddleLeft;
             this.layoutControlItem193.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem193.Name = "layoutControlItem193";
-            this.layoutControlItem193.Size = new System.Drawing.Size(93, 29);
+            this.layoutControlItem193.Size = new System.Drawing.Size(199, 29);
             this.layoutControlItem193.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem193.TextVisible = false;
             // 
@@ -13993,9 +13971,9 @@
             // layoutControlItem197
             // 
             this.layoutControlItem197.Control = this.rgDropMode;
-            this.layoutControlItem197.Location = new System.Drawing.Point(117, 0);
+            this.layoutControlItem197.Location = new System.Drawing.Point(199, 0);
             this.layoutControlItem197.Name = "layoutControlItem197";
-            this.layoutControlItem197.Size = new System.Drawing.Size(627, 29);
+            this.layoutControlItem197.Size = new System.Drawing.Size(545, 29);
             this.layoutControlItem197.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem197.TextVisible = false;
             // 
@@ -14767,7 +14745,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup28)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem114)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem191)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem192)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem193)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem196)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem194)).EndInit();
@@ -15691,8 +15668,6 @@
         private DevExpress.XtraNavBar.NavBarItem nbCopyLVs;
         private DevExpress.XtraEditors.LookUpEdit lookUpEditOldProject;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem191;
-        private System.Windows.Forms.Label lblNewProject;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem192;
         private System.Windows.Forms.Label label25;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem193;
         private DevExpress.XtraTreeList.TreeList tlNewProject;

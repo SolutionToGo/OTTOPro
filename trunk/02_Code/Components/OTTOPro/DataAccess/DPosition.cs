@@ -647,7 +647,7 @@ namespace DataAccess
                 {
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_PositionList]";
+                    cmd.CommandText = "[P_Get_PositionList_Copy]";
                     cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {

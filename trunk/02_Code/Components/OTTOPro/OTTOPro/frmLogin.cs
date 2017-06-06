@@ -47,6 +47,21 @@ namespace OTTOPro
                 ObjEUserInfo.UserName = txtUserName.Text.ToLower();
                 ObjEUserInfo.Password = Utility.Encrypt(txtPassword.Text);
                 ObjEUserInfo = ObjBUserInfo.CheckUserCredentials(ObjEUserInfo);
+                
+                if(ObjEUserInfo.dtUserDetails.Rows.Count > 0)
+                {
+                    Utility.UserID = ObjEUserInfo.dtUserDetails.Rows[0]["UserID"] == DBNull.Value ? 0 : Convert.ToInt32(ObjEUserInfo.dtUserDetails.Rows[0]["UserID"]);
+                    Utility.UserName = ObjEUserInfo.dtUserDetails.Rows[0]["UserName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["UserName"]);
+                    Utility.FirstName = ObjEUserInfo.dtUserDetails.Rows[0]["FirstName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["FirstName"]);
+                    Utility.LastName = ObjEUserInfo.dtUserDetails.Rows[0]["LastName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["LastName"]);
+                    Utility.IsOTP = ObjEUserInfo.dtUserDetails.Rows[0]["IsOTP"] == DBNull.Value ? false : Convert.ToBoolean(ObjEUserInfo.dtUserDetails.Rows[0]["IsOTP"]);
+                }
+                if(Utility.IsOTP)
+                {
+                    frmResetPassword Obj = new frmResetPassword();
+                    Obj.ShowDialog();
+                    return;
+                }
                 if (ObjEUserInfo.dtFeature.Rows.Count <= 0)
                     throw new Exception("No Features Assigned For Selected User");
                 this.Hide();

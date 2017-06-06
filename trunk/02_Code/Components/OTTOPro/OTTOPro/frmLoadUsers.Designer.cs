@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
@@ -128,6 +128,7 @@
             this.txtUserName.Size = new System.Drawing.Size(285, 20);
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 12;
+            this.txtUserName.Tag = "UserName";
             // 
             // cmbRoleName
             // 
@@ -196,6 +197,7 @@
             this.gvUser.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvUser.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvUser.OptionsView.ShowGroupPanel = false;
+            this.gvUser.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvUser_PopupMenuShowing);
             // 
             // gridColumn1
             // 
@@ -279,7 +281,7 @@
             // 
             this.rpiEditbutton.AutoHeight = false;
             this.rpiEditbutton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Modify", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Modify", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
             this.rpiEditbutton.Name = "rpiEditbutton";
             this.rpiEditbutton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.rpiEditbutton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.rpiEditbutton_ButtonClick);
@@ -298,6 +300,7 @@
             this.txtFName.Size = new System.Drawing.Size(285, 20);
             this.txtFName.StyleController = this.layoutControl1;
             this.txtFName.TabIndex = 4;
+            this.txtFName.Tag = "First Name";
             // 
             // txtLName
             // 
@@ -306,6 +309,7 @@
             this.txtLName.Size = new System.Drawing.Size(285, 20);
             this.txtLName.StyleController = this.layoutControl1;
             this.txtLName.TabIndex = 5;
+            this.txtLName.Tag = "Last Name";
             // 
             // txtMobileNo
             // 
@@ -314,6 +318,7 @@
             this.txtMobileNo.Size = new System.Drawing.Size(285, 20);
             this.txtMobileNo.StyleController = this.layoutControl1;
             this.txtMobileNo.TabIndex = 8;
+            this.txtMobileNo.Tag = "Mobile Number";
             // 
             // txtMailId
             // 
@@ -322,6 +327,7 @@
             this.txtMailId.Size = new System.Drawing.Size(285, 20);
             this.txtMailId.StyleController = this.layoutControl1;
             this.txtMailId.TabIndex = 9;
+            this.txtMailId.Tag = "Email";
             // 
             // layoutControlGroup1
             // 
@@ -487,6 +493,7 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmLoadUsers";
             this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Load Users";
             this.Load += new System.EventHandler(this.frmLoadUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

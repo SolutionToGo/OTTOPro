@@ -340,5 +340,39 @@ namespace DataAccess
             }
             return ObjEUserInfo;
         }
+
+        public EUserInfo ResetPassword(EUserInfo ObjEUserInfo)
+        {
+            DataSet dsFeature = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_Password]";
+                    cmd.Parameters.AddWithValue("@UserID", ObjEUserInfo.UserID);
+                    cmd.Parameters.AddWithValue("@OldPassword", ObjEUserInfo.OldPassword);
+                    cmd.Parameters.AddWithValue("@NewPassword", ObjEUserInfo.NewPassword);
+                    cmd.Parameters.AddWithValue("@IsAdmin", ObjEUserInfo.IsAdmin);
+                    object Objreturn = cmd.ExecuteScalar();
+                    string str = Convert.ToString(Objreturn);
+                    if (!string.IsNullOrEmpty(str))
+                        throw new Exception(str);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Valid"))
+                    throw new Exception("Please Enter Valid Old Password");
+                else
+                    throw new Exception("Error While Resetting the Password");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEUserInfo;
+        }
     }
 }

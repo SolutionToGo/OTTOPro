@@ -19,6 +19,7 @@ namespace OTTOPro
     {
         EUserInfo ObjEUserInfo = new EUserInfo();
         BUserInfo ObjBUserInfo = new BUserInfo();
+        List<Control> RequiredFields = new List<Control>();
         int _IDValue = -1;
         int _RoleID = -1;
         public frmLoadUsers()
@@ -88,6 +89,9 @@ namespace OTTOPro
         {
             try
             {
+                RequiredFields.Add(txtUserName);
+                RequiredFields.Add(txtFName);
+                RequiredFields.Add(txtLName);
                 BindUserRoles();
                 BindUserData();
                 gvUser.BestFitColumns();
@@ -102,6 +106,8 @@ namespace OTTOPro
         {
             try
             {
+                if (!Utility.ValidateRequiredFields(RequiredFields))
+                    return;
                 if (ObjEUserInfo == null)
                     ObjEUserInfo = new EUserInfo();
                 ParseUserDetails();
@@ -222,6 +228,45 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+
+        private void gvUser_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Reset Password", ResetPassword_ItemClick));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void ResetPassword_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjBUserInfo == null)
+                    ObjBUserInfo = new BUserInfo();
+                if (ObjEUserInfo == null)
+                    ObjEUserInfo = new EUserInfo();
+                string strUserID = gvUser.GetFocusedRowCellValue("UserID").ToString();
+                string strPassword = Utility.Encrypt("Password@1234");
+                int IValue = 0;
+                if(int.TryParse(strUserID,out IValue))
+                {
+                    ObjEUserInfo.UserID = IValue;
+                    ObjEUserInfo.NewPassword = strPassword;
+                    ObjEUserInfo.IsAdmin = true;
+                    ObjEUserInfo = ObjBUserInfo.ResetPassword(ObjEUserInfo);
+                    Utility.ShowSucces("Password Reset Done successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
     }

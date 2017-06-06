@@ -260,6 +260,7 @@
             this.ClientSize = new System.Drawing.Size(809, 693);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmFeature";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feature";
             this.Load += new System.EventHandler(this.frmFeature_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

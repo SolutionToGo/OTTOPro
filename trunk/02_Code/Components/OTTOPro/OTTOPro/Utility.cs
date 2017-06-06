@@ -255,5 +255,11 @@ namespace OTTOPro
             Utility sec = new Utility();
             return sec.EncryptInner(input);
         }
+
+        public static int UserID;
+        public static string UserName;
+        public static string FirstName;
+        public static string LastName;
+        public static bool IsOTP;
     }
 }

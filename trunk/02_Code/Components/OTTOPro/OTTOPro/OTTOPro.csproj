@@ -308,6 +308,12 @@
     <Compile Include="frmRabattGroup.Designer.cs">
       <DependentUpon>frmRabattGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmResetPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResetPassword.Designer.cs">
+      <DependentUpon>frmResetPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSaveDimension.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -543,6 +549,9 @@
     <EmbeddedResource Include="frmRabattGroup.resx">
       <DependentUpon>frmRabattGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmResetPassword.resx">
+      <DependentUpon>frmResetPassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSaveDimension.resx">
       <DependentUpon>frmSaveDimension.cs</DependentUpon>
     </EmbeddedResource>
@@ -707,6 +716,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Status-dialog-password-icon.png" />
     <None Include="Resources\Save-icon %281%29.png" />
     <None Include="Resources\Save-icon.png" />
     <None Include="Resources\Multi6.png" />
@@ -779,12 +789,12 @@
   <ItemGroup>
     <PublishFile Include="ru\DevExpress.RichEdit.v16.2.Core.resources">
       <Visible>False</Visible>
+      <PublishState>Exclude</PublishState>
+      <IncludeHash>True</IncludeHash>
       <Group>
       </Group>
       <TargetPath>
       </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
       <FileType>Satellite</FileType>
     </PublishFile>
   </ItemGroup>
