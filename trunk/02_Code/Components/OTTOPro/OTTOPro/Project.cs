@@ -2544,6 +2544,14 @@ namespace OTTOPro
                 }
                 chkVerkaufspreisME.Checked = false;
                 chkVerkaufspreisMO.Checked = false;
+                txtWG.Text = string.Empty;
+                txtWA.Text = string.Empty;
+                txtWI.Text = string.Empty;
+                txtDim1.Text = string.Empty;
+                txtDim2.Text = string.Empty;
+                txtDim3.Text = string.Empty;
+                txtMin.Text = "0";
+                txtLPMe.Text = "0";
             }
             catch (Exception ex)
             {
@@ -3534,14 +3542,7 @@ namespace OTTOPro
             }
             catch (Exception ex)
             {
-                if (Utility._IsGermany == true)
-                {
-                    throw new Exception("Fehler beim Löschen der LV Position");
-                }
-                else
-                {
-                    throw new Exception("Error While Deleting Position");
-                }
+                Utility.ShowError(ex);
             }
         }
 

@@ -432,6 +432,7 @@ namespace DataAccess
 
         public void DeletePosition(int PositionID)
         {
+            string strError = string.Empty;
             try
             {
                 using (SqlCommand cmd = new SqlCommand())
@@ -440,18 +441,28 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Del_Position]";
                     cmd.Parameters.AddWithValue("@PositionID", PositionID);
-                    cmd.ExecuteNonQuery();
+                    object ObjReturn = cmd.ExecuteScalar();
+                    if(!string.IsNullOrEmpty(Convert.ToString(ObjReturn)))
+                    {
+                        throw new Exception(Convert.ToString(ObjReturn));
+                    }
                 }
             }
             catch (Exception ex)
             {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                if (ex.Message.Contains("Positions"))
                 {
-                    throw new Exception("Fehler beim Löschen der Positionen");
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Selected Position Is Having DetailKZ Positions");
+                    else
+                        throw new Exception("Selected Position Is Having DetailKZ Positions");
                 }
                 else
                 {
-                    throw new Exception("Error while Deleting Position");
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Löschen der Positionen");
+                    else
+                        throw new Exception("Error while Deleting Position");
                 }
             }
         }
