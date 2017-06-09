@@ -213,15 +213,10 @@ namespace OTTOPro
 
         private void txtShortName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (txtShortName.Text.Length >= 0 && e.KeyChar == ' ')
-            {
-                e.Handled = true;
-            }
-            else
-            {
+            if (e.KeyChar != ' ' && !Char.IsDigit(e.KeyChar))
                 e.Handled = false;
-            }
-            e.KeyChar = Char.ToUpper(e.KeyChar);
+            else
+                e.Handled = true;
         }
 
 
