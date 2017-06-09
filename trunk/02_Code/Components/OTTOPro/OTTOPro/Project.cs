@@ -3357,6 +3357,13 @@ namespace OTTOPro
                     txtSelbstkostenMultiMO.Text = tlPositions.FocusedNode.GetValue("MO_selbstkostenMulti").ToString();
                     txtVerkaufspreisMultiMO.Text = tlPositions.FocusedNode.GetValue("MO_verkaufspreisMulti").ToString();
 
+                    txtWG.Text = tlPositions.FocusedNode.GetValue("WG").ToString();
+                    txtWA.Text = tlPositions.FocusedNode.GetValue("WA").ToString();
+                    txtWI.Text = tlPositions.FocusedNode.GetValue("WI").ToString();
+                    txtMenge.Text = tlPositions.FocusedNode.GetValue("Menge").ToString();
+                    txtWI_Leave(null, null);
+
+
                     btnSaveLVDetails_Click(null, null);
 
                 }
@@ -3375,10 +3382,14 @@ namespace OTTOPro
                 if (chkCreateNew.Checked == true)
                 {
                     tlPositions.OptionsBehavior.ReadOnly = true;
+                    Color _Color = Color.FromArgb(255, 183, 0);
+                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
                 }
                 else
                 {
                     tlPositions.OptionsBehavior.ReadOnly = false;
+                    Color _Color = Color.FromArgb(0, 158, 224);
+                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
                 }
             }
             catch (Exception)
@@ -6790,6 +6801,7 @@ e.Column.FieldName == "GB")
                                     }
                                 }
                             }
+                            CalculateSupplierColumns();
                             gvSupplier.BestFitColumns();
                             gvSupplier_FocusedRowChanged(null, null);
                         }
@@ -7827,7 +7839,6 @@ e.Column.FieldName == "GB")
             }
         }
 
-        string _strSupplierShortName = null;
         DataTable _dtSuppliermail = new DataTable();
         private void gvProposedSupplier_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {

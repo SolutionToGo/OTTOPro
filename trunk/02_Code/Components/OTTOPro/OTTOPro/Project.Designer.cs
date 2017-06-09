@@ -73,7 +73,7 @@
             this.txtShortDescription = new System.Windows.Forms.RichTextBox();
             this.txtLVPosition = new DevExpress.XtraEditors.TextEdit();
             this.lciStufe1Title = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.LCGLVDetails = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciStufe1Short = new DevExpress.XtraLayout.LayoutControlItem();
             this.lciStufe2Short = new DevExpress.XtraLayout.LayoutControlItem();
@@ -313,6 +313,7 @@
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn6 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn64 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.rpArticles = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.treeListColumn63 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn62 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.ME = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -1061,7 +1062,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStufe2Short.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLVPosition.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStufe1Title)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LCGLVDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStufe1Short)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStufe2Short)).BeginInit();
@@ -1287,6 +1288,7 @@
             this.xtraTabControl1.SuspendLayout();
             this.xtraTabPageHierachical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tlPositions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpArticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiMulti1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCreateNew.Properties)).BeginInit();
@@ -1792,7 +1794,7 @@
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(210, 289, 250, 350);
             this.layoutControl3.OptionsView.ControlDefaultMaxSizeCalcMode = DevExpress.XtraLayout.ControlMaxSizeCalcMode.UseControlMaximumSizeIfNotZero;
-            this.layoutControl3.Root = this.layoutControlGroup3;
+            this.layoutControl3.Root = this.LCGLVDetails;
             this.layoutControl3.Size = new System.Drawing.Size(487, 494);
             this.layoutControl3.TabIndex = 37;
             this.layoutControl3.Text = "layoutControl3";
@@ -2282,13 +2284,13 @@
             this.lciStufe1Title.TextSize = new System.Drawing.Size(0, 0);
             this.lciStufe1Title.TextVisible = false;
             // 
-            // layoutControlGroup3
+            // LCGLVDetails
             // 
-            this.layoutControlGroup3.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControlGroup3.AppearanceGroup.Options.UseBackColor = true;
-            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup3.GroupBordersVisible = false;
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.LCGLVDetails.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.LCGLVDetails.AppearanceGroup.Options.UseBackColor = true;
+            this.LCGLVDetails.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.LCGLVDetails.GroupBordersVisible = false;
+            this.LCGLVDetails.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem4,
             this.lciStufe1Short,
             this.lciStufe2Short,
@@ -2335,11 +2337,11 @@
             this.emptySpaceItem5,
             this.emptySpaceItem9,
             this.emptySpaceItem36});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup3.Name = "Root";
-            this.layoutControlGroup3.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignWithChildren;
-            this.layoutControlGroup3.Size = new System.Drawing.Size(487, 494);
-            this.layoutControlGroup3.TextVisible = false;
+            this.LCGLVDetails.Location = new System.Drawing.Point(0, 0);
+            this.LCGLVDetails.Name = "LCGLVDetails";
+            this.LCGLVDetails.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignWithChildren;
+            this.LCGLVDetails.Size = new System.Drawing.Size(487, 494);
+            this.LCGLVDetails.TextVisible = false;
             // 
             // layoutControlItem4
             // 
@@ -5644,7 +5646,8 @@
             this.tlPositions.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
             this.tlPositions.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEdit,
-            this.rpiMulti1});
+            this.rpiMulti1,
+            this.rpArticles});
             this.tlPositions.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
             this.tlPositions.Size = new System.Drawing.Size(1456, 48);
             this.tlPositions.TabIndex = 30;
@@ -5654,7 +5657,6 @@
             this.tlPositions.CustomDrawColumnHeader += new DevExpress.XtraTreeList.CustomDrawColumnHeaderEventHandler(this.tlPositions_CustomDrawColumnHeader);
             this.tlPositions.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.tlPositions_PopupMenuShowing);
             this.tlPositions.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.tlPositions_CellValueChanged);
-            this.tlPositions.EditorKeyDown += new System.Windows.Forms.KeyEventHandler(this.tlPositions_EditorKeyDown);
             this.tlPositions.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tlPositions_KeyDown);
             // 
             // treeListColumn10
@@ -5726,21 +5728,28 @@
             // treeListColumn64
             // 
             this.treeListColumn64.Caption = "WG";
+            this.treeListColumn64.ColumnEdit = this.rpArticles;
             this.treeListColumn64.FieldName = "WG";
             this.treeListColumn64.Name = "treeListColumn64";
             this.treeListColumn64.OptionsColumn.FixedWidth = true;
-            this.treeListColumn64.OptionsColumn.ReadOnly = true;
             this.treeListColumn64.Visible = true;
             this.treeListColumn64.VisibleIndex = 4;
             this.treeListColumn64.Width = 50;
             // 
+            // rpArticles
+            // 
+            this.rpArticles.AutoHeight = false;
+            this.rpArticles.Mask.EditMask = "n0";
+            this.rpArticles.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpArticles.Name = "rpArticles";
+            // 
             // treeListColumn63
             // 
             this.treeListColumn63.Caption = "WA";
+            this.treeListColumn63.ColumnEdit = this.rpArticles;
             this.treeListColumn63.FieldName = "WA";
             this.treeListColumn63.Name = "treeListColumn63";
             this.treeListColumn63.OptionsColumn.FixedWidth = true;
-            this.treeListColumn63.OptionsColumn.ReadOnly = true;
             this.treeListColumn63.Visible = true;
             this.treeListColumn63.VisibleIndex = 5;
             this.treeListColumn63.Width = 50;
@@ -5748,10 +5757,10 @@
             // treeListColumn62
             // 
             this.treeListColumn62.Caption = "WI";
+            this.treeListColumn62.ColumnEdit = this.rpArticles;
             this.treeListColumn62.FieldName = "WI";
             this.treeListColumn62.Name = "treeListColumn62";
             this.treeListColumn62.OptionsColumn.FixedWidth = true;
-            this.treeListColumn62.OptionsColumn.ReadOnly = true;
             this.treeListColumn62.Visible = true;
             this.treeListColumn62.VisibleIndex = 6;
             this.treeListColumn62.Width = 50;
@@ -5773,11 +5782,11 @@
             this.treeListColumn3.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
             this.treeListColumn3.AppearanceHeader.Options.UseFont = true;
             this.treeListColumn3.Caption = "Menge";
+            this.treeListColumn3.ColumnEdit = this.rpArticles;
             this.treeListColumn3.FieldName = "Menge";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.OptionsColumn.AllowSort = false;
             this.treeListColumn3.OptionsColumn.FixedWidth = true;
-            this.treeListColumn3.OptionsColumn.ReadOnly = true;
             this.treeListColumn3.RowFooterSummary = DevExpress.XtraTreeList.SummaryItemType.Sum;
             this.treeListColumn3.RowFooterSummaryStrFormat = "subtotal: {0:c0}";
             this.treeListColumn3.SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Sum;
@@ -11506,6 +11515,7 @@
             this.chkSupplierLists.Size = new System.Drawing.Size(611, 160);
             this.chkSupplierLists.StyleController = this.layoutControl14;
             this.chkSupplierLists.TabIndex = 25;
+            this.chkSupplierLists.ItemCheck += new DevExpress.XtraEditors.Controls.ItemCheckEventHandler(this.chkSupplierLists_ItemCheck);
             // 
             // label24
             // 
@@ -14266,7 +14276,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtStufe2Short.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtLVPosition.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStufe1Title)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.LCGLVDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStufe1Short)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lciStufe2Short)).EndInit();
@@ -14492,6 +14502,7 @@
             this.xtraTabControl1.ResumeLayout(false);
             this.xtraTabPageHierachical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlPositions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiMulti1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCreateNew.Properties)).EndInit();
@@ -15055,7 +15066,7 @@
         private DevExpress.XtraEditors.TextEdit txtStufe2Short;
         private System.Windows.Forms.RichTextBox txtShortDescription;
         private DevExpress.XtraEditors.TextEdit txtLVPosition;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.LayoutControlGroup LCGLVDetails;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem lciStufe1Short;
         private DevExpress.XtraLayout.LayoutControlItem lciStufe2Short;
@@ -15959,6 +15970,7 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit repositoryItemRichTextEdit3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem195;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem47;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpArticles;
 
 
     }
