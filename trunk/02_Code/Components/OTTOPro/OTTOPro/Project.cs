@@ -4992,7 +4992,7 @@ e.Column.FieldName == "GB")
                 ObjEMulti.ProjectID = ObjEProject.ProjectID;
                 ObjEMulti.LVSection = cmbLVSectionFilter.Text;
                 ObjEMulti = ObjBMulti.UpdateMulti5(ObjEMulti);
-                btnMulti5LoadArticles_Click(null, null);
+                //btnMulti5LoadArticles_Click(null, null);
                 BindPositionData();
             }
             catch (Exception EX)
@@ -5113,7 +5113,7 @@ e.Column.FieldName == "GB")
                 ObjEMulti.LVSection = cmbMulti6LVFilter.Text;
                 ObjEMulti.Type = cmbType.Text;
                 ObjEMulti = ObjBMulti.UpdateMulti6(ObjEMulti);
-                btnMulti6LoadArticles_Click(null, null);
+                //btnMulti6LoadArticles_Click(null, null);
                 BindPositionData();
             }
             catch (Exception EX)
@@ -5751,7 +5751,15 @@ e.Column.FieldName == "GB")
                     ObjTabDetails = tbSupplierProposal;
                     TabChange(ObjTabDetails);
                     FillLVSection();
-                    cmbLVSectionforSupplier.SelectedIndex = -1;
+                    GetWGWA();
+
+                    ObjESupplier.ProjectID = ObjEProject.ProjectID;
+                    ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
+                    gcProposedSupplier.DataSource = ObjESupplier.dtProposal;
+
+                    gcDeletedDetails.DataSource=null;
+                    gcProposedDetails.DataSource = null;
+                   // cmbLVSectionforSupplier.SelectedIndex = -1;
                 }
             }
             catch (Exception ex)
@@ -6452,49 +6460,15 @@ e.Column.FieldName == "GB")
         private void btnGeneratePDF_Click(object sender, EventArgs e)
         {
             try
-            {
-                if (chkSupplierLists.CheckedItems.Count == 0)
-                {
-                    if (!Utility._IsGermany)
-                        throw new Exception("Please select atleast one Supplier");
-                    else
-                        throw new Exception("Bitte wählen Sie mindestens einen Lieferanten aus");
-                }
-                if (gvLVDetailsforSupplier.DataRowCount==0)
-                {
-                    if (!Utility._IsGermany)
-                        throw new Exception("No Positions to generate.");
-                    else
-                        throw new Exception("Es wurden keine LV Positionen ausgewählt");
-                }
-                DataTable _dtPosition = ObjESupplier.dtNewPositions.Copy();
-                DataTable _dtDeletedPositions = ObjESupplier.dtDeletedPositions.Copy();
-
-                foreach(DataColumn dc in ObjESupplier.dtNewPositions.Columns)
-                {
-                    if(dc.ColumnName!="PositionID")
-                    {
-                        _dtPosition.Columns.Remove(dc.ColumnName);
-                        _dtDeletedPositions.Columns.Remove(dc.ColumnName);
-                    }
-                }
-
-                _dtSupplier = new DataTable();
-                _dtSupplier.Columns.Add("SupplierID");
-                foreach (object item in chkSupplierLists.CheckedItems)
-                {
-                    DataRowView row = item as DataRowView;
-                    DataRow dr = _dtSupplier.NewRow();
-                    dr["SupplierID"] = row["id"];
-                    _dtSupplier.Rows.Add(dr);
-                }
-                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier), _dtPosition, _dtSupplier, _dtDeletedPositions);
-                if (_ProposalID > 0)
-                {
+            {                
+                //if (_ProposalID > 0)
+                //{
                     Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
                     rpt.Parameters["ProposalID"].Value = _ProposalID;
                     rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+
+                    saveFileDialog1.FileName = ObjEProject.ProjectNumber;
 
                     saveFileDialog1.Filter = "PDF Files|*.pdf";
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
@@ -6506,18 +6480,7 @@ e.Column.FieldName == "GB")
                         }
                         _pdfpath = saveFileDialog1.FileName;
                     }
-                }
-                ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
-                if (ObjESupplier.dsSupplier != null)
-                {
-                    gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;
-                    gcDeletedDetails.DataSource = ObjESupplier.dtDeletedPositions;
-                    gcProposedDetails.DataSource = ObjESupplier.dtProposedPositions;
-
-                    gvLVDetailsforSupplier.BestFitColumns();
-                    gvDeletedDetails.BestFitColumns();
-                    gvProposedDetails.BestFitColumns();
-                }
+                //}                
             }
             catch (Exception ex)
             {
@@ -6531,6 +6494,13 @@ e.Column.FieldName == "GB")
             string delimiter = "";
             try
             {
+                if (chkSupplierLists.CheckedItems.Count == 0)
+                {
+                    if (!Utility._IsGermany)
+                        throw new Exception("Please select atleast one Supplier");
+                    else
+                        throw new Exception("Bitte wählen Sie mindestens einen Lieferanten aus");
+                }
                 Type officeType = Type.GetTypeFromProgID("Outlook.Application");
 
                 if (officeType == null)
@@ -6541,39 +6511,32 @@ e.Column.FieldName == "GB")
                 {
                     _Process = true;
                     btnGeneratePDF_Click(null, null);
-
-
-                    DataTable _dtSuppliermail = new DataTable();
-                    _dtSuppliermail.Columns.Add("Suppliermail");
-
-                    foreach (object Chkitem in chkSupplierLists.CheckedItems)
-                    {
-                        var row = (Chkitem as DataRowView).Row;
-                        DataRow dr = _dtSuppliermail.NewRow();
-                        dr["Suppliermail"] = row["SupplierMail"];
-                        _dtSuppliermail.Rows.Add(dr);
-                    }
+                    
                     Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
                     Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
-                    if (_dtSuppliermail.Rows.Count > 0)
+
+                    if (ObjESupplier.dtSupplierMail.Rows.Count > 0)
                     {
-                        foreach (DataRow dr in _dtSuppliermail.Rows)
-                        {                           
-                            
-                            if (dr["Suppliermail"].ToString() != null || dr["Suppliermail"].ToString() != "")
+                        foreach (DataRow dr in ObjESupplier.dtSupplierMail.Rows)
+                        {
+
+                            if (!string.IsNullOrEmpty(Convert.ToString(dr["Suppliermail"]).Trim()))
                             {
                                 strArr.Append(delimiter);
                                 strArr.Append(dr["Suppliermail"]);
                                 delimiter = ";";                                
                             }                           
                         }
-                        mailItem.Subject = "This is the subject";
-                        mailItem.BCC = strArr.ToString();
-                        mailItem.Body = "This is the message.";
+                        if(strArr.ToString().Contains('@'))
+                        {
+                            mailItem.Subject = "This is the subject";
+                            mailItem.BCC = strArr.ToString();
+                            mailItem.Body = "This is the message.";
 
-                        mailItem.Attachments.Add(_pdfpath);
-                        mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
-                        mailItem.Display(false);
+                            mailItem.Attachments.Add(_pdfpath);
+                            mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
+                            mailItem.Display(false);
+                        }
                     }
                 }               
 
@@ -6740,7 +6703,10 @@ e.Column.FieldName == "GB")
                     ObjTabDetails = tbUpdateSupplier;
                     TabChange(ObjTabDetails);
                     FillProposalNumbers();
-                    cmbLVSectionforSupplier.SelectedIndex = -1;
+                    cmbWGWA.SelectedIndex = -1;
+
+                    gcDeletedDetails.DataSource = null;
+                    gcProposedDetails.DataSource = null;
                 }
             }
             catch (Exception ex)
@@ -6756,7 +6722,7 @@ e.Column.FieldName == "GB")
                 ObjESupplier.ProjectID = ObjEProject.ProjectID;
                 ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
                 gcProposal.DataSource = ObjESupplier.dtProposal;
-            }
+           }
             catch (Exception ex)
             {
                 throw;
@@ -6818,10 +6784,12 @@ e.Column.FieldName == "GB")
                                 }
                             }
                         }
+                        CalculateSupplierColumns();
                         gvSupplier.BestFitColumns();
                         gvSupplier_FocusedRowChanged(null, null);
                     }
                 }
+                
             }
             catch (Exception ex)
             {
@@ -7105,6 +7073,7 @@ e.Column.FieldName == "GB")
                     ObjESupplier = ObjBSupplier.ChangeProposalView(ObjESupplier, edit.SelectedIndex);
                     gcSupplier.DataSource = ObjESupplier.dtPositions;
 
+                    CalculateSupplierColumns();
                 }
             }
             catch (Exception ex)
@@ -7167,6 +7136,40 @@ e.Column.FieldName == "GB")
                 throw;
             }
         }
+
+        private void CalculateSupplierColumns()
+        {
+            try
+            {
+                if (gvProposal.FocusedColumn != null && gvProposal.GetFocusedRowCellValue("SupplierProposalID") != null)
+                {
+                    string strSupplier = gvProposal.GetFocusedRowCellValue("Supplier") == DBNull.Value ? string.Empty : gvProposal.GetFocusedRowCellValue("Supplier").ToString();
+                    if (!string.IsNullOrEmpty(strSupplier))
+                    {
+                        string[] ShortName = strSupplier.Split(',');
+                        int TitleCount = ShortName.Count();
+
+                        foreach (string _str in ShortName)
+                        {
+                            string _strShort = _str.Trim();
+                            gvSupplier.Columns[_strShort].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                            gvSupplier.Columns[_strShort].SummaryItem.FieldName = _strShort;
+                            gvSupplier.Columns[_strShort].SummaryItem.DisplayFormat = "SUMME= {0:n2}";
+
+                            gvSupplier.Columns["Cheapest"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                            gvSupplier.Columns["Cheapest"].SummaryItem.FieldName = "Cheapest";
+                            gvSupplier.Columns["Cheapest"].SummaryItem.DisplayFormat = "SUMME= {0:n2}";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+        }
+
         #endregion
 
         #region Copy LVs
@@ -7749,9 +7752,92 @@ e.Column.FieldName == "GB")
 
         #endregion
 
-        private void gvMulti5_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        private void btnSaveSupplierProposal_Click(object sender, EventArgs e)
         {
-            gvMulti5.UpdateGroupSummary();
+            try
+            {
+                if (gvLVDetailsforSupplier.DataRowCount == 0)
+                {
+                    if (!Utility._IsGermany)
+                        throw new Exception("No Positions to generate.");
+                    else
+                        throw new Exception("Es wurden keine LV Positionen ausgewählt");
+                }
+                if (chkSupplierLists.CheckedItems.Count == 0)
+                {
+                    if (!Utility._IsGermany)
+                        throw new Exception("Please select atleast one Supplier");
+                    else
+                        throw new Exception("Bitte wählen Sie mindestens einen Lieferanten aus");
+                }
+                
+                DataTable _dtPosition = ObjESupplier.dtNewPositions.Copy();
+                DataTable _dtDeletedPositions = ObjESupplier.dtDeletedPositions.Copy();
+
+                foreach (DataColumn dc in ObjESupplier.dtNewPositions.Columns)
+                {
+                    if (dc.ColumnName != "PositionID")
+                    {
+                        _dtPosition.Columns.Remove(dc.ColumnName);
+                        _dtDeletedPositions.Columns.Remove(dc.ColumnName);
+                    }
+                }
+
+                _dtSupplier = new DataTable();
+                _dtSupplier.Columns.Add("SupplierID");
+                foreach (object item in chkSupplierLists.CheckedItems)
+                {
+                    DataRowView row = item as DataRowView;
+                    DataRow dr = _dtSupplier.NewRow();
+                    dr["SupplierID"] = row["id"];
+                    _dtSupplier.Rows.Add(dr);
+                }
+                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier), _dtPosition, _dtSupplier, _dtDeletedPositions);
+
+                ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
+                if (ObjESupplier.dsSupplier != null)
+                {
+                    gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;
+                    gcDeletedDetails.DataSource = ObjESupplier.dtDeletedPositions;
+                    gcProposedDetails.DataSource = ObjESupplier.dtProposedPositions;
+
+                    FillProposalNumbers();
+
+                    gvLVDetailsforSupplier.BestFitColumns();
+                    gvDeletedDetails.BestFitColumns();
+                    gvProposedDetails.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
+        string _strSupplierShortName = null;
+        DataTable _dtSuppliermail = new DataTable();
+        private void gvProposedSupplier_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                int _PrID;
+                if (e.HitInfo.InRow)
+                {
+                    if (gvProposedSupplier.FocusedColumn != null && gvProposedSupplier.GetFocusedRowCellValue("ProposalID") != null)
+                    {
+                        if (int.TryParse(gvProposedSupplier.GetFocusedRowCellValue("ProposalID").ToString(), out _PrID))
+                        {
+                            _ProposalID = _PrID;
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Spezifikationsdokument für Lieferantenanfrage generieren", btnGeneratePDF_Click));
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Email für Lieferantenanfrage generieren", btnSendEmail_Click));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
     }
 }

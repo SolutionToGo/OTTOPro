@@ -430,6 +430,19 @@ namespace BL
             CultureInfo myCultureInfo = new CultureInfo("en-gb");
             table.Locale = myCultureInfo;
         }
+
+        public ESupplier GetSupplierMail(ESupplier ObjEsupplier, int ProposalID, int ProjectID)
+        {
+            try
+            {
+                ObjEsupplier = ObjDSupplier.GetSupplierMail(ObjEsupplier, ProposalID, ProjectID);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEsupplier;
+        }
     }
 }
 

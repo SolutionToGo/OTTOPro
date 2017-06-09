@@ -576,5 +576,38 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        public ESupplier GetSupplierMail(ESupplier ObjESupplier,int ProposalID,int ProjectID)
+        {
+            DataSet dsMail = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_SupplierMailID]";
+                    cmd.Parameters.AddWithValue("@ProposalID", ProposalID);
+                    cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsMail);
+                    }
+                    if (dsMail != null && dsMail.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtSupplierMail = dsMail.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error Occured While Retreiving records");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
     }
 }

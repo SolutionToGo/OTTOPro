@@ -70,6 +70,7 @@ namespace EL
         private DataTable _dtNewPositions;
         private DataTable _dtDeletedPositions;
         private DataTable _dtProposedPositions;
+        private DataTable _dtSupplierMail;
 
         public DataTable dtNewPositions
         {
@@ -85,6 +86,11 @@ namespace EL
         {
             get { return _dtProposedPositions; }
             set { _dtProposedPositions = value; }
+        }
+        public DataTable dtSupplierMail
+        {
+            get { return _dtSupplierMail; }
+            set { _dtSupplierMail = value; }
         }
         // Article Properties and entities
         public int WGWAID
