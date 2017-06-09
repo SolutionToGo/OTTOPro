@@ -29,9 +29,9 @@ namespace EL
         private string _PositionKZ;
         private int _DetailsKZ = 0;
         private string _LVSection;
-        private string _WG;
-        private string _WA;
-        private string _WI;
+        private string _WG = string.Empty;
+        private string _WA = string.Empty;
+        private string _WI = string.Empty;
         private decimal _Menge;
         private string _ME;
         private string _Fabricate;
@@ -54,9 +54,9 @@ namespace EL
         private int _MECost;
         private string _MA;
         private string _MO;
-        private string _Dim1 = "0";
-        private string _Dim2 = "0";
-        private string _Dim3 = "0";
+        private string _Dim1 = string.Empty;
+        private string _Dim2 = string.Empty;
+        private string _Dim3 = string.Empty;
         private decimal _Mins;
         private decimal _Faktor;
         private decimal _LPMA;

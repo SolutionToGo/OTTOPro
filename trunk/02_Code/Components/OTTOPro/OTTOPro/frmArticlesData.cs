@@ -174,10 +174,10 @@ namespace OTTOPro
                 ObjEArticle.WA = txtWA.Text;
             else
                 throw new Exception("Please Enter Valid WA Value");
-            if (!string.IsNullOrEmpty(txtWI.Text) && txtWI.Text != "0")
-                ObjEArticle.WI = txtWI.Text;
-            else
-                throw new Exception("Please Enter Valid WI Value");
+            //if (!string.IsNullOrEmpty(txtWI.Text) && txtWI.Text != "0")
+                ObjEArticle.WI = txtWI.Text.Trim();
+            //else
+            //    throw new Exception("Please Enter Valid WI Value");
         
 
             ObjEArticle.WGDescription = txtWGDescription.Text;
@@ -408,7 +408,7 @@ namespace OTTOPro
                 else
                     throw new Exception("Please Enter Valid Dimension");
 
-                if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "L"))) && gvDimensions.GetRowCellValue(RowHandle, "L") != "0")
+                if (gvDimensions.GetRowCellValue(RowHandle, "L") != "0")
                     ObjEArticle.L = gvDimensions.GetRowCellValue(RowHandle, "L").ToString();
                 else
                     throw new Exception("Please Enter Valid Dimension");

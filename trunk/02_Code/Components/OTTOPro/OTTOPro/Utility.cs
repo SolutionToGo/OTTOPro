@@ -138,8 +138,13 @@ namespace OTTOPro
         {
             try
             {
-                string ProductFilePath = ConfigurationManager.AppSettings["ProductFilePath"].ToString();
-                string ClientFilePath = ConfigurationManager.AppSettings["ClientFilePath"].ToString();
+                string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                //string ProductFilePath = appPath + ConfigurationManager.AppSettings["ProductFilePath"].ToString();
+                //string ClientFilePath = appPath + ConfigurationManager.AppSettings["ClientFilePath"].ToString();
+
+
+                string ProductFilePath = appPath + ConfigurationManager.AppSettings["ProductFilePath"].ToString();
+                string ClientFilePath = appPath + ConfigurationManager.AppSettings["ClientFilePath"].ToString();
                 string LicenseKey = ConfigurationManager.AppSettings["LicenseKey"].ToString();
                 GKSRVApp ObjGKSRV = new GKSRVApp();
                 ObjGKSRV.ProcessFile(strInputFile, strOututFile, ProductFilePath, ClientFilePath, LicenseKey);
@@ -261,5 +266,8 @@ namespace OTTOPro
         public static string FirstName;
         public static string LastName;
         public static bool IsOTP;
+
+        public static string LVDetailsAccess = string.Empty;
+        public static string CalcAccess = string.Empty;
     }
 }

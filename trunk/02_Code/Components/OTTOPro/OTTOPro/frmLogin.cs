@@ -62,8 +62,19 @@ namespace OTTOPro
                     Obj.ShowDialog();
                     return;
                 }
-                if (ObjEUserInfo.dtFeature.Rows.Count <= 0)
-                    throw new Exception("No Features Assigned For Selected User");
+                if (ObjEUserInfo.dtFeature.Rows.Count > 0)
+                {
+                   foreach(DataRow dr in ObjEUserInfo.dtFeature.Rows)
+                   {
+                       if (Convert.ToString(dr["FeatureID"]) == "1")
+                           Utility.LVDetailsAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "2")
+                           Utility.CalcAccess = Convert.ToString(dr["AccessLevel"]);
+                   }
+                }
+                else
+                throw new Exception("No Features Assigned For Selected User");
+                    
                 this.Hide();
                 frmOTTOPro.Instance.ShowDialog();
                 this.Close();

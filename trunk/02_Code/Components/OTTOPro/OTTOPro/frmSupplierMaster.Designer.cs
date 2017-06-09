@@ -302,6 +302,7 @@
             this.dxValidationProviderContactName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtShortName.Location = new System.Drawing.Point(139, 48);
             this.txtShortName.Name = "txtShortName";
+            this.txtShortName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtShortName.Size = new System.Drawing.Size(295, 20);
             this.txtShortName.StyleController = this.layoutControl2;
             this.txtShortName.TabIndex = 5;
@@ -318,6 +319,7 @@
             this.dxValidationProviderContactName.SetIconAlignment(this.txtFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtFullName.Location = new System.Drawing.Point(139, 24);
             this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFullName.Size = new System.Drawing.Size(295, 20);
             this.txtFullName.StyleController = this.layoutControl2;
             this.txtFullName.TabIndex = 4;
