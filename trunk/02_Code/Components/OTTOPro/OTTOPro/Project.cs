@@ -203,6 +203,9 @@ namespace OTTOPro
                     DisalbeProjectControls();
                 }
 
+                if (Utility.LVDetailsAccess == "9" || Utility.CalcAccess == "9")
+                    navBarItemLVDetails.Visible = false;
+
             }
             catch (Exception ex)
             {
@@ -731,14 +734,9 @@ namespace OTTOPro
                 ObjEPosition.VerkaufspreisLockMA = Convert.ToBoolean(chkVerkaufspreisME.CheckState);
                 ObjEPosition.VerkaufspreisLockMO = Convert.ToBoolean(chkVerkaufspreisMO.CheckState);
 
-                if (!string.IsNullOrEmpty(txtDim1.Text))
-                    ObjEPosition.Dim1 = txtDim1.Text;
-
-                if (!string.IsNullOrEmpty(txtDim2.Text))
-                    ObjEPosition.Dim2 = txtDim2.Text;
-
-                if (!string.IsNullOrEmpty(txtDim3.Text))
-                    ObjEPosition.Dim3 = txtDim3.Text;
+                ObjEPosition.Dim1 = txtDim1.Text;
+                ObjEPosition.Dim2 = txtDim2.Text;
+                ObjEPosition.Dim3 = txtDim3.Text;
 
                 ObjEPosition.DocuwareLink1 = _DocuwareLink1;
                 ObjEPosition.DocuwareLink2 = _DocuwareLink2;
@@ -775,9 +773,7 @@ namespace OTTOPro
                 ObjBPosition.GetPositionList(ObjEPosition, ObjEProject.ProjectID);
                 if (ObjEPosition.dsPositionList != null)
                 {
-                    CalculateDetailKZ(ObjEPosition.dsPositionList.Tables[0], "EP");
                     CalculatePositions(ObjEPosition.dsPositionList.Tables[0], "GB");
-
                     xtraTabPageHierachical.Controls.Add(tlPositions);
                     tlPositions.DataSource = ObjEPosition.dsPositionList;
                     tlPositions.DataMember = "Positions";
@@ -820,6 +816,15 @@ namespace OTTOPro
             {
                 if (!_IsNewMode && tlPositions.FocusedNode != null && tlPositions.FocusedNode["PositionID"] != null)
                 {
+                    string strHaveDetailKZ = tlPositions.FocusedNode["HaveDetailkz"] == DBNull.Value ? "" : Convert.ToString(tlPositions.FocusedNode["HaveDetailkz"]);
+                    bool HaveDetailKZ = false;
+                    if (bool.TryParse(strHaveDetailKZ, out HaveDetailKZ))
+                    {
+                        if (HaveDetailKZ)
+                            layoutControlGroup7.Enabled = false;
+                        else
+                            layoutControlGroup7.Enabled = true;
+                    }
                     LongDescription = string.Empty;
                     string strPositionID = tlPositions.FocusedNode["PositionID"].ToString();
                     ObjEPosition.PositionID = Convert.ToInt32(strPositionID);
@@ -1729,7 +1734,7 @@ namespace OTTOPro
 
         public void CostDetailsDefaultValues()
         {
-            txtLPMe.Text = "10";
+            txtLPMe.Text = "0";
             txtMulti1ME.Text = "1";
             txtMulti1MO.Text = "1";
             txtMulti2ME.Text = "1";
@@ -1738,13 +1743,12 @@ namespace OTTOPro
             txtMulti3MO.Text = "1";
             txtMulti4ME.Text = "1";
             txtMulti4MO.Text = "1";
-            txtMin.Text = "100";
+            txtMin.Text = "0";
             txtFaktor.Text = "1";
             txtSelbstkostenMultiME.Text = "1";
             txtSelbstkostenMultiMO.Text = "1";
             txtVerkaufspreisMultiME.Text = "1";
             txtVerkaufspreisMultiMO.Text = "1";
-            txtFaktor.Text = "1";
             txtStdSatz.Text = ObjEProject.InternX.ToString();
         }
 
@@ -2423,12 +2427,6 @@ namespace OTTOPro
                     _DocuwareLink1 = string.Empty;
                     _DocuwareLink2 = string.Empty;
                     _DocuwareLink3 = string.Empty;
-                    txtWG.Text = "0";
-                    txtWA.Text = "0";
-                    txtWI.Text = "0";
-                    txtDim1.Text = "0";
-                    txtDim2.Text = "0";
-                    txtDim3.Text = "0";
                     txtShortDescription.Text = "";
                     txtPreisText.Text = "";
                     txtFabrikate.Text = "";
@@ -2466,12 +2464,6 @@ namespace OTTOPro
                     _DocuwareLink1 = string.Empty;
                     _DocuwareLink2 = string.Empty;
                     _DocuwareLink3 = string.Empty;
-                    txtWG.Text = "0";
-                    txtWA.Text = "0";
-                    txtWI.Text = "0";
-                    txtDim1.Text = "0";
-                    txtDim2.Text = "0";
-                    txtDim3.Text = "0";
                     txtShortDescription.Text = "";
                     txtPreisText.Text = "";
                     txtFabrikate.Text = "";
@@ -2531,12 +2523,6 @@ namespace OTTOPro
                     _DocuwareLink1 = string.Empty;
                     _DocuwareLink2 = string.Empty;
                     _DocuwareLink3 = string.Empty;
-                    txtWG.Text = "0";
-                    txtWA.Text = "0";
-                    txtWI.Text = "0";
-                    txtDim1.Text = "0";
-                    txtDim2.Text = "0";
-                    txtDim3.Text = "0";
                     txtShortDescription.Text = "";
                     txtPreisText.Text = "";
                     txtFabrikate.Text = "";
@@ -3565,28 +3551,27 @@ namespace OTTOPro
             {
                 tlPositions.FocusedNode = ((TreeListNodeMenu)e.Menu).Node;
                 string P_value = tlPositions.FocusedNode["PositionKZ"].ToString();
-                if (P_value != "NG")
+                if (P_value == "NG" || P_value == "Z" || P_value == "ZS")
                 {
                     if (e.Menu is TreeListNodeMenu)
                     {
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Insert Text Position", bbAddTextPosition_Click));
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Insert Position", bbAddPosition_Click));
+                        tlPositions.FocusedNode = ((TreeListNodeMenu)e.Menu).Node;
+                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add Text Position", bbAddTextPosition_Click));
                     }
                 }
                 else
                 {
                     if (e.Menu is TreeListNodeMenu)
                     {
-                        tlPositions.FocusedNode = ((TreeListNodeMenu)e.Menu).Node;
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Insert Title", bbAddTitle_Click));
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Insert Text Position", bbAddTextPosition_Click));
+                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
+                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add Text Position", bbAddTextPosition_Click));
+                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add Detail KZ", bbAddDetailKZ_Click));
                     }
                 }
             }
             catch (Exception ex)
             {
-
+                Utility.ShowError(ex);
             }
         }
 
@@ -3626,11 +3611,31 @@ namespace OTTOPro
             }
         }
 
-        private void bbAddPosition_Click(object sender, EventArgs e)
+        private void bbAddDetailKZ_Click(object sender, EventArgs e)
         {
             try
             {
-
+                if (tlPositions.FocusedNode["Position_OZ"] != null)
+                {
+                    string strPositionOZ = Convert.ToString(tlPositions.FocusedNode["Position_OZ"]);
+                    string strParentOZ = Convert.ToString(tlPositions.FocusedNode.ParentNode["Position_OZ"]);
+                    if (ObjEPosition.dsPositionList != null && ObjEPosition.dsPositionList.Tables.Count > 0)
+                    {
+                        object objDetailKZ = ObjEPosition.dsPositionList.Tables[0].Compute("MAX(DetailKZ)", "Position_OZ ='" + strPositionOZ + "'");
+                        object ObjSNO = ObjEPosition.dsPositionList.Tables[0].Compute("MAX(SNO)", "Position_OZ ='" + strPositionOZ + "'");
+                        int iValue = 0;
+                        int iSNOValue = 0;
+                        if (objDetailKZ != null && ObjSNO != null && int.TryParse(Convert.ToString(objDetailKZ), out iValue) && int.TryParse(Convert.ToString(ObjSNO), out iSNOValue))
+                        {
+                            DataRow dataRow = (tlPositions.GetDataRecordByNode(tlPositions.FocusedNode) as DataRowView).Row;
+                            if (dataRow == null) return;
+                            ParsePositionDetailsfoCopyLV(dataRow, strPositionOZ, strParentOZ, iSNOValue, string.Empty, iValue + 1);
+                            int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
+                            BindPositionData();
+                            SetFocus(NewPositionID, tlPositions);
+                        }
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -5423,6 +5428,8 @@ e.Column.FieldName == "GB")
 
         private void txtDim1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
+                e.Handled = true;
             if (e.KeyChar == (char)Keys.Enter)
                 txtDim1_Leave(null, null);
         }
@@ -5456,6 +5463,15 @@ e.Column.FieldName == "GB")
             tlPositions.Cursor = Cursors.Default;
             if (ObjEProject.ProjectID > 0)
             {
+                if (Utility.LVDetailsAccess == "7")
+                    layoutControlGroup4.Enabled = false;
+
+                if (Utility.CalcAccess == "7")
+                {
+                    layoutControlGroup7.Enabled = false;
+                    tlPositions.OptionsBehavior.Editable = false;
+                }
+
                 setMask();
                 IntializeLVPositions();
                 ObjTabDetails = tbLVDetails;
@@ -6746,49 +6762,50 @@ e.Column.FieldName == "GB")
                         }
                         else
                             radioGroup1.SelectedIndex = 0;
-                        int Columncount = ObjESupplier.dtPositions.Columns.Count;
-                        gvSupplier.Columns.ColumnByFieldName("PositionID").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("PositionID1").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("ShortDescription").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("Menge").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("A").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("B").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("L").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("ME").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("MA_Multi1").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("MA_multi2").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("MA_multi3").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("MA_multi4").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("LiefrantMA").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("MA_listprice").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("Fabricate").Visible = false;
-                        gvSupplier.Columns.ColumnByFieldName("Cheapest").VisibleIndex = Columncount - 1;
-                        gvSupplier.Columns.ColumnByFieldName("Position_OZ").VisibleIndex = 0;
-                        gvSupplier.Columns.ColumnByFieldName("Cheapest").OptionsColumn.ReadOnly = true;
-                        gvSupplier.Columns.ColumnByFieldName("Position_OZ").OptionsColumn.ReadOnly = true;
-
-                        foreach (DevExpress.XtraGrid.Columns.GridColumn col in ((ColumnView)gcSupplier.Views[0]).Columns)
+                        if (ObjESupplier.dtPositions != null)
                         {
-                            if (col.FieldName.Contains("Multi") || col.FieldName.Contains("Fabricate") || col.FieldName.Contains("SupplierName"))
+                            int Columncount = ObjESupplier.dtPositions.Columns.Count;
+                            gvSupplier.Columns.ColumnByFieldName("PositionID").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("PositionID1").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("ShortDescription").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("Menge").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("A").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("B").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("L").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("ME").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("MA_Multi1").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("MA_multi2").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("MA_multi3").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("MA_multi4").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("LiefrantMA").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("MA_listprice").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("Fabricate").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("Cheapest").VisibleIndex = Columncount - 1;
+                            gvSupplier.Columns.ColumnByFieldName("Position_OZ").VisibleIndex = 0;
+                            gvSupplier.Columns.ColumnByFieldName("Cheapest").OptionsColumn.ReadOnly = true;
+                            gvSupplier.Columns.ColumnByFieldName("Position_OZ").OptionsColumn.ReadOnly = true;
+
+                            foreach (DevExpress.XtraGrid.Columns.GridColumn col in ((ColumnView)gcSupplier.Views[0]).Columns)
                             {
-                                col.Visible = false;
-                            }
-                            else
-                            {
-                                if (col.FieldName.Contains("Check"))
+                                if (col.FieldName.Contains("Multi") || col.FieldName.Contains("Fabricate") || col.FieldName.Contains("SupplierName"))
                                 {
-                                    string strSupplierColumnName = col.FieldName.Replace("Check", "");
-                                    int IColumnIndex = gvSupplier.Columns.ColumnByFieldName(strSupplierColumnName).VisibleIndex;
-                                    col.VisibleIndex = IColumnIndex + 1;
+                                    col.Visible = false;
+                                }
+                                else
+                                {
+                                    if (col.FieldName.Contains("Check"))
+                                    {
+                                        string strSupplierColumnName = col.FieldName.Replace("Check", "");
+                                        int IColumnIndex = gvSupplier.Columns.ColumnByFieldName(strSupplierColumnName).VisibleIndex;
+                                        col.VisibleIndex = IColumnIndex + 1;
+                                    }
                                 }
                             }
+                            gvSupplier.BestFitColumns();
+                            gvSupplier_FocusedRowChanged(null, null);
                         }
-                        CalculateSupplierColumns();
-                        gvSupplier.BestFitColumns();
-                        gvSupplier_FocusedRowChanged(null, null);
                     }
                 }
-                
             }
             catch (Exception ex)
             {
@@ -7367,7 +7384,7 @@ e.Column.FieldName == "GB")
             }
         }
 
-        private void ParsePositionDetailsfoCopyLV(DataRow dr, string strPositionsOZ, string strParetntOZ, int iTempSNO, string strLongDescription)
+        private void ParsePositionDetailsfoCopyLV(DataRow dr, string strPositionsOZ, string strParetntOZ, int iTempSNO, string strLongDescription, int iDetailKZ = -1)
         {
             try
             {
@@ -7379,11 +7396,15 @@ e.Column.FieldName == "GB")
                 ObjEPosition.PositionKZ = Convert.ToString(dr["PositionKZ"]);
                 ObjEPosition.Position_OZ = strPositionsOZ;
                 ObjEPosition.Parent_OZ = strParetntOZ;
-
-                if (int.TryParse(Convert.ToString(dr["DetailKZ"]), out iValue))
-                    ObjEPosition.DetailKZ = iValue;
+                if (iDetailKZ > 0)
+                    ObjEPosition.DetailKZ = iDetailKZ;
                 else
-                    ObjEPosition.DetailKZ = 0;
+                {
+                    if (int.TryParse(Convert.ToString(dr["DetailKZ"]), out iValue))
+                        ObjEPosition.DetailKZ = iValue;
+                    else
+                        ObjEPosition.DetailKZ = 0;
+                }
 
                 ObjEPosition.LVSection = "HA";
                 ObjEPosition.WG = Convert.ToString(dr["WG"]);
@@ -7573,6 +7594,7 @@ e.Column.FieldName == "GB")
                 throw;
             }
         }
+
 
         private string SuggestOZForCopy(string PositionOZ, string strNextLV)
         {

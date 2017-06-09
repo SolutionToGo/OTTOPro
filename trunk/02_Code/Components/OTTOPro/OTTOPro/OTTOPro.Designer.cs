@@ -83,6 +83,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
+            this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -126,6 +127,8 @@
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 38;
             this.ribbon.Name = "ribbon";
+            this.ribbon.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
+            this.ribbonPageCategory1});
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
             this.rpSetting,
@@ -405,6 +408,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnFeature, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "User Management ";
+            this.ribbonPageGroup2.Visible = false;
             // 
             // rpSetting
             // 
@@ -427,6 +431,7 @@
             this.ribbonPageGroup3});
             this.Profile.Name = "Profile";
             this.Profile.Text = "Profile";
+            this.Profile.Visible = false;
             // 
             // ribbonPageGroup3
             // 
@@ -508,6 +513,11 @@
             // fdImportFile
             // 
             this.fdImportFile.FileName = "openFileDialog1";
+            // 
+            // ribbonPageCategory1
+            // 
+            this.ribbonPageCategory1.Name = "ribbonPageCategory1";
+            this.ribbonPageCategory1.Text = "ribbonPageCategory1";
             // 
             // frmOTTOPro
             // 
@@ -592,5 +602,6 @@
         private DevExpress.XtraBars.BarButtonItem btnChangePassword;
         private DevExpress.XtraBars.Ribbon.RibbonPage Profile;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory1;
     }
 }
