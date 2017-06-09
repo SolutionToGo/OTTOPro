@@ -12874,6 +12874,7 @@
             this.gvSupplier.OptionsMenu.EnableColumnMenu = false;
             this.gvSupplier.OptionsMenu.EnableFooterMenu = false;
             this.gvSupplier.OptionsMenu.EnableGroupPanelMenu = false;
+            this.gvSupplier.OptionsView.ColumnAutoWidth = false;
             this.gvSupplier.OptionsView.RowAutoHeight = true;
             this.gvSupplier.OptionsView.ShowFooter = true;
             this.gvSupplier.OptionsView.ShowGroupPanel = false;
@@ -12930,7 +12931,9 @@
             this.gvProposal.OptionsMenu.EnableColumnMenu = false;
             this.gvProposal.OptionsMenu.EnableFooterMenu = false;
             this.gvProposal.OptionsMenu.EnableGroupPanelMenu = false;
+            this.gvProposal.OptionsMenu.ShowAutoFilterRowItem = false;
             this.gvProposal.OptionsSelection.EnableAppearanceFocusedCell = false;
+            this.gvProposal.OptionsView.ColumnAutoWidth = false;
             this.gvProposal.OptionsView.RowAutoHeight = true;
             this.gvProposal.OptionsView.ShowGroupPanel = false;
             this.gvProposal.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvProposal_FocusedRowChanged);

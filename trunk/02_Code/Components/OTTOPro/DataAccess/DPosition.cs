@@ -62,6 +62,28 @@ namespace DataAccess
                                 throw new Exception(returnObj.ToString());
                             }
                         }
+                        else if (returnObj.ToString().Contains("Surcharge"))
+                        {
+                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                            {
+                                throw new Exception("");
+                           }
+                            else
+                            {
+                                throw new Exception(returnObj.ToString());
+                            }
+                        }
+                        else if (returnObj.ToString().Contains("Sum"))
+                        {
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                            {
+                                throw new Exception("");
+                            }
+                            else
+                            {
+                                throw new Exception(returnObj.ToString());
+                            }
+                        }
                         else if (!int.TryParse(returnObj.ToString(), out ProjectID))
                             throw new Exception(returnObj.ToString());
                     }
