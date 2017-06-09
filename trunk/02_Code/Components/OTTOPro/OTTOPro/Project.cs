@@ -6461,8 +6461,6 @@ e.Column.FieldName == "GB")
         {
             try
             {                
-                //if (_ProposalID > 0)
-                //{
                     Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
                     rpt.Parameters["ProposalID"].Value = _ProposalID;
@@ -6474,13 +6472,9 @@ e.Column.FieldName == "GB")
                     if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                     {
                         rpt.ExportToPdf(saveFileDialog1.FileName);
-                        if (_Process != true)
-                        {
-                            StartProcess(saveFileDialog1.FileName);
-                        }
+                        StartProcess(saveFileDialog1.FileName);
                         _pdfpath = saveFileDialog1.FileName;
                     }
-                //}                
             }
             catch (Exception ex)
             {
@@ -6493,14 +6487,7 @@ e.Column.FieldName == "GB")
             StringBuilder strArr = new StringBuilder();
             string delimiter = "";
             try
-            {
-                if (chkSupplierLists.CheckedItems.Count == 0)
-                {
-                    if (!Utility._IsGermany)
-                        throw new Exception("Please select atleast one Supplier");
-                    else
-                        throw new Exception("Bitte wählen Sie mindestens einen Lieferanten aus");
-                }
+            {               
                 Type officeType = Type.GetTypeFromProgID("Outlook.Application");
 
                 if (officeType == null)
@@ -6509,12 +6496,24 @@ e.Column.FieldName == "GB")
                 }
                 else
                 {
-                    _Process = true;
-                    btnGeneratePDF_Click(null, null);
+                    Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    rpt.Parameters["ProposalID"].Value = _ProposalID;
+                    rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+
+                    saveFileDialog1.FileName = ObjEProject.ProjectNumber;
+
+                    saveFileDialog1.Filter = "PDF Files|*.pdf";
+                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        rpt.ExportToPdf(saveFileDialog1.FileName);
+                        _pdfpath = saveFileDialog1.FileName;
+                    }
                     
                     Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
                     Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
+                    ObjBSupplier.GetSupplierMail(ObjESupplier,_ProposalID,ObjEProject.ProjectID);
                     if (ObjESupplier.dtSupplierMail.Rows.Count > 0)
                     {
                         foreach (DataRow dr in ObjESupplier.dtSupplierMail.Rows)
@@ -7801,11 +7800,14 @@ e.Column.FieldName == "GB")
                     gcDeletedDetails.DataSource = ObjESupplier.dtDeletedPositions;
                     gcProposedDetails.DataSource = ObjESupplier.dtProposedPositions;
 
-                    FillProposalNumbers();
+                    ObjESupplier.ProjectID = ObjEProject.ProjectID;
+                    ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
+                    gcProposedSupplier.DataSource = ObjESupplier.dtProposal;
 
                     gvLVDetailsforSupplier.BestFitColumns();
                     gvDeletedDetails.BestFitColumns();
                     gvProposedDetails.BestFitColumns();
+                    gvProposedSupplier.BestFitColumns();
                 }
             }
             catch (Exception ex)
@@ -7813,6 +7815,7 @@ e.Column.FieldName == "GB")
                 Utility.ShowError(ex);
             }
         }
+
         string _strSupplierShortName = null;
         DataTable _dtSuppliermail = new DataTable();
         private void gvProposedSupplier_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
