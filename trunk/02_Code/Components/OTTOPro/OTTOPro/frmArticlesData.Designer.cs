@@ -526,16 +526,9 @@
             // rpDimension
             // 
             this.rpDimension.AutoHeight = false;
-            this.rpDimension.DisplayFormat.FormatString = "n0";
-            this.rpDimension.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.rpDimension.EditFormat.FormatString = "n0";
-            this.rpDimension.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-            this.rpDimension.Mask.EditMask = "n0";
-            this.rpDimension.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.rpDimension.Mask.ShowPlaceHolders = false;
-            this.rpDimension.Mask.UseMaskAsDisplayFormat = true;
             this.rpDimension.MaxLength = 3;
             this.rpDimension.Name = "rpDimension";
+            this.rpDimension.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.rpDimension_KeyPress);
             // 
             // gridColumn9
             // 

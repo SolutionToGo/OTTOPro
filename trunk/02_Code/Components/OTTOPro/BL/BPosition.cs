@@ -301,7 +301,7 @@ namespace BL
             }
         }
 
-        public void GetPositionOZListByWGWA(EPosition ObjEPosition, int ProjectID, string Position_Type, double WG, int WA)
+        public void GetPositionOZListByWGWA(EPosition ObjEPosition, int ProjectID, string Position_Type, string WG, string WA)
         {
             try
             {

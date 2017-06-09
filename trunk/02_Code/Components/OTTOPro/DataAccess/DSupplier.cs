@@ -262,7 +262,7 @@ namespace DataAccess
         }
 
         //SUPPLIER PROPOSAL
-        public DataSet GetWGWaforProposal(int _Pid, string _LvSection, int wg, int wa)
+        public DataSet GetWGWaforProposal(int _Pid, string _LvSection, string wg, string wa)
         {
             DataSet dsWGWA = new DataSet();
             try
@@ -338,7 +338,7 @@ namespace DataAccess
             return dsWGWA;
         }
 
-        public int SaveSupplierProposal(int _Pid, string _LvSection, int wg, int wa, DataTable _dtPosition, DataTable _dtSupplier, DataTable _dtDeletedPositions)
+        public int SaveSupplierProposal(int _Pid, string _LvSection, string wg, string wa, DataTable _dtPosition, DataTable _dtSupplier, DataTable _dtDeletedPositions)
         {
             DataSet ds = new DataSet();
             int ProposalID = -1;

@@ -1110,13 +1110,6 @@ namespace OTTOPro
             //}
         }
 
-        private void tlPositions_MouseClick(object sender, MouseEventArgs e)
-        {
-
-            if (e.Button == MouseButtons.Right)
-                popupMenu1.ShowPopup(Cursor.Position);
-        }
-
         //private void tlPositions_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         //{
         //   // TreeListHitInfo hitInfo = tlPositions.CalcHitInfo(e.Point);          
@@ -1128,10 +1121,8 @@ namespace OTTOPro
             {
                 var view = (TreeList)sender;
                 var editor = view.ActiveEditor as TextEdit;
-
                 if (editor == null)
                     return;
-
                 editor.ContextMenuStrip = new ContextMenuStrip();
             }
             catch (Exception)
@@ -1424,18 +1415,18 @@ namespace OTTOPro
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
                 }
 
-                if (e.Node["DetailKZ"] != null)
-                {
-                    int tRes = Convert.ToInt32(e.Node["DetailKZ"]);
-                    if (tRes > 0)
-                    {
-                        tlPositions.Columns["Position_OZ"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
-                    }
-                    else
-                    {
-                        tlPositions.Columns["Position_OZ"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Default;
-                    }
-                }
+                //if (e.Node["DetailKZ"] != null)
+                //{
+                //    int tRes = Convert.ToInt32(e.Node["DetailKZ"]);
+                //    if (tRes > 0)
+                //    {
+                //        tlPositions.Columns["Position_OZ"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
+                //    }
+                //    else
+                //    {
+                //        tlPositions.Columns["Position_OZ"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Default;
+                //    }
+                //}
 
                 if (e.Column.FieldName == "MA_Multi1" ||
                     e.Column.FieldName == "MA_multi2" ||
@@ -2795,7 +2786,21 @@ namespace OTTOPro
                                     strNewOZ = ObjEProject.LVSprunge.ToString();
                             }
                             else
-                                strNewOZ = ObjEProject.LVSprunge.ToString();
+                            {
+                                string[] strArr = ObjEProject.LVRaster.Split('.');
+                                int Count = strArr.Count();
+                                if (strArr != null)
+                                {
+                                    if (Count > 3 && string.IsNullOrEmpty(txtStufe2Short.Text))//99.99.1111.9
+                                        strNewOZ = "";
+                                    else if (Count > 4 && string.IsNullOrEmpty(txtStufe3Short.Text))//99.99.99.1111.9
+                                        strNewOZ = "";
+                                    else if (Count > 5 && string.IsNullOrEmpty(txtStufe4Short.Text))//99.99.99.99.1111.9
+                                        strNewOZ = "";
+                                    else
+                                        strNewOZ = ObjEProject.LVSprunge.ToString();
+                                }
+                            }
                         }
                     }
                 }
@@ -3529,22 +3534,6 @@ namespace OTTOPro
             }
         }
 
-        private void tlPositions_EditorKeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyCode == Keys.Delete)
-                {
-                    DeletePosition();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-
-        }
-
         private void tlPositions_PopupMenuShowing(object sender, DevExpress.XtraTreeList.PopupMenuShowingEventArgs e)
         {
             try
@@ -3767,7 +3756,7 @@ namespace OTTOPro
                         {
                             txtBulkProcessWA.Text = "0";
                         }
-                        ObjBPosition.GetPositionOZListByWGWA(ObjEPosition, ObjEProject.ProjectID, tType, Convert.ToDouble(txtBulkProcessWG.Text), Convert.ToInt32(txtBulkProcessWA.Text));
+                        ObjBPosition.GetPositionOZListByWGWA(ObjEPosition, ObjEProject.ProjectID, tType, txtBulkProcessWG.Text, txtBulkProcessWA.Text);
                     }
                 }
                 else
@@ -6370,7 +6359,7 @@ e.Column.FieldName == "GB")
 
                 if (_WGforSupplier != null && _WAforSupplier != null)
                 {
-                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
+                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, _WGforSupplier, _WAforSupplier);
                     if (ObjESupplier.dsSupplier != null)
                     {
                         gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;
@@ -7813,9 +7802,9 @@ e.Column.FieldName == "GB")
                     dr["SupplierID"] = row["id"];
                     _dtSupplier.Rows.Add(dr);
                 }
-                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier), _dtPosition, _dtSupplier, _dtDeletedPositions);
+                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, _WGforSupplier, _WAforSupplier, _dtPosition, _dtSupplier, _dtDeletedPositions);
 
-                ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, Convert.ToInt32(_WGforSupplier), Convert.ToInt32(_WAforSupplier));
+                ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionforSupplier.Text, _WGforSupplier, _WAforSupplier);
                 if (ObjESupplier.dsSupplier != null)
                 {
                     gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;

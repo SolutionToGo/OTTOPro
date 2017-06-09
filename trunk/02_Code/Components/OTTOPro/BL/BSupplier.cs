@@ -116,7 +116,7 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public ESupplier GetWGWAForProposal(ESupplier ObjEsupplier,int _Pid,string _LvSection,int wg,int wa)
+        public ESupplier GetWGWAForProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, string wg, string wa)
         {
             try
             {
@@ -162,7 +162,7 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public int SaveSupplierProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, int wg, int wa, DataTable _dtPosition, DataTable _dtSupplier, DataTable _dtDeletedPositions)
+        public int SaveSupplierProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, string wg, string wa, DataTable _dtPosition, DataTable _dtSupplier, DataTable _dtDeletedPositions)
         {
             try
             {

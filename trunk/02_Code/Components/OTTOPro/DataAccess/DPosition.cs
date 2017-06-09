@@ -231,8 +231,8 @@ namespace DataAccess
                     cmd.CommandText = "[P_Get_PositionOZ]";
                     cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
                     cmd.Parameters.AddWithValue("@Position_Type", tType);
-                    cmd.Parameters.AddWithValue("@WG", 0);
-                    cmd.Parameters.AddWithValue("@WA", 0);
+                    cmd.Parameters.AddWithValue("@WG", "");
+                    cmd.Parameters.AddWithValue("@WA", "");
                     cmd.Parameters.AddWithValue("@Position_OZ_Table", dt);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
@@ -280,7 +280,7 @@ namespace DataAccess
             return dsPositionsOZList;
         }
 
-        public DataSet GetPsoitionOZByWGWA(int ProjectID, string tType, double WG, int WA)
+        public DataSet GetPsoitionOZByWGWA(int ProjectID, string tType, string WG, string WA)
         {
             DataSet dsPositionsOZList = new DataSet();
             try

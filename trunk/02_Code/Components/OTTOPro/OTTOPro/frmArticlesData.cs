@@ -399,19 +399,17 @@ namespace OTTOPro
                 ObjEArticle.WIID = Convert.ToInt32(gvDimensions.GetRowCellValue(RowHandle, "WIID"));
 
                 if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "A"))) && gvDimensions.GetRowCellValue(RowHandle, "A") != "0")
-                    ObjEArticle.A = gvDimensions.GetRowCellValue(RowHandle, "A").ToString();
+                    ObjEArticle.A = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "A"));
                 else
                     throw new Exception("Please Enter Valid Dimension");
 
                 if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "B"))) && gvDimensions.GetRowCellValue(RowHandle, "B") != "0")
-                    ObjEArticle.B = gvDimensions.GetRowCellValue(RowHandle, "B").ToString();
+                    ObjEArticle.B = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "B"));
                 else
                     throw new Exception("Please Enter Valid Dimension");
 
                 if (gvDimensions.GetRowCellValue(RowHandle, "L") != "0")
-                    ObjEArticle.L = gvDimensions.GetRowCellValue(RowHandle, "L").ToString();
-                else
-                    throw new Exception("Please Enter Valid Dimension");
+                    ObjEArticle.L = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "L"));
 
                 ObjEArticle.ListPrice = gvDimensions.GetRowCellValue(RowHandle, "ListPrice") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "ListPrice"));
                 ObjEArticle.Minuten = gvDimensions.GetRowCellValue(RowHandle, "Minuten") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "Minuten"));
@@ -499,6 +497,12 @@ namespace OTTOPro
                     textbox.Text = "1";
                 }
             }
+        }
+
+        private void rpDimension_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
+                e.Handled = true;
         }
     }
 }

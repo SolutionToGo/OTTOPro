@@ -119,7 +119,7 @@ namespace OTTOPro
                                 
                 if(_WG!=null && _WA!=null)
                 {
-                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WG), Convert.ToInt32(_WA));
+                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, _WG, _WA);
                     if (ObjESupplier.dsSupplier != null)
                     {
                         gcLVDetails.DataSource = ObjESupplier.dsSupplier.Tables[0];
@@ -226,7 +226,7 @@ namespace OTTOPro
                         _pdfpath = saveFileDialog1.FileName;
                     }                   
                 }
-                 ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, Convert.ToInt32(_WG), Convert.ToInt32(_WA));
+                 ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, _ProjectID, cmbLVSection.Text, _WG, _WA);
                  if (ObjESupplier.dsSupplier != null)
                  {
                      gcLVDetails.DataSource = ObjESupplier.dsSupplier.Tables[0];
