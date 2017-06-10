@@ -3909,9 +3909,18 @@ namespace OTTOPro
             checkEditTyp.Checked = false;
             checkEditLieferantMA.Checked = false;
             checkEditNachtragsnummer.Checked = false;
+            if (GetCommisssionNo() != "")
+            {
+                checkEditNachtragsnummer.Enabled = false;
+                btnSavesectionB.Enabled = false;
+            }
+            else
+            {
+                checkEditNachtragsnummer.Enabled = false;
+                btnSavesectionB.Enabled = true;
+            }
 
         }
-
         private void radioGroupActionA_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -3969,6 +3978,17 @@ namespace OTTOPro
                     checkEditTyp.Checked = false;
                     checkEditLieferantMA.Checked = false;
                     checkEditNachtragsnummer.Checked = false;
+
+                    if (GetCommisssionNo() != "")
+                    {
+                        checkEditNachtragsnummer.Enabled = true;
+                        btnSavesectionB.Enabled = true;
+                    }
+                    else
+                    {
+                        checkEditNachtragsnummer.Enabled = false;
+                        btnSavesectionB.Enabled = true;
+                    }
                 }
             }
             catch (Exception ex)
@@ -5589,8 +5609,8 @@ e.Column.FieldName == "GB")
                     dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
                     foreach (DataRow dr in dtLVSection.Rows)
                     {
-                        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
-                    }
+                        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);                        
+                    }                      
 
                     ObjTabDetails = tbMulti5;
                     TabChange(ObjTabDetails);
