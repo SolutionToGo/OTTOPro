@@ -66,6 +66,7 @@
             this.btnFeature = new DevExpress.XtraBars.BarButtonItem();
             this.btnImportArticleData = new DevExpress.XtraBars.BarButtonItem();
             this.btnChangePassword = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgSupplier = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -83,7 +84,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
-            this.ribbonPageCategory1 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -366,6 +366,11 @@
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePassword_ItemClick);
             // 
+            // ribbonPageCategory1
+            // 
+            this.ribbonPageCategory1.Name = "ribbonPageCategory1";
+            this.ribbonPageCategory1.Text = "ribbonPageCategory1";
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -508,16 +513,11 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 26);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 1.6 (06-06-2017) Build Number : 2";
+            this.label1.Text = "Version 1.6 (09-06-2017) Build Number : 3";
             // 
             // fdImportFile
             // 
             this.fdImportFile.FileName = "openFileDialog1";
-            // 
-            // ribbonPageCategory1
-            // 
-            this.ribbonPageCategory1.Name = "ribbonPageCategory1";
-            this.ribbonPageCategory1.Text = "ribbonPageCategory1";
             // 
             // frmOTTOPro
             // 

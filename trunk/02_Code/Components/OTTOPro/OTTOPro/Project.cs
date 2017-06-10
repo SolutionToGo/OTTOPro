@@ -1705,15 +1705,15 @@ namespace OTTOPro
                 txtStufe2Short_TextChanged(null, null);
                 txtStufe3Short_TextChanged(null, null);
                 txtStufe4Short_TextChanged(null, null);
+                tlPositions.BestFitColumns();
+                if (cmbPositionKZ.Text == "H")
+                {
+                    tlPositions.MoveNext();
+                }
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-            tlPositions.BestFitColumns();
-            if (cmbPositionKZ.Text == "H")
-            {
-                tlPositions.MoveNext();
             }
         }
 
@@ -3556,10 +3556,13 @@ namespace OTTOPro
                 {
                     if (e.Menu is TreeListNodeMenu)
                     {
-                        tlPositions.FocusedNode = ((TreeListNodeMenu)e.Menu).Node;
+                        if (P_value == "Z" || P_value == "ZS")
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
                         e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add Text Position", bbAddTextPosition_Click));
                     }
                 }
+                else if (P_value == "H")
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
                 else
                 {
                     if (e.Menu is TreeListNodeMenu)
