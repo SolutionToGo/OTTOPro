@@ -2326,6 +2326,9 @@ namespace OTTOPro
                 if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                 {
                     tsProjectStatus.Text = "";
+                    BindPositionData();
+                    FormatLVFields();
+                    setMask();
                     IntializeLVPositions();
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails")
@@ -2356,16 +2359,33 @@ namespace OTTOPro
                         cmbLVSectionFilter.Properties.Items.Clear();
                         dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
                         foreach (DataRow dr in dtLVSection.Rows)
-                        {
                             cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
-                        }
+                        cmbLVSectionFilter.SetEditValue("HA");
+                        btnMulti5LoadArticles_Click(null, null);
                     }
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbMulti6")
                 {
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    DataTable dtLVSection = new DataTable();
+                    cmbMulti6LVFilter.Properties.Items.Clear();
+                    gcMulti6.DataSource = null;
+                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
+                    foreach (DataRow dr in dtLVSection.Rows)
+                        cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
+                    cmbMulti6LVFilter.SetEditValue("HA");
+                    cmbType.Text = "Montage";
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbOmlage")
                 {
+                    if (ObjEUmlage == null)
+                        ObjEUmlage = new EUmlage();
+                    if (ObjBUmlage == null)
+                        ObjBUmlage = new BUmlage();
+                    ObjEUmlage.ProjectID = ObjEProject.ProjectID;
+                    ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
+                    gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
                 }
             }
             catch (Exception ex)
@@ -2552,6 +2572,7 @@ namespace OTTOPro
                 txtDim3.Text = string.Empty;
                 txtMin.Text = "0";
                 txtLPMe.Text = "0";
+                txtDetailKZ.Text = "0";
             }
             catch (Exception ex)
             {
@@ -5021,8 +5042,6 @@ e.Column.FieldName == "GB")
                 ObjEMulti.ProjectID = ObjEProject.ProjectID;
                 ObjEMulti.LVSection = cmbLVSectionFilter.Text;
                 ObjEMulti = ObjBMulti.UpdateMulti5(ObjEMulti);
-                //btnMulti5LoadArticles_Click(null, null);
-                BindPositionData();
             }
             catch (Exception EX)
             {
@@ -5142,8 +5161,6 @@ e.Column.FieldName == "GB")
                 ObjEMulti.LVSection = cmbMulti6LVFilter.Text;
                 ObjEMulti.Type = cmbType.Text;
                 ObjEMulti = ObjBMulti.UpdateMulti6(ObjEMulti);
-                //btnMulti6LoadArticles_Click(null, null);
-                BindPositionData();
             }
             catch (Exception EX)
             {
@@ -5225,7 +5242,6 @@ e.Column.FieldName == "GB")
                 if (ObjEUmlage.dtSpecialCost.Rows.Count > 0)
                 {
                     ObjEUmlage = ObjBUmlage.UpdateSpecialCost(ObjEUmlage);
-                    BindPositionData();
                 }
                 else
                 {
@@ -5601,17 +5617,6 @@ e.Column.FieldName == "GB")
                 ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
                 {
-                    if (objBGAEB == null)
-                        objBGAEB = new BGAEB();
-                    DataTable dtLVSection = new DataTable();
-                    cmbLVSectionFilter.Properties.Items.Clear();
-                    gcMulti5.DataSource = null;
-                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
-                    foreach (DataRow dr in dtLVSection.Rows)
-                    {
-                        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);                        
-                    }                      
-
                     ObjTabDetails = tbMulti5;
                     TabChange(ObjTabDetails);
                     gvMulti5.BestFitColumns();
@@ -5630,17 +5635,6 @@ e.Column.FieldName == "GB")
                 ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
                 {
-                    if (objBGAEB == null)
-                        objBGAEB = new BGAEB();
-                    DataTable dtLVSection = new DataTable();
-                    cmbMulti6LVFilter.Properties.Items.Clear();
-                    gcMulti6.DataSource = null;
-                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
-                    foreach (DataRow dr in dtLVSection.Rows)
-                    {
-                        cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
-                    }
-
                     ObjTabDetails = tbMulti6;
                     TabChange(ObjTabDetails);
                     gvMulti6.BestFitColumns();
@@ -5735,15 +5729,6 @@ e.Column.FieldName == "GB")
                 ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.ProjectID > 0 && ObjEProject.CommissionNumber == string.Empty && ObjEProject.ActualLvs > 0)
                 {
-                    if (ObjEUmlage == null)
-                        ObjEUmlage = new EUmlage();
-                    if (ObjBUmlage == null)
-                        ObjBUmlage = new BUmlage();
-                    ObjEUmlage.ProjectID = ObjEProject.ProjectID;
-                    ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
-                    gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
-
-
                     ObjTabDetails = tbOmlage;
                     TabChange(ObjTabDetails);
                 }
@@ -7036,8 +7021,10 @@ e.Column.FieldName == "GB")
                     }
 
                 }
+                ObjESupplier.ProjectID = ObjEProject.ProjectID;
                 ObjESupplier = ObjBSupplier.UpdateSupplierPrice(ObjESupplier);
                 Utility.ShowSucces("Preisübersicht für Lieferanten wurde erfolgreich aktualisiert");
+                gvProposal_FocusedRowChanged(null, null);
             }
             catch (Exception ex)
             {
@@ -7888,5 +7875,14 @@ e.Column.FieldName == "GB")
             }
         }
 
+        private void cmbMulti6LVFilter_Closed(object sender, ClosedEventArgs e)
+        {
+            btnMulti6LoadArticles_Click(null, null);
+        }
+
+        private void cmbType_SelectedValueChanged(object sender, EventArgs e)
+        {
+            btnMulti6LoadArticles_Click(null, null);
+        }
     }
 }

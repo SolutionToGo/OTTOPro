@@ -456,6 +456,7 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[p_Upd_SupplierPrice]";
                     cmd.Parameters.AddWithValue("@dtPositons", ObjESupplier.dtUpdateSupplierPrice);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
                     object ObjReturn = cmd.ExecuteScalar();
                     if(ObjReturn != null)
                     {

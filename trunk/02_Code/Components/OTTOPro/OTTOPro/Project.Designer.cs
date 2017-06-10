@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -736,6 +736,7 @@
             this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtprice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -765,6 +766,7 @@
             this.gvInvoices = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn36 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtInvoicePrice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -780,6 +782,7 @@
             this.dtpdeliveredOn = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtBlatPrice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkInvoiced = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -1568,6 +1571,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ChkOrdered)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDeliveryNumbers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDeliveryNumbers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtprice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDelivery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDelivery)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttext)).BeginInit();
@@ -1587,6 +1591,7 @@
             this.layoutControl13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoices)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvInvoices)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInvoicePrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkFinalInvoice.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvoiceNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDeliveryNotes)).BeginInit();
@@ -1594,6 +1599,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txttextbox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpdeliveredOn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpdeliveredOn.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBlatPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkInvoiced)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem139)).BeginInit();
@@ -2105,10 +2111,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -3155,7 +3161,6 @@
             // navBarReports
             // 
             this.navBarReports.Caption = "Dokumente";
-            this.navBarReports.Expanded = true;
             this.navBarReports.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
             this.navBarReports.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
@@ -7885,17 +7890,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -9478,6 +9483,7 @@
             this.cmbLVSectionFilter.Size = new System.Drawing.Size(220, 20);
             this.cmbLVSectionFilter.StyleController = this.layoutControl5;
             this.cmbLVSectionFilter.TabIndex = 8;
+            this.cmbLVSectionFilter.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cmbLVSectionFilter_Closed);
             // 
             // btnMulti5UpdateSelbekosten
             // 
@@ -9774,6 +9780,7 @@
             this.cmbMulti6LVFilter.Size = new System.Drawing.Size(266, 20);
             this.cmbMulti6LVFilter.StyleController = this.layoutControl8;
             this.cmbMulti6LVFilter.TabIndex = 9;
+            this.cmbMulti6LVFilter.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cmbMulti6LVFilter_Closed);
             // 
             // cmbType
             // 
@@ -9790,6 +9797,7 @@
             this.cmbType.Size = new System.Drawing.Size(186, 20);
             this.cmbType.StyleController = this.layoutControl8;
             this.cmbType.TabIndex = 8;
+            this.cmbType.SelectedValueChanged += new System.EventHandler(this.cmbType_SelectedValueChanged);
             // 
             // btnMulti6UpdateSelbekosten
             // 
@@ -10687,6 +10695,8 @@
             this.gcDeliveryNumbers.MainView = this.gvDeliveryNumbers;
             this.gcDeliveryNumbers.MenuManager = this.barManager1;
             this.gcDeliveryNumbers.Name = "gcDeliveryNumbers";
+            this.gcDeliveryNumbers.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.txtprice});
             this.gcDeliveryNumbers.Size = new System.Drawing.Size(1498, 221);
             this.gcDeliveryNumbers.TabIndex = 14;
             this.gcDeliveryNumbers.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -10736,10 +10746,20 @@
             this.gridColumn31.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn31.AppearanceHeader.Options.UseFont = true;
             this.gridColumn31.Caption = "Kostenvolumen [in Euro]";
+            this.gridColumn31.ColumnEdit = this.txtprice;
             this.gridColumn31.FieldName = "BlattPrice";
             this.gridColumn31.Name = "gridColumn31";
             this.gridColumn31.Visible = true;
             this.gridColumn31.VisibleIndex = 2;
+            // 
+            // txtprice
+            // 
+            this.txtprice.AutoHeight = false;
+            this.txtprice.Mask.EditMask = "n2";
+            this.txtprice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtprice.Mask.ShowPlaceHolders = false;
+            this.txtprice.Mask.UseMaskAsDisplayFormat = true;
+            this.txtprice.Name = "txtprice";
             // 
             // gridColumn41
             // 
@@ -11023,6 +11043,8 @@
             this.gcInvoices.MainView = this.gvInvoices;
             this.gcInvoices.MenuManager = this.barManager1;
             this.gcInvoices.Name = "gcInvoices";
+            this.gcInvoices.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.txtInvoicePrice});
             this.gcInvoices.Size = new System.Drawing.Size(951, 279);
             this.gcInvoices.TabIndex = 8;
             this.gcInvoices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -11060,10 +11082,20 @@
             this.gridColumn36.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn36.AppearanceHeader.Options.UseFont = true;
             this.gridColumn36.Caption = "Rechnungsbetrag";
+            this.gridColumn36.ColumnEdit = this.txtInvoicePrice;
             this.gridColumn36.FieldName = "InvoiceAmount";
             this.gridColumn36.Name = "gridColumn36";
             this.gridColumn36.Visible = true;
             this.gridColumn36.VisibleIndex = 1;
+            // 
+            // txtInvoicePrice
+            // 
+            this.txtInvoicePrice.AutoHeight = false;
+            this.txtInvoicePrice.Mask.EditMask = "n2";
+            this.txtInvoicePrice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtInvoicePrice.Mask.ShowPlaceHolders = false;
+            this.txtInvoicePrice.Mask.UseMaskAsDisplayFormat = true;
+            this.txtInvoicePrice.Name = "txtInvoicePrice";
             // 
             // gridColumn37
             // 
@@ -11139,7 +11171,8 @@
             this.gcDeliveryNotes.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chkInvoiced,
             this.txttextbox,
-            this.dtpdeliveredOn});
+            this.dtpdeliveredOn,
+            this.txtBlatPrice});
             this.gcDeliveryNotes.Size = new System.Drawing.Size(951, 406);
             this.gcDeliveryNotes.TabIndex = 4;
             this.gcDeliveryNotes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -11229,11 +11262,21 @@
             this.gridColumn30.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn30.AppearanceHeader.Options.UseFont = true;
             this.gridColumn30.Caption = "Kostenvolumen [in Euro]";
-            this.gridColumn30.ColumnEdit = this.txttextbox;
+            this.gridColumn30.ColumnEdit = this.txtBlatPrice;
             this.gridColumn30.FieldName = "BlattPrice";
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.Visible = true;
             this.gridColumn30.VisibleIndex = 2;
+            // 
+            // txtBlatPrice
+            // 
+            this.txtBlatPrice.AutoHeight = false;
+            this.txtBlatPrice.Mask.EditMask = "n2";
+            this.txtBlatPrice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtBlatPrice.Mask.ShowPlaceHolders = false;
+            this.txtBlatPrice.Mask.UseMaskAsDisplayFormat = true;
+            this.txtBlatPrice.Name = "txtBlatPrice";
+            this.txtBlatPrice.ReadOnly = true;
             // 
             // gridColumn34
             // 
@@ -14801,6 +14844,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ChkOrdered)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDeliveryNumbers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDeliveryNumbers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtprice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDelivery)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvDelivery)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txttext)).EndInit();
@@ -14820,6 +14864,7 @@
             this.layoutControl13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcInvoices)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvInvoices)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInvoicePrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkFinalInvoice.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtInvoiceNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcDeliveryNotes)).EndInit();
@@ -14827,6 +14872,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txttextbox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpdeliveredOn.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpdeliveredOn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBlatPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkInvoiced)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem139)).EndInit();
@@ -15985,6 +16031,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem195;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem47;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpArticles;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtprice;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtInvoicePrice;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtBlatPrice;
 
 
     }
