@@ -195,6 +195,8 @@
             this.gvContentDetails.OptionsBehavior.Editable = false;
             this.gvContentDetails.OptionsBehavior.ReadOnly = true;
             this.gvContentDetails.OptionsCustomization.AllowColumnMoving = false;
+            this.gvContentDetails.OptionsCustomization.AllowFilter = false;
+            this.gvContentDetails.OptionsCustomization.AllowSort = false;
             this.gvContentDetails.OptionsFilter.AllowFilterEditor = false;
             this.gvContentDetails.OptionsMenu.EnableColumnMenu = false;
             this.gvContentDetails.OptionsMenu.EnableFooterMenu = false;

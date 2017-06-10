@@ -75,11 +75,11 @@
             // 
             // cmbRole
             // 
-            this.cmbRole.Location = new System.Drawing.Point(36, 12);
+            this.cmbRole.Location = new System.Drawing.Point(38, 12);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbRole.Size = new System.Drawing.Size(242, 20);
+            this.cmbRole.Size = new System.Drawing.Size(240, 20);
             this.cmbRole.StyleController = this.layoutControl1;
             this.cmbRole.TabIndex = 11;
             this.cmbRole.EditValueChanged += new System.EventHandler(this.cmbRole_EditValueChanged);
@@ -246,12 +246,16 @@
             // 
             // layoutControlItem7
             // 
+            this.layoutControlItem7.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem7.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem7.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem7.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem7.Control = this.cmbRole;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(270, 24);
             this.layoutControlItem7.Text = "Role";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(21, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(23, 14);
             // 
             // frmFeature
             // 

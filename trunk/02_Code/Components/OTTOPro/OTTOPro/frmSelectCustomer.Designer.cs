@@ -71,7 +71,7 @@
             // 
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOk.Location = new System.Drawing.Point(382, 432);
+            this.btnOk.Location = new System.Drawing.Point(378, 432);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(70, 22);
             this.btnOk.StyleController = this.layoutControl1;
@@ -83,9 +83,9 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(456, 432);
+            this.btnCancel.Location = new System.Drawing.Point(452, 432);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(76, 22);
+            this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Abbrechen";
@@ -158,6 +158,8 @@
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseBackColor = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -184,17 +186,17 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 420);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(370, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(366, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnCancel;
-            this.layoutControlItem2.Location = new System.Drawing.Point(444, 420);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(80, 26);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem2.Location = new System.Drawing.Point(440, 420);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(84, 26);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -202,7 +204,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnOk;
-            this.layoutControlItem3.Location = new System.Drawing.Point(370, 420);
+            this.layoutControlItem3.Location = new System.Drawing.Point(366, 420);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(74, 26);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(74, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";

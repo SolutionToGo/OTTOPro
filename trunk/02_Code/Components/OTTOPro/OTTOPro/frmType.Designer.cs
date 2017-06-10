@@ -122,6 +122,9 @@
             this.gvTyp.OptionsBehavior.AllowDeleteRows = DevExpress.Utils.DefaultBoolean.False;
             this.gvTyp.OptionsBehavior.Editable = false;
             this.gvTyp.OptionsBehavior.ReadOnly = true;
+            this.gvTyp.OptionsCustomization.AllowColumnMoving = false;
+            this.gvTyp.OptionsCustomization.AllowFilter = false;
+            this.gvTyp.OptionsCustomization.AllowSort = false;
             this.gvTyp.OptionsView.ShowGroupPanel = false;
             this.gvTyp.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvTyp_FocusedRowChanged);
             // 
@@ -257,7 +260,7 @@
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(96, 552);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(76, 22);
+            this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Abbrechen";
@@ -294,10 +297,10 @@
             // 
             this.layoutControlItem5.Control = this.btnCancel;
             this.layoutControlItem5.Location = new System.Drawing.Point(84, 540);
-            this.layoutControlItem5.MaxSize = new System.Drawing.Size(80, 26);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(84, 26);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -316,7 +319,7 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.AppearanceItemCaption.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.layoutControlItem4.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem4.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem4.AppearanceItemCaption.Options.UseBackColor = true;
@@ -326,7 +329,7 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(665, 24);
-            this.layoutControlItem4.Text = "Typ :";
+            this.layoutControlItem4.Text = "Typ ";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(55, 14);
             // 
             // layoutControlItem1
@@ -381,9 +384,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(164, 540);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(168, 540);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(501, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(497, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // frmType

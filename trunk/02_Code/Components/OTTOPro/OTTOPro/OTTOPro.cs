@@ -226,6 +226,14 @@ namespace OTTOPro
 
         private void btnTyp_ItemClick(object sender, ItemClickEventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name == "frmType")
+                {
+                    form.Activate();
+                    return;
+                }
+            }
             frmType Obj = new frmType();
             Obj.MdiParent = this;
             label2.Visible = false;
@@ -235,6 +243,14 @@ namespace OTTOPro
 
         private void btnRabatt_ItemClick(object sender, ItemClickEventArgs e)
         {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name == "frmRabattGroup")
+                {
+                    form.Activate();
+                    return;
+                }
+            }
             frmRabattGroup Obj = new frmRabattGroup();
             Obj.MdiParent = this;
             label2.Visible = false;

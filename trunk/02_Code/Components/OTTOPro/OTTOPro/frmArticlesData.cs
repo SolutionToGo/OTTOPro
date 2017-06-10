@@ -51,7 +51,7 @@ namespace OTTOPro
             txtMulti4.Text = "1";
             txtDatanormNr.Text = string.Empty;
             dateEditGultigkeit.DateTime = DateTime.Now;
-            lblArticle.Text = "Info's zur Aktuellen Abmessung : ";
+            lblArticle.Text = "Artikelübersicht zu : ";
             BindDimensions(ObjEArticle.WIID);
         }
 
@@ -150,7 +150,7 @@ namespace OTTOPro
                         txtTyp.Text = gvWI.GetFocusedRowCellValue("Typ") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Typ").ToString();
                         txtLiferent.Text = gvWI.GetFocusedRowCellValue("FullName") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("FullName").ToString();
                         txtRabattgruppe.Text = gvWI.GetFocusedRowCellValue("Rabatt") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Rabatt").ToString();
-                        lblArticle.Text = "Info's zur Aktuellen Abmessung : " + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
+                        lblArticle.Text = "Artikelübersicht zu : " + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
                         BindDimensions(_IDValue);
                     }
                 }
@@ -168,12 +168,33 @@ namespace OTTOPro
             if (!string.IsNullOrEmpty(txtWG.Text.Trim()) && txtWG.Text != "0")
                 ObjEArticle.WG = txtWG.Text;
             else
-                throw new Exception("Please Enter Valid WG Value");
+            {
+                if(!Utility._IsGermany)
+                {
+                    throw new Exception("Please Enter Valid WG Value");
+                }
+                else
+                {
+                    throw new Exception("Bitte geben Sie einen zulässig Wert an für WG");
+                }
+                
+            }
+                
 
             if (!string.IsNullOrEmpty(txtWA.Text.Trim()) && txtWA.Text != "0")
                 ObjEArticle.WA = txtWA.Text;
             else
-                throw new Exception("Please Enter Valid WA Value");
+            {
+                if (!Utility._IsGermany)
+                {
+                    throw new Exception("Please Enter Valid WA Value");
+                }
+                else
+                {
+                    throw new Exception("Bitte geben Sie einen zulässig Wert an für WA");
+                }
+            }
+                
             //if (!string.IsNullOrEmpty(txtWI.Text) && txtWI.Text != "0")
                 ObjEArticle.WI = txtWI.Text.Trim();
             //else
@@ -303,14 +324,38 @@ namespace OTTOPro
                 if (ObjEArticle == null)
                     ObjEArticle = new EArticles();
                 if (ObjEArticle.WIID < 0)
-                    throw new Exception("Please Select The Article");
+                {
+                    if(!Utility._IsGermany)
+                    {
+                        throw new Exception("Please Select The Article");
+                    }
+                    else
+                    {
+                        throw new Exception("Bitte wählen Sie einen Artikel");
+                    }
+                }
+                    
                 if (_IsSave)
                 {
                     int RowHandle = gvDimensions.FocusedRowHandle;
                     SaveDimension(RowHandle);
                 }
+                
+                
                 DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
                 dvDimensions.RowFilter = "WIID = '" + ObjEArticle.WIID + "'";
+
+                foreach (DataRow _row in dvDimensions.Table.Rows)
+                {
+                    if (_row["A"].ToString() == null || _row["A"].ToString() == "")
+                    {
+                        return;
+                    }
+                    if (_row["B"].ToString() == null || _row["B"].ToString() == "")
+                    {
+                        return;
+                    }
+                }
                 DataRowView rowView = dvDimensions.AddNew();
                 rowView["DimensionID"] = "-1";
                 rowView["WIID"] = ObjEArticle.WIID;
@@ -401,13 +446,30 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "A"))) && gvDimensions.GetRowCellValue(RowHandle, "A") != "0")
                     ObjEArticle.A = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "A"));
                 else
-                    throw new Exception("Please Enter Valid Dimension");
+                {
+                    if (!Utility._IsGermany)
+                    {
+                        throw new Exception("Please Enter Valid Dimension");
+                    }
+                    else
+                    {
+                        throw new Exception("Bitte wählen Sie zulässige Maße");
+                    }
+                }                   
 
                 if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "B"))) && gvDimensions.GetRowCellValue(RowHandle, "B") != "0")
                     ObjEArticle.B = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "B"));
                 else
-                    throw new Exception("Please Enter Valid Dimension");
-
+                {
+                    if (!Utility._IsGermany)
+                    {
+                        throw new Exception("Please Enter Valid Dimension");
+                    }
+                    else
+                    {
+                        throw new Exception("Bitte wählen Sie zulässige Maße");
+                    }
+                }
                 if (gvDimensions.GetRowCellValue(RowHandle, "L") != "0")
                     ObjEArticle.L = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "L"));
 

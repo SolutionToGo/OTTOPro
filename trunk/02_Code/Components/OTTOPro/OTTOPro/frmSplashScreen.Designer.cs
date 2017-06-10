@@ -63,9 +63,9 @@
             // 
             this.labelControl2.Location = new System.Drawing.Point(12, 206);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(50, 13);
+            this.labelControl2.Size = new System.Drawing.Size(75, 13);
             this.labelControl2.TabIndex = 7;
-            this.labelControl2.Text = "Starting...";
+            this.labelControl2.Text = "Ladevorgang...";
             // 
             // pictureEdit2
             // 
@@ -104,11 +104,11 @@
             // labelControl3
             // 
             this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl3.Location = new System.Drawing.Point(486, 267);
+            this.labelControl3.Location = new System.Drawing.Point(477, 267);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(65, 13);
+            this.labelControl3.Size = new System.Drawing.Size(68, 13);
             this.labelControl3.TabIndex = 10;
-            this.labelControl3.Text = "POWERED BY";
+            this.labelControl3.Text = " POWERED BY";
             // 
             // frmSplashScreen
             // 

@@ -2351,31 +2351,30 @@ namespace OTTOPro
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbMulti5")
                 {
-                    if (ObjEProject.ProjectID > 0)
-                    {
-                        if (objBGAEB == null)
-                            objBGAEB = new BGAEB();
-                        DataTable dtLVSection = new DataTable();
-                        cmbLVSectionFilter.Properties.Items.Clear();
-                        dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
-                        foreach (DataRow dr in dtLVSection.Rows)
-                            cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
-                        cmbLVSectionFilter.SetEditValue("HA");
-                        btnMulti5LoadArticles_Click(null, null);
-                    }
+                    //if (ObjEProject.ProjectID > 0)
+                    //{
+                    //    if (objBGAEB == null)
+                    //        objBGAEB = new BGAEB();
+                    //    DataTable dtLVSection = new DataTable();
+                    //    cmbLVSectionFilter.Properties.Items.Clear();
+                    //    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
+                    //    foreach (DataRow dr in dtLVSection.Rows)
+                    //        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
+                    //    cmbLVSectionFilter.SetEditValue("HA");                        
+                    //}
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbMulti6")
                 {
-                    if (objBGAEB == null)
-                        objBGAEB = new BGAEB();
-                    DataTable dtLVSection = new DataTable();
-                    cmbMulti6LVFilter.Properties.Items.Clear();
-                    gcMulti6.DataSource = null;
-                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
-                    foreach (DataRow dr in dtLVSection.Rows)
-                        cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
-                    cmbMulti6LVFilter.SetEditValue("HA");
-                    cmbType.Text = "Montage";
+                    //if (objBGAEB == null)
+                    //    objBGAEB = new BGAEB();
+                    //DataTable dtLVSection = new DataTable();
+                    //cmbMulti6LVFilter.Properties.Items.Clear();
+                    //gcMulti6.DataSource = null;
+                    //dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
+                    //foreach (DataRow dr in dtLVSection.Rows)
+                    //    cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
+                    //cmbMulti6LVFilter.SetEditValue("HA");
+                    //cmbType.Text = "Montage";
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbOmlage")
                 {
@@ -3579,7 +3578,7 @@ namespace OTTOPro
                     {
                         if (P_value == "Z" || P_value == "ZS")
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add Text Position", bbAddTextPosition_Click));
+                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Textposition hinzufügen", bbAddTextPosition_Click));
                     }
                 }
                 else if (P_value == "H")
@@ -3589,8 +3588,8 @@ namespace OTTOPro
                     if (e.Menu is TreeListNodeMenu)
                     {
                         e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add Text Position", bbAddTextPosition_Click));
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add Detail KZ", bbAddDetailKZ_Click));
+                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Textposition hinzufügen", bbAddTextPosition_Click));
+                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Detail KZ hinzufügen", bbAddDetailKZ_Click));
                     }
                 }
             }
@@ -3678,7 +3677,14 @@ namespace OTTOPro
             {
                 if (cmbBulkProcessSelection.Text == "")
                 {
-                    throw new Exception("Please select Typ.!");
+                    if (Utility._IsGermany == true)
+                    {
+                        throw new Exception("Bitte wählen Sie die Filtermethode.!");
+                    }
+                    else
+                    {
+                        throw new Exception("Please select Typ.!");
+                    }                    
                 }
                 gvAddRemovePositions.Rows.Add();
             }
@@ -4382,47 +4388,7 @@ namespace OTTOPro
 
                 }
                 if (radioGroupActionB.SelectedIndex == 0)
-                {
-                    if (txtPositionMenge.Text == "")
-                    {
-                        txtPositionMenge.Text = "";
-                    }
-                    if (txtMaterialKz.Text == "")
-                    {
-                        txtMaterialKz.Text = "";
-                    }
-                    if (txtMontageKZ.Text == "")
-                    {
-                        txtMontageKZ.Text = "";
-                    }
-                    if (txtPreisErstaztext.Text == "")
-                    {
-                        txtPreisErstaztext.Text = "";
-                    }
-                    if (txtTyp.Text == "")
-                    {
-                        txtTyp.Text = "";
-                    }
-                    if (txtFabrikat.Text == "")
-                    {
-                        txtFabrikat.Text = "";
-                    }
-                    if (txtBulkLieferantMA.Text == "")
-                    {
-                        txtBulkLieferantMA.Text = "";
-                    }
-                    if (txtArtikelnummerWG.Text == "")
-                    {
-                        txtArtikelnummerWG.Text = "";
-                    }
-                    if (txtArtikelnummerWA.Text == "")
-                    {
-                        txtArtikelnummerWA.Text = "";
-                    }
-                    if (txtArtikelnummerWI.Text == "")
-                    {
-                        txtArtikelnummerWI.Text = "";
-                    }
+                {                    
                     if (checkEditArtikelnummerWG.Checked == true)
                     {
                         if (txtArtikelnummerWG.Text == "")
@@ -4461,12 +4427,7 @@ namespace OTTOPro
                             }
                             return;
                         }
-                    }
-
-                    if (txtNachtragsnummer.Text == "")
-                    {
-                        txtNachtragsnummer.Text = "";
-                    }
+                    }                   
 
                 }
                 else
@@ -4554,7 +4515,6 @@ namespace OTTOPro
                                                       txtPreisErstaztext.Text, txtFabrikat.Text, txtTyp.Text, txtBulkLieferantMA.Text, txtArtikelnummerWG.Text,
                                                       txtArtikelnummerWA.Text, txtArtikelnummerWI.Text, txtNachtragsnummer.Text, dtPos);
 
-                BindPositionData();
                 btnApply_Click(null, null);
 
                 ObjEProject.ProjectID = ProjectID;
@@ -5546,6 +5506,7 @@ e.Column.FieldName == "GB")
 
         private void navBarItemBulkProcess_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            ObjBProject.GetProjectDetails(ObjEProject);
             if (ObjEProject.ActualLvs == 0)
                 return;
             if (GetCommisssionNo() != "")
@@ -5618,7 +5579,18 @@ e.Column.FieldName == "GB")
                 if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
                 {
                     ObjTabDetails = tbMulti5;
-                    TabChange(ObjTabDetails);
+                    TabChange(ObjTabDetails);                    
+
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    DataTable dtLVSection = new DataTable();
+                    cmbLVSectionFilter.Properties.Items.Clear();
+                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
+                    foreach (DataRow dr in dtLVSection.Rows)
+                        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
+                    cmbLVSectionFilter.SetEditValue("HA");
+
+                    btnMulti5LoadArticles_Click(null, null);
                     gvMulti5.BestFitColumns();
                 }
             }
@@ -5637,6 +5609,20 @@ e.Column.FieldName == "GB")
                 {
                     ObjTabDetails = tbMulti6;
                     TabChange(ObjTabDetails);
+
+                   
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    DataTable dtLVSection = new DataTable();
+                    cmbMulti6LVFilter.Properties.Items.Clear();
+                    gcMulti6.DataSource = null;
+                    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
+                    foreach (DataRow dr in dtLVSection.Rows)
+                        cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
+                    cmbMulti6LVFilter.SetEditValue("HA");
+                    cmbType.SelectedIndex = 1;
+
+                    btnMulti6LoadArticles_Click(null, null);
                     gvMulti6.BestFitColumns();
                 }
             }
@@ -5656,7 +5642,7 @@ e.Column.FieldName == "GB")
                 {
                     if (Utility._IsGermany == true)
                     {
-                        XtraMessageBox.Show("Nein LV Positions to Export.!");
+                        XtraMessageBox.Show("Es liegen keine LV Positionen für den Export vor!");
                     }
                     else
                     {
@@ -6028,8 +6014,15 @@ e.Column.FieldName == "GB")
                 AvailedQnty = RemainingQuantity + (OrderedQuantity * 0.1);
                 if (notSavedQnty != 0 && notSavedQnty > AvailedQnty)
                 {
-                    XtraMessageBox.Show("Total Quantity Exceeding Ordered Quantity");
-                    //gvDelivery.SetFocusedRowCellValue("Menge", notSavedQnty);
+                    if (!Utility._IsGermany)
+                    {
+                        XtraMessageBox.Show("Total Quantity Exceeding Ordered Quantity");
+                    }
+                    else
+                    {
+                        XtraMessageBox.Show("Die Gesamtmenge übersteigt die beauftragte Menge");
+                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -6117,7 +6110,7 @@ e.Column.FieldName == "GB")
                     if(gvDeliveryNumbers.FocusedRowHandle != null)
                     {
                         string str = gvDeliveryNumbers.GetFocusedRowCellValue("IsInvoiced").ToString();
-                        if (str.ToLower() != "yes" && gvDelivery.RowCount <= 0)
+                        if (str.ToLower() != "ja" && gvDelivery.RowCount <= 0)
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ändern", gcBlattEdit_Click));
 
                     }
@@ -6553,9 +6546,9 @@ e.Column.FieldName == "GB")
                         }
                         if(strArr.ToString().Contains('@'))
                         {
-                            mailItem.Subject = "This is the subject";
+                            mailItem.Subject = "Preisanfrage";
                             mailItem.BCC = strArr.ToString();
-                            mailItem.Body = "This is the message.";
+                            mailItem.Body = "Bitte stellen Sie uns für beigefügte Anfrage Ihr Preisangebot zur Verfügung";
 
                             mailItem.Attachments.Add(_pdfpath);
                             mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
@@ -7306,7 +7299,17 @@ e.Column.FieldName == "GB")
                 if (_PosKZ == "NG")
                 {
                     if (rgDropMode.SelectedIndex == 2)
-                        throw new Exception("Please select different copy mode");
+                    {
+                        if(!Utility._IsGermany)
+                        {
+                            throw new Exception("Please select different copy mode");
+                        }
+                        else
+                        {
+                            throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
+                        }
+                    }
+                        
                     string[] _Raster = ObjEProject.LVRaster.Split('.');
                     int _Rastercount = _Raster.Count();
                     ParentOZ = node["Position_OZ"].ToString();
@@ -7315,7 +7318,15 @@ e.Column.FieldName == "GB")
                     if (_OZCount != _Rastercount - 1)
                     {
                         e.Effect = DragDropEffects.None;
-                        throw new Exception("Create Subtitles As Per The Raster Before Going Copy");
+                        if (!Utility._IsGermany)
+                        {
+                            throw new Exception("Create Subtitles As Per The Raster Before Going Copy");
+                        }
+                        else
+                        {
+                            throw new Exception("Bitte legen Sie zunächst Titel an, bevor Sie LV Positionen übernehmen");
+
+                        }
                     }
                     string strSelectedOZ = "";
                     if (rgDropMode.SelectedIndex == 0)

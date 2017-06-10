@@ -38,8 +38,8 @@ namespace OTTOPro
         {
             try
             {
-                string[] _D_formats = { "D81", "D83", "D84", "D86", "P81", "P83", "P84", "P86", "X81", "X83", "X84", "X86" };
-                string[] _P_formats = { "P81", "P83", "P84", "P86", "X81", "X83", "X84", "X86" };
+                string[] _D_formats = { "D81", "D83", "D84", "D86", "P81", "P83", "P84", "P86"};
+                string[] _P_formats = { "P81", "P83", "P84", "P86" };
                 if (_Raster > 9)
                 {
                     foreach (string p in _P_formats)
@@ -112,7 +112,15 @@ namespace OTTOPro
                 }
                 else
                 {
-                    throw new Exception("Please select the format of GAEB file");
+                    if(!Utility._IsGermany)
+                    {
+                        throw new Exception("Please select the format of GAEB file");
+                    }
+                    else
+                    {
+                        throw new Exception("Bitte wählen Sie das gewünschte GAEB Exportformat");
+                    }
+                    
                 }
                 SplashScreenManager.CloseForm(false);
             }

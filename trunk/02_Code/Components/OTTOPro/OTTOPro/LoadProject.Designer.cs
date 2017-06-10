@@ -127,6 +127,9 @@
             this.dgProjectSearch.GridControl = this.gcProjectSearch;
             this.dgProjectSearch.Name = "dgProjectSearch";
             this.dgProjectSearch.OptionsBehavior.ReadOnly = true;
+            this.dgProjectSearch.OptionsCustomization.AllowColumnMoving = false;
+            this.dgProjectSearch.OptionsCustomization.AllowFilter = false;
+            this.dgProjectSearch.OptionsCustomization.AllowSort = false;
             this.dgProjectSearch.OptionsFind.AlwaysVisible = true;
             this.dgProjectSearch.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.dgProjectSearch.OptionsFind.ShowFindButton = false;
@@ -197,6 +200,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.ColumnCount = 6;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -266,6 +270,8 @@
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseBackColor = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {

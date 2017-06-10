@@ -66,7 +66,7 @@ namespace DataAccess
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                             {
-                                throw new Exception("");
+                                throw new Exception("Eine Surcharge kann nicht mehrfach für die gleichen Positionen angelegt werden");
                            }
                             else
                             {
@@ -77,7 +77,7 @@ namespace DataAccess
                         {
                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                             {
-                                throw new Exception("");
+                                throw new Exception("Eine Summe kann nicht mehrfach für die gleichen Positionen angelegt werden");
                             }
                             else
                             {

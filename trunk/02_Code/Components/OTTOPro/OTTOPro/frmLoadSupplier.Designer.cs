@@ -186,6 +186,8 @@
             this.gvArticles.GridControl = this.gcArticles;
             this.gvArticles.Name = "gvArticles";
             this.gvArticles.OptionsCustomization.AllowColumnMoving = false;
+            this.gvArticles.OptionsCustomization.AllowFilter = false;
+            this.gvArticles.OptionsCustomization.AllowSort = false;
             this.gvArticles.OptionsFilter.AllowFilterEditor = false;
             this.gvArticles.OptionsMenu.EnableColumnMenu = false;
             this.gvArticles.OptionsMenu.EnableFooterMenu = false;
@@ -246,13 +248,13 @@
             // 
             this.memoEditPaymentConditions.Location = new System.Drawing.Point(12, 438);
             this.memoEditPaymentConditions.Name = "memoEditPaymentConditions";
-            this.memoEditPaymentConditions.Size = new System.Drawing.Size(623, 78);
+            this.memoEditPaymentConditions.Size = new System.Drawing.Size(623, 84);
             this.memoEditPaymentConditions.TabIndex = 21;
             this.memoEditPaymentConditions.Text = "";
             // 
             // memoEdit2
             // 
-            this.memoEdit2.Location = new System.Drawing.Point(12, 520);
+            this.memoEdit2.Location = new System.Drawing.Point(12, 526);
             this.memoEdit2.Name = "memoEdit2";
             this.memoEdit2.Properties.ReadOnly = true;
             this.memoEdit2.Size = new System.Drawing.Size(623, 44);
@@ -262,38 +264,42 @@
             // label4
             // 
             this.label4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(639, 526);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(627, 22);
             this.label4.TabIndex = 15;
-            this.label4.Text = "Artikel :";
+            this.label4.Text = "Artikel ";
             // 
             // label3
             // 
             this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(639, 259);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(627, 22);
             this.label3.TabIndex = 14;
-            this.label3.Text = "Firmenadresse :";
+            this.label3.Text = "Firmenadresse ";
             // 
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(639, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(285, 22);
             this.label2.TabIndex = 13;
-            this.label2.Text = "Ansprechpartner für das Projekt :";
+            this.label2.Text = "Ansprechpartner";
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(346, 22);
             this.label1.TabIndex = 12;
-            this.label1.Text = "Lieferant :";
+            this.label1.Text = "Lieferant ";
             // 
             // btnAddArticles
             // 
@@ -374,6 +380,8 @@
             this.gvAddress.OptionsBehavior.Editable = false;
             this.gvAddress.OptionsBehavior.ReadOnly = true;
             this.gvAddress.OptionsCustomization.AllowColumnMoving = false;
+            this.gvAddress.OptionsCustomization.AllowFilter = false;
+            this.gvAddress.OptionsCustomization.AllowSort = false;
             this.gvAddress.OptionsFilter.AllowFilterEditor = false;
             this.gvAddress.OptionsFind.AlwaysVisible = true;
             this.gvAddress.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
@@ -497,6 +505,8 @@
             this.gvContact.OptionsBehavior.Editable = false;
             this.gvContact.OptionsBehavior.ReadOnly = true;
             this.gvContact.OptionsCustomization.AllowColumnMoving = false;
+            this.gvContact.OptionsCustomization.AllowFilter = false;
+            this.gvContact.OptionsCustomization.AllowSort = false;
             this.gvContact.OptionsFilter.AllowFilterEditor = false;
             this.gvContact.OptionsFind.AlwaysVisible = true;
             this.gvContact.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
@@ -627,6 +637,8 @@
             this.gvSupplier.OptionsBehavior.Editable = false;
             this.gvSupplier.OptionsBehavior.ReadOnly = true;
             this.gvSupplier.OptionsCustomization.AllowColumnMoving = false;
+            this.gvSupplier.OptionsCustomization.AllowFilter = false;
+            this.gvSupplier.OptionsCustomization.AllowSort = false;
             this.gvSupplier.OptionsFilter.AllowFilterEditor = false;
             this.gvSupplier.OptionsFind.AlwaysVisible = true;
             this.gvSupplier.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
@@ -868,7 +880,7 @@
             // layoutControlItem14
             // 
             this.layoutControlItem14.Control = this.memoEdit2;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 508);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 514);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(627, 48);
             this.layoutControlItem14.TextSize = new System.Drawing.Size(0, 0);
@@ -877,34 +889,38 @@
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 556);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(0, 562);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(627, 27);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(627, 21);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem18
             // 
             this.layoutControlItem18.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem18.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem18.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem18.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem18.Control = this.memoEditPaymentConditions;
             this.layoutControlItem18.Location = new System.Drawing.Point(0, 409);
             this.layoutControlItem18.Name = "layoutControlItem18";
-            this.layoutControlItem18.Size = new System.Drawing.Size(627, 99);
-            this.layoutControlItem18.Text = "Zahlungsbedingungen :";
+            this.layoutControlItem18.Size = new System.Drawing.Size(627, 105);
+            this.layoutControlItem18.Text = "Zahlungsbedingungen ";
             this.layoutControlItem18.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem18.TextSize = new System.Drawing.Size(144, 14);
+            this.layoutControlItem18.TextSize = new System.Drawing.Size(140, 14);
             // 
             // layoutControlItem13
             // 
             this.layoutControlItem13.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem13.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem13.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem13.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem13.Control = this.memoEditCommentary;
             this.layoutControlItem13.Location = new System.Drawing.Point(0, 583);
             this.layoutControlItem13.Name = "layoutControlItem13";
             this.layoutControlItem13.Size = new System.Drawing.Size(627, 109);
-            this.layoutControlItem13.Text = "Kommentar :";
+            this.layoutControlItem13.Text = "Kommentar ";
             this.layoutControlItem13.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem13.TextSize = new System.Drawing.Size(144, 14);
+            this.layoutControlItem13.TextSize = new System.Drawing.Size(140, 14);
             // 
             // layoutControlItem4
             // 

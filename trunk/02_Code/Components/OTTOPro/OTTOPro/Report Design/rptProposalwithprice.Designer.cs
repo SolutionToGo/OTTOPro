@@ -603,13 +603,13 @@
             this.xrLabel9.Dpi = 100F;
             this.xrLabel9.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrLabel9.ForeColor = System.Drawing.Color.Maroon;
-            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(587.3613F, 0F);
+            this.xrLabel9.LocationFloat = new DevExpress.Utils.PointFloat(548.2556F, 0F);
             this.xrLabel9.Name = "xrLabel9";
             this.xrLabel9.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel9.SizeF = new System.Drawing.SizeF(46.875F, 23F);
+            this.xrLabel9.SizeF = new System.Drawing.SizeF(85.98071F, 23F);
             this.xrLabel9.StylePriority.UseFont = false;
             this.xrLabel9.StylePriority.UseForeColor = false;
-            this.xrLabel9.Text = "Total :";
+            this.xrLabel9.Text = "Gesamt :";
             // 
             // xrLabel10
             // 

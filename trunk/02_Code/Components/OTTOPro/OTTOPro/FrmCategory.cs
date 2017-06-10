@@ -55,7 +55,15 @@ namespace OTTOPro
                     {
                         if(dr["CategoryName"].ToString()==txtCategory.Text.Trim())
                         {
-                            throw new Exception("Category already exist.!");
+                            if(!Utility._IsGermany)
+                            {
+                                throw new Exception("Category already exist.!");
+                            }
+                            else
+                            {
+                                throw new Exception("Diese Kategorie existiert berets.!");
+                            }
+                            
                         }
                     }
                 }

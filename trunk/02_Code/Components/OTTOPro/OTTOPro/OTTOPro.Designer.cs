@@ -428,7 +428,7 @@
             this.rpgTextModule.ItemLinks.Add(this.btnShortCuts, true);
             this.rpgTextModule.ItemLinks.Add(this.btnDesignReport);
             this.rpgTextModule.Name = "rpgTextModule";
-            this.rpgTextModule.Text = "Text Module Details";
+            this.rpgTextModule.Text = "Datenerfassung Textmodul";
             // 
             // Profile
             // 
@@ -513,7 +513,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 26);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 1.6 (09-06-2017) Build Number : 3";
+            this.label1.Text = "Version 1.6 (09-06-2017) Release Nr : 3";
             // 
             // fdImportFile
             // 

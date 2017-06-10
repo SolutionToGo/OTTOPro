@@ -122,18 +122,18 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(201, 83);
+            this.txtPassword.Location = new System.Drawing.Point(197, 83);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Properties.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(216, 20);
+            this.txtPassword.Size = new System.Drawing.Size(220, 20);
             this.txtPassword.StyleController = this.layoutControl1;
             this.txtPassword.TabIndex = 5;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(201, 59);
+            this.txtUserName.Location = new System.Drawing.Point(197, 59);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(216, 20);
+            this.txtUserName.Size = new System.Drawing.Size(220, 20);
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 4;
             // 
@@ -165,8 +165,8 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(115, 47);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(294, 24);
-            this.layoutControlItem1.Text = "User Name :";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(71, 14);
+            this.layoutControlItem1.Text = "User Name ";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(67, 14);
             // 
             // layoutControlItem2
             // 
@@ -178,8 +178,8 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(115, 71);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(294, 24);
-            this.layoutControlItem2.Text = "Password :";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(71, 14);
+            this.layoutControlItem2.Text = "Password ";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(67, 14);
             // 
             // layoutControlItem6
             // 

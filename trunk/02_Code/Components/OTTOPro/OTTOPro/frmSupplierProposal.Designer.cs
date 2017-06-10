@@ -400,7 +400,7 @@
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
             this.layoutControlItem8.Size = new System.Drawing.Size(449, 25);
-            this.layoutControlItem8.Text = "LV Section :";
+            this.layoutControlItem8.Text = "LV Section ";
             this.layoutControlItem8.TextSize = new System.Drawing.Size(242, 15);
             // 
             // layoutControlItem1
@@ -415,7 +415,7 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(449, 25);
-            this.layoutControlItem1.Text = "List of WG/WA :";
+            this.layoutControlItem1.Text = "List of WG/WA ";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(242, 15);
             // 
             // emptySpaceItem1

@@ -47,15 +47,21 @@ namespace DataAccess
                                     ObjEArticle.dtWI = dsArticles.Tables[2];
                                 }
                             }
-                            else
+                            else if (str.Contains("UNIQUE"))
                             {
-                                if (str.Contains("UNIQUE"))
-                                    throw new Exception("Article Already Exists");
+                                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                {
+                                    throw new Exception("Der Artikel existiert bereits.");
+                                }
                                 else
+                                {
+                                    throw new Exception("Article Already Exists");
+                                }
+                            }
+                             else
                                     throw new Exception("Error While Saving the Article");
                             }
                         }
-                    }
                 }
                 catch (Exception ex)
                 {
@@ -90,7 +96,7 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("To Be Updated");
+                   throw new Exception("Fehler bei der Datenaktualisierung für Artikel");
                else
                    throw new Exception("Error While Retrieving the Articles");
            }
@@ -128,15 +134,22 @@ namespace DataAccess
                            ObjEArticle.DimensionID = iValue;
                            ObjEArticle.dtDimenstions = dsDimensions.Tables[1];
                        }
-                       else
+                       else if(str.Contains("UNIQUE"))
                        {
-                           if (str.Contains("UNIQUE"))
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                           {
+                               throw new Exception("Diese Maße gibt es bereits");
+                           }
+                           else
+                           {
                                throw new Exception("Dimension Already Exists");
+                           }
+                       }
+                       
                            else
                                throw new Exception("Error While Saving the Dimension");
                        }
-                   }
-               }
+                   }               
            }
            catch (Exception ex)
            {
@@ -176,15 +189,21 @@ namespace DataAccess
                            ObjEArticle.TypID = iValue;
                            ObjEArticle.dtTyp = dsType.Tables[1];
                        }
-                       else
+                       else if (str.Contains("UNIQUE"))
                        {
-                           if (str.Contains("UNIQUE"))
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                           {
+                               throw new Exception("Dieser TYP existiert bereits");
+                           }
+                           else
+                           {
                                throw new Exception("Typ Already Exists");
+                           }
+                       }                       
                            else
                                throw new Exception("Error While Saving the Typ");
                        }
-                   }
-               }
+                   }               
            }
            catch (Exception ex)
            {
@@ -220,7 +239,7 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("To Be Updated");
+                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
                else
                    throw new Exception("Error While Retrieving the Typ");
            }
@@ -258,15 +277,21 @@ namespace DataAccess
                            ObjEArticle.RabattID = iValue;
                            ObjEArticle.dtRabatt = dsRabatt.Tables[1];
                        }
-                       else
+                       else if(str.Contains("UNIQUE"))
                        {
-                           if (str.Contains("UNIQUE"))
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                           {
+                               throw new Exception("Diese Rabattgruppe existiert bereits");
+                           }
+                           else
+                           {
                                throw new Exception("Rabatt Already Exists");
+                           }
+                       }                       
                            else
                                throw new Exception("Error While Saving the Rabatt");
                        }
-                   }
-               }
+                   }               
            }
            catch (Exception ex)
            {
@@ -300,7 +325,7 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("To Be Updated");
+                   throw new Exception("Fehler bei der Datenaktualisierung für Rabattgruppen");
                else
                    throw new Exception("Error While Retrieving the Rabatt");
            }
@@ -334,7 +359,16 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (ex.Message.Contains("UNIQUE"))
-                   throw new Exception("Selected Validity Date Already Exists with Dimensions");
+               {
+                   if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   {
+                       throw new Exception("Das angegebene Gültigkeitsdatum besteht bereits");
+                   }
+                   else
+                   {
+                       throw new Exception("Selected Validity Date Already Exists with Dimensions");
+                   }
+               }                   
                else
                    throw new Exception("Error While Saving the Dimension");
            }
@@ -362,7 +396,14 @@ namespace DataAccess
            }
            catch (Exception ex)
            {
-               throw new Exception("Error While Importing");
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+               {
+                   throw new Exception("Fehler beim Datenimport");
+               }
+               else
+               {
+                   throw new Exception("Error While Importing");
+               }               
            }
            finally
            {

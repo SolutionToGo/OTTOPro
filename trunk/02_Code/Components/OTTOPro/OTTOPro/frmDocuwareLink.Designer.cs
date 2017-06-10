@@ -96,9 +96,9 @@
             this.labelControl1.Appearance.Options.UseForeColor = true;
             this.labelControl1.Location = new System.Drawing.Point(23, 36);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(87, 17);
+            this.labelControl1.Size = new System.Drawing.Size(96, 17);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "DocuwareLink1";
+            this.labelControl1.Text = "Docuware Link-1";
             // 
             // labelControl2
             // 
@@ -109,9 +109,9 @@
             this.labelControl2.Appearance.Options.UseForeColor = true;
             this.labelControl2.Location = new System.Drawing.Point(23, 65);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(87, 17);
+            this.labelControl2.Size = new System.Drawing.Size(96, 17);
             this.labelControl2.TabIndex = 0;
-            this.labelControl2.Text = "DocuwareLink2";
+            this.labelControl2.Text = "Docuware Link-2";
             // 
             // labelControl3
             // 
@@ -122,37 +122,37 @@
             this.labelControl3.Appearance.Options.UseForeColor = true;
             this.labelControl3.Location = new System.Drawing.Point(23, 94);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(87, 17);
+            this.labelControl3.Size = new System.Drawing.Size(96, 17);
             this.labelControl3.TabIndex = 0;
-            this.labelControl3.Text = "DocuwareLink3";
+            this.labelControl3.Text = "Docuware Link-3";
             // 
             // txtLink1
             // 
             this.txtLink1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLink1.Location = new System.Drawing.Point(116, 33);
+            this.txtLink1.Location = new System.Drawing.Point(125, 33);
             this.txtLink1.Name = "txtLink1";
             this.txtLink1.Properties.ReadOnly = true;
-            this.txtLink1.Size = new System.Drawing.Size(276, 20);
+            this.txtLink1.Size = new System.Drawing.Size(267, 20);
             this.txtLink1.TabIndex = 1;
             this.txtLink1.TextChanged += new System.EventHandler(this.textEdit1_TextChanged);
             // 
             // txtLink2
             // 
             this.txtLink2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLink2.Location = new System.Drawing.Point(116, 62);
+            this.txtLink2.Location = new System.Drawing.Point(125, 62);
             this.txtLink2.Name = "txtLink2";
             this.txtLink2.Properties.ReadOnly = true;
-            this.txtLink2.Size = new System.Drawing.Size(276, 20);
+            this.txtLink2.Size = new System.Drawing.Size(267, 20);
             this.txtLink2.TabIndex = 1;
             this.txtLink2.TextChanged += new System.EventHandler(this.textEdit2_TextChanged);
             // 
             // txtLink3
             // 
             this.txtLink3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLink3.Location = new System.Drawing.Point(116, 91);
+            this.txtLink3.Location = new System.Drawing.Point(125, 91);
             this.txtLink3.Name = "txtLink3";
             this.txtLink3.Properties.ReadOnly = true;
-            this.txtLink3.Size = new System.Drawing.Size(276, 20);
+            this.txtLink3.Size = new System.Drawing.Size(267, 20);
             this.txtLink3.TabIndex = 1;
             this.txtLink3.TextChanged += new System.EventHandler(this.textEdit3_TextChanged);
             // 
@@ -163,7 +163,7 @@
             this.simpleButton1.Name = "simpleButton1";
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
             this.simpleButton1.TabIndex = 2;
-            this.simpleButton1.Text = "Browse";
+            this.simpleButton1.Text = "Suchen";
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // simpleButton2
@@ -173,7 +173,7 @@
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
             this.simpleButton2.TabIndex = 2;
-            this.simpleButton2.Text = "Browse";
+            this.simpleButton2.Text = "Suchen";
             this.simpleButton2.Click += new System.EventHandler(this.simpleButton2_Click);
             // 
             // simpleButton3
@@ -183,7 +183,7 @@
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(75, 23);
             this.simpleButton3.TabIndex = 2;
-            this.simpleButton3.Text = "Browse";
+            this.simpleButton3.Text = "Suchen";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // tableLayoutPanel2
@@ -195,17 +195,17 @@
             this.tableLayoutPanel2.Controls.Add(this.btnOK, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnCancel, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(116, 120);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(125, 120);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(276, 28);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(267, 28);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // btnOK
             // 
             this.btnOK.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOK.Location = new System.Drawing.Point(120, 3);
+            this.btnOK.Location = new System.Drawing.Point(111, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 22);
             this.btnOK.TabIndex = 0;
@@ -215,7 +215,7 @@
             // btnCancel
             // 
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(201, 3);
+            this.btnCancel.Location = new System.Drawing.Point(192, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(72, 22);
             this.btnCancel.TabIndex = 0;

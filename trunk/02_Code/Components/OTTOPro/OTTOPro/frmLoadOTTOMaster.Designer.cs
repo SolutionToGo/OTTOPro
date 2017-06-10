@@ -125,20 +125,22 @@
             // label2
             // 
             this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(686, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(197, 22);
             this.label2.TabIndex = 9;
-            this.label2.Text = "AnsprPartner :";
+            this.label2.Text = "AnsprPartner ";
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 22);
             this.label1.TabIndex = 8;
-            this.label1.Text = "OTTO Detailinformationen :";
+            this.label1.Text = "OTTO Detailinformationen ";
             // 
             // btnAddContact
             // 
@@ -196,6 +198,8 @@
             this.gvOTTOContact.OptionsBehavior.Editable = false;
             this.gvOTTOContact.OptionsBehavior.ReadOnly = true;
             this.gvOTTOContact.OptionsCustomization.AllowColumnMoving = false;
+            this.gvOTTOContact.OptionsCustomization.AllowFilter = false;
+            this.gvOTTOContact.OptionsCustomization.AllowSort = false;
             this.gvOTTOContact.OptionsFilter.AllowFilterEditor = false;
             this.gvOTTOContact.OptionsFind.AlwaysVisible = true;
             this.gvOTTOContact.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
@@ -360,6 +364,8 @@
             this.gvOTTO.OptionsBehavior.Editable = false;
             this.gvOTTO.OptionsBehavior.ReadOnly = true;
             this.gvOTTO.OptionsCustomization.AllowColumnMoving = false;
+            this.gvOTTO.OptionsCustomization.AllowFilter = false;
+            this.gvOTTO.OptionsCustomization.AllowSort = false;
             this.gvOTTO.OptionsFilter.AllowFilterEditor = false;
             this.gvOTTO.OptionsFind.AlwaysVisible = true;
             this.gvOTTO.OptionsFind.FindNullPrompt = "Suchtext eingeben...";

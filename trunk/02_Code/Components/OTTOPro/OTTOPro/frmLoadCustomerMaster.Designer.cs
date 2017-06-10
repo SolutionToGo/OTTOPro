@@ -172,9 +172,9 @@
             // 
             // memoEditCommentary
             // 
-            this.memoEditCommentary.Location = new System.Drawing.Point(12, 487);
+            this.memoEditCommentary.Location = new System.Drawing.Point(12, 480);
             this.memoEditCommentary.Name = "memoEditCommentary";
-            this.memoEditCommentary.Size = new System.Drawing.Size(695, 206);
+            this.memoEditCommentary.Size = new System.Drawing.Size(695, 213);
             this.memoEditCommentary.TabIndex = 20;
             this.memoEditCommentary.Text = "";
             // 
@@ -220,6 +220,9 @@
             this.gvInvoiceHistory.Name = "gvInvoiceHistory";
             this.gvInvoiceHistory.OptionsBehavior.Editable = false;
             this.gvInvoiceHistory.OptionsBehavior.ReadOnly = true;
+            this.gvInvoiceHistory.OptionsCustomization.AllowColumnMoving = false;
+            this.gvInvoiceHistory.OptionsCustomization.AllowFilter = false;
+            this.gvInvoiceHistory.OptionsCustomization.AllowSort = false;
             this.gvInvoiceHistory.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvInvoiceHistory.OptionsFind.ShowFindButton = false;
             this.gvInvoiceHistory.OptionsMenu.EnableColumnMenu = false;
@@ -268,6 +271,9 @@
             this.gvAddress.Name = "gvAddress";
             this.gvAddress.OptionsBehavior.Editable = false;
             this.gvAddress.OptionsBehavior.ReadOnly = true;
+            this.gvAddress.OptionsCustomization.AllowColumnMoving = false;
+            this.gvAddress.OptionsCustomization.AllowFilter = false;
+            this.gvAddress.OptionsCustomization.AllowSort = false;
             this.gvAddress.OptionsFind.AlwaysVisible = true;
             this.gvAddress.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvAddress.OptionsFind.ShowFindButton = false;
@@ -411,6 +417,9 @@
             this.gvContacts.Name = "gvContacts";
             this.gvContacts.OptionsBehavior.Editable = false;
             this.gvContacts.OptionsBehavior.ReadOnly = true;
+            this.gvContacts.OptionsCustomization.AllowColumnMoving = false;
+            this.gvContacts.OptionsCustomization.AllowFilter = false;
+            this.gvContacts.OptionsCustomization.AllowSort = false;
             this.gvContacts.OptionsFind.AlwaysVisible = true;
             this.gvContacts.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvContacts.OptionsFind.ShowFindButton = false;
@@ -532,7 +541,7 @@
             this.gcCustomer.Name = "gcCustomer";
             this.gcCustomer.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemMemoExEdit1});
-            this.gcCustomer.Size = new System.Drawing.Size(695, 407);
+            this.gcCustomer.Size = new System.Drawing.Size(695, 400);
             this.gcCustomer.TabIndex = 14;
             this.gcCustomer.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCustomers});
@@ -584,6 +593,8 @@
             this.gvCustomers.OptionsBehavior.Editable = false;
             this.gvCustomers.OptionsBehavior.ReadOnly = true;
             this.gvCustomers.OptionsCustomization.AllowColumnMoving = false;
+            this.gvCustomers.OptionsCustomization.AllowFilter = false;
+            this.gvCustomers.OptionsCustomization.AllowSort = false;
             this.gvCustomers.OptionsFilter.AllowFilterEditor = false;
             this.gvCustomers.OptionsFind.AlwaysVisible = true;
             this.gvCustomers.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
@@ -937,54 +948,62 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem1.Control = this.gcCustomer;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 30);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(699, 428);
-            this.layoutControlItem1.Text = "Kunden :";
+            this.layoutControlItem1.Size = new System.Drawing.Size(699, 421);
+            this.layoutControlItem1.Text = "Kunden ";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(122, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(118, 14);
             // 
             // layoutControlItem14
             // 
             this.layoutControlItem14.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem14.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem14.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem14.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem14.Control = this.memoEditCommentary;
-            this.layoutControlItem14.Location = new System.Drawing.Point(0, 458);
+            this.layoutControlItem14.Location = new System.Drawing.Point(0, 451);
             this.layoutControlItem14.Name = "layoutControlItem14";
-            this.layoutControlItem14.Size = new System.Drawing.Size(699, 227);
-            this.layoutControlItem14.Text = "Kommentar :";
+            this.layoutControlItem14.Size = new System.Drawing.Size(699, 234);
+            this.layoutControlItem14.Text = "Kommentar ";
             this.layoutControlItem14.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem14.TextSize = new System.Drawing.Size(122, 14);
+            this.layoutControlItem14.TextSize = new System.Drawing.Size(118, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem2.Control = this.gcContacts;
             this.layoutControlItem2.Location = new System.Drawing.Point(699, 30);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(206, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(645, 195);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem2.Text = "AnsprPartner :";
+            this.layoutControlItem2.Text = "AnsprPartner ";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(122, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(118, 14);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem3.Control = this.gcAddress;
             this.layoutControlItem3.Location = new System.Drawing.Point(699, 251);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(206, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(645, 200);
             this.layoutControlItem3.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem3.Text = "Addresse :";
+            this.layoutControlItem3.Text = "Addresse ";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(122, 14);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(118, 14);
             // 
             // emptySpaceItem6
             // 
@@ -1009,16 +1028,18 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem11.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem11.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem11.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem11.Control = this.gcInvoiceHistory;
             this.layoutControlItem11.Location = new System.Drawing.Point(699, 477);
             this.layoutControlItem11.MinSize = new System.Drawing.Size(206, 24);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(645, 208);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem11.Text = "Rechnungshistorie :";
+            this.layoutControlItem11.Text = "Rechnungshistorie ";
             this.layoutControlItem11.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem11.TextSize = new System.Drawing.Size(122, 14);
+            this.layoutControlItem11.TextSize = new System.Drawing.Size(118, 14);
             // 
             // emptySpaceItem2
             // 
