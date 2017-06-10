@@ -49,7 +49,7 @@ namespace OTTOPro
                 OpenFileDialog dlg = new OpenFileDialog();
 
                 dlg.InitialDirectory = @"C:\";
-                dlg.Title = "Open";
+                dlg.Title = "Dateiauswahl für GAEB Import";
 
                 dlg.CheckFileExists = true;
                 dlg.CheckPathExists = true;

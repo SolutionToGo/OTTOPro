@@ -54,6 +54,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.tableLayoutPanel1.ColumnCount = 5;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -89,57 +90,69 @@
             // labelControl1
             // 
             this.labelControl1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl1.Location = new System.Drawing.Point(23, 38);
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(23, 36);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(72, 13);
+            this.labelControl1.Size = new System.Drawing.Size(87, 17);
             this.labelControl1.TabIndex = 0;
             this.labelControl1.Text = "DocuwareLink1";
             // 
             // labelControl2
             // 
             this.labelControl2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl2.Location = new System.Drawing.Point(23, 67);
+            this.labelControl2.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl2.Appearance.Options.UseFont = true;
+            this.labelControl2.Appearance.Options.UseForeColor = true;
+            this.labelControl2.Location = new System.Drawing.Point(23, 65);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(72, 13);
+            this.labelControl2.Size = new System.Drawing.Size(87, 17);
             this.labelControl2.TabIndex = 0;
             this.labelControl2.Text = "DocuwareLink2";
             // 
             // labelControl3
             // 
             this.labelControl3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl3.Location = new System.Drawing.Point(23, 96);
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.Location = new System.Drawing.Point(23, 94);
             this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(72, 13);
+            this.labelControl3.Size = new System.Drawing.Size(87, 17);
             this.labelControl3.TabIndex = 0;
             this.labelControl3.Text = "DocuwareLink3";
             // 
             // txtLink1
             // 
             this.txtLink1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLink1.Location = new System.Drawing.Point(101, 33);
+            this.txtLink1.Location = new System.Drawing.Point(116, 33);
             this.txtLink1.Name = "txtLink1";
             this.txtLink1.Properties.ReadOnly = true;
-            this.txtLink1.Size = new System.Drawing.Size(291, 20);
+            this.txtLink1.Size = new System.Drawing.Size(276, 20);
             this.txtLink1.TabIndex = 1;
             this.txtLink1.TextChanged += new System.EventHandler(this.textEdit1_TextChanged);
             // 
             // txtLink2
             // 
             this.txtLink2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLink2.Location = new System.Drawing.Point(101, 62);
+            this.txtLink2.Location = new System.Drawing.Point(116, 62);
             this.txtLink2.Name = "txtLink2";
             this.txtLink2.Properties.ReadOnly = true;
-            this.txtLink2.Size = new System.Drawing.Size(291, 20);
+            this.txtLink2.Size = new System.Drawing.Size(276, 20);
             this.txtLink2.TabIndex = 1;
             this.txtLink2.TextChanged += new System.EventHandler(this.textEdit2_TextChanged);
             // 
             // txtLink3
             // 
             this.txtLink3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLink3.Location = new System.Drawing.Point(101, 91);
+            this.txtLink3.Location = new System.Drawing.Point(116, 91);
             this.txtLink3.Name = "txtLink3";
             this.txtLink3.Properties.ReadOnly = true;
-            this.txtLink3.Size = new System.Drawing.Size(291, 20);
+            this.txtLink3.Size = new System.Drawing.Size(276, 20);
             this.txtLink3.TabIndex = 1;
             this.txtLink3.TextChanged += new System.EventHandler(this.textEdit3_TextChanged);
             // 
@@ -182,16 +195,17 @@
             this.tableLayoutPanel2.Controls.Add(this.btnOK, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnCancel, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(101, 120);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(116, 120);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(291, 28);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(276, 28);
             this.tableLayoutPanel2.TabIndex = 3;
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(135, 3);
+            this.btnOK.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
+            this.btnOK.Location = new System.Drawing.Point(120, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 22);
             this.btnOK.TabIndex = 0;
@@ -200,7 +214,8 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(216, 3);
+            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.Location = new System.Drawing.Point(201, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(72, 22);
             this.btnCancel.TabIndex = 0;
@@ -209,6 +224,7 @@
             // 
             // btnOpenLink1
             // 
+            this.btnOpenLink1.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
             this.btnOpenLink1.Location = new System.Drawing.Point(479, 33);
             this.btnOpenLink1.Name = "btnOpenLink1";
             this.btnOpenLink1.Size = new System.Drawing.Size(62, 23);
@@ -218,6 +234,7 @@
             // 
             // btnOpenLink2
             // 
+            this.btnOpenLink2.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
             this.btnOpenLink2.Location = new System.Drawing.Point(479, 62);
             this.btnOpenLink2.Name = "btnOpenLink2";
             this.btnOpenLink2.Size = new System.Drawing.Size(62, 23);
@@ -227,6 +244,7 @@
             // 
             // btnOpenLink3
             // 
+            this.btnOpenLink3.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
             this.btnOpenLink3.Location = new System.Drawing.Point(479, 91);
             this.btnOpenLink3.Name = "btnOpenLink3";
             this.btnOpenLink3.Size = new System.Drawing.Size(62, 23);

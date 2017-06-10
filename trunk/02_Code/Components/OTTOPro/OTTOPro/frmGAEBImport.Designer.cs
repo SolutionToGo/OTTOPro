@@ -64,7 +64,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(823, 188, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(368, 74);
+            this.layoutControl1.Size = new System.Drawing.Size(388, 80);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -73,15 +73,15 @@
             this.cmbLVSection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLVSection.Enabled = false;
             this.cmbLVSection.FormattingEnabled = true;
-            this.cmbLVSection.Location = new System.Drawing.Point(105, 38);
+            this.cmbLVSection.Location = new System.Drawing.Point(112, 38);
             this.cmbLVSection.Name = "cmbLVSection";
-            this.cmbLVSection.Size = new System.Drawing.Size(103, 21);
+            this.cmbLVSection.Size = new System.Drawing.Size(116, 21);
             this.cmbLVSection.TabIndex = 10;
             // 
             // btnOk
             // 
             this.btnOk.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOk.Location = new System.Drawing.Point(212, 38);
+            this.btnOk.Location = new System.Drawing.Point(232, 38);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(60, 24);
             this.btnOk.StyleController = this.layoutControl1;
@@ -92,7 +92,7 @@
             // btnCancel
             // 
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(276, 38);
+            this.btnCancel.Location = new System.Drawing.Point(296, 38);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 24);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -102,7 +102,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(276, 12);
+            this.btnBrowse.Location = new System.Drawing.Point(296, 12);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(80, 22);
             this.btnBrowse.StyleController = this.layoutControl1;
@@ -112,15 +112,17 @@
             // 
             // txtImportFilePath
             // 
-            this.txtImportFilePath.Location = new System.Drawing.Point(105, 12);
+            this.txtImportFilePath.Location = new System.Drawing.Point(112, 12);
             this.txtImportFilePath.Name = "txtImportFilePath";
             this.txtImportFilePath.Properties.ReadOnly = true;
-            this.txtImportFilePath.Size = new System.Drawing.Size(167, 20);
+            this.txtImportFilePath.Size = new System.Drawing.Size(180, 20);
             this.txtImportFilePath.StyleController = this.layoutControl1;
             this.txtImportFilePath.TabIndex = 4;
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseBackColor = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -131,22 +133,26 @@
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(368, 74);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(388, 80);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
             // 
+            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem1.Control = this.txtImportFilePath;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(264, 26);
-            this.layoutControlItem1.Text = "Import-Dateipfad :";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem1.Size = new System.Drawing.Size(284, 26);
+            this.layoutControlItem1.Text = "Import-Dateipfad ";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(97, 14);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnBrowse;
-            this.layoutControlItem3.Location = new System.Drawing.Point(264, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(284, 0);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -158,11 +164,11 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnCancel;
-            this.layoutControlItem5.Location = new System.Drawing.Point(264, 26);
+            this.layoutControlItem5.Location = new System.Drawing.Point(284, 26);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(84, 28);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(84, 28);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(84, 28);
+            this.layoutControlItem5.Size = new System.Drawing.Size(84, 34);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -170,29 +176,33 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnOk;
-            this.layoutControlItem4.Location = new System.Drawing.Point(200, 26);
+            this.layoutControlItem4.Location = new System.Drawing.Point(220, 26);
             this.layoutControlItem4.MaxSize = new System.Drawing.Size(64, 28);
             this.layoutControlItem4.MinSize = new System.Drawing.Size(64, 28);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(64, 28);
+            this.layoutControlItem4.Size = new System.Drawing.Size(64, 34);
             this.layoutControlItem4.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
             // layoutControlItem2
             // 
+            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem2.Control = this.cmbLVSection;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(200, 28);
-            this.layoutControlItem2.Text = "LV Sektion :";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem2.Size = new System.Drawing.Size(220, 34);
+            this.layoutControlItem2.Text = "LV Sektion ";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(97, 14);
             // 
             // frmGAEBImport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(368, 74);
+            this.ClientSize = new System.Drawing.Size(388, 80);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;

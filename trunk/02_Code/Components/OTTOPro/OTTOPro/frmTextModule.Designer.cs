@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cmbCategory = new System.Windows.Forms.ComboBox();
             this.cmbTextArea = new System.Windows.Forms.ComboBox();
@@ -49,17 +50,14 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup4 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.dxValidationProviderTextAreas = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
-            this.dxValidationProviderCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
+            this.dxValidationProviderTextAreas = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProviderCategory = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.tabFormContentContainer1 = new DevExpress.XtraBars.TabFormContentContainer();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
@@ -74,13 +72,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderTextAreas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderCategory)).BeginInit();
@@ -111,9 +106,9 @@
             // 
             this.cmbCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCategory.FormattingEnabled = true;
-            this.cmbCategory.Location = new System.Drawing.Point(148, 49);
+            this.cmbCategory.Location = new System.Drawing.Point(132, 37);
             this.cmbCategory.Name = "cmbCategory";
-            this.cmbCategory.Size = new System.Drawing.Size(180, 21);
+            this.cmbCategory.Size = new System.Drawing.Size(208, 21);
             this.cmbCategory.TabIndex = 15;
             this.cmbCategory.SelectionChangeCommitted += new System.EventHandler(this.cmbCategory_SelectionChangeCommitted);
             // 
@@ -121,17 +116,17 @@
             // 
             this.cmbTextArea.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTextArea.FormattingEnabled = true;
-            this.cmbTextArea.Location = new System.Drawing.Point(148, 24);
+            this.cmbTextArea.Location = new System.Drawing.Point(132, 12);
             this.cmbTextArea.Name = "cmbTextArea";
-            this.cmbTextArea.Size = new System.Drawing.Size(226, 21);
+            this.cmbTextArea.Size = new System.Drawing.Size(254, 21);
             this.cmbTextArea.TabIndex = 14;
             this.cmbTextArea.SelectionChangeCommitted += new System.EventHandler(this.cmbTextArea_SelectionChangeCommitted);
             // 
             // richEditControlContent
             // 
-            this.richEditControlContent.Location = new System.Drawing.Point(24, 138);
+            this.richEditControlContent.Location = new System.Drawing.Point(12, 102);
             this.richEditControlContent.Name = "richEditControlContent";
-            this.richEditControlContent.Size = new System.Drawing.Size(717, 269);
+            this.richEditControlContent.Size = new System.Drawing.Size(741, 305);
             this.richEditControlContent.TabIndex = 13;
             this.richEditControlContent.Text = "";
             // 
@@ -139,7 +134,7 @@
             // 
             this.btnAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAdd.Location = new System.Drawing.Point(332, 49);
+            this.btnAdd.Location = new System.Drawing.Point(344, 37);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(42, 22);
             this.btnAdd.StyleController = this.layoutControl1;
@@ -149,7 +144,7 @@
             // btnSave
             // 
             this.btnSave.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(590, 700);
+            this.btnSave.Location = new System.Drawing.Point(586, 700);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 22);
             this.btnSave.StyleController = this.layoutControl1;
@@ -160,9 +155,9 @@
             // btnCancel
             // 
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(677, 700);
+            this.btnCancel.Location = new System.Drawing.Point(673, 700);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(76, 22);
+            this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 9;
             this.btnCancel.Text = "Abbrechen";
@@ -170,10 +165,10 @@
             // 
             // gcContentDetails
             // 
-            this.gcContentDetails.Location = new System.Drawing.Point(24, 447);
+            this.gcContentDetails.Location = new System.Drawing.Point(12, 424);
             this.gcContentDetails.MainView = this.gvContentDetails;
             this.gcContentDetails.Name = "gcContentDetails";
-            this.gcContentDetails.Size = new System.Drawing.Size(717, 237);
+            this.gcContentDetails.Size = new System.Drawing.Size(741, 272);
             this.gcContentDetails.TabIndex = 8;
             this.gcContentDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvContentDetails});
@@ -212,7 +207,7 @@
             // 
             this.gridColumn1.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn1.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn1.Caption = "SLNo";
+            this.gridColumn1.Caption = "Nr";
             this.gridColumn1.FieldName = "TextID";
             this.gridColumn1.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn1.Name = "gridColumn1";
@@ -235,8 +230,6 @@
             this.gridColumn3.FieldName = "TextModuleArea";
             this.gridColumn3.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn3.Name = "gridColumn3";
-            this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 1;
             // 
             // gridColumn4
             // 
@@ -246,8 +239,6 @@
             this.gridColumn4.FieldName = "Category";
             this.gridColumn4.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn4.Name = "gridColumn4";
-            this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 2;
             // 
             // gridColumn5
             // 
@@ -257,10 +248,14 @@
             this.gridColumn5.FieldName = "Contents";
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.VisibleIndex = 1;
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseBackColor = true;
+            this.layoutControlGroup1.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlGroup1.AppearanceItemCaption.Options.UseBackColor = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -270,9 +265,11 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.emptySpaceItem4,
-            this.layoutControlGroup2,
-            this.layoutControlGroup3,
-            this.layoutControlGroup4});
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.layoutControlItem8,
+            this.layoutControlItem2,
+            this.layoutControlItem5});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(765, 734);
@@ -281,7 +278,7 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 75);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 51);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(745, 22);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -289,9 +286,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 411);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 399);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(745, 12);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(745, 13);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
@@ -299,17 +296,17 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(0, 688);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(578, 26);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(574, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnCancel;
-            this.layoutControlItem6.Location = new System.Drawing.Point(665, 688);
-            this.layoutControlItem6.MaxSize = new System.Drawing.Size(80, 26);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem6.Location = new System.Drawing.Point(661, 688);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(84, 26);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -317,7 +314,7 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnSave;
-            this.layoutControlItem7.Location = new System.Drawing.Point(578, 688);
+            this.layoutControlItem7.Location = new System.Drawing.Point(574, 688);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";
@@ -331,24 +328,13 @@
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(378, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(367, 75);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(367, 51);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlGroup2
-            // 
-            this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.layoutControlItem8});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup2.Name = "layoutControlGroup2";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(378, 75);
-            this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnAdd;
-            this.layoutControlItem3.Location = new System.Drawing.Point(308, 25);
+            this.layoutControlItem3.Location = new System.Drawing.Point(332, 25);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(46, 26);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(46, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
@@ -359,62 +345,54 @@
             // 
             // layoutControlItem4
             // 
+            this.layoutControlItem4.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem4.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem4.AppearanceItemCaption.Options.UseBackColor = true;
             this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem4.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem4.Control = this.cmbTextArea;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(354, 25);
-            this.layoutControlItem4.Text = "Textmodul Bereich :";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(121, 14);
+            this.layoutControlItem4.Size = new System.Drawing.Size(378, 25);
+            this.layoutControlItem4.Text = "Textmodul Bereich ";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(117, 14);
             // 
             // layoutControlItem8
             // 
+            this.layoutControlItem8.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem8.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem8.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem8.AppearanceItemCaption.Options.UseBackColor = true;
             this.layoutControlItem8.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem8.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem8.Control = this.cmbCategory;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(308, 26);
-            this.layoutControlItem8.Text = "Kategorie :";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(121, 14);
-            // 
-            // layoutControlGroup3
-            // 
-            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem2});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 97);
-            this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(745, 314);
-            this.layoutControlGroup3.TextVisible = false;
+            this.layoutControlItem8.Size = new System.Drawing.Size(332, 26);
+            this.layoutControlItem8.Text = "Kategorie ";
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(117, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem2.Control = this.richEditControlContent;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 73);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(721, 290);
-            this.layoutControlItem2.Text = "Inhalt :";
+            this.layoutControlItem2.Size = new System.Drawing.Size(745, 326);
+            this.layoutControlItem2.Text = "Inhalt ";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(121, 14);
-            // 
-            // layoutControlGroup4
-            // 
-            this.layoutControlGroup4.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem5});
-            this.layoutControlGroup4.Location = new System.Drawing.Point(0, 423);
-            this.layoutControlGroup4.Name = "layoutControlGroup4";
-            this.layoutControlGroup4.Size = new System.Drawing.Size(745, 265);
-            this.layoutControlGroup4.TextVisible = false;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(117, 14);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.gcContentDetails;
-            this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(0, 412);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(721, 241);
+            this.layoutControlItem5.Size = new System.Drawing.Size(745, 276);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -473,13 +451,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderTextAreas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProviderCategory)).EndInit();
@@ -498,7 +473,6 @@
         private DevExpress.XtraGrid.GridControl gcContentDetails;
         private DevExpress.XtraGrid.Views.Grid.GridView gvContentDetails;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraEditors.SimpleButton btnSave;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
@@ -512,20 +486,18 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn5;
         private DevExpress.XtraEditors.SimpleButton btnAdd;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderTextAreas;
         private DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider dxValidationProviderCategory;
         private System.Windows.Forms.RichTextBox richEditControlContent;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraBars.TabFormContentContainer tabFormContentContainer1;
         private DevExpress.XtraTab.XtraTabControl xtraTabControl1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup2;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
-        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup4;
         private System.Windows.Forms.ComboBox cmbTextArea;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private System.Windows.Forms.ComboBox cmbCategory;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }
