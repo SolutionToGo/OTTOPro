@@ -4415,20 +4415,7 @@ namespace OTTOPro
                             }
                             return;
                         }
-                        if (txtArtikelnummerWI.Text == "")
-                        {
-                            if (Utility._IsGermany == true)
-                            {
-                                XtraMessageBox.Show("Bitte machen Sie eine Angabe zu WI.");
-                            }
-                            else
-                            {
-                                XtraMessageBox.Show("Please enter WI value");
-                            }
-                            return;
-                        }
                     }                   
-
                 }
                 else
                 {
