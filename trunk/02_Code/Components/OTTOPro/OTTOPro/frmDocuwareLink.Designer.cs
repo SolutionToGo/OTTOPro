@@ -204,22 +204,22 @@
             // 
             // btnOK
             // 
-            this.btnOK.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOK.Location = new System.Drawing.Point(111, 3);
+            this.btnOK.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnOK.Location = new System.Drawing.Point(98, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 22);
             this.btnOK.TabIndex = 0;
-            this.btnOK.Text = "OK";
+            this.btnOK.Text = "Speichern";
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(192, 3);
+            this.btnCancel.Location = new System.Drawing.Point(179, 3);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(72, 22);
+            this.btnCancel.Size = new System.Drawing.Size(85, 22);
             this.btnCancel.TabIndex = 0;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOpenLink1
@@ -229,7 +229,7 @@
             this.btnOpenLink1.Name = "btnOpenLink1";
             this.btnOpenLink1.Size = new System.Drawing.Size(62, 23);
             this.btnOpenLink1.TabIndex = 4;
-            this.btnOpenLink1.Text = "Open";
+            this.btnOpenLink1.Text = "Öffnen";
             this.btnOpenLink1.Click += new System.EventHandler(this.btnOpenLink1_Click);
             // 
             // btnOpenLink2
@@ -239,7 +239,7 @@
             this.btnOpenLink2.Name = "btnOpenLink2";
             this.btnOpenLink2.Size = new System.Drawing.Size(62, 23);
             this.btnOpenLink2.TabIndex = 5;
-            this.btnOpenLink2.Text = "Open";
+            this.btnOpenLink2.Text = "Öffnen";
             this.btnOpenLink2.Click += new System.EventHandler(this.btnOpenLink2_Click);
             // 
             // btnOpenLink3
@@ -249,7 +249,7 @@
             this.btnOpenLink3.Name = "btnOpenLink3";
             this.btnOpenLink3.Size = new System.Drawing.Size(62, 23);
             this.btnOpenLink3.TabIndex = 6;
-            this.btnOpenLink3.Text = "Open";
+            this.btnOpenLink3.Text = "Öffnen";
             this.btnOpenLink3.Click += new System.EventHandler(this.btnOpenLink3_Click);
             // 
             // ofd

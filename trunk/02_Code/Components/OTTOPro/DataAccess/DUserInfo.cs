@@ -82,7 +82,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                   // throw new Exception("Fehler beim Laden des Kunden");
+                    throw new Exception("");
                 }
                 else
                 {

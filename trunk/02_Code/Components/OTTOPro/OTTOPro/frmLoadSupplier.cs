@@ -42,6 +42,14 @@ namespace OTTOPro
         {
             try
             {
+                string _WGvalue = Convert.ToString(gvArticles.GetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WG"]));
+                string _WAValue = Convert.ToString(gvArticles.GetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WA"]));
+
+                if (_WGvalue == "" || _WAValue == "")
+                {
+                    return;
+                }
+
                 if (ObjESupplier == null)
                     ObjESupplier = new ESupplier();
                 if(_IsSave)

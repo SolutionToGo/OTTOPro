@@ -238,7 +238,7 @@ namespace DataAccess
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                             {
-                                throw new Exception("");
+                                throw new Exception("Der Artikel existiert bereits.");
                             }
                             else
                             {
@@ -286,7 +286,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                   // throw new Exception("Fehler beim Laden des Kunden");
+                    throw new Exception("Fehler beim Laden der daten");
                 }
                 else
                 {
@@ -323,7 +323,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    // throw new Exception("Fehler beim Laden des Kunden");
+                    throw new Exception("Fehler beim Laden der daten");
                 }
                 else
                 {
@@ -405,7 +405,14 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der daten");
+                }
+                else
+                {
                     throw new Exception("Error Occured While Retreiving records");
+                }                    
             }
             finally
             {
@@ -437,7 +444,14 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Error Occured While Retreiving Positions");
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der Positions");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving Positions");
+                }
             }
             finally
             {
@@ -540,7 +554,15 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Error While Saving the ListPrice");
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("");
+                }
+                else
+                {
+                    throw new Exception("Error While Saving the ListPrice");
+
+                }
             }
             finally
             {
@@ -601,7 +623,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Error Occured While Retreiving records");
+                throw new Exception("Fehler beim Laden der daten");
             }
             finally
             {

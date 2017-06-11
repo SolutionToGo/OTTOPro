@@ -1944,7 +1944,7 @@
             // 
             // cmbLVStatus
             // 
-            this.cmbLVStatus.Location = new System.Drawing.Point(410, 321);
+            this.cmbLVStatus.Location = new System.Drawing.Point(341, 321);
             this.cmbLVStatus.MenuManager = this.barManager1;
             this.cmbLVStatus.Name = "cmbLVStatus";
             this.cmbLVStatus.Properties.AllowMouseWheel = false;
@@ -1954,7 +1954,7 @@
             "B",
             "A"});
             this.cmbLVStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbLVStatus.Size = new System.Drawing.Size(55, 20);
+            this.cmbLVStatus.Size = new System.Drawing.Size(124, 20);
             this.cmbLVStatus.StyleController = this.layoutControl3;
             this.cmbLVStatus.TabIndex = 19;
             this.cmbLVStatus.Tag = "LV-Status";
@@ -2057,7 +2057,7 @@
             // 
             // txtDetailKZ
             // 
-            this.txtDetailKZ.Location = new System.Drawing.Point(412, 293);
+            this.txtDetailKZ.Location = new System.Drawing.Point(343, 293);
             this.txtDetailKZ.Name = "txtDetailKZ";
             this.txtDetailKZ.Properties.AllowMouseWheel = false;
             this.txtDetailKZ.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2065,7 +2065,7 @@
             this.txtDetailKZ.Properties.Mask.EditMask = "\\d{0,}";
             this.txtDetailKZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtDetailKZ.Properties.ReadOnly = true;
-            this.txtDetailKZ.Size = new System.Drawing.Size(53, 24);
+            this.txtDetailKZ.Size = new System.Drawing.Size(122, 24);
             this.txtDetailKZ.StyleController = this.layoutControl3;
             this.txtDetailKZ.TabIndex = 16;
             // 
@@ -2578,9 +2578,9 @@
             this.layoutControlItem23.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem23.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem23.Control = this.txtDetailKZ;
-            this.layoutControlItem23.Location = new System.Drawing.Point(332, 281);
+            this.layoutControlItem23.Location = new System.Drawing.Point(263, 281);
             this.layoutControlItem23.Name = "layoutControlItem23";
-            this.layoutControlItem23.Size = new System.Drawing.Size(125, 28);
+            this.layoutControlItem23.Size = new System.Drawing.Size(194, 28);
             this.layoutControlItem23.Text = "Detail KZ ";
             this.layoutControlItem23.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
             this.layoutControlItem23.TextSize = new System.Drawing.Size(63, 17);
@@ -2643,9 +2643,9 @@
             this.lccmbLVStatus.AppearanceItemCaption.Options.UseFont = true;
             this.lccmbLVStatus.AppearanceItemCaption.Options.UseForeColor = true;
             this.lccmbLVStatus.Control = this.cmbLVStatus;
-            this.lccmbLVStatus.Location = new System.Drawing.Point(332, 309);
+            this.lccmbLVStatus.Location = new System.Drawing.Point(263, 309);
             this.lccmbLVStatus.Name = "lccmbLVStatus";
-            this.lccmbLVStatus.Size = new System.Drawing.Size(125, 24);
+            this.lccmbLVStatus.Size = new System.Drawing.Size(194, 24);
             this.lccmbLVStatus.Tag = "";
             this.lccmbLVStatus.Text = "LV-Status ";
             this.lccmbLVStatus.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
@@ -2657,7 +2657,7 @@
             this.emptySpaceItem61.AllowHotTrack = false;
             this.emptySpaceItem61.Location = new System.Drawing.Point(228, 281);
             this.emptySpaceItem61.Name = "emptySpaceItem61";
-            this.emptySpaceItem61.Size = new System.Drawing.Size(104, 38);
+            this.emptySpaceItem61.Size = new System.Drawing.Size(35, 38);
             this.emptySpaceItem61.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
@@ -2697,7 +2697,7 @@
             this.emptySpaceItem62.AllowHotTrack = false;
             this.emptySpaceItem62.Location = new System.Drawing.Point(228, 319);
             this.emptySpaceItem62.Name = "emptySpaceItem62";
-            this.emptySpaceItem62.Size = new System.Drawing.Size(104, 38);
+            this.emptySpaceItem62.Size = new System.Drawing.Size(35, 38);
             this.emptySpaceItem62.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem64
@@ -2855,9 +2855,9 @@
             // emptySpaceItem60
             // 
             this.emptySpaceItem60.AllowHotTrack = false;
-            this.emptySpaceItem60.Location = new System.Drawing.Point(332, 333);
+            this.emptySpaceItem60.Location = new System.Drawing.Point(263, 333);
             this.emptySpaceItem60.Name = "emptySpaceItem60";
-            this.emptySpaceItem60.Size = new System.Drawing.Size(125, 24);
+            this.emptySpaceItem60.Size = new System.Drawing.Size(194, 24);
             this.emptySpaceItem60.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
@@ -8139,7 +8139,7 @@
             this.txtPositionMenge.Name = "txtPositionMenge";
             this.txtPositionMenge.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtPositionMenge.Properties.Appearance.Options.UseBackColor = true;
-            this.txtPositionMenge.Properties.Mask.EditMask = "n3";
+            this.txtPositionMenge.Properties.Mask.EditMask = "n0";
             this.txtPositionMenge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPositionMenge.Properties.Mask.ShowPlaceHolders = false;
             this.txtPositionMenge.Size = new System.Drawing.Size(99, 20);

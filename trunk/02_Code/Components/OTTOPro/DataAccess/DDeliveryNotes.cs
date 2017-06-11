@@ -33,7 +33,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("To Be Updated");
+                    throw new Exception("Fehler beim Laden der Positions");
                 else
                     throw new Exception("Error While Retrieving the Positions");
             }
@@ -218,7 +218,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("To Be Updated");
+                    throw new Exception("Fehler beim Laden der Positions");
                 else
                     throw new Exception("Error While Retrieving the Positions");
             }

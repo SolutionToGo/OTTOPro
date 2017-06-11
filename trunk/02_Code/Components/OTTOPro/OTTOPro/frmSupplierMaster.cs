@@ -20,8 +20,6 @@ namespace OTTOPro
         BSupplier ObjBSupplier = null;
         string _SupplierType = null;
         private ESupplier _ObjEsupplier = null;
-
-
         #region CONSTRUCTORS
 
         public frmSupplierMaster()
@@ -117,7 +115,7 @@ namespace OTTOPro
                     ParseSupplierDetails();
                     ObjBSupplier = new BSupplier();
                     _ObjEsupplier = ObjBSupplier.SaveSupplierDetails(_ObjEsupplier);
-                    this.Close();
+                     this.Close();
                 }
             }
             catch (Exception ex)
@@ -200,7 +198,7 @@ namespace OTTOPro
                 if (this.DialogResult != DialogResult.Cancel)
                 {
                     if (_isValidate == false)
-                        e.Cancel = true;
+                            e.Cancel = true;                       
                 }
                 else
                     e.Cancel = false;
@@ -318,7 +316,8 @@ namespace OTTOPro
             {
                 bool isValidSuppFullName = dxValidationProviderSupplierFullName.Validate(txtFullName);
                 bool isvalidSuppShortName = dxValidationProviderSupplierSname.Validate(txtShortName);
-                if (!isValidSuppFullName || !isvalidSuppShortName)
+                bool isvalidEmail = dxValidationProviderSupplierEmail.Validate(txtSupplierEmail);
+                if (!isValidSuppFullName || !isvalidSuppShortName || !isvalidEmail)
                 {
                     _isValidate = false;
                 }

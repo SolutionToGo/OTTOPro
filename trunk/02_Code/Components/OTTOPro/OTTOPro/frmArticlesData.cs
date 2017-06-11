@@ -12,6 +12,7 @@ using EL;
 using BL;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Columns;
 
 namespace OTTOPro
 {
@@ -334,28 +335,23 @@ namespace OTTOPro
                         throw new Exception("Bitte wählen Sie einen Artikel");
                     }
                 }
+
+                string _Avalue = Convert.ToString(gvDimensions.GetRowCellValue(gvDimensions.FocusedRowHandle, gvDimensions.Columns["A"]));
+                string _BValue = Convert.ToString(gvDimensions.GetRowCellValue(gvDimensions.FocusedRowHandle, gvDimensions.Columns["B"]));
+
+                if (_Avalue == "" || _BValue == "")
+                {
+                    return;
+                }
                     
                 if (_IsSave)
                 {
                     int RowHandle = gvDimensions.FocusedRowHandle;
                     SaveDimension(RowHandle);
-                }
-                
-                
-                DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
-                dvDimensions.RowFilter = "WIID = '" + ObjEArticle.WIID + "'";
+                }               
 
-                foreach (DataRow _row in dvDimensions.Table.Rows)
-                {
-                    if (_row["A"].ToString() == null || _row["A"].ToString() == "")
-                    {
-                        return;
-                    }
-                    if (_row["B"].ToString() == null || _row["B"].ToString() == "")
-                    {
-                        return;
-                    }
-                }
+                DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
+                dvDimensions.RowFilter = "WIID = '" + ObjEArticle.WIID + "'";                
                 DataRowView rowView = dvDimensions.AddNew();
                 rowView["DimensionID"] = "-1";
                 rowView["WIID"] = ObjEArticle.WIID;
@@ -566,5 +562,7 @@ namespace OTTOPro
             if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
                 e.Handled = true;
         }
+
+
     }
 }
