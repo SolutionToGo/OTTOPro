@@ -2380,13 +2380,7 @@ namespace OTTOPro
                 }
                 else if (tcProjectDetails.SelectedTabPage.Name == "tbOmlage")
                 {
-                    if (ObjEUmlage == null)
-                        ObjEUmlage = new EUmlage();
-                    if (ObjBUmlage == null)
-                        ObjBUmlage = new BUmlage();
-                    ObjEUmlage.ProjectID = ObjEProject.ProjectID;
-                    ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
-                    gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
+                    
                 }
             }
             catch (Exception ex)
@@ -5091,7 +5085,7 @@ e.Column.FieldName == "GB")
             }
             if (OldTotalValue > 0)
             {
-                TotalValue = (newTotalValue / OldTotalValue) - 1;
+                TotalValue = ((newTotalValue / OldTotalValue) - 1) * 100;
             }
             return TotalValue;
         }
@@ -5704,6 +5698,13 @@ e.Column.FieldName == "GB")
                 {
                     ObjTabDetails = tbOmlage;
                     TabChange(ObjTabDetails);
+                    if (ObjEUmlage == null)
+                        ObjEUmlage = new EUmlage();
+                    if (ObjBUmlage == null)
+                        ObjBUmlage = new BUmlage();
+                    ObjEUmlage.ProjectID = ObjEProject.ProjectID;
+                    ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
+                    gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
                 }
             }
             catch (Exception ex)
@@ -6909,10 +6910,10 @@ e.Column.FieldName == "GB")
                     {
                         txtNewFabrikate.Text = "";
                         txtNewSupplierName.Text = "";
-                        txtMulti1.Text = "1";
-                        txtMulti2.Text = "1";
-                        txtMulti3.Text = "1";
-                        txtMulti4.Text = "1";
+                        txtNewMulti1.Text = "1";
+                        txtNewMulti2.Text = "1";
+                        txtNewMulti3.Text = "1";
+                        txtNewMulti4.Text = "1";
                         gcNewValues.Text = "Lieferantenspezifische Angaben";
                         gcExistingValues.Text = "Bestehende Angaben je LV ";
                     }

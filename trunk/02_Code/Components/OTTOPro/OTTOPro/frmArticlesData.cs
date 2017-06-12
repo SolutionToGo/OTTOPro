@@ -498,6 +498,8 @@ namespace OTTOPro
             {
                 if (gvDimensions.RowCount == 0)
                     return;
+                if (_IsSaveDimension)
+                    throw new Exception("Bitte Speichern der Maße");
                 frmSaveDimension Obj = new frmSaveDimension();
                 Obj.ObjEArticle = ObjEArticle;
                 Obj.ObjBArticle = ObjBArticle;

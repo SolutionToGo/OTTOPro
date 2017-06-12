@@ -244,7 +244,7 @@ namespace BL
                     {
                         _message = "New Raster Detected, do you want save the Raster..?";
                     }
-                    DialogResult dialogResult = MessageBox.Show(_message, "Confirmation", MessageBoxButtons.YesNo);
+                    DialogResult dialogResult = MessageBox.Show(_message, "Bestätigung", MessageBoxButtons.YesNo);
                     if (dialogResult == DialogResult.Yes)
                     {
                         iValue = ObjGAEB.Import(ProjectID, dsTMLData, Raster);

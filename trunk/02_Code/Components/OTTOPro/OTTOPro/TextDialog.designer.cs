@@ -39,9 +39,9 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(35, 15);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
+            this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "New LV Section :";
+            this.label1.Text = "Neu LV Sektion :";
             // 
             // txtNewLVSection
             // 
@@ -86,7 +86,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmTextDialog";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New LV Section";
+            this.Text = "Neu LV Sektion";
             this.Load += new System.EventHandler(this.frmTextDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
