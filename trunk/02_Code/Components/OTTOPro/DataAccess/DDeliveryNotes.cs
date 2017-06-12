@@ -156,7 +156,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("To Be Updated");
+                    throw new Exception("Fehler beim Datenabruf zu den Positionskennzahlen für Aufmasse");
                 else
                     throw new Exception("Error While Retrieving the Delivery Numbers");
             }
@@ -186,7 +186,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("To Be Updated");
+                    throw new Exception("Fehler beim Datenabruf zur neuen BLATT Nummer");
                 else
                     throw new Exception("Error While Retrieving the New Blatt Number");
             }

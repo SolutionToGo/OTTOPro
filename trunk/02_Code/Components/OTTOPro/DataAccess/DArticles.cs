@@ -59,7 +59,7 @@ namespace DataAccess
                                 }
                             }
                              else
-                                    throw new Exception("Error While Saving the Article");
+                                throw new Exception("Fehler beim Speichern des Artikels");
                             }
                         }
                 }
@@ -147,7 +147,7 @@ namespace DataAccess
                        }
                        
                            else
-                               throw new Exception("Error While Saving the Dimension");
+                           throw new Exception("Fehler beim Speichern der Maße");
                        }
                    }               
            }
@@ -201,7 +201,7 @@ namespace DataAccess
                            }
                        }                       
                            else
-                               throw new Exception("Error While Saving the Typ");
+                           throw new Exception("Fehler beim Speichern von TYP");
                        }
                    }               
            }
@@ -289,7 +289,7 @@ namespace DataAccess
                            }
                        }                       
                            else
-                               throw new Exception("Error While Saving the Rabatt");
+                           throw new Exception("Fehler beim Speichern der Rabattgruppe");
                        }
                    }               
            }

@@ -556,7 +556,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("");
+                    throw new Exception("Fehler beim Speichern des Listenpreises");
                 }
                 else
                 {

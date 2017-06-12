@@ -27,6 +27,7 @@ namespace OTTOPro
         private int _AddressID = -1;
         int _IDValue = -1;
         private bool _IsSave = false;
+        private bool _IsSaveDimension = false;
 
 
         #region CONSTRUCTOR
@@ -42,13 +43,8 @@ namespace OTTOPro
         {
             try
             {
-                string _WGvalue = Convert.ToString(gvArticles.GetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WG"]));
-                string _WAValue = Convert.ToString(gvArticles.GetRowCellValue(gvArticles.FocusedRowHandle, gvArticles.Columns["WA"]));
-
-                if (_WGvalue == "" || _WAValue == "")
-                {
-                    return;
-                }
+                if (_IsSaveDimension)
+                    throw new Exception("Bitte Speichern der Maße");
 
                 if (ObjESupplier == null)
                     ObjESupplier = new ESupplier();
@@ -72,6 +68,8 @@ namespace OTTOPro
                     rowView.EndEdit();
                     gcArticles.DataSource = dvArticle;
                     gvArticles.BestFitColumns();
+                    _IsSaveDimension = true;
+
                 }
             }
             catch (Exception ex)
@@ -530,6 +528,8 @@ namespace OTTOPro
                 ObjESupplier.WGDescription = gvArticles.GetRowCellValue(RowHandle, "WGDescription") == DBNull.Value ? "" : gvArticles.GetRowCellValue(RowHandle, "WGDescription").ToString();
                 ObjESupplier.SupplierID = _SupplierID;
                 ObjBSupplier.SaveArticle(ObjESupplier);
+                _IsSaveDimension = false;
+
             }
             catch (Exception ex)
             {

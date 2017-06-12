@@ -100,12 +100,18 @@
             // 
             // lblArticle
             // 
+            this.lblArticle.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.lblArticle.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArticle.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblArticle.Appearance.Options.UseBackColor = true;
+            this.lblArticle.Appearance.Options.UseFont = true;
+            this.lblArticle.Appearance.Options.UseForeColor = true;
             this.lblArticle.Location = new System.Drawing.Point(12, 12);
             this.lblArticle.Name = "lblArticle";
-            this.lblArticle.Size = new System.Drawing.Size(160, 13);
+            this.lblArticle.Size = new System.Drawing.Size(104, 14);
             this.lblArticle.StyleController = this.layoutControl1;
             this.lblArticle.TabIndex = 11;
-            this.lblArticle.Text = "Info\'s zur Aktuellen Abmessung : ";
+            this.lblArticle.Text = "Artikelübersicht zu ";
             // 
             // btnSave
             // 
@@ -273,7 +279,7 @@
             // 
             this.gridColumn18.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.gridColumn18.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn18.Caption = "Gültigkeit Datum";
+            this.gridColumn18.Caption = "Gültigkeitsdatum";
             this.gridColumn18.ColumnEdit = this.repositoryItemDateEdit1;
             this.gridColumn18.FieldName = "ValidityDate";
             this.gridColumn18.Name = "gridColumn18";
@@ -381,7 +387,7 @@
             // dateEditGultigkeit
             // 
             this.dateEditGultigkeit.EditValue = null;
-            this.dateEditGultigkeit.Location = new System.Drawing.Point(264, 12);
+            this.dateEditGultigkeit.Location = new System.Drawing.Point(218, 12);
             this.dateEditGultigkeit.Name = "dateEditGultigkeit";
             this.dateEditGultigkeit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -397,12 +403,14 @@
             this.dateEditGultigkeit.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearView;
             this.dateEditGultigkeit.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
             this.dateEditGultigkeit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dateEditGultigkeit.Size = new System.Drawing.Size(179, 20);
+            this.dateEditGultigkeit.Size = new System.Drawing.Size(188, 20);
             this.dateEditGultigkeit.StyleController = this.layoutControl1;
             this.dateEditGultigkeit.TabIndex = 4;
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseBackColor = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -438,9 +446,9 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(435, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(398, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(534, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(571, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
@@ -466,18 +474,24 @@
             this.layoutControlItem5.Control = this.lblArticle;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(164, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(108, 24);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem1
             // 
+            this.layoutControlItem1.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem1.Control = this.dateEditGultigkeit;
-            this.layoutControlItem1.Location = new System.Drawing.Point(164, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(108, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(271, 24);
-            this.layoutControlItem1.Text = "Gültigkeit Datum :";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(85, 13);
+            this.layoutControlItem1.Size = new System.Drawing.Size(290, 24);
+            this.layoutControlItem1.Text = "Gültigkeit Datum ";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(95, 14);
             // 
             // frmSaveDimension
             // 

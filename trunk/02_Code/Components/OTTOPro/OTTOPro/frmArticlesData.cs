@@ -324,7 +324,7 @@ namespace OTTOPro
             try
             {
                 if (_IsSaveDimension)
-                    throw new Exception("Please Save the dimension first");
+                    throw new Exception("Bitte Speichern der Maße");
                 if (ObjEArticle == null)
                     ObjEArticle = new EArticles();
                 if (ObjEArticle.WIID < 0)
