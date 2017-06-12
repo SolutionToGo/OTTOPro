@@ -69,6 +69,7 @@
             // cmbReportType
             // 
             this.cmbReportType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbReportType.Enabled = false;
             this.cmbReportType.FormattingEnabled = true;
             this.cmbReportType.Items.AddRange(new object[] {
             "mit Montage und Montagezeiten",

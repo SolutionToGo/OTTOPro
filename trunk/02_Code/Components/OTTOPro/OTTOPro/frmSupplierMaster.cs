@@ -389,6 +389,14 @@ namespace OTTOPro
 
         #endregion
 
+        private void txtSupplierEmail_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar != ' ')
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
 
 
 //***************

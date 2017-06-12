@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -5567,12 +5567,12 @@
             this.tlPositions.Appearance.FocusedCell.Options.UseBackColor = true;
             this.tlPositions.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.tlPositions.Appearance.FocusedRow.Options.UseBackColor = true;
-            this.tlPositions.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.tlPositions.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.tlPositions.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tlPositions.Appearance.HeaderPanel.Options.UseBackColor = true;
             this.tlPositions.Appearance.HeaderPanel.Options.UseFont = true;
             this.tlPositions.Appearance.HeaderPanel.Options.UseTextOptions = true;
             this.tlPositions.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.tlPositions.Appearance.HeaderPanelBackground.BackColor = System.Drawing.Color.White;
-            this.tlPositions.Appearance.HeaderPanelBackground.Options.UseBackColor = true;
             this.tlPositions.Appearance.Row.BackColor = System.Drawing.Color.Silver;
             this.tlPositions.Appearance.Row.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlPositions.Appearance.Row.ForeColor = System.Drawing.Color.Black;
@@ -5633,6 +5633,7 @@
             this.tlPositions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPositions.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlPositions.Location = new System.Drawing.Point(0, 0);
+            this.tlPositions.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.tlPositions.LookAndFeel.UseDefaultLookAndFeel = false;
             this.tlPositions.Name = "tlPositions";
             this.tlPositions.OptionsCustomization.AllowColumnMoving = false;
@@ -5653,16 +5654,15 @@
             this.tlPositions.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.tlPositions_NodeCellStyle);
             this.tlPositions.FocusedNodeChanged += new DevExpress.XtraTreeList.FocusedNodeChangedEventHandler(this.tlPositions_FocusedNodeChanged);
             this.tlPositions.ShownEditor += new System.EventHandler(this.tlPositions_ShownEditor);
-            this.tlPositions.CustomDrawColumnHeader += new DevExpress.XtraTreeList.CustomDrawColumnHeaderEventHandler(this.tlPositions_CustomDrawColumnHeader);
             this.tlPositions.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.tlPositions_PopupMenuShowing);
             this.tlPositions.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.tlPositions_CellValueChanged);
             this.tlPositions.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tlPositions_KeyDown);
             // 
             // treeListColumn10
             // 
-            this.treeListColumn10.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn10.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn10.AppearanceCell.Options.UseFont = true;
-            this.treeListColumn10.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn10.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn10.AppearanceHeader.Options.UseFont = true;
             this.treeListColumn10.Caption = "PositionID";
             this.treeListColumn10.FieldName = "PositionID";
@@ -5676,9 +5676,7 @@
             // 
             this.treeListColumn1.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn1.AppearanceCell.Options.UseFont = true;
-            this.treeListColumn1.AppearanceHeader.BackColor = System.Drawing.Color.White;
-            this.treeListColumn1.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeListColumn1.AppearanceHeader.Options.UseBackColor = true;
+            this.treeListColumn1.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn1.AppearanceHeader.Options.UseFont = true;
             this.treeListColumn1.AppearanceHeader.Options.UseTextOptions = true;
             this.treeListColumn1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
@@ -5696,7 +5694,7 @@
             // 
             this.treeListColumn5.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn5.AppearanceCell.Options.UseFont = true;
-            this.treeListColumn5.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn5.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn5.AppearanceHeader.Options.UseFont = true;
             this.treeListColumn5.Caption = "Det-KZ";
             this.treeListColumn5.FieldName = "DetailKZ";
@@ -5712,7 +5710,7 @@
             // 
             this.treeListColumn6.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn6.AppearanceCell.Options.UseFont = true;
-            this.treeListColumn6.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn6.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn6.AppearanceHeader.Options.UseFont = true;
             this.treeListColumn6.Caption = "Pos-KZ";
             this.treeListColumn6.FieldName = "PositionKZ";
@@ -5781,7 +5779,7 @@
             this.treeListColumn3.AllNodesSummary = true;
             this.treeListColumn3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeListColumn3.AppearanceCell.Options.UseFont = true;
-            this.treeListColumn3.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.treeListColumn3.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.treeListColumn3.AppearanceHeader.Options.UseFont = true;
             this.treeListColumn3.Caption = "Menge";
             this.treeListColumn3.ColumnEdit = this.rpArticles;
@@ -7648,7 +7646,6 @@
             this.tlBulkProcessPositionDetails.Size = new System.Drawing.Size(1498, 331);
             this.tlBulkProcessPositionDetails.TabIndex = 51;
             this.tlBulkProcessPositionDetails.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.tlBulkProcessPositionDetails_NodeCellStyle);
-            this.tlBulkProcessPositionDetails.CustomDrawColumnHeader += new DevExpress.XtraTreeList.CustomDrawColumnHeaderEventHandler(this.tlPositions_CustomDrawColumnHeader);
             // 
             // treeListColumn22
             // 
@@ -7896,17 +7893,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -8461,8 +8458,11 @@
             // 
             this.emptySpaceItem70.AllowHotTrack = false;
             this.emptySpaceItem70.Location = new System.Drawing.Point(10, 118);
+            this.emptySpaceItem70.MaxSize = new System.Drawing.Size(276, 13);
+            this.emptySpaceItem70.MinSize = new System.Drawing.Size(276, 13);
             this.emptySpaceItem70.Name = "emptySpaceItem9";
             this.emptySpaceItem70.Size = new System.Drawing.Size(276, 13);
+            this.emptySpaceItem70.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem70.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem71
@@ -8540,8 +8540,11 @@
             // 
             this.lciMulti6MO.Control = this.txtMulti6MO;
             this.lciMulti6MO.Location = new System.Drawing.Point(191, 172);
+            this.lciMulti6MO.MaxSize = new System.Drawing.Size(95, 24);
+            this.lciMulti6MO.MinSize = new System.Drawing.Size(95, 24);
             this.lciMulti6MO.Name = "lciMulti6MO";
             this.lciMulti6MO.Size = new System.Drawing.Size(95, 24);
+            this.lciMulti6MO.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciMulti6MO.TextSize = new System.Drawing.Size(0, 0);
             this.lciMulti6MO.TextVisible = false;
             this.lciMulti6MO.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -8798,8 +8801,11 @@
             // 
             this.lciPosMenge.Control = this.txtPositionMenge;
             this.lciPosMenge.Location = new System.Drawing.Point(235, 53);
+            this.lciPosMenge.MaxSize = new System.Drawing.Size(103, 24);
+            this.lciPosMenge.MinSize = new System.Drawing.Size(103, 24);
             this.lciPosMenge.Name = "lciPosMenge";
             this.lciPosMenge.Size = new System.Drawing.Size(103, 24);
+            this.lciPosMenge.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciPosMenge.TextSize = new System.Drawing.Size(0, 0);
             this.lciPosMenge.TextVisible = false;
             this.lciPosMenge.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -8808,8 +8814,11 @@
             // 
             this.lciMaterialKZ.Control = this.txtMaterialKz;
             this.lciMaterialKZ.Location = new System.Drawing.Point(235, 94);
+            this.lciMaterialKZ.MaxSize = new System.Drawing.Size(103, 24);
+            this.lciMaterialKZ.MinSize = new System.Drawing.Size(103, 24);
             this.lciMaterialKZ.Name = "lciMaterialKZ";
             this.lciMaterialKZ.Size = new System.Drawing.Size(103, 24);
+            this.lciMaterialKZ.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciMaterialKZ.TextSize = new System.Drawing.Size(0, 0);
             this.lciMaterialKZ.TextVisible = false;
             this.lciMaterialKZ.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -8818,8 +8827,11 @@
             // 
             this.lciMontageKZ.Control = this.txtMontageKZ;
             this.lciMontageKZ.Location = new System.Drawing.Point(235, 133);
+            this.lciMontageKZ.MaxSize = new System.Drawing.Size(103, 24);
+            this.lciMontageKZ.MinSize = new System.Drawing.Size(103, 24);
             this.lciMontageKZ.Name = "lciMontageKZ";
             this.lciMontageKZ.Size = new System.Drawing.Size(103, 24);
+            this.lciMontageKZ.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciMontageKZ.TextSize = new System.Drawing.Size(0, 0);
             this.lciMontageKZ.TextVisible = false;
             this.lciMontageKZ.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -8828,8 +8840,11 @@
             // 
             this.lciPreisErstaztext.Control = this.txtPreisErstaztext;
             this.lciPreisErstaztext.Location = new System.Drawing.Point(235, 173);
+            this.lciPreisErstaztext.MaxSize = new System.Drawing.Size(103, 24);
+            this.lciPreisErstaztext.MinSize = new System.Drawing.Size(103, 24);
             this.lciPreisErstaztext.Name = "lciPreisErstaztext";
             this.lciPreisErstaztext.Size = new System.Drawing.Size(103, 24);
+            this.lciPreisErstaztext.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciPreisErstaztext.TextSize = new System.Drawing.Size(0, 0);
             this.lciPreisErstaztext.TextVisible = false;
             this.lciPreisErstaztext.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -8939,8 +8954,11 @@
             // 
             this.lciFabrikat.Control = this.txtFabrikat;
             this.lciFabrikat.Location = new System.Drawing.Point(587, 54);
+            this.lciFabrikat.MaxSize = new System.Drawing.Size(109, 24);
+            this.lciFabrikat.MinSize = new System.Drawing.Size(109, 24);
             this.lciFabrikat.Name = "lciFabrikat";
             this.lciFabrikat.Size = new System.Drawing.Size(109, 24);
+            this.lciFabrikat.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciFabrikat.TextSize = new System.Drawing.Size(0, 0);
             this.lciFabrikat.TextVisible = false;
             this.lciFabrikat.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -8949,8 +8967,11 @@
             // 
             this.lciTyp.Control = this.txtTyp;
             this.lciTyp.Location = new System.Drawing.Point(587, 94);
+            this.lciTyp.MaxSize = new System.Drawing.Size(109, 24);
+            this.lciTyp.MinSize = new System.Drawing.Size(109, 24);
             this.lciTyp.Name = "lciTyp";
             this.lciTyp.Size = new System.Drawing.Size(109, 24);
+            this.lciTyp.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciTyp.TextSize = new System.Drawing.Size(0, 0);
             this.lciTyp.TextVisible = false;
             this.lciTyp.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -8959,8 +8980,11 @@
             // 
             this.lciLieferantMA.Control = this.txtBulkLieferantMA;
             this.lciLieferantMA.Location = new System.Drawing.Point(587, 133);
+            this.lciLieferantMA.MaxSize = new System.Drawing.Size(109, 24);
+            this.lciLieferantMA.MinSize = new System.Drawing.Size(109, 24);
             this.lciLieferantMA.Name = "lciLieferantMA";
             this.lciLieferantMA.Size = new System.Drawing.Size(109, 24);
+            this.lciLieferantMA.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciLieferantMA.TextSize = new System.Drawing.Size(0, 0);
             this.lciLieferantMA.TextVisible = false;
             this.lciLieferantMA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -8969,8 +8993,11 @@
             // 
             this.lciNachtragsnummer.Control = this.txtNachtragsnummer;
             this.lciNachtragsnummer.Location = new System.Drawing.Point(587, 172);
+            this.lciNachtragsnummer.MaxSize = new System.Drawing.Size(109, 24);
+            this.lciNachtragsnummer.MinSize = new System.Drawing.Size(109, 24);
             this.lciNachtragsnummer.Name = "lciNachtragsnummer";
             this.lciNachtragsnummer.Size = new System.Drawing.Size(109, 24);
+            this.lciNachtragsnummer.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.lciNachtragsnummer.TextSize = new System.Drawing.Size(0, 0);
             this.lciNachtragsnummer.TextVisible = false;
             this.lciNachtragsnummer.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -10235,6 +10262,8 @@
             this.Cost_Desciption.Name = "Cost_Desciption";
             this.Cost_Desciption.OptionsColumn.AllowEdit = false;
             this.Cost_Desciption.OptionsColumn.ReadOnly = true;
+            this.Cost_Desciption.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "Cost_Desciption", "Summe Umlagekosten")});
             this.Cost_Desciption.Visible = true;
             this.Cost_Desciption.VisibleIndex = 0;
             this.Cost_Desciption.Width = 750;

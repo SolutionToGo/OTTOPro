@@ -1144,72 +1144,27 @@ namespace OTTOPro
 
         private void barButtonItemAddSurchange_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            // Get the display text of the focused node's cell 
-            string cellText = tlPositions.FocusedNode.GetDisplayText("Position_OZ");
-
-            DataTable dt = ObjEPosition.dsPositionList.Tables[0];
-
-            int Parent_OZ = (from DataRow dr in dt.Rows
-                             where (string)dr["Position_OZ"] == cellText
-                             select (int)dr["Parent_OZ"]).FirstOrDefault();
-
-            object Position_OZ = dt.Compute("MAX(Position_OZ)", "Parent_OZ='" + Parent_OZ + "' and PositionKZ <>'" + "ZS" + "'");
-
-
-
-        }
-
-        private void tlPositions_CustomDrawColumnHeader(object sender, CustomDrawColumnHeaderEventArgs e)
-        {
             try
             {
-                if (e.Pressed)
-                    paintSunkenBackground(e.Graphics, e.Bounds);
-                else
-                    paintRaisedBackground(e.Graphics, e.Bounds);
-                if (e.ColumnType == HitInfoType.Column)
-                    paintHAlignedText(e.Graphics, e.Bounds, e.Column.GetCaption(), StringAlignment.Center);
-                e.Handled = true;
+                // Get the display text of the focused node's cell 
+                string cellText = tlPositions.FocusedNode.GetDisplayText("Position_OZ");
+
+                DataTable dt = ObjEPosition.dsPositionList.Tables[0];
+
+                int Parent_OZ = (from DataRow dr in dt.Rows
+                                 where (string)dr["Position_OZ"] == cellText
+                                 select (int)dr["Parent_OZ"]).FirstOrDefault();
+
+                object Position_OZ = dt.Compute("MAX(Position_OZ)", "Parent_OZ='" + Parent_OZ + "' and PositionKZ <>'" + "ZS" + "'");
             }
             catch (Exception)
             {
                 throw;
             }
-        }
 
-        // Paints the background of sunken elements.
-        private void paintSunkenBackground(Graphics g, Rectangle bounds)
-        {
-            LinearGradientBrush brush = new LinearGradientBrush(bounds, Color.DeepSkyBlue, Color.DeepSkyBlue, LinearGradientMode.Vertical);
-            g.FillRectangle(brush, bounds);
-            ControlPaint.DrawBorder3D(g, bounds, Border3DStyle.SunkenOuter);
-        }
-
-        // Paints the background of raised elements.
-        private void paintRaisedBackground(Graphics g, Rectangle bounds)
-        {
-            LinearGradientBrush brush = new LinearGradientBrush(bounds, Color.DeepSkyBlue, Color.DeepSkyBlue, LinearGradientMode.Vertical);
-            g.FillRectangle(brush, bounds);
-            ControlPaint.DrawBorder3D(g, bounds, Border3DStyle.RaisedInner);
-        }
-
-        // Paints the aligned text.
-        private void paintHAlignedText(Graphics g, Rectangle bounds, string text, StringAlignment align)
-        {
-            SolidBrush textBrush = new SolidBrush(Color.Black);
-
-            StringFormat outStringFormat = new StringFormat();
-            outStringFormat.Alignment = align;
-            outStringFormat.LineAlignment = StringAlignment.Center;
-            outStringFormat.FormatFlags = StringFormatFlags.NoWrap;
-            outStringFormat.Trimming = StringTrimming.EllipsisCharacter;
-
-            g.DrawString(text, new Font("Verdana", 8), textBrush, bounds, outStringFormat);
-        }
+        }   
 
         XtraTabPage ObjTabDetails = null;
-
-
         private void xtraTabControl1_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
         {
             //if (xtraTabControl1.SelectedTabPage.Name == "xtraTabPageHierachical")
@@ -3408,12 +3363,14 @@ namespace OTTOPro
                     tlPositions.OptionsBehavior.ReadOnly = true;
                     Color _Color = Color.FromArgb(255, 183, 0);
                     LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                    tlPositions.Appearance.HeaderPanel.BackColor = _Color;
                 }
                 else
                 {
                     tlPositions.OptionsBehavior.ReadOnly = false;
                     Color _Color = Color.FromArgb(0, 158, 224);
                     LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                    tlPositions.Appearance.HeaderPanel.BackColor = _Color;
                 }
             }
             catch (Exception)

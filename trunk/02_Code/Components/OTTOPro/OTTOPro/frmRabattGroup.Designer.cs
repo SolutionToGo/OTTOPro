@@ -378,9 +378,9 @@
             // btnSave
             // 
             this.btnSave.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(490, 560);
+            this.btnSave.Location = new System.Drawing.Point(487, 560);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(76, 22);
+            this.btnSave.Size = new System.Drawing.Size(75, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Speichern";
@@ -389,9 +389,9 @@
             // btnCancel
             // 
             this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(570, 560);
+            this.btnCancel.Location = new System.Drawing.Point(566, 560);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(76, 22);
+            this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Abbrechen";
@@ -454,17 +454,17 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 548);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(478, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(475, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.btnCancel;
-            this.layoutControlItem10.Location = new System.Drawing.Point(558, 548);
-            this.layoutControlItem10.MaxSize = new System.Drawing.Size(80, 26);
-            this.layoutControlItem10.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem10.Location = new System.Drawing.Point(554, 548);
+            this.layoutControlItem10.MaxSize = new System.Drawing.Size(84, 26);
+            this.layoutControlItem10.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem10.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
@@ -472,11 +472,11 @@
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.btnSave;
-            this.layoutControlItem11.Location = new System.Drawing.Point(478, 548);
-            this.layoutControlItem11.MaxSize = new System.Drawing.Size(80, 26);
-            this.layoutControlItem11.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem11.Location = new System.Drawing.Point(475, 548);
+            this.layoutControlItem11.MaxSize = new System.Drawing.Size(79, 26);
+            this.layoutControlItem11.MinSize = new System.Drawing.Size(79, 26);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem11.Size = new System.Drawing.Size(79, 26);
             this.layoutControlItem11.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
