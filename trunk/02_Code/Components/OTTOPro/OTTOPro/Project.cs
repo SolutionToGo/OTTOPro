@@ -5901,7 +5901,7 @@ e.Column.FieldName == "GB")
                 if (gvDelivery.FocusedColumn != null)
                 {
                     string strPosition = gvDelivery.GetFocusedRowCellValue("Position_OZ") == DBNull.Value ? "" : gvDelivery.GetFocusedRowCellValue("Position_OZ").ToString();
-                    lblSelectedLVPosition.Text = "Selected LV Position : " + strPosition;
+                    lblSelectedLVPosition.Text = "Ausgewählte LV Positionen  : " + strPosition;
                     txtOrderedQnty.Text = gvDelivery.GetFocusedRowCellValue("OrderedQuantity") == DBNull.Value ? "" : gvDelivery.GetFocusedRowCellValue("OrderedQuantity").ToString();
                     txtDeliveredQnty.Text = gvDelivery.GetFocusedRowCellValue("DeliveredQuantity") == DBNull.Value ? "" : gvDelivery.GetFocusedRowCellValue("DeliveredQuantity").ToString();
                 }
@@ -5961,7 +5961,7 @@ e.Column.FieldName == "GB")
                     table.Rows.Clear();
                     txtDeliveredQnty.Text = string.Empty;
                     txtOrderedQnty.Text = string.Empty;
-                    lblSelectedLVPosition.Text = "Selected LV Position : ";
+                    lblSelectedLVPosition.Text = "Ausgewählte LV Positionen  : ";
                     gcDeliveryNumbers.DataSource = ObjEDeliveryNotes.dtBlattNumbers;
                     gcPositions.DataSource = ObjEDeliveryNotes.dtPositions;
                     Utility.Setfocus(gvDeliveryNumbers, "BlattID", ObjEDeliveryNotes.BlattID);
