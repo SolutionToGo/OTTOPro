@@ -91,6 +91,8 @@ namespace OTTOPro
         string _WGforSupplier = null;
         string _WAforSupplier = null;
         string _pdfpath = null;
+        DataTable _dtSuppliermail = new DataTable();
+
         /// <summary>
         /// Properties to bind the internal variables
         /// </summary>
@@ -4058,10 +4060,10 @@ namespace OTTOPro
                         {
                             DataRow drPos = dtPos.NewRow();
                             string tID = node["PositionID"].ToString();
-                            string tMA_Selbstkosten = node["MA_selbstkostenMulti"].ToString();
-                            string tMO_Selbstkosten = node["MO_selbstkostenMulti"].ToString();
-                            string tMA_Verkaufspreis = node["MA_verkaufspreis_Multi"].ToString();
-                            string MO_Verkaufspreis = node["MO_verkaufspreisMulti"].ToString();
+                            string tMA_Selbstkosten = node["MA_selbstkostenMulti"].ToString() == string.Empty ? "0" : node["MA_selbstkostenMulti"].ToString();
+                            string tMO_Selbstkosten = node["MO_selbstkostenMulti"].ToString() == string.Empty ? "0" : node["MO_selbstkostenMulti"].ToString();
+                            string tMA_Verkaufspreis = node["MA_verkaufspreis_Multi"].ToString() == string.Empty ? "0" : node["MA_verkaufspreis_Multi"].ToString();
+                            string MO_Verkaufspreis = node["MO_verkaufspreisMulti"].ToString() == string.Empty ? "0" : node["MO_verkaufspreisMulti"].ToString();
 
                             drPos["ID"] = tID;
                             drPos["MA_Selbstkosten"] = tMA_Selbstkosten.Replace(',', '.');
@@ -4503,8 +4505,6 @@ namespace OTTOPro
                                                       txtArtikelnummerWA.Text, txtArtikelnummerWI.Text, txtNachtragsnummer.Text, dtPos);
 
                 btnApply_Click(null, null);
-
-                ObjEProject.ProjectID = ProjectID;
                 ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.dtLVSection != null && ObjEProject.dtLVSection.Rows.Count > 0)
                 {
@@ -7848,7 +7848,6 @@ e.Column.FieldName == "GB")
             }
         }
 
-        DataTable _dtSuppliermail = new DataTable();
         private void gvProposedSupplier_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
             try

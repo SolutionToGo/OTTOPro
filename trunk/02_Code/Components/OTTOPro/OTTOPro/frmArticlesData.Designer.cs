@@ -1479,10 +1479,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1189, 781);
             this.Controls.Add(this.layoutControl1);
+            this.KeyPreview = true;
             this.Name = "frmArticlesData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artikelstammdaten ";
             this.Load += new System.EventHandler(this.frmArticlesData_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmArticlesData_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbME.Properties)).EndInit();

@@ -46,7 +46,7 @@ namespace OTTOPro
                     ObjBArticle = new BArticles();
                 ObjEArticle.ValidityDate = dateEditGultigkeit.DateTime;
                 ObjEArticle = ObjBArticle.SaveDimensionCopy(ObjEArticle);
-                MessageBox.Show("Dimensions Saved With New Validity Date : " + string.Format("{0:y}", dateEditGultigkeit.DateTime));
+                MessageBox.Show("Maße / Artikeldaten mit neuem Gültigkeitsdatum wurden gespeichert : " + string.Format("{0:y}", dateEditGultigkeit.DateTime));
                 this.Close();
             }
             catch (Exception ex)

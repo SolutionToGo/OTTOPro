@@ -57,12 +57,7 @@ namespace OTTOPro
 
         private void frmTextDialog_Load(object sender, EventArgs e)
         {
-            if (_NewLVSection != null)
-            {
-                txtNewLVSection.Text = _NewLVSection;
-                this.Text = strName;
-                label1.Text = strName;
-            }
+            
         }
 
         private void txtNewLVSection_TextChanged(object sender, EventArgs e)

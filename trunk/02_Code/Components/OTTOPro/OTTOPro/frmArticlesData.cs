@@ -26,6 +26,7 @@ namespace OTTOPro
             InitializeComponent();
         }
         private bool _IsSave;
+        private bool _IsSaveDimension = false;
         
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -322,6 +323,8 @@ namespace OTTOPro
         {
             try
             {
+                if (_IsSaveDimension)
+                    throw new Exception("Please Save the dimension first");
                 if (ObjEArticle == null)
                     ObjEArticle = new EArticles();
                 if (ObjEArticle.WIID < 0)
@@ -335,15 +338,6 @@ namespace OTTOPro
                         throw new Exception("Bitte wählen Sie einen Artikel");
                     }
                 }
-
-                string _Avalue = Convert.ToString(gvDimensions.GetRowCellValue(gvDimensions.FocusedRowHandle, gvDimensions.Columns["A"]));
-                string _BValue = Convert.ToString(gvDimensions.GetRowCellValue(gvDimensions.FocusedRowHandle, gvDimensions.Columns["B"]));
-
-                if (_Avalue == "" || _BValue == "")
-                {
-                    return;
-                }
-                    
                 if (_IsSave)
                 {
                     int RowHandle = gvDimensions.FocusedRowHandle;
@@ -408,6 +402,7 @@ namespace OTTOPro
                 rowView.EndEdit();
                 gcDimensions.DataSource = dvDimensions;
                 gvDimensions.BestFitColumns();
+                _IsSaveDimension = true;
             }
             catch (Exception ex)
             {
@@ -476,6 +471,7 @@ namespace OTTOPro
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
                 ObjBArticle.SaveDimension(ObjEArticle);
+                _IsSaveDimension = false;
             }
             catch (Exception ex)
             {
@@ -563,6 +559,12 @@ namespace OTTOPro
                 e.Handled = true;
         }
 
-
+        private void frmArticlesData_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Escape)
+            {
+                btnCancel_Click(null, null);
+            }
+        }
     }
 }
