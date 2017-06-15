@@ -43,34 +43,46 @@ namespace OTTOPro
         {
             try
             {
-                if (_IsSaveDimension)
-                    throw new Exception("Bitte Speichern der Maße");
+                //if (_IsSaveDimension)
+                //    throw new Exception("Bitte Speichern der Maße");
 
-                if (ObjESupplier == null)
-                    ObjESupplier = new ESupplier();
-                if(_IsSave)
-                {
-                    int RowHandle = gvArticles.FocusedRowHandle;
-                    GetArticleDetails(RowHandle);
-                }
-                ObjESupplier.WGWAID = -1;
-                ObjESupplier.SupplierID = _SupplierID;
-                if (ObjESupplier.dtArticle != null)
-                {
-                    DataView dvArticle = ObjESupplier.dtArticle.DefaultView;
-                    dvArticle.RowFilter = "SupplierID = '" + _SupplierID + "'";
-                    DataRowView rowView = dvArticle.AddNew();
-                    rowView["WGWAID"] = "-1";
-                    rowView["SupplierID"] = _SupplierID;
-                    rowView["WG"] = "";
-                    rowView["WA"] = "";
-                    rowView["WGDescription"] = "";
-                    rowView.EndEdit();
-                    gcArticles.DataSource = dvArticle;
-                    gvArticles.BestFitColumns();
-                    _IsSaveDimension = true;
+                //if (ObjESupplier == null)
+                //    ObjESupplier = new ESupplier();
+                //if(_IsSave)
+                //{
+                //    int RowHandle = gvArticles.FocusedRowHandle;
+                //    GetArticleDetails(RowHandle);
+                //}
+                //ObjESupplier.WGWAID = -1;
+                //ObjESupplier.SupplierID = _SupplierID;
+                //if (ObjESupplier.dtArticle != null)
+                //{
+                //    DataView dvArticle = ObjESupplier.dtArticle.DefaultView;
+                //    dvArticle.RowFilter = "SupplierID = '" + _SupplierID + "'";
+                //    DataRowView rowView = dvArticle.AddNew();
+                //    rowView["WGWAID"] = "-1";
+                //    rowView["SupplierID"] = _SupplierID;
+                //    rowView["WG"] = "";
+                //    rowView["WA"] = "";
+                //    rowView["WGDescription"] = "";
+                //    rowView.EndEdit();
+                //    gcArticles.DataSource = dvArticle;
+                //    gvArticles.BestFitColumns();
+                //    _IsSaveDimension = true;
 
-                }
+                //}
+                    //if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
+                    ObjESupplier.WGWAID = -1;
+                    ObjESupplier.SupplierID = _SupplierID;
+                    frmSaveArticle frm = new frmSaveArticle();
+                    frm.ObjEsupplier = ObjESupplier;
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        BindArticleData(_SupplierID);
+                        Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
+                    }
             }
             catch (Exception ex)
             {
@@ -304,8 +316,8 @@ namespace OTTOPro
 
         private void gvArticles_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (!_IsSave)
-                _IsSave = true;
+            //if (!_IsSave)
+            //    _IsSave = true;
         }
 
         private void gvArticles_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
@@ -323,31 +335,31 @@ namespace OTTOPro
 
         private void gcArticles_EditorKeyPress(object sender, KeyPressEventArgs e)
         {
-            try
-            {
-                GridControl grid = sender as GridControl;
-                gvArticles_KeyPress(grid.FocusedView, e);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            //try
+            //{
+            //    GridControl grid = sender as GridControl;
+            //    gvArticles_KeyPress(grid.FocusedView, e);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw;
+            //}
         }
 
         private void gvArticles_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
-            {
-                if (e.KeyChar == (char)Keys.Enter)
-                {
-                    int RowHandle = gvArticles.FocusedRowHandle;
-                    GetArticleDetails(RowHandle);
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            //try
+            //{
+            //    if (e.KeyChar == (char)Keys.Enter)
+            //    {
+            //        int RowHandle = gvArticles.FocusedRowHandle;
+            //      //  GetArticleDetails(RowHandle);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
         }
 
         #endregion
@@ -516,20 +528,16 @@ namespace OTTOPro
 
         }
 
-        private void GetArticleDetails(int RowHandle)
+        private void GetArticleDetails()
         {
-            if (!_IsSave)
-                return;
             try
             {
-                ObjESupplier.WGWAID = Convert.ToInt32(gvArticles.GetRowCellValue(RowHandle, "WGWAID"));
-                ObjESupplier.WG = gvArticles.GetRowCellValue(RowHandle,"WG") == DBNull.Value ? "" : gvArticles.GetRowCellValue(RowHandle,"WG").ToString();
-                ObjESupplier.WA = gvArticles.GetRowCellValue(RowHandle, "WA") == DBNull.Value ? "" : gvArticles.GetRowCellValue(RowHandle, "WA").ToString();
-                ObjESupplier.WGDescription = gvArticles.GetRowCellValue(RowHandle, "WGDescription") == DBNull.Value ? "" : gvArticles.GetRowCellValue(RowHandle, "WGDescription").ToString();
+                ObjESupplier.WGWAID = Convert.ToInt32(gvArticles.GetFocusedRowCellValue("WGWAID"));
+                ObjESupplier.WG = gvArticles.GetFocusedRowCellValue("WG") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WG").ToString();
+                ObjESupplier.WA = gvArticles.GetFocusedRowCellValue("WA") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WA").ToString();
+                ObjESupplier.WGDescription = gvArticles.GetFocusedRowCellValue("WGDescription") == DBNull.Value ? "" : gvArticles.GetFocusedRowCellValue("WGDescription").ToString();
                 ObjESupplier.SupplierID = _SupplierID;
-                ObjBSupplier.SaveArticle(ObjESupplier);
-                _IsSaveDimension = false;
-
+                //ObjBSupplier.SaveArticle(ObjESupplier);
             }
             catch (Exception ex)
             {
@@ -540,10 +548,44 @@ namespace OTTOPro
                 ObjBSupplier.GetSupplier(ObjESupplier);
                 BindArticleData(_SupplierID);
                 Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
-                _IsSave = false;
+               // _IsSave = false;
             }
         }
 
         #endregion
+
+        private void gvArticles_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                GridView view = (GridView)sender;
+                Point pt = view.GridControl.PointToClient(Control.MousePosition);
+                GridHitInfo info = view.CalcHitInfo(pt);
+
+                if (info.InRow || info.InRowCell)
+                {
+                    if (gvArticles.SelectedRowsCount == 0)
+                    {
+                        return;
+                    }
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
+                    GetArticleDetails();
+                    frmSaveArticle frm = new frmSaveArticle();
+                    frm.ObjEsupplier = ObjESupplier;
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        BindArticleData(_SupplierID);
+                        Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

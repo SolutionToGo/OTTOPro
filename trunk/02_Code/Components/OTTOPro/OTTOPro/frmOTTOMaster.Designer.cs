@@ -437,10 +437,8 @@
             // 
             this.checkEditIsBranch.Location = new System.Drawing.Point(365, 264);
             this.checkEditIsBranch.Name = "checkEditIsBranch";
-            this.checkEditIsBranch.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.checkEditIsBranch.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEditIsBranch.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.checkEditIsBranch.Properties.Appearance.Options.UseBackColor = true;
+            this.checkEditIsBranch.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.checkEditIsBranch.Properties.Appearance.Options.UseFont = true;
             this.checkEditIsBranch.Properties.Appearance.Options.UseForeColor = true;
             this.checkEditIsBranch.Properties.Caption = "Niederlassung";
@@ -645,8 +643,6 @@
             // 
             // layoutControlGroup2
             // 
-            this.layoutControlGroup2.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControlGroup2.AppearanceGroup.Options.UseBackColor = true;
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup2.GroupBordersVisible = false;
             this.layoutControlGroup2.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -686,10 +682,8 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem2.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem2.Control = this.txtFullName;
@@ -701,10 +695,8 @@
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem3.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem3.Control = this.txtShortName;
@@ -733,10 +725,8 @@
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem4.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem4.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem4.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem4.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem4.Control = this.txtStreet;
@@ -748,10 +738,8 @@
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem5.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem5.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem5.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem5.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem5.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem5.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem5.Control = this.txtPostalCode;
@@ -763,10 +751,8 @@
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem6.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem6.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem6.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem6.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem6.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem6.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem6.Control = this.txtCity;
@@ -778,10 +764,8 @@
             // 
             // layoutControlItem7
             // 
-            this.layoutControlItem7.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem7.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem7.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem7.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem7.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem7.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem7.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem7.Control = this.txtCountry;
@@ -793,10 +777,8 @@
             // 
             // layoutControlItem8
             // 
-            this.layoutControlItem8.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem8.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem8.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem8.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem8.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem8.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem8.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem8.Control = this.txtILN;
@@ -808,10 +790,8 @@
             // 
             // layoutControlItem36
             // 
-            this.layoutControlItem36.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem36.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem36.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem36.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem36.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem36.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem36.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem36.Control = this.txtOTTOTelefone;
@@ -823,10 +803,8 @@
             // 
             // layoutControlItem37
             // 
-            this.layoutControlItem37.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem37.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem37.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem37.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem37.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem37.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem37.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem37.Control = this.txtTelefax;
@@ -838,10 +816,8 @@
             // 
             // layoutControlItem39
             // 
-            this.layoutControlItem39.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem39.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem39.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem39.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem39.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem39.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem39.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem39.Control = this.txtHotline;
@@ -853,10 +829,8 @@
             // 
             // layoutControlItem43
             // 
-            this.layoutControlItem43.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem43.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem43.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem43.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem43.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem43.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem43.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem43.Control = this.txtWebsite;
@@ -883,10 +857,8 @@
             // 
             // layoutControlItem9
             // 
-            this.layoutControlItem9.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem9.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem9.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem9.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem9.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem9.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem9.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem9.Control = this.txtBankName;
@@ -898,10 +870,8 @@
             // 
             // layoutControlItem10
             // 
-            this.layoutControlItem10.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem10.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem10.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem10.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem10.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem10.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem10.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem10.Control = this.txtBankPCode;
@@ -913,10 +883,8 @@
             // 
             // layoutControlItem11
             // 
-            this.layoutControlItem11.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem11.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem11.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem11.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem11.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem11.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem11.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem11.Control = this.txtBankAccNo;
@@ -928,10 +896,8 @@
             // 
             // layoutControlItem33
             // 
-            this.layoutControlItem33.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem33.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem33.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem33.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem33.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem33.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem33.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem33.Control = this.txtIBAN;
@@ -943,10 +909,8 @@
             // 
             // layoutControlItem34
             // 
-            this.layoutControlItem34.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem34.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem34.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem34.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem34.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem34.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem34.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem34.Control = this.txtBIC;
@@ -958,10 +922,8 @@
             // 
             // layoutControlItem35
             // 
-            this.layoutControlItem35.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem35.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem35.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem35.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem35.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem35.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem35.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem35.Control = this.txtUSTNr;
@@ -986,10 +948,8 @@
             // 
             // layoutControlItem12
             // 
-            this.layoutControlItem12.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem12.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem12.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem12.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem12.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem12.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem12.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem12.Control = this.txtDVNr;
@@ -1001,10 +961,8 @@
             // 
             // layoutControlItem13
             // 
-            this.layoutControlItem13.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem13.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem13.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem13.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem13.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem13.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem13.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem13.Control = this.txtTenderNo;
@@ -1016,10 +974,8 @@
             // 
             // layoutControlItem14
             // 
-            this.layoutControlItem14.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem14.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem14.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem14.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem14.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem14.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem14.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem14.Control = this.txtDebtorNo;
@@ -1031,10 +987,8 @@
             // 
             // layoutControlItem15
             // 
-            this.layoutControlItem15.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem15.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem15.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem15.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem15.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem15.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem15.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem15.Control = this.txtCountryType;
@@ -1046,10 +1000,8 @@
             // 
             // layoutControlItem16
             // 
-            this.layoutControlItem16.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem16.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem16.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem16.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem16.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem16.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem16.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem16.Control = this.txtIndustry;
@@ -1074,10 +1026,8 @@
             // 
             // layoutControlItem18
             // 
-            this.layoutControlItem18.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem18.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem18.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem18.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem18.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem18.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem18.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem18.Control = this.txtArtNU;
@@ -1089,10 +1039,8 @@
             // 
             // layoutControlItem17
             // 
-            this.layoutControlItem17.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem17.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem17.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem17.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem17.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem17.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem17.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem17.Control = this.txtArtBevBew;
@@ -1104,10 +1052,8 @@
             // 
             // layoutControlItem19
             // 
-            this.layoutControlItem19.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem19.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem19.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem19.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem19.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem19.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem19.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem19.Control = this.txtBGBez;
@@ -1119,10 +1065,8 @@
             // 
             // layoutControlItem20
             // 
-            this.layoutControlItem20.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem20.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem20.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem20.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem20.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem20.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem20.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem20.Control = this.txtBGDatum;
@@ -1134,10 +1078,8 @@
             // 
             // layoutControlItem21
             // 
-            this.layoutControlItem21.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem21.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem21.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem21.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem21.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem21.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem21.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem21.Control = this.txtBGNr;
@@ -1210,10 +1152,8 @@
             // 
             // layoutControlItem40
             // 
-            this.layoutControlItem40.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem40.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem40.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem40.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem40.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem40.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem40.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem40.Control = this.txtseatofcompany;
@@ -1225,10 +1165,8 @@
             // 
             // layoutControlItem41
             // 
-            this.layoutControlItem41.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem41.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem41.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem41.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem41.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem41.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem41.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem41.Control = this.txtMD;
@@ -1240,10 +1178,8 @@
             // 
             // layoutControlItem42
             // 
-            this.layoutControlItem42.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem42.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem42.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem42.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem42.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem42.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem42.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem42.Control = this.txtComplementary;
@@ -1265,7 +1201,6 @@
             // 
             // layoutControl3
             // 
-            this.layoutControl3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl3.Controls.Add(this.btnSaveContact);
             this.layoutControl3.Controls.Add(this.btnCancelContact);
             this.layoutControl3.Controls.Add(this.checkEditDefaultContact);
@@ -1311,10 +1246,8 @@
             // 
             this.checkEditDefaultContact.Location = new System.Drawing.Point(24, 168);
             this.checkEditDefaultContact.Name = "checkEditDefaultContact";
-            this.checkEditDefaultContact.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.checkEditDefaultContact.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkEditDefaultContact.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.checkEditDefaultContact.Properties.Appearance.Options.UseBackColor = true;
+            this.checkEditDefaultContact.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
             this.checkEditDefaultContact.Properties.Appearance.Options.UseFont = true;
             this.checkEditDefaultContact.Properties.Appearance.Options.UseForeColor = true;
             this.checkEditDefaultContact.Properties.Caption = "Standardkontakt";
@@ -1402,10 +1335,8 @@
             // 
             // layoutControlItem25
             // 
-            this.layoutControlItem25.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem25.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem25.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem25.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem25.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem25.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem25.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem25.Control = this.txtContactPerson;
@@ -1417,10 +1348,8 @@
             // 
             // layoutControlItem26
             // 
-            this.layoutControlItem26.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem26.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem26.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem26.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem26.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem26.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem26.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem26.Control = this.txtTelephone;
@@ -1432,10 +1361,8 @@
             // 
             // layoutControlItem27
             // 
-            this.layoutControlItem27.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem27.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem27.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem27.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem27.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem27.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem27.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem27.Control = this.txtFax;
@@ -1447,10 +1374,8 @@
             // 
             // layoutControlItem28
             // 
-            this.layoutControlItem28.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem28.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem28.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem28.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem28.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem28.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem28.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem28.Control = this.txtemail;
@@ -1462,10 +1387,8 @@
             // 
             // layoutControlItem29
             // 
-            this.layoutControlItem29.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControlItem29.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem29.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem29.AppearanceItemCaption.Options.UseBackColor = true;
+            this.layoutControlItem29.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
             this.layoutControlItem29.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem29.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem29.Control = this.txtTaxNo;

@@ -183,8 +183,10 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn5});
+            this.gvArticles.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvArticles.GridControl = this.gcArticles;
             this.gvArticles.Name = "gvArticles";
+            this.gvArticles.OptionsBehavior.Editable = false;
             this.gvArticles.OptionsCustomization.AllowColumnMoving = false;
             this.gvArticles.OptionsCustomization.AllowFilter = false;
             this.gvArticles.OptionsCustomization.AllowSort = false;
@@ -197,6 +199,7 @@
             this.gvArticles.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvArticles_CellValueChanged);
             this.gvArticles.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvArticles_BeforeLeaveRow);
             this.gvArticles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gvArticles_KeyPress);
+            this.gvArticles.DoubleClick += new System.EventHandler(this.gvArticles_DoubleClick);
             // 
             // gridColumn1
             // 

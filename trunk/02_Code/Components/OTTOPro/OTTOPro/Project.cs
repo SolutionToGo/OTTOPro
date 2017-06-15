@@ -783,7 +783,7 @@ namespace OTTOPro
                     tlPositions.KeyFieldName = "PositionID";
                     tlPositions.ForceInitialize();
                     tlPositions.ExpandAll();
-                    CalculateNodes(tlPositions, "GB");
+                    CalculateNodes(tlPositions, "GB");                    
                 }
             }
             catch (Exception ex)
@@ -1361,6 +1361,7 @@ namespace OTTOPro
                 tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenMO.CheckState);
                 tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisME.CheckState);
                 tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisMO.CheckState);
+
                 string strNodeType = e.Node["PositionKZ"].ToString().ToLower();
 
                 if (strNodeType == "zs" || strNodeType == "z")
@@ -7839,5 +7840,6 @@ e.Column.FieldName == "GB")
         {
             btnMulti6LoadArticles_Click(null, null);
         }
+
     }
 }
