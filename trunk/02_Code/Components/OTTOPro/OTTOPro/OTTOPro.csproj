@@ -441,6 +441,12 @@
     <Compile Include="Report Design\rptDeliveryNotesWithoutAddress.Designer.cs">
       <DependentUpon>rptDeliveryNotesWithoutAddress.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptInvoicewithKurzText.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptInvoicewithKurzText.Designer.cs">
+      <DependentUpon>rptInvoicewithKurzText.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptInvoicewithLangText.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -630,6 +636,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptDeliveryNotesWithoutAddress.resx">
       <DependentUpon>rptDeliveryNotesWithoutAddress.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptInvoicewithKurzText.resx">
+      <DependentUpon>rptInvoicewithKurzText.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptInvoicewithLangText.resx">
       <DependentUpon>rptInvoicewithLangText.cs</DependentUpon>

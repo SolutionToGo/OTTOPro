@@ -7868,5 +7868,72 @@ e.Column.FieldName == "GB")
             }
         }
 
+        private void gvInvoices_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Invoice with LangText", gcInvoicesLangText_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Invoice with KurzText", gcInvoicesKurzText_Click));
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcInvoicesLangText_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvInvoices.FocusedRowHandle != null && gvInvoices.GetFocusedRowCellValue("InvoiceID") != null)
+                {
+                    int IValue = 0;
+                    string strInvoiceID = gvInvoices.GetFocusedRowCellValue("InvoiceID").ToString();
+                    if (int.TryParse(strInvoiceID, out IValue))
+                    {
+                        rptInvoicewithLangText Obj = new rptInvoicewithLangText();
+                        ReportPrintTool printTool = new ReportPrintTool(Obj);
+                        Obj.Parameters["InvoiceID"].Value = IValue;
+                        Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcInvoicesKurzText_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvInvoices.FocusedRowHandle != null && gvInvoices.GetFocusedRowCellValue("InvoiceID") != null)
+                {
+                    int IValue = 0;
+                    string strInvoiceID = gvInvoices.GetFocusedRowCellValue("InvoiceID").ToString();
+                    if (int.TryParse(strInvoiceID, out IValue))
+                    {
+                        rptInvoicewithKurzText Obj = new rptInvoicewithKurzText();
+                        ReportPrintTool printTool = new ReportPrintTool(Obj);
+                        Obj.Parameters["InvoiceID"].Value = IValue;
+                        Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
     }
 }
