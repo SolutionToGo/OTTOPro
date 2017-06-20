@@ -681,6 +681,7 @@
             this.emptySpaceItem58 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tbOmlage = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl9 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnUmlageSave = new DevExpress.XtraEditors.SimpleButton();
             this.lblTotalPrice = new System.Windows.Forms.Label();
             this.lblUmlage = new System.Windows.Forms.Label();
             this.btnSpecialCost = new DevExpress.XtraEditors.SimpleButton();
@@ -701,6 +702,7 @@
             this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem103 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem107 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem198 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbDeliveryNotes = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl10 = new DevExpress.XtraLayout.LayoutControl();
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
@@ -1541,6 +1543,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem103)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem107)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem198)).BeginInit();
             this.tbDeliveryNotes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl10)).BeginInit();
             this.layoutControl10.SuspendLayout();
@@ -6051,8 +6054,8 @@
             // 
             // btnNext
             // 
-            this.btnNext.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.Image")));
-            this.btnNext.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnNext.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.ImageOptions.Image")));
+            this.btnNext.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnNext.Location = new System.Drawing.Point(1420, 12);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(58, 22);
@@ -6062,8 +6065,8 @@
             // 
             // btnPrevious
             // 
-            this.btnPrevious.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevious.Image")));
-            this.btnPrevious.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnPrevious.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPrevious.ImageOptions.Image")));
+            this.btnPrevious.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnPrevious.Location = new System.Drawing.Point(12, 12);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(56, 22);
@@ -6089,9 +6092,9 @@
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnCancel.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancel.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnCancel.Location = new System.Drawing.Point(774, 12);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(98, 22);
@@ -6104,9 +6107,9 @@
             // 
             this.btnSaveLVDetails.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSaveLVDetails.Appearance.Options.UseFont = true;
-            this.btnSaveLVDetails.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSaveLVDetails.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnSaveLVDetails.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSaveLVDetails.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveLVDetails.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSaveLVDetails.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnSaveLVDetails.Location = new System.Drawing.Point(625, 12);
             this.btnSaveLVDetails.Name = "btnSaveLVDetails";
             this.btnSaveLVDetails.Size = new System.Drawing.Size(93, 22);
@@ -6119,8 +6122,8 @@
             // 
             this.btnModify.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModify.Appearance.Options.UseFont = true;
-            this.btnModify.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnModify.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnModify.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnModify.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnModify.Location = new System.Drawing.Point(529, 12);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(78, 22);
@@ -6133,9 +6136,9 @@
             // 
             this.btnNew.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.Appearance.Options.UseFont = true;
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
-            this.btnNew.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnNew.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.ImageOptions.Image")));
+            this.btnNew.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnNew.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnNew.Location = new System.Drawing.Point(426, 12);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(84, 22);
@@ -7909,7 +7912,7 @@
             // 
             // btnApply
             // 
-            this.btnApply.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
+            this.btnApply.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
             this.btnApply.Location = new System.Drawing.Point(216, 370);
             this.btnApply.Name = "btnApply";
             this.btnApply.Size = new System.Drawing.Size(79, 22);
@@ -7920,8 +7923,8 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
-            this.btnAdd.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAdd.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnAdd.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnAdd.Location = new System.Drawing.Point(199, 105);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(46, 22);
@@ -7932,8 +7935,8 @@
             // 
             // btnRemove
             // 
-            this.btnRemove.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnRemove.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnRemove.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnRemove.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnRemove.Location = new System.Drawing.Point(249, 105);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(46, 22);
@@ -7946,7 +7949,7 @@
             // 
             this.btnSavesectionB.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.btnSavesectionB.Appearance.Options.UseBackColor = true;
-            this.btnSavesectionB.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSavesectionB.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSavesectionB.Location = new System.Drawing.Point(990, 358);
             this.btnSavesectionB.Name = "btnSavesectionB";
             this.btnSavesectionB.Size = new System.Drawing.Size(99, 22);
@@ -8259,7 +8262,7 @@
             // 
             this.btnSaveActionA.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.btnSaveActionA.Appearance.Options.UseBackColor = true;
-            this.btnSaveActionA.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveActionA.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveActionA.Location = new System.Drawing.Point(437, 351);
             this.btnSaveActionA.Name = "btnSaveActionA";
             this.btnSaveActionA.Size = new System.Drawing.Size(82, 22);
@@ -9524,7 +9527,7 @@
             // 
             this.btnMulti5UpdateSelbekosten.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMulti5UpdateSelbekosten.Appearance.Options.UseFont = true;
-            this.btnMulti5UpdateSelbekosten.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
+            this.btnMulti5UpdateSelbekosten.ImageOptions.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
             this.btnMulti5UpdateSelbekosten.Location = new System.Drawing.Point(526, 371);
             this.btnMulti5UpdateSelbekosten.Name = "btnMulti5UpdateSelbekosten";
             this.btnMulti5UpdateSelbekosten.Size = new System.Drawing.Size(237, 46);
@@ -9537,7 +9540,7 @@
             // 
             this.btnMulti5LoadArticles.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMulti5LoadArticles.Appearance.Options.UseFont = true;
-            this.btnMulti5LoadArticles.Image = global::OTTOPro.Properties.Resources.UpDownBars_32x32;
+            this.btnMulti5LoadArticles.ImageOptions.Image = global::OTTOPro.Properties.Resources.UpDownBars_32x32;
             this.btnMulti5LoadArticles.Location = new System.Drawing.Point(608, 12);
             this.btnMulti5LoadArticles.Name = "btnMulti5LoadArticles";
             this.btnMulti5LoadArticles.Size = new System.Drawing.Size(155, 33);
@@ -9843,7 +9846,7 @@
             // 
             this.btnMulti6UpdateSelbekosten.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMulti6UpdateSelbekosten.Appearance.Options.UseFont = true;
-            this.btnMulti6UpdateSelbekosten.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
+            this.btnMulti6UpdateSelbekosten.ImageOptions.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
             this.btnMulti6UpdateSelbekosten.Location = new System.Drawing.Point(493, 441);
             this.btnMulti6UpdateSelbekosten.Name = "btnMulti6UpdateSelbekosten";
             this.btnMulti6UpdateSelbekosten.Size = new System.Drawing.Size(252, 38);
@@ -9856,7 +9859,7 @@
             // 
             this.btnMulti6LoadArticles.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMulti6LoadArticles.Appearance.Options.UseFont = true;
-            this.btnMulti6LoadArticles.Image = global::OTTOPro.Properties.Resources.UpDownBars_32x32;
+            this.btnMulti6LoadArticles.ImageOptions.Image = global::OTTOPro.Properties.Resources.UpDownBars_32x32;
             this.btnMulti6LoadArticles.Location = new System.Drawing.Point(616, 12);
             this.btnMulti6LoadArticles.Name = "btnMulti6LoadArticles";
             this.btnMulti6LoadArticles.Size = new System.Drawing.Size(129, 38);
@@ -10148,6 +10151,7 @@
             // layoutControl9
             // 
             this.layoutControl9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl9.Controls.Add(this.btnUmlageSave);
             this.layoutControl9.Controls.Add(this.lblTotalPrice);
             this.layoutControl9.Controls.Add(this.lblUmlage);
             this.layoutControl9.Controls.Add(this.btnSpecialCost);
@@ -10162,6 +10166,19 @@
             this.layoutControl9.Size = new System.Drawing.Size(1522, 749);
             this.layoutControl9.TabIndex = 0;
             this.layoutControl9.Text = "layoutControl9";
+            // 
+            // btnUmlageSave
+            // 
+            this.btnUmlageSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnUmlageSave.Appearance.Options.UseFont = true;
+            this.btnUmlageSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnUmlageSave.Location = new System.Drawing.Point(754, 12);
+            this.btnUmlageSave.Name = "btnUmlageSave";
+            this.btnUmlageSave.Size = new System.Drawing.Size(84, 22);
+            this.btnUmlageSave.StyleController = this.layoutControl9;
+            this.btnUmlageSave.TabIndex = 10;
+            this.btnUmlageSave.Text = "Speichern";
+            this.btnUmlageSave.Click += new System.EventHandler(this.btnUmlageSave_Click);
             // 
             // lblTotalPrice
             // 
@@ -10184,7 +10201,7 @@
             // 
             this.btnSpecialCost.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSpecialCost.Appearance.Options.UseFont = true;
-            this.btnSpecialCost.Image = global::OTTOPro.Properties.Resources.BOFileAttachment_32x32;
+            this.btnSpecialCost.ImageOptions.Image = global::OTTOPro.Properties.Resources.BOFileAttachment_32x32;
             this.btnSpecialCost.Location = new System.Drawing.Point(553, 465);
             this.btnSpecialCost.Name = "btnSpecialCost";
             this.btnSpecialCost.Size = new System.Drawing.Size(139, 38);
@@ -10197,7 +10214,7 @@
             // 
             this.btnAddedCost.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddedCost.Appearance.Options.UseFont = true;
-            this.btnAddedCost.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
+            this.btnAddedCost.ImageOptions.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
             this.btnAddedCost.Location = new System.Drawing.Point(696, 465);
             this.btnAddedCost.Name = "btnAddedCost";
             this.btnAddedCost.Size = new System.Drawing.Size(142, 38);
@@ -10212,7 +10229,7 @@
             this.lblOmlage.ForeColor = System.Drawing.Color.White;
             this.lblOmlage.Location = new System.Drawing.Point(12, 12);
             this.lblOmlage.Name = "lblOmlage";
-            this.lblOmlage.Size = new System.Drawing.Size(826, 20);
+            this.lblOmlage.Size = new System.Drawing.Size(738, 22);
             this.lblOmlage.TabIndex = 5;
             this.lblOmlage.Text = "Umlage ";
             // 
@@ -10220,13 +10237,13 @@
             // 
             this.gcOmlage.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gcOmlage.EmbeddedNavigator.Appearance.Options.UseFont = true;
-            this.gcOmlage.Location = new System.Drawing.Point(12, 36);
+            this.gcOmlage.Location = new System.Drawing.Point(12, 38);
             this.gcOmlage.MainView = this.gvOmlage;
             this.gcOmlage.MenuManager = this.barManager1;
             this.gcOmlage.Name = "gcOmlage";
             this.gcOmlage.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpumlagePrice});
-            this.gcOmlage.Size = new System.Drawing.Size(826, 425);
+            this.gcOmlage.Size = new System.Drawing.Size(826, 423);
             this.gcOmlage.TabIndex = 4;
             this.gcOmlage.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvOmlage});
@@ -10305,7 +10322,8 @@
             this.layoutControlItem136,
             this.layoutControlItem137,
             this.emptySpaceItem103,
-            this.emptySpaceItem107});
+            this.emptySpaceItem107,
+            this.layoutControlItem198});
             this.layoutControlGroup19.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup19.Name = "Root";
             this.layoutControlGroup19.Size = new System.Drawing.Size(1522, 749);
@@ -10322,9 +10340,9 @@
             // layoutControlItem127
             // 
             this.layoutControlItem127.Control = this.gcOmlage;
-            this.layoutControlItem127.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem127.Location = new System.Drawing.Point(0, 26);
             this.layoutControlItem127.Name = "layoutControlItem127";
-            this.layoutControlItem127.Size = new System.Drawing.Size(830, 429);
+            this.layoutControlItem127.Size = new System.Drawing.Size(830, 427);
             this.layoutControlItem127.Text = "Omlage :";
             this.layoutControlItem127.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem127.TextSize = new System.Drawing.Size(0, 0);
@@ -10335,7 +10353,7 @@
             this.layoutControlItem133.Control = this.lblOmlage;
             this.layoutControlItem133.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem133.Name = "layoutControlItem133";
-            this.layoutControlItem133.Size = new System.Drawing.Size(830, 24);
+            this.layoutControlItem133.Size = new System.Drawing.Size(742, 26);
             this.layoutControlItem133.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem133.TextVisible = false;
             // 
@@ -10396,6 +10414,18 @@
             this.emptySpaceItem107.Name = "emptySpaceItem107";
             this.emptySpaceItem107.Size = new System.Drawing.Size(1502, 234);
             this.emptySpaceItem107.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem198
+            // 
+            this.layoutControlItem198.Control = this.btnUmlageSave;
+            this.layoutControlItem198.Location = new System.Drawing.Point(742, 0);
+            this.layoutControlItem198.MaxSize = new System.Drawing.Size(88, 26);
+            this.layoutControlItem198.MinSize = new System.Drawing.Size(88, 26);
+            this.layoutControlItem198.Name = "layoutControlItem198";
+            this.layoutControlItem198.Size = new System.Drawing.Size(88, 26);
+            this.layoutControlItem198.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem198.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem198.TextVisible = false;
             // 
             // tbDeliveryNotes
             // 
@@ -10534,7 +10564,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSave.Location = new System.Drawing.Point(128, 36);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(161, 22);
@@ -11612,7 +11642,7 @@
             // 
             this.btnSaveSupplierProposal.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSaveSupplierProposal.Appearance.Options.UseFont = true;
-            this.btnSaveSupplierProposal.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
+            this.btnSaveSupplierProposal.ImageOptions.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
             this.btnSaveSupplierProposal.Location = new System.Drawing.Point(899, 12);
             this.btnSaveSupplierProposal.Name = "btnSaveSupplierProposal";
             this.btnSaveSupplierProposal.Size = new System.Drawing.Size(132, 56);
@@ -11924,7 +11954,7 @@
             // 
             this.btnSendEmail.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSendEmail.Appearance.Options.UseFont = true;
-            this.btnSendEmail.Image = global::OTTOPro.Properties.Resources.Mail_32x32;
+            this.btnSendEmail.ImageOptions.Image = global::OTTOPro.Properties.Resources.Mail_32x32;
             this.btnSendEmail.Location = new System.Drawing.Point(1339, 12);
             this.btnSendEmail.Name = "btnSendEmail";
             this.btnSendEmail.Size = new System.Drawing.Size(171, 56);
@@ -11938,7 +11968,7 @@
             // 
             this.btnGeneratePDF.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGeneratePDF.Appearance.Options.UseFont = true;
-            this.btnGeneratePDF.Image = ((System.Drawing.Image)(resources.GetObject("btnGeneratePDF.Image")));
+            this.btnGeneratePDF.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGeneratePDF.ImageOptions.Image")));
             this.btnGeneratePDF.Location = new System.Drawing.Point(1045, 12);
             this.btnGeneratePDF.Name = "btnGeneratePDF";
             this.btnGeneratePDF.Size = new System.Drawing.Size(290, 56);
@@ -12305,7 +12335,7 @@
             // 
             this.btnSubmit.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSubmit.Appearance.Options.UseFont = true;
-            this.btnSubmit.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
+            this.btnSubmit.ImageOptions.Image = global::OTTOPro.Properties.Resources.SaveAll_32x32;
             this.btnSubmit.Location = new System.Drawing.Point(1206, 680);
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.Size = new System.Drawing.Size(224, 46);
@@ -12761,7 +12791,7 @@
             // 
             this.btnSaveTemparary.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSaveTemparary.Appearance.Options.UseFont = true;
-            this.btnSaveTemparary.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveTemparary.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveTemparary.Location = new System.Drawing.Point(444, 60);
             this.btnSaveTemparary.Name = "btnSaveTemparary";
             this.btnSaveTemparary.Size = new System.Drawing.Size(163, 22);
@@ -14889,6 +14919,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem103)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem107)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem198)).EndInit();
             this.tbDeliveryNotes.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl10)).EndInit();
             this.layoutControl10.ResumeLayout(false);
@@ -16106,6 +16137,8 @@
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtInvoicePrice;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit txtBlatPrice;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem116;
+        private DevExpress.XtraEditors.SimpleButton btnUmlageSave;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem198;
 
 
     }

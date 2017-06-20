@@ -50,5 +50,18 @@ namespace BL
             }
             return ObjEUmlage;
         }
+
+        public EUmlage SaveSpecialCost(EUmlage ObjEUmlage)
+        {
+            try
+            {
+                ObjEUmlage = ObjDUmlage.SaveSpecialCost(ObjEUmlage);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEUmlage;
+        }
     }
 }

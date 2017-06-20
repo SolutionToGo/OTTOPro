@@ -1373,6 +1373,13 @@ namespace OTTOPro
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
                 }
 
+                int _DetKZ = Convert.ToInt32(e.Node["DetailKZ"]);
+                if (_DetKZ > 0)
+                {
+                    Color _Color = Color.FromArgb(132, 107, 75);
+                    e.Appearance.BackColor = _Color;
+                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
+                }
                 //if (e.Node["DetailKZ"] != null)
                 //{
                 //    int tRes = Convert.ToInt32(e.Node["DetailKZ"]);
@@ -1647,6 +1654,10 @@ namespace OTTOPro
                     }
                 }
                 int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
+
+                Color _Color = Color.FromArgb(0, 158, 224);
+                tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+
                 BindPositionData();
                 SetFocus(NewPositionID,tlPositions);
                 if (chkCreateNew.Checked == true)
@@ -1668,6 +1679,7 @@ namespace OTTOPro
                 {
                     tlPositions.MoveNext();
                 }
+
             }
             catch (Exception ex)
             {
@@ -2349,6 +2361,8 @@ namespace OTTOPro
         {
             try
             {
+                Color _Color = Color.FromArgb(255, 135, 0);
+                tlPositions.Appearance.HeaderPanel.BackColor = _Color;
                 _IsAddhoc = false;
                 CreateNewPosition();
             }
@@ -2653,6 +2667,8 @@ namespace OTTOPro
             if (e.KeyCode == Keys.Escape)
             {
                 btnCancel_Click(null, null);
+                Color _Color = Color.FromArgb(0, 158, 224);
+                tlPositions.Appearance.HeaderPanel.BackColor = _Color;
             }
         }
 
@@ -7839,6 +7855,26 @@ e.Column.FieldName == "GB")
         private void cmbType_SelectedValueChanged(object sender, EventArgs e)
         {
             btnMulti6LoadArticles_Click(null, null);
+        }
+
+        private void btnUmlageSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjEUmlage == null)
+                    ObjEUmlage = new EUmlage();
+                if (ObjBUmlage == null)
+                    ObjBUmlage = new BUmlage();
+                ObjEUmlage.ProjectID = ObjEProject.ProjectID;
+                if (ObjEUmlage.dtSpecialCost.Rows.Count > 0)
+                {
+                    ObjEUmlage = ObjBUmlage.SaveSpecialCost(ObjEUmlage);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
     }

@@ -144,7 +144,7 @@
             // 
             // btnAddContact
             // 
-            this.btnAddContact.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnAddContact.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAddContact.Location = new System.Drawing.Point(1095, 12);
             this.btnAddContact.Name = "btnAddContact";
             this.btnAddContact.Size = new System.Drawing.Size(82, 22);
@@ -155,7 +155,7 @@
             // 
             // btnAddOtto
             // 
-            this.btnAddOtto.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnAddOtto.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAddOtto.Location = new System.Drawing.Point(600, 12);
             this.btnAddOtto.Name = "btnAddOtto";
             this.btnAddOtto.Size = new System.Drawing.Size(82, 22);

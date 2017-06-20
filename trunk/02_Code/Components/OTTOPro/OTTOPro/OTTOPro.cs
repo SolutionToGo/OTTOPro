@@ -367,5 +367,10 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void ribbon_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -113,5 +113,38 @@ namespace DataAccess
             }
             return ObjEUmlage;
         }
+
+        public EUmlage SaveSpecialCost(EUmlage ObjEUmlage)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_SpecialCost]";
+                    cmd.Parameters.Add("@ProjectID", ObjEUmlage.ProjectID);
+                    cmd.Parameters.Add("@dt", ObjEUmlage.dtSpecialCost);
+                    Object Objreturn = cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("");
+                }
+                else
+                {
+                    throw new Exception("Error while saving special cost");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEUmlage;
+        }
+
     }
 }
