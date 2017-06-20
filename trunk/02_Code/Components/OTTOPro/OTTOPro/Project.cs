@@ -1582,7 +1582,6 @@ namespace OTTOPro
             txtPlanner.Enabled = false;
             dtpProjectStartDate.Enabled = false;
             dtpProjectEndDate.Enabled = false;
-            btnUsers.Enabled = false;
             txtInternX.Enabled = false;
             txtInternS.Enabled = false;
             txtSubmitLocation.Enabled = false;
@@ -3503,29 +3502,26 @@ namespace OTTOPro
             {
                 if (tlPositions.FocusedNode != null && tlPositions.FocusedNode["PositionID"] != null)
                 {
-                    if (tlPositions.FocusedNode["PositionKZ"] != null && tlPositions.FocusedNode["PositionKZ"].ToString() != "NG" && tlPositions.FocusedNode["PositionKZ"].ToString() != "")
+                    int iValue = 0;
+                    string Pos = tlPositions.FocusedNode.GetDisplayText("Position_OZ").ToString();
+                    if (int.TryParse(tlPositions.FocusedNode["PositionID"].ToString(), out iValue))
                     {
-                        int iValue = 0;
-                        string Pos = tlPositions.FocusedNode.GetDisplayText("Position_OZ").ToString();
-                        if (int.TryParse(tlPositions.FocusedNode["PositionID"].ToString(), out iValue))
+                        if (Utility._IsGermany == true)
                         {
-                            if (Utility._IsGermany == true)
-                            {
-                                strConfirmation = XtraMessageBox.Show("Wollen Sie die LV Position " + Pos + " wirklich löschen.?", "Bestätigung!", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
-                            }
-                            else
-                            {
-                                strConfirmation = XtraMessageBox.Show("Do you really want to delete the Position " + Pos + ".?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
-                            }
-                            if (strConfirmation.ToLower() == "yes")
-                            {
-                                ObjBPosition.Deleteposition(iValue);
-                                BindPositionData();
-                            }
-                            else
-                            {
-                                return;
-                            }
+                            strConfirmation = XtraMessageBox.Show("Wollen Sie die LV Position " + Pos + " wirklich löschen.?", "Bestätigung!", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
+                        }
+                        else
+                        {
+                            strConfirmation = XtraMessageBox.Show("Do you really want to delete the Position " + Pos + ".?", "Confirmation!", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
+                        }
+                        if (strConfirmation.ToLower() == "yes")
+                        {
+                            ObjBPosition.Deleteposition(iValue);
+                            BindPositionData();
+                        }
+                        else
+                        {
+                            return;
                         }
                     }
                 }
@@ -3548,6 +3544,9 @@ namespace OTTOPro
                     {
                         if (P_value == "Z" || P_value == "ZS")
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
+                        else if(tlPositions.FocusedNode.Nodes.Count <= 0)
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
+
                         e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Textposition hinzufügen", bbAddTextPosition_Click));
                     }
                 }
@@ -5294,13 +5293,9 @@ e.Column.FieldName == "GB")
                 txtFaktor.Text = ObjEPosition.Faktor.ToString();
                 txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
                 txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
-                txtMulti1MO.Text = ObjEPosition.Multi1MA.ToString();
                 txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
-                txtMulti2MO.Text = ObjEPosition.Multi2MA.ToString();
                 txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
-                txtMulti3MO.Text = ObjEPosition.Multi3MA.ToString();
                 txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
-                txtMulti4MO.Text = ObjEPosition.Multi4MA.ToString();
             }
             catch (Exception ex)
             {
@@ -5339,13 +5334,9 @@ e.Column.FieldName == "GB")
                 txtFaktor.Text = ObjEPosition.Faktor.ToString();
                 txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
                 txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
-                txtMulti1MO.Text = ObjEPosition.Multi1MA.ToString();
                 txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
-                txtMulti2MO.Text = ObjEPosition.Multi2MA.ToString();
                 txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
-                txtMulti3MO.Text = ObjEPosition.Multi3MA.ToString();
                 txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
-                txtMulti4MO.Text = ObjEPosition.Multi4MA.ToString();
             }
             catch (Exception ex)
             {

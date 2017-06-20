@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -374,63 +374,80 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbProjectDetails = new DevExpress.XtraTab.XtraTabPage();
-            this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
-            this.txtRemarks = new System.Windows.Forms.RichTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblSubmitLocation = new DevExpress.XtraEditors.LabelControl();
-            this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
-            this.txtSubmitLocation = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControl20 = new DevExpress.XtraLayout.LayoutControl();
+            this.groupControl7 = new DevExpress.XtraEditors.GroupControl();
+            this.layoutControl23 = new DevExpress.XtraLayout.LayoutControl();
             this.dtpSubmitDate = new DevExpress.XtraEditors.DateEdit();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblInternLueftung = new DevExpress.XtraEditors.LabelControl();
-            this.lblInternFremd = new DevExpress.XtraEditors.LabelControl();
-            this.txtInternX = new DevExpress.XtraEditors.TextEdit();
-            this.txtInternS = new DevExpress.XtraEditors.TextEdit();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tlpProject = new System.Windows.Forms.TableLayoutPanel();
-            this.lblBauvorhaben = new System.Windows.Forms.Label();
-            this.lblKommissionNumber = new System.Windows.Forms.Label();
-            this.lblKundeNo = new System.Windows.Forms.Label();
-            this.lblLVRaster = new System.Windows.Forms.Label();
-            this.lblKundeName = new System.Windows.Forms.Label();
-            this.lblMWST = new System.Windows.Forms.Label();
-            this.lblPlanner = new System.Windows.Forms.Label();
-            this.lblLVSprunge = new System.Windows.Forms.Label();
-            this.lblGeplanteAusführungszeit = new System.Windows.Forms.Label();
-            this.lblUsers = new System.Windows.Forms.Label();
-            this.txtkommissionNumber = new DevExpress.XtraEditors.TextEdit();
-            this.txtLVSprunge = new DevExpress.XtraEditors.TextEdit();
-            this.txtMWST = new DevExpress.XtraEditors.TextEdit();
-            this.txtKundeName = new DevExpress.XtraEditors.TextEdit();
-            this.txtPlanner = new DevExpress.XtraEditors.TextEdit();
-            this.txtBauvorhaben = new DevExpress.XtraEditors.TextEdit();
-            this.btnUsers = new System.Windows.Forms.Button();
-            this.ddlRaster = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dtpProjectStartDate = new DevExpress.XtraEditors.DateEdit();
-            this.dtpProjectEndDate = new DevExpress.XtraEditors.DateEdit();
-            this.txtProjectNumber = new DevExpress.XtraEditors.TextEdit();
-            this.lblProjectNumber = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtKundeNo = new DevExpress.XtraEditors.ButtonEdit();
-            this.ChkRaster = new DevExpress.XtraEditors.CheckEdit();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblEstimatedLVs = new DevExpress.XtraEditors.LabelControl();
-            this.lblActualLVs = new DevExpress.XtraEditors.LabelControl();
-            this.lblRoundingUnitPrice = new DevExpress.XtraEditors.LabelControl();
-            this.lblDiscount = new DevExpress.XtraEditors.LabelControl();
+            this.txtSubmitLocation = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup31 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem219 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem220 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.groupControl9 = new DevExpress.XtraEditors.GroupControl();
+            this.txtRemarks = new System.Windows.Forms.RichTextBox();
+            this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
+            this.layoutControl24 = new DevExpress.XtraLayout.LayoutControl();
             this.chkLockHierarchy = new DevExpress.XtraEditors.CheckEdit();
-            this.txtEstimatedLVs = new DevExpress.XtraEditors.TextEdit();
+            this.chkCumulated = new DevExpress.XtraEditors.CheckEdit();
             this.txtActualLVs = new DevExpress.XtraEditors.TextEdit();
             this.btnDiscount = new System.Windows.Forms.Button();
+            this.txtEstimatedLVs = new DevExpress.XtraEditors.TextEdit();
             this.ddlRounding = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.label6 = new System.Windows.Forms.Label();
-            this.chkCumulated = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlGroup32 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem222 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem123 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem223 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem225 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem226 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem227 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem228 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnProjectSave = new DevExpress.XtraEditors.SimpleButton();
+            this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
+            this.layoutControl22 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtInternS = new DevExpress.XtraEditors.TextEdit();
+            this.txtInternX = new DevExpress.XtraEditors.TextEdit();
+            this.layoutControlGroup30 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem216 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem217 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
+            this.layoutControl21 = new DevExpress.XtraLayout.LayoutControl();
+            this.txtProjectNumber = new DevExpress.XtraEditors.TextEdit();
+            this.txtkommissionNumber = new DevExpress.XtraEditors.TextEdit();
+            this.ddlRaster = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.txtMWST = new DevExpress.XtraEditors.TextEdit();
+            this.lblGeplanteAusführungszeit = new System.Windows.Forms.Label();
+            this.txtLVSprunge = new DevExpress.XtraEditors.TextEdit();
+            this.ChkRaster = new DevExpress.XtraEditors.CheckEdit();
+            this.txtPlanner = new DevExpress.XtraEditors.TextEdit();
+            this.dtpProjectEndDate = new DevExpress.XtraEditors.DateEdit();
+            this.dtpProjectStartDate = new DevExpress.XtraEditors.DateEdit();
+            this.txtKundeName = new DevExpress.XtraEditors.TextEdit();
+            this.txtBauvorhaben = new DevExpress.XtraEditors.TextEdit();
+            this.txtKundeNo = new DevExpress.XtraEditors.ButtonEdit();
+            this.layoutControlGroup29 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem200 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem201 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem202 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem203 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem204 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem205 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem206 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem207 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem208 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem209 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem210 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem211 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem212 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem117 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem199 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem215 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem221 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem229 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem130 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem230 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem132 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem218 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem122 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.tbBulkProcess = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl7 = new DevExpress.XtraLayout.LayoutControl();
             this.cmbBulkProcessSelection = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -738,6 +755,8 @@
             this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtprice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn72 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn41 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn33 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -771,6 +790,8 @@
             this.gridColumn37 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn76 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn77 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkFinalInvoice = new DevExpress.XtraEditors.CheckEdit();
             this.btnGenerate = new DevExpress.XtraEditors.SimpleButton();
             this.txtInvoiceNumber = new DevExpress.XtraEditors.TextEdit();
@@ -782,6 +803,8 @@
             this.gridColumn28 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.dtpdeliveredOn = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn75 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn74 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.txtBlatPrice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -1041,6 +1064,8 @@
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem23 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1314,36 +1339,89 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.tbProjectDetails.SuspendLayout();
-            this.tlpMain.SuspendLayout();
-            this.tableLayoutPanel6.SuspendLayout();
-            this.tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSubmitLocation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl20)).BeginInit();
+            this.layoutControl20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).BeginInit();
+            this.groupControl7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl23)).BeginInit();
+            this.layoutControl23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtpSubmitDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpSubmitDate.Properties)).BeginInit();
-            this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInternX.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSubmitLocation.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem219)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem220)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).BeginInit();
+            this.groupControl9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).BeginInit();
+            this.groupControl8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl24)).BeginInit();
+            this.layoutControl24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chkLockHierarchy.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCumulated.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtActualLVs.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEstimatedLVs.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ddlRounding.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem222)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem123)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem223)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem225)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem226)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem227)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem228)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
+            this.groupControl6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl22)).BeginInit();
+            this.layoutControl22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtInternS.Properties)).BeginInit();
-            this.tlpProject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInternX.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem216)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem217)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).BeginInit();
+            this.groupControl5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl21)).BeginInit();
+            this.layoutControl21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtProjectNumber.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtkommissionNumber.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLVSprunge.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMWST.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKundeName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanner.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBauvorhaben.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlRaster.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpProjectStartDate.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpProjectStartDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMWST.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLVSprunge.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChkRaster.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanner.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpProjectEndDate.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpProjectEndDate.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProjectNumber.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpProjectStartDate.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpProjectStartDate.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKundeName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBauvorhaben.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKundeNo.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChkRaster.Properties)).BeginInit();
-            this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkLockHierarchy.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEstimatedLVs.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtActualLVs.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ddlRounding.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkCumulated.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem200)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem201)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem202)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem203)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem204)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem205)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem206)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem207)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem208)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem209)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem210)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem211)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem212)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem199)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem215)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem221)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem229)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem130)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem230)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem132)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem218)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem122)).BeginInit();
             this.tbBulkProcess.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).BeginInit();
             this.layoutControl7.SuspendLayout();
@@ -1744,6 +1822,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem23)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -3378,7 +3458,7 @@
             // 
             // btnDocuwareLink
             // 
-            this.btnDocuwareLink.Location = new System.Drawing.Point(13, 321);
+            this.btnDocuwareLink.Location = new System.Drawing.Point(13, 338);
             this.btnDocuwareLink.Name = "btnDocuwareLink";
             this.btnDocuwareLink.Size = new System.Drawing.Size(105, 22);
             this.btnDocuwareLink.StyleController = this.layoutControl6;
@@ -3403,13 +3483,13 @@
             // 
             // txtPreisText
             // 
-            this.txtPreisText.Location = new System.Drawing.Point(13, 243);
+            this.txtPreisText.Location = new System.Drawing.Point(13, 247);
             this.txtPreisText.MenuManager = this.barManager1;
             this.txtPreisText.Name = "txtPreisText";
             this.txtPreisText.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPreisText.Properties.Appearance.Options.UseFont = true;
             this.txtPreisText.Properties.MaxLength = 200;
-            this.txtPreisText.Size = new System.Drawing.Size(245, 21);
+            this.txtPreisText.Size = new System.Drawing.Size(245, 26);
             this.txtPreisText.StyleController = this.layoutControl6;
             this.txtPreisText.TabIndex = 0;
             // 
@@ -3879,7 +3959,7 @@
             // 
             // txtMo
             // 
-            this.txtMo.Location = new System.Drawing.Point(96, 184);
+            this.txtMo.Location = new System.Drawing.Point(96, 186);
             this.txtMo.Name = "txtMo";
             this.txtMo.Properties.AllowMouseWheel = false;
             this.txtMo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4059,7 +4139,7 @@
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(13, 184);
+            this.txtMa.Location = new System.Drawing.Point(13, 186);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.AllowMouseWheel = false;
             this.txtMa.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4098,7 +4178,7 @@
             // txtStdSatz
             // 
             this.txtStdSatz.Enabled = false;
-            this.txtStdSatz.Location = new System.Drawing.Point(179, 184);
+            this.txtStdSatz.Location = new System.Drawing.Point(179, 186);
             this.txtStdSatz.Name = "txtStdSatz";
             this.txtStdSatz.Properties.AllowMouseWheel = false;
             this.txtStdSatz.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4204,7 +4284,7 @@
             // 
             // txtFaktor
             // 
-            this.txtFaktor.Location = new System.Drawing.Point(179, 130);
+            this.txtFaktor.Location = new System.Drawing.Point(179, 131);
             this.txtFaktor.Name = "txtFaktor";
             this.txtFaktor.Properties.AllowMouseWheel = false;
             this.txtFaktor.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4222,7 +4302,7 @@
             // txtHours
             // 
             this.txtHours.Enabled = false;
-            this.txtHours.Location = new System.Drawing.Point(96, 130);
+            this.txtHours.Location = new System.Drawing.Point(96, 131);
             this.txtHours.Name = "txtHours";
             this.txtHours.Properties.AllowMouseWheel = false;
             this.txtHours.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4239,7 +4319,7 @@
             // 
             // txtMin
             // 
-            this.txtMin.Location = new System.Drawing.Point(13, 130);
+            this.txtMin.Location = new System.Drawing.Point(13, 131);
             this.txtMin.Name = "txtMin";
             this.txtMin.Properties.AllowMouseWheel = false;
             this.txtMin.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4353,7 +4433,7 @@
             this.emptySpaceItem116});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "Root";
-            this.layoutControlGroup6.Size = new System.Drawing.Size(963, 473);
+            this.layoutControlGroup6.Size = new System.Drawing.Size(963, 490);
             // 
             // layoutControlItem36
             // 
@@ -4364,7 +4444,7 @@
             this.layoutControlItem36.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem36.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem36.Control = this.txtMo;
-            this.layoutControlItem36.Location = new System.Drawing.Point(84, 152);
+            this.layoutControlItem36.Location = new System.Drawing.Point(84, 154);
             this.layoutControlItem36.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem36.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem36.Name = "layoutControlItem36";
@@ -4440,7 +4520,7 @@
             this.layoutControlItem32.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem32.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem32.Control = this.txtMin;
-            this.layoutControlItem32.Location = new System.Drawing.Point(1, 98);
+            this.layoutControlItem32.Location = new System.Drawing.Point(1, 99);
             this.layoutControlItem32.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem32.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem32.Name = "layoutControlItem32";
@@ -4459,7 +4539,7 @@
             this.layoutControlItem33.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem33.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem33.Control = this.txtHours;
-            this.layoutControlItem33.Location = new System.Drawing.Point(84, 98);
+            this.layoutControlItem33.Location = new System.Drawing.Point(84, 99);
             this.layoutControlItem33.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem33.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem33.Name = "layoutControlItem33";
@@ -4478,7 +4558,7 @@
             this.layoutControlItem37.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem37.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem37.Control = this.txtStdSatz;
-            this.layoutControlItem37.Location = new System.Drawing.Point(167, 152);
+            this.layoutControlItem37.Location = new System.Drawing.Point(167, 154);
             this.layoutControlItem37.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem37.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem37.Name = "layoutControlItem37";
@@ -4519,9 +4599,9 @@
             this.layoutControlItem40.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem40.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem40.Control = this.txtPreisText;
-            this.layoutControlItem40.Location = new System.Drawing.Point(1, 211);
+            this.layoutControlItem40.Location = new System.Drawing.Point(1, 215);
             this.layoutControlItem40.Name = "layoutControlItem40";
-            this.layoutControlItem40.Size = new System.Drawing.Size(249, 45);
+            this.layoutControlItem40.Size = new System.Drawing.Size(249, 50);
             this.layoutControlItem40.Text = "Preis Text";
             this.layoutControlItem40.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem40.TextSize = new System.Drawing.Size(79, 17);
@@ -4535,7 +4615,7 @@
             this.layoutControlItem34.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem34.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem34.Control = this.txtFaktor;
-            this.layoutControlItem34.Location = new System.Drawing.Point(167, 98);
+            this.layoutControlItem34.Location = new System.Drawing.Point(167, 99);
             this.layoutControlItem34.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem34.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem34.Name = "layoutControlItem34";
@@ -4952,7 +5032,7 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnDocuwareLink;
-            this.layoutControlItem6.Location = new System.Drawing.Point(1, 309);
+            this.layoutControlItem6.Location = new System.Drawing.Point(1, 326);
             this.layoutControlItem6.Name = "layoutControlItem6";
             this.layoutControlItem6.Size = new System.Drawing.Size(109, 26);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
@@ -5365,7 +5445,7 @@
             this.layoutControlItem35.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem35.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem35.Control = this.txtMa;
-            this.layoutControlItem35.Location = new System.Drawing.Point(1, 152);
+            this.layoutControlItem35.Location = new System.Drawing.Point(1, 154);
             this.layoutControlItem35.MaxSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem35.MinSize = new System.Drawing.Size(83, 44);
             this.layoutControlItem35.Name = "layoutControlItem35";
@@ -6343,149 +6423,57 @@
             // 
             // tbProjectDetails
             // 
-            this.tbProjectDetails.Controls.Add(this.tlpMain);
+            this.tbProjectDetails.Controls.Add(this.layoutControl20);
             this.tbProjectDetails.Name = "tbProjectDetails";
             this.tbProjectDetails.Size = new System.Drawing.Size(1522, 749);
             this.tbProjectDetails.Text = "Projekteigenschaften";
             // 
-            // tlpMain
+            // layoutControl20
             // 
-            this.tlpMain.BackColor = System.Drawing.Color.Gray;
-            this.tlpMain.ColumnCount = 4;
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tlpMain.Controls.Add(this.tableLayoutPanel6, 2, 3);
-            this.tlpMain.Controls.Add(this.tableLayoutPanel4, 2, 2);
-            this.tlpMain.Controls.Add(this.tableLayoutPanel3, 1, 2);
-            this.tlpMain.Controls.Add(this.tlpProject, 1, 1);
-            this.tlpMain.Controls.Add(this.tableLayoutPanel5, 1, 3);
-            this.tlpMain.Controls.Add(this.btnProjectSave, 1, 4);
-            this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpMain.Location = new System.Drawing.Point(0, 0);
-            this.tlpMain.Name = "tlpMain";
-            this.tlpMain.RowCount = 6;
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.91055F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.65446F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.00662F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.42838F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
-            this.tlpMain.Size = new System.Drawing.Size(1522, 749);
-            this.tlpMain.TabIndex = 3;
+            this.layoutControl20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl20.Controls.Add(this.groupControl7);
+            this.layoutControl20.Controls.Add(this.groupControl9);
+            this.layoutControl20.Controls.Add(this.groupControl8);
+            this.layoutControl20.Controls.Add(this.btnProjectSave);
+            this.layoutControl20.Controls.Add(this.groupControl6);
+            this.layoutControl20.Controls.Add(this.groupControl5);
+            this.layoutControl20.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl20.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl20.Name = "layoutControl20";
+            this.layoutControl20.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(398, 374, 450, 400);
+            this.layoutControl20.Root = this.layoutControlGroup3;
+            this.layoutControl20.Size = new System.Drawing.Size(1522, 749);
+            this.layoutControl20.TabIndex = 4;
+            this.layoutControl20.Text = "layoutControl20";
             // 
-            // tableLayoutPanel6
+            // groupControl7
             // 
-            this.tableLayoutPanel6.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.tableLayoutPanel6.ColumnCount = 3;
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel6.Controls.Add(this.txtRemarks, 1, 3);
-            this.tableLayoutPanel6.Controls.Add(this.label7, 1, 1);
-            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(548, 391);
-            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 5;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(519, 158);
-            this.tableLayoutPanel6.TabIndex = 4;
+            this.groupControl7.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupControl7.AppearanceCaption.Options.UseFont = true;
+            this.groupControl7.Controls.Add(this.layoutControl23);
+            this.groupControl7.Location = new System.Drawing.Point(523, 222);
+            this.groupControl7.Name = "groupControl7";
+            this.groupControl7.Size = new System.Drawing.Size(516, 112);
+            this.groupControl7.TabIndex = 6;
+            this.groupControl7.Text = "Angebotsabgabe ";
             // 
-            // txtRemarks
+            // layoutControl23
             // 
-            this.txtRemarks.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtRemarks.Location = new System.Drawing.Point(23, 39);
-            this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(473, 106);
-            this.txtRemarks.TabIndex = 18;
-            this.txtRemarks.Text = " ";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(23, 10);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(94, 16);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "Kommentare ";
-            // 
-            // tableLayoutPanel4
-            // 
-            this.tableLayoutPanel4.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Controls.Add(this.lblSubmitLocation, 1, 3);
-            this.tableLayoutPanel4.Controls.Add(this.labelControl4, 1, 4);
-            this.tableLayoutPanel4.Controls.Add(this.txtSubmitLocation, 2, 3);
-            this.tableLayoutPanel4.Controls.Add(this.dtpSubmitDate, 2, 4);
-            this.tableLayoutPanel4.Controls.Add(this.label5, 1, 1);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(548, 265);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.RowCount = 6;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(519, 120);
-            this.tableLayoutPanel4.TabIndex = 2;
-            // 
-            // lblSubmitLocation
-            // 
-            this.lblSubmitLocation.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblSubmitLocation.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lblSubmitLocation.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSubmitLocation.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lblSubmitLocation.Appearance.Options.UseBackColor = true;
-            this.lblSubmitLocation.Appearance.Options.UseFont = true;
-            this.lblSubmitLocation.Appearance.Options.UseForeColor = true;
-            this.lblSubmitLocation.Location = new System.Drawing.Point(23, 42);
-            this.lblSubmitLocation.Name = "lblSubmitLocation";
-            this.lblSubmitLocation.Size = new System.Drawing.Size(63, 13);
-            this.lblSubmitLocation.TabIndex = 0;
-            this.lblSubmitLocation.Text = "Abgabeort ";
-            // 
-            // labelControl4
-            // 
-            this.labelControl4.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.labelControl4.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl4.Appearance.Options.UseBackColor = true;
-            this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Appearance.Options.UseForeColor = true;
-            this.labelControl4.Location = new System.Drawing.Point(23, 68);
-            this.labelControl4.Name = "labelControl4";
-            this.labelControl4.Size = new System.Drawing.Size(111, 13);
-            this.labelControl4.TabIndex = 0;
-            this.labelControl4.Text = "Abgabedatum/Zeit ";
-            // 
-            // txtSubmitLocation
-            // 
-            this.txtSubmitLocation.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSubmitLocation.Location = new System.Drawing.Point(152, 39);
-            this.txtSubmitLocation.Name = "txtSubmitLocation";
-            this.txtSubmitLocation.Size = new System.Drawing.Size(344, 20);
-            this.txtSubmitLocation.TabIndex = 13;
-            this.txtSubmitLocation.Tag = "Submit Location";
+            this.layoutControl23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl23.Controls.Add(this.dtpSubmitDate);
+            this.layoutControl23.Controls.Add(this.txtSubmitLocation);
+            this.layoutControl23.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl23.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl23.Name = "layoutControl23";
+            this.layoutControl23.Root = this.layoutControlGroup31;
+            this.layoutControl23.Size = new System.Drawing.Size(512, 90);
+            this.layoutControl23.TabIndex = 0;
+            this.layoutControl23.Text = "layoutControl23";
             // 
             // dtpSubmitDate
             // 
-            this.dtpSubmitDate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dtpSubmitDate.EditValue = null;
-            this.dtpSubmitDate.Location = new System.Drawing.Point(152, 65);
+            this.dtpSubmitDate.Location = new System.Drawing.Point(126, 36);
             this.dtpSubmitDate.Name = "dtpSubmitDate";
             this.dtpSubmitDate.Properties.AllowMouseWheel = false;
             this.dtpSubmitDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -6503,614 +6491,113 @@
             this.dtpSubmitDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtpSubmitDate.Properties.MinValue = new System.DateTime(2016, 8, 10, 14, 8, 6, 0);
             this.dtpSubmitDate.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dtpSubmitDate.Size = new System.Drawing.Size(344, 20);
+            this.dtpSubmitDate.Size = new System.Drawing.Size(374, 20);
+            this.dtpSubmitDate.StyleController = this.layoutControl23;
             this.dtpSubmitDate.TabIndex = 14;
             this.dtpSubmitDate.EditValueChanged += new System.EventHandler(this.dtpSubmitDate_EditValueChanged);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(23, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(123, 16);
-            this.label5.TabIndex = 22;
-            this.label5.Text = "Angebotsabgabe ";
-            // 
-            // tableLayoutPanel3
-            // 
-            this.tableLayoutPanel3.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.tableLayoutPanel3.ColumnCount = 4;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Controls.Add(this.lblInternLueftung, 1, 3);
-            this.tableLayoutPanel3.Controls.Add(this.lblInternFremd, 1, 4);
-            this.tableLayoutPanel3.Controls.Add(this.txtInternX, 2, 3);
-            this.tableLayoutPanel3.Controls.Add(this.txtInternS, 2, 4);
-            this.tableLayoutPanel3.Controls.Add(this.label4, 1, 1);
-            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(23, 265);
-            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
-            this.tableLayoutPanel3.RowCount = 6;
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(519, 120);
-            this.tableLayoutPanel3.TabIndex = 1;
-            // 
-            // lblInternLueftung
-            // 
-            this.lblInternLueftung.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblInternLueftung.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lblInternLueftung.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInternLueftung.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lblInternLueftung.Appearance.Options.UseBackColor = true;
-            this.lblInternLueftung.Appearance.Options.UseFont = true;
-            this.lblInternLueftung.Appearance.Options.UseForeColor = true;
-            this.lblInternLueftung.Location = new System.Drawing.Point(23, 42);
-            this.lblInternLueftung.Name = "lblInternLueftung";
-            this.lblInternLueftung.Size = new System.Drawing.Size(102, 13);
-            this.lblInternLueftung.TabIndex = 0;
-            this.lblInternLueftung.Text = "Intern Lüftung (X)";
-            // 
-            // lblInternFremd
-            // 
-            this.lblInternFremd.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblInternFremd.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lblInternFremd.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInternFremd.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lblInternFremd.Appearance.Options.UseBackColor = true;
-            this.lblInternFremd.Appearance.Options.UseFont = true;
-            this.lblInternFremd.Appearance.Options.UseForeColor = true;
-            this.lblInternFremd.Location = new System.Drawing.Point(23, 68);
-            this.lblInternFremd.Name = "lblInternFremd";
-            this.lblInternFremd.Size = new System.Drawing.Size(98, 13);
-            this.lblInternFremd.TabIndex = 1;
-            this.lblInternFremd.Text = "Intern Fremd (S) ";
-            // 
-            // txtInternX
-            // 
-            this.txtInternX.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInternX.Location = new System.Drawing.Point(174, 39);
-            this.txtInternX.Name = "txtInternX";
-            this.txtInternX.Properties.AllowMouseWheel = false;
-            this.txtInternX.Properties.Mask.EditMask = "n3";
-            this.txtInternX.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtInternX.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtInternX.Size = new System.Drawing.Size(322, 20);
-            this.txtInternX.TabIndex = 11;
-            this.txtInternX.Tag = "Intern Lueftung X";
-            this.txtInternX.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
-            this.txtInternX.Leave += new System.EventHandler(this.txtLPMe_Leave);
-            // 
-            // txtInternS
-            // 
-            this.txtInternS.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtInternS.Location = new System.Drawing.Point(174, 65);
-            this.txtInternS.Name = "txtInternS";
-            this.txtInternS.Properties.AllowMouseWheel = false;
-            this.txtInternS.Properties.Mask.EditMask = "n3";
-            this.txtInternS.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtInternS.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtInternS.Size = new System.Drawing.Size(322, 20);
-            this.txtInternS.TabIndex = 12;
-            this.txtInternS.Tag = "Intern Fremd (S)";
-            this.txtInternS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
-            this.txtInternS.Leave += new System.EventHandler(this.txtLPMe_Leave);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(23, 10);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(145, 16);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "VERRECHNUNGSSÄTZE";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // tlpProject
-            // 
-            this.tlpProject.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.tlpProject.ColumnCount = 10;
-            this.tlpMain.SetColumnSpan(this.tlpProject, 2);
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 14F));
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tlpProject.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 41F));
-            this.tlpProject.Controls.Add(this.lblBauvorhaben, 4, 3);
-            this.tlpProject.Controls.Add(this.lblKommissionNumber, 1, 4);
-            this.tlpProject.Controls.Add(this.lblKundeNo, 4, 4);
-            this.tlpProject.Controls.Add(this.lblLVRaster, 1, 5);
-            this.tlpProject.Controls.Add(this.lblKundeName, 4, 5);
-            this.tlpProject.Controls.Add(this.lblMWST, 1, 6);
-            this.tlpProject.Controls.Add(this.lblPlanner, 4, 6);
-            this.tlpProject.Controls.Add(this.lblLVSprunge, 1, 7);
-            this.tlpProject.Controls.Add(this.lblGeplanteAusführungszeit, 4, 7);
-            this.tlpProject.Controls.Add(this.lblUsers, 4, 8);
-            this.tlpProject.Controls.Add(this.txtkommissionNumber, 2, 4);
-            this.tlpProject.Controls.Add(this.txtLVSprunge, 2, 7);
-            this.tlpProject.Controls.Add(this.txtMWST, 2, 6);
-            this.tlpProject.Controls.Add(this.txtKundeName, 5, 5);
-            this.tlpProject.Controls.Add(this.txtPlanner, 5, 6);
-            this.tlpProject.Controls.Add(this.txtBauvorhaben, 5, 3);
-            this.tlpProject.Controls.Add(this.btnUsers, 5, 8);
-            this.tlpProject.Controls.Add(this.ddlRaster, 2, 5);
-            this.tlpProject.Controls.Add(this.label1, 5, 7);
-            this.tlpProject.Controls.Add(this.label2, 7, 7);
-            this.tlpProject.Controls.Add(this.dtpProjectStartDate, 6, 7);
-            this.tlpProject.Controls.Add(this.dtpProjectEndDate, 8, 7);
-            this.tlpProject.Controls.Add(this.txtProjectNumber, 2, 3);
-            this.tlpProject.Controls.Add(this.lblProjectNumber, 1, 3);
-            this.tlpProject.Controls.Add(this.label3, 1, 1);
-            this.tlpProject.Controls.Add(this.txtKundeNo, 5, 4);
-            this.tlpProject.Controls.Add(this.ChkRaster, 2, 9);
-            this.tlpProject.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpProject.Location = new System.Drawing.Point(23, 23);
-            this.tlpProject.Name = "tlpProject";
-            this.tlpProject.RowCount = 10;
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 14F));
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tlpProject.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 16F));
-            this.tlpProject.Size = new System.Drawing.Size(1044, 236);
-            this.tlpProject.TabIndex = 0;
-            // 
-            // lblBauvorhaben
-            // 
-            this.lblBauvorhaben.BackColor = System.Drawing.Color.Transparent;
-            this.lblBauvorhaben.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBauvorhaben.ForeColor = System.Drawing.Color.White;
-            this.lblBauvorhaben.Location = new System.Drawing.Point(497, 42);
-            this.lblBauvorhaben.Name = "lblBauvorhaben";
-            this.lblBauvorhaben.Size = new System.Drawing.Size(134, 23);
-            this.lblBauvorhaben.TabIndex = 0;
-            this.lblBauvorhaben.Text = "Bauvorhaben ";
-            this.lblBauvorhaben.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblKommissionNumber
-            // 
-            this.lblKommissionNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblKommissionNumber.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKommissionNumber.ForeColor = System.Drawing.Color.White;
-            this.lblKommissionNumber.Location = new System.Drawing.Point(17, 68);
-            this.lblKommissionNumber.Name = "lblKommissionNumber";
-            this.lblKommissionNumber.Size = new System.Drawing.Size(105, 23);
-            this.lblKommissionNumber.TabIndex = 0;
-            this.lblKommissionNumber.Text = "Kommission Nr ";
-            this.lblKommissionNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblKundeNo
-            // 
-            this.lblKundeNo.BackColor = System.Drawing.Color.Transparent;
-            this.lblKundeNo.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKundeNo.ForeColor = System.Drawing.Color.White;
-            this.lblKundeNo.Location = new System.Drawing.Point(497, 68);
-            this.lblKundeNo.Name = "lblKundeNo";
-            this.lblKundeNo.Size = new System.Drawing.Size(134, 23);
-            this.lblKundeNo.TabIndex = 0;
-            this.lblKundeNo.Text = "Kunde Nr *";
-            this.lblKundeNo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblLVRaster
-            // 
-            this.lblLVRaster.BackColor = System.Drawing.Color.Transparent;
-            this.lblLVRaster.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLVRaster.ForeColor = System.Drawing.Color.White;
-            this.lblLVRaster.Location = new System.Drawing.Point(17, 94);
-            this.lblLVRaster.Name = "lblLVRaster";
-            this.lblLVRaster.Size = new System.Drawing.Size(84, 23);
-            this.lblLVRaster.TabIndex = 0;
-            this.lblLVRaster.Text = "LV-Raster ";
-            this.lblLVRaster.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblKundeName
-            // 
-            this.lblKundeName.BackColor = System.Drawing.Color.Transparent;
-            this.lblKundeName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKundeName.ForeColor = System.Drawing.Color.White;
-            this.lblKundeName.Location = new System.Drawing.Point(497, 94);
-            this.lblKundeName.Name = "lblKundeName";
-            this.lblKundeName.Size = new System.Drawing.Size(134, 23);
-            this.lblKundeName.TabIndex = 0;
-            this.lblKundeName.Text = "Kunde Name ";
-            this.lblKundeName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblMWST
-            // 
-            this.lblMWST.BackColor = System.Drawing.Color.Transparent;
-            this.lblMWST.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMWST.ForeColor = System.Drawing.Color.White;
-            this.lblMWST.Location = new System.Drawing.Point(17, 120);
-            this.lblMWST.Name = "lblMWST";
-            this.lblMWST.Size = new System.Drawing.Size(82, 23);
-            this.lblMWST.TabIndex = 0;
-            this.lblMWST.Text = "MWST% ";
-            this.lblMWST.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblPlanner
-            // 
-            this.lblPlanner.BackColor = System.Drawing.Color.Transparent;
-            this.lblPlanner.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlanner.ForeColor = System.Drawing.Color.White;
-            this.lblPlanner.Location = new System.Drawing.Point(497, 120);
-            this.lblPlanner.Name = "lblPlanner";
-            this.lblPlanner.Size = new System.Drawing.Size(134, 23);
-            this.lblPlanner.TabIndex = 0;
-            this.lblPlanner.Text = "Planer ";
-            this.lblPlanner.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblLVSprunge
-            // 
-            this.lblLVSprunge.BackColor = System.Drawing.Color.Transparent;
-            this.lblLVSprunge.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLVSprunge.ForeColor = System.Drawing.Color.White;
-            this.lblLVSprunge.Location = new System.Drawing.Point(17, 146);
-            this.lblLVSprunge.Name = "lblLVSprunge";
-            this.lblLVSprunge.Size = new System.Drawing.Size(82, 23);
-            this.lblLVSprunge.TabIndex = 0;
-            this.lblLVSprunge.Text = "LV Sprung  *";
-            this.lblLVSprunge.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblGeplanteAusführungszeit
-            // 
-            this.lblGeplanteAusführungszeit.BackColor = System.Drawing.Color.Transparent;
-            this.lblGeplanteAusführungszeit.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGeplanteAusführungszeit.ForeColor = System.Drawing.Color.White;
-            this.lblGeplanteAusführungszeit.Location = new System.Drawing.Point(497, 146);
-            this.lblGeplanteAusführungszeit.Name = "lblGeplanteAusführungszeit";
-            this.lblGeplanteAusführungszeit.Size = new System.Drawing.Size(134, 26);
-            this.lblGeplanteAusführungszeit.TabIndex = 0;
-            this.lblGeplanteAusführungszeit.Text = "Geplante Ausführungszeit ";
-            this.lblGeplanteAusführungszeit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblUsers
-            // 
-            this.lblUsers.BackColor = System.Drawing.Color.Transparent;
-            this.lblUsers.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsers.ForeColor = System.Drawing.Color.White;
-            this.lblUsers.Location = new System.Drawing.Point(497, 172);
-            this.lblUsers.Name = "lblUsers";
-            this.lblUsers.Size = new System.Drawing.Size(134, 26);
-            this.lblUsers.TabIndex = 0;
-            this.lblUsers.Text = "Nutzer ";
-            this.lblUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtkommissionNumber
-            // 
-            this.txtkommissionNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtkommissionNumber.Location = new System.Drawing.Point(191, 71);
-            this.txtkommissionNumber.Name = "txtkommissionNumber";
-            this.txtkommissionNumber.Size = new System.Drawing.Size(290, 20);
-            this.txtkommissionNumber.TabIndex = 1;
-            // 
-            // txtLVSprunge
-            // 
-            this.txtLVSprunge.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLVSprunge.Location = new System.Drawing.Point(191, 149);
-            this.txtLVSprunge.Name = "txtLVSprunge";
-            this.txtLVSprunge.Properties.Mask.EditMask = "n0";
-            this.txtLVSprunge.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtLVSprunge.Properties.MaxLength = 4;
-            this.txtLVSprunge.Size = new System.Drawing.Size(290, 20);
-            this.txtLVSprunge.TabIndex = 4;
-            this.txtLVSprunge.Tag = "LV-Sprunge";
-            this.txtLVSprunge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLVSprunge_KeyPress);
-            this.txtLVSprunge.Leave += new System.EventHandler(this.txtLVSprunge_Leave);
-            // 
-            // txtMWST
-            // 
-            this.txtMWST.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtMWST.Location = new System.Drawing.Point(191, 123);
-            this.txtMWST.Name = "txtMWST";
-            this.txtMWST.Properties.Mask.EditMask = "n3";
-            this.txtMWST.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtMWST.Properties.Mask.UseMaskAsDisplayFormat = true;
-            this.txtMWST.Size = new System.Drawing.Size(290, 20);
-            this.txtMWST.TabIndex = 3;
-            this.txtMWST.Tag = "MWST%";
-            this.txtMWST.Leave += new System.EventHandler(this.txtLPMe_Leave);
-            // 
-            // txtKundeName
-            // 
-            this.tlpProject.SetColumnSpan(this.txtKundeName, 4);
-            this.txtKundeName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtKundeName.Location = new System.Drawing.Point(637, 97);
-            this.txtKundeName.Name = "txtKundeName";
-            this.txtKundeName.Properties.ReadOnly = true;
-            this.txtKundeName.Size = new System.Drawing.Size(363, 20);
-            this.txtKundeName.TabIndex = 7;
-            this.txtKundeName.Tag = "Kunde Name";
-            // 
-            // txtPlanner
-            // 
-            this.tlpProject.SetColumnSpan(this.txtPlanner, 4);
-            this.txtPlanner.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPlanner.Location = new System.Drawing.Point(637, 123);
-            this.txtPlanner.Name = "txtPlanner";
-            this.txtPlanner.Size = new System.Drawing.Size(363, 20);
-            this.txtPlanner.TabIndex = 8;
-            // 
-            // txtBauvorhaben
-            // 
-            this.tlpProject.SetColumnSpan(this.txtBauvorhaben, 4);
-            this.txtBauvorhaben.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtBauvorhaben.Location = new System.Drawing.Point(637, 45);
-            this.txtBauvorhaben.Name = "txtBauvorhaben";
-            this.txtBauvorhaben.Size = new System.Drawing.Size(363, 20);
-            this.txtBauvorhaben.TabIndex = 5;
-            // 
-            // btnUsers
-            // 
-            this.btnUsers.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnUsers.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsers.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnUsers.Location = new System.Drawing.Point(637, 175);
-            this.btnUsers.Name = "btnUsers";
-            this.btnUsers.Size = new System.Drawing.Size(35, 23);
-            this.btnUsers.TabIndex = 100;
-            this.btnUsers.Text = "...";
-            this.btnUsers.UseVisualStyleBackColor = true;
-            // 
-            // ddlRaster
-            // 
-            this.ddlRaster.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ddlRaster.Location = new System.Drawing.Point(191, 97);
-            this.ddlRaster.Name = "ddlRaster";
-            this.ddlRaster.Properties.AllowMouseWheel = false;
-            this.ddlRaster.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.ddlRaster.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.ddlRaster.Size = new System.Drawing.Size(290, 20);
-            this.ddlRaster.TabIndex = 2;
-            this.ddlRaster.Tag = "LV-Raster";
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(637, 152);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Von ";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(826, 152);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Bis ";
-            // 
-            // dtpProjectStartDate
-            // 
-            this.dtpProjectStartDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpProjectStartDate.EditValue = null;
-            this.dtpProjectStartDate.Location = new System.Drawing.Point(678, 149);
-            this.dtpProjectStartDate.Name = "dtpProjectStartDate";
-            this.dtpProjectStartDate.Properties.AllowMouseWheel = false;
-            this.dtpProjectStartDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpProjectStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpProjectStartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpProjectStartDate.Properties.DisplayFormat.FormatString = "Y";
-            this.dtpProjectStartDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpProjectStartDate.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
-            this.dtpProjectStartDate.Size = new System.Drawing.Size(142, 20);
-            this.dtpProjectStartDate.TabIndex = 9;
-            this.dtpProjectStartDate.EditValueChanged += new System.EventHandler(this.dtpProjectStartDate_EditValueChanged);
-            // 
-            // dtpProjectEndDate
-            // 
-            this.dtpProjectEndDate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dtpProjectEndDate.EditValue = null;
-            this.dtpProjectEndDate.Location = new System.Drawing.Point(858, 149);
-            this.dtpProjectEndDate.Name = "dtpProjectEndDate";
-            this.dtpProjectEndDate.Properties.AllowMouseWheel = false;
-            this.dtpProjectEndDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
-            this.dtpProjectEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpProjectEndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpProjectEndDate.Properties.DisplayFormat.FormatString = "Y";
-            this.dtpProjectEndDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpProjectEndDate.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
-            this.dtpProjectEndDate.Size = new System.Drawing.Size(142, 20);
-            this.dtpProjectEndDate.TabIndex = 10;
-            this.dtpProjectEndDate.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.dtpProjectEndDate_QueryPopUp);
-            // 
-            // txtProjectNumber
-            // 
-            this.txtProjectNumber.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtProjectNumber.Location = new System.Drawing.Point(191, 45);
-            this.txtProjectNumber.Name = "txtProjectNumber";
-            this.txtProjectNumber.Properties.MaxLength = 8;
-            this.txtProjectNumber.Size = new System.Drawing.Size(290, 20);
-            this.txtProjectNumber.TabIndex = 0;
-            this.txtProjectNumber.Tag = "Project Nr";
-            this.txtProjectNumber.TextChanged += new System.EventHandler(this.txtProjectNumber_TextChanged);
-            // 
-            // lblProjectNumber
-            // 
-            this.lblProjectNumber.BackColor = System.Drawing.Color.Transparent;
-            this.lblProjectNumber.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProjectNumber.ForeColor = System.Drawing.Color.White;
-            this.lblProjectNumber.Location = new System.Drawing.Point(17, 42);
-            this.lblProjectNumber.Name = "lblProjectNumber";
-            this.lblProjectNumber.Size = new System.Drawing.Size(124, 23);
-            this.lblProjectNumber.TabIndex = 0;
-            this.lblProjectNumber.Text = "Projektnummer * ";
-            this.lblProjectNumber.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(17, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(168, 18);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Projekteigenschaften";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txtKundeNo
-            // 
-            this.tlpProject.SetColumnSpan(this.txtKundeNo, 4);
-            this.txtKundeNo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtKundeNo.Location = new System.Drawing.Point(637, 71);
-            this.txtKundeNo.MenuManager = this.barManager1;
-            this.txtKundeNo.Name = "txtKundeNo";
-            this.txtKundeNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton()});
-            this.txtKundeNo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.txtKundeNo.Size = new System.Drawing.Size(363, 20);
-            this.txtKundeNo.TabIndex = 6;
-            this.txtKundeNo.Tag = "Kunde Nr";
-            this.txtKundeNo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtKundeNo_ButtonClick);
-            // 
-            // ChkRaster
-            // 
-            this.ChkRaster.Location = new System.Drawing.Point(191, 204);
-            this.ChkRaster.MenuManager = this.barManager1;
-            this.ChkRaster.Name = "ChkRaster";
-            this.ChkRaster.Properties.Caption = "LV Raster von GAEB-Datei";
-            this.ChkRaster.Size = new System.Drawing.Size(148, 19);
-            this.ChkRaster.TabIndex = 101;
-            this.ChkRaster.CheckedChanged += new System.EventHandler(this.chkRaster_CheckedChanged);
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.tableLayoutPanel5.ColumnCount = 7;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel5.Controls.Add(this.lblEstimatedLVs, 1, 3);
-            this.tableLayoutPanel5.Controls.Add(this.lblActualLVs, 4, 3);
-            this.tableLayoutPanel5.Controls.Add(this.lblRoundingUnitPrice, 1, 4);
-            this.tableLayoutPanel5.Controls.Add(this.lblDiscount, 1, 5);
-            this.tableLayoutPanel5.Controls.Add(this.chkLockHierarchy, 4, 4);
-            this.tableLayoutPanel5.Controls.Add(this.txtEstimatedLVs, 2, 3);
-            this.tableLayoutPanel5.Controls.Add(this.txtActualLVs, 5, 3);
-            this.tableLayoutPanel5.Controls.Add(this.btnDiscount, 2, 5);
-            this.tableLayoutPanel5.Controls.Add(this.ddlRounding, 2, 4);
-            this.tableLayoutPanel5.Controls.Add(this.label6, 1, 1);
-            this.tableLayoutPanel5.Controls.Add(this.chkCumulated, 4, 5);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(23, 391);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 7;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(519, 158);
-            this.tableLayoutPanel5.TabIndex = 3;
-            // 
-            // lblEstimatedLVs
-            // 
-            this.lblEstimatedLVs.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblEstimatedLVs.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lblEstimatedLVs.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEstimatedLVs.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lblEstimatedLVs.Appearance.Options.UseBackColor = true;
-            this.lblEstimatedLVs.Appearance.Options.UseFont = true;
-            this.lblEstimatedLVs.Appearance.Options.UseForeColor = true;
-            this.lblEstimatedLVs.Location = new System.Drawing.Point(23, 42);
-            this.lblEstimatedLVs.Name = "lblEstimatedLVs";
-            this.lblEstimatedLVs.Size = new System.Drawing.Size(135, 13);
-            this.lblEstimatedLVs.TabIndex = 0;
-            this.lblEstimatedLVs.Text = "Anzahl LVs (Schätzung) ";
-            // 
-            // lblActualLVs
-            // 
-            this.lblActualLVs.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblActualLVs.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lblActualLVs.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblActualLVs.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lblActualLVs.Appearance.Options.UseBackColor = true;
-            this.lblActualLVs.Appearance.Options.UseFont = true;
-            this.lblActualLVs.Appearance.Options.UseForeColor = true;
-            this.lblActualLVs.Location = new System.Drawing.Point(300, 42);
-            this.lblActualLVs.Name = "lblActualLVs";
-            this.lblActualLVs.Size = new System.Drawing.Size(92, 13);
-            this.lblActualLVs.TabIndex = 0;
-            this.lblActualLVs.Text = "Anzahl LVs (IST)";
-            // 
-            // lblRoundingUnitPrice
-            // 
-            this.lblRoundingUnitPrice.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblRoundingUnitPrice.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lblRoundingUnitPrice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRoundingUnitPrice.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lblRoundingUnitPrice.Appearance.Options.UseBackColor = true;
-            this.lblRoundingUnitPrice.Appearance.Options.UseFont = true;
-            this.lblRoundingUnitPrice.Appearance.Options.UseForeColor = true;
-            this.lblRoundingUnitPrice.Location = new System.Drawing.Point(23, 68);
-            this.lblRoundingUnitPrice.Name = "lblRoundingUnitPrice";
-            this.lblRoundingUnitPrice.Size = new System.Drawing.Size(163, 13);
-            this.lblRoundingUnitPrice.TabIndex = 0;
-            this.lblRoundingUnitPrice.Text = "Rundungsregel Einheitspreis ";
-            // 
-            // lblDiscount
-            // 
-            this.lblDiscount.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblDiscount.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.lblDiscount.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDiscount.Appearance.ForeColor = System.Drawing.Color.White;
-            this.lblDiscount.Appearance.Options.UseBackColor = true;
-            this.lblDiscount.Appearance.Options.UseFont = true;
-            this.lblDiscount.Appearance.Options.UseForeColor = true;
-            this.lblDiscount.Location = new System.Drawing.Point(23, 96);
-            this.lblDiscount.Name = "lblDiscount";
-            this.lblDiscount.Size = new System.Drawing.Size(52, 13);
-            this.lblDiscount.TabIndex = 0;
-            this.lblDiscount.Text = "Nachlass ";
+            // txtSubmitLocation
+            // 
+            this.txtSubmitLocation.Location = new System.Drawing.Point(126, 12);
+            this.txtSubmitLocation.Name = "txtSubmitLocation";
+            this.txtSubmitLocation.Size = new System.Drawing.Size(374, 20);
+            this.txtSubmitLocation.StyleController = this.layoutControl23;
+            this.txtSubmitLocation.TabIndex = 13;
+            this.txtSubmitLocation.Tag = "Submit Location";
+            // 
+            // layoutControlGroup31
+            // 
+            this.layoutControlGroup31.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup31.GroupBordersVisible = false;
+            this.layoutControlGroup31.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem219,
+            this.layoutControlItem220});
+            this.layoutControlGroup31.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup31.Name = "layoutControlGroup31";
+            this.layoutControlGroup31.Size = new System.Drawing.Size(512, 68);
+            this.layoutControlGroup31.TextVisible = false;
+            // 
+            // layoutControlItem219
+            // 
+            this.layoutControlItem219.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem219.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem219.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem219.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem219.Control = this.txtSubmitLocation;
+            this.layoutControlItem219.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem219.Name = "layoutControlItem219";
+            this.layoutControlItem219.Size = new System.Drawing.Size(492, 24);
+            this.layoutControlItem219.Text = "Abgabeort ";
+            this.layoutControlItem219.TextSize = new System.Drawing.Size(111, 13);
+            // 
+            // layoutControlItem220
+            // 
+            this.layoutControlItem220.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem220.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem220.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem220.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem220.Control = this.dtpSubmitDate;
+            this.layoutControlItem220.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem220.Name = "layoutControlItem220";
+            this.layoutControlItem220.Size = new System.Drawing.Size(492, 46);
+            this.layoutControlItem220.Text = "Abgabedatum/Zeit ";
+            this.layoutControlItem220.TextSize = new System.Drawing.Size(111, 13);
+            // 
+            // groupControl9
+            // 
+            this.groupControl9.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupControl9.AppearanceCaption.Options.UseFont = true;
+            this.groupControl9.Controls.Add(this.txtRemarks);
+            this.groupControl9.Location = new System.Drawing.Point(523, 338);
+            this.groupControl9.Name = "groupControl9";
+            this.groupControl9.Size = new System.Drawing.Size(516, 133);
+            this.groupControl9.TabIndex = 8;
+            this.groupControl9.Text = "Kommentare ";
+            // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtRemarks.Location = new System.Drawing.Point(2, 20);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(512, 111);
+            this.txtRemarks.TabIndex = 18;
+            this.txtRemarks.Text = " ";
+            // 
+            // groupControl8
+            // 
+            this.groupControl8.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupControl8.AppearanceCaption.Options.UseFont = true;
+            this.groupControl8.Controls.Add(this.layoutControl24);
+            this.groupControl8.Location = new System.Drawing.Point(12, 338);
+            this.groupControl8.Name = "groupControl8";
+            this.groupControl8.Size = new System.Drawing.Size(507, 133);
+            this.groupControl8.TabIndex = 7;
+            this.groupControl8.Text = "Sonstige ";
+            // 
+            // layoutControl24
+            // 
+            this.layoutControl24.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
+            this.layoutControl24.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
+            this.layoutControl24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl24.Controls.Add(this.chkLockHierarchy);
+            this.layoutControl24.Controls.Add(this.chkCumulated);
+            this.layoutControl24.Controls.Add(this.txtActualLVs);
+            this.layoutControl24.Controls.Add(this.btnDiscount);
+            this.layoutControl24.Controls.Add(this.txtEstimatedLVs);
+            this.layoutControl24.Controls.Add(this.ddlRounding);
+            this.layoutControl24.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl24.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl24.Name = "layoutControl24";
+            this.layoutControl24.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(851, 275, 450, 400);
+            this.layoutControl24.Root = this.layoutControlGroup32;
+            this.layoutControl24.Size = new System.Drawing.Size(503, 111);
+            this.layoutControl24.TabIndex = 0;
+            this.layoutControl24.Text = "layoutControl24";
             // 
             // chkLockHierarchy
             // 
-            this.tableLayoutPanel5.SetColumnSpan(this.chkLockHierarchy, 2);
-            this.chkLockHierarchy.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chkLockHierarchy.EditValue = true;
-            this.chkLockHierarchy.Location = new System.Drawing.Point(300, 65);
+            this.chkLockHierarchy.Location = new System.Drawing.Point(251, 36);
             this.chkLockHierarchy.Name = "chkLockHierarchy";
             this.chkLockHierarchy.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.chkLockHierarchy.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -7119,47 +6606,60 @@
             this.chkLockHierarchy.Properties.Appearance.Options.UseFont = true;
             this.chkLockHierarchy.Properties.Appearance.Options.UseForeColor = true;
             this.chkLockHierarchy.Properties.Caption = "LV Hierarchie sperren";
-            this.chkLockHierarchy.Size = new System.Drawing.Size(190, 20);
+            this.chkLockHierarchy.Size = new System.Drawing.Size(240, 19);
+            this.chkLockHierarchy.StyleController = this.layoutControl24;
             this.chkLockHierarchy.TabIndex = 300;
+            // 
+            // chkCumulated
+            // 
+            this.chkCumulated.Location = new System.Drawing.Point(251, 59);
+            this.chkCumulated.MenuManager = this.barManager1;
+            this.chkCumulated.Name = "chkCumulated";
+            this.chkCumulated.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.chkCumulated.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.chkCumulated.Properties.Appearance.Options.UseFont = true;
+            this.chkCumulated.Properties.Appearance.Options.UseForeColor = true;
+            this.chkCumulated.Properties.Caption = "Rechnungstellung kumuliert";
+            this.chkCumulated.Size = new System.Drawing.Size(240, 19);
+            this.chkCumulated.StyleController = this.layoutControl24;
+            this.chkCumulated.TabIndex = 301;
+            // 
+            // txtActualLVs
+            // 
+            this.txtActualLVs.Location = new System.Drawing.Point(417, 12);
+            this.txtActualLVs.Name = "txtActualLVs";
+            this.txtActualLVs.Properties.AllowMouseWheel = false;
+            this.txtActualLVs.Properties.ReadOnly = true;
+            this.txtActualLVs.Size = new System.Drawing.Size(74, 20);
+            this.txtActualLVs.StyleController = this.layoutControl24;
+            this.txtActualLVs.TabIndex = 17;
+            // 
+            // btnDiscount
+            // 
+            this.btnDiscount.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDiscount.ForeColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnDiscount.Location = new System.Drawing.Point(178, 60);
+            this.btnDiscount.Name = "btnDiscount";
+            this.btnDiscount.Size = new System.Drawing.Size(69, 20);
+            this.btnDiscount.TabIndex = 200;
+            this.btnDiscount.Text = "...";
+            this.btnDiscount.UseVisualStyleBackColor = true;
             // 
             // txtEstimatedLVs
             // 
-            this.txtEstimatedLVs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtEstimatedLVs.Location = new System.Drawing.Point(192, 39);
+            this.txtEstimatedLVs.Location = new System.Drawing.Point(178, 12);
             this.txtEstimatedLVs.Name = "txtEstimatedLVs";
             this.txtEstimatedLVs.Properties.AllowMouseWheel = false;
             this.txtEstimatedLVs.Properties.Mask.EditMask = "\\d+(\\.?\\d)*";
             this.txtEstimatedLVs.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtEstimatedLVs.Properties.Mask.ShowPlaceHolders = false;
-            this.txtEstimatedLVs.Size = new System.Drawing.Size(92, 20);
+            this.txtEstimatedLVs.Size = new System.Drawing.Size(69, 20);
+            this.txtEstimatedLVs.StyleController = this.layoutControl24;
             this.txtEstimatedLVs.TabIndex = 15;
-            // 
-            // txtActualLVs
-            // 
-            this.txtActualLVs.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtActualLVs.Location = new System.Drawing.Point(398, 39);
-            this.txtActualLVs.Name = "txtActualLVs";
-            this.txtActualLVs.Properties.AllowMouseWheel = false;
-            this.txtActualLVs.Properties.ReadOnly = true;
-            this.txtActualLVs.Size = new System.Drawing.Size(92, 20);
-            this.txtActualLVs.TabIndex = 17;
-            // 
-            // btnDiscount
-            // 
-            this.btnDiscount.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnDiscount.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDiscount.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.btnDiscount.Location = new System.Drawing.Point(192, 91);
-            this.btnDiscount.Name = "btnDiscount";
-            this.btnDiscount.Size = new System.Drawing.Size(28, 23);
-            this.btnDiscount.TabIndex = 200;
-            this.btnDiscount.Text = "...";
-            this.btnDiscount.UseVisualStyleBackColor = true;
             // 
             // ddlRounding
             // 
-            this.ddlRounding.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ddlRounding.Location = new System.Drawing.Point(192, 65);
+            this.ddlRounding.Location = new System.Drawing.Point(178, 36);
             this.ddlRounding.Name = "ddlRounding";
             this.ddlRounding.Properties.AllowMouseWheel = false;
             this.ddlRounding.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -7170,51 +6670,712 @@
             "2",
             "3"});
             this.ddlRounding.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.ddlRounding.Size = new System.Drawing.Size(92, 20);
+            this.ddlRounding.Size = new System.Drawing.Size(69, 20);
+            this.ddlRounding.StyleController = this.layoutControl24;
             this.ddlRounding.TabIndex = 16;
             // 
-            // label6
+            // layoutControlGroup32
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(23, 10);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 16);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Sonstige ";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.layoutControlGroup32.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup32.GroupBordersVisible = false;
+            this.layoutControlGroup32.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem222,
+            this.emptySpaceItem123,
+            this.layoutControlItem223,
+            this.layoutControlItem225,
+            this.layoutControlItem226,
+            this.layoutControlItem227,
+            this.layoutControlItem228});
+            this.layoutControlGroup32.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup32.Name = "Root";
+            this.layoutControlGroup32.Size = new System.Drawing.Size(503, 102);
+            this.layoutControlGroup32.TextVisible = false;
             // 
-            // chkCumulated
+            // layoutControlItem222
             // 
-            this.tableLayoutPanel5.SetColumnSpan(this.chkCumulated, 2);
-            this.chkCumulated.Location = new System.Drawing.Point(300, 91);
-            this.chkCumulated.MenuManager = this.barManager1;
-            this.chkCumulated.Name = "chkCumulated";
-            this.chkCumulated.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
-            this.chkCumulated.Properties.Appearance.ForeColor = System.Drawing.Color.White;
-            this.chkCumulated.Properties.Appearance.Options.UseFont = true;
-            this.chkCumulated.Properties.Appearance.Options.UseForeColor = true;
-            this.chkCumulated.Properties.Caption = "Rechnungstellung kumuliert";
-            this.chkCumulated.Size = new System.Drawing.Size(190, 19);
-            this.chkCumulated.TabIndex = 301;
+            this.layoutControlItem222.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem222.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem222.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem222.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem222.Control = this.txtEstimatedLVs;
+            this.layoutControlItem222.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem222.Name = "layoutControlItem222";
+            this.layoutControlItem222.Size = new System.Drawing.Size(239, 24);
+            this.layoutControlItem222.Text = "Anzahl LVs (Schätzung) ";
+            this.layoutControlItem222.TextSize = new System.Drawing.Size(163, 13);
+            // 
+            // emptySpaceItem123
+            // 
+            this.emptySpaceItem123.AllowHotTrack = false;
+            this.emptySpaceItem123.Location = new System.Drawing.Point(0, 72);
+            this.emptySpaceItem123.Name = "emptySpaceItem123";
+            this.emptySpaceItem123.Size = new System.Drawing.Size(483, 10);
+            this.emptySpaceItem123.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem223
+            // 
+            this.layoutControlItem223.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem223.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem223.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem223.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem223.Control = this.ddlRounding;
+            this.layoutControlItem223.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem223.Name = "layoutControlItem223";
+            this.layoutControlItem223.Size = new System.Drawing.Size(239, 24);
+            this.layoutControlItem223.Text = "Rundungsregel Einheitspreis ";
+            this.layoutControlItem223.TextSize = new System.Drawing.Size(163, 13);
+            // 
+            // layoutControlItem225
+            // 
+            this.layoutControlItem225.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem225.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem225.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem225.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem225.Control = this.btnDiscount;
+            this.layoutControlItem225.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem225.Name = "layoutControlItem225";
+            this.layoutControlItem225.Size = new System.Drawing.Size(239, 24);
+            this.layoutControlItem225.Text = "Nachlass ";
+            this.layoutControlItem225.TextSize = new System.Drawing.Size(163, 13);
+            // 
+            // layoutControlItem226
+            // 
+            this.layoutControlItem226.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem226.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem226.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem226.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem226.Control = this.txtActualLVs;
+            this.layoutControlItem226.Location = new System.Drawing.Point(239, 0);
+            this.layoutControlItem226.Name = "layoutControlItem226";
+            this.layoutControlItem226.Size = new System.Drawing.Size(244, 24);
+            this.layoutControlItem226.Text = "Anzahl LVs (IST)";
+            this.layoutControlItem226.TextSize = new System.Drawing.Size(163, 13);
+            // 
+            // layoutControlItem227
+            // 
+            this.layoutControlItem227.Control = this.chkLockHierarchy;
+            this.layoutControlItem227.Location = new System.Drawing.Point(239, 24);
+            this.layoutControlItem227.Name = "layoutControlItem227";
+            this.layoutControlItem227.Size = new System.Drawing.Size(244, 23);
+            this.layoutControlItem227.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem227.TextVisible = false;
+            // 
+            // layoutControlItem228
+            // 
+            this.layoutControlItem228.Control = this.chkCumulated;
+            this.layoutControlItem228.Location = new System.Drawing.Point(239, 47);
+            this.layoutControlItem228.Name = "layoutControlItem228";
+            this.layoutControlItem228.Size = new System.Drawing.Size(244, 25);
+            this.layoutControlItem228.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem228.TextVisible = false;
             // 
             // btnProjectSave
             // 
             this.btnProjectSave.Appearance.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.btnProjectSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProjectSave.Appearance.ForeColor = System.Drawing.Color.White;
+            this.btnProjectSave.Appearance.ForeColor = System.Drawing.Color.Black;
             this.btnProjectSave.Appearance.Options.UseBackColor = true;
             this.btnProjectSave.Appearance.Options.UseFont = true;
             this.btnProjectSave.Appearance.Options.UseForeColor = true;
-            this.btnProjectSave.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
-            this.btnProjectSave.Location = new System.Drawing.Point(23, 555);
+            this.btnProjectSave.Location = new System.Drawing.Point(12, 475);
             this.btnProjectSave.Name = "btnProjectSave";
-            this.btnProjectSave.Size = new System.Drawing.Size(85, 42);
+            this.btnProjectSave.Size = new System.Drawing.Size(84, 22);
+            this.btnProjectSave.StyleController = this.layoutControl20;
             this.btnProjectSave.TabIndex = 19;
             this.btnProjectSave.Text = "&Speichern";
             this.btnProjectSave.Click += new System.EventHandler(this.btnProjectSave_Click);
+            // 
+            // groupControl6
+            // 
+            this.groupControl6.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupControl6.AppearanceCaption.Options.UseFont = true;
+            this.groupControl6.Controls.Add(this.layoutControl22);
+            this.groupControl6.Location = new System.Drawing.Point(12, 222);
+            this.groupControl6.Name = "groupControl6";
+            this.groupControl6.Size = new System.Drawing.Size(507, 112);
+            this.groupControl6.TabIndex = 5;
+            this.groupControl6.Text = "VERRECHNUNGSSÄTZE";
+            // 
+            // layoutControl22
+            // 
+            this.layoutControl22.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
+            this.layoutControl22.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
+            this.layoutControl22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl22.Controls.Add(this.txtInternS);
+            this.layoutControl22.Controls.Add(this.txtInternX);
+            this.layoutControl22.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl22.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl22.Name = "layoutControl22";
+            this.layoutControl22.Root = this.layoutControlGroup30;
+            this.layoutControl22.Size = new System.Drawing.Size(503, 90);
+            this.layoutControl22.TabIndex = 0;
+            this.layoutControl22.Text = "layoutControl22";
+            // 
+            // txtInternS
+            // 
+            this.txtInternS.Location = new System.Drawing.Point(117, 36);
+            this.txtInternS.Name = "txtInternS";
+            this.txtInternS.Properties.AllowMouseWheel = false;
+            this.txtInternS.Properties.Mask.EditMask = "n3";
+            this.txtInternS.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtInternS.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtInternS.Size = new System.Drawing.Size(374, 20);
+            this.txtInternS.StyleController = this.layoutControl22;
+            this.txtInternS.TabIndex = 12;
+            this.txtInternS.Tag = "Intern Fremd (S)";
+            this.txtInternS.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
+            this.txtInternS.Leave += new System.EventHandler(this.txtLPMe_Leave);
+            // 
+            // txtInternX
+            // 
+            this.txtInternX.Location = new System.Drawing.Point(117, 12);
+            this.txtInternX.Name = "txtInternX";
+            this.txtInternX.Properties.AllowMouseWheel = false;
+            this.txtInternX.Properties.Mask.EditMask = "n3";
+            this.txtInternX.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtInternX.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtInternX.Size = new System.Drawing.Size(374, 20);
+            this.txtInternX.StyleController = this.layoutControl22;
+            this.txtInternX.TabIndex = 11;
+            this.txtInternX.Tag = "Intern Lueftung X";
+            this.txtInternX.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
+            this.txtInternX.Leave += new System.EventHandler(this.txtLPMe_Leave);
+            // 
+            // layoutControlGroup30
+            // 
+            this.layoutControlGroup30.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup30.GroupBordersVisible = false;
+            this.layoutControlGroup30.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem216,
+            this.layoutControlItem217});
+            this.layoutControlGroup30.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup30.Name = "layoutControlGroup30";
+            this.layoutControlGroup30.Size = new System.Drawing.Size(503, 68);
+            this.layoutControlGroup30.TextVisible = false;
+            // 
+            // layoutControlItem216
+            // 
+            this.layoutControlItem216.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem216.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem216.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem216.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem216.Control = this.txtInternX;
+            this.layoutControlItem216.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem216.Name = "layoutControlItem216";
+            this.layoutControlItem216.Size = new System.Drawing.Size(483, 24);
+            this.layoutControlItem216.Text = "Intern Lüftung (X)";
+            this.layoutControlItem216.TextSize = new System.Drawing.Size(102, 13);
+            // 
+            // layoutControlItem217
+            // 
+            this.layoutControlItem217.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem217.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem217.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem217.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem217.Control = this.txtInternS;
+            this.layoutControlItem217.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem217.Name = "layoutControlItem217";
+            this.layoutControlItem217.Size = new System.Drawing.Size(483, 46);
+            this.layoutControlItem217.Text = "Intern Fremd (S) ";
+            this.layoutControlItem217.TextSize = new System.Drawing.Size(102, 13);
+            // 
+            // groupControl5
+            // 
+            this.groupControl5.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.groupControl5.AppearanceCaption.Options.UseFont = true;
+            this.groupControl5.Controls.Add(this.layoutControl21);
+            this.groupControl5.Location = new System.Drawing.Point(12, 12);
+            this.groupControl5.Name = "groupControl5";
+            this.groupControl5.Size = new System.Drawing.Size(1027, 206);
+            this.groupControl5.TabIndex = 4;
+            this.groupControl5.Text = "Projekteigenschaften";
+            // 
+            // layoutControl21
+            // 
+            this.layoutControl21.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
+            this.layoutControl21.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
+            this.layoutControl21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl21.Controls.Add(this.txtProjectNumber);
+            this.layoutControl21.Controls.Add(this.txtkommissionNumber);
+            this.layoutControl21.Controls.Add(this.ddlRaster);
+            this.layoutControl21.Controls.Add(this.txtMWST);
+            this.layoutControl21.Controls.Add(this.lblGeplanteAusführungszeit);
+            this.layoutControl21.Controls.Add(this.txtLVSprunge);
+            this.layoutControl21.Controls.Add(this.ChkRaster);
+            this.layoutControl21.Controls.Add(this.txtPlanner);
+            this.layoutControl21.Controls.Add(this.dtpProjectEndDate);
+            this.layoutControl21.Controls.Add(this.dtpProjectStartDate);
+            this.layoutControl21.Controls.Add(this.txtKundeName);
+            this.layoutControl21.Controls.Add(this.txtBauvorhaben);
+            this.layoutControl21.Controls.Add(this.txtKundeNo);
+            this.layoutControl21.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl21.Location = new System.Drawing.Point(2, 20);
+            this.layoutControl21.Name = "layoutControl21";
+            this.layoutControl21.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(897, 595, 450, 400);
+            this.layoutControl21.Root = this.layoutControlGroup29;
+            this.layoutControl21.Size = new System.Drawing.Size(1023, 184);
+            this.layoutControl21.TabIndex = 0;
+            this.layoutControl21.Text = "layoutControl21";
+            // 
+            // txtProjectNumber
+            // 
+            this.txtProjectNumber.Location = new System.Drawing.Point(160, 12);
+            this.txtProjectNumber.Name = "txtProjectNumber";
+            this.txtProjectNumber.Properties.MaxLength = 8;
+            this.txtProjectNumber.Size = new System.Drawing.Size(346, 20);
+            this.txtProjectNumber.StyleController = this.layoutControl21;
+            this.txtProjectNumber.TabIndex = 0;
+            this.txtProjectNumber.Tag = "Project Nr";
+            this.txtProjectNumber.TextChanged += new System.EventHandler(this.txtProjectNumber_TextChanged);
+            // 
+            // txtkommissionNumber
+            // 
+            this.txtkommissionNumber.Location = new System.Drawing.Point(160, 36);
+            this.txtkommissionNumber.Name = "txtkommissionNumber";
+            this.txtkommissionNumber.Size = new System.Drawing.Size(346, 20);
+            this.txtkommissionNumber.StyleController = this.layoutControl21;
+            this.txtkommissionNumber.TabIndex = 1;
+            // 
+            // ddlRaster
+            // 
+            this.ddlRaster.Location = new System.Drawing.Point(160, 60);
+            this.ddlRaster.Name = "ddlRaster";
+            this.ddlRaster.Properties.AllowMouseWheel = false;
+            this.ddlRaster.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.ddlRaster.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.ddlRaster.Size = new System.Drawing.Size(346, 20);
+            this.ddlRaster.StyleController = this.layoutControl21;
+            this.ddlRaster.TabIndex = 2;
+            this.ddlRaster.Tag = "LV-Raster";
+            // 
+            // txtMWST
+            // 
+            this.txtMWST.Location = new System.Drawing.Point(160, 107);
+            this.txtMWST.Name = "txtMWST";
+            this.txtMWST.Properties.Mask.EditMask = "n3";
+            this.txtMWST.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtMWST.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtMWST.Size = new System.Drawing.Size(346, 20);
+            this.txtMWST.StyleController = this.layoutControl21;
+            this.txtMWST.TabIndex = 3;
+            this.txtMWST.Tag = "MWST%";
+            this.txtMWST.Leave += new System.EventHandler(this.txtLPMe_Leave);
+            // 
+            // lblGeplanteAusführungszeit
+            // 
+            this.lblGeplanteAusführungszeit.BackColor = System.Drawing.Color.Transparent;
+            this.lblGeplanteAusführungszeit.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGeplanteAusführungszeit.ForeColor = System.Drawing.Color.White;
+            this.lblGeplanteAusführungszeit.Location = new System.Drawing.Point(510, 108);
+            this.lblGeplanteAusführungszeit.Name = "lblGeplanteAusführungszeit";
+            this.lblGeplanteAusführungszeit.Size = new System.Drawing.Size(130, 40);
+            this.lblGeplanteAusführungszeit.TabIndex = 0;
+            this.lblGeplanteAusführungszeit.Text = "Geplante Ausführungszeit ";
+            this.lblGeplanteAusführungszeit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // txtLVSprunge
+            // 
+            this.txtLVSprunge.Location = new System.Drawing.Point(160, 131);
+            this.txtLVSprunge.Name = "txtLVSprunge";
+            this.txtLVSprunge.Properties.Mask.EditMask = "n0";
+            this.txtLVSprunge.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtLVSprunge.Properties.MaxLength = 4;
+            this.txtLVSprunge.Size = new System.Drawing.Size(346, 20);
+            this.txtLVSprunge.StyleController = this.layoutControl21;
+            this.txtLVSprunge.TabIndex = 4;
+            this.txtLVSprunge.Tag = "LV-Sprunge";
+            this.txtLVSprunge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLVSprunge_KeyPress);
+            this.txtLVSprunge.Leave += new System.EventHandler(this.txtLVSprunge_Leave);
+            // 
+            // ChkRaster
+            // 
+            this.ChkRaster.Location = new System.Drawing.Point(160, 84);
+            this.ChkRaster.MenuManager = this.barManager1;
+            this.ChkRaster.Name = "ChkRaster";
+            this.ChkRaster.Properties.Caption = "";
+            this.ChkRaster.Size = new System.Drawing.Size(346, 19);
+            this.ChkRaster.StyleController = this.layoutControl21;
+            this.ChkRaster.TabIndex = 101;
+            this.ChkRaster.CheckedChanged += new System.EventHandler(this.chkRaster_CheckedChanged);
+            // 
+            // txtPlanner
+            // 
+            this.txtPlanner.Location = new System.Drawing.Point(658, 84);
+            this.txtPlanner.Name = "txtPlanner";
+            this.txtPlanner.Size = new System.Drawing.Size(353, 20);
+            this.txtPlanner.StyleController = this.layoutControl21;
+            this.txtPlanner.TabIndex = 8;
+            // 
+            // dtpProjectEndDate
+            // 
+            this.dtpProjectEndDate.EditValue = null;
+            this.dtpProjectEndDate.Location = new System.Drawing.Point(861, 118);
+            this.dtpProjectEndDate.Name = "dtpProjectEndDate";
+            this.dtpProjectEndDate.Properties.AllowMouseWheel = false;
+            this.dtpProjectEndDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dtpProjectEndDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpProjectEndDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpProjectEndDate.Properties.DisplayFormat.FormatString = "Y";
+            this.dtpProjectEndDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtpProjectEndDate.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
+            this.dtpProjectEndDate.Size = new System.Drawing.Size(150, 20);
+            this.dtpProjectEndDate.StyleController = this.layoutControl21;
+            this.dtpProjectEndDate.TabIndex = 10;
+            this.dtpProjectEndDate.QueryPopUp += new System.ComponentModel.CancelEventHandler(this.dtpProjectEndDate_QueryPopUp);
+            // 
+            // dtpProjectStartDate
+            // 
+            this.dtpProjectStartDate.EditValue = null;
+            this.dtpProjectStartDate.Location = new System.Drawing.Point(669, 118);
+            this.dtpProjectStartDate.Name = "dtpProjectStartDate";
+            this.dtpProjectStartDate.Properties.AllowMouseWheel = false;
+            this.dtpProjectStartDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
+            this.dtpProjectStartDate.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpProjectStartDate.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.dtpProjectStartDate.Properties.DisplayFormat.FormatString = "Y";
+            this.dtpProjectStartDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.dtpProjectStartDate.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
+            this.dtpProjectStartDate.Size = new System.Drawing.Size(163, 20);
+            this.dtpProjectStartDate.StyleController = this.layoutControl21;
+            this.dtpProjectStartDate.TabIndex = 9;
+            this.dtpProjectStartDate.EditValueChanged += new System.EventHandler(this.dtpProjectStartDate_EditValueChanged);
+            // 
+            // txtKundeName
+            // 
+            this.txtKundeName.Location = new System.Drawing.Point(658, 60);
+            this.txtKundeName.Name = "txtKundeName";
+            this.txtKundeName.Properties.ReadOnly = true;
+            this.txtKundeName.Size = new System.Drawing.Size(353, 20);
+            this.txtKundeName.StyleController = this.layoutControl21;
+            this.txtKundeName.TabIndex = 7;
+            this.txtKundeName.Tag = "Kunde Name";
+            // 
+            // txtBauvorhaben
+            // 
+            this.txtBauvorhaben.Location = new System.Drawing.Point(658, 12);
+            this.txtBauvorhaben.Name = "txtBauvorhaben";
+            this.txtBauvorhaben.Size = new System.Drawing.Size(353, 20);
+            this.txtBauvorhaben.StyleController = this.layoutControl21;
+            this.txtBauvorhaben.TabIndex = 5;
+            // 
+            // txtKundeNo
+            // 
+            this.txtKundeNo.Location = new System.Drawing.Point(658, 36);
+            this.txtKundeNo.MenuManager = this.barManager1;
+            this.txtKundeNo.Name = "txtKundeNo";
+            this.txtKundeNo.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+            this.txtKundeNo.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.txtKundeNo.Size = new System.Drawing.Size(353, 20);
+            this.txtKundeNo.StyleController = this.layoutControl21;
+            this.txtKundeNo.TabIndex = 6;
+            this.txtKundeNo.Tag = "Kunde Nr";
+            this.txtKundeNo.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.txtKundeNo_ButtonClick);
+            // 
+            // layoutControlGroup29
+            // 
+            this.layoutControlGroup29.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup29.GroupBordersVisible = false;
+            this.layoutControlGroup29.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem200,
+            this.layoutControlItem201,
+            this.layoutControlItem202,
+            this.layoutControlItem203,
+            this.layoutControlItem204,
+            this.layoutControlItem205,
+            this.layoutControlItem206,
+            this.layoutControlItem207,
+            this.layoutControlItem208,
+            this.layoutControlItem209,
+            this.layoutControlItem210,
+            this.layoutControlItem211,
+            this.layoutControlItem212,
+            this.emptySpaceItem117,
+            this.emptySpaceItem9,
+            this.emptySpaceItem23});
+            this.layoutControlGroup29.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup29.Name = "Root";
+            this.layoutControlGroup29.Size = new System.Drawing.Size(1023, 184);
+            this.layoutControlGroup29.TextVisible = false;
+            // 
+            // layoutControlItem200
+            // 
+            this.layoutControlItem200.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem200.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem200.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem200.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem200.Control = this.txtProjectNumber;
+            this.layoutControlItem200.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem200.Name = "layoutControlItem200";
+            this.layoutControlItem200.Size = new System.Drawing.Size(498, 24);
+            this.layoutControlItem200.Text = "Projektnummer * ";
+            this.layoutControlItem200.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem201
+            // 
+            this.layoutControlItem201.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem201.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem201.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem201.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem201.Control = this.txtkommissionNumber;
+            this.layoutControlItem201.Location = new System.Drawing.Point(0, 24);
+            this.layoutControlItem201.Name = "layoutControlItem201";
+            this.layoutControlItem201.Size = new System.Drawing.Size(498, 24);
+            this.layoutControlItem201.Text = "Kommission Nr ";
+            this.layoutControlItem201.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem202
+            // 
+            this.layoutControlItem202.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem202.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem202.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem202.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem202.Control = this.ddlRaster;
+            this.layoutControlItem202.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlItem202.Name = "layoutControlItem202";
+            this.layoutControlItem202.Size = new System.Drawing.Size(498, 24);
+            this.layoutControlItem202.Text = "LV-Raster ";
+            this.layoutControlItem202.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem203
+            // 
+            this.layoutControlItem203.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem203.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem203.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem203.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem203.Control = this.txtMWST;
+            this.layoutControlItem203.Location = new System.Drawing.Point(0, 95);
+            this.layoutControlItem203.Name = "layoutControlItem203";
+            this.layoutControlItem203.Size = new System.Drawing.Size(498, 24);
+            this.layoutControlItem203.Text = "MWST% ";
+            this.layoutControlItem203.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem204
+            // 
+            this.layoutControlItem204.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem204.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem204.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem204.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem204.Control = this.txtLVSprunge;
+            this.layoutControlItem204.Location = new System.Drawing.Point(0, 119);
+            this.layoutControlItem204.Name = "layoutControlItem204";
+            this.layoutControlItem204.Size = new System.Drawing.Size(498, 45);
+            this.layoutControlItem204.Text = "LV Sprung  *";
+            this.layoutControlItem204.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem205
+            // 
+            this.layoutControlItem205.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem205.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem205.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem205.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem205.Control = this.ChkRaster;
+            this.layoutControlItem205.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem205.Name = "layoutControlItem205";
+            this.layoutControlItem205.Size = new System.Drawing.Size(498, 23);
+            this.layoutControlItem205.Text = "LV Raster von GAEB-Datei";
+            this.layoutControlItem205.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem206
+            // 
+            this.layoutControlItem206.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem206.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem206.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem206.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem206.Control = this.txtBauvorhaben;
+            this.layoutControlItem206.Location = new System.Drawing.Point(498, 0);
+            this.layoutControlItem206.Name = "layoutControlItem206";
+            this.layoutControlItem206.Size = new System.Drawing.Size(505, 24);
+            this.layoutControlItem206.Text = "Bauvorhaben ";
+            this.layoutControlItem206.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem207
+            // 
+            this.layoutControlItem207.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem207.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem207.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem207.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem207.Control = this.txtKundeNo;
+            this.layoutControlItem207.Location = new System.Drawing.Point(498, 24);
+            this.layoutControlItem207.Name = "layoutControlItem207";
+            this.layoutControlItem207.Size = new System.Drawing.Size(505, 24);
+            this.layoutControlItem207.Text = "Kunde Nr *";
+            this.layoutControlItem207.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem208
+            // 
+            this.layoutControlItem208.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem208.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem208.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem208.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem208.Control = this.txtKundeName;
+            this.layoutControlItem208.Location = new System.Drawing.Point(498, 48);
+            this.layoutControlItem208.Name = "layoutControlItem208";
+            this.layoutControlItem208.Size = new System.Drawing.Size(505, 24);
+            this.layoutControlItem208.Text = "Kunde Name ";
+            this.layoutControlItem208.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem209
+            // 
+            this.layoutControlItem209.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem209.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem209.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem209.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem209.Control = this.txtPlanner;
+            this.layoutControlItem209.Location = new System.Drawing.Point(498, 72);
+            this.layoutControlItem209.Name = "layoutControlItem209";
+            this.layoutControlItem209.Size = new System.Drawing.Size(505, 24);
+            this.layoutControlItem209.Text = "Planer ";
+            this.layoutControlItem209.TextSize = new System.Drawing.Size(145, 13);
+            // 
+            // layoutControlItem210
+            // 
+            this.layoutControlItem210.Control = this.lblGeplanteAusführungszeit;
+            this.layoutControlItem210.Location = new System.Drawing.Point(498, 96);
+            this.layoutControlItem210.Name = "layoutControlItem210";
+            this.layoutControlItem210.Size = new System.Drawing.Size(134, 44);
+            this.layoutControlItem210.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem210.TextVisible = false;
+            // 
+            // layoutControlItem211
+            // 
+            this.layoutControlItem211.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem211.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem211.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem211.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem211.Control = this.dtpProjectStartDate;
+            this.layoutControlItem211.Location = new System.Drawing.Point(632, 106);
+            this.layoutControlItem211.Name = "layoutControlItem211";
+            this.layoutControlItem211.Size = new System.Drawing.Size(192, 24);
+            this.layoutControlItem211.Text = "Von";
+            this.layoutControlItem211.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.layoutControlItem211.TextSize = new System.Drawing.Size(20, 13);
+            this.layoutControlItem211.TextToControlDistance = 5;
+            // 
+            // layoutControlItem212
+            // 
+            this.layoutControlItem212.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem212.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem212.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem212.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem212.Control = this.dtpProjectEndDate;
+            this.layoutControlItem212.Location = new System.Drawing.Point(824, 106);
+            this.layoutControlItem212.Name = "layoutControlItem212";
+            this.layoutControlItem212.Size = new System.Drawing.Size(179, 24);
+            this.layoutControlItem212.Text = "Bis";
+            this.layoutControlItem212.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.CustomSize;
+            this.layoutControlItem212.TextSize = new System.Drawing.Size(20, 13);
+            this.layoutControlItem212.TextToControlDistance = 5;
+            // 
+            // emptySpaceItem117
+            // 
+            this.emptySpaceItem117.AllowHotTrack = false;
+            this.emptySpaceItem117.Location = new System.Drawing.Point(632, 96);
+            this.emptySpaceItem117.Name = "emptySpaceItem117";
+            this.emptySpaceItem117.Size = new System.Drawing.Size(371, 10);
+            this.emptySpaceItem117.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlGroup3
+            // 
+            this.layoutControlGroup3.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup3.GroupBordersVisible = false;
+            this.layoutControlGroup3.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem199,
+            this.layoutControlItem215,
+            this.layoutControlItem221,
+            this.layoutControlItem229,
+            this.emptySpaceItem130,
+            this.layoutControlItem230,
+            this.emptySpaceItem132,
+            this.layoutControlItem218,
+            this.emptySpaceItem122});
+            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup3.Name = "Root";
+            this.layoutControlGroup3.Size = new System.Drawing.Size(1522, 749);
+            this.layoutControlGroup3.TextVisible = false;
+            // 
+            // layoutControlItem199
+            // 
+            this.layoutControlItem199.Control = this.groupControl5;
+            this.layoutControlItem199.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem199.Name = "layoutControlItem199";
+            this.layoutControlItem199.Size = new System.Drawing.Size(1031, 210);
+            this.layoutControlItem199.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem199.TextVisible = false;
+            // 
+            // layoutControlItem215
+            // 
+            this.layoutControlItem215.Control = this.groupControl6;
+            this.layoutControlItem215.Location = new System.Drawing.Point(0, 210);
+            this.layoutControlItem215.Name = "layoutControlItem215";
+            this.layoutControlItem215.Size = new System.Drawing.Size(511, 116);
+            this.layoutControlItem215.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem215.TextVisible = false;
+            // 
+            // layoutControlItem221
+            // 
+            this.layoutControlItem221.Control = this.groupControl8;
+            this.layoutControlItem221.Location = new System.Drawing.Point(0, 326);
+            this.layoutControlItem221.Name = "layoutControlItem221";
+            this.layoutControlItem221.Size = new System.Drawing.Size(511, 137);
+            this.layoutControlItem221.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem221.TextVisible = false;
+            // 
+            // layoutControlItem229
+            // 
+            this.layoutControlItem229.Control = this.groupControl9;
+            this.layoutControlItem229.Location = new System.Drawing.Point(511, 326);
+            this.layoutControlItem229.Name = "layoutControlItem229";
+            this.layoutControlItem229.Size = new System.Drawing.Size(520, 137);
+            this.layoutControlItem229.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem229.TextVisible = false;
+            // 
+            // emptySpaceItem130
+            // 
+            this.emptySpaceItem130.AllowHotTrack = false;
+            this.emptySpaceItem130.Location = new System.Drawing.Point(0, 489);
+            this.emptySpaceItem130.Name = "emptySpaceItem130";
+            this.emptySpaceItem130.Size = new System.Drawing.Size(1031, 240);
+            this.emptySpaceItem130.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem230
+            // 
+            this.layoutControlItem230.Control = this.btnProjectSave;
+            this.layoutControlItem230.Location = new System.Drawing.Point(0, 463);
+            this.layoutControlItem230.Name = "layoutControlItem230";
+            this.layoutControlItem230.Size = new System.Drawing.Size(88, 26);
+            this.layoutControlItem230.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem230.TextVisible = false;
+            // 
+            // emptySpaceItem132
+            // 
+            this.emptySpaceItem132.AllowHotTrack = false;
+            this.emptySpaceItem132.Location = new System.Drawing.Point(1031, 0);
+            this.emptySpaceItem132.Name = "emptySpaceItem132";
+            this.emptySpaceItem132.Size = new System.Drawing.Size(471, 729);
+            this.emptySpaceItem132.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem218
+            // 
+            this.layoutControlItem218.Control = this.groupControl7;
+            this.layoutControlItem218.Location = new System.Drawing.Point(511, 210);
+            this.layoutControlItem218.Name = "layoutControlItem218";
+            this.layoutControlItem218.Size = new System.Drawing.Size(520, 116);
+            this.layoutControlItem218.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem218.TextVisible = false;
+            // 
+            // emptySpaceItem122
+            // 
+            this.emptySpaceItem122.AllowHotTrack = false;
+            this.emptySpaceItem122.Location = new System.Drawing.Point(88, 463);
+            this.emptySpaceItem122.Name = "emptySpaceItem122";
+            this.emptySpaceItem122.Size = new System.Drawing.Size(943, 26);
+            this.emptySpaceItem122.TextSize = new System.Drawing.Size(0, 0);
             // 
             // tbBulkProcess
             // 
@@ -7896,17 +8057,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle25;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle26;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -10790,10 +10951,14 @@
             this.gvDeliveryNumbers.Appearance.Empty.Options.UseBackColor = true;
             this.gvDeliveryNumbers.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.gvDeliveryNumbers.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvDeliveryNumbers.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvDeliveryNumbers.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvDeliveryNumbers.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn25,
             this.gridColumn24,
             this.gridColumn31,
+            this.gridColumn73,
+            this.gridColumn72,
             this.gridColumn41,
             this.gridColumn32,
             this.gridColumn33});
@@ -10846,6 +11011,24 @@
             this.txtprice.Mask.UseMaskAsDisplayFormat = true;
             this.txtprice.Name = "txtprice";
             // 
+            // gridColumn73
+            // 
+            this.gridColumn73.Caption = "Zuschlag";
+            this.gridColumn73.ColumnEdit = this.txtprice;
+            this.gridColumn73.FieldName = "Surcharge";
+            this.gridColumn73.Name = "gridColumn73";
+            this.gridColumn73.Visible = true;
+            this.gridColumn73.VisibleIndex = 3;
+            // 
+            // gridColumn72
+            // 
+            this.gridColumn72.Caption = "Vat";
+            this.gridColumn72.ColumnEdit = this.txtprice;
+            this.gridColumn72.FieldName = "VatAmount";
+            this.gridColumn72.Name = "gridColumn72";
+            this.gridColumn72.Visible = true;
+            this.gridColumn72.VisibleIndex = 4;
+            // 
             // gridColumn41
             // 
             this.gridColumn41.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
@@ -10854,7 +11037,7 @@
             this.gridColumn41.FieldName = "IsInvoiced";
             this.gridColumn41.Name = "gridColumn41";
             this.gridColumn41.Visible = true;
-            this.gridColumn41.VisibleIndex = 3;
+            this.gridColumn41.VisibleIndex = 5;
             // 
             // gridColumn32
             // 
@@ -10864,7 +11047,7 @@
             this.gridColumn32.FieldName = "CreatedBy";
             this.gridColumn32.Name = "gridColumn32";
             this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 4;
+            this.gridColumn32.VisibleIndex = 6;
             // 
             // gridColumn33
             // 
@@ -10874,7 +11057,7 @@
             this.gridColumn33.FieldName = "CreatedDate";
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 5;
+            this.gridColumn33.VisibleIndex = 7;
             // 
             // gcDelivery
             // 
@@ -11133,7 +11316,7 @@
             this.gcInvoices.Name = "gcInvoices";
             this.gcInvoices.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.txtInvoicePrice});
-            this.gcInvoices.Size = new System.Drawing.Size(951, 279);
+            this.gcInvoices.Size = new System.Drawing.Size(1164, 279);
             this.gcInvoices.TabIndex = 8;
             this.gcInvoices.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvInvoices});
@@ -11144,12 +11327,16 @@
             this.gvInvoices.Appearance.Empty.Options.UseBackColor = true;
             this.gvInvoices.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.gvInvoices.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvInvoices.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvInvoices.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvInvoices.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn35,
             this.gridColumn36,
             this.gridColumn37,
             this.gridColumn38,
-            this.gridColumn39});
+            this.gridColumn39,
+            this.gridColumn76,
+            this.gridColumn77});
             this.gvInvoices.GridControl = this.gcInvoices;
             this.gvInvoices.Name = "gvInvoices";
             this.gvInvoices.OptionsBehavior.Editable = false;
@@ -11196,7 +11383,7 @@
             this.gridColumn37.FieldName = "CreatedBy";
             this.gridColumn37.Name = "gridColumn37";
             this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 3;
+            this.gridColumn37.VisibleIndex = 5;
             // 
             // gridColumn38
             // 
@@ -11206,7 +11393,7 @@
             this.gridColumn38.FieldName = "CreatedDate";
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 4;
+            this.gridColumn38.VisibleIndex = 6;
             // 
             // gridColumn39
             // 
@@ -11216,7 +11403,25 @@
             this.gridColumn39.FieldName = "NoOfBlatts";
             this.gridColumn39.Name = "gridColumn39";
             this.gridColumn39.Visible = true;
-            this.gridColumn39.VisibleIndex = 2;
+            this.gridColumn39.VisibleIndex = 4;
+            // 
+            // gridColumn76
+            // 
+            this.gridColumn76.Caption = "Surcharge";
+            this.gridColumn76.ColumnEdit = this.txtInvoicePrice;
+            this.gridColumn76.FieldName = "Surcharge";
+            this.gridColumn76.Name = "gridColumn76";
+            this.gridColumn76.Visible = true;
+            this.gridColumn76.VisibleIndex = 2;
+            // 
+            // gridColumn77
+            // 
+            this.gridColumn77.Caption = "Vat";
+            this.gridColumn77.ColumnEdit = this.txtInvoicePrice;
+            this.gridColumn77.FieldName = "Vat";
+            this.gridColumn77.Name = "gridColumn77";
+            this.gridColumn77.Visible = true;
+            this.gridColumn77.VisibleIndex = 3;
             // 
             // chkFinalInvoice
             // 
@@ -11236,9 +11441,9 @@
             // 
             this.btnGenerate.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnGenerate.Appearance.Options.UseFont = true;
-            this.btnGenerate.Location = new System.Drawing.Point(703, 422);
+            this.btnGenerate.Location = new System.Drawing.Point(959, 422);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(260, 22);
+            this.btnGenerate.Size = new System.Drawing.Size(217, 22);
             this.btnGenerate.StyleController = this.layoutControl13;
             this.btnGenerate.TabIndex = 6;
             this.btnGenerate.Text = "Rechnung erstellen";
@@ -11246,10 +11451,10 @@
             // 
             // txtInvoiceNumber
             // 
-            this.txtInvoiceNumber.Location = new System.Drawing.Point(579, 422);
+            this.txtInvoiceNumber.Location = new System.Drawing.Point(797, 422);
             this.txtInvoiceNumber.MenuManager = this.barManager1;
             this.txtInvoiceNumber.Name = "txtInvoiceNumber";
-            this.txtInvoiceNumber.Size = new System.Drawing.Size(120, 20);
+            this.txtInvoiceNumber.Size = new System.Drawing.Size(158, 20);
             this.txtInvoiceNumber.StyleController = this.layoutControl13;
             this.txtInvoiceNumber.TabIndex = 5;
             // 
@@ -11264,7 +11469,7 @@
             this.txttextbox,
             this.dtpdeliveredOn,
             this.txtBlatPrice});
-            this.gcDeliveryNotes.Size = new System.Drawing.Size(951, 406);
+            this.gcDeliveryNotes.Size = new System.Drawing.Size(1164, 406);
             this.gcDeliveryNotes.TabIndex = 4;
             this.gcDeliveryNotes.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDeliveryNotes});
@@ -11275,11 +11480,15 @@
             this.gvDeliveryNotes.Appearance.Empty.Options.UseBackColor = true;
             this.gvDeliveryNotes.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.gvDeliveryNotes.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvDeliveryNotes.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gvDeliveryNotes.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvDeliveryNotes.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn26,
             this.gridColumn27,
             this.gridColumn28,
             this.gridColumn29,
+            this.gridColumn75,
+            this.gridColumn74,
             this.gridColumn30,
             this.gridColumn34,
             this.gridColumn17});
@@ -11317,7 +11526,7 @@
             this.gridColumn27.FieldName = "CreatedBy";
             this.gridColumn27.Name = "gridColumn27";
             this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 3;
+            this.gridColumn27.VisibleIndex = 5;
             // 
             // gridColumn28
             // 
@@ -11328,7 +11537,7 @@
             this.gridColumn28.FieldName = "CreatedDate";
             this.gridColumn28.Name = "gridColumn28";
             this.gridColumn28.Visible = true;
-            this.gridColumn28.VisibleIndex = 4;
+            this.gridColumn28.VisibleIndex = 6;
             // 
             // dtpdeliveredOn
             // 
@@ -11350,6 +11559,22 @@
             this.gridColumn29.Name = "gridColumn29";
             this.gridColumn29.Visible = true;
             this.gridColumn29.VisibleIndex = 1;
+            // 
+            // gridColumn75
+            // 
+            this.gridColumn75.Caption = "Zuschlag";
+            this.gridColumn75.FieldName = "Surcharge";
+            this.gridColumn75.Name = "gridColumn75";
+            this.gridColumn75.Visible = true;
+            this.gridColumn75.VisibleIndex = 3;
+            // 
+            // gridColumn74
+            // 
+            this.gridColumn74.Caption = "Vat";
+            this.gridColumn74.FieldName = "VatAmount";
+            this.gridColumn74.Name = "gridColumn74";
+            this.gridColumn74.Visible = true;
+            this.gridColumn74.VisibleIndex = 4;
             // 
             // gridColumn30
             // 
@@ -11381,7 +11606,7 @@
             this.gridColumn34.FieldName = "IsInvoiced";
             this.gridColumn34.Name = "gridColumn34";
             this.gridColumn34.Visible = true;
-            this.gridColumn34.VisibleIndex = 5;
+            this.gridColumn34.VisibleIndex = 7;
             // 
             // gridColumn17
             // 
@@ -11392,7 +11617,7 @@
             this.gridColumn17.FieldName = "SELCETED";
             this.gridColumn17.Name = "gridColumn17";
             this.gridColumn17.Visible = true;
-            this.gridColumn17.VisibleIndex = 6;
+            this.gridColumn17.VisibleIndex = 8;
             // 
             // chkInvoiced
             // 
@@ -11422,16 +11647,16 @@
             this.layoutControlItem139.Control = this.gcDeliveryNotes;
             this.layoutControlItem139.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem139.Name = "layoutControlItem139";
-            this.layoutControlItem139.Size = new System.Drawing.Size(955, 410);
+            this.layoutControlItem139.Size = new System.Drawing.Size(1168, 410);
             this.layoutControlItem139.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem139.TextVisible = false;
             // 
             // emptySpaceItem110
             // 
             this.emptySpaceItem110.AllowHotTrack = false;
-            this.emptySpaceItem110.Location = new System.Drawing.Point(955, 0);
+            this.emptySpaceItem110.Location = new System.Drawing.Point(1168, 0);
             this.emptySpaceItem110.Name = "emptySpaceItem110";
-            this.emptySpaceItem110.Size = new System.Drawing.Size(547, 729);
+            this.emptySpaceItem110.Size = new System.Drawing.Size(334, 729);
             this.emptySpaceItem110.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem112
@@ -11439,7 +11664,7 @@
             this.emptySpaceItem112.AllowHotTrack = false;
             this.emptySpaceItem112.Location = new System.Drawing.Point(0, 719);
             this.emptySpaceItem112.Name = "emptySpaceItem112";
-            this.emptySpaceItem112.Size = new System.Drawing.Size(955, 10);
+            this.emptySpaceItem112.Size = new System.Drawing.Size(1168, 10);
             this.emptySpaceItem112.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem140
@@ -11449,18 +11674,18 @@
             this.layoutControlItem140.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem140.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem140.Control = this.txtInvoiceNumber;
-            this.layoutControlItem140.Location = new System.Drawing.Point(442, 410);
+            this.layoutControlItem140.Location = new System.Drawing.Point(660, 410);
             this.layoutControlItem140.Name = "layoutControlItem140";
-            this.layoutControlItem140.Size = new System.Drawing.Size(249, 26);
+            this.layoutControlItem140.Size = new System.Drawing.Size(287, 26);
             this.layoutControlItem140.Text = "Rechnungsnummer ";
             this.layoutControlItem140.TextSize = new System.Drawing.Size(122, 14);
             // 
             // layoutControlItem141
             // 
             this.layoutControlItem141.Control = this.btnGenerate;
-            this.layoutControlItem141.Location = new System.Drawing.Point(691, 410);
+            this.layoutControlItem141.Location = new System.Drawing.Point(947, 410);
             this.layoutControlItem141.Name = "layoutControlItem141";
-            this.layoutControlItem141.Size = new System.Drawing.Size(264, 26);
+            this.layoutControlItem141.Size = new System.Drawing.Size(221, 26);
             this.layoutControlItem141.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem141.TextVisible = false;
             // 
@@ -11478,7 +11703,7 @@
             this.emptySpaceItem113.AllowHotTrack = false;
             this.emptySpaceItem113.Location = new System.Drawing.Point(129, 410);
             this.emptySpaceItem113.Name = "emptySpaceItem113";
-            this.emptySpaceItem113.Size = new System.Drawing.Size(313, 26);
+            this.emptySpaceItem113.Size = new System.Drawing.Size(531, 26);
             this.emptySpaceItem113.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem154
@@ -11486,7 +11711,7 @@
             this.layoutControlItem154.Control = this.gcInvoices;
             this.layoutControlItem154.Location = new System.Drawing.Point(0, 436);
             this.layoutControlItem154.Name = "layoutControlItem154";
-            this.layoutControlItem154.Size = new System.Drawing.Size(955, 283);
+            this.layoutControlItem154.Size = new System.Drawing.Size(1168, 283);
             this.layoutControlItem154.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem154.TextVisible = false;
             // 
@@ -14390,6 +14615,22 @@
             this.emptySpaceItem17.Size = new System.Drawing.Size(686, 73);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // emptySpaceItem9
+            // 
+            this.emptySpaceItem9.AllowHotTrack = false;
+            this.emptySpaceItem9.Location = new System.Drawing.Point(632, 130);
+            this.emptySpaceItem9.Name = "emptySpaceItem9";
+            this.emptySpaceItem9.Size = new System.Drawing.Size(371, 10);
+            this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem23
+            // 
+            this.emptySpaceItem23.AllowHotTrack = false;
+            this.emptySpaceItem23.Location = new System.Drawing.Point(498, 140);
+            this.emptySpaceItem23.Name = "emptySpaceItem23";
+            this.emptySpaceItem23.Size = new System.Drawing.Size(505, 24);
+            this.emptySpaceItem23.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -14685,41 +14926,89 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.tbProjectDetails.ResumeLayout(false);
-            this.tlpMain.ResumeLayout(false);
-            this.tableLayoutPanel6.ResumeLayout(false);
-            this.tableLayoutPanel6.PerformLayout();
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtSubmitLocation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl20)).EndInit();
+            this.layoutControl20.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl7)).EndInit();
+            this.groupControl7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl23)).EndInit();
+            this.layoutControl23.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtpSubmitDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpSubmitDate.Properties)).EndInit();
-            this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtInternX.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSubmitLocation.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem219)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem220)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl9)).EndInit();
+            this.groupControl9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl8)).EndInit();
+            this.groupControl8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl24)).EndInit();
+            this.layoutControl24.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chkLockHierarchy.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkCumulated.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtActualLVs.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtEstimatedLVs.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ddlRounding.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem222)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem123)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem223)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem225)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem226)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem227)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem228)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
+            this.groupControl6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl22)).EndInit();
+            this.layoutControl22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.txtInternS.Properties)).EndInit();
-            this.tlpProject.ResumeLayout(false);
-            this.tlpProject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtInternX.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem216)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem217)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.groupControl5)).EndInit();
+            this.groupControl5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControl21)).EndInit();
+            this.layoutControl21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.txtProjectNumber.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtkommissionNumber.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLVSprunge.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMWST.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKundeName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtPlanner.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtBauvorhaben.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ddlRaster.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpProjectStartDate.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dtpProjectStartDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMWST.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLVSprunge.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ChkRaster.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtPlanner.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpProjectEndDate.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpProjectEndDate.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtProjectNumber.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpProjectStartDate.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtpProjectStartDate.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKundeName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtBauvorhaben.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKundeNo.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ChkRaster.Properties)).EndInit();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chkLockHierarchy.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtEstimatedLVs.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtActualLVs.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ddlRounding.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chkCumulated.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem200)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem201)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem202)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem203)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem204)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem205)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem206)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem207)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem208)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem209)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem210)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem211)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem212)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem199)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem215)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem221)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem229)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem130)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem230)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem132)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem218)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem122)).EndInit();
             this.tbBulkProcess.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl7)).EndInit();
             this.layoutControl7.ResumeLayout(false);
@@ -15121,6 +15410,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem23)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -15144,60 +15435,28 @@
         private DevExpress.XtraTab.XtraTabControl tcProjectDetails;
         private DevExpress.XtraTab.XtraTabPage tbLVDetails;
         private DevExpress.XtraTab.XtraTabPage tbProjectDetails;
-        private System.Windows.Forms.TableLayoutPanel tlpMain;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.RichTextBox txtRemarks;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private DevExpress.XtraEditors.LabelControl lblSubmitLocation;
-        private DevExpress.XtraEditors.LabelControl labelControl4;
         private DevExpress.XtraEditors.TextEdit txtSubmitLocation;
         private DevExpress.XtraEditors.DateEdit dtpSubmitDate;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private DevExpress.XtraEditors.LabelControl lblInternLueftung;
-        private DevExpress.XtraEditors.LabelControl lblInternFremd;
         private DevExpress.XtraEditors.TextEdit txtInternX;
         private DevExpress.XtraEditors.TextEdit txtInternS;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TableLayoutPanel tlpProject;
-        private System.Windows.Forms.Label lblBauvorhaben;
-        private System.Windows.Forms.Label lblKommissionNumber;
-        private System.Windows.Forms.Label lblKundeNo;
-        private System.Windows.Forms.Label lblLVRaster;
-        private System.Windows.Forms.Label lblKundeName;
-        private System.Windows.Forms.Label lblMWST;
-        private System.Windows.Forms.Label lblPlanner;
-        private System.Windows.Forms.Label lblLVSprunge;
         private System.Windows.Forms.Label lblGeplanteAusführungszeit;
-        private System.Windows.Forms.Label lblUsers;
         private DevExpress.XtraEditors.TextEdit txtkommissionNumber;
         private DevExpress.XtraEditors.TextEdit txtLVSprunge;
         private DevExpress.XtraEditors.TextEdit txtMWST;
         private DevExpress.XtraEditors.TextEdit txtKundeName;
         private DevExpress.XtraEditors.TextEdit txtPlanner;
         private DevExpress.XtraEditors.TextEdit txtBauvorhaben;
-        private System.Windows.Forms.Button btnUsers;
         private DevExpress.XtraEditors.ComboBoxEdit ddlRaster;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private DevExpress.XtraEditors.DateEdit dtpProjectStartDate;
         private DevExpress.XtraEditors.DateEdit dtpProjectEndDate;
         private DevExpress.XtraEditors.TextEdit txtProjectNumber;
-        private System.Windows.Forms.Label lblProjectNumber;
-        private System.Windows.Forms.Label label3;
         private DevExpress.XtraEditors.ButtonEdit txtKundeNo;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private DevExpress.XtraEditors.LabelControl lblEstimatedLVs;
-        private DevExpress.XtraEditors.LabelControl lblActualLVs;
-        private DevExpress.XtraEditors.LabelControl lblRoundingUnitPrice;
-        private DevExpress.XtraEditors.LabelControl lblDiscount;
         private DevExpress.XtraEditors.CheckEdit chkLockHierarchy;
         private DevExpress.XtraEditors.TextEdit txtEstimatedLVs;
         private DevExpress.XtraEditors.TextEdit txtActualLVs;
         private System.Windows.Forms.Button btnDiscount;
         private DevExpress.XtraEditors.ComboBoxEdit ddlRounding;
-        private System.Windows.Forms.Label label6;
         private DevExpress.XtraEditors.SimpleButton btnProjectSave;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsProjectStatus;
@@ -16139,6 +16398,63 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem116;
         private DevExpress.XtraEditors.SimpleButton btnUmlageSave;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem198;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn73;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn72;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn75;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn74;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn76;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn77;
+        private DevExpress.XtraLayout.LayoutControl layoutControl20;
+        private DevExpress.XtraEditors.GroupControl groupControl5;
+        private DevExpress.XtraLayout.LayoutControl layoutControl21;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup29;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem200;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem201;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem202;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem203;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem204;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem205;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem206;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem207;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem208;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem209;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem210;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem211;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem212;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup3;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem199;
+        private DevExpress.XtraEditors.GroupControl groupControl9;
+        private DevExpress.XtraEditors.GroupControl groupControl8;
+        private DevExpress.XtraLayout.LayoutControl layoutControl24;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup32;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem222;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem123;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem223;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem225;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem226;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem227;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem228;
+        private DevExpress.XtraEditors.GroupControl groupControl7;
+        private DevExpress.XtraLayout.LayoutControl layoutControl23;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup31;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem219;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem220;
+        private DevExpress.XtraEditors.GroupControl groupControl6;
+        private DevExpress.XtraLayout.LayoutControl layoutControl22;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup30;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem216;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem217;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem215;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem221;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem229;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem130;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem230;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem132;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem218;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem122;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem117;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem9;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem23;
 
 
     }
