@@ -13,6 +13,7 @@ using BL;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 
 namespace OTTOPro
 {
@@ -122,19 +123,19 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
+        int _WIIDValue = 0;
         private void gvWI_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             try
             {
                 if (_IsNew)
                     return;
-                int _IDValue = 0;
+                
                 if (gvWI.FocusedColumn != null && gvWI.GetFocusedRowCellValue("WIID") != null)
                 {
-                    if (int.TryParse(gvWI.GetFocusedRowCellValue("WIID").ToString(), out _IDValue))
+                    if (int.TryParse(gvWI.GetFocusedRowCellValue("WIID").ToString(), out _WIIDValue))
                     {
-                        ObjEArticle.WIID = _IDValue;
+                        ObjEArticle.WIID = _WIIDValue;
                         txtWI.Text = gvWI.GetFocusedRowCellValue("WI") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("WI").ToString();
                         txtWIDescription.Text = gvWI.GetFocusedRowCellValue("WIDescription") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("WIDescription").ToString();
                         txtFabrikat.Text = gvWI.GetFocusedRowCellValue("Fabrikate") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Fabrikate").ToString();
@@ -153,7 +154,7 @@ namespace OTTOPro
                         txtLiferent.Text = gvWI.GetFocusedRowCellValue("FullName") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("FullName").ToString();
                         txtRabattgruppe.Text = gvWI.GetFocusedRowCellValue("Rabatt") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Rabatt").ToString();
                         lblArticle.Text = "Artikelübersicht zu : " + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
-                        BindDimensions(_IDValue);
+                        BindDimensions(_WIIDValue);
                     }
                 }
             }
@@ -323,59 +324,6 @@ namespace OTTOPro
         {
             try
             {
-                if (_IsSaveDimension)
-                    throw new Exception("Bitte Speichern der Maße");
-                if (ObjEArticle == null)
-                    ObjEArticle = new EArticles();
-                if (ObjEArticle.WIID < 0)
-                {
-                    if(!Utility._IsGermany)
-                    {
-                        throw new Exception("Please Select The Article");
-                    }
-                    else
-                    {
-                        throw new Exception("Bitte wählen Sie einen Artikel");
-                    }
-                }
-                if (_IsSave)
-                {
-                    int RowHandle = gvDimensions.FocusedRowHandle;
-                    SaveDimension(RowHandle);
-                }               
-
-                DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
-                dvDimensions.RowFilter = "WIID = '" + ObjEArticle.WIID + "'";                
-                DataRowView rowView = dvDimensions.AddNew();
-                rowView["DimensionID"] = "-1";
-                rowView["WIID"] = ObjEArticle.WIID;
-                rowView["A"] = "";
-                rowView["B"] = "";
-                rowView["L"] = "";
-                rowView["ListPrice"] = "0";
-                rowView["Minuten"] = "0";
-                rowView["GMulti"] = "1";
-                rowView["ValidityDate"] = dateEditGultigkeit.DateTime;
-                if (!string.IsNullOrEmpty(txtMulti1.Text))
-                    rowView["Multi1"] = txtMulti1.Text;
-                else
-                    rowView["Multi1"] = 1;
-
-                if (!string.IsNullOrEmpty(txtMulti2.Text))
-                    rowView["Multi2"] = txtMulti2.Text;
-                else
-                    rowView["Multi2"] = 1;
-
-                if (!string.IsNullOrEmpty(txtMulti3.Text))
-                    rowView["Multi3"] = txtMulti3.Text;
-                else
-                    rowView["Multi3"] = 1;
-
-                if (!string.IsNullOrEmpty(txtMulti4.Text))
-                    rowView["Multi4"] = txtMulti4.Text;
-                else
-                    rowView["Multi4"] = 1;
-
                 decimal dValue = 0;
                 decimal GMulti = 1;
                 if (!decimal.TryParse(txtMulti1.Text, out dValue))
@@ -396,13 +344,31 @@ namespace OTTOPro
                     GMulti = GMulti * 1;
                 else
                     GMulti = GMulti * dValue;
-
-                rowView["GMulti"] = GMulti;
                 
-                rowView.EndEdit();
-                gcDimensions.DataSource = dvDimensions;
-                gvDimensions.BestFitColumns();
-                _IsSaveDimension = true;
+                if (ObjEArticle.WIID < 0)
+                {
+                    if (!Utility._IsGermany)
+                    {
+                        throw new Exception("Please Select The Article");
+                    }
+                    else
+                    {
+                        throw new Exception("Bitte wählen Sie einen Artikel");
+                    }
+                }
+                ObjEArticle = new EArticles();
+                ObjEArticle.DimensionID = -1;
+                ObjEArticle.WIID = _WIIDValue;
+                ObjEArticle.GMulti = GMulti;
+                frmAddDimension frm = new frmAddDimension();
+                frm.ObjEArticle = ObjEArticle;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    ObjBArticle.GetArticle(ObjEArticle);
+                    BindDimensions(ObjEArticle.WIID);
+                    Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
+                }
             }
             catch (Exception ex)
             {
@@ -421,69 +387,6 @@ namespace OTTOPro
             //{
             //    Utility.ShowError(ex);
             //}
-        }
-
-        private void SaveDimension(int RowHandle)
-        {
-            if (!_IsSave)
-                return;
-            try
-            {
-                if (ObjEArticle == null)
-                    ObjEArticle = new EArticles();
-                ObjEArticle.DimensionID = Convert.ToInt32(gvDimensions.GetRowCellValue(RowHandle, "DimensionID"));
-                ObjEArticle.WIID = Convert.ToInt32(gvDimensions.GetRowCellValue(RowHandle, "WIID"));
-
-                if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "A"))) && gvDimensions.GetRowCellValue(RowHandle, "A") != "0")
-                    ObjEArticle.A = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "A"));
-                else
-                {
-                    if (!Utility._IsGermany)
-                    {
-                        throw new Exception("Please Enter Valid Dimension");
-                    }
-                    else
-                    {
-                        throw new Exception("Bitte wählen Sie zulässige Maße");
-                    }
-                }                   
-
-                if (!string.IsNullOrEmpty(Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "B"))) && gvDimensions.GetRowCellValue(RowHandle, "B") != "0")
-                    ObjEArticle.B = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "B"));
-                else
-                {
-                    if (!Utility._IsGermany)
-                    {
-                        throw new Exception("Please Enter Valid Dimension");
-                    }
-                    else
-                    {
-                        throw new Exception("Bitte wählen Sie zulässige Maße");
-                    }
-                }
-                if (gvDimensions.GetRowCellValue(RowHandle, "L") != "0")
-                    ObjEArticle.L = Convert.ToString(gvDimensions.GetRowCellValue(RowHandle, "L"));
-
-                ObjEArticle.ListPrice = gvDimensions.GetRowCellValue(RowHandle, "ListPrice") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "ListPrice"));
-                ObjEArticle.Minuten = gvDimensions.GetRowCellValue(RowHandle, "Minuten") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "Minuten"));
-                ObjEArticle.GMulti = gvDimensions.GetRowCellValue(RowHandle, "GMulti") == DBNull.Value ? 0 : Convert.ToDecimal(gvDimensions.GetRowCellValue(RowHandle, "GMulti"));
-                ObjEArticle.ValidityDate = dateEditGultigkeit.DateTime;
-                if (ObjBArticle == null)
-                    ObjBArticle = new BArticles();
-                ObjBArticle.SaveDimension(ObjEArticle);
-                _IsSaveDimension = false;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                ObjBArticle.GetArticle(ObjEArticle);
-                BindDimensions(ObjEArticle.WIID);
-                Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
-                _IsSave = false;
-            }
         }
 
         private void gvDimensions_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
@@ -520,28 +423,6 @@ namespace OTTOPro
             }
         }
 
-        private void gvDimensions_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            try
-            {
-                if (e.KeyChar == (char)Keys.Enter)
-                {
-                    int RowHandle = gvDimensions.FocusedRowHandle;
-                    SaveDimension(RowHandle);
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void gcDimensions_EditorKeyPress(object sender, KeyPressEventArgs e)
-        {
-            GridControl grid = sender as GridControl;
-            gvDimensions_KeyPress(grid.FocusedView, e);
-        }
-
         private void txtMulti1_Leave(object sender, EventArgs e)
         {
             TextEdit textbox = (TextEdit)sender;
@@ -568,5 +449,65 @@ namespace OTTOPro
                 btnCancel_Click(null, null);
             }
         }
+
+        private void gvDimensions_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                GridView view = (GridView)sender;
+                Point pt = view.GridControl.PointToClient(Control.MousePosition);
+                GridHitInfo info = view.CalcHitInfo(pt);
+
+                if (info.InRow || info.InRowCell)
+                {
+                    if (gvDimensions.SelectedRowsCount == 0)
+                    {
+                        return;
+                    }
+                    if (ObjEArticle == null)
+                       ObjEArticle = new EArticles();
+                    GetDimensionDetails();
+                    frmAddDimension frm = new frmAddDimension();
+                    frm.ObjEArticle = ObjEArticle;
+                    frm.ShowDialog();
+                    if (frm.DialogResult == DialogResult.OK)
+                    {
+                        ObjBArticle.GetArticle(ObjEArticle);
+                        BindDimensions(ObjEArticle.WIID);
+                        Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void GetDimensionDetails()
+        {
+            try
+            {
+                ObjEArticle.DimensionID = Convert.ToInt32(gvDimensions.GetFocusedRowCellValue("DimensionID"));
+                ObjEArticle.A = gvDimensions.GetFocusedRowCellValue("A") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("A").ToString();
+                ObjEArticle.B = gvDimensions.GetFocusedRowCellValue("B") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("B").ToString();
+                ObjEArticle.L = gvDimensions.GetFocusedRowCellValue("L") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("L").ToString();
+                ObjEArticle.ListPrice = Convert.ToDecimal(gvDimensions.GetFocusedRowCellValue("ListPrice") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("ListPrice"));
+                ObjEArticle.Minuten = Convert.ToDecimal(gvDimensions.GetFocusedRowCellValue("Minuten") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("Minuten"));
+                ObjEArticle.GMulti = Convert.ToDecimal(gvDimensions.GetFocusedRowCellValue("GMulti") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("GMulti"));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                ObjBArticle.GetArticle(ObjEArticle);
+                BindDimensions(ObjEArticle.WIID);
+                Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
+            }
+        }
+
     }
 }

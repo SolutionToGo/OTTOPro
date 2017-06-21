@@ -279,7 +279,7 @@
             // 
             this.btnNew.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnNew.Appearance.Options.UseFont = true;
-            this.btnNew.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.Image")));
+            this.btnNew.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNew.ImageOptions.Image")));
             this.btnNew.Location = new System.Drawing.Point(575, 341);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(49, 22);
@@ -327,7 +327,7 @@
             // 
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.Appearance.Options.UseFont = true;
-            this.btnSave.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSave.Location = new System.Drawing.Point(628, 341);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(93, 22);
@@ -340,7 +340,7 @@
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCancel.Appearance.Options.UseFont = true;
-            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(725, 341);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(98, 22);
@@ -478,7 +478,6 @@
             this.gcDimensions.TabIndex = 6;
             this.gcDimensions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDimensions});
-            this.gcDimensions.EditorKeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gcDimensions_EditorKeyPress);
             // 
             // gvDimensions
             // 
@@ -501,8 +500,11 @@
             this.gridColumn16,
             this.gridColumn17,
             this.gridColumn19});
+            this.gvDimensions.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvDimensions.GridControl = this.gcDimensions;
             this.gvDimensions.Name = "gvDimensions";
+            this.gvDimensions.OptionsBehavior.Editable = false;
+            this.gvDimensions.OptionsBehavior.ReadOnly = true;
             this.gvDimensions.OptionsCustomization.AllowColumnMoving = false;
             this.gvDimensions.OptionsCustomization.AllowColumnResizing = false;
             this.gvDimensions.OptionsCustomization.AllowGroup = false;
@@ -510,7 +512,7 @@
             this.gvDimensions.OptionsView.ShowGroupPanel = false;
             this.gvDimensions.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDimensions_CellValueChanged);
             this.gvDimensions.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvDimensions_BeforeLeaveRow);
-            this.gvDimensions.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gvDimensions_KeyPress);
+            this.gvDimensions.DoubleClick += new System.EventHandler(this.gvDimensions_DoubleClick);
             // 
             // gridColumn8
             // 

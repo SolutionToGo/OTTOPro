@@ -139,7 +139,6 @@ namespace OTTOPro
 
         }
 
-
         private void frmSaveArticle_Load(object sender, EventArgs e)
         {
             try

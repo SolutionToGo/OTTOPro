@@ -2362,6 +2362,7 @@ namespace OTTOPro
             {
                 Color _Color = Color.FromArgb(255, 135, 0);
                 tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+                LCGLVDetails.AppearanceGroup.BackColor = _Color;
                 _IsAddhoc = false;
                 CreateNewPosition();
             }
@@ -2668,6 +2669,8 @@ namespace OTTOPro
                 btnCancel_Click(null, null);
                 Color _Color = Color.FromArgb(0, 158, 224);
                 tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+                LCGLVDetails.AppearanceGroup.BackColor = _Color;
+
             }
         }
 
