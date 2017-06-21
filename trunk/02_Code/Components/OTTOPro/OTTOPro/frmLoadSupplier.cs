@@ -42,37 +42,8 @@ namespace OTTOPro
         private void btnAddArticles_Click(object sender, EventArgs e)
         {
             try
-            {
-                //if (_IsSaveDimension)
-                //    throw new Exception("Bitte Speichern der Maße");
-
-                //if (ObjESupplier == null)
-                //    ObjESupplier = new ESupplier();
-                //if(_IsSave)
-                //{
-                //    int RowHandle = gvArticles.FocusedRowHandle;
-                //    GetArticleDetails(RowHandle);
-                //}
-                //ObjESupplier.WGWAID = -1;
-                //ObjESupplier.SupplierID = _SupplierID;
-                //if (ObjESupplier.dtArticle != null)
-                //{
-                //    DataView dvArticle = ObjESupplier.dtArticle.DefaultView;
-                //    dvArticle.RowFilter = "SupplierID = '" + _SupplierID + "'";
-                //    DataRowView rowView = dvArticle.AddNew();
-                //    rowView["WGWAID"] = "-1";
-                //    rowView["SupplierID"] = _SupplierID;
-                //    rowView["WG"] = "";
-                //    rowView["WA"] = "";
-                //    rowView["WGDescription"] = "";
-                //    rowView.EndEdit();
-                //    gcArticles.DataSource = dvArticle;
-                //    gvArticles.BestFitColumns();
-                //    _IsSaveDimension = true;
-
-                //}
-                    //if (ObjESupplier == null)
-                        ObjESupplier = new ESupplier();
+            {                
+                    ObjESupplier = new ESupplier();
                     ObjESupplier.WGWAID = -1;
                     ObjESupplier.SupplierID = _SupplierID;
                     frmSaveArticle frm = new frmSaveArticle();
@@ -87,6 +58,10 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
+            }
+            finally
+            {
+                ObjBSupplier.GetSupplier(ObjESupplier);
             }
         }
 

@@ -374,6 +374,10 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
+            finally
+            {
+                ObjBArticle.GetArticle(ObjEArticle);
+            }
         }
 
         private void gvDimensions_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
