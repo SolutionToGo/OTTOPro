@@ -99,10 +99,11 @@ namespace EL
         private int _SNO;
         private int _RasterCount;
 
-
         //Copy of LVs
         private DataTable _dtCopyNewLVs;
         private DataTable _dtCopyOldLVs;
+
+        private DataTable _dtDimensions;
 
         public DataTable dtCopyNewLVs
         {
@@ -543,6 +544,11 @@ namespace EL
         {
             get { return _RasterCount; }
             set { _RasterCount = value; }
+        }
+        public DataTable dtDimensions
+        {
+            get { return _dtDimensions; }
+            set { _dtDimensions = value; }
         }
     }
 }

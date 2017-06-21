@@ -4733,7 +4733,6 @@ e.Column.FieldName == "GB")
             }
         }
 
-
         private void LoadExistingRasters()
         {
             try
@@ -4754,7 +4753,6 @@ e.Column.FieldName == "GB")
             }
 
         }
-
 
         private void txtSurchargeFrom_Validating(object sender, CancelEventArgs e)
         {
@@ -5280,6 +5278,25 @@ e.Column.FieldName == "GB")
                 ObjEPosition.Type = txtType.Text;
                 ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                 ObjEPosition = ObjBPosition.GetArticleByTyp(ObjEPosition);
+                if (ObjEPosition.dtDimensions != null && ObjEPosition.dtDimensions.Rows.Count > 0)
+                {
+                    if (ObjEPosition.dtDimensions.Rows.Count > 1)
+                    {
+                        frmSelectDimension Obj = new frmSelectDimension();
+                        Obj.ObjEPosition = ObjEPosition;
+                        Obj.ShowInTaskbar = false;
+                        Obj.ShowDialog();
+                    }
+                    else
+                    {
+                        ObjEPosition.Dim1 = ObjEPosition.dtDimensions.Rows[0]["A"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["A"].ToString();
+                        ObjEPosition.Dim2 = ObjEPosition.dtDimensions.Rows[0]["B"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["B"].ToString();
+                        ObjEPosition.Dim3 = ObjEPosition.dtDimensions.Rows[0]["L"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["L"].ToString();
+                        ObjEPosition.LPMA = ObjEPosition.dtDimensions.Rows[0]["ListPrice"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["ListPrice"]);
+                        ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[0]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["Minuten"]);
+                    }
+                }
+
                 txtWG.Text = ObjEPosition.WG;
                 txtWA.Text = ObjEPosition.WA;
                 txtWI.Text = ObjEPosition.WI;
@@ -5323,20 +5340,38 @@ e.Column.FieldName == "GB")
                 ObjEPosition.WI = txtWI.Text;
                 ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                 ObjEPosition = ObjBPosition.GetArticleByWI(ObjEPosition);
+                if (ObjEPosition.dtDimensions != null && ObjEPosition.dtDimensions.Rows.Count > 0)
+                {
+                    if(ObjEPosition.dtDimensions.Rows.Count > 1)
+                    {
+                        frmSelectDimension Obj = new frmSelectDimension();
+                        Obj.ObjEPosition = ObjEPosition;
+                        Obj.ShowInTaskbar = false;
+                        Obj.ShowDialog();
+                    }
+                    else
+                    {
+                        ObjEPosition.Dim1 = ObjEPosition.dtDimensions.Rows[0]["A"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["A"].ToString();
+                        ObjEPosition.Dim2 = ObjEPosition.dtDimensions.Rows[0]["B"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["B"].ToString();
+                        ObjEPosition.Dim3 = ObjEPosition.dtDimensions.Rows[0]["L"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["L"].ToString();
+                        ObjEPosition.LPMA = ObjEPosition.dtDimensions.Rows[0]["ListPrice"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["ListPrice"]);
+                        ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[0]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["Minuten"]);
+                    }
+                }
                 txtType.Text = ObjEPosition.Type;
                 txtFabrikate.Text = ObjEPosition.Fabricate;
                 txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
                 cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
-                txtDim1.Text = ObjEPosition.Dim1;
-                txtDim2.Text = ObjEPosition.Dim2;
-                txtDim3.Text = ObjEPosition.Dim3;
-                txtMin.Text = ObjEPosition.Mins.ToString();
-                txtFaktor.Text = ObjEPosition.Faktor.ToString();
-                txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
                 txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
                 txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
                 txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
                 txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
+                txtFaktor.Text = ObjEPosition.Faktor.ToString();
+                txtDim1.Text = ObjEPosition.Dim1;
+                txtDim2.Text = ObjEPosition.Dim2;
+                txtDim3.Text = ObjEPosition.Dim3;
+                txtMin.Text = ObjEPosition.Mins.ToString();
+                txtLPMe.Text = ObjEPosition.LPMA.ToString();
             }
             catch (Exception ex)
             {

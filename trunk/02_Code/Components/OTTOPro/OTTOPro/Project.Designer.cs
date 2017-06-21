@@ -2080,7 +2080,6 @@
             this.txtWI.StyleController = this.layoutControl3;
             this.txtWI.TabIndex = 12;
             this.txtWI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
-            this.txtWI.Leave += new System.EventHandler(this.txtWI_Leave);
             // 
             // txtWA
             // 
@@ -2095,7 +2094,6 @@
             this.txtWA.StyleController = this.layoutControl3;
             this.txtWA.TabIndex = 11;
             this.txtWA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
-            this.txtWA.Leave += new System.EventHandler(this.txtWI_Leave);
             // 
             // txtWG
             // 
@@ -2110,7 +2108,6 @@
             this.txtWG.StyleController = this.layoutControl3;
             this.txtWG.TabIndex = 10;
             this.txtWG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
-            this.txtWG.Leave += new System.EventHandler(this.txtWI_Leave);
             // 
             // txtType
             // 
@@ -2123,7 +2120,6 @@
             this.txtType.StyleController = this.layoutControl3;
             this.txtType.TabIndex = 18;
             this.txtType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtType_KeyPress);
-            this.txtType.Leave += new System.EventHandler(this.txtType_Leave);
             // 
             // txtFabrikate
             // 

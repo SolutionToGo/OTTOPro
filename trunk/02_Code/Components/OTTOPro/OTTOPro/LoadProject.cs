@@ -166,5 +166,13 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void frmLoadProject_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                btnLoad_Click(null, null);
+            }
+        }
     }
 }

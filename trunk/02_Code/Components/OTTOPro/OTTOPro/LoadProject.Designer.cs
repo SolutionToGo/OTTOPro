@@ -352,10 +352,12 @@
             this.ClientSize = new System.Drawing.Size(1050, 547);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "frmLoadProject";
             this.Text = "Projekt laden";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmLoadProject_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmLoadProject_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcProjectSearch)).EndInit();
