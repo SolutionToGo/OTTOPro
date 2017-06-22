@@ -1,0 +1,17 @@
+Milestone : 5
+Build Number : 5.1
+
+1.Add new positions to existsing supplier proposal.
+2.Add new Supplier to existing suppier Proposal.
+3.Blatt is not editable now, if it is invoiced.
+4.Surcharge and Vat Calculation in Delivery notes and Invoice.
+5.Get Raster from GAEB Checkbox moved under raster dropdown.
+6.Deleting Titles and SubTitles if no childs are exist.
+7.Multi's Should not be updated to montage when pulling details from Article Metadata.
+8.Showing list of dimensions in a grid, when we enter article or Typ in LV Details and Press Enter.
+9.Implemented popup to add an article in supplier Metadata.
+10.Implemented popup to add dimenson in Article data.
+11.Changing the colour whne we click on new button in VL details.
+12.Showing detailKz positions in different colour in LV details Treelist.
+13.Saving the umlage values before submitting.
+14.Invoice Reports.
