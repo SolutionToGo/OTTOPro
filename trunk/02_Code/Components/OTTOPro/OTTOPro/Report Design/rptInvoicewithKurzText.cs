@@ -39,30 +39,6 @@ namespace OTTOPro.Report_Design
         }
 
         double totalUnits = 0;
-        private void xrLabel26_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        {
-            e.Result = totalUnits;
-            e.Handled = true;
-        }
-
-        private void xrLabel26_SummaryReset(object sender, EventArgs e)
-        {
-            totalUnits = 0;
-        }
-
-        private void xrLabel26_SummaryRowChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
-                xrLblGB.Text = Convert.ToDouble(totalUnits).ToString("n2");
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         int i = 0;
         private void TopMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -78,6 +54,31 @@ namespace OTTOPro.Report_Design
         void cont_PrintOnPage(object sender, PrintOnPageEventArgs e)
         {
             e.Cancel = e.PageIndex == 0;
+        }
+
+
+        private void xrLabel42_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalUnits.ToString("n2");
+            e.Handled = true;
+        }
+
+        private void xrLabel42_SummaryReset(object sender, EventArgs e)
+        {
+            // totalUnits = 0;
+        }
+
+        private void xrLabel42_SummaryRowChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
     }
 }

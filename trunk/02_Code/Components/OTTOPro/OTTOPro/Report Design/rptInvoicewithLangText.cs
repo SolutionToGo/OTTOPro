@@ -13,33 +13,8 @@ namespace OTTOPro.Report_Design
             InitializeComponent();
         }
         double totalUnits = 0;
-        double CurrentGroupSum = 0;
-        private void xrLabel26_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        {
-            //foreach (decimal val in e.CalculatedValues)
-            //    CurrentGroupSum += Convert.ToDouble(val);
-            //e.Result = CurrentGroupSum;
-        }
-
-        private void xrLabel26_SummaryReset(object sender, EventArgs e)
-        {
-            //totalUnits = 0;
-        }
-
-        private void xrLabel26_SummaryRowChanged(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-            //        totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
-            //    // xrLblGB.Text = Convert.ToDouble(totalUnits).ToString("n2");
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}         
-        }
         double totalUnits1 = 0;
+        double GrandTotals = 0;
         private void xrLabel25_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = totalUnits1;
@@ -78,7 +53,33 @@ namespace OTTOPro.Report_Design
         void cont_PrintOnPage(object sender, PrintOnPageEventArgs e)
         {
             e.Cancel = e.PageIndex == 0;
+        }        
+
+        private void xrLabel42_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalUnits.ToString("n2");
+            e.Handled = true;
         }
+
+        private void xrLabel42_SummaryReset(object sender, EventArgs e)
+        {
+           // totalUnits = 0;
+        }
+
+        private void xrLabel42_SummaryRowChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }      
+        }
+
+       
        
 
     }
