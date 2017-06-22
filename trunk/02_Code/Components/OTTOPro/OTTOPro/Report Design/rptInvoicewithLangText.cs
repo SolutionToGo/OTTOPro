@@ -13,29 +13,31 @@ namespace OTTOPro.Report_Design
             InitializeComponent();
         }
         double totalUnits = 0;
+        double CurrentGroupSum = 0;
         private void xrLabel26_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            e.Result = totalUnits;
-            e.Handled = true;
+            //foreach (decimal val in e.CalculatedValues)
+            //    CurrentGroupSum += Convert.ToDouble(val);
+            //e.Result = CurrentGroupSum;
         }
 
         private void xrLabel26_SummaryReset(object sender, EventArgs e)
         {
-            totalUnits = 0;
+            //totalUnits = 0;
         }
 
         private void xrLabel26_SummaryRowChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                    totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
-                xrLblGB.Text = Convert.ToDouble(totalUnits).ToString("n2");
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }         
+            //try
+            //{
+            //    if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+            //        totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            //    // xrLblGB.Text = Convert.ToDouble(totalUnits).ToString("n2");
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}         
         }
         double totalUnits1 = 0;
         private void xrLabel25_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
@@ -61,37 +63,23 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }         
         }
-
-        void cont_PrintOnPage(object sender, PrintOnPageEventArgs e)
-        {
-            e.Cancel = e.PageIndex == 0;
-        }
         int i = 0;
-        private void PageHeader_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void TopMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             if (i++ == 0)
             {
-                foreach (XRControl cont in (((PageHeaderBand)sender).Controls))
+                foreach (XRControl cont in (((TopMarginBand)sender).Controls))
                 {
                     cont.PrintOnPage += new PrintOnPageEventHandler(cont_PrintOnPage);
                 }
             }
         }
 
-        int j = 0;
-        private void TopMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        void cont_PrintOnPage(object sender, PrintOnPageEventArgs e)
         {
-            if (j++ == 0)
-            {
-                foreach (XRControl cont in (((TopMarginBand)sender).Controls))
-                {
-                    cont.PrintOnPage += new PrintOnPageEventHandler(cont_PrintOnPageTopMargin);
-                }
-            }
+            e.Cancel = e.PageIndex == 0;
         }
-        void cont_PrintOnPageTopMargin(object sender, PrintOnPageEventArgs e)
-        {
-            e.Cancel = e.PageIndex >=1;
-        }
+       
+
     }
 }

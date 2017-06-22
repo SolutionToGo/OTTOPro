@@ -63,5 +63,21 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }
         }
+
+        int i = 0;
+        private void TopMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (i++ == 0)
+            {
+                foreach (XRControl cont in (((TopMarginBand)sender).Controls))
+                {
+                    cont.PrintOnPage += new PrintOnPageEventHandler(cont_PrintOnPage);
+                }
+            }
+        }
+        void cont_PrintOnPage(object sender, PrintOnPageEventArgs e)
+        {
+            e.Cancel = e.PageIndex == 0;
+        }
     }
 }
