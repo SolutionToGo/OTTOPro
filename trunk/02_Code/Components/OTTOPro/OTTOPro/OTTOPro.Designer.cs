@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup13 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup14 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup15 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -217,13 +217,13 @@
             // 
             // 
             // 
-            galleryItemGroup13.Caption = "Group1";
-            galleryItemGroup14.Caption = "Group2";
-            galleryItemGroup15.Caption = "Group3";
+            galleryItemGroup1.Caption = "Group1";
+            galleryItemGroup2.Caption = "Group2";
+            galleryItemGroup3.Caption = "Group3";
             this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup13,
-            galleryItemGroup14,
-            galleryItemGroup15});
+            galleryItemGroup1,
+            galleryItemGroup2,
+            galleryItemGroup3});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -443,12 +443,12 @@
             this.BarButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BarButtonItem10.ImageOptions.Image")));
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem5.Text = "Otto Pro";
-            toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "Maintains Customer Information";
-            superToolTip5.Items.Add(toolTipTitleItem5);
-            superToolTip5.Items.Add(toolTipItem5);
-            this.BarButtonItem10.SuperTip = superToolTip5;
+            toolTipTitleItem1.Text = "Otto Pro";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Maintains Customer Information";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            this.BarButtonItem10.SuperTip = superToolTip1;
             // 
             // statusStrip1
             // 
@@ -501,11 +501,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(916, 110);
+            this.label1.Location = new System.Drawing.Point(919, 123);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 26);
+            this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 1.6 (12-06-2017) Release Nr : 6";
+            this.label1.Text = "Version 5.1 (22-06-2017)";
             // 
             // fdImportFile
             // 
