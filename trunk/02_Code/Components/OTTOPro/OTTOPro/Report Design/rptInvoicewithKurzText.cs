@@ -39,24 +39,41 @@ namespace OTTOPro.Report_Design
         }
 
         double totalUnits = 0;
-        private void xrLabel26_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+
+        int i = 0;
+        private void TopMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            e.Result = totalUnits;
+            if (i++ == 0)
+            {
+                foreach (XRControl cont in (((TopMarginBand)sender).Controls))
+                {
+                    cont.PrintOnPage += new PrintOnPageEventHandler(cont_PrintOnPage);
+                }
+            }
+        }
+        void cont_PrintOnPage(object sender, PrintOnPageEventArgs e)
+        {
+            e.Cancel = e.PageIndex == 0;
+        }
+
+
+        private void xrLabel42_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = totalUnits.ToString("n2");
             e.Handled = true;
         }
 
-        private void xrLabel26_SummaryReset(object sender, EventArgs e)
+        private void xrLabel42_SummaryReset(object sender, EventArgs e)
         {
-            totalUnits = 0;
+            // totalUnits = 0;
         }
 
-        private void xrLabel26_SummaryRowChanged(object sender, EventArgs e)
+        private void xrLabel42_SummaryRowChanged(object sender, EventArgs e)
         {
             try
             {
                 if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
                     totalUnits += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
-                xrLblGB.Text = Convert.ToDouble(totalUnits).ToString("n2");
             }
             catch (Exception ex)
             {
