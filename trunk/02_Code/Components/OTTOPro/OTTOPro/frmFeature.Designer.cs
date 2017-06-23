@@ -86,7 +86,7 @@
             // 
             // btnSaveFeature
             // 
-            this.btnSaveFeature.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveFeature.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveFeature.Location = new System.Drawing.Point(713, 659);
             this.btnSaveFeature.Name = "btnSaveFeature";
             this.btnSaveFeature.Size = new System.Drawing.Size(84, 22);

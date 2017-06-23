@@ -40,9 +40,9 @@ namespace EL
 	    private string _A;
 	    private string _B;
 	    private string _L;
-	    private decimal _ListPrice;
+	    private decimal _ListPrice = 0;
         private decimal _GMulti;
-	    private decimal _Minuten;
+	    private decimal _Minuten = 0;
 
         private int _TypID = -1;
         private int _SupplierID;

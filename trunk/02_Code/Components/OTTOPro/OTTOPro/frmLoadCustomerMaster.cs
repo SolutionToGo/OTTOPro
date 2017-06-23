@@ -49,6 +49,7 @@ namespace OTTOPro
                 {                   
                     BindCustomerData();
                     Setfocus(gvCustomers, "CustomerID",ObjECustomer.Customer_CustomerID);
+                    frmOTTOPro.UpdateStatus("Customer data saved successfully");
                 }
             }
             catch (Exception ex)
@@ -81,6 +82,7 @@ namespace OTTOPro
                 {
                     BindContactData();
                     Setfocus(gvContacts, "ContactPersonID", ObjECustomer.ContactPersonID);
+                    frmOTTOPro.UpdateStatus("Customer contact saved successfully");
                 }
             }
             catch (Exception ex)
@@ -113,6 +115,7 @@ namespace OTTOPro
                 {
                     BindAddressData();
                     Setfocus(gvAddress, "AddressID", ObjECustomer.AddressID);
+                    frmOTTOPro.UpdateStatus("Customer address saved successfully");
                 }
             }
             catch (Exception ex)

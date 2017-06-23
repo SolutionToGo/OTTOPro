@@ -53,6 +53,7 @@ namespace OTTOPro
                     {
                         BindArticleData(_SupplierID);
                         Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
+                        frmOTTOPro.UpdateStatus("Article saved successfully");
                     }
             }
             catch (Exception ex)
@@ -79,6 +80,7 @@ namespace OTTOPro
                 {
                     BindSupplierData();
                     Setfocus(gvSupplier, "SupplierID", ObjESupplier.SupplierID);
+                    frmOTTOPro.UpdateStatus("Supplier data saved successfully");
                 }
             }
             catch (Exception ex)
@@ -113,6 +115,7 @@ namespace OTTOPro
                 {
                     BindContactData(_SupplierID);
                     Setfocus(gvContact, "ContactPersonID", ObjESupplier.ContactPersonID);
+                    frmOTTOPro.UpdateStatus("Supplier Contact saved successfully");
                 }
             }
             catch (Exception ex)
@@ -147,6 +150,7 @@ namespace OTTOPro
                 {
                     BindAddressData(_SupplierID);
                     Setfocus(gvAddress, "AddressID", ObjESupplier.AddressID);
+                    frmOTTOPro.UpdateStatus("Supplier Address saved successfully");
                 }
             }
             catch (Exception ex)

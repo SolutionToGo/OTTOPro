@@ -81,6 +81,7 @@ namespace OTTOPro
                     _IsNew = false;
                     gvWGWA_FocusedRowChanged(null, null);
                 }
+                frmOTTOPro.UpdateStatus("Article saved successfully");
             }
             catch (Exception ex)
             {
@@ -324,6 +325,13 @@ namespace OTTOPro
         {
             try
             {
+                if (ObjEArticle.WIID < 0)
+                {
+                    if (!Utility._IsGermany)
+                        throw new Exception("Please Select The Article");
+                    else
+                        throw new Exception("Bitte wählen Sie einen Artikel");
+                }
                 decimal dValue = 0;
                 decimal GMulti = 1;
                 if (!decimal.TryParse(txtMulti1.Text, out dValue))
@@ -345,17 +353,6 @@ namespace OTTOPro
                 else
                     GMulti = GMulti * dValue;
                 
-                if (ObjEArticle.WIID < 0)
-                {
-                    if (!Utility._IsGermany)
-                    {
-                        throw new Exception("Please Select The Article");
-                    }
-                    else
-                    {
-                        throw new Exception("Bitte wählen Sie einen Artikel");
-                    }
-                }
                 ObjEArticle = new EArticles();
                 ObjEArticle.DimensionID = -1;
                 ObjEArticle.WIID = _WIIDValue;
@@ -368,6 +365,7 @@ namespace OTTOPro
                     ObjBArticle.GetArticle(ObjEArticle);
                     BindDimensions(ObjEArticle.WIID);
                     Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
+                    frmOTTOPro.UpdateStatus("Dimension saved successfully");
                 }
             }
             catch (Exception ex)

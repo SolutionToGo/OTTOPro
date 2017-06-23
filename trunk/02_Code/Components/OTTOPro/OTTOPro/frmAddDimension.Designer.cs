@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -74,6 +74,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl1.Controls.Add(this.btnSave);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.txtMinuten);
@@ -128,6 +129,7 @@
             this.txtMinuten.Size = new System.Drawing.Size(233, 20);
             this.txtMinuten.StyleController = this.layoutControl1;
             this.txtMinuten.TabIndex = 8;
+            this.txtMinuten.Tag = "Minuten";
             // 
             // txtListenPrice
             // 
@@ -140,14 +142,17 @@
             this.txtListenPrice.Size = new System.Drawing.Size(233, 20);
             this.txtListenPrice.StyleController = this.layoutControl1;
             this.txtListenPrice.TabIndex = 7;
+            this.txtListenPrice.Tag = "Listen Preis";
             // 
             // txtL
             // 
             this.txtL.Location = new System.Drawing.Point(88, 72);
             this.txtL.Name = "txtL";
+            this.txtL.Properties.MaxLength = 3;
             this.txtL.Size = new System.Drawing.Size(233, 20);
             this.txtL.StyleController = this.layoutControl1;
             this.txtL.TabIndex = 6;
+            this.txtL.Tag = "L";
             this.txtL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
             // 
             // txtB
@@ -156,12 +161,14 @@
             this.dxValidationProviderB.SetIconAlignment(this.txtB, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtB.Location = new System.Drawing.Point(88, 48);
             this.txtB.Name = "txtB";
+            this.txtB.Properties.MaxLength = 3;
             this.txtB.Size = new System.Drawing.Size(233, 20);
             this.txtB.StyleController = this.layoutControl1;
             this.txtB.TabIndex = 5;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Bitte eingeben B";
-            this.dxValidationProviderB.SetValidationRule(this.txtB, conditionValidationRule3);
+            this.txtB.Tag = "B";
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Bitte eingeben B";
+            this.dxValidationProviderB.SetValidationRule(this.txtB, conditionValidationRule1);
             this.txtB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
             // 
             // txtA
@@ -170,12 +177,14 @@
             this.dxValidationProviderB.SetIconAlignment(this.txtA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtA.Location = new System.Drawing.Point(88, 24);
             this.txtA.Name = "txtA";
+            this.txtA.Properties.MaxLength = 3;
             this.txtA.Size = new System.Drawing.Size(233, 20);
             this.txtA.StyleController = this.layoutControl1;
             this.txtA.TabIndex = 4;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Bitte eingeben A";
-            this.dxValidationProviderA.SetValidationRule(this.txtA, conditionValidationRule1);
+            this.txtA.Tag = "A";
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Bitte eingeben A";
+            this.dxValidationProviderA.SetValidationRule(this.txtA, conditionValidationRule2);
             this.txtA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
             // 
             // layoutControlGroup1

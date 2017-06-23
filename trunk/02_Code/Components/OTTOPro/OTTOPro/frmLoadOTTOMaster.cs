@@ -46,6 +46,7 @@ namespace OTTOPro
                 {
                     BindOTTOData();
                     Setfocus(gvOTTO, "OttoID", ObjEOTTO.OTTOID);
+                    frmOTTOPro.UpdateStatus("OTTO Data saved successfully");
                 }
             }
             catch (Exception ex)
@@ -78,6 +79,7 @@ namespace OTTOPro
                 {
                     BindContactData();
                     Setfocus(gvOTTOContact, "ContactID", ObjEOTTO.ContactID);
+                    frmOTTOPro.UpdateStatus("OTTO contact saved successfully");
                 }
             }
             catch (Exception ex)

@@ -79,7 +79,7 @@ namespace OTTOPro
         private void frmSelectCustomer_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
-                gvCustomer_FocusedRowChanged(null, null);
+                btnOk_Click(null, null);
         }
 //*****************
     }

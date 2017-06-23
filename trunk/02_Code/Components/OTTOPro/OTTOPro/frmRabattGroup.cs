@@ -40,6 +40,7 @@ namespace OTTOPro
                 iValue = ObjEArticle.RabattID;
                 BindRabattData();
                 Utility.Setfocus(gvRabatt, "RabattID", iValue);
+                frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
             }
             catch (Exception ex)
             {

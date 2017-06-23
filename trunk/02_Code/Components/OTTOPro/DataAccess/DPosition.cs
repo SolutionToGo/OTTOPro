@@ -523,6 +523,7 @@ namespace DataAccess
                     }
                     else
                     {
+                        ObjEPositon.dtDimensions = null;
                         ObjEPositon.WG = string.Empty;
                         ObjEPositon.WA = string.Empty;
                         ObjEPositon.WI = string.Empty;
@@ -584,6 +585,7 @@ namespace DataAccess
                     }
                     else
                     {
+                        ObjEPositon.dtDimensions = null;
                         ObjEPositon.Type = string.Empty;
                         ObjEPositon.Fabricate = string.Empty;
                         ObjEPositon.ME = string.Empty;

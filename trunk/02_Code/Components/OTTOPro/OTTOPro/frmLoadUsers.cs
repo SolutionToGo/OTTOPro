@@ -115,6 +115,7 @@ namespace OTTOPro
                 ObjEUserInfo.UserID = ObjBUserInfo.SaveUserDetails(ObjEUserInfo);
                 BindUserData();
                 ClearData();
+                frmOTTOPro.UpdateStatus("User Data Saved successfully");
             }
             catch (Exception ex)
             {

@@ -518,18 +518,6 @@ namespace OTTOPro
             //    _NeedConfirm = false;
         }
 
-        private void UpdateStatus(string Status)
-        {
-            tsProjectStatus.Text = Status;
-
-        }
-
-        private void tmrStatus_Tick(object sender, EventArgs e)
-        {
-            tsProjectStatus.Text = null;
-            tmrStatus.Stop();
-        }
-
         private void IntializeLVPositions()
         {
             try
@@ -1546,15 +1534,13 @@ namespace OTTOPro
                         btnProjectSave.Enabled = false;
                         DisalbeProjectControls();
                     }
-                    // tmrStatus.Interval = 5000;
-                    tmrStatus.Start();
                     if (Utility._IsGermany == true)
                     {
-                        UpdateStatus(ObjEProject.ProjectNumber + "  " + "Die Projektangabe wurden erfolgreich gespeichert");
+                       frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + " Die Projektangabe wurden erfolgreich gespeichert");
                     }
                     else
                     {
-                        UpdateStatus(ObjEProject.ProjectNumber + "  " + "Project Details Saved Successfully");
+                       frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + " Project Details Saved Successfully");
                     }
                     BindPositionData();
                     if (ObjEProject.CommissionNumber != string.Empty)
@@ -1634,8 +1620,6 @@ namespace OTTOPro
                 }
                 if (string.IsNullOrEmpty(txtPosition.Text))
                     txtDetailKZ.Text = "0";
-                if (txtDetailKZ.Text != "0")
-                    txtMenge.Text = "1";
                 if (string.IsNullOrEmpty(cmbPositionKZ.Text))
                     cmbPositionKZ.Text = "N";
                 if (ObjEPosition == null)
@@ -1653,6 +1637,7 @@ namespace OTTOPro
                     }
                 }
                 int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
+                frmOTTOPro.UpdateStatus("'" + ObjEPosition.Position_OZ + "'" + " OZ Saved Successfully");
 
                 Color _Color = Color.FromArgb(0, 158, 224);
                 tlPositions.Appearance.HeaderPanel.BackColor = _Color;
@@ -1678,7 +1663,6 @@ namespace OTTOPro
                 {
                     tlPositions.MoveNext();
                 }
-
             }
             catch (Exception ex)
             {
@@ -2294,7 +2278,6 @@ namespace OTTOPro
 
                 if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                 {
-                    tsProjectStatus.Text = "";
                     BindPositionData();
                     FormatLVFields();
                     setMask();
@@ -2538,6 +2521,9 @@ namespace OTTOPro
                 txtMin.Text = "0";
                 txtLPMe.Text = "0";
                 txtDetailKZ.Text = "0";
+                txtEP.Text = "0";
+                txtFinalGB.Text = "0";
+                
             }
             catch (Exception ex)
             {
@@ -4109,7 +4095,7 @@ namespace OTTOPro
                     tType = "Set";
                 }
                 ObjBPosition.UpdateBulkProcess_ActionA(ObjEPosition, ObjEProject.ProjectID, tType, Convert.ToDecimal(txtMulti5MA.Text), Convert.ToDecimal(txtMulti5MO.Text), Convert.ToDecimal(txtMulti6MA.Text), Convert.ToDecimal(txtMulti6MO.Text), dtPos);
-
+                frmOTTOPro.UpdateStatus("LV Positions Saved Successfully");
                 BindPositionData();
                 btnApply_Click(null, null);
             }
@@ -4473,7 +4459,7 @@ namespace OTTOPro
                 ObjBPosition.UpdateBulkProcess_ActionB(ObjEPosition, ObjEProject.ProjectID, tType, txtPositionMenge.Text, txtMaterialKz.Text, txtMontageKZ.Text,
                                                       txtPreisErstaztext.Text, txtFabrikat.Text, txtTyp.Text, txtBulkLieferantMA.Text, txtArtikelnummerWG.Text,
                                                       txtArtikelnummerWA.Text, txtArtikelnummerWI.Text, txtNachtragsnummer.Text, dtPos);
-
+                frmOTTOPro.UpdateStatus("LV Positions Saved Successfully");
                 btnApply_Click(null, null);
                 ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.dtLVSection != null && ObjEProject.dtLVSection.Rows.Count > 0)
@@ -4957,6 +4943,7 @@ e.Column.FieldName == "GB")
                 ObjEMulti.ProjectID = ObjEProject.ProjectID;
                 ObjEMulti.LVSection = cmbLVSectionFilter.Text;
                 ObjEMulti = ObjBMulti.UpdateMulti5(ObjEMulti);
+                frmOTTOPro.UpdateStatus("Selbstkosten Saved Successfully");
             }
             catch (Exception EX)
             {
@@ -5076,6 +5063,7 @@ e.Column.FieldName == "GB")
                 ObjEMulti.LVSection = cmbMulti6LVFilter.Text;
                 ObjEMulti.Type = cmbType.Text;
                 ObjEMulti = ObjBMulti.UpdateMulti6(ObjEMulti);
+                frmOTTOPro.UpdateStatus("Verkaufskosten Saved Successfully");
             }
             catch (Exception EX)
             {
@@ -5157,6 +5145,7 @@ e.Column.FieldName == "GB")
                 if (ObjEUmlage.dtSpecialCost.Rows.Count > 0)
                 {
                     ObjEUmlage = ObjBUmlage.UpdateSpecialCost(ObjEUmlage);
+                    frmOTTOPro.UpdateStatus("Umlage Updated Successfully");
                 }
                 else
                 {
@@ -5957,7 +5946,7 @@ e.Column.FieldName == "GB")
                 ObjEDeliveryNotes.dtDelivery = Temp;
 
                 ObjEDeliveryNotes = ObjBDeliveryNotes.SaveDelivery(ObjEDeliveryNotes);
-                Utility.ShowSucces("'" + txtBlattNumber.Text + "'" + " wurde erfolgreich gespeichert");
+                frmOTTOPro.UpdateStatus("'" + txtBlattNumber.Text + "'" + " wurde erfolgreich gespeichert");
                 if (chkActiveDelivery.Checked == false)
                     LoadNonActiveDelivery();
                 else
@@ -6264,6 +6253,7 @@ e.Column.FieldName == "GB")
                 ObjEInvoice = oBJBInvoice.SaveInvoice(ObjEInvoice);
                 gcDeliveryNotes.DataSource = ObjEInvoice.dtBlattNumbers;
                 gcInvoices.DataSource = ObjEInvoice.dtInvoices;
+                frmOTTOPro.UpdateStatus("'" + txtInvoiceNumber.Text + "' Invoice Saved Successfully");
                 txtInvoiceNumber.Text = string.Empty;
             }
             catch (Exception ex)
@@ -7007,7 +6997,7 @@ e.Column.FieldName == "GB")
                 }
                 ObjESupplier.ProjectID = ObjEProject.ProjectID;
                 ObjESupplier = ObjBSupplier.UpdateSupplierPrice(ObjESupplier);
-                Utility.ShowSucces("Preisübersicht für Lieferanten wurde erfolgreich aktualisiert");
+                frmOTTOPro.UpdateStatus("Preisübersicht für Lieferanten wurde erfolgreich aktualisiert");
                 gvProposal_FocusedRowChanged(null, null);
             }
             catch (Exception ex)
@@ -7067,6 +7057,7 @@ e.Column.FieldName == "GB")
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
 
                     ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
+                    frmOTTOPro.UpdateStatus("Suppier price saved successfully");
                 }
             }
             catch (Exception ex)
@@ -7844,6 +7835,7 @@ e.Column.FieldName == "GB")
                     gvDeletedDetails.BestFitColumns();
                     gvProposedDetails.BestFitColumns();
                     gvProposedSupplier.BestFitColumns();
+                    frmOTTOPro.UpdateStatus("Proposal generated successfully");
                 }
             }
             catch (Exception ex)
@@ -7898,6 +7890,7 @@ e.Column.FieldName == "GB")
                 if (ObjEUmlage.dtSpecialCost.Rows.Count > 0)
                 {
                     ObjEUmlage = ObjBUmlage.SaveSpecialCost(ObjEUmlage);
+                    frmOTTOPro.UpdateStatus("Umlage Values Saved Successfully");
                 }
             }
             catch (Exception ex)

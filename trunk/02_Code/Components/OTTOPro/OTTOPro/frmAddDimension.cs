@@ -15,10 +15,10 @@ namespace OTTOPro
 {
     public partial class frmAddDimension : DevExpress.XtraEditors.XtraForm
     {
-
+        List<Control> Requirefields = new List<Control>();
         BArticles ObjBArticle = null;
         private EArticles _ObjEArticle = null;
-        bool _isValidate = true;
+        bool _isValidate = false;
 
         public frmAddDimension()
         {
@@ -41,46 +41,22 @@ namespace OTTOPro
 
         #endregion
 
-        private void ValidatControls()
-        {
-            try
-            {
-                bool isValidA = dxValidationProviderA.Validate(txtA);
-                bool isvalidB = dxValidationProviderB.Validate(txtB);
-                if (!isValidA || !isvalidB)
-                {
-                    _isValidate = false;
-                }
-                else
-                {
-                    _isValidate = true;
-                }
-            }
-            catch (Exception Ex)
-            {
-                throw;
-            }
-
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                ValidatControls();
-                if (_isValidate == true)
-                {
-                    if (ObjBArticle == null)
-                        ObjBArticle = new BArticles();
-                    ParseSupplierDetails();
+                if (!Utility.ValidateRequiredFields(Requirefields))
+                    return;
+                if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
-                    ObjBArticle.SaveDimension(_ObjEArticle);
-                    this.Close();
-                }                
+                ParseSupplierDetails();
+                ObjBArticle = new BArticles();
+                ObjBArticle.SaveDimension(_ObjEArticle);
+                _isValidate = true; 
             }
             catch (Exception ex)
             {
-                throw;
+                Utility.ShowError(ex);
             }            
         }
 
@@ -88,23 +64,29 @@ namespace OTTOPro
         {
             try
             {
+                decimal dValue = 0;
                 _ObjEArticle.A = txtA.Text;
                 _ObjEArticle.B = txtB.Text;
                 _ObjEArticle.L = txtL.Text;
-                _ObjEArticle.ListPrice =Convert.ToDecimal(txtListenPrice.Text);
-                _ObjEArticle.Minuten = Convert.ToDecimal(txtMinuten.Text);
+                if (decimal.TryParse(txtListenPrice.Text, out dValue))
+                    _ObjEArticle.ListPrice = dValue;
+                if (decimal.TryParse(txtMinuten.Text, out dValue))
+                    _ObjEArticle.Minuten = Convert.ToDecimal(txtMinuten.Text);
             }
             catch (Exception ex)
             {
                 throw;
             }
-
         }
 
         private void frmAddDimension_Load(object sender, EventArgs e)
         {
             try
             {
+                Requirefields.Add(txtA);
+                Requirefields.Add(txtB);
+                Requirefields.Add(txtListenPrice);
+                Requirefields.Add(txtMinuten);
                 if (_ObjEArticle.DimensionID > 0)
                     BindDimensionDetails();
             }
