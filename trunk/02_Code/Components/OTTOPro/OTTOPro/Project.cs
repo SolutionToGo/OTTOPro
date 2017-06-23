@@ -1639,9 +1639,6 @@ namespace OTTOPro
                 int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
                 frmOTTOPro.UpdateStatus("'" + ObjEPosition.Position_OZ + "'" + " OZ Saved Successfully");
 
-                Color _Color = Color.FromArgb(0, 158, 224);
-                tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-
                 BindPositionData();
                 SetFocus(NewPositionID,tlPositions);
                 if (chkCreateNew.Checked == true)
@@ -1653,6 +1650,10 @@ namespace OTTOPro
                     EnableDisableLVAndCostDetails(false, false, false, false);
                     EnableDisableButtons(true, true, false, true, true);
                     tlPositions.OptionsBehavior.ReadOnly = false;
+
+                    Color _Color = Color.FromArgb(0, 158, 224);
+                    tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
                 }
                 txtStufe1Short_TextChanged(null, null);
                 txtStufe2Short_TextChanged(null, null);
@@ -2343,9 +2344,12 @@ namespace OTTOPro
         {
             try
             {
-                Color _Color = Color.FromArgb(255, 135, 0);
-                tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                if (chkCreateNew.Checked == false)
+                {
+                    Color _Color = Color.FromArgb(255, 135, 0);
+                    tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                }            
                 _IsAddhoc = false;
                 CreateNewPosition();
             }
@@ -3370,13 +3374,13 @@ namespace OTTOPro
                     LCGLVDetails.AppearanceGroup.BackColor = _Color;
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
                 }
-                else
-                {
-                    tlPositions.OptionsBehavior.ReadOnly = false;
-                    Color _Color = Color.FromArgb(0, 158, 224);
-                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
-                    tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                }
+                //else
+                //{
+                //    tlPositions.OptionsBehavior.ReadOnly = false;
+                //    Color _Color = Color.FromArgb(0, 158, 224);
+                //    LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                //    tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+                //}
             }
             catch (Exception)
             {
