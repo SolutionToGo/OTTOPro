@@ -63,6 +63,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl1.Controls.Add(this.btnSave);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.txtDescription);
@@ -79,7 +80,7 @@
             // btnSave
             // 
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSave.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSave.Location = new System.Drawing.Point(169, 149);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 22);
@@ -91,7 +92,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(248, 149);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 22);
@@ -110,11 +111,11 @@
             // 
             // txtWA
             // 
-            this.dxValidationProviderWA.SetIconAlignment(this.txtWA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderWG.SetIconAlignment(this.txtWA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.txtWA.Location = new System.Drawing.Point(99, 36);
+            this.dxValidationProviderWA.SetIconAlignment(this.txtWA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.txtWA.Location = new System.Drawing.Point(113, 36);
             this.txtWA.Name = "txtWA";
-            this.txtWA.Size = new System.Drawing.Size(229, 20);
+            this.txtWA.Size = new System.Drawing.Size(215, 20);
             this.txtWA.StyleController = this.layoutControl1;
             this.txtWA.TabIndex = 5;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -124,11 +125,11 @@
             // 
             // txtWG
             // 
-            this.dxValidationProviderWA.SetIconAlignment(this.txtWG, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderWG.SetIconAlignment(this.txtWG, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.txtWG.Location = new System.Drawing.Point(99, 12);
+            this.dxValidationProviderWA.SetIconAlignment(this.txtWG, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.txtWG.Location = new System.Drawing.Point(113, 12);
             this.txtWG.Name = "txtWG";
-            this.txtWG.Size = new System.Drawing.Size(229, 20);
+            this.txtWG.Size = new System.Drawing.Size(215, 20);
             this.txtWG.StyleController = this.layoutControl1;
             this.txtWG.TabIndex = 4;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
@@ -154,14 +155,16 @@
             // 
             // layoutControlItem1
             // 
-            this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
+            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem1.Control = this.txtWG;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(320, 24);
             this.layoutControlItem1.Text = "WG ";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(98, 13);
             // 
             // emptySpaceItem1
             // 
@@ -173,22 +176,30 @@
             // 
             // layoutControlItem2
             // 
+            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem2.Control = this.txtWA;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(320, 24);
             this.layoutControlItem2.Text = "WA";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(98, 13);
             // 
             // layoutControlItem3
             // 
+            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem3.Control = this.txtDescription;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(320, 89);
             this.layoutControlItem3.Text = "WG Beschreibung";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(84, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(98, 13);
             // 
             // layoutControlItem4
             // 

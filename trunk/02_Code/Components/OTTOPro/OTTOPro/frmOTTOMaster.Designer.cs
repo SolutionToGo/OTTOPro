@@ -412,7 +412,7 @@
             // btnSaveOtto
             // 
             this.btnSaveOtto.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSaveOtto.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveOtto.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveOtto.Location = new System.Drawing.Point(542, 636);
             this.btnSaveOtto.Name = "btnSaveOtto";
             this.btnSaveOtto.Size = new System.Drawing.Size(75, 23);
@@ -424,7 +424,7 @@
             // btnCancelOtto
             // 
             this.btnCancelOtto.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelOtto.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancelOtto.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancelOtto.Location = new System.Drawing.Point(621, 636);
             this.btnCancelOtto.Name = "btnCancelOtto";
             this.btnCancelOtto.Size = new System.Drawing.Size(80, 23);
@@ -610,8 +610,8 @@
             // 
             // txtShortName
             // 
-            this.dxValidationProviderFullName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderShortName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderFullName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtShortName.Location = new System.Drawing.Point(135, 48);
             this.txtShortName.Name = "txtShortName";
@@ -626,8 +626,8 @@
             // 
             // txtFullName
             // 
-            this.dxValidationProviderFullName.SetIconAlignment(this.txtFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderShortName.SetIconAlignment(this.txtFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderFullName.SetIconAlignment(this.txtFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContName.SetIconAlignment(this.txtFullName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtFullName.Location = new System.Drawing.Point(135, 24);
             this.txtFullName.Name = "txtFullName";
@@ -1221,7 +1221,7 @@
             // btnSaveContact
             // 
             this.btnSaveContact.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSaveContact.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveContact.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveContact.Location = new System.Drawing.Point(537, 203);
             this.btnSaveContact.Name = "btnSaveContact";
             this.btnSaveContact.Size = new System.Drawing.Size(78, 22);
@@ -1233,7 +1233,7 @@
             // btnCancelContact
             // 
             this.btnCancelContact.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelContact.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancelContact.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancelContact.Location = new System.Drawing.Point(619, 203);
             this.btnCancelContact.Name = "btnCancelContact";
             this.btnCancelContact.Size = new System.Drawing.Size(82, 22);
@@ -1291,8 +1291,8 @@
             // 
             // txtContactPerson
             // 
-            this.dxValidationProviderFullName.SetIconAlignment(this.txtContactPerson, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderShortName.SetIconAlignment(this.txtContactPerson, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderFullName.SetIconAlignment(this.txtContactPerson, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContName.SetIconAlignment(this.txtContactPerson, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtContactPerson.Location = new System.Drawing.Point(102, 24);
             this.txtContactPerson.Name = "txtContactPerson";

@@ -20,6 +20,7 @@ namespace OTTOPro
         BSupplier ObjBSupplier = null;
         string _SupplierType = null;
         private ESupplier _ObjEsupplier = null;
+
         #region CONSTRUCTORS
 
         public frmSupplierMaster()
@@ -59,13 +60,13 @@ namespace OTTOPro
         {
             try
             {
+
                 if (_SupplierType == "Supplier")
                 {
                     this.Text = "Stammdaten Lieferanten";
                     ObjTabDetails = tbSupplier;
                     TabChange(ObjTabDetails);
                     this.MinimumSize = new System.Drawing.Size(504, 603);
-
                 }
                 if (_SupplierType == "Contact")
                 {
@@ -107,6 +108,11 @@ namespace OTTOPro
         {
             try
             {
+                if (string.IsNullOrEmpty(txtFullName.Text.Trim()))
+                {
+                    _isValidate = false;
+                    throw new Exception("Bitte eingeben Vollständiger Name");
+                }                   
                 ValidatControls();
                 if (_isValidate == true)
                 {
@@ -115,7 +121,7 @@ namespace OTTOPro
                     ParseSupplierDetails();
                     ObjBSupplier = new BSupplier();
                     _ObjEsupplier = ObjBSupplier.SaveSupplierDetails(_ObjEsupplier);
-                     this.Close();
+                    this.Close();
                 }
             }
             catch (Exception ex)
@@ -128,6 +134,12 @@ namespace OTTOPro
         {
             try
             {
+                if (string.IsNullOrEmpty(txtContactName.Text.Trim()))
+                {
+                    _isValidate = false;
+                    throw new Exception("Bitte eingeben Name");
+                }                   
+
                 bool isvalidName = dxValidationProviderContactName.Validate(txtContactName);
                 if (!isvalidName)
                 { _isValidate = false; }
@@ -155,6 +167,12 @@ namespace OTTOPro
         {
             try
             {
+                if (string.IsNullOrEmpty(txtAddrShortName.Text.Trim()))
+                {
+                    _isValidate = false;
+                    throw new Exception("Bitte eingeben Name");
+                }                   
+
                 bool isvalidName = dxValidationProviderAddrSName.Validate(txtAddrShortName);
                 if (!isvalidName)
                 { _isValidate = false; }
@@ -178,18 +196,6 @@ namespace OTTOPro
             }
         }
 
-        private void txtFullName_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                TextEdit textbox = (TextEdit)sender;
-                textbox.Text = ToTitleCase(textbox.Text);
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         private void frmSupplierMaster_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -396,6 +402,13 @@ namespace OTTOPro
             else
                 e.Handled = true;
         }
+
+
+        private void txtSupplierEmail_InvalidValue(object sender, DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs e)
+        {
+            e.ErrorText = "ungültig mail";
+        }
+
 
 
 
