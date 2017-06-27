@@ -41,14 +41,17 @@ namespace OTTOPro
         {
             Instance.Show();
         }
+
         public void SetPictureBoxVisible(bool _result)
         {
             this.pictureBox1.Visible = _result;
         }
+
         public void SetLableVisible(bool _result)
         {
             this.label2.Visible = _result;
         }
+
         //void InitSkinGallery()
         //{
         //    DevExpress.XtraBars.Helpers.SkinHelper.InitSkinGallery(skinRibbonGalleryBarItem1, true);
@@ -72,8 +75,8 @@ namespace OTTOPro
                 }
                 frmProject Obj = new frmProject();
                 Obj.MdiParent = this;
-                label2.Visible = false;
-                pictureBox1.Visible = false;
+                //label2.Visible = false;
+                //pictureBox1.Visible = false;
                 Obj.Show();
             }
             catch (Exception ex)
@@ -86,10 +89,22 @@ namespace OTTOPro
         {
             try
             {
+                FormCollection fc = Application.OpenForms;
+                foreach (Form frm in fc)
+                {
+                    if (fc != null)
+                    {
+                        if (frm.Name == "frmLoadProject")
+                        {
+                            frm.Close();
+                            break;
+                        }
+                    }
+                }
                 frmLoadProject Obj = new frmLoadProject();
                 Obj.MdiParent = this;
-                label2.Visible = false;
-                pictureBox1.Visible = false;
+                //label2.Visible = false;
+                //pictureBox1.Visible = false;
                 Obj.Show();
             }
             catch (Exception ex)
@@ -130,6 +145,7 @@ namespace OTTOPro
             if (ActiveMdiChild != null)
                 ActiveMdiChild.Close();
         }
+
         private void btnCustomer_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
@@ -144,8 +160,8 @@ namespace OTTOPro
                 }
                     frmLoadCustomerMaster Obj = new frmLoadCustomerMaster();
                     Obj.MdiParent = this;
-                    label2.Visible = false;
-                    pictureBox1.Visible = false;
+                    //label2.Visible = false;
+                    //pictureBox1.Visible = false;
                     Obj.Show();                    
             }
             catch (Exception ex)
@@ -168,8 +184,8 @@ namespace OTTOPro
                 }
                 frmLoadOTTOMaster Obj = new frmLoadOTTOMaster();
                 Obj.MdiParent = this;
-                label2.Visible = false;
-                pictureBox1.Visible = false;
+                //label2.Visible = false;
+                //pictureBox1.Visible = false;
                 Obj.Show();
             }
             catch (Exception ex)
@@ -190,8 +206,8 @@ namespace OTTOPro
             }
             frmLoadSupplier Obj = new frmLoadSupplier();
             Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
+            //label2.Visible = false;
+            //pictureBox1.Visible = false;
             Obj.Show();
         }
 
@@ -207,8 +223,8 @@ namespace OTTOPro
             }
             frmArticlesData Obj = new frmArticlesData();
             Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
+            //label2.Visible = false;
+            //pictureBox1.Visible = false;
             Obj.Show();
         }
 
@@ -236,8 +252,8 @@ namespace OTTOPro
             }
             frmType Obj = new frmType();
             Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
+            //label2.Visible = false;
+            //pictureBox1.Visible = false;
             Obj.Show();
         }
 
@@ -253,37 +269,37 @@ namespace OTTOPro
             }
             frmRabattGroup Obj = new frmRabattGroup();
             Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
+            //label2.Visible = false;
+            //pictureBox1.Visible = false;
             Obj.Show();
         }
 
         private void xtraTabbedMdiManager1_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
         {
-            //if (xtraTabbedMdiManager1.Pages.Count > 0)
-            //{
-            //    BackgroudImageVisibility(false);
-            //}
-            //else { BackgroudImageVisibility(true); }
+            if (xtraTabbedMdiManager1.Pages.Count > 0)
+            {
+                BackgroudImageVisibility(false);
+            }
+            else { BackgroudImageVisibility(true); }
         }
 
         public void BackgroudImageVisibility(bool visibility)
         {
-            //if (visibility)
-            //{
-            //    pictureBox1.Visible = true;
-            //    label2.Visible = true;
-            //}
-            //else
-            //{
-            //    pictureBox1.Visible = false;
-            //    label2.Visible = false;
-            //}
+            if (visibility)
+            {
+                pictureBox1.Visible = true;
+                label2.Visible = true;
+            }
+            else
+            {
+                pictureBox1.Visible = false;
+                label2.Visible = false;
+            }
         }
 
         private void frmOTTOPro_MdiChildActivate(object sender, EventArgs e)
         {
-          //  BackgroudImageVisibility(false);
+            BackgroudImageVisibility(false);
         }
 
         private void btnUserData_ItemClick(object sender, ItemClickEventArgs e)
@@ -300,8 +316,8 @@ namespace OTTOPro
                 }
                 frmLoadUsers Obj = new frmLoadUsers();
                 Obj.MdiParent = this;
-                label2.Visible = false;
-                pictureBox1.Visible = false;
+                //label2.Visible = false;
+                //pictureBox1.Visible = false;
                 Obj.Show();
             }
             catch (Exception ex)
@@ -324,8 +340,8 @@ namespace OTTOPro
                 }
                 frmFeature Obj = new frmFeature();
                 Obj.MdiParent = this;
-                label2.Visible = false;
-                pictureBox1.Visible = false;
+                //label2.Visible = false;
+                //pictureBox1.Visible = false;
                 Obj.Show();
             }
             catch (Exception ex)
@@ -368,9 +384,8 @@ namespace OTTOPro
             }
         }
 
-        private void ribbon_Click(object sender, EventArgs e)
-        {
 
-        }
+       
+
     }
 }

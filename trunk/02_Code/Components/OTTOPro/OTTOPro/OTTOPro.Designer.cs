@@ -66,11 +66,14 @@
             this.btnFeature = new DevExpress.XtraBars.BarButtonItem();
             this.btnImportArticleData = new DevExpress.XtraBars.BarButtonItem();
             this.btnChangePassword = new DevExpress.XtraBars.BarButtonItem();
+            this.barMdiChildrenListItemProject = new DevExpress.XtraBars.BarMdiChildrenListItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.rpgSupplier = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgArticleMaster = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpSetting = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgTextModule = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.Profile = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -83,9 +86,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
+            this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
             // 
             // ribbon
@@ -121,16 +126,17 @@
             this.btnUserData,
             this.btnFeature,
             this.btnImportArticleData,
-            this.btnChangePassword});
+            this.btnChangePassword,
+            this.barMdiChildrenListItemProject,
+            this.barButtonItem7});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 38;
+            this.ribbon.MaxItemId = 40;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
             this.rpSetting,
             this.Profile});
-            this.ribbon.Size = new System.Drawing.Size(1073, 143);
-            this.ribbon.Click += new System.EventHandler(this.ribbon_Click);
+            this.ribbon.Size = new System.Drawing.Size(1230, 143);
             // 
             // btnNewProject
             // 
@@ -285,7 +291,7 @@
             // 
             // btnArticledata
             // 
-            this.btnArticledata.Caption = "Articles daten";
+            this.btnArticledata.Caption = "Artikels daten";
             this.btnArticledata.Id = 29;
             this.btnArticledata.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnArticledata.ImageOptions.Image")));
             this.btnArticledata.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnArticledata.ImageOptions.LargeImage")));
@@ -347,7 +353,7 @@
             // 
             // btnImportArticleData
             // 
-            this.btnImportArticleData.Caption = "Import Article Data";
+            this.btnImportArticleData.Caption = "Import Artikels Data";
             this.btnImportArticleData.Id = 36;
             this.btnImportArticleData.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_icon;
             this.btnImportArticleData.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Save_icon__1_;
@@ -363,13 +369,28 @@
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePassword_ItemClick);
             // 
+            // barMdiChildrenListItemProject
+            // 
+            this.barMdiChildrenListItemProject.Caption = "Recent List";
+            this.barMdiChildrenListItemProject.Id = 38;
+            this.barMdiChildrenListItemProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barMdiChildrenListItemProject.ImageOptions.Image")));
+            this.barMdiChildrenListItemProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barMdiChildrenListItemProject.ImageOptions.LargeImage")));
+            this.barMdiChildrenListItemProject.Name = "barMdiChildrenListItemProject";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "barButtonItem7";
+            this.barButtonItem7.Id = 39;
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
-            this.rpgSupplier,
+            this.ribbonPageGroup5,
             this.rpgArticleMaster,
-            this.ribbonPageGroup2});
+            this.ribbonPageGroup2,
+            this.ribbonPageGroup4});
             this.miHome.Name = "miHome";
             this.miHome.Text = "OTTOPro";
             // 
@@ -377,18 +398,18 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNewProject);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLoadProject, true);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnCustomer, true);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnOTTO, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemSave, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemExitProject, true);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Projekt";
             // 
-            // rpgSupplier
+            // ribbonPageGroup5
             // 
-            this.rpgSupplier.ItemLinks.Add(this.btnSupplier);
-            this.rpgSupplier.Name = "rpgSupplier";
-            this.rpgSupplier.Text = "Lieferant";
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnCustomer);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnOTTO);
+            this.ribbonPageGroup5.ItemLinks.Add(this.btnSupplier);
+            this.ribbonPageGroup5.Name = "ribbonPageGroup5";
+            this.ribbonPageGroup5.Text = "Stammdaten";
             // 
             // rpgArticleMaster
             // 
@@ -397,7 +418,7 @@
             this.rpgArticleMaster.ItemLinks.Add(this.btnRabatt, true, "", "", true);
             this.rpgArticleMaster.ItemLinks.Add(this.btnImportArticleData);
             this.rpgArticleMaster.Name = "rpgArticleMaster";
-            this.rpgArticleMaster.Text = "Artikelstammdaten";
+            this.rpgArticleMaster.Text = "Artikels";
             // 
             // ribbonPageGroup2
             // 
@@ -406,6 +427,11 @@
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "User Management ";
             this.ribbonPageGroup2.Visible = false;
+            // 
+            // ribbonPageGroup4
+            // 
+            this.ribbonPageGroup4.ItemLinks.Add(this.barMdiChildrenListItemProject);
+            this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
             // rpSetting
             // 
@@ -454,9 +480,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 669);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 733);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1073, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1230, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -478,9 +504,9 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 650);
+            this.label2.Location = new System.Drawing.Point(0, 714);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1073, 19);
+            this.label2.Size = new System.Drawing.Size(1230, 19);
             this.label2.TabIndex = 12;
             this.label2.Text = "Powered by www.softwaretogo.de \r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -491,7 +517,7 @@
             this.pictureBox1.Image = global::OTTOPro.Properties.Resources.LogoLatest;
             this.pictureBox1.Location = new System.Drawing.Point(0, 143);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1073, 507);
+            this.pictureBox1.Size = new System.Drawing.Size(1230, 571);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -502,7 +528,7 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(919, 123);
+            this.label1.Location = new System.Drawing.Point(1076, 123);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 18;
@@ -512,17 +538,25 @@
             // 
             this.fdImportFile.FileName = "openFileDialog1";
             // 
+            // xtraTabbedMdiManager1
+            // 
+            this.xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            this.xtraTabbedMdiManager1.MdiParent = this;
+            this.xtraTabbedMdiManager1.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.False;
+            this.xtraTabbedMdiManager1.UseFormIconAsPageImage = DevExpress.Utils.DefaultBoolean.True;
+            this.xtraTabbedMdiManager1.PageRemoved += new DevExpress.XtraTabbedMdi.MdiTabPageEventHandler(this.xtraTabbedMdiManager1_PageRemoved);
+            // 
             // frmOTTOPro
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
-            this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.True;
+            this.AllowFormGlass = DevExpress.Utils.DefaultBoolean.False;
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(65)))), ((int)(((byte)(64)))), ((int)(((byte)(66)))));
             this.Appearance.ForeColor = System.Drawing.Color.Black;
             this.Appearance.Options.UseBackColor = true;
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1073, 691);
+            this.ClientSize = new System.Drawing.Size(1230, 755);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -542,6 +576,7 @@
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,7 +614,6 @@
         private DevExpress.XtraBars.BarButtonItem btnCustomer;
         private DevExpress.XtraBars.BarButtonItem btnOTTO;
         private DevExpress.XtraBars.BarButtonItem btnSupplier;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgSupplier;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup rpgArticleMaster;
         private DevExpress.XtraBars.BarButtonItem btnArticledata;
         private DevExpress.XtraBars.BarButtonItem btnTextModule;
@@ -596,5 +630,10 @@
         private DevExpress.XtraBars.BarButtonItem btnChangePassword;
         private DevExpress.XtraBars.Ribbon.RibbonPage Profile;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
+        private DevExpress.XtraBars.BarMdiChildrenListItem barMdiChildrenListItemProject;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
     }
 }

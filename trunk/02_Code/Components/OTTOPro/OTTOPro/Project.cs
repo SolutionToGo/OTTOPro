@@ -436,7 +436,7 @@ namespace OTTOPro
                         txtProjectNumber.ReadOnly = true;
                         if (txtkommissionNumber.Text != string.Empty)
                             txtkommissionNumber.ReadOnly = true;
-                        this.Text = "Project : " + ObjEProject.ProjectNumber;
+                        this.Text =ObjEProject.ProjectNumber;
                     }
                     ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf(ObjEProject.LVRaster);
                     txtLVSprunge.Text = ObjEProject.LVSprunge.ToString();

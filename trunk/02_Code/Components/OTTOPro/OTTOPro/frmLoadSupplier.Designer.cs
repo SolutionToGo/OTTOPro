@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoadSupplier));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gcArticles = new DevExpress.XtraGrid.GridControl();
             this.gvArticles = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -949,6 +950,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1364, 738);
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLoadSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lieferant Stammdaten";

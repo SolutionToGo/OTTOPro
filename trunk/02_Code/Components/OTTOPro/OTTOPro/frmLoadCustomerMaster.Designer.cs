@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.XtraGrid.Columns.GridColumn Commentary;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoadCustomerMaster));
             this.repositoryItemMemoExEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemMemoExEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.memoEditCommentary = new System.Windows.Forms.RichTextBox();
@@ -181,7 +182,7 @@
             // btnAddInvoice
             // 
             this.btnAddInvoice.Enabled = false;
-            this.btnAddInvoice.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnAddInvoice.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAddInvoice.Location = new System.Drawing.Point(1270, 463);
             this.btnAddInvoice.Name = "btnAddInvoice";
             this.btnAddInvoice.Size = new System.Drawing.Size(82, 22);
@@ -880,7 +881,7 @@
             // 
             // btnAddressAdd
             // 
-            this.btnAddressAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnAddressAdd.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAddressAdd.Location = new System.Drawing.Point(1270, 237);
             this.btnAddressAdd.Name = "btnAddressAdd";
             this.btnAddressAdd.Size = new System.Drawing.Size(82, 22);
@@ -891,7 +892,7 @@
             // 
             // btnContactAdd
             // 
-            this.btnContactAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnContactAdd.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnContactAdd.Location = new System.Drawing.Point(1264, 12);
             this.btnContactAdd.Name = "btnContactAdd";
             this.btnContactAdd.Size = new System.Drawing.Size(88, 26);
@@ -902,7 +903,7 @@
             // 
             // btnCustomerAdd
             // 
-            this.btnCustomerAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnCustomerAdd.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnCustomerAdd.Location = new System.Drawing.Point(616, 12);
             this.btnCustomerAdd.Name = "btnCustomerAdd";
             this.btnCustomerAdd.Size = new System.Drawing.Size(91, 26);
@@ -1109,6 +1110,7 @@
             this.ClientSize = new System.Drawing.Size(1364, 705);
             this.Controls.Add(this.layoutControl1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLoadCustomerMaster";
             this.Text = "Stammdaten Kunden";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

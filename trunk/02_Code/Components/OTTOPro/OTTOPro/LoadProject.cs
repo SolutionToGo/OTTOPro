@@ -66,18 +66,28 @@ namespace OTTOPro
         private void LoadProject(bool IsCopy)
         {
             try
-            {
+            {             
+       
                 if (gcProjectSearch != null && dgProjectSearch != null  && dgProjectSearch.GetFocusedDataRow() != null 
                     && dgProjectSearch.GetFocusedDataRow()["ProjectId"] != null)
                 {
                     int ProjectID = 0;
                     if (int.TryParse(dgProjectSearch.GetFocusedDataRow()["ProjectId"].ToString(), out ProjectID))
                     {
+                        //foreach (Form form in Application.OpenForms)
+                        //{
+                        //    if (form.GetType() == typeof(frmProject))
+                        //    {
+                        //        form.Activate();
+                        //        return;
+                        //    }
+                        //}                      
+
                         frmProject Obj = new frmProject();
                         Obj.ProjectID = ProjectID;
                         Obj.IsCopy = IsCopy;
                         Obj.MdiParent = this.MdiParent;
-                        this.Close();
+                        //this.Close();
                         Obj.Show();
                     }
                     else
