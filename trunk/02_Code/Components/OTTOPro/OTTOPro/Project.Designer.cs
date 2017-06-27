@@ -305,6 +305,7 @@
             this.treeListColumn62 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.ME = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.rpMenge = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.treeListColumn46 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn50 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn30 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -1288,6 +1289,7 @@
             this.xtraTabPageHierachical.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tlPositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpArticles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpMenge)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiMulti1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCreateNew.Properties)).BeginInit();
@@ -2136,7 +2138,7 @@
             this.txtMenge.Properties.AllowMouseWheel = false;
             this.txtMenge.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMenge.Properties.Appearance.Options.UseFont = true;
-            this.txtMenge.Properties.Mask.EditMask = "N0";
+            this.txtMenge.Properties.Mask.EditMask = "N3";
             this.txtMenge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMenge.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMenge.Size = new System.Drawing.Size(107, 24);
@@ -5500,7 +5502,8 @@
             this.tlPositions.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.btnEdit,
             this.rpiMulti1,
-            this.rpArticles});
+            this.rpArticles,
+            this.rpMenge});
             this.tlPositions.ShowButtonMode = DevExpress.XtraTreeList.ShowButtonModeEnum.ShowForFocusedRow;
             this.tlPositions.Size = new System.Drawing.Size(1456, 48);
             this.tlPositions.TabIndex = 30;
@@ -5635,7 +5638,7 @@
             this.treeListColumn3.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.treeListColumn3.AppearanceHeader.Options.UseFont = true;
             this.treeListColumn3.Caption = "Menge";
-            this.treeListColumn3.ColumnEdit = this.rpArticles;
+            this.treeListColumn3.ColumnEdit = this.rpMenge;
             this.treeListColumn3.FieldName = "Menge";
             this.treeListColumn3.Name = "treeListColumn3";
             this.treeListColumn3.OptionsColumn.AllowSort = false;
@@ -5647,6 +5650,15 @@
             this.treeListColumn3.Visible = true;
             this.treeListColumn3.VisibleIndex = 7;
             this.treeListColumn3.Width = 70;
+            // 
+            // rpMenge
+            // 
+            this.rpMenge.AutoHeight = false;
+            this.rpMenge.Mask.EditMask = "n3";
+            this.rpMenge.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpMenge.Mask.ShowPlaceHolders = false;
+            this.rpMenge.Mask.UseMaskAsDisplayFormat = true;
+            this.rpMenge.Name = "rpMenge";
             // 
             // treeListColumn46
             // 
@@ -8082,7 +8094,7 @@
             this.txtPositionMenge.Name = "txtPositionMenge";
             this.txtPositionMenge.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtPositionMenge.Properties.Appearance.Options.UseBackColor = true;
-            this.txtPositionMenge.Properties.Mask.EditMask = "n0";
+            this.txtPositionMenge.Properties.Mask.EditMask = "n3";
             this.txtPositionMenge.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtPositionMenge.Properties.Mask.ShowPlaceHolders = false;
             this.txtPositionMenge.Size = new System.Drawing.Size(99, 20);
@@ -14630,6 +14642,7 @@
             this.xtraTabPageHierachical.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlPositions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpArticles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpMenge)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiMulti1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkCreateNew.Properties)).EndInit();
@@ -16162,6 +16175,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem30;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem31;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem45;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpMenge;
 
 
     }

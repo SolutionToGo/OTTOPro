@@ -35,6 +35,7 @@ using DevExpress.XtraBars;
 using DevExpress.Utils.Menu;
 using DevExpress.XtraGrid.Views.Layout.Modes;
 using DevExpress.XtraGrid.Views.Base;
+using System.Globalization;
 
 namespace OTTOPro
 {
@@ -2000,7 +2001,7 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtGrandTotalME.Text) && !string.IsNullOrEmpty(txtGrandTotalMO.Text))
                 {
                     txtFinalGB.Text =
-                        RoundValue(getDValue(txtGrandTotalME.Text) + getDValue(txtGrandTotalMO.Text)).ToString();
+                        RoundValue((getDValue(txtGrandTotalME.Text) + getDValue(txtGrandTotalMO.Text)) * getDValue(txtMenge.Text)).ToString();
                 }
                 else
                     txtFinalGB.Text = "0";
@@ -3079,7 +3080,7 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtMenge.Text) && !string.IsNullOrEmpty(txtVerkaufspreisValueME.Text))
                 {
                     txtGrandTotalME.Text =
-                        RoundValue(getDValue(txtMenge.Text) * getDValue(txtVerkaufspreisValueME.Text)).ToString();
+                        RoundValue(getDValue(txtVerkaufspreisValueME.Text)).ToString();
                     CalculateEP();
                 }
                 else
@@ -3100,7 +3101,7 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtMenge.Text) && !string.IsNullOrEmpty(txtVerkaufspreisValueMO.Text))
                 {
                     txtGrandTotalMO.Text =
-                        RoundValue(getDValue(txtMenge.Text) * getDValue(txtVerkaufspreisValueMO.Text)).ToString();
+                        RoundValue(getDValue(txtVerkaufspreisValueMO.Text)).ToString();
                     CalculateEP();
                 }
                 else
@@ -3117,8 +3118,7 @@ namespace OTTOPro
 
         private void txtMenge_TextChanged(object sender, EventArgs e)
         {
-            txtVerkaufspreisValueME_TextChanged(null, null);
-            txtVerkaufspreisValueMO_TextChanged(null, null);
+            txtGrandTotalME_TextChanged(null, null);
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -3331,27 +3331,63 @@ namespace OTTOPro
             {
                 if (tlPositions.FocusedNode != null && tlPositions.FocusedNode["PositionID"] != null)
                 {
-                    txtMulti1ME.Text = tlPositions.FocusedNode.GetValue("MA_Multi1").ToString();
-                    txtMulti2ME.Text = tlPositions.FocusedNode.GetValue("MA_multi2").ToString();
-                    txtMulti3ME.Text = tlPositions.FocusedNode.GetValue("MA_multi3").ToString();
-                    txtMulti4ME.Text = tlPositions.FocusedNode.GetValue("MA_multi4").ToString();
-                    txtSelbstkostenMultiME.Text = tlPositions.FocusedNode.GetValue("MA_selbstkostenMulti").ToString();
-                    txtVerkaufspreisMultiME.Text = tlPositions.FocusedNode.GetValue("MA_verkaufspreis_Multi").ToString();
-
-                    txtMulti1MO.Text = tlPositions.FocusedNode.GetValue("MO_multi1").ToString();
-                    txtMulti2MO.Text = tlPositions.FocusedNode.GetValue("MO_multi2").ToString();
-                    txtMulti3MO.Text = tlPositions.FocusedNode.GetValue("MO_multi3").ToString();
-                    txtMulti4MO.Text = tlPositions.FocusedNode.GetValue("MO_multi4").ToString();
-                    txtSelbstkostenMultiMO.Text = tlPositions.FocusedNode.GetValue("MO_selbstkostenMulti").ToString();
-                    txtVerkaufspreisMultiMO.Text = tlPositions.FocusedNode.GetValue("MO_verkaufspreisMulti").ToString();
-
-                    txtWG.Text = tlPositions.FocusedNode.GetValue("WG").ToString();
-                    txtWA.Text = tlPositions.FocusedNode.GetValue("WA").ToString();
-                    txtWI.Text = tlPositions.FocusedNode.GetValue("WI").ToString();
-                    txtMenge.Text = tlPositions.FocusedNode.GetValue("Menge").ToString();
-                    txtWI_Leave(null, null);
-
-
+                    string strColumnName = e.Column.FieldName;
+                    switch (strColumnName)
+                    {
+                        case "MA_Multi1":
+                            txtMulti1ME.Text = tlPositions.FocusedNode.GetValue("MA_Multi1").ToString();       
+                            break;
+                        case "MA_multi2":
+                            txtMulti2ME.Text = tlPositions.FocusedNode.GetValue("MA_multi2").ToString();
+                            break;
+                        case "MA_multi3":
+                            txtMulti3ME.Text = tlPositions.FocusedNode.GetValue("MA_multi3").ToString();
+                            break;
+                        case "MA_multi4":
+                            txtMulti4ME.Text = tlPositions.FocusedNode.GetValue("MA_multi4").ToString();
+                            break;
+                        case "MA_selbstkostenMulti":
+                            txtSelbstkostenMultiME.Text = tlPositions.FocusedNode.GetValue("MA_selbstkostenMulti").ToString();
+                            break;
+                        case "MA_verkaufspreis_Multi":
+                            txtVerkaufspreisMultiME.Text = tlPositions.FocusedNode.GetValue("MA_verkaufspreis_Multi").ToString();
+                            break;
+                        case "MO_multi1":
+                            txtMulti1MO.Text = tlPositions.FocusedNode.GetValue("MO_multi1").ToString();
+                            break;
+                        case "MO_multi2":
+                            txtMulti2MO.Text = tlPositions.FocusedNode.GetValue("MO_multi2").ToString();
+                            break;
+                        case "MO_multi3":
+                            txtMulti3MO.Text = tlPositions.FocusedNode.GetValue("MO_multi3").ToString();
+                            break;
+                        case "MO_multi4":
+                            txtMulti4MO.Text = tlPositions.FocusedNode.GetValue("MO_multi4").ToString();
+                            break;
+                        case "MO_selbstkostenMulti":
+                            txtSelbstkostenMultiMO.Text = tlPositions.FocusedNode.GetValue("MO_selbstkostenMulti").ToString();
+                            break;
+                        case "MO_verkaufspreisMulti":
+                            txtVerkaufspreisMultiMO.Text = tlPositions.FocusedNode.GetValue("MO_verkaufspreisMulti").ToString();
+                            break;
+                        case "WG":
+                            txtWG.Text = tlPositions.FocusedNode.GetValue("WG").ToString();
+                            txtWI_Leave(null, null);
+                            break;
+                        case "WA":
+                            txtWA.Text = tlPositions.FocusedNode.GetValue("WA").ToString();
+                            txtWI_Leave(null, null);
+                            break;
+                        case "WI":
+                            txtWI.Text = tlPositions.FocusedNode.GetValue("WI").ToString();
+                            txtWI_Leave(null, null);
+                            break;
+                        case "Menge":
+                            txtMenge.Text = tlPositions.FocusedNode.GetValue("Menge").ToString();
+                            break;
+                        default:
+                            break;
+                    }
                     btnSaveLVDetails_Click(null, null);
 
                 }
@@ -4297,18 +4333,6 @@ namespace OTTOPro
 
                 DataTable dtPos = new DataTable();
                 dtPos.Columns.Add("ID");
-                dtPos.Columns.Add("Menge");
-                dtPos.Columns.Add("MA");
-                dtPos.Columns.Add("MO");
-                dtPos.Columns.Add("PreisText");
-                dtPos.Columns.Add("Fabricate");
-                dtPos.Columns.Add("Type");
-                dtPos.Columns.Add("LiefrantMA");
-                dtPos.Columns.Add("WG");
-                dtPos.Columns.Add("WA");
-                dtPos.Columns.Add("WI");
-                dtPos.Columns.Add("LVSection");
-
 
                 if (tlBulkProcessPositionDetails.DataSource != null)
                 {
@@ -4319,31 +4343,8 @@ namespace OTTOPro
                         {
                             DataRow drPos = dtPos.NewRow();
                             string tID = node["PositionID"].ToString();
-                            string tmenge = node["Menge"].ToString();
-                            string tMA = node["MA"].ToString();
-                            string tMO = node["MO"].ToString();
-                            string tperisText = node["PreisText"].ToString();
-                            string tFabricat = node["Fabricate"].ToString();
-                            string t_Type = node["Type"].ToString();
-                            string tLiefrantMA = node["LiefrantMA"].ToString();
-                            string tWG = node["WG"].ToString();
-                            string tWA = node["WA"].ToString();
-                            string tWI = node["WI"].ToString();
-                            string tLVSection = node["LVSection"].ToString();
 
                             drPos["ID"] = tID;
-                            drPos["Menge"] = tmenge;
-                            drPos["MA"] = tMA;
-                            drPos["MO"] = tMO;
-                            drPos["PreisText"] = tperisText;
-                            drPos["Fabricate"] = tFabricat;
-                            drPos["Type"] = t_Type;
-                            drPos["LiefrantMA"] = tLiefrantMA;
-                            drPos["WG"] = tWG;
-                            drPos["WA"] = tWA;
-                            drPos["WI"] = tWI;
-                            drPos["LVSection"] = tLVSection;
-
                             dtPos.Rows.Add(drPos);
                         }
                     }
@@ -4460,9 +4461,11 @@ namespace OTTOPro
                     }
                 }
 
-                ObjBPosition.UpdateBulkProcess_ActionB(ObjEPosition, ObjEProject.ProjectID, tType, txtPositionMenge.Text, txtMaterialKz.Text, txtMontageKZ.Text,
-                                                      txtPreisErstaztext.Text, txtFabrikat.Text, txtTyp.Text, txtBulkLieferantMA.Text, txtArtikelnummerWG.Text,
-                                                      txtArtikelnummerWA.Text, txtArtikelnummerWI.Text, txtNachtragsnummer.Text, dtPos);
+                ObjBPosition.UpdateBulkProcess_ActionB(ObjEPosition, ObjEProject.ProjectID, tType, txtPositionMenge.Text, 
+                    txtMaterialKz.Text, txtMontageKZ.Text,
+                    txtPreisErstaztext.Text, txtFabrikat.Text, txtTyp.Text, txtBulkLieferantMA.Text, txtArtikelnummerWG.Text,
+                    txtArtikelnummerWA.Text, txtArtikelnummerWI.Text, txtNachtragsnummer.Text, dtPos);
+
                 frmOTTOPro.UpdateStatus("LV Positions Saved Successfully");
                 btnApply_Click(null, null);
                 ObjBProject.GetProjectDetails(ObjEProject);

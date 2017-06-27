@@ -20,6 +20,7 @@ namespace BL
         {
             try
             {
+                CultureInfo CInfo = new CultureInfo("en-US");
                 //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 int PositionID = -1;
                 XmlDocument Xdoc = new XmlDocument();
@@ -38,7 +39,7 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "WG", ObjEPosition.WG.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "WA", ObjEPosition.WA.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "WI", ObjEPosition.WI.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Menge", ObjEPosition.Menge.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Menge", ObjEPosition.Menge.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ME", ObjEPosition.ME.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Fabricate", ObjEPosition.Fabricate);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LiefrantMA", ObjEPosition.LiefrantMA);
@@ -49,8 +50,8 @@ namespace BL
                     ObjEPosition.Surcharge_From);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SurchargeTO", string.IsNullOrEmpty(ObjEPosition.Surcharge_To)? "" : 
                     ObjEPosition.Surcharge_To);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SurchargePer", Convert.ToString(ObjEPosition.Surcharge_Per));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "surchargePercentageMO", Convert.ToString(ObjEPosition.surchargePercentage_MO));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SurchargePer", ObjEPosition.Surcharge_Per.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "surchargePercentageMO", ObjEPosition.surchargePercentage_MO.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserID", ObjEPosition.UserID.ToString());
 
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEPosition.ValidityDate.ToString("MM/dd/yyyy"));
@@ -61,31 +62,31 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Dim1", ObjEPosition.Dim1);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Dim2", ObjEPosition.Dim2);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Dim3", ObjEPosition.Dim3);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Mins", ObjEPosition.Mins.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Faktor", ObjEPosition.Faktor.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LPMA", ObjEPosition.LPMA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LPMO", ObjEPosition.LPMO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1MA", ObjEPosition.Multi1MA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1MO", ObjEPosition.Multi1MO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2MA", ObjEPosition.Multi2MA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2MO", ObjEPosition.Multi2MO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3MA", ObjEPosition.Multi3MA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3MO", ObjEPosition.Multi3MO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4MA", ObjEPosition.Multi4MA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4MO", ObjEPosition.Multi4MO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi5MA", ObjEPosition.Multi5MA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi5MO", ObjEPosition.Multi5MO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EinkaufspreisMA", ObjEPosition.EinkaufspreisMA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EinkaufspreisMO", ObjEPosition.EinkaufspreisMO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SelbstkostenMultiMA", ObjEPosition.SelbstkostenMultiMA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SelbstkostenMultiMO", ObjEPosition.SelbstkostenMultiMO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SelbstkostenValueMA", ObjEPosition.SelbstkostenValueMA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SelbstkostenValueMO", ObjEPosition.SelbstkostenValueMO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "VerkaufspreisMultiMA", ObjEPosition.VerkaufspreisMultiMA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "VerkaufspreisMultiMO", ObjEPosition.VerkaufspreisMultiMO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "VerkaufspreisValueMA", ObjEPosition.VerkaufspreisValueMA.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "VerkaufspreisValueMO", ObjEPosition.VerkaufspreisValueMO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "StdSatz", ObjEPosition.StdSatz.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Mins", ObjEPosition.Mins.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Faktor", ObjEPosition.Faktor.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LPMA", ObjEPosition.LPMA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LPMO", ObjEPosition.LPMO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1MA", ObjEPosition.Multi1MA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1MO", ObjEPosition.Multi1MO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2MA", ObjEPosition.Multi2MA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2MO", ObjEPosition.Multi2MO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3MA", ObjEPosition.Multi3MA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3MO", ObjEPosition.Multi3MO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4MA", ObjEPosition.Multi4MA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4MO", ObjEPosition.Multi4MO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi5MA", ObjEPosition.Multi5MA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi5MO", ObjEPosition.Multi5MO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EinkaufspreisMA", ObjEPosition.EinkaufspreisMA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EinkaufspreisMO", ObjEPosition.EinkaufspreisMO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SelbstkostenMultiMA", ObjEPosition.SelbstkostenMultiMA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SelbstkostenMultiMO", ObjEPosition.SelbstkostenMultiMO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SelbstkostenValueMA", ObjEPosition.SelbstkostenValueMA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SelbstkostenValueMO", ObjEPosition.SelbstkostenValueMO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "VerkaufspreisMultiMA", ObjEPosition.VerkaufspreisMultiMA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "VerkaufspreisMultiMO", ObjEPosition.VerkaufspreisMultiMO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "VerkaufspreisValueMA", ObjEPosition.VerkaufspreisValueMA.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "VerkaufspreisValueMO", ObjEPosition.VerkaufspreisValueMO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "StdSatz", ObjEPosition.StdSatz.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PreisText", ObjEPosition.PreisText);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EinkaufspreisLockMA", ObjEPosition.EinkaufspreisLockMA.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EinkaufspreisLockMO", ObjEPosition.EinkaufspreisLockMO.ToString());
@@ -96,10 +97,10 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DocuwareLink1", Convert.ToString(ObjEPosition.DocuwareLink1));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DocuwareLink2", Convert.ToString(ObjEPosition.DocuwareLink2));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DocuwareLink3", Convert.ToString(ObjEPosition.DocuwareLink3));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "GrandTotalME", ObjEPosition.GrandTotalME.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "GrandTotalMO", ObjEPosition.GrandTotalMO.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FinalGB", ObjEPosition.FinalGB.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EP", ObjEPosition.EP.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "GrandTotalME", ObjEPosition.GrandTotalME.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "GrandTotalMO", ObjEPosition.GrandTotalMO.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FinalGB", ObjEPosition.FinalGB.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EP", ObjEPosition.EP.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SNO", ObjEPosition.SNO.ToString());
 
                 PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription);

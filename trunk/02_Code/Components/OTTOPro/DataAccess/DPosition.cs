@@ -23,7 +23,8 @@ namespace DataAccess
             try
             {
 
-                string innerxml = XmlDoc.InnerXml.Replace(',', '.');
+                string innerxml = XmlDoc.InnerXml;
+                    //.Replace(',', '.');
                 //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 using (SqlCommand cmd = new SqlCommand())
                 {

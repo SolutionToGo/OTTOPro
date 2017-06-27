@@ -41,12 +41,12 @@ namespace EL
         private int _ProposalNo;
         private string _Surcharge_From;
         private string _Surcharge_To;
-        private decimal _Surcharge_Per;
+        private decimal _Surcharge_Per = 0;
         private int _UserID;
         private DataSet _dtPositionList;
         private DataSet _dtPositionOZList;
 
-        private decimal _surchargePercentage_MO;
+        private decimal _surchargePercentage_MO = 0;
 
         //Private variables to hold the cost details values
         private DateTime _ValidityDate;
