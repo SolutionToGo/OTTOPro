@@ -20,7 +20,7 @@ namespace DataAccess
                 {
                     using (SqlCommand cmd = new SqlCommand())
                     {
-                        string innerxml = xml.InnerXml.Replace(',', '.');
+                        string innerxml = xml.InnerXml;
                         cmd.Connection = SQLCon.Sqlconn();
                         cmd.CommandType = CommandType.StoredProcedure;
                         cmd.CommandText = "[P_Ins_Article]";
@@ -114,7 +114,7 @@ namespace DataAccess
            {
                using (SqlCommand cmd = new SqlCommand())
                {
-                   string innerxml = xml.InnerXml.Replace(',', '.');
+                   string innerxml = xml.InnerXml;
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Ins_Dimension]";
@@ -169,7 +169,7 @@ namespace DataAccess
            {
                using (SqlCommand cmd = new SqlCommand())
                {
-                   string innerxml = xml.InnerXml.Replace(',', '.');
+                   string innerxml = xml.InnerXml;
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Ins_Typ]";
@@ -257,7 +257,7 @@ namespace DataAccess
            {
                using (SqlCommand cmd = new SqlCommand())
                {
-                   string innerxml = xml.InnerXml.Replace(',', '.');
+                   string innerxml = xml.InnerXml;
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Ins_Rabatt]";

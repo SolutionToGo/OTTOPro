@@ -22,10 +22,7 @@ namespace DataAccess
             int ProjectID = -1;
             try
             {
-
                 string innerxml = XmlDoc.InnerXml;
-                    //.Replace(',', '.');
-                //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();

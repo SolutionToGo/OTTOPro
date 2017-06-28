@@ -1597,7 +1597,7 @@ namespace OTTOPro
                 }
                 if (cmbLVSection.Text == "NT" || cmbLVSection.Text == "NTM")
                 {
-                    throw new Exception("Can't save NT or NTM");
+                    throw new Exception("Cannot Save Positions With NT Or NTM");
                 }
                 if (cmbPositionKZ.Text != "H")
                 {
@@ -4041,11 +4041,6 @@ namespace OTTOPro
 
                 DataTable dtPos = new DataTable();
                 dtPos.Columns.Add("ID");
-                dtPos.Columns.Add("MA_Selbstkosten");
-                dtPos.Columns.Add("MO_Selbstkosten");
-                dtPos.Columns.Add("MA_Verkaufspreis");
-                dtPos.Columns.Add("MO_Verkaufspreis");
-
 
                 if (tlBulkProcessPositionDetails.DataSource != null)
                 {
@@ -4056,17 +4051,7 @@ namespace OTTOPro
                         {
                             DataRow drPos = dtPos.NewRow();
                             string tID = node["PositionID"].ToString();
-                            string tMA_Selbstkosten = node["MA_selbstkostenMulti"].ToString() == string.Empty ? "0" : node["MA_selbstkostenMulti"].ToString();
-                            string tMO_Selbstkosten = node["MO_selbstkostenMulti"].ToString() == string.Empty ? "0" : node["MO_selbstkostenMulti"].ToString();
-                            string tMA_Verkaufspreis = node["MA_verkaufspreis_Multi"].ToString() == string.Empty ? "0" : node["MA_verkaufspreis_Multi"].ToString();
-                            string MO_Verkaufspreis = node["MO_verkaufspreisMulti"].ToString() == string.Empty ? "0" : node["MO_verkaufspreisMulti"].ToString();
-
                             drPos["ID"] = tID;
-                            drPos["MA_Selbstkosten"] = tMA_Selbstkosten.Replace(',', '.');
-                            drPos["MO_Selbstkosten"] = tMO_Selbstkosten.Replace(',', '.');
-                            drPos["MA_Verkaufspreis"] = tMA_Verkaufspreis.Replace(',', '.');
-                            drPos["MO_Verkaufspreis"] = MO_Verkaufspreis.Replace(',', '.');
-
                             dtPos.Rows.Add(drPos);
                         }
                     }
@@ -4134,7 +4119,14 @@ namespace OTTOPro
                 {
                     tType = "Set";
                 }
-                ObjBPosition.UpdateBulkProcess_ActionA(ObjEPosition, ObjEProject.ProjectID, tType, Convert.ToDecimal(txtMulti5MA.Text), Convert.ToDecimal(txtMulti5MO.Text), Convert.ToDecimal(txtMulti6MA.Text), Convert.ToDecimal(txtMulti6MO.Text), dtPos);
+                
+                ObjBPosition.UpdateBulkProcess_ActionA(ObjEPosition, ObjEProject.ProjectID, tType, 
+                    Convert.ToDecimal(txtMulti5MA.Text), 
+                    Convert.ToDecimal(txtMulti5MO.Text), 
+                    Convert.ToDecimal(txtMulti6MA.Text), 
+                    Convert.ToDecimal(txtMulti6MO.Text), 
+                    dtPos);
+                
                 frmOTTOPro.UpdateStatus("LV Positions Saved Successfully");
                 BindPositionData();
                 btnApply_Click(null, null);

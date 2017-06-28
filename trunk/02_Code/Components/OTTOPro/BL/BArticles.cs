@@ -15,7 +15,7 @@ namespace BL
     public class BArticles
     {
         DArticles ObjDArticles = null;
-
+        CultureInfo CInfo = new CultureInfo("en-US");
         public EArticles SaveArticle(EArticles ObjEArticle)
         {
             try
@@ -37,11 +37,11 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Menegenheit", ObjEArticle.Menegenheit);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Remarks", ObjEArticle.Remarks);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TextKZ", ObjEArticle.TextKZ);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEArticle.ValidityDate.ToString(CultureInfo.CreateSpecificCulture("en-US")));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1", ObjEArticle.Multi1.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2", ObjEArticle.Multi2.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3", ObjEArticle.Multi3.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4", ObjEArticle.Multi4.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEArticle.ValidityDate.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1", ObjEArticle.Multi1.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2", ObjEArticle.Multi2.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3", ObjEArticle.Multi3.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4", ObjEArticle.Multi4.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DataNormNumber", ObjEArticle.DataNormNumber.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CreatedBy", ObjEArticle.CreatedBy.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastUpdatedBy", ObjEArticle.LastUpdatedBy.ToString());
@@ -75,6 +75,7 @@ namespace BL
         {
             try
             {
+             
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/Dimension";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DimensionID", ObjEArticle.DimensionID.ToString());
@@ -82,9 +83,9 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "A", ObjEArticle.A);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "B", ObjEArticle.B);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "L", ObjEArticle.L);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ListPrice", ObjEArticle.ListPrice.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "GMulti", ObjEArticle.GMulti.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Minuten", ObjEArticle.Minuten.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ListPrice", ObjEArticle.ListPrice.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "GMulti", ObjEArticle.GMulti.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Minuten", ObjEArticle.Minuten.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEArticle.ValidityDate.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CreatedBy", ObjEArticle.CreatedBy.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastUpdatedBy", ObjEArticle.LastUpdatedBy.ToString());
@@ -146,11 +147,11 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RabattID", ObjEArticle.RabattID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Rabatt", ObjEArticle.Rabatt.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TypeID", ObjEArticle.TypID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1", ObjEArticle.Multi1.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2", ObjEArticle.Multi2.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3", ObjEArticle.Multi3.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4", ObjEArticle.Multi4.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEArticle.ValidityDate.ToString(CultureInfo.CreateSpecificCulture("en-US")));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1", ObjEArticle.Multi1.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2", ObjEArticle.Multi2.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3", ObjEArticle.Multi3.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4", ObjEArticle.Multi4.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEArticle.ValidityDate.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CreatedBy", ObjEArticle.CreatedBy.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastUpdatedBy", ObjEArticle.LastUpdatedBy.ToString());
                 if (ObjDArticles == null)

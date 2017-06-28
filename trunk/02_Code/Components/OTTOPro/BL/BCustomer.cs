@@ -20,26 +20,26 @@ namespace BL
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/Customer";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CustomerID", ObjECustomer.Customer_CustomerID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CustomerFullName", ObjECustomer.CustomerFullName.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CustomerFullName", ObjECustomer.CustomerFullName);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CustomerShortName", ObjECustomer.CustomerShortName);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Street", ObjECustomer.CustStreet.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Street", ObjECustomer.CustStreet);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PostalCode", ObjECustomer.CustPostalCode);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "City", ObjECustomer.CustCity);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Country", ObjECustomer.CustCountry);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ILN", ObjECustomer.ILN.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ILN", ObjECustomer.ILN);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Telephone", ObjECustomer.Telephone);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Fax", ObjECustomer.CustFax.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjECustomer.CustEmailID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TaxNumber", ObjECustomer.CustTaxNumber.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BankName", ObjECustomer.BankName.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BankPostalCode", ObjECustomer.BankPostalCode.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Fax", ObjECustomer.CustFax);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjECustomer.CustEmailID);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TaxNumber", ObjECustomer.CustTaxNumber);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BankName", ObjECustomer.BankName);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BankPostalCode", ObjECustomer.BankPostalCode);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "BankAccountNumber", ObjECustomer.BankAccountNumber);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DVNr", ObjECustomer.DVNr);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TenderNumber", ObjECustomer.TenderNumber);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DebitorNumber", ObjECustomer.DebitorNumber);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CountryType", ObjECustomer.CountryType.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CountryName", ObjECustomer.CountryName.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Commentary", ObjECustomer.Commentary.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CountryType", ObjECustomer.CountryType);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CountryName", ObjECustomer.CountryName);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Commentary", ObjECustomer.Commentary);
 
 
                CustomerID= ObjDCustomer.SaveCustomerDetails(Xdoc);
@@ -87,11 +87,11 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CustomerID", ObjECustomer.Cont_CustomerID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ContactPersonID", ObjECustomer.ContactPersonID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Salutation", ObjECustomer.Salutation);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ContatPersonName", ObjECustomer.ContatPersonName.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ContatPersonName", ObjECustomer.ContatPersonName);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Designation", ObjECustomer.Designation);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjECustomer.ContEmailID);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Telephone", ObjECustomer.ContTelephone);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FAX", ObjECustomer.ContFax.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FAX", ObjECustomer.ContFax);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DefaultContact", ObjECustomer.DefaultContact.ToString());
 
 
@@ -125,7 +125,7 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CustomerID", ObjECustomer.Addr_CustomerID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "AddressID", ObjECustomer.AddressID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "AddressShortName", ObjECustomer.AddressShortName);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "StreetNo", ObjECustomer.StreetNo.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "StreetNo", ObjECustomer.StreetNo);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PostalCode", ObjECustomer.AddrPostalCode);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "City", ObjECustomer.AddrCity);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Country", ObjECustomer.AddrCountry);

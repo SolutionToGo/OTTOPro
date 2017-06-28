@@ -23,12 +23,12 @@ namespace BL
                 string XPath = "/Nouns/UserInfo";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserID", ObjEUserInfo.UserID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RoleID", ObjEUserInfo.RoleID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserName", ObjEUserInfo.UserName.ToString().ToLower());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FirstName", ObjEUserInfo.FirstName.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserName", ObjEUserInfo.UserName.ToLower());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FirstName", ObjEUserInfo.FirstName);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastName", ObjEUserInfo.LastName);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Password", ObjEUserInfo.Password);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "MobileNo", ObjEUserInfo.MobileNo.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjEUserInfo.EmailID.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "MobileNo", ObjEUserInfo.MobileNo);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjEUserInfo.EmailID);
 
                 UserID = ObjDUserInfo.SaveUserDetails(Xdoc, ObjEUserInfo);
                 return UserID;
@@ -63,7 +63,7 @@ namespace BL
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/UserRole";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RoleID", ObjEUserInfo.RoleID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RoleName", ObjEUserInfo.RoleName.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RoleName", ObjEUserInfo.RoleName);
 
 
                 RoleID = ObjDUserInfo.SaveUserRoles(Xdoc, ObjEUserInfo);

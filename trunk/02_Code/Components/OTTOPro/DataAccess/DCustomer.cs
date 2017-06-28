@@ -17,15 +17,13 @@ namespace DataAccess
             int CustomerID = -1;
             try
             {
-
-                string innerxml = XmlDoc.InnerXml.Replace(',', '.');
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Ins_Customer]";
                     SqlParameter param = new SqlParameter("@XMLCustomers", SqlDbType.Xml);
-                    param.Value = innerxml;
+                    param.Value = XmlDoc.InnerXml;
                     cmd.Parameters.Add(param);
 
                     object returnObj = cmd.ExecuteScalar();
@@ -102,7 +100,7 @@ namespace DataAccess
             try
             {
 
-                string innerxml = XmlDoc.InnerXml.Replace(',', '.');
+                string innerxml = XmlDoc.InnerXml;
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
@@ -140,7 +138,7 @@ namespace DataAccess
             try
             {
 
-                string innerxml = XmlDoc.InnerXml.Replace(',', '.');
+                string innerxml = XmlDoc.InnerXml;
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();

@@ -18,8 +18,7 @@ namespace DataAccess
             int TextID = -1;
             try
             {
-
-                string innerxml = XmlDoc.InnerXml.Replace(',', '.');
+                string innerxml = XmlDoc.InnerXml;
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
@@ -58,7 +57,7 @@ namespace DataAccess
             try
             {
 
-                string innerxml = XmlDoc.InnerXml.Replace(',', '.');
+                string innerxml = XmlDoc.InnerXml;
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();

@@ -21,9 +21,9 @@ namespace BL
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/TextModule";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TextID", ObjEProposal.TextID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TextModuleArea", ObjEProposal.TextModuleArea.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TextModuleArea", ObjEProposal.TextModuleArea);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Category", ObjEProposal.Category);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Contents", ObjEProposal.Contents.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Contents", ObjEProposal.Contents);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "IsSelect", ObjEProposal.IsSelect.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TextAreaID", ObjEProposal.TextAreaID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CategoryID", ObjEProposal.TextCategoryID.ToString());
@@ -56,7 +56,7 @@ namespace BL
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/Category";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CategoryID", ObjEProposal.CategoryID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CategoryName", ObjEProposal.CategoryName.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CategoryName", ObjEProposal.CategoryName);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TextAreaID", _textID.ToString());
 
                 CategoryID = ObjDProposal.SaveCategory(Xdoc);

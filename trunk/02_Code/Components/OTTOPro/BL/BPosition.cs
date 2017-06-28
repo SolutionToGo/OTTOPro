@@ -21,7 +21,6 @@ namespace BL
             try
             {
                 CultureInfo CInfo = new CultureInfo("en-US");
-                //Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
                 int PositionID = -1;
                 XmlDocument Xdoc = new XmlDocument();
                 if (!_IsCopy)

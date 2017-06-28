@@ -49,7 +49,7 @@ namespace OTTOPro
                     return;
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
-                ParseSupplierDetails();
+                ParseSDimensionDetails();
                 ObjBArticle = new BArticles();
                 ObjBArticle.SaveDimension(_ObjEArticle);
                 _isValidate = true; 
@@ -60,7 +60,7 @@ namespace OTTOPro
             }            
         }
 
-        private void ParseSupplierDetails()
+        private void ParseSDimensionDetails()
         {
             try
             {
@@ -71,7 +71,7 @@ namespace OTTOPro
                 if (decimal.TryParse(txtListenPrice.Text, out dValue))
                     _ObjEArticle.ListPrice = dValue;
                 if (decimal.TryParse(txtMinuten.Text, out dValue))
-                    _ObjEArticle.Minuten = Convert.ToDecimal(txtMinuten.Text);
+                    _ObjEArticle.Minuten = dValue;
             }
             catch (Exception ex)
             {
