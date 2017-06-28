@@ -73,16 +73,7 @@ namespace OTTOPro
                 {
                     int ProjectID = 0;
                     if (int.TryParse(dgProjectSearch.GetFocusedDataRow()["ProjectId"].ToString(), out ProjectID))
-                    {
-                        //foreach (Form form in Application.OpenForms)
-                        //{
-                        //    if (form.GetType() == typeof(frmProject))
-                        //    {
-                        //        form.Activate();
-                        //        return;
-                        //    }
-                        //}                      
-
+                    {     
                         frmProject Obj = new frmProject();
                         Obj.ProjectID = ProjectID;
                         Obj.IsCopy = IsCopy;
