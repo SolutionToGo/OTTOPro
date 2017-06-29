@@ -55,6 +55,7 @@
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcTyp)).BeginInit();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -214,10 +216,11 @@
             // 
             this.cmbSupplier.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSupplier.FormattingEnabled = true;
             this.cmbSupplier.Location = new System.Drawing.Point(70, 86);
             this.cmbSupplier.Name = "cmbSupplier";
-            this.cmbSupplier.Size = new System.Drawing.Size(603, 21);
+            this.cmbSupplier.Size = new System.Drawing.Size(340, 21);
             this.cmbSupplier.TabIndex = 6;
             this.cmbSupplier.Tag = "Supplier";
             // 
@@ -225,10 +228,11 @@
             // 
             this.cmbWI.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbWI.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbWI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWI.FormattingEnabled = true;
             this.cmbWI.Location = new System.Drawing.Point(70, 61);
             this.cmbWI.Name = "cmbWI";
-            this.cmbWI.Size = new System.Drawing.Size(603, 21);
+            this.cmbWI.Size = new System.Drawing.Size(340, 21);
             this.cmbWI.TabIndex = 5;
             this.cmbWI.Tag = "WI";
             // 
@@ -236,17 +240,18 @@
             // 
             this.cmbWGWA.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbWGWA.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbWGWA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWGWA.FormattingEnabled = true;
             this.cmbWGWA.Location = new System.Drawing.Point(70, 36);
             this.cmbWGWA.Name = "cmbWGWA";
-            this.cmbWGWA.Size = new System.Drawing.Size(603, 21);
+            this.cmbWGWA.Size = new System.Drawing.Size(340, 21);
             this.cmbWGWA.TabIndex = 4;
             this.cmbWGWA.Tag = "WG/WA";
             this.cmbWGWA.SelectedValueChanged += new System.EventHandler(this.cmbWGWA_SelectedValueChanged);
             // 
             // btnSave
             // 
-            this.btnSave.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSave.Location = new System.Drawing.Point(12, 552);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 22);
@@ -257,7 +262,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(96, 552);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 22);
@@ -270,7 +275,7 @@
             // 
             this.txtTyp.Location = new System.Drawing.Point(70, 12);
             this.txtTyp.Name = "txtTyp";
-            this.txtTyp.Size = new System.Drawing.Size(603, 20);
+            this.txtTyp.Size = new System.Drawing.Size(340, 20);
             this.txtTyp.StyleController = this.layoutControl1;
             this.txtTyp.TabIndex = 0;
             this.txtTyp.Tag = "Typ";
@@ -287,7 +292,8 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem7,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(685, 586);
@@ -328,7 +334,7 @@
             this.layoutControlItem4.Control = this.txtTyp;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(665, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(402, 24);
             this.layoutControlItem4.Text = "Typ ";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(55, 14);
             // 
@@ -342,7 +348,7 @@
             this.layoutControlItem1.CustomizationFormText = "WG/WA";
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(665, 25);
+            this.layoutControlItem1.Size = new System.Drawing.Size(402, 25);
             this.layoutControlItem1.Text = "WG/WA";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(55, 14);
             // 
@@ -355,7 +361,7 @@
             this.layoutControlItem2.Control = this.cmbWI;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 49);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(665, 25);
+            this.layoutControlItem2.Size = new System.Drawing.Size(402, 25);
             this.layoutControlItem2.Text = "WI";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(55, 14);
             // 
@@ -368,7 +374,7 @@
             this.layoutControlItem3.Control = this.cmbSupplier;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 74);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(665, 25);
+            this.layoutControlItem3.Size = new System.Drawing.Size(402, 25);
             this.layoutControlItem3.Text = "Lieferant";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(55, 14);
             // 
@@ -389,6 +395,14 @@
             this.emptySpaceItem1.Size = new System.Drawing.Size(497, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(402, 0);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(263, 99);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // frmType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -399,6 +413,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmType";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Typ";
             this.Load += new System.EventHandler(this.frmType_Load);
@@ -416,6 +431,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -449,5 +465,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
     }
 }

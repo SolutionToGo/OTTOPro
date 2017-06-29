@@ -20,6 +20,9 @@ namespace OTTOPro
         BSupplier ObjBSupplier = null;
         string _SupplierType = null;
         private ESupplier _ObjEsupplier = null;
+        bool _isValidate = false;
+
+
 
         #region CONSTRUCTORS
 
@@ -102,8 +105,6 @@ namespace OTTOPro
             this.Close();
         }
 
-        bool _isValidate = true;
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -113,16 +114,16 @@ namespace OTTOPro
                     _isValidate = false;
                     throw new Exception("Bitte eingeben Vollständiger Name");
                 }                   
-                ValidatControls();
-                if (_isValidate == true)
-                {
+                //ValidatControls();
+                //if (_isValidate == true)
+                //{
                     if (_ObjEsupplier == null)
                         _ObjEsupplier = new ESupplier();
                     ParseSupplierDetails();
                     ObjBSupplier = new BSupplier();
                     _ObjEsupplier = ObjBSupplier.SaveSupplierDetails(_ObjEsupplier);
-                    this.Close();
-                }
+                    _isValidate = true;
+                //}
             }
             catch (Exception ex)
             {
@@ -154,7 +155,7 @@ namespace OTTOPro
                     ParseSupplierContactsDetails();
                     ObjBSupplier = new BSupplier();
                     _ObjEsupplier = ObjBSupplier.SaveSupplierContactDetails(_ObjEsupplier);
-                    this.Close();
+                    _isValidate = true;
                 }
             }
             catch (Exception ex)

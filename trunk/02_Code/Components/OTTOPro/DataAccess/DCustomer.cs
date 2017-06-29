@@ -44,7 +44,6 @@ namespace DataAccess
                         {
                             throw new Exception(returnObj.ToString());
                         }
-
                     }
                 }
             }

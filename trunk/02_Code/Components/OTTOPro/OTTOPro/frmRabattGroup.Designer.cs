@@ -131,6 +131,7 @@
             // 
             this.cmbType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(110, 60);
             this.cmbType.Name = "cmbType";
@@ -604,6 +605,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRabattGroup";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rabatt Group";
             this.Load += new System.EventHandler(this.frmRabattGroup_Load);

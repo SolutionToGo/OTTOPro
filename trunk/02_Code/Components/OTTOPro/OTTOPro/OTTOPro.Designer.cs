@@ -424,7 +424,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnFeature, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "User Management ";
-            this.ribbonPageGroup2.Visible = false;
             // 
             // ribbonPageGroup4
             // 

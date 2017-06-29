@@ -21,7 +21,7 @@ namespace OTTOPro
         BOTTO ObjBOTTO = null;
         string _type = null;
         private EOTTO _ObjEOTTO = null;
-        bool _isValidate = true;
+        bool _isValidate = false;
 
 
         #region PROPERTY SETTING
@@ -107,16 +107,16 @@ namespace OTTOPro
                     _isValidate = false;
                     throw new Exception("Bitte eingeben Kurz Name");
                 }    
-                ValidatControls();
-                if (_isValidate == true)
-                {
+                //ValidatControls();
+                //if (_isValidate == true)
+                //{
                     if (ObjEOTTO == null)
                         ObjEOTTO = new EOTTO();
                     ParseOTTODetails();
                     ObjBOTTO = new BOTTO();
                     ObjEOTTO.OTTOID = ObjBOTTO.SaveOTTODetails(ObjEOTTO);
-                    this.Close();
-                }                
+                    _isValidate = true;
+                //}                
             }
             catch (Exception ex)
             {
@@ -146,7 +146,7 @@ namespace OTTOPro
                 ParseOTTOContactsDetails();
                 ObjBOTTO = new BOTTO();
                 ObjEOTTO.ContactID = ObjBOTTO.SaveOTTOContactDetails(ObjEOTTO);
-                this.Close();
+                _isValidate = true;
             }
             catch (Exception ex)
             {

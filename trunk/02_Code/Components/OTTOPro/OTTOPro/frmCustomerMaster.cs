@@ -23,6 +23,8 @@ namespace OTTOPro
         BCustomer ObjBCustomer = null;
         string _CustomerType = null;
         private ECustomer _ObjEcustomer = null;
+        bool _isValidate = false;
+
 
         #region PROPERTY SETTING
 
@@ -108,7 +110,6 @@ namespace OTTOPro
             this.Close();
         }
 
-        bool _isValidate = true;
         private void btnSaveCustomer_Click(object sender, EventArgs e)
         {
             try
@@ -123,16 +124,16 @@ namespace OTTOPro
                     _isValidate = false;
                     throw new Exception("Bitte eingeben Kurz Name");
                 }
-                ValidatControls();
-                if (_isValidate==true)
-                {
+               // ValidatControls();
+                //if (_isValidate==true)
+                //{
                     if (ObjECustomer == null)
                         ObjECustomer = new ECustomer();
                     ParseCustomerDetails();
                     ObjBCustomer = new BCustomer();
                     ObjECustomer.Customer_CustomerID = ObjBCustomer.SaveCustomerDetails(ObjECustomer);
-                    this.Close();
-                }                
+                    _isValidate = true;
+                //}                
             }
             catch (Exception ex)
             {
@@ -163,7 +164,7 @@ namespace OTTOPro
                     ParseCustomerContactsDetails();
                     ObjBCustomer = new BCustomer();
                     ObjECustomer.ContactPersonID = ObjBCustomer.SaveCustomerContactDetails(ObjECustomer);
-                    this.Close();
+                    _isValidate = true;
                 }                
             }
             catch (Exception ex)
@@ -196,7 +197,7 @@ namespace OTTOPro
                     ParseCustomerAddressDetails();
                     ObjBCustomer = new BCustomer();
                     ObjECustomer.AddressID = ObjBCustomer.SaveCustomerAddressDetails(ObjECustomer);
-                    this.Close();
+                    _isValidate = true;
                 }                
             }
             catch (Exception ex)
