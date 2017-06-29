@@ -153,7 +153,7 @@
             // 
             // gcUser
             // 
-            this.gcUser.Location = new System.Drawing.Point(12, 210);
+            this.gcUser.Location = new System.Drawing.Point(12, 200);
             this.gcUser.MainView = this.gvUser;
             this.gcUser.Name = "gcUser";
             this.gcUser.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
@@ -337,10 +337,10 @@
             this.layoutControlItem1,
             this.emptySpaceItem2,
             this.layoutControlGroup3,
-            this.emptySpaceItem1,
             this.layoutControlItem2,
             this.emptySpaceItem3,
-            this.layoutControlItem6});
+            this.layoutControlItem6,
+            this.emptySpaceItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(901, 636);
@@ -353,7 +353,7 @@
             this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem1.Control = this.gcUser;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 179);
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 169);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(881, 437);
             this.layoutControlItem1.Text = "User Details ";
@@ -472,7 +472,7 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 169);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 606);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(881, 10);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
@@ -515,6 +515,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(901, 636);
             this.Controls.Add(this.layoutControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmLoadUsers";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

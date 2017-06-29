@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             DevExpress.XtraSplashScreen.SplashScreenManager splashScreenManager1 = new DevExpress.XtraSplashScreen.SplashScreenManager(this, typeof(global::OTTOPro.frmSplashScreen), true, true);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -100,7 +101,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(337, 146);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 22);
@@ -111,7 +112,7 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
+            this.btnLogin.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
             this.btnLogin.Location = new System.Drawing.Point(260, 146);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(73, 22);
@@ -245,6 +246,7 @@
             this.ClientSize = new System.Drawing.Size(429, 180);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

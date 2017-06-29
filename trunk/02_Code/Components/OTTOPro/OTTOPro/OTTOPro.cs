@@ -383,10 +383,5 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
-
-
-       
-
     }
 }
