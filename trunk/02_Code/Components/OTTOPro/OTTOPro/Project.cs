@@ -6325,9 +6325,9 @@ namespace OTTOPro
             {
 
                 string val = Convert.ToString(view.GetRowCellValue(row, "IsInvoiced"));
-                if (val == "YES")
+                if (val == "Ja")
                     result = true;
-                else if (val == "NO")
+                else if (val == "Nein")
                     result = false;
             }
             catch

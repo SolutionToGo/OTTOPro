@@ -451,7 +451,6 @@
             this.ribbonPageGroup3});
             this.Profile.Name = "Profile";
             this.Profile.Text = "Profile";
-            this.Profile.Visible = false;
             // 
             // ribbonPageGroup3
             // 
