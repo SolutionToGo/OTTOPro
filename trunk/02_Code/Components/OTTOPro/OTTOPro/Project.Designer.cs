@@ -477,6 +477,7 @@
             this.treeListColumn57 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn47 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn34 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.rpMultis = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.treeListColumn33 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn32 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn38 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -1401,6 +1402,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBulkProcessWA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBulkProcessWG.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlBulkProcessPositionDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpMultis)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAddRemovePositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNachtragsnummer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBulkLieferantMA.Properties)).BeginInit();
@@ -7539,10 +7541,11 @@
             this.tlBulkProcessPositionDetails.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this.tlBulkProcessPositionDetails.Location = new System.Drawing.Point(12, 406);
             this.tlBulkProcessPositionDetails.Name = "tlBulkProcessPositionDetails";
-            this.tlBulkProcessPositionDetails.OptionsBehavior.ReadOnly = true;
+            this.tlBulkProcessPositionDetails.OptionsBehavior.Editable = false;
+            this.tlBulkProcessPositionDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.rpMultis});
             this.tlBulkProcessPositionDetails.Size = new System.Drawing.Size(1498, 331);
             this.tlBulkProcessPositionDetails.TabIndex = 51;
-            this.tlBulkProcessPositionDetails.NodeCellStyle += new DevExpress.XtraTreeList.GetCustomNodeCellStyleEventHandler(this.tlBulkProcessPositionDetails_NodeCellStyle);
             // 
             // treeListColumn22
             // 
@@ -7659,14 +7662,25 @@
             // treeListColumn34
             // 
             this.treeListColumn34.Caption = "MA_Multi1";
+            this.treeListColumn34.ColumnEdit = this.rpMultis;
             this.treeListColumn34.FieldName = "MA_Multi1";
             this.treeListColumn34.Name = "treeListColumn34";
             this.treeListColumn34.Visible = true;
             this.treeListColumn34.VisibleIndex = 14;
             // 
+            // rpMultis
+            // 
+            this.rpMultis.AutoHeight = false;
+            this.rpMultis.Mask.EditMask = "n3";
+            this.rpMultis.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpMultis.Mask.ShowPlaceHolders = false;
+            this.rpMultis.Mask.UseMaskAsDisplayFormat = true;
+            this.rpMultis.Name = "rpMultis";
+            // 
             // treeListColumn33
             // 
             this.treeListColumn33.Caption = "MA_multi2";
+            this.treeListColumn33.ColumnEdit = this.rpMultis;
             this.treeListColumn33.FieldName = "MA_multi2";
             this.treeListColumn33.Name = "treeListColumn33";
             this.treeListColumn33.Visible = true;
@@ -7675,6 +7689,7 @@
             // treeListColumn32
             // 
             this.treeListColumn32.Caption = "MA_multi3";
+            this.treeListColumn32.ColumnEdit = this.rpMultis;
             this.treeListColumn32.FieldName = "MA_multi3";
             this.treeListColumn32.Name = "treeListColumn32";
             this.treeListColumn32.Visible = true;
@@ -7683,6 +7698,7 @@
             // treeListColumn38
             // 
             this.treeListColumn38.Caption = "MA_multi4";
+            this.treeListColumn38.ColumnEdit = this.rpMultis;
             this.treeListColumn38.FieldName = "MA_multi4";
             this.treeListColumn38.Name = "treeListColumn38";
             this.treeListColumn38.Visible = true;
@@ -7693,80 +7709,84 @@
             this.treeListColumn37.Caption = "MA_Einka";
             this.treeListColumn37.FieldName = "MA_einkaufspreis";
             this.treeListColumn37.Name = "treeListColumn37";
-            this.treeListColumn37.Visible = true;
-            this.treeListColumn37.VisibleIndex = 18;
             // 
             // treeListColumn36
             // 
             this.treeListColumn36.Caption = "MA_Selb";
+            this.treeListColumn36.ColumnEdit = this.rpMultis;
             this.treeListColumn36.FieldName = "MA_selbstkostenMulti";
             this.treeListColumn36.Name = "treeListColumn36";
             this.treeListColumn36.Visible = true;
-            this.treeListColumn36.VisibleIndex = 19;
+            this.treeListColumn36.VisibleIndex = 18;
             // 
             // treeListColumn35
             // 
             this.treeListColumn35.Caption = "MA_Verka";
+            this.treeListColumn35.ColumnEdit = this.rpMultis;
             this.treeListColumn35.FieldName = "MA_verkaufspreis_Multi";
             this.treeListColumn35.Name = "treeListColumn35";
             this.treeListColumn35.Visible = true;
-            this.treeListColumn35.VisibleIndex = 20;
+            this.treeListColumn35.VisibleIndex = 19;
             // 
             // treeListColumn41
             // 
             this.treeListColumn41.Caption = "MO_multi1";
+            this.treeListColumn41.ColumnEdit = this.rpMultis;
             this.treeListColumn41.FieldName = "MO_multi1";
             this.treeListColumn41.Name = "treeListColumn41";
             this.treeListColumn41.Visible = true;
-            this.treeListColumn41.VisibleIndex = 21;
+            this.treeListColumn41.VisibleIndex = 20;
             // 
             // treeListColumn40
             // 
             this.treeListColumn40.Caption = "MO_multi2";
+            this.treeListColumn40.ColumnEdit = this.rpMultis;
             this.treeListColumn40.FieldName = "MO_multi2";
             this.treeListColumn40.Name = "treeListColumn40";
             this.treeListColumn40.Visible = true;
-            this.treeListColumn40.VisibleIndex = 22;
+            this.treeListColumn40.VisibleIndex = 21;
             // 
             // treeListColumn39
             // 
             this.treeListColumn39.Caption = "MO_multi3";
+            this.treeListColumn39.ColumnEdit = this.rpMultis;
             this.treeListColumn39.FieldName = "MO_multi3";
             this.treeListColumn39.Name = "treeListColumn39";
             this.treeListColumn39.Visible = true;
-            this.treeListColumn39.VisibleIndex = 23;
+            this.treeListColumn39.VisibleIndex = 22;
             // 
             // treeListColumn43
             // 
             this.treeListColumn43.Caption = "MO_multi4";
+            this.treeListColumn43.ColumnEdit = this.rpMultis;
             this.treeListColumn43.FieldName = "MO_multi4";
             this.treeListColumn43.Name = "treeListColumn43";
             this.treeListColumn43.Visible = true;
-            this.treeListColumn43.VisibleIndex = 24;
+            this.treeListColumn43.VisibleIndex = 23;
             // 
             // treeListColumn42
             // 
             this.treeListColumn42.Caption = "MO_Einka";
             this.treeListColumn42.FieldName = "MO_Einkaufspreis";
             this.treeListColumn42.Name = "treeListColumn42";
-            this.treeListColumn42.Visible = true;
-            this.treeListColumn42.VisibleIndex = 25;
             // 
             // treeListColumn45
             // 
             this.treeListColumn45.Caption = "MO_Selb";
+            this.treeListColumn45.ColumnEdit = this.rpMultis;
             this.treeListColumn45.FieldName = "MO_selbstkostenMulti";
             this.treeListColumn45.Name = "treeListColumn45";
             this.treeListColumn45.Visible = true;
-            this.treeListColumn45.VisibleIndex = 26;
+            this.treeListColumn45.VisibleIndex = 24;
             // 
             // treeListColumn44
             // 
             this.treeListColumn44.Caption = "MO_Verka";
+            this.treeListColumn44.ColumnEdit = this.rpMultis;
             this.treeListColumn44.FieldName = "MO_verkaufspreisMulti";
             this.treeListColumn44.Name = "treeListColumn44";
             this.treeListColumn44.Visible = true;
-            this.treeListColumn44.VisibleIndex = 27;
+            this.treeListColumn44.VisibleIndex = 25;
             // 
             // treeListColumn28
             // 
@@ -10378,6 +10398,10 @@
             this.txtDeliveredQnty.Location = new System.Drawing.Point(92, 36);
             this.txtDeliveredQnty.MenuManager = this.barManager1;
             this.txtDeliveredQnty.Name = "txtDeliveredQnty";
+            this.txtDeliveredQnty.Properties.Mask.EditMask = "N3";
+            this.txtDeliveredQnty.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDeliveredQnty.Properties.Mask.ShowPlaceHolders = false;
+            this.txtDeliveredQnty.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtDeliveredQnty.Properties.ReadOnly = true;
             this.txtDeliveredQnty.Size = new System.Drawing.Size(196, 20);
             this.txtDeliveredQnty.StyleController = this.layoutControl12;
@@ -10388,6 +10412,10 @@
             this.txtOrderedQnty.Location = new System.Drawing.Point(92, 12);
             this.txtOrderedQnty.MenuManager = this.barManager1;
             this.txtOrderedQnty.Name = "txtOrderedQnty";
+            this.txtOrderedQnty.Properties.Mask.EditMask = "N3";
+            this.txtOrderedQnty.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtOrderedQnty.Properties.Mask.ShowPlaceHolders = false;
+            this.txtOrderedQnty.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtOrderedQnty.Properties.ReadOnly = true;
             this.txtOrderedQnty.Size = new System.Drawing.Size(196, 20);
             this.txtOrderedQnty.StyleController = this.layoutControl12;
@@ -10897,9 +10925,10 @@
             // txtrpMenge
             // 
             this.txtrpMenge.AutoHeight = false;
-            this.txtrpMenge.Mask.EditMask = "n0";
+            this.txtrpMenge.Mask.EditMask = "n3";
             this.txtrpMenge.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtrpMenge.Mask.ShowPlaceHolders = false;
+            this.txtrpMenge.Mask.UseMaskAsDisplayFormat = true;
             this.txtrpMenge.Name = "txtrpMenge";
             // 
             // gridColumn16
@@ -14695,6 +14724,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtBulkProcessWA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBulkProcessWG.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tlBulkProcessPositionDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpMultis)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAddRemovePositions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNachtragsnummer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtBulkLieferantMA.Properties)).EndInit();
@@ -16103,6 +16133,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem31;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem45;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpMenge;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpMultis;
 
 
     }

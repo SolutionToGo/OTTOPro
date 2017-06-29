@@ -1258,7 +1258,6 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(cmbPositionKZ.Text) && (cmbPositionKZ.Text.ToLower() == "zs" || cmbPositionKZ.Text.ToLower() == "z"))
                 {
                     FormatFieldsForSum();
-                    string strParentOZ = PrepareOZ();
                     if (cmbPositionKZ.Text.ToLower() == "zs")
                     {
                         lblsurchargefrom.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
@@ -1267,6 +1266,7 @@ namespace OTTOPro
                         lblsurchargemo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         if (_IsNewMode)
                         {
+                            string strParentOZ = PrepareOZ();
                             txtSurchargeFrom.Text = FromOZ(strParentOZ, "ZS");
                             txtSurchargeTo.Text = ToOZ(strParentOZ, "ZS");
                         }
@@ -1283,6 +1283,7 @@ namespace OTTOPro
                             txtPosition.Enabled = true;
                             if (_IsNewMode)
                             {
+                                string strParentOZ = PrepareOZ();
                                 txtSurchargeFrom.Text = FromOZ(strParentOZ, "Z");
                                 txtSurchargeTo.Text = ToOZ(strParentOZ, "Z");
                                 txtSurchargePerME.Text = "1";
@@ -1369,35 +1370,10 @@ namespace OTTOPro
                     e.Appearance.BackColor = _Color;
                     e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
                 }
-                //if (e.Node["DetailKZ"] != null)
-                //{
-                //    int tRes = Convert.ToInt32(e.Node["DetailKZ"]);
-                //    if (tRes > 0)
-                //    {
-                //        tlPositions.Columns["Position_OZ"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Center;
-                //    }
-                //    else
-                //    {
-                //        tlPositions.Columns["Position_OZ"].AppearanceCell.TextOptions.HAlignment = HorzAlignment.Default;
-                //    }
-                //}
-
-                if (e.Column.FieldName == "MA_Multi1" ||
-                    e.Column.FieldName == "MA_multi2" ||
-                    e.Column.FieldName == "MA_multi3" ||
-                    e.Column.FieldName == "MA_multi4" ||
-                    e.Column.FieldName == "MA_einkaufspreis" ||
-                    e.Column.FieldName == "MA_selbstkostenMulti" ||
-                    e.Column.FieldName == "MA_verkaufspreis_Multi" ||
+                if (e.Column.FieldName == "MA_einkaufspreis" ||
                     e.Column.FieldName == "MA_selbstkosten" ||
                     e.Column.FieldName == "MA_verkaufspreis" ||
-                    e.Column.FieldName == "MO_multi1" ||
-                    e.Column.FieldName == "MO_multi2" ||
-                    e.Column.FieldName == "MO_multi3" ||
-                    e.Column.FieldName == "MO_multi4" ||
                     e.Column.FieldName == "MO_Einkaufspreis" ||
-                    e.Column.FieldName == "MO_selbstkostenMulti" ||
-                    e.Column.FieldName == "MO_verkaufspreisMulti" ||
                     e.Column.FieldName == "MO_selbstkosten" ||
                     e.Column.FieldName == "MO_verkaufspreis" ||
                     e.Column.FieldName == "EP" ||
@@ -1467,8 +1443,8 @@ namespace OTTOPro
                     ObjMO = dt.Compute("SUM(MOWithMulti)", "SNO >=" + ifromValue +
                        "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M')");
 
-                    decimal MAPrice = ObjMA == null ? 0 : Convert.ToDecimal(ObjMA);
-                    decimal MOPrice = ObjMO == null ? 0 : Convert.ToDecimal(ObjMO);
+                    decimal MAPrice = ObjMA == DBNull.Value ? 0 : Convert.ToDecimal(ObjMA);
+                    decimal MOPrice = ObjMO == DBNull.Value ? 0 : Convert.ToDecimal(ObjMO);
                     decimal MaSurcharge = (MAPrice * strPer) / 100;
                     decimal MOSurcharge = (MOPrice * strPerMO) / 100;
                     TotalValue = MaSurcharge + MOSurcharge;
@@ -1477,7 +1453,7 @@ namespace OTTOPro
                 {
                     Obj = dt.Compute("SUM(" + strField + ")", "SNO >=" + ifromValue +
                           "And SNO <=" + itoValue + "And DetailKZ = 0 AND (PositionKZ = 'N' OR PositionKZ = 'Z' OR PositionKZ = 'M')");
-                    Sum = Obj == null ? 0 : Convert.ToDecimal(Obj);
+                    Sum = Obj == DBNull.Value ? 0 : Convert.ToDecimal(Obj);
                     TotalValue = Sum;
                 }
             }
@@ -1617,6 +1593,11 @@ namespace OTTOPro
                             throw new Exception("Bitte geben Sie mindestens eine Stufe ein");
                         else
                             throw new Exception("Plesae Enter Atleast One Stufe");
+                    }
+                    if (cmbPositionKZ.Text == "Z" || cmbPositionKZ.Text == "ZS")
+                    {
+                        if (string.IsNullOrEmpty(txtSurchargeFrom.Text))
+                            throw new Exception("Position Cannot be created with Empty From and To Fields");
                     }
                 }
                 if (string.IsNullOrEmpty(txtPosition.Text))
@@ -2064,12 +2045,11 @@ namespace OTTOPro
                                                 !string.IsNullOrEmpty(txtMulti4ME.Text)
                                                 )
                 {
-                    decimal GrundMulti = RoundValue(
+                    decimal GrundMulti = Math.Round(
                         getDValue(txtMulti1ME.Text) *
                         getDValue(txtMulti2ME.Text) *
                         getDValue(txtMulti3ME.Text) *
-                        getDValue(txtMulti4ME.Text)
-                        );
+                        getDValue(txtMulti4ME.Text),3);
                     txtGrundMultiME.Text = GrundMulti.ToString();
                 }
             }
@@ -2114,12 +2094,11 @@ namespace OTTOPro
                                 !string.IsNullOrEmpty(txtMulti4MO.Text)
                                 )
                 {
-                    decimal GrundMulti = RoundValue(
+                    decimal GrundMulti = Math.Round(
                         getDValue(txtMulti1MO.Text) *
                         getDValue(txtMulti2MO.Text) *
                         getDValue(txtMulti3MO.Text) *
-                        getDValue(txtMulti4MO.Text)
-                        );
+                        getDValue(txtMulti4MO.Text),3);
                     txtGrundMultiMO.Text = GrundMulti.ToString();
                 }
             }
@@ -2658,10 +2637,6 @@ namespace OTTOPro
             if (e.KeyCode == Keys.Escape)
             {
                 btnCancel_Click(null, null);
-                Color _Color = Color.FromArgb(0, 158, 224);
-                tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                LCGLVDetails.AppearanceGroup.BackColor = _Color;
-
             }
         }
 
@@ -2849,6 +2824,9 @@ namespace OTTOPro
                 chkCreateNew.Enabled = false;
                 tlPositions_FocusedNodeChanged(null, null);
                 tlPositions.OptionsBehavior.ReadOnly = false;
+                Color _Color = Color.FromArgb(0, 158, 224);
+                tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+                LCGLVDetails.AppearanceGroup.BackColor = _Color;
             }
             catch (Exception ex)
             {
@@ -2899,29 +2877,27 @@ namespace OTTOPro
             try
             {
                 DataView dvPosition = ObjEPosition.dsPositionList.Tables[0].DefaultView;
-                dvPosition.RowFilter = "Position_OZ = '" + textbox.Text + "'";
+                if(cmbPositionKZ.Text == "Z")
+                    dvPosition.RowFilter = "Position_OZ = '" + textbox.Text + "' and (PositionKZ = 'N' OR PositionKZ = 'M')";
+                else if(cmbPositionKZ.Text == "ZS")
+                    dvPosition.RowFilter = "Position_OZ = '" + textbox.Text + "' and (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z')";
+
                 DataTable dtTemp = dvPosition.ToTable();
                 if (dtTemp != null && dtTemp.Rows.Count < 1)
                 {
-                    if (textbox.Text != string.Empty)
-                    {
-                        if (Utility._IsGermany == true)
-                        {
-                            XtraMessageBox.Show("Die gewählte " + textbox.Tag.ToString() + " existiert nicht", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        else
-                        {
-                            XtraMessageBox.Show("Selected " + textbox.Tag.ToString() + " does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                    else
+                    if (textbox.Text == string.Empty)
                     {
                         if (Utility._IsGermany == true)
                             XtraMessageBox.Show(textbox.Tag.ToString() + " Fehlende Angabe", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         else
-                        {
                             XtraMessageBox.Show(textbox.Tag.ToString() + " Should not be empty", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                    }
+                    else
+                    {
+                        if (Utility._IsGermany == true)
+                            XtraMessageBox.Show("Die gewählte " + textbox.Tag.ToString() + " existiert nicht", "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        else
+                            XtraMessageBox.Show("Selected " + textbox.Tag.ToString() + " does not exist", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     if (_IsNewMode)
                     {
@@ -2930,15 +2906,9 @@ namespace OTTOPro
                         else
                             textbox.Text = ToOZ(PrepareOZ(), cmbPositionKZ.Text);
                     }
-                    else if (_IsEditMode)
+                    else
                     {
-                        DataView dvPositionEdit = ObjEPosition.dsPositionList.Tables[0].DefaultView;
-                        dvPositionEdit.RowFilter = "PositionID = '" + ObjEPosition.PositionID + "'";
-                        DataTable dtTemp1 = dvPositionEdit.ToTable();
-                        if (textbox == txtSurchargeFrom)
-                            textbox.Text = dtTemp1.Rows[0]["surchargefrom"] == DBNull.Value ? "" : dtTemp1.Rows[0]["surchargefrom"].ToString();
-                        else
-                            textbox.Text = dtTemp1.Rows[0]["surchargeto"] == DBNull.Value ? "" : dtTemp1.Rows[0]["surchargeto"].ToString();
+                        tlPositions_FocusedNodeChanged(null, null);
                     }
                     textbox.Select(0, 0);
                 }
@@ -2955,23 +2925,26 @@ namespace OTTOPro
             string strFromOZ = string.Empty;
             try
             {
-                DataTable dt = ObjEPosition.dsPositionList.Tables[0];
+                DataTable dt = new DataTable();
+                dt = ObjEPosition.dsPositionList.Tables[0].Copy();
                 DataRow[] tPosition_Id = dt.Select("Position_OZ='" + strParentOZ + "'");
                 string tResult = tPosition_Id[0]["PositionID"] == DBNull.Value ? "" : tPosition_Id[0]["PositionID"].ToString();
                 object Min_Identity = null;
                 string MinValue = string.Empty;
 
                 if (strPositionKZ.ToLower() == "zs")
-                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And PositionKZ <> 'ZS'");
+                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z')");
                 else if (strPositionKZ.ToLower() == "z")
-                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And PositionKZ = 'N'");
+                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M')");
 
-                if (Min_Identity != null)
-                    strFromOZ = dt.Compute("MIN(Position_OZ)", "SNO =" + Min_Identity) == DBNull.Value ? "" : dt.Compute("MIN(Position_OZ)", "SNO =" + Min_Identity).ToString();
+                if (Min_Identity != DBNull.Value)
+                {
+                    strFromOZ = Convert.ToString(dt.Compute("MIN(Position_OZ)", "SNO =" + Min_Identity));
+                }
             }
             catch (Exception ex)
             {
-                //throw;
+                throw;
             }
             return strFromOZ;
         }
@@ -2981,22 +2954,25 @@ namespace OTTOPro
             string strToOZ = string.Empty;
             try
             {
-                DataTable dt = ObjEPosition.dsPositionList.Tables[0];
+                DataTable dt = new DataTable();
+                dt = ObjEPosition.dsPositionList.Tables[0];
                 DataRow[] tPosition_Id = dt.Select("Position_OZ='" + strParentOZ + "'");
                 string tResult = tPosition_Id[0]["PositionID"] == DBNull.Value ? "" : tPosition_Id[0]["PositionID"].ToString();
                 object Max_Identity = null;
 
                 if (strPositionKZ.ToLower() == "zs")
-                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And PositionKZ <> 'ZS'");
+                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z')");
                 else if (strPositionKZ.ToLower() == "z")
-                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And PositionKZ = 'N'");
+                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M')");
 
-                if (Max_Identity != null)
-                    strToOZ = dt.Compute("MIN(Position_OZ)", "SNO =" + Max_Identity) == DBNull.Value ? "" : dt.Compute("MIN(Position_OZ)", "SNO =" + Max_Identity).ToString();
+                if (Max_Identity != DBNull.Value)
+                {
+                    strToOZ = Convert.ToString(dt.Compute("MIN(Position_OZ)", "SNO =" + Max_Identity));
+                }
             }
             catch (Exception ex)
             {
-                //throw;
+                throw;
             }
             return strToOZ;
         }
@@ -4497,41 +4473,6 @@ namespace OTTOPro
 
 
         #endregion
-
-        private void tlBulkProcessPositionDetails_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
-        {
-            try
-            {
-                if (e.Column.FieldName == "MA_Multi1" ||
-e.Column.FieldName == "MA_multi2" ||
-e.Column.FieldName == "MA_multi3" ||
-e.Column.FieldName == "MA_multi4" ||
-e.Column.FieldName == "MA_einkaufspreis" ||
-e.Column.FieldName == "MA_selbstkostenMulti" ||
-e.Column.FieldName == "MA_verkaufspreis_Multi" ||
-e.Column.FieldName == "MA_selbstkosten" ||
-e.Column.FieldName == "MA_verkaufspreis" ||
-e.Column.FieldName == "MO_multi1" ||
-e.Column.FieldName == "MO_multi2" ||
-e.Column.FieldName == "MO_multi3" ||
-e.Column.FieldName == "MO_multi4" ||
-e.Column.FieldName == "MO_Einkaufspreis" ||
-e.Column.FieldName == "MO_selbstkostenMulti" ||
-e.Column.FieldName == "MO_verkaufspreisMulti" ||
-e.Column.FieldName == "MO_selbstkosten" ||
-e.Column.FieldName == "MO_verkaufspreis" ||
-e.Column.FieldName == "EP" ||
-e.Column.FieldName == "GB")
-                {
-                    e.Column.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-                    e.Column.Format.FormatString = "n" + ObjEProject.RoundingPrice.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         private void gvAddRemovePositions_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {

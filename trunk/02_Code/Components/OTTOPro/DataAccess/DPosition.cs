@@ -405,22 +405,22 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@WI",wi);
                     cmd.Parameters.AddWithValue("@LVSection",tLVSection);
                     cmd.Parameters.AddWithValue("@Bulk_Process_ActionB_Table", dt);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dsPositionsOZList, "Positions");
-                    }
+                    object ObjReturn = cmd.ExecuteScalar();
+                    string str = Convert.ToString(ObjReturn);
+                    if (!string.IsNullOrEmpty(str))
+                        throw new Exception(str);
                 }
             }
             catch (Exception ex)
             {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Laden der Positionsliste");
-                }
+                if (ex.Message.Contains("Typ") || ex.Message.Contains("Article"))
+                    throw;
                 else
                 {
-                    throw new Exception("Error Occured While Retreiving Position OZ List");
-
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Laden der Positionsliste");
+                    else
+                        throw new Exception("Error Occured While Retreiving Position OZ List");
                 }
             }
             finally
