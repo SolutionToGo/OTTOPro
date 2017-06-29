@@ -1047,6 +1047,9 @@
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1788,6 +1791,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -5439,6 +5443,7 @@
             this.tlPositions.OptionsMenu.EnableColumnMenu = false;
             this.tlPositions.OptionsMenu.EnableFooterMenu = false;
             this.tlPositions.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.tlPositions.OptionsNavigation.UseTabKey = true;
             this.tlPositions.OptionsView.AllowBandColumnsMultiRow = true;
             this.tlPositions.OptionsView.AnimationType = DevExpress.XtraTreeList.TreeListAnimationType.AnimateAllContent;
             this.tlPositions.OptionsView.ColumnHeaderAutoHeight = DevExpress.Utils.DefaultBoolean.True;
@@ -7807,6 +7812,7 @@
             this.gvAddRemovePositions.Size = new System.Drawing.Size(283, 187);
             this.gvAddRemovePositions.TabIndex = 50;
             this.gvAddRemovePositions.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.gvAddRemovePositions_EditingControlShowing);
+            this.gvAddRemovePositions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gvAddRemovePositions_MouseClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -9155,6 +9161,7 @@
             this.lciRemoveLV.Size = new System.Drawing.Size(50, 26);
             this.lciRemoveLV.TextSize = new System.Drawing.Size(0, 0);
             this.lciRemoveLV.TextVisible = false;
+            this.lciRemoveLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // lciAddLV
             // 
@@ -9164,6 +9171,7 @@
             this.lciAddLV.Size = new System.Drawing.Size(50, 26);
             this.lciAddLV.TextSize = new System.Drawing.Size(0, 0);
             this.lciAddLV.TextVisible = false;
+            this.lciAddLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem113
             // 
@@ -14348,6 +14356,30 @@
             this.emptySpaceItem17.Size = new System.Drawing.Size(686, 73);
             this.emptySpaceItem17.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemAdd,
+            this.toolStripMenuItemRemove});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(135, 48);
+            // 
+            // toolStripMenuItemAdd
+            // 
+            this.toolStripMenuItemAdd.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.toolStripMenuItemAdd.Name = "toolStripMenuItemAdd";
+            this.toolStripMenuItemAdd.Size = new System.Drawing.Size(134, 22);
+            this.toolStripMenuItemAdd.Text = "hinzufügen";
+            this.toolStripMenuItemAdd.Click += new System.EventHandler(this.toolStripMenuItemAdd_Click);
+            // 
+            // toolStripMenuItemRemove
+            // 
+            this.toolStripMenuItemRemove.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.toolStripMenuItemRemove.Name = "toolStripMenuItemRemove";
+            this.toolStripMenuItemRemove.Size = new System.Drawing.Size(134, 22);
+            this.toolStripMenuItemRemove.Text = "Entfernen";
+            this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripMenuItemRemove_Click);
+            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -15110,6 +15142,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -16134,6 +16167,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem45;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpMenge;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpMultis;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAdd;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRemove;
 
 
     }

@@ -160,8 +160,114 @@ namespace OTTOPro
         /// <param name="e"></param>
         private void txProjectDetails_CloseButtonClick(object sender, EventArgs e)
         {
-            ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
-            (arg.Page as XtraTabPage).PageVisible = false;
+            try
+            {
+                switch (tcProjectDetails.SelectedTabPage.Name)
+                {
+                    case "tbProjectDetails":
+                        DialogResult dr = XtraMessageBox.Show("Do You Want to Save Data?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                        if (dr == DialogResult.Yes)
+                        {
+                            btnProjectSave_Click(null, null);
+                        }
+                        if (dr == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbLVDetails":
+                        DialogResult drLV = XtraMessageBox.Show("Do You Want to Save Data?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                        if (drLV == DialogResult.Yes)
+                        {
+                            btnSaveLVDetails_Click(null, null);
+                        }
+                        if (drLV == DialogResult.Cancel)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbBulkProcess":
+                        DialogResult drBP = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drBP == DialogResult.No)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbMulti5":
+                        DialogResult drM5 = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drM5 == DialogResult.No)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbMulti6":
+                        DialogResult drM6 = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drM6 == DialogResult.No)
+                        {
+                            return;
+                        }
+
+                        break;
+
+                    case "tbOmlage":
+                        DialogResult drOm = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drOm == DialogResult.No)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbDeliveryNotes":
+                        DialogResult drtest = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drtest == DialogResult.No)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbInvoices":
+                        DialogResult drIN = MessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drIN == DialogResult.No)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbSupplierProposal":
+                        DialogResult drSP = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drSP == DialogResult.No)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbUpdateSupplier":
+                        DialogResult drUS = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drUS == DialogResult.No)
+                        {
+                            return;
+                        }
+                        break;
+
+                    case "tbCopyLVs":
+                        DialogResult drCLV = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        if (drCLV == DialogResult.No)
+                        {
+                            return;
+                        }
+                        break;
+                }
+                ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
+                (arg.Page as XtraTabPage).PageVisible = false;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         /// <summary>
@@ -488,26 +594,37 @@ namespace OTTOPro
 
         private void frmProject_FormClosing(object sender, FormClosingEventArgs e)
         {
-            var dlgresult = "";
-            if (Utility._IsGermany == true)
+            BaseTabHeaderViewInfo headerInfo = (tcProjectDetails as IXtraTab).ViewInfo.HeaderInfo;
+            try
             {
-                dlgresult = XtraMessageBox.Show("Möchten Sie diese Seite wirklich schließen.?", " Bestätigung …!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
-            }
-            else
-            {
-                dlgresult = XtraMessageBox.Show("Are you sure you want to close the page.?", "Confirmation..!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
+                if (headerInfo.VisiblePages.Count >= 1)
+                {
+                    var dlgresult = "";
+                    if (Utility._IsGermany == true)
+                    {
+                        dlgresult = XtraMessageBox.Show("möchten sie diese seite wirklich schließen.?", " bestätigung …!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
+                    }
+                    else
+                    {
+                        dlgresult = XtraMessageBox.Show("Are you sure you want to close the page.?", "confirmation..!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
 
+                    }
+                    if (dlgresult.ToString().ToLower() == "cancel")
+                    {
+                        e.Cancel = true;
+                    }
+                    btnCancel_Click(null, null);
+                }
             }
-            if (dlgresult.ToString().ToLower() == "cancel")
+            catch (Exception ex)
             {
-                e.Cancel = true;
+                Utility.ShowError(ex);
             }
-            btnCancel_Click(null, null);
-            if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
-            {
-                frmOTTOPro.Instance.SetPictureBoxVisible(true);
-                frmOTTOPro.Instance.SetLableVisible(true);
-            }
+            //if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
+            //{
+            //    frmOTTOPro.Instance.SetPictureBoxVisible(true);
+            //    frmOTTOPro.Instance.SetLableVisible(true);
+            //}
         }
 
         private void txtProjectNumber_TextChanged(object sender, EventArgs e)
@@ -5156,15 +5273,11 @@ namespace OTTOPro
             {
                 if (cmbBulkProcessSelection.SelectedIndex == 2)
                 {
-                    lciAddLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    lciRemoveLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                 }
                 else
                 {
-                    lciAddLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    lciRemoveLV.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                 }
@@ -7906,5 +8019,47 @@ namespace OTTOPro
             }
         }
 
+        private void gvAddRemovePositions_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    this.contextMenuStrip1.Show(this.gvAddRemovePositions, e.Location);
+                    contextMenuStrip1.Show(Cursor.Position);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void toolStripMenuItemAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnAdd_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+
+        }
+
+        private void toolStripMenuItemRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnRemove_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        
     }
 }
