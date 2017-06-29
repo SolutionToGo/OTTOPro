@@ -543,6 +543,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@Multi4", ObjESupplier.Multi4);
                     cmd.Parameters.AddWithValue("@Fabrikate", ObjESupplier.Fabrikate);
                     cmd.Parameters.AddWithValue("@SupplierName", ObjESupplier.SupplierName);
+                    cmd.Parameters.AddWithValue("@IsSingle", ObjESupplier.IsSingle);
                     object Objreturn = cmd.ExecuteScalar();
                     if (Objreturn != null)
                     {

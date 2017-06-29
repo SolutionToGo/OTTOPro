@@ -71,6 +71,7 @@ namespace EL
         private DataTable _dtDeletedPositions;
         private DataTable _dtProposedPositions;
         private DataTable _dtSupplierMail;
+        private bool _IsSingle = false;
 
         public DataTable dtNewPositions
         {
@@ -409,6 +410,11 @@ namespace EL
         {
             get { return _SelectedColumn; }
             set { _SelectedColumn = value; }
+        }
+        public bool IsSingle
+        {
+            get { return _IsSingle; }
+            set { _IsSingle = value; }
         }
     }
 }

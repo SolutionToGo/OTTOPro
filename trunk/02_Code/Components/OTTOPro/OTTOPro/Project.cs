@@ -65,6 +65,9 @@ namespace OTTOPro
         GridHitInfo downHitInfo = null;
         private int SNO = 1;
         DataRow _CopyLVDataRow = null;
+        private bool _IsValueChanged = true;
+        private bool _IsSave = false;
+        
 
         /// <summary>
         /// Instances for Entity layer and business layer
@@ -6930,6 +6933,7 @@ namespace OTTOPro
             {
                 if (gvSupplier.FocusedColumn != null)
                 {
+                    _IsValueChanged = false;
                     string strSuppliercolumnName = gvSupplier.FocusedColumn.FieldName;
                     int iIndex = gvSupplier.FocusedRowHandle;
                     string strBoolColumnName = gvSupplier.FocusedColumn.FieldName + "Check";
@@ -6951,6 +6955,8 @@ namespace OTTOPro
                             ObjESupplier.dtPositions.Rows[iIndex][strSuppliercolumnName + "Multi3"].ToString();
                         txtNewMulti4.Text = ObjESupplier.dtPositions.Rows[iIndex][strSuppliercolumnName + "Multi4"] == DBNull.Value ? "1" :
                             ObjESupplier.dtPositions.Rows[iIndex][strSuppliercolumnName + "Multi4"].ToString();
+                        txtListPreis.Text = ObjESupplier.dtPositions.Rows[iIndex][strSuppliercolumnName] == DBNull.Value ? "0" :
+                            ObjESupplier.dtPositions.Rows[iIndex][strSuppliercolumnName].ToString();
                     }
                     else
                     {
@@ -6960,9 +6966,11 @@ namespace OTTOPro
                         txtNewMulti2.Text = "1";
                         txtNewMulti3.Text = "1";
                         txtNewMulti4.Text = "1";
+                        txtListPreis.Text = "0";
                         gcNewValues.Text = "Lieferantenspezifische Angaben";
                         gcExistingValues.Text = "Bestehende Angaben je LV ";
                     }
+                    _IsValueChanged = true;
                 }
             }
             catch (Exception ex)
@@ -7083,9 +7091,8 @@ namespace OTTOPro
                     ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "SupplierName"] = ObjESupplier.SupplierName = txtNewSupplierName.Text;
 
                     decimal dValue = 1;
-                    string strName = Convert.ToString(gvSupplier.GetFocusedRowCellValue(txtNewSupplierName.Text));
-                    if (decimal.TryParse(strName, out  dValue))
-                        ObjESupplier.SupplierPrice = dValue;
+                    if (decimal.TryParse(txtListPreis.Text, out  dValue))
+                        ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName] = ObjESupplier.SupplierPrice = dValue;
                     else
                         ObjESupplier.SupplierPrice = 0;
 
@@ -7108,9 +7115,12 @@ namespace OTTOPro
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
-
+                    if (!chkUpdateAll.Checked)
+                        ObjESupplier.IsSingle = true;
                     ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
-                    frmOTTOPro.UpdateStatus("Suppier price saved successfully");
+                    if (chkUpdateAll.Checked)
+                        gvProposal_FocusedRowChanged(null, null);
+                    ObjESupplier.IsSingle = false;
                 }
             }
             catch (Exception ex)
@@ -7163,6 +7173,7 @@ namespace OTTOPro
                         ObjESupplier.SupplierPrice = dValue;
                     else
                         ObjESupplier.SupplierPrice = 0;
+                    txtListPreis.Text = ObjESupplier.SupplierPrice.ToString();
 
                     if (decimal.TryParse(txtNewMulti1.Text, out  dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi1"] = ObjESupplier.Multi1 = dValue;
@@ -8060,6 +8071,25 @@ namespace OTTOPro
             }
         }
 
-        
+        private void txtListPreis_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                txtListPreis_Leave(null, null);
+        }
+
+        private void txtListPreis_Leave(object sender, EventArgs e)
+        {
+            if (_IsSave)
+            {
+                btnSaveTemparary_Click(null, null);
+                _IsSave = false;
+            }
+        }
+
+        private void txtListPreis_EditValueChanged(object sender, EventArgs e)
+        {
+            if (_IsValueChanged)
+                _IsSave = true;
+        }
     }
 }
