@@ -113,17 +113,23 @@ namespace OTTOPro
                 {
                     _isValidate = false;
                     throw new Exception("Bitte eingeben Vollständiger Name");
-                }                   
-                //ValidatControls();
-                //if (_isValidate == true)
-                //{
+                }
+                if (string.IsNullOrEmpty(txtShortName.Text.Trim()))
+                {
+                    _isValidate = false;
+                    throw new Exception("Bitte eingeben Kurz Name");
+                }   
+                if (string.IsNullOrEmpty(txtSupplierEmail.Text.Trim()))
+                {
+                    _isValidate = false;
+                    throw new Exception("Bitte eingeben Email");
+                }   
                     if (_ObjEsupplier == null)
                         _ObjEsupplier = new ESupplier();
                     ParseSupplierDetails();
                     ObjBSupplier = new BSupplier();
                     _ObjEsupplier = ObjBSupplier.SaveSupplierDetails(_ObjEsupplier);
                     _isValidate = true;
-                //}
             }
             catch (Exception ex)
             {
