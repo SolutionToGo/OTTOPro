@@ -20,7 +20,7 @@ namespace OTTOPro
 
         private ESupplier _ObjEsupplier = null;
 
-        bool _isValidate = true;
+        bool _isValidate = false;
         public frmSaveArticle()
         {
             InitializeComponent();
@@ -47,16 +47,22 @@ namespace OTTOPro
         {
             try
             {
-                ValidatControls();
-                if (_isValidate == true)
+                if (string.IsNullOrEmpty(txtWG.Text.Trim()))
                 {
+                    _isValidate = false;
+                    throw new Exception("Bitte eingeben WG");
+                }
+                if (string.IsNullOrEmpty(txtWA.Text.Trim()))
+                {
+                    _isValidate = false;
+                    throw new Exception("Bitte eingeben WA");
+                }   
                     if (_ObjEsupplier == null)
                         _ObjEsupplier = new ESupplier();
                     ParseSupplierDetails();
                     ObjBSupplier = new BSupplier();
                     ObjBSupplier.SaveArticle(_ObjEsupplier);
-                    this.Close();
-                }
+                    _isValidate = true;
             }
             catch (Exception ex)
             {

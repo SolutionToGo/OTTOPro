@@ -7118,9 +7118,14 @@ namespace OTTOPro
                     if (!chkUpdateAll.Checked)
                         ObjESupplier.IsSingle = true;
                     ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
+
                     if (chkUpdateAll.Checked)
+                    {
                         gvProposal_FocusedRowChanged(null, null);
-                    ObjESupplier.IsSingle = false;
+                        gvSupplier.FocusedRowHandle = iRowIndex;
+                        gvSupplier.FocusedColumn = gvSupplier.Columns[strSupliercolumnName];
+                        ObjESupplier.IsSingle = false;  
+                    }                                              
                 }
             }
             catch (Exception ex)
@@ -8091,5 +8096,6 @@ namespace OTTOPro
             if (_IsValueChanged)
                 _IsSave = true;
         }
+
     }
 }
