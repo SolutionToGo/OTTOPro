@@ -608,6 +608,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rabatt Group";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRabattGroup_FormClosing);
             this.Load += new System.EventHandler(this.frmRabattGroup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

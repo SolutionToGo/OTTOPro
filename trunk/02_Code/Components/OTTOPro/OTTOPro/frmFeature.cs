@@ -134,5 +134,21 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void frmFeature_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
+                {
+                    frmOTTOPro.Instance.SetPictureBoxVisible(true);
+                    frmOTTOPro.Instance.SetLableVisible(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

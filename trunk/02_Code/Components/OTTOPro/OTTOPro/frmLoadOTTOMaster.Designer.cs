@@ -791,6 +791,7 @@
             this.Name = "frmLoadOTTOMaster";
             this.Text = "OTTO Firmendaten";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLoadOTTOMaster_FormClosing);
             this.Load += new System.EventHandler(this.frmLoadOTTOMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

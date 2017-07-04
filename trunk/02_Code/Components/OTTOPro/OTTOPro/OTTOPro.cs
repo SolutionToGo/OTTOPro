@@ -52,6 +52,11 @@ namespace OTTOPro
             this.label2.Visible = _result;
         }
 
+        public  BarMdiChildrenListItem ChildItems
+        {
+            get { return barMdiChildrenListItemProject; }
+            set { barMdiChildrenListItemProject = value; }
+        }
         //void InitSkinGallery()
         //{
         //    DevExpress.XtraBars.Helpers.SkinHelper.InitSkinGallery(skinRibbonGalleryBarItem1, true);

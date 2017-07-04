@@ -267,6 +267,7 @@
             this.Name = "frmFeature";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Feature";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFeature_FormClosing);
             this.Load += new System.EventHandler(this.frmFeature_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

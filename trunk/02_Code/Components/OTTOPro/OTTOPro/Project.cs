@@ -623,11 +623,11 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-            //if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
-            //{
-            //    frmOTTOPro.Instance.SetPictureBoxVisible(true);
-            //    frmOTTOPro.Instance.SetLableVisible(true);
-            //}
+            if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
+            {
+                frmOTTOPro.Instance.SetPictureBoxVisible(true);
+                frmOTTOPro.Instance.SetLableVisible(true);
+            }
         }
 
         private void txtProjectNumber_TextChanged(object sender, EventArgs e)
@@ -1633,10 +1633,12 @@ namespace OTTOPro
                     }
                     if (Utility._IsGermany == true)
                     {
+                       this.Text = ObjEProject.ProjectNumber;
                        frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + " Die Projektangabe wurden erfolgreich gespeichert");
                     }
                     else
                     {
+                       this.Text = ObjEProject.ProjectNumber;
                        frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + " Project Details Saved Successfully");
                     }
                     BindPositionData();
@@ -6881,6 +6883,7 @@ namespace OTTOPro
 
                     SaveListPrice(iIvalue, e.Column.FieldName);
                 }
+                gvSupplier.UpdateTotalSummary();
             }
             catch (Exception ex)
             {
@@ -8096,6 +8099,13 @@ namespace OTTOPro
             if (_IsValueChanged)
                 _IsSave = true;
         }
+
+        private void gvMulti5_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            GridView view = sender as GridView;
+            view.UpdateTotalSummary();
+        }
+
 
     }
 }

@@ -15,6 +15,7 @@ using System.Xml;
 using System.IO;
 using System.Configuration;
 using System.Diagnostics;
+using DevExpress.XtraBars;
 
 namespace OTTOPro
 {
@@ -73,13 +74,34 @@ namespace OTTOPro
                 {
                     int ProjectID = 0;
                     if (int.TryParse(dgProjectSearch.GetFocusedDataRow()["ProjectId"].ToString(), out ProjectID))
-                    {     
-                        frmProject Obj = new frmProject();
-                        Obj.ProjectID = ProjectID;
-                        Obj.IsCopy = IsCopy;
-                        Obj.MdiParent = this.MdiParent;
-                        //this.Close();
-                        Obj.Show();
+                    {
+                       string _PrNr=dgProjectSearch.GetFocusedDataRow()["ProjectNumber"].ToString();
+                       DevExpress.XtraBars.BarMdiChildrenListItem mdiChildList = frmOTTOPro.Instance.ChildItems;
+
+                       if (mdiChildList.ItemLinks.Count > 0)
+                       {
+                           for (int i = 0; i < mdiChildList.ItemLinks.Count; i++)
+                           {
+                               if (mdiChildList.ItemLinks[i].Item.Caption.Contains(_PrNr))
+                               {
+                                   foreach (Form form in Application.OpenForms)
+                                   {
+                                       if (form.Text == _PrNr)
+                                       {
+                                           form.Activate();
+                                           return;
+                                       }
+                                   }
+                               }                               
+                           }
+                       }
+                       frmProject Obj = new frmProject();
+                       Obj.ProjectID = ProjectID;
+                       Obj.IsCopy = IsCopy;
+                       Obj.MdiParent = this.MdiParent;
+                       //this.Close();
+                       Obj.Show();
+                       
                     }
                     else
                     {
@@ -173,6 +195,15 @@ namespace OTTOPro
             if(e.KeyChar == (char)Keys.Enter)
             {
                 btnLoad_Click(null, null);
+            }
+        }
+
+        private void frmLoadProject_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
+            {
+                frmOTTOPro.Instance.SetPictureBoxVisible(true);
+                frmOTTOPro.Instance.SetLableVisible(true);
             }
         }
     }

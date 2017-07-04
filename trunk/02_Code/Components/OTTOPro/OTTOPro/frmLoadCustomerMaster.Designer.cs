@@ -1114,6 +1114,7 @@
             this.Name = "frmLoadCustomerMaster";
             this.Text = "Stammdaten Kunden";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLoadCustomerMaster_FormClosing);
             this.Load += new System.EventHandler(this.frmLoadCustomerMaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemMemoExEdit1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

@@ -1485,6 +1485,7 @@
             this.Name = "frmArticlesData";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artikelstammdaten ";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmArticlesData_FormClosing);
             this.Load += new System.EventHandler(this.frmArticlesData_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmArticlesData_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

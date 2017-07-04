@@ -374,6 +374,7 @@
             this.barMdiChildrenListItemProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barMdiChildrenListItemProject.ImageOptions.Image")));
             this.barMdiChildrenListItemProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barMdiChildrenListItemProject.ImageOptions.LargeImage")));
             this.barMdiChildrenListItemProject.Name = "barMdiChildrenListItemProject";
+            this.barMdiChildrenListItemProject.ShowNumbers = false;
             // 
             // barButtonItem7
             // 
