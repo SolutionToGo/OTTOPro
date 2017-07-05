@@ -387,12 +387,6 @@
     <Compile Include="frmType.Designer.cs">
       <DependentUpon>frmType.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUpdateSupplierProposal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUpdateSupplierProposal.Designer.cs">
-      <DependentUpon>frmUpdateSupplierProposal.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmViewdescription.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -622,9 +616,6 @@
     <EmbeddedResource Include="frmType.resx">
       <DependentUpon>frmType.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmUpdateSupplierProposal.resx">
-      <DependentUpon>frmUpdateSupplierProposal.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmViewdescription.resx">
       <DependentUpon>frmViewdescription.cs</DependentUpon>
     </EmbeddedResource>
@@ -833,6 +824,7 @@
     <None Include="Resources\BOPermission_32x32.png" />
     <None Include="Resources\download.jpg" />
     <None Include="Resources\download %281%29.jpg" />
+    <None Include="Resources\Button-Refresh-icon.png" />
     <Content Include="Resources\edit-icon %281%29.png" />
     <Content Include="Resources\edit-icon.png" />
     <None Include="Resources\Save_16x16.png" />

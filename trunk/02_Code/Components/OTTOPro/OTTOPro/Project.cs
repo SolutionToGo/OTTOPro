@@ -308,6 +308,7 @@ namespace OTTOPro
 
                 LoadExistingRasters();
                 LoadExistingProject();
+
                 if (ProjectID > 0)
                     ChkRaster.Enabled = false;
                 if (txtkommissionNumber.Text != string.Empty)
@@ -2939,16 +2940,19 @@ namespace OTTOPro
         {
             try
             {
-                EnableDisableLVAndCostDetails(false, false, false, false);
-                EnableDisableButtons(true, true, false, true, true);
-                _IsEditMode = false;
-                chkCreateNew.Checked = false;
-                chkCreateNew.Enabled = false;
-                tlPositions_FocusedNodeChanged(null, null);
-                tlPositions.OptionsBehavior.ReadOnly = false;
-                Color _Color = Color.FromArgb(0, 158, 224);
-                tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                if (tcProjectDetails.SelectedTabPage == tbLVDetails)
+                {
+                    EnableDisableLVAndCostDetails(false, false, false, false);
+                    EnableDisableButtons(true, true, false, true, true);
+                    _IsEditMode = false;
+                    chkCreateNew.Checked = false;
+                    chkCreateNew.Enabled = false;
+                    tlPositions_FocusedNodeChanged(null, null);
+                    tlPositions.OptionsBehavior.ReadOnly = false;
+                    Color _Color = Color.FromArgb(0, 158, 224);
+                    tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                }
             }
             catch (Exception ex)
             {
@@ -5206,6 +5210,7 @@ namespace OTTOPro
                 ObjEUmlage.ProjectID = ObjEProject.ProjectID;
                 if (ObjEUmlage.dtSpecialCost.Rows.Count > 0)
                 {
+                    btnUmlageSave_Click(null, null);
                     ObjEUmlage = ObjBUmlage.UpdateSpecialCost(ObjEUmlage);
                     frmOTTOPro.UpdateStatus("Umlage Updated Successfully");
                 }
@@ -5219,33 +5224,6 @@ namespace OTTOPro
                     {
                         throw new Exception("Add special cost to distribute");
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void btnSpecialCost_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (ObjEUmlage == null)
-                    ObjEUmlage = new EUmlage();
-                if (ObjBUmlage == null)
-                    ObjBUmlage = new BUmlage();
-                ObjEUmlage.ProjectID = ObjEProject.ProjectID;
-                ObjEUmlage = ObjBUmlage.ShowUmlage(ObjEUmlage);
-                if (ObjEUmlage.dtUmlage != null && ObjEUmlage.dtUmlage.Rows.Count > 0)
-                {
-                    //lblTotalPrice.Text = "Total Value : " + ObjEUmlage.dtUmlage.Rows[0]["TotalPrice"].ToString();
-                    lblUmlage.Text = "Tatsächlich verteilte Umlagekosten nach Rundung : " + ObjEUmlage.dtUmlage.Rows[0]["TotalUmlage"].ToString();
-                }
-                else
-                {
-                    //lblTotalPrice.Text = string.Empty;
-                    lblUmlage.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -5494,16 +5472,26 @@ namespace OTTOPro
             tlPositions.Cursor = Cursors.Default;
             if (ObjEProject.ProjectID > 0)
             {
-                if (Utility.LVDetailsAccess == "7")
-                    layoutControlGroup4.Enabled = false;
+                //if (Utility.LVDetailsAccess == "7")
+                //    layoutControlGroup4.Enabled = false;
 
-                if (Utility.CalcAccess == "7")
-                {
-                    layoutControlGroup7.Enabled = false;
-                    tlPositions.OptionsBehavior.Editable = false;
-                }
-
+                //if (Utility.CalcAccess == "7")
+                //{
+                //    layoutControlGroup7.Enabled = false;
+                //    tlPositions.OptionsBehavior.Editable = false;
+                //}
                 setMask();
+                if (ObjEProject.LVRaster != null)
+                {
+                    string[] strLV = ObjEProject.LVRaster.Split('.');
+                    if (strLV != null && strLV.Count() > 1)
+                    {
+                        string strOnheStufe = strLV[strLV.Count() - 2];
+                        txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                        txtPosition.Properties.Mask.EditMask = "\\d{1," + strOnheStufe.Length + "}(\\R.\\d{0,1})";
+                        txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    }
+                }
                 IntializeLVPositions();
                 ObjTabDetails = tbLVDetails;
                 if (tbLVDetails.PageVisible == false)
@@ -6760,7 +6748,7 @@ namespace OTTOPro
                     TabChange(ObjTabDetails);
                     FillProposalNumbers();
                     cmbWGWA.SelectedIndex = -1;
-
+                    gvProposal_FocusedRowChanged(null, null);
                     gcDeletedDetails.DataSource = null;
                     gcProposedDetails.DataSource = null;
                 }
@@ -7202,8 +7190,9 @@ namespace OTTOPro
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
-
+                    ObjESupplier.IsSingle = true;
                     ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
+                    ObjESupplier.IsSingle = false;
                 }
             }
             catch (Exception ex)
@@ -7230,11 +7219,10 @@ namespace OTTOPro
                             gvSupplier.Columns[_strShort].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                             gvSupplier.Columns[_strShort].SummaryItem.FieldName = _strShort;
                             gvSupplier.Columns[_strShort].SummaryItem.DisplayFormat = "SUMME= {0:n2}";
-
-                            gvSupplier.Columns["Cheapest"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
-                            gvSupplier.Columns["Cheapest"].SummaryItem.FieldName = "Cheapest";
-                            gvSupplier.Columns["Cheapest"].SummaryItem.DisplayFormat = "SUMME= {0:n2}";
                         }
+                        gvSupplier.Columns["Cheapest"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
+                        gvSupplier.Columns["Cheapest"].SummaryItem.FieldName = "Cheapest";
+                        gvSupplier.Columns["Cheapest"].SummaryItem.DisplayFormat = "SUMME= {0:n2}";
                     }
                 }
             }
@@ -7372,21 +7360,17 @@ namespace OTTOPro
                     if (_OZCount != _Rastercount - 1)
                     {
                         e.Effect = DragDropEffects.None;
-                        if (!Utility._IsGermany)
-                        {
-                            throw new Exception("Create Subtitles As Per The Raster Before Going Copy");
-                        }
-                        else
-                        {
-                            throw new Exception("Bitte legen Sie zunächst Titel an, bevor Sie LV Positionen übernehmen");
-
-                        }
+                        return;
                     }
                     string strSelectedOZ = "";
+                    string strNO = "";
                     if (rgDropMode.SelectedIndex == 0)
                     {
-                        string strNO = Convert.ToString(node.FirstNode["SNO"]);
-                        strSelectedOZ = Convert.ToString(node.FirstNode["Position_OZ"]);
+                        if (node.FirstNode != null)
+                        {
+                            strNO = Convert.ToString(node.FirstNode["SNO"]);
+                            strSelectedOZ = Convert.ToString(node.FirstNode["Position_OZ"]);
+                        }
                         int iTemp = 0;
                         if (!int.TryParse(strNO, out iTemp))
                             I_index = 0;
@@ -7395,8 +7379,11 @@ namespace OTTOPro
                     }
                     else if (rgDropMode.SelectedIndex == 1)
                     {
-                        string strNO = Convert.ToString(node.LastNode["SNO"]);
-                        strSelectedOZ = Convert.ToString(node.LastNode["Position_OZ"]);
+                        if (node.LastNode != null)
+                        {
+                            strNO = Convert.ToString(node.LastNode["SNO"]);
+                            strSelectedOZ = Convert.ToString(node.LastNode["Position_OZ"]);
+                        }
                         if (!int.TryParse(strNO, out I_index))
                             I_index = 0;
                     }
@@ -7488,8 +7475,8 @@ namespace OTTOPro
                 ObjEPosition.WA = Convert.ToString(dr["WA"]);
                 ObjEPosition.WI = Convert.ToString(dr["WI"]);
 
-                if (int.TryParse(Convert.ToString(dr["Menge"]), out iValue))
-                    ObjEPosition.Menge = iValue;
+                if (decimal.TryParse(Convert.ToString(dr["Menge"]), out dValue))
+                    ObjEPosition.Menge = dValue;
                 else
                     ObjEPosition.Menge = 1;
 
@@ -7672,7 +7659,6 @@ namespace OTTOPro
             }
         }
 
-
         private string SuggestOZForCopy(string PositionOZ, string strNextLV)
         {
             string strNewOZ = string.Empty;
@@ -7681,7 +7667,7 @@ namespace OTTOPro
                 if (rgDropMode.SelectedIndex == 0)
                 {
                     string[] OZList = PositionOZ.Split('.');
-                    if (OZList != null && OZList.Count() > 0)
+                    if (OZList != null && OZList.Count() > 1)
                     {
                         string OnheStufe = OZList[OZList.Count() - 2];
                         int Ivalue = 0;
@@ -7704,12 +7690,12 @@ namespace OTTOPro
                             throw new Exception("Please select the copy mode OR target location");
                     }
                     else
-                        throw new Exception("Please select the copy mode OR target location");
+                        strNewOZ = ObjEProject.LVSprunge.ToString() + ".";
                 }
                 else if (rgDropMode.SelectedIndex == 1)
                 {
                     string[] OZList = PositionOZ.Split('.');
-                    if (OZList != null && OZList.Count() > 0)
+                    if (OZList != null && OZList.Count() > 1)
                     {
                         string OnheStufe = OZList[OZList.Count() - 2];
                         int Ivalue = 0;
@@ -7722,7 +7708,7 @@ namespace OTTOPro
                             throw new Exception("Please select the copy mode OR target location");
                     }
                     else
-                        throw new Exception("Please select the copy mode OR target location");
+                        strNewOZ = ObjEProject.LVSprunge.ToString() + ".";
                 }
                 else
                 {
@@ -7854,13 +7840,13 @@ namespace OTTOPro
         {
             try
             {
-                if (gvLVDetailsforSupplier.DataRowCount == 0)
-                {
-                    if (!Utility._IsGermany)
-                        throw new Exception("No Positions to generate.");
-                    else
-                        throw new Exception("Es wurden keine LV Positionen ausgewählt");
-                }
+                //if (gvLVDetailsforSupplier.DataRowCount == 0)
+                //{
+                //    if (!Utility._IsGermany)
+                //        throw new Exception("No Positions to generate.");
+                //    else
+                //        throw new Exception("Es wurden keine LV Positionen ausgewählt");
+                //}
                 if (chkSupplierLists.CheckedItems.Count == 0)
                 {
                     if (!Utility._IsGermany)
@@ -7962,6 +7948,8 @@ namespace OTTOPro
                 if (ObjEUmlage.dtSpecialCost.Rows.Count > 0)
                 {
                     ObjEUmlage = ObjBUmlage.SaveSpecialCost(ObjEUmlage);
+                    txtUmlageValue.Text = ObjEUmlage.UmlageValue.ToString();
+                    txtUmlageFactor.Text = ObjEUmlage.UmlageFactor.ToString();
                     frmOTTOPro.UpdateStatus("Umlage Values Saved Successfully");
                 }
             }
@@ -8105,7 +8093,5 @@ namespace OTTOPro
             GridView view = sender as GridView;
             view.UpdateTotalSummary();
         }
-
-
     }
 }

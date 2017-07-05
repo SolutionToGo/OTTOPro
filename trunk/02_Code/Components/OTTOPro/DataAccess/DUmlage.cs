@@ -118,6 +118,7 @@ namespace DataAccess
         {
             try
             {
+                DataTable dt = new DataTable();
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
@@ -125,19 +126,25 @@ namespace DataAccess
                     cmd.CommandText = "[P_Ins_SpecialCost]";
                     cmd.Parameters.Add("@ProjectID", ObjEUmlage.ProjectID);
                     cmd.Parameters.Add("@dt", ObjEUmlage.dtSpecialCost);
-                    Object Objreturn = cmd.ExecuteScalar();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        da.Fill(dt);
+
+                    if(dt != null && dt.Rows.Count > 0)
+                    {
+                        decimal DValue = 0;
+                        if (decimal.TryParse(Convert.ToString(dt.Rows[0]["UmlageFactor"]), out DValue))
+                            ObjEUmlage.UmlageFactor = DValue;
+                        if (decimal.TryParse(Convert.ToString(dt.Rows[0]["UmlageValue"]), out DValue))
+                            ObjEUmlage.UmlageValue = DValue;
+                    }
                 }
             }
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("");
-                }
-                else
-                {
                     throw new Exception("Error while saving special cost");
-                }
+                else
+                    throw new Exception("Error while saving special cost");
             }
             finally
             {

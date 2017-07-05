@@ -12,6 +12,8 @@ namespace EL
         private int _ProjectID = -1;
         private DataTable _dtSpecialCost = null;
         private DataTable _dtUmlage = null;
+        private decimal _UmlageFactor = 0;
+        private decimal _UmlageValue = 0;
 
         public int ProjectID
         {
@@ -27,6 +29,16 @@ namespace EL
         {
             get { return _dtUmlage; }
             set { _dtUmlage = value; }
+        }
+        public decimal UmlageFactor
+        {
+            get { return _UmlageFactor; }
+            set { _UmlageFactor = value; }
+        }
+        public decimal UmlageValue
+        {
+            get { return _UmlageValue; }
+            set { _UmlageValue = value; }
         }
     }
 }
