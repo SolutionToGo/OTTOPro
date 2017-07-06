@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -1049,6 +1049,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.LVSection = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.LVssection = new DevExpress.XtraGrid.Columns.GridColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -2144,10 +2146,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -7804,17 +7806,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -11550,7 +11552,8 @@
             this.gridColumn68,
             this.gridColumn69,
             this.gridColumn70,
-            this.gridColumn71});
+            this.gridColumn71,
+            this.LVSection});
             this.gvProposedSupplier.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvProposedSupplier.GridControl = this.gcProposedSupplier;
             this.gvProposedSupplier.Name = "gvProposedSupplier";
@@ -11609,7 +11612,7 @@
             this.gridColumn70.Name = "gridColumn70";
             this.gridColumn70.OptionsColumn.ReadOnly = true;
             this.gridColumn70.Visible = true;
-            this.gridColumn70.VisibleIndex = 2;
+            this.gridColumn70.VisibleIndex = 3;
             this.gridColumn70.Width = 437;
             // 
             // gridColumn71
@@ -11623,7 +11626,7 @@
             this.gridColumn71.Name = "gridColumn71";
             this.gridColumn71.OptionsColumn.ReadOnly = true;
             this.gridColumn71.Visible = true;
-            this.gridColumn71.VisibleIndex = 3;
+            this.gridColumn71.VisibleIndex = 4;
             this.gridColumn71.Width = 150;
             // 
             // repositoryItemTextEdit3
@@ -13184,7 +13187,8 @@
             this.gridColumn63,
             this.gridColumn64,
             this.gridColumn65,
-            this.gridColumn66});
+            this.gridColumn66,
+            this.LVssection});
             this.gvProposal.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvProposal.GridControl = this.gcProposal;
             this.gvProposal.Name = "gvProposal";
@@ -13242,8 +13246,8 @@
             this.gridColumn65.Name = "gridColumn65";
             this.gridColumn65.OptionsColumn.ReadOnly = true;
             this.gridColumn65.Visible = true;
-            this.gridColumn65.VisibleIndex = 1;
-            this.gridColumn65.Width = 437;
+            this.gridColumn65.VisibleIndex = 2;
+            this.gridColumn65.Width = 311;
             // 
             // gridColumn66
             // 
@@ -13256,8 +13260,8 @@
             this.gridColumn66.Name = "gridColumn66";
             this.gridColumn66.OptionsColumn.ReadOnly = true;
             this.gridColumn66.Visible = true;
-            this.gridColumn66.VisibleIndex = 2;
-            this.gridColumn66.Width = 150;
+            this.gridColumn66.VisibleIndex = 3;
+            this.gridColumn66.Width = 202;
             // 
             // rpiText
             // 
@@ -14502,6 +14506,22 @@
             this.toolStripMenuItemRemove.Size = new System.Drawing.Size(134, 22);
             this.toolStripMenuItemRemove.Text = "Entfernen";
             this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripMenuItemRemove_Click);
+            // 
+            // LVSection
+            // 
+            this.LVSection.Caption = "LV Sektion";
+            this.LVSection.FieldName = "LVSection";
+            this.LVSection.Name = "LVSection";
+            this.LVSection.Visible = true;
+            this.LVSection.VisibleIndex = 2;
+            // 
+            // LVssection
+            // 
+            this.LVssection.Caption = "LV Sektion";
+            this.LVssection.FieldName = "LVSection";
+            this.LVssection.Name = "LVssection";
+            this.LVssection.Visible = true;
+            this.LVssection.VisibleIndex = 1;
             // 
             // frmProject
             // 
@@ -16295,6 +16315,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem136;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem40;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem50;
+        private DevExpress.XtraGrid.Columns.GridColumn LVSection;
+        private DevExpress.XtraGrid.Columns.GridColumn LVssection;
 
 
     }

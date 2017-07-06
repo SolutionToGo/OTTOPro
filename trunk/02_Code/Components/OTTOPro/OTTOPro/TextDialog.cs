@@ -57,7 +57,7 @@ namespace OTTOPro
 
         private void frmTextDialog_Load(object sender, EventArgs e)
         {
-            
+            txtNewLVSection.Text = _NewLVSection;
         }
 
         private void txtNewLVSection_TextChanged(object sender, EventArgs e)

@@ -894,7 +894,7 @@ namespace OTTOPro
             {
                 if (!_IsNewMode && tlPositions.FocusedNode != null && tlPositions.FocusedNode["PositionID"] != null)
                 {
-                    string strLVSection = tlPositions.FocusedNode["PositionID"].ToString();
+                    string strLVSection = tlPositions.FocusedNode["LVSection"].ToString();
                     if (strLVSection.ToLower() != "ha")
                     {
                         if (Utility.LVSectionEditAccess == "9" || Utility.LVSectionEditAccess == "7")
@@ -904,6 +904,22 @@ namespace OTTOPro
                             tlPositions.OptionsBehavior.Editable = false;
                             btnSaveLVDetails.Enabled = false;
                         }
+                    }
+                    else
+                    {
+                        if (Utility.LVDetailsAccess != "7")
+                        {
+                            layoutControl3.Enabled = true;
+                            btnNew.Enabled = true;
+                            chkCreateNew.Enabled = true;
+                        }
+                        if (Utility.CalcAccess != "7")
+                        {
+                            layoutControl6.Enabled = true;
+                            tlPositions.OptionsBehavior.Editable = true;
+                        }
+                        btnSaveLVDetails.Enabled = true;
+                        btnCancel.Enabled = true;
                     }
                     string strHaveDetailKZ = tlPositions.FocusedNode["HaveDetailkz"] == DBNull.Value ? "" : Convert.ToString(tlPositions.FocusedNode["HaveDetailkz"]);
                     bool HaveDetailKZ = false;
@@ -2424,7 +2440,23 @@ namespace OTTOPro
                     Color _Color = Color.FromArgb(255, 135, 0);
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
                     LCGLVDetails.AppearanceGroup.BackColor = _Color;
-                }            
+                }
+                if (Utility.LVSectionEditAccess == "7")
+                {
+                    if (Utility.LVDetailsAccess != "7")
+                    {
+                        layoutControl3.Enabled = true;
+                        btnNew.Enabled = true;
+                        chkCreateNew.Enabled = true;
+                    }
+                    if (Utility.CalcAccess != "7")
+                    {
+                        layoutControl6.Enabled = true;
+                        tlPositions.OptionsBehavior.Editable = true;
+                    }
+                    btnSaveLVDetails.Enabled = true;
+                    btnCancel.Enabled = true;
+                }
                 _IsAddhoc = false;
                 CreateNewPosition();
             }
@@ -2602,6 +2634,8 @@ namespace OTTOPro
                 txtDetailKZ.Text = "0";
                 txtEP.Text = "0";
                 txtFinalGB.Text = "0";
+                if (Utility.LVsectionAddAccess == "7")
+                    cmbLVSection.Text = "HA";
                 
             }
             catch (Exception ex)
@@ -5490,6 +5524,7 @@ namespace OTTOPro
                 layoutControl3.Enabled = false;
                 btnNew.Enabled = false;
                 chkCreateNew.Enabled = false;
+                btnSaveLVDetails.Enabled = false;
                 btnCancel.Enabled = false;
             }
             if (Utility.CalcAccess == "7")
@@ -5591,7 +5626,15 @@ namespace OTTOPro
                     cmbLVSectionFilter.Properties.Items.Clear();
                     dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
                     foreach (DataRow dr in dtLVSection.Rows)
-                        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
+                    {
+                        if (Utility.LVSectionEditAccess == "7")
+                        {
+                            if (Convert.ToString(dr["LVSection"]).ToLower() == "ha")
+                                cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
+                        }
+                        else
+                            cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
+                    }
                     cmbLVSectionFilter.SetEditValue("HA");
 
                     btnMulti5LoadArticles_Click(null, null);
@@ -5624,7 +5667,15 @@ namespace OTTOPro
                     gcMulti6.DataSource = null;
                     dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
                     foreach (DataRow dr in dtLVSection.Rows)
-                        cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
+                    {
+                        if (Utility.LVSectionEditAccess == "7")
+                        {
+                            if (Convert.ToString(dr["LVSection"]).ToLower() == "ha")
+                                cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
+                        }
+                        else
+                            cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
+                    }
                     cmbMulti6LVFilter.SetEditValue("HA");
                     cmbType.SelectedIndex = 1;
 
@@ -5787,11 +5838,17 @@ namespace OTTOPro
 
                     ObjESupplier.ProjectID = ObjEProject.ProjectID;
                     ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
-                    gcProposedSupplier.DataSource = ObjESupplier.dtProposal;
+                    if (Utility.LVSectionEditAccess == "9")
+                    {
+                        DataView dv = ObjESupplier.dtProposal.DefaultView;
+                        dv.RowFilter = "LVSection = 'HA'";
+                        gcProposedSupplier.DataSource = dv;
+                    }
+                    else
+                        gcProposedSupplier.DataSource = ObjESupplier.dtProposal;
 
                     gcDeletedDetails.DataSource=null;
                     gcProposedDetails.DataSource = null;
-                   // cmbLVSectionforSupplier.SelectedIndex = -1;
                     if (Utility.CalcAccess == "7")
                         btnSaveSupplierProposal.Enabled = false;
                 }
@@ -6132,14 +6189,12 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.DeliveryAccess == "7")
-                    return;
                 if (e.HitInfo.InRow)
                 {
                     if(gvDeliveryNumbers.FocusedRowHandle != null)
                     {
                         string str = gvDeliveryNumbers.GetFocusedRowCellValue("IsInvoiced").ToString();
-                        if (str.ToLower() != "ja" && gvDelivery.RowCount <= 0)
+                        if (str.ToLower() != "ja" && gvDelivery.RowCount <= 0 && Utility.DeliveryAccess == "7")
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ändern", gcBlattEdit_Click));
                     }
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcBlattViewAddress_Click));
@@ -6349,9 +6404,20 @@ namespace OTTOPro
                 ObjESupplier = ObjBSupplier.GetLVSectionForProposal(ObjESupplier, ObjEProject.ProjectID);
                 if (ObjESupplier.Article != null)
                 {
-                    cmbLVSectionforSupplier.DataSource = ObjESupplier.Article.Tables[0];
-                    cmbLVSectionforSupplier.DisplayMember = "LVSection";
-                    cmbLVSectionforSupplier.ValueMember = "LVSection";
+                    if (Utility.LVSectionEditAccess == "9")
+                    {
+                        DataView dv = ObjESupplier.Article.Tables[0].DefaultView;
+                        dv.RowFilter = "LVSection = 'HA'";
+                        cmbLVSectionforSupplier.DataSource = dv;
+                        cmbLVSectionforSupplier.DisplayMember = "LVSection";
+                        cmbLVSectionforSupplier.ValueMember = "LVSection";
+                    }
+                    else
+                    {
+                        cmbLVSectionforSupplier.DataSource = ObjESupplier.Article.Tables[0];
+                        cmbLVSectionforSupplier.DisplayMember = "LVSection";
+                        cmbLVSectionforSupplier.ValueMember = "LVSection";
+                    }
                 }
             }
             catch (Exception ex)
@@ -6461,6 +6527,13 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.LVSectionEditAccess == "7")
+                {
+                    if (cmbLVSectionforSupplier.Text.ToLower() != "ha")
+                        btnSaveSupplierProposal.Enabled = false;
+                    else if (Utility.CalcAccess != "7")
+                        btnSaveSupplierProposal.Enabled = true;
+                }
                 GetWGWA();
                 gcLVDetailsforSupplier.DataSource = null;
                 chkSupplierLists.DataSource = null;
@@ -6770,8 +6843,15 @@ namespace OTTOPro
             {
                 ObjESupplier.ProjectID = ObjEProject.ProjectID;
                 ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
-                gcProposal.DataSource = ObjESupplier.dtProposal;
-           }
+                if (Utility.LVSectionEditAccess == "9")
+                {
+                    DataView dv = ObjESupplier.dtProposal.DefaultView;
+                    dv.RowFilter = "LVSection = 'HA'";
+                    gcProposedSupplier.DataSource = dv;
+                }
+                else
+                    gcProposal.DataSource = ObjESupplier.dtProposal;
+            }
             catch (Exception ex)
             {
                 throw;
@@ -6784,6 +6864,26 @@ namespace OTTOPro
             {
                 if (gvProposal != null && gvProposal.GetFocusedRowCellValue("SupplierProposalID") != null)
                 {
+                    string strLVSection = Convert.ToString(gvProposal.GetFocusedRowCellValue("LVSection"));
+                    if (strLVSection.ToLower() != "ha")
+                    {
+                        if (Utility.LVSectionEditAccess == "7")
+                        {
+                            layoutControl16.Enabled = false;
+                            btnSubmit.Enabled = false;
+                            gvSupplier.OptionsBehavior.Editable = false;
+                        }
+                    }
+                    else
+                    {
+                        if (Utility.CalcAccess != "7")
+                        {
+                            layoutControl16.Enabled = true;
+                            btnSubmit.Enabled = true;
+                            gvSupplier.OptionsBehavior.Editable = true;
+                        }
+                    }
+
                     int iValue = 0;
                     if (int.TryParse(gvProposal.GetFocusedRowCellValue("SupplierProposalID").ToString(), out iValue))
                     {
@@ -7937,8 +8037,6 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.CalcAccess == "7")
-                    return;
                 int _PrID;
                 if (e.HitInfo.InRow)
                 {
