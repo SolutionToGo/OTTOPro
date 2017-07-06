@@ -108,7 +108,7 @@ namespace OTTOPro.Report_Design
 
         private void xrLabel23_SummaryReset(object sender, EventArgs e)
         {
-            totalUnits1 = 0;
+          //  totalUnits1 = 0;
         }
 
         private void xrLabel23_SummaryRowChanged(object sender, EventArgs e)
@@ -117,6 +117,22 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
                     totalUnits1 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void xrLabel23_PrintOnPage(object sender, PrintOnPageEventArgs e)
+        {
+            try
+            {
+                if (e.PageIndex == e.PageCount - 1)
+                {
+                    xrLabel23.Visible = false;
+                    xrLabel18.Visible = false;
+                }
             }
             catch (Exception ex)
             {

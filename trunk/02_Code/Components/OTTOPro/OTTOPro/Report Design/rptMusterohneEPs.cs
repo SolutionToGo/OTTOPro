@@ -22,13 +22,29 @@ namespace OTTOPro.Report_Design
 
         private void xrLabel18_SummaryReset(object sender, EventArgs e)
         {
-            totalUnits = 0;
+            //totalUnits = 0;
         }
 
         private void xrLabel18_SummaryRowChanged(object sender, EventArgs e)
         {
             xrLblGB.Text = "0.00";
             xrLblMO.Text = "0.00";
+        }
+
+        private void xrLabel18_PrintOnPage(object sender, PrintOnPageEventArgs e)
+        {
+            try
+            {
+                if (e.PageIndex == e.PageCount - 1)
+                {
+                    xrLabel22.Visible = false;
+                    xrLabel18.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
     }

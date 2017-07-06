@@ -22,7 +22,7 @@ namespace OTTOPro.Report_Design
         }
         private void xrLabel18_SummaryReset(object sender, EventArgs e)
         {
-            totalGB1 = 0;
+           // totalGB1 = 0;
         }
         private void xrLabel18_SummaryRowChanged(object sender, EventArgs e)
         {
@@ -299,6 +299,22 @@ namespace OTTOPro.Report_Design
                     GBWithVat = Value2;
                 double _resultVat = Convert.ToDouble(GB1 + GBWithVat);
                 xrLabelFinalResult.Text = Convert.ToDouble(_resultVat).ToString("n2");
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void xrLabel18_PrintOnPage(object sender, PrintOnPageEventArgs e)
+        {
+            try
+            {
+                if (e.PageIndex == e.PageCount - 1)
+                {
+                    xrLabel22.Visible = false;
+                    xrLabel18.Visible = false;
+                }
             }
             catch (Exception ex)
             {
