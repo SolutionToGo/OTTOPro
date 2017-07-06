@@ -2199,7 +2199,8 @@
             "Stck",
             "sqm",
             "St",
-            "Stk"});
+            "Stk",
+            "ifdm"});
             this.cmbME.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbME.Size = new System.Drawing.Size(114, 24);
             this.cmbME.StyleController = this.layoutControl3;
@@ -7408,6 +7409,7 @@
             // 
             this.txtMulti6MO.Location = new System.Drawing.Point(518, 208);
             this.txtMulti6MO.Name = "txtMulti6MO";
+            this.txtMulti6MO.Properties.AllowMouseWheel = false;
             this.txtMulti6MO.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtMulti6MO.Properties.Appearance.Options.UseBackColor = true;
             this.txtMulti6MO.Properties.Mask.EditMask = "n3";
@@ -7422,6 +7424,7 @@
             // 
             this.txtMulti6MA.Location = new System.Drawing.Point(518, 167);
             this.txtMulti6MA.Name = "txtMulti6MA";
+            this.txtMulti6MA.Properties.AllowMouseWheel = false;
             this.txtMulti6MA.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtMulti6MA.Properties.Appearance.Options.UseBackColor = true;
             this.txtMulti6MA.Properties.Mask.EditMask = "n3";
@@ -7436,6 +7439,7 @@
             // 
             this.txtMulti5MO.Location = new System.Drawing.Point(518, 130);
             this.txtMulti5MO.Name = "txtMulti5MO";
+            this.txtMulti5MO.Properties.AllowMouseWheel = false;
             this.txtMulti5MO.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtMulti5MO.Properties.Appearance.Options.UseBackColor = true;
             this.txtMulti5MO.Properties.Mask.EditMask = "n3";
@@ -7450,6 +7454,7 @@
             // 
             this.txtMulti5MA.Location = new System.Drawing.Point(518, 90);
             this.txtMulti5MA.Name = "txtMulti5MA";
+            this.txtMulti5MA.Properties.AllowMouseWheel = false;
             this.txtMulti5MA.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtMulti5MA.Properties.Appearance.Options.UseBackColor = true;
             this.txtMulti5MA.Properties.Mask.EditMask = "n3";
@@ -7888,6 +7893,7 @@
             // 
             this.txtTyp.Location = new System.Drawing.Point(1231, 133);
             this.txtTyp.Name = "txtTyp";
+            this.txtTyp.Properties.AllowMouseWheel = false;
             this.txtTyp.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtTyp.Properties.Appearance.Options.UseBackColor = true;
             this.txtTyp.Size = new System.Drawing.Size(105, 20);
@@ -7908,6 +7914,7 @@
             // 
             this.txtArtikelnummerWI.Location = new System.Drawing.Point(879, 296);
             this.txtArtikelnummerWI.Name = "txtArtikelnummerWI";
+            this.txtArtikelnummerWI.Properties.AllowMouseWheel = false;
             this.txtArtikelnummerWI.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtArtikelnummerWI.Properties.Appearance.Options.UseBackColor = true;
             this.txtArtikelnummerWI.Properties.Mask.EditMask = "\\d+(\\.?\\d)*";
@@ -7920,6 +7927,7 @@
             // 
             this.txtArtikelnummerWA.Location = new System.Drawing.Point(879, 272);
             this.txtArtikelnummerWA.Name = "txtArtikelnummerWA";
+            this.txtArtikelnummerWA.Properties.AllowMouseWheel = false;
             this.txtArtikelnummerWA.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtArtikelnummerWA.Properties.Appearance.Options.UseBackColor = true;
             this.txtArtikelnummerWA.Properties.Mask.EditMask = "\\d+(\\.?\\d)*";
@@ -7996,6 +8004,7 @@
             // 
             this.txtArtikelnummerWG.Location = new System.Drawing.Point(879, 248);
             this.txtArtikelnummerWG.Name = "txtArtikelnummerWG";
+            this.txtArtikelnummerWG.Properties.AllowMouseWheel = false;
             this.txtArtikelnummerWG.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtArtikelnummerWG.Properties.Appearance.Options.UseBackColor = true;
             this.txtArtikelnummerWG.Properties.Mask.EditMask = "\\d+(\\.?\\d)*";
@@ -8045,6 +8054,7 @@
             // 
             this.txtPositionMenge.Location = new System.Drawing.Point(879, 92);
             this.txtPositionMenge.Name = "txtPositionMenge";
+            this.txtPositionMenge.Properties.AllowMouseWheel = false;
             this.txtPositionMenge.Properties.Appearance.BackColor = System.Drawing.Color.White;
             this.txtPositionMenge.Properties.Appearance.Options.UseBackColor = true;
             this.txtPositionMenge.Properties.Mask.EditMask = "n3";
@@ -12361,6 +12371,7 @@
             // 
             this.radioGroup1.Location = new System.Drawing.Point(12, 12);
             this.radioGroup1.Name = "radioGroup1";
+            this.radioGroup1.Properties.AllowMouseWheel = false;
             this.radioGroup1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.radioGroup1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.radioGroup1.Properties.Appearance.ForeColor = System.Drawing.Color.White;
@@ -12468,6 +12479,7 @@
             // 
             this.txtMulti4.Location = new System.Drawing.Point(260, 84);
             this.txtMulti4.Name = "txtMulti4";
+            this.txtMulti4.Properties.AllowMouseWheel = false;
             this.txtMulti4.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti4.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMulti4.Properties.EditFormat.FormatString = "n3";
@@ -12486,6 +12498,7 @@
             // 
             this.txtMulti3.Location = new System.Drawing.Point(260, 60);
             this.txtMulti3.Name = "txtMulti3";
+            this.txtMulti3.Properties.AllowMouseWheel = false;
             this.txtMulti3.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMulti3.Properties.EditFormat.FormatString = "n3";
@@ -12504,6 +12517,7 @@
             // 
             this.txtMulti2.Location = new System.Drawing.Point(260, 36);
             this.txtMulti2.Name = "txtMulti2";
+            this.txtMulti2.Properties.AllowMouseWheel = false;
             this.txtMulti2.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMulti2.Properties.EditFormat.FormatString = "n3";
@@ -12522,6 +12536,7 @@
             // 
             this.txtMulti1.Location = new System.Drawing.Point(260, 12);
             this.txtMulti1.Name = "txtMulti1";
+            this.txtMulti1.Properties.AllowMouseWheel = false;
             this.txtMulti1.Properties.DisplayFormat.FormatString = "n3";
             this.txtMulti1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtMulti1.Properties.EditFormat.FormatString = "n3";
@@ -12540,6 +12555,7 @@
             // 
             this.txtME.Location = new System.Drawing.Point(65, 84);
             this.txtME.Name = "txtME";
+            this.txtME.Properties.AllowMouseWheel = false;
             this.txtME.Properties.ReadOnly = true;
             this.txtME.Size = new System.Drawing.Size(138, 20);
             this.txtME.StyleController = this.layoutControl17;
@@ -12576,6 +12592,7 @@
             // 
             this.txtProposalMenge.Location = new System.Drawing.Point(65, 36);
             this.txtProposalMenge.Name = "txtProposalMenge";
+            this.txtProposalMenge.Properties.AllowMouseWheel = false;
             this.txtProposalMenge.Properties.ReadOnly = true;
             this.txtProposalMenge.Size = new System.Drawing.Size(138, 20);
             this.txtProposalMenge.StyleController = this.layoutControl17;
@@ -12820,6 +12837,7 @@
             this.txtListPreis.Location = new System.Drawing.Point(188, 12);
             this.txtListPreis.MenuManager = this.barManager1;
             this.txtListPreis.Name = "txtListPreis";
+            this.txtListPreis.Properties.AllowMouseWheel = false;
             this.txtListPreis.Properties.Mask.EditMask = "n3";
             this.txtListPreis.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtListPreis.Properties.Mask.ShowPlaceHolders = false;
@@ -12844,6 +12862,7 @@
             // 
             this.txtNewMulti4.Location = new System.Drawing.Point(820, 12);
             this.txtNewMulti4.Name = "txtNewMulti4";
+            this.txtNewMulti4.Properties.AllowMouseWheel = false;
             this.txtNewMulti4.Properties.DisplayFormat.FormatString = "n3";
             this.txtNewMulti4.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNewMulti4.Properties.EditFormat.FormatString = "n3";
@@ -12864,6 +12883,7 @@
             // 
             this.txtNewMulti3.Location = new System.Drawing.Point(664, 12);
             this.txtNewMulti3.Name = "txtNewMulti3";
+            this.txtNewMulti3.Properties.AllowMouseWheel = false;
             this.txtNewMulti3.Properties.DisplayFormat.FormatString = "n3";
             this.txtNewMulti3.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNewMulti3.Properties.EditFormat.FormatString = "n3";
@@ -12884,6 +12904,7 @@
             // 
             this.txtNewMulti2.Location = new System.Drawing.Point(505, 12);
             this.txtNewMulti2.Name = "txtNewMulti2";
+            this.txtNewMulti2.Properties.AllowMouseWheel = false;
             this.txtNewMulti2.Properties.DisplayFormat.FormatString = "n3";
             this.txtNewMulti2.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNewMulti2.Properties.EditFormat.FormatString = "n3";
@@ -12904,6 +12925,7 @@
             // 
             this.txtNewMulti1.Location = new System.Drawing.Point(349, 12);
             this.txtNewMulti1.Name = "txtNewMulti1";
+            this.txtNewMulti1.Properties.AllowMouseWheel = false;
             this.txtNewMulti1.Properties.DisplayFormat.FormatString = "n3";
             this.txtNewMulti1.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.txtNewMulti1.Properties.EditFormat.FormatString = "n3";

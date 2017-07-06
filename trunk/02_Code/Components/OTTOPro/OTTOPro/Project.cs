@@ -7288,15 +7288,15 @@ namespace OTTOPro
                 throw;
             }
         }
-
+        DataSet ds_oldPrj;
         private void lookUpEditOldProject_EditValueChanged(object sender, EventArgs e)
         {
             try
             {
-                DataSet ds = ObjBPosition.GetOldPositionList(Convert.ToInt32(lookUpEditOldProject.EditValue));
-                if (ds != null && ds.Tables.Count > 0)
+                ds_oldPrj = ObjBPosition.GetOldPositionList(Convert.ToInt32(lookUpEditOldProject.EditValue));
+                if (ds_oldPrj != null && ds_oldPrj.Tables.Count > 0)
                 {
-                    tlOldProject.DataSource = ds.Tables[0];
+                    tlOldProject.DataSource = ds_oldPrj.Tables[0];
                     tlOldProject.ParentFieldName = "Parent_OZ";
                     tlOldProject.KeyFieldName = "PositionID";
                     tlOldProject.ForceInitialize();
@@ -7439,8 +7439,29 @@ namespace OTTOPro
                     Position_OZ = ParentOZ + _Suggested_OZ;
                 }
                 string strLongDescription = ObjBPosition.GetLongDescription(IPositionID);
-                ParsePositionDetailsfoCopyLV(dataRow, Position_OZ, ParentOZ, I_index, strLongDescription);
-                int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
+
+                string _Selected_OZ = dataRow["Position_OZ"] == DBNull.Value ? "" : dataRow["Position_OZ"].ToString();
+                DataTable dtTable = ds_oldPrj.Tables[0].Copy();
+
+                DataView dv = dtTable.DefaultView;
+                dv.RowFilter = "Position_OZ= '" + _Selected_OZ + "'";
+                DataTable dt = dv.ToTable();
+                int NewPositionID = 0;
+                if (dt.Rows.Count > 0)
+                {
+                    foreach (DataRow row in dt.Rows)
+                    {
+                        ParsePositionDetailsfoCopyLV(row, Position_OZ, ParentOZ, I_index, strLongDescription);
+                        NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
+                        I_index++;
+                    }
+                }
+                else
+                {
+                    ParsePositionDetailsfoCopyLV(dataRow, Position_OZ, ParentOZ, I_index, strLongDescription);
+                    NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
+                }
+
                 ObjBPosition.GetPositionList(ObjEPosition, Convert.ToInt32(ObjEProject.ProjectID));
                 if (ObjEPosition.dsPositionList != null && ObjEPosition.dsPositionList.Tables.Count > 0)
                 {
