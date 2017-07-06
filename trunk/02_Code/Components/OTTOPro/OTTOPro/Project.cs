@@ -5445,17 +5445,17 @@ namespace OTTOPro
             if (ObjEProject.ProjectID > 0)
             {
                 setMask();
-                if (ObjEProject.LVRaster != null)
-                {
-                    string[] strLV = ObjEProject.LVRaster.Split('.');
-                    if (strLV != null && strLV.Count() > 1)
-                    {
-                        string strOnheStufe = strLV[strLV.Count() - 2];
-                        txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                        txtPosition.Properties.Mask.EditMask = "\\d{1," + strOnheStufe.Length + "}(\\R.\\d{0,1})";
-                        txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
-                    }
-                }
+                //if (ObjEProject.LVRaster != null)
+                //{
+                //    string[] strLV = ObjEProject.LVRaster.Split('.');
+                //    if (strLV != null && strLV.Count() > 1)
+                //    {
+                //        string strOnheStufe = strLV[strLV.Count() - 2];
+                //        txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                //        txtPosition.Properties.Mask.EditMask = "\\d{1," + strOnheStufe.Length + "}(\\R.\\d{0,1})";
+                //        txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+                //    }
+                //}
                 IntializeLVPositions();
                 ObjTabDetails = tbLVDetails;
                 if (tbLVDetails.PageVisible == false)
