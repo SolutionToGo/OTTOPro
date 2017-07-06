@@ -46,7 +46,14 @@ namespace OTTOPro
                 {
                     BindOTTOData();
                     Setfocus(gvOTTO, "OttoID", ObjEOTTO.OTTOID);
-                    frmOTTOPro.UpdateStatus("OTTO Data saved successfully");
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der OTTO Stammdaten");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("OTTO Data saved successfully");
+                    }
                 }
             }
             catch (Exception ex)
@@ -79,7 +86,14 @@ namespace OTTOPro
                 {
                     BindContactData();
                     Setfocus(gvOTTOContact, "ContactID", ObjEOTTO.ContactID);
-                    frmOTTOPro.UpdateStatus("OTTO contact saved successfully");
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Kontakte zu OTTO Stammdaten");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("OTTO contact saved successfully");
+                    }
                 }
             }
             catch (Exception ex)

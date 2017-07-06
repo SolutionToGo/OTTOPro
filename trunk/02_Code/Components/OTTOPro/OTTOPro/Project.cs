@@ -168,7 +168,7 @@ namespace OTTOPro
                 switch (tcProjectDetails.SelectedTabPage.Name)
                 {
                     case "tbProjectDetails":
-                        DialogResult dr = XtraMessageBox.Show("Do You Want to Save Data?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                        DialogResult dr = XtraMessageBox.Show("Wollen Sie die Angaben speichern?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                         if (dr == DialogResult.Yes)
                         {
                             btnProjectSave_Click(null, null);
@@ -180,7 +180,7 @@ namespace OTTOPro
                         break;
 
                     case "tbLVDetails":
-                        DialogResult drLV = XtraMessageBox.Show("Do You Want to Save Data?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                        DialogResult drLV = XtraMessageBox.Show("Wollen Sie die Angaben speichern?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                         if (drLV == DialogResult.Yes)
                         {
                             btnSaveLVDetails_Click(null, null);
@@ -192,7 +192,7 @@ namespace OTTOPro
                         break;
 
                     case "tbBulkProcess":
-                        DialogResult drBP = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drBP = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drBP == DialogResult.No)
                         {
                             return;
@@ -200,7 +200,7 @@ namespace OTTOPro
                         break;
 
                     case "tbMulti5":
-                        DialogResult drM5 = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drM5 = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drM5 == DialogResult.No)
                         {
                             return;
@@ -208,7 +208,7 @@ namespace OTTOPro
                         break;
 
                     case "tbMulti6":
-                        DialogResult drM6 = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drM6 = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drM6 == DialogResult.No)
                         {
                             return;
@@ -217,7 +217,7 @@ namespace OTTOPro
                         break;
 
                     case "tbOmlage":
-                        DialogResult drOm = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drOm = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drOm == DialogResult.No)
                         {
                             return;
@@ -225,7 +225,7 @@ namespace OTTOPro
                         break;
 
                     case "tbDeliveryNotes":
-                        DialogResult drtest = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drtest = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drtest == DialogResult.No)
                         {
                             return;
@@ -233,7 +233,7 @@ namespace OTTOPro
                         break;
 
                     case "tbInvoices":
-                        DialogResult drIN = MessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drIN = MessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drIN == DialogResult.No)
                         {
                             return;
@@ -241,7 +241,7 @@ namespace OTTOPro
                         break;
 
                     case "tbSupplierProposal":
-                        DialogResult drSP = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drSP = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drSP == DialogResult.No)
                         {
                             return;
@@ -249,7 +249,7 @@ namespace OTTOPro
                         break;
 
                     case "tbUpdateSupplier":
-                        DialogResult drUS = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drUS = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drUS == DialogResult.No)
                         {
                             return;
@@ -257,7 +257,7 @@ namespace OTTOPro
                         break;
 
                     case "tbCopyLVs":
-                        DialogResult drCLV = XtraMessageBox.Show("Are you sure you want to close the page.?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                        DialogResult drCLV = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drCLV == DialogResult.No)
                         {
                             return;
@@ -1708,7 +1708,14 @@ namespace OTTOPro
                     if (cmbPositionKZ.Text == "Z" || cmbPositionKZ.Text == "ZS")
                     {
                         if (string.IsNullOrEmpty(txtSurchargeFrom.Text))
-                            throw new Exception("Position Cannot be created with Empty From and To Fields");
+                            if (Utility._IsGermany == true)
+                            {
+                                throw new Exception("Diese Position kann nicht angelegt werden ohne Angabe fÃ¼r das VON und ZU.");
+                            }
+                            else
+                            {
+                                throw new Exception("Position Cannot be created with Empty From and To Fields");
+                            }
                     }
                 }
                 if (string.IsNullOrEmpty(txtPosition.Text))
@@ -1730,7 +1737,14 @@ namespace OTTOPro
                     }
                 }
                 int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
-                frmOTTOPro.UpdateStatus("'" + ObjEPosition.Position_OZ + "'" + " OZ Saved Successfully");
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("'" + ObjEPosition.Position_OZ + "'" + " Vorgang abgeschlossen: Speichern der OZ");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("'" + ObjEPosition.Position_OZ + "'" + " OZ Saved Successfully");
+                }
 
                 BindPositionData();
                 SetFocus(NewPositionID,tlPositions);
@@ -4234,8 +4248,15 @@ namespace OTTOPro
                     Convert.ToDecimal(txtMulti6MA.Text), 
                     Convert.ToDecimal(txtMulti6MO.Text), 
                     dtPos);
-                
-                frmOTTOPro.UpdateStatus("LV Positions Saved Successfully");
+
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der LV Positionen");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("LV Positions Saved Successfully");
+                }
                 BindPositionData();
                 btnApply_Click(null, null);
             }
@@ -4566,7 +4587,14 @@ namespace OTTOPro
                     txtPreisErstaztext.Text, txtFabrikat.Text, txtTyp.Text, txtBulkLieferantMA.Text, txtArtikelnummerWG.Text,
                     txtArtikelnummerWA.Text, txtArtikelnummerWI.Text, txtNachtragsnummer.Text, dtPos);
 
-                frmOTTOPro.UpdateStatus("LV Positions Saved Successfully");
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der LV Positionen");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("LV Positions Saved Successfully");
+                }
                 btnApply_Click(null, null);
                 ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.dtLVSection != null && ObjEProject.dtLVSection.Rows.Count > 0)
@@ -5015,7 +5043,14 @@ namespace OTTOPro
                 ObjEMulti.ProjectID = ObjEProject.ProjectID;
                 ObjEMulti.LVSection = cmbLVSectionFilter.Text;
                 ObjEMulti = ObjBMulti.UpdateMulti5(ObjEMulti);
-                frmOTTOPro.UpdateStatus("Selbstkosten Saved Successfully");
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen:Speichern der Selbstkosten");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("Selbstkosten Saved Successfully");
+                }
             }
             catch (Exception EX)
             {
@@ -5135,7 +5170,14 @@ namespace OTTOPro
                 ObjEMulti.LVSection = cmbMulti6LVFilter.Text;
                 ObjEMulti.Type = cmbType.Text;
                 ObjEMulti = ObjBMulti.UpdateMulti6(ObjEMulti);
-                frmOTTOPro.UpdateStatus("Verkaufskosten Saved Successfully");
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Verkaufskosten");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("Verkaufskosten Saved Successfully");
+                }
             }
             catch (Exception EX)
             {
@@ -5218,7 +5260,14 @@ namespace OTTOPro
                 {
                     btnUmlageSave_Click(null, null);
                     ObjEUmlage = ObjBUmlage.UpdateSpecialCost(ObjEUmlage);
-                    frmOTTOPro.UpdateStatus("Umlage Updated Successfully");
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Aktualisierung der Umlage");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Umlage Updated Successfully");
+                    }
                 }
                 else
                 {
@@ -6351,7 +6400,14 @@ namespace OTTOPro
                 ObjEInvoice = oBJBInvoice.SaveInvoice(ObjEInvoice);
                 gcDeliveryNotes.DataSource = ObjEInvoice.dtBlattNumbers;
                 gcInvoices.DataSource = ObjEInvoice.dtInvoices;
-                frmOTTOPro.UpdateStatus("'" + txtInvoiceNumber.Text + "' Invoice Saved Successfully");
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("'" + txtInvoiceNumber.Text + "' Vorgang abgeschlossen: Speichern der Rechnung");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("'" + txtInvoiceNumber.Text + "' Invoice Saved Successfully");
+                }
                 txtInvoiceNumber.Text = string.Empty;
             }
             catch (Exception ex)
@@ -7810,7 +7866,7 @@ namespace OTTOPro
                             {
                                 iTemp = Ivalue - 1;
                                 if (iTemp <= 0)
-                                    throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                    throw new Exception("Gemäß LV Sprung kann die Position nicht an den Anfang des Positionsbereichs kopiert werden");
                                 else
                                     strNewOZ = iTemp.ToString() + ".";
                             }
@@ -7899,17 +7955,17 @@ namespace OTTOPro
                                                         if (iIndex < 9)
                                                             strNewOZ = ISelectedvalue.ToString() + "." + (iIndex + 1).ToString();
                                                         else
-                                                            throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                            throw new Exception("Gemäß LV Sprung kann die Position nicht an den Anfang des Positionsbereichs kopiert werden");
                                                     }
                                                     else
-                                                        throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                        throw new Exception("Gemäß LV Sprung kann die Position nicht an den Anfang des Positionsbereichs kopiert werden");
                                                 }
                                                 else
                                                 {
                                                     if (iIndex < 9)
                                                         strNewOZ = ISelectedvalue.ToString() + "." + (iIndex + 1).ToString();
                                                     else
-                                                        throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                        throw new Exception("Gemäß LV Sprung kann die Position nicht an den Anfang des Positionsbereichs kopiert werden");
                                                 }
                                             }
                                             else
@@ -7923,11 +7979,11 @@ namespace OTTOPro
                                                         if (iIndex < 9)
                                                             strNewOZ = ISelectedvalue.ToString() + "." + (iIndex + 1).ToString();
                                                         else
-                                                            throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                            throw new Exception("Gemäß LV Sprung kann die Position nicht an den Anfang des Positionsbereichs kopiert werden");
                                                     }
                                                     else
                                                     {
-                                                        throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                        throw new Exception("Gemäß LV Sprung kann die Position nicht an den Anfang des Positionsbereichs kopiert werden");
                                                     }
                                                 }
                                                 else
@@ -7935,14 +7991,14 @@ namespace OTTOPro
                                                     if (iIndex < 9)
                                                         strNewOZ = ISelectedvalue.ToString() + "." + (iIndex + 1).ToString();
                                                     else
-                                                        throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                                        throw new Exception("Gemäß LV Sprung kann die Position nicht an den Anfang des Positionsbereichs kopiert werden");
                                                 }
                                             }
                                         }
                                         else if (INewValue < INextLVValue)
                                             strNewOZ = INewValue.ToString() + ".";
                                         else
-                                            throw new Exception("LV Sprunge is not available to copy LV top in hierarchy");
+                                            throw new Exception("Gemäß LV Sprung kann die Position nicht an den Anfang des Positionsbereichs kopiert werden");
                                     }
                                 }
                                 else
@@ -8024,7 +8080,14 @@ namespace OTTOPro
                     gvDeletedDetails.BestFitColumns();
                     gvProposedDetails.BestFitColumns();
                     gvProposedSupplier.BestFitColumns();
-                    frmOTTOPro.UpdateStatus("Proposal generated successfully");
+                    if(Utility._IsGermany==true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Generierung des Angebots");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Proposal generated successfully");
+                    }
                 }
             }
             catch (Exception ex)
@@ -8081,7 +8144,14 @@ namespace OTTOPro
                     ObjEUmlage = ObjBUmlage.SaveSpecialCost(ObjEUmlage);
                     txtUmlageValue.Text = ObjEUmlage.UmlageValue.ToString();
                     txtUmlageFactor.Text = ObjEUmlage.UmlageFactor.ToString();
-                    frmOTTOPro.UpdateStatus("Umlage Values Saved Successfully");
+                    if(Utility._IsGermany==true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der erfassten Generalkosten");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Umlage Values Saved Successfully");
+                    }
                 }
             }
             catch (Exception ex)
@@ -8096,8 +8166,8 @@ namespace OTTOPro
             {
                 if (e.HitInfo.InRow)
                 {
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Invoice with LangText", gcInvoicesLangText_Click));
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Invoice with KurzText", gcInvoicesKurzText_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Rechnung - Variante Langtext", gcInvoicesLangText_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Rechnung - Variante Kurztext", gcInvoicesKurzText_Click));
 
                 }
             }

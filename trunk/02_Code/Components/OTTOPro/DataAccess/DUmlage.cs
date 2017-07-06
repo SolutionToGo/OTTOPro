@@ -142,7 +142,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("Error while saving special cost");
+                    throw new Exception("Fehler beim Speichern der Generalkosten");
                 else
                     throw new Exception("Error while saving special cost");
             }

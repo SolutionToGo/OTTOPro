@@ -44,7 +44,14 @@ namespace DataAccess
                         }
                         else if (str.ToString().Contains("UNIQUE"))
                         {
-                            throw new Exception("UserName is already exists.!");
+                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                            {
+                                throw new Exception("Der Nutzername existiert bereits.!");
+                            }
+                            else
+                            {
+                                throw new Exception("UserName is already exists.!");
+                            }
                         }
                         else
                             throw new Exception(str);
@@ -82,7 +89,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("");
+                    throw new Exception("Fehler beim Laden der Nutzer");
                 }
                 else
                 {
@@ -162,7 +169,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    // throw new Exception("Fehler beim Laden des Kunden");
+                    throw new Exception("Fehler beim Laden der Rollen");
                 }
                 else
                 {
@@ -202,7 +209,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    // throw new Exception("Fehler beim Laden des Kunden");
+                    throw new Exception("Fehler beim Laden von Daten");
                 }
                 else
                 {
@@ -241,7 +248,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    // throw new Exception("Fehler beim Laden des Kunden");
+                    throw new Exception("Fehler beim Laden der Zugangsinformationen");
                 }
                 else
                 {
@@ -364,9 +371,18 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (ex.Message.Contains("Valid"))
-                    throw new Exception("Please Enter Valid Old Password");
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    {
+                        throw new Exception("Bitte geben Sie das gültige alte Passwort ein");
+                    }
+                    else
+                    {
+                        throw new Exception("Please Enter Valid Old Password");
+                    }
+                }                    
                 else
-                    throw new Exception("Error While Resetting the Password");
+                    throw new Exception("Fehler beim Zurücksetzen des Passworts");
             }
             finally
             {

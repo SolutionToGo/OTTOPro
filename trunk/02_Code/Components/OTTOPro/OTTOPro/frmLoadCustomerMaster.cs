@@ -49,7 +49,14 @@ namespace OTTOPro
                 {                   
                     BindCustomerData();
                     Setfocus(gvCustomers, "CustomerID",ObjECustomer.Customer_CustomerID);
-                    frmOTTOPro.UpdateStatus("Customer data saved successfully");
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Kundendaten");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Customer data saved successfully");
+                    }
                 }
             }
             catch (Exception ex)
@@ -82,7 +89,14 @@ namespace OTTOPro
                 {
                     BindContactData();
                     Setfocus(gvContacts, "ContactPersonID", ObjECustomer.ContactPersonID);
-                    frmOTTOPro.UpdateStatus("Customer contact saved successfully");
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Kunden-Kontaktdaten");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Customer contact saved successfully");
+                    }
                 }
             }
             catch (Exception ex)
@@ -115,7 +129,14 @@ namespace OTTOPro
                 {
                     BindAddressData();
                     Setfocus(gvAddress, "AddressID", ObjECustomer.AddressID);
-                    frmOTTOPro.UpdateStatus("Customer address saved successfully");
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Kunden-Adressdaten");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Customer address saved successfully");
+                    }
                 }
             }
             catch (Exception ex)
@@ -456,6 +477,7 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
 
 
 

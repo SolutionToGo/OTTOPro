@@ -333,7 +333,7 @@
             // 
             // btnUserData
             // 
-            this.btnUserData.Caption = "User Data";
+            this.btnUserData.Caption = "Nutzerdaten";
             this.btnUserData.Id = 34;
             this.btnUserData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUserData.ImageOptions.Image")));
             this.btnUserData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUserData.ImageOptions.LargeImage")));
@@ -361,7 +361,7 @@
             // 
             // btnChangePassword
             // 
-            this.btnChangePassword.Caption = "Change Password";
+            this.btnChangePassword.Caption = "Passwortänderung";
             this.btnChangePassword.Id = 37;
             this.btnChangePassword.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Status_dialog_password_icon;
             this.btnChangePassword.Name = "btnChangePassword";
@@ -369,7 +369,7 @@
             // 
             // barMdiChildrenListItemProject
             // 
-            this.barMdiChildrenListItemProject.Caption = "Recent List";
+            this.barMdiChildrenListItemProject.Caption = "Kürzlich angesehen";
             this.barMdiChildrenListItemProject.Id = 38;
             this.barMdiChildrenListItemProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barMdiChildrenListItemProject.ImageOptions.Image")));
             this.barMdiChildrenListItemProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barMdiChildrenListItemProject.ImageOptions.LargeImage")));
@@ -451,7 +451,7 @@
             this.Profile.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup3});
             this.Profile.Name = "Profile";
-            this.Profile.Text = "Profile";
+            this.Profile.Text = "Profil";
             // 
             // ribbonPageGroup3
             // 

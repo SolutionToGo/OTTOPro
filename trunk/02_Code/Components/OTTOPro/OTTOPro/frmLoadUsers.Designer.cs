@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.txtUserName = new DevExpress.XtraEditors.TextEdit();
@@ -113,19 +113,19 @@
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(489, 155);
+            this.btnCancel.Location = new System.Drawing.Point(493, 155);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(76, 22);
+            this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 13;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(108, 49);
+            this.txtUserName.Location = new System.Drawing.Point(120, 49);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(290, 20);
+            this.txtUserName.Size = new System.Drawing.Size(278, 20);
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 12;
             this.txtUserName.Tag = "UserName";
@@ -134,9 +134,9 @@
             // 
             this.cmbRoleName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRoleName.FormattingEnabled = true;
-            this.cmbRoleName.Location = new System.Drawing.Point(108, 24);
+            this.cmbRoleName.Location = new System.Drawing.Point(120, 24);
             this.cmbRoleName.Name = "cmbRoleName";
-            this.cmbRoleName.Size = new System.Drawing.Size(290, 21);
+            this.cmbRoleName.Size = new System.Drawing.Size(278, 21);
             this.cmbRoleName.TabIndex = 11;
             this.cmbRoleName.SelectionChangeCommitted += new System.EventHandler(this.cmbRoleName_SelectionChangeCommitted);
             // 
@@ -145,10 +145,10 @@
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSave.Location = new System.Drawing.Point(414, 155);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(71, 22);
+            this.btnSave.Size = new System.Drawing.Size(75, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Speichern";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // gcUser
@@ -214,7 +214,7 @@
             // 
             this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn3.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn3.Caption = "User Name";
+            this.gridColumn3.Caption = "Nutzername";
             this.gridColumn3.FieldName = "UserName";
             this.gridColumn3.Name = "gridColumn3";
             this.gridColumn3.OptionsColumn.AllowEdit = false;
@@ -225,7 +225,7 @@
             // 
             this.gridColumn38.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn38.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn38.Caption = "First Name";
+            this.gridColumn38.Caption = "Vorname";
             this.gridColumn38.FieldName = "FirstName";
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.OptionsColumn.AllowEdit = false;
@@ -236,7 +236,7 @@
             // 
             this.gridColumn39.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn39.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn39.Caption = "Last Name";
+            this.gridColumn39.Caption = "Nachname";
             this.gridColumn39.FieldName = "LastName";
             this.gridColumn39.Name = "gridColumn39";
             this.gridColumn39.OptionsColumn.AllowEdit = false;
@@ -247,7 +247,7 @@
             // 
             this.gridColumn40.AppearanceHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn40.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn40.Caption = "Mobile No.";
+            this.gridColumn40.Caption = "Mobilnr.";
             this.gridColumn40.FieldName = "MobileNo";
             this.gridColumn40.Name = "gridColumn40";
             this.gridColumn40.OptionsColumn.AllowEdit = false;
@@ -271,7 +271,7 @@
             this.gridColumn4.AppearanceCell.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
             this.gridColumn4.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn4.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn4.Caption = "Edit";
+            this.gridColumn4.Caption = "Bearbeiten";
             this.gridColumn4.ColumnEdit = this.rpiEditbutton;
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.Visible = true;
@@ -281,7 +281,7 @@
             // 
             this.rpiEditbutton.AutoHeight = false;
             this.rpiEditbutton.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Modify", -1, true, true, false, editorButtonImageOptions1)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Ellipsis, "Modify", -1, true, true, false, editorButtonImageOptions3)});
             this.rpiEditbutton.Name = "rpiEditbutton";
             this.rpiEditbutton.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
             this.rpiEditbutton.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.rpiEditbutton_ButtonClick);
@@ -295,36 +295,36 @@
             // 
             // txtFName
             // 
-            this.txtFName.Location = new System.Drawing.Point(108, 73);
+            this.txtFName.Location = new System.Drawing.Point(120, 73);
             this.txtFName.Name = "txtFName";
-            this.txtFName.Size = new System.Drawing.Size(290, 20);
+            this.txtFName.Size = new System.Drawing.Size(278, 20);
             this.txtFName.StyleController = this.layoutControl1;
             this.txtFName.TabIndex = 4;
             this.txtFName.Tag = "First Name";
             // 
             // txtLName
             // 
-            this.txtLName.Location = new System.Drawing.Point(108, 97);
+            this.txtLName.Location = new System.Drawing.Point(120, 97);
             this.txtLName.Name = "txtLName";
-            this.txtLName.Size = new System.Drawing.Size(290, 20);
+            this.txtLName.Size = new System.Drawing.Size(278, 20);
             this.txtLName.StyleController = this.layoutControl1;
             this.txtLName.TabIndex = 5;
             this.txtLName.Tag = "Last Name";
             // 
             // txtMobileNo
             // 
-            this.txtMobileNo.Location = new System.Drawing.Point(108, 121);
+            this.txtMobileNo.Location = new System.Drawing.Point(120, 121);
             this.txtMobileNo.Name = "txtMobileNo";
-            this.txtMobileNo.Size = new System.Drawing.Size(290, 20);
+            this.txtMobileNo.Size = new System.Drawing.Size(278, 20);
             this.txtMobileNo.StyleController = this.layoutControl1;
             this.txtMobileNo.TabIndex = 8;
             this.txtMobileNo.Tag = "Mobile Number";
             // 
             // txtMailId
             // 
-            this.txtMailId.Location = new System.Drawing.Point(108, 145);
+            this.txtMailId.Location = new System.Drawing.Point(120, 145);
             this.txtMailId.Name = "txtMailId";
-            this.txtMailId.Size = new System.Drawing.Size(290, 20);
+            this.txtMailId.Size = new System.Drawing.Size(278, 20);
             this.txtMailId.StyleController = this.layoutControl1;
             this.txtMailId.TabIndex = 9;
             this.txtMailId.Tag = "Email";
@@ -356,9 +356,9 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 169);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(881, 437);
-            this.layoutControlItem1.Text = "User Details ";
+            this.layoutControlItem1.Text = "Detailangaben";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(81, 16);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(93, 16);
             // 
             // emptySpaceItem2
             // 
@@ -395,8 +395,8 @@
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 49);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(378, 24);
-            this.layoutControlItem3.Text = "First Name ";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem3.Text = "Vorname";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(93, 14);
             // 
             // layoutControlItem4
             // 
@@ -409,8 +409,8 @@
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 73);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(378, 24);
-            this.layoutControlItem4.Text = "Last Name ";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem4.Text = "Nachname";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(93, 14);
             // 
             // layoutControlItem7
             // 
@@ -423,8 +423,8 @@
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 97);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(378, 24);
-            this.layoutControlItem7.Text = "Mobile No ";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem7.Text = "Mobilnr.";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(93, 14);
             // 
             // layoutControlItem8
             // 
@@ -441,7 +441,7 @@
             this.layoutControlItem8.Size = new System.Drawing.Size(378, 24);
             this.layoutControlItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem8.Text = "Email ";
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(93, 14);
             // 
             // layoutControlItem9
             // 
@@ -453,8 +453,8 @@
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
             this.layoutControlItem9.Size = new System.Drawing.Size(378, 25);
-            this.layoutControlItem9.Text = "Select Role ";
-            this.layoutControlItem9.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem9.Text = "Rolle auswählen";
+            this.layoutControlItem9.TextSize = new System.Drawing.Size(93, 14);
             // 
             // layoutControlItem5
             // 
@@ -466,17 +466,17 @@
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 25);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(378, 24);
-            this.layoutControlItem5.Text = "User Name ";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(81, 14);
+            this.layoutControlItem5.Text = "Nutzername";
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(93, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnSave;
             this.layoutControlItem2.Location = new System.Drawing.Point(402, 143);
-            this.layoutControlItem2.MaxSize = new System.Drawing.Size(75, 26);
-            this.layoutControlItem2.MinSize = new System.Drawing.Size(75, 26);
+            this.layoutControlItem2.MaxSize = new System.Drawing.Size(79, 26);
+            this.layoutControlItem2.MinSize = new System.Drawing.Size(79, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(75, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(79, 26);
             this.layoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
@@ -484,19 +484,19 @@
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(557, 143);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(565, 143);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(324, 26);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(316, 26);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnCancel;
-            this.layoutControlItem6.Location = new System.Drawing.Point(477, 143);
-            this.layoutControlItem6.MaxSize = new System.Drawing.Size(80, 26);
-            this.layoutControlItem6.MinSize = new System.Drawing.Size(80, 26);
+            this.layoutControlItem6.Location = new System.Drawing.Point(481, 143);
+            this.layoutControlItem6.MaxSize = new System.Drawing.Size(84, 26);
+            this.layoutControlItem6.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
@@ -519,7 +519,7 @@
             this.Name = "frmLoadUsers";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Load Users";
+            this.Text = "Nutzer anzeigen";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLoadUsers_FormClosing);
             this.Load += new System.EventHandler(this.frmLoadUsers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

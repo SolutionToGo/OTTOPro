@@ -40,7 +40,14 @@ namespace OTTOPro
                 iValue = ObjEArticle.RabattID;
                 BindRabattData();
                 Utility.Setfocus(gvRabatt, "RabattID", iValue);
-                frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Rabattgruppe(n)");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
+                }
             }
             catch (Exception ex)
             {

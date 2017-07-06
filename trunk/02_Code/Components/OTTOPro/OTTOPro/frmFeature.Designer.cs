@@ -75,11 +75,11 @@
             // 
             // cmbRole
             // 
-            this.cmbRole.Location = new System.Drawing.Point(38, 12);
+            this.cmbRole.Location = new System.Drawing.Point(40, 12);
             this.cmbRole.Name = "cmbRole";
             this.cmbRole.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbRole.Size = new System.Drawing.Size(240, 20);
+            this.cmbRole.Size = new System.Drawing.Size(238, 20);
             this.cmbRole.StyleController = this.layoutControl1;
             this.cmbRole.TabIndex = 11;
             this.cmbRole.EditValueChanged += new System.EventHandler(this.cmbRole_EditValueChanged);
@@ -92,7 +92,7 @@
             this.btnSaveFeature.Size = new System.Drawing.Size(84, 22);
             this.btnSaveFeature.StyleController = this.layoutControl1;
             this.btnSaveFeature.TabIndex = 10;
-            this.btnSaveFeature.Text = "Save";
+            this.btnSaveFeature.Text = "Speichern";
             this.btnSaveFeature.Click += new System.EventHandler(this.btnSaveFeature_Click);
             // 
             // gcFeature
@@ -164,7 +164,7 @@
             // 
             this.gridColumn3.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn3.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn3.Caption = "Description";
+            this.gridColumn3.Caption = "Beschreibung";
             this.gridColumn3.FieldName = "Description";
             this.gridColumn3.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn3.Name = "gridColumn3";
@@ -177,7 +177,7 @@
             // 
             this.gridColumn6.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn6.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn6.Caption = "Access";
+            this.gridColumn6.Caption = "Zugang";
             this.gridColumn6.ColumnEdit = this.rpiAccessLevels;
             this.gridColumn6.FieldName = "AccessLevelID";
             this.gridColumn6.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
@@ -255,8 +255,8 @@
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(270, 24);
-            this.layoutControlItem7.Text = "Role";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(23, 14);
+            this.layoutControlItem7.Text = "Rolle";
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(25, 14);
             // 
             // frmFeature
             // 

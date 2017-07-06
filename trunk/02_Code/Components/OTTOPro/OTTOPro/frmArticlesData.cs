@@ -81,7 +81,14 @@ namespace OTTOPro
                     _IsNew = false;
                     gvWGWA_FocusedRowChanged(null, null);
                 }
-                frmOTTOPro.UpdateStatus("Article saved successfully");
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern des Artikels");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("Article saved successfully");
+                }
             }
             catch (Exception ex)
             {
@@ -374,7 +381,14 @@ namespace OTTOPro
                     ObjBArticle.GetArticle(ObjEArticle);
                     BindDimensions(ObjEArticle.WIID);
                     Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
-                    frmOTTOPro.UpdateStatus("Dimension saved successfully");
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der (neuen) Abmessungen");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Dimension saved successfully");
+                    }
                 }
             }
             catch (Exception ex)

@@ -115,7 +115,14 @@ namespace OTTOPro
                 ObjEUserInfo.UserID = ObjBUserInfo.SaveUserDetails(ObjEUserInfo);
                 BindUserData();
                 ClearData();
-                frmOTTOPro.UpdateStatus("User Data Saved successfully");
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Nutzerdaten");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("User Data Saved successfully");
+                }
             }
             catch (Exception ex)
             {
@@ -237,7 +244,7 @@ namespace OTTOPro
             try
             {
                 if (e.HitInfo.InRow)
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Reset Password", ResetPassword_ItemClick));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Passwort zurücksetzen", ResetPassword_ItemClick));
             }
             catch (Exception ex)
             {
@@ -262,7 +269,14 @@ namespace OTTOPro
                     ObjEUserInfo.NewPassword = strPassword;
                     ObjEUserInfo.IsAdmin = true;
                     ObjEUserInfo = ObjBUserInfo.ResetPassword(ObjEUserInfo);
-                    Utility.ShowSucces("Password Reset Done successfully");
+                    if (Utility._IsGermany == true)
+                    {
+                        Utility.ShowSucces("Rücksetzen des Passwortes erfolgt");
+                    }
+                    else
+                    {
+                        Utility.ShowSucces("Password Reset Done successfully");
+                    }
                 }
             }
             catch (Exception ex)

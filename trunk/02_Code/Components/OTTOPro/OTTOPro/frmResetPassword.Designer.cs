@@ -72,64 +72,64 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(899, 12, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(385, 142);
+            this.layoutControl1.Size = new System.Drawing.Size(434, 142);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(289, 108);
+            this.btnCancel.Location = new System.Drawing.Point(338, 108);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(84, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 9;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(205, 108);
+            this.btnSave.Location = new System.Drawing.Point(254, 108);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(80, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Speichern";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtConfirmPassword
             // 
-            this.txtConfirmPassword.Location = new System.Drawing.Point(140, 84);
+            this.txtConfirmPassword.Location = new System.Drawing.Point(181, 84);
             this.txtConfirmPassword.Name = "txtConfirmPassword";
             this.txtConfirmPassword.Properties.PasswordChar = '*';
-            this.txtConfirmPassword.Size = new System.Drawing.Size(233, 20);
+            this.txtConfirmPassword.Size = new System.Drawing.Size(241, 20);
             this.txtConfirmPassword.StyleController = this.layoutControl1;
             this.txtConfirmPassword.TabIndex = 7;
             // 
             // txtNewPassword
             // 
-            this.txtNewPassword.Location = new System.Drawing.Point(140, 60);
+            this.txtNewPassword.Location = new System.Drawing.Point(181, 60);
             this.txtNewPassword.Name = "txtNewPassword";
             this.txtNewPassword.Properties.PasswordChar = '*';
-            this.txtNewPassword.Size = new System.Drawing.Size(233, 20);
+            this.txtNewPassword.Size = new System.Drawing.Size(241, 20);
             this.txtNewPassword.StyleController = this.layoutControl1;
             this.txtNewPassword.TabIndex = 6;
             // 
             // txtOldPassword
             // 
-            this.txtOldPassword.Location = new System.Drawing.Point(140, 36);
+            this.txtOldPassword.Location = new System.Drawing.Point(181, 36);
             this.txtOldPassword.Name = "txtOldPassword";
             this.txtOldPassword.Properties.PasswordChar = '*';
-            this.txtOldPassword.Size = new System.Drawing.Size(233, 20);
+            this.txtOldPassword.Size = new System.Drawing.Size(241, 20);
             this.txtOldPassword.StyleController = this.layoutControl1;
             this.txtOldPassword.TabIndex = 5;
             // 
             // txtUserName
             // 
-            this.txtUserName.Location = new System.Drawing.Point(140, 12);
+            this.txtUserName.Location = new System.Drawing.Point(181, 12);
             this.txtUserName.Name = "txtUserName";
-            this.txtUserName.Size = new System.Drawing.Size(233, 20);
+            this.txtUserName.Size = new System.Drawing.Size(241, 20);
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 4;
             // 
@@ -149,7 +149,7 @@
             this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(385, 142);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(434, 142);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -161,9 +161,9 @@
             this.layoutControlItem1.Control = this.txtUserName;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(365, 24);
-            this.layoutControlItem1.Text = "User Name";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(125, 14);
+            this.layoutControlItem1.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem1.Text = "Nutzername";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(166, 14);
             // 
             // layoutControlItem2
             // 
@@ -174,9 +174,9 @@
             this.layoutControlItem2.Control = this.txtOldPassword;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(365, 24);
-            this.layoutControlItem2.Text = "Old Password";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(125, 14);
+            this.layoutControlItem2.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem2.Text = "Altes Passwort";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(166, 14);
             // 
             // layoutControlItem3
             // 
@@ -187,9 +187,9 @@
             this.layoutControlItem3.Control = this.txtNewPassword;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(365, 24);
-            this.layoutControlItem3.Text = "New Password";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(125, 14);
+            this.layoutControlItem3.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem3.Text = "Neues Passwort";
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(166, 14);
             // 
             // layoutControlItem4
             // 
@@ -200,14 +200,14 @@
             this.layoutControlItem4.Control = this.txtConfirmPassword;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(365, 24);
-            this.layoutControlItem4.Text = "Confirm New Password";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(125, 14);
+            this.layoutControlItem4.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem4.Text = "Neues Passwort (Bestätigung)";
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(166, 14);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnSave;
-            this.layoutControlItem5.Location = new System.Drawing.Point(193, 96);
+            this.layoutControlItem5.Location = new System.Drawing.Point(242, 96);
             this.layoutControlItem5.MaxSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem5.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem5.Name = "layoutControlItem5";
@@ -219,7 +219,7 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnCancel;
-            this.layoutControlItem6.Location = new System.Drawing.Point(277, 96);
+            this.layoutControlItem6.Location = new System.Drawing.Point(326, 96);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(88, 26);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(88, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -233,14 +233,14 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 96);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(193, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(242, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // frmResetPassword
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 142);
+            this.ClientSize = new System.Drawing.Size(434, 142);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -248,7 +248,7 @@
             this.Name = "frmResetPassword";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Change Password";
+            this.Text = "Passwortänderung";
             this.Load += new System.EventHandler(this.frmResetPassword_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
