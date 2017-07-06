@@ -38,6 +38,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.LVDetailsAccess == "7")
+                    layoutControl1.Enabled = false;
                 string[] _D_formats = { "D81", "D83", "D84", "D86", "P81", "P83", "P84", "P86"};
                 string[] _P_formats = { "P81", "P83", "P84", "P86" };
                 if (_Raster > 9)

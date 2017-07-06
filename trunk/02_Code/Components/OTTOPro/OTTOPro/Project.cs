@@ -317,70 +317,36 @@ namespace OTTOPro
                 }
 
                 if (Utility.LVDetailsAccess == "9" || Utility.CalcAccess == "9")
+                {
                     navBarItemLVDetails.Visible = false;
-
+                    if(Utility.LVDetailsAccess == "9")
+                    {
+                        navBarItemImport.Visible = false;
+                        navBarItemExport.Visible = false;
+                        nbCopyLVs.Visible = false;
+                    }
+                    if (Utility.CalcAccess == "9")
+                    {
+                        navBarItemBulkProcess.Visible = false;
+                        navBarItemMulti5.Visible = false;
+                        navBarItemMulti6.Visible = false;
+                        navBarItemSupplierProposal.Visible = false;
+                        navBarItemUpdateSupplierProposal.Visible = false;
+                        navBarItemUmlage.Visible = false;
+                    }
+                }
+                if (Utility.DeliveryAccess == "9")
+                    nbDeliveryNotes.Visible = false;
+                if (Utility.InvoiceAccess == "9")
+                    nbInvoices.Visible = false;
+                if (Utility.KomissionDataAccess == "9" || Utility.KomissionDataAccess == "7")
+                    txtkommissionNumber.Enabled = false;
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
-
-        /// <summary>
-        /// Code to save the project details in case of new and Edit
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        //private void btnSave_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (tcProjectDetails.SelectedTabPage == tbProjectDetails)
-        //        {
-        //            if (Utility.ValidateRequiredFields(RequiredFields) == false)
-        //                return;
-        //            ParseProjectDetails();
-        //            string strConfirmation = "";
-        //            // Confirmation incase of project convert into order
-        //            if (txtkommissionNumber.Text != string.Empty && txtkommissionNumber.ReadOnly == false)
-        //            {
-        //                strConfirmation = XtraMessageBox.Show("Are you sure want to convert ga   project into kommission..?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
-        //            }
-        //            else
-        //                strConfirmation = "Yes";
-
-        //            if (strConfirmation.ToLower() == "yes")
-        //            {
-        //                ObjBProject.SaveProjectDetails(ObjEProject);
-        //                UpdateStatus(ObjEProject.ProjectNumber + " Details Saved Successfully");
-        //            }
-        //        }
-        //        else if (tcProjectDetails.SelectedTabPage == tbLVDetails)
-        //        {
-        //            if (Utility.ValidateRequiredFields(RequiredPositionFields) == false)
-        //                return;
-        //            ObjEPosition = new EPosition();
-        //            ParsePositionDetails();
-        //            int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition);
-        //            BindPositionData();
-        //            SetFocus(NewPositionID);
-        //            _IsEditMode = false;
-        //            txtStufe1Title.Enabled = true;
-        //            txtStufe2Title.Enabled = true;
-        //            txtStufe3Title.Enabled = true;
-        //            txtStufe4Title.Enabled = true;
-        //            _PositionID = -1;
-        //        }
-        //        else if (tcProjectDetails.SelectedTabPage == tbCostDetails)
-        //        {
-
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        Utility.ShowError(ex);
-        //    }
-        //}
 
         /// <summary>
         ///  Code to parse the project details to bussiness logic
@@ -928,6 +894,17 @@ namespace OTTOPro
             {
                 if (!_IsNewMode && tlPositions.FocusedNode != null && tlPositions.FocusedNode["PositionID"] != null)
                 {
+                    string strLVSection = tlPositions.FocusedNode["PositionID"].ToString();
+                    if (strLVSection.ToLower() != "ha")
+                    {
+                        if (Utility.LVSectionEditAccess == "9" || Utility.LVSectionEditAccess == "7")
+                        {
+                            layoutControl3.Enabled = false;
+                            layoutControl6.Enabled = false;
+                            tlPositions.OptionsBehavior.Editable = false;
+                            btnSaveLVDetails.Enabled = false;
+                        }
+                    }
                     string strHaveDetailKZ = tlPositions.FocusedNode["HaveDetailkz"] == DBNull.Value ? "" : Convert.ToString(tlPositions.FocusedNode["HaveDetailkz"]);
                     bool HaveDetailKZ = false;
                     if (bool.TryParse(strHaveDetailKZ, out HaveDetailKZ))
@@ -1221,11 +1198,6 @@ namespace OTTOPro
             //    BindPositionDataTabular();
             //}
         }
-
-        //private void tlPositions_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
-        //{
-        //   // TreeListHitInfo hitInfo = tlPositions.CalcHitInfo(e.Point);          
-        //}
 
         private void tlPositions_ShownEditor(object sender, EventArgs e)
         {
@@ -3374,7 +3346,7 @@ namespace OTTOPro
         {
             if (keyData == (Keys.F9))
             {
-                    if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
+                    if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails" && Utility.CalcAccess != "7")
                     {
                         btnSaveLVDetails.PerformClick();
                         return true;
@@ -5472,14 +5444,6 @@ namespace OTTOPro
             tlPositions.Cursor = Cursors.Default;
             if (ObjEProject.ProjectID > 0)
             {
-                //if (Utility.LVDetailsAccess == "7")
-                //    layoutControlGroup4.Enabled = false;
-
-                //if (Utility.CalcAccess == "7")
-                //{
-                //    layoutControlGroup7.Enabled = false;
-                //    tlPositions.OptionsBehavior.Editable = false;
-                //}
                 setMask();
                 if (ObjEProject.LVRaster != null)
                 {
@@ -5521,10 +5485,31 @@ namespace OTTOPro
                 cmbLVSection.Enabled = false;
                 btnAddLVSection.Enabled = false;
             }
+            if (Utility.LVDetailsAccess == "7")
+            {
+                layoutControl3.Enabled = false;
+                btnNew.Enabled = false;
+                chkCreateNew.Enabled = false;
+                btnCancel.Enabled = false;
+            }
+            if (Utility.CalcAccess == "7")
+            {
+                layoutControl6.Enabled = false;
+                tlPositions.OptionsBehavior.Editable = false;
+                btnSaveLVDetails.Enabled = false;
+                btnCancel.Enabled = false;
+            }
+            if(Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7")
+            {
+                btnAddLVSection.Enabled = false;
+                cmbLVSection.Enabled = false;
+            }
         }
 
         private void navBarItemBulkProcess_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            if (Utility.CalcAccess == "7")
+                layoutControl7.Enabled = false;
             ObjBProject.GetProjectDetails(ObjEProject);
             if (ObjEProject.ActualLvs == 0)
                 return;
@@ -5611,6 +5596,8 @@ namespace OTTOPro
 
                     btnMulti5LoadArticles_Click(null, null);
                     gvMulti5.BestFitColumns();
+                    if (Utility.CalcAccess == "7")
+                        btnMulti5UpdateSelbekosten.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -5643,6 +5630,8 @@ namespace OTTOPro
 
                     btnMulti6LoadArticles_Click(null, null);
                     gvMulti6.BestFitColumns();
+                    if (Utility.CalcAccess == "7")
+                        btnMulti6UpdateSelbekosten.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -5743,6 +5732,12 @@ namespace OTTOPro
                     ObjEUmlage.ProjectID = ObjEProject.ProjectID;
                     ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
                     gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
+                    if(Utility.CalcAccess == "7")
+                    {
+                        btnUmlageSave.Enabled = false;
+                        btnAddedCost.Enabled = false;
+                    }
+                        
                 }
             }
             catch (Exception ex)
@@ -5797,6 +5792,8 @@ namespace OTTOPro
                     gcDeletedDetails.DataSource=null;
                     gcProposedDetails.DataSource = null;
                    // cmbLVSectionforSupplier.SelectedIndex = -1;
+                    if (Utility.CalcAccess == "7")
+                        btnSaveSupplierProposal.Enabled = false;
                 }
             }
             catch (Exception ex)
@@ -5813,6 +5810,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.DeliveryAccess == "7")
+                    btnSave.Enabled = false;
                 TabChange(tbDeliveryNotes);
                 if (ObjEDeliveryNotes == null)
                     ObjEDeliveryNotes = new EDeliveryNotes();
@@ -5853,6 +5852,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.DeliveryAccess == "7")
+                    return;
                 int MaxValue = 0;
                 GridControl grid = sender as GridControl;
                 DataTable table = grid.DataSource as DataTable;
@@ -6131,6 +6132,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.DeliveryAccess == "7")
+                    return;
                 if (e.HitInfo.InRow)
                 {
                     if(gvDeliveryNumbers.FocusedRowHandle != null)
@@ -6138,17 +6141,9 @@ namespace OTTOPro
                         string str = gvDeliveryNumbers.GetFocusedRowCellValue("IsInvoiced").ToString();
                         if (str.ToLower() != "ja" && gvDelivery.RowCount <= 0)
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ändern", gcBlattEdit_Click));
-
                     }
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcBlattViewAddress_Click));
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß ohne Adresskopf, mit LV Positionsnr", gcBlattViewWithouAddress_Click));
-
-                    //DXSubMenuItem item = CreateSubItem("View");
-                    //item.Items.Add(CreateItem("Aufmaß mit Adresskopf"));
-
-                    //item.Items.Add(CreateItem("Aufmaß ohne Adresskopf, mit LV Positionsnr"));
-                    //e.Menu.Items.Add(item);
-
                 }
             }
             catch (Exception ex)
@@ -6258,6 +6253,8 @@ namespace OTTOPro
             try
             {
                 TabChange(tbInvoices);
+                if (Utility.InvoiceAccess == "7")
+                    btnGenerate.Enabled = false;
                 if (ObjEInvoice == null)
                     ObjEInvoice = new EInvoice();
                 if (oBJBInvoice == null)
@@ -6701,6 +6698,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.CalcAccess == "7")
+                    return;
                 GridControl grid = sender as GridControl;
                 DataTable table = grid.DataSource as DataTable;
                 DataRow row = e.Data.GetData(typeof(DataRow)) as DataRow;
@@ -6751,6 +6750,12 @@ namespace OTTOPro
                     gvProposal_FocusedRowChanged(null, null);
                     gcDeletedDetails.DataSource = null;
                     gcProposedDetails.DataSource = null;
+                    if(Utility.CalcAccess == "7")
+                    {
+                        layoutControl16.Enabled = false;
+                        btnSubmit.Enabled = false;
+                        gvSupplier.OptionsBehavior.Editable = false;
+                    }
                 }
             }
             catch (Exception ex)
@@ -7313,6 +7318,11 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.LVDetailsAccess == "7")
+                {
+                    e.Effect = DragDropEffects.None;
+                    return;
+                }
                 if (tlNewProject.Nodes.Count() == 0)
                 {
                     e.Effect = DragDropEffects.None;
@@ -7906,6 +7916,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.CalcAccess == "7")
+                    return;
                 int _PrID;
                 if (e.HitInfo.InRow)
                 {

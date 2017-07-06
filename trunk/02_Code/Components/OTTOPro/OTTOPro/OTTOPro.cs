@@ -136,6 +136,21 @@ namespace OTTOPro
 
         private void frmOTTOPro_Load(object sender, EventArgs e)
         {
+            if (Utility.ArticleDataAccess == "9")
+                rpgArticleMaster.Visible = false;
+
+            if(Utility.CustomerDataAccess == "9")
+                btnCustomer.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
+            if (Utility.SupplierDataAccess == "9")
+                btnSupplier.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
+            if (Utility.OTTODataAccess == "9")
+                btnOTTO.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            if (Utility.CustomerDataAccess == "9" && Utility.SupplierDataAccess == "9" && Utility.SupplierDataAccess == "9")
+                ribbonPageGroup5.Visible = false;
+            if(Utility.GeneralTextModuleAccess == "9")
+                btnTextModule.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
         }
 
         private void btnShortCuts_ItemClick(object sender, ItemClickEventArgs e)

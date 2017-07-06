@@ -60,6 +60,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.GeneralTextModuleAccess == "7")
+                    btnAdd.Enabled = false;
                 BindTextModuleAreas();
                 cmbTextArea_SelectionChangeCommitted(null, null);
                 // BindTextModuleGrid();
@@ -103,6 +105,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.GeneralTextModuleAccess == "7")
+                    return;
                 GridView view = (GridView)sender;
                 Point pt = view.GridControl.PointToClient(Control.MousePosition);
                 GridHitInfo info = view.CalcHitInfo(pt);

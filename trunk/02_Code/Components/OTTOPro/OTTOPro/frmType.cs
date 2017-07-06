@@ -29,6 +29,9 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.ArticleDataAccess == "7")
+                    btnSave.Enabled = false;
+                    
                 if (ObjEArticle == null)
                     ObjEArticle = new EArticles();
                 if (ObjBArticle == null)
