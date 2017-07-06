@@ -128,6 +128,13 @@ namespace OTTOPro
         {
             try
             {
+                if(Utility.CustomerDataAccess == "7")
+                {
+                    btnCustomerAdd.Enabled = false;
+                    btnContactAdd.Enabled = false;
+                    btnAddInvoice.Enabled = false;
+                    btnAddressAdd.Enabled = false;
+                }
                 BindCustomerData();
                 gvCustomers.BestFitColumns();
                 gvContacts.BestFitColumns();

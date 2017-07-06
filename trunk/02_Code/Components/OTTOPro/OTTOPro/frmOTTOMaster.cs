@@ -62,6 +62,11 @@ namespace OTTOPro
         {
             try
             {
+                if(Utility.OTTODataAccess == "7")
+                {
+                    btnSaveContact.Enabled = false;
+                    btnSaveOtto.Enabled = false;
+                }
                 if (_type == "OTTO")
                 {
                     this.Text = "OTTO Firmendaten";

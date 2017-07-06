@@ -30,6 +30,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.LVDetailsAccess == "7")
+                    layoutControl1.Enabled = false;
                 cmbLVSection.Enabled = true;
                 cmbLVSection.DataSource = ObjBGAEB.GetLVSection(ProjectID);
                 cmbLVSection.DisplayMember = "LVSection";

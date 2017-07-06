@@ -319,7 +319,7 @@
             // btnSaveCustomer
             // 
             this.btnSaveCustomer.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSaveCustomer.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveCustomer.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveCustomer.Location = new System.Drawing.Point(563, 588);
             this.btnSaveCustomer.Name = "btnSaveCustomer";
             this.btnSaveCustomer.Size = new System.Drawing.Size(77, 22);
@@ -331,7 +331,7 @@
             // btnCancelCustomer
             // 
             this.btnCancelCustomer.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelCustomer.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancelCustomer.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancelCustomer.Location = new System.Drawing.Point(644, 588);
             this.btnCancelCustomer.Name = "btnCancelCustomer";
             this.btnCancelCustomer.Size = new System.Drawing.Size(82, 22);
@@ -971,7 +971,7 @@
             // btnCancelContact
             // 
             this.btnCancelContact.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelContact.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancelContact.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancelContact.Location = new System.Drawing.Point(646, 255);
             this.btnCancelContact.Name = "btnCancelContact";
             this.btnCancelContact.Size = new System.Drawing.Size(80, 22);
@@ -983,7 +983,7 @@
             // btnSaveContact
             // 
             this.btnSaveContact.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSaveContact.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveContact.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveContact.Location = new System.Drawing.Point(567, 255);
             this.btnSaveContact.Name = "btnSaveContact";
             this.btnSaveContact.Size = new System.Drawing.Size(75, 22);
@@ -1266,7 +1266,7 @@
             // btnSaveAddress
             // 
             this.btnSaveAddress.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnSaveAddress.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSaveAddress.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveAddress.Location = new System.Drawing.Point(567, 232);
             this.btnSaveAddress.Name = "btnSaveAddress";
             this.btnSaveAddress.Size = new System.Drawing.Size(75, 22);
@@ -1278,7 +1278,7 @@
             // btnCancelAddress
             // 
             this.btnCancelAddress.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancelAddress.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancelAddress.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancelAddress.Location = new System.Drawing.Point(646, 232);
             this.btnCancelAddress.Name = "btnCancelAddress";
             this.btnCancelAddress.Size = new System.Drawing.Size(80, 22);

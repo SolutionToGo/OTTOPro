@@ -63,7 +63,12 @@ namespace OTTOPro
         {
             try
             {
-
+                if(Utility.SupplierDataAccess == "7")
+                {
+                    btnSave.Enabled = false;
+                    btnSaveAddress.Enabled = false;
+                    btnSaveContact.Enabled = false;
+                }
                 if (_SupplierType == "Supplier")
                 {
                     this.Text = "Stammdaten Lieferanten";

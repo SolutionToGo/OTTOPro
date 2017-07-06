@@ -70,6 +70,30 @@ namespace OTTOPro
                            Utility.LVDetailsAccess = Convert.ToString(dr["AccessLevel"]);
                        else if (Convert.ToString(dr["FeatureID"]) == "2")
                            Utility.CalcAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "3")
+                           Utility.LVsectionAddAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "4")
+                           Utility.LVSectionEditAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "5")
+                           Utility.ArticleDataAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "6")
+                           Utility.CustomerDataAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "7")
+                           Utility.SupplierDataAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "8")
+                           Utility.OTTODataAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "9")
+                           Utility.KomissionDataAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "10")
+                           Utility.DeliveryAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "11")
+                           Utility.InvoiceAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "12")
+                           Utility.GeneralTextModuleAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "13")
+                           Utility.CalculationTextModuleAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "15")
+                           Utility.InvoiceTextModuleAccess = Convert.ToString(dr["AccessLevel"]);
                    }
                 }
                 else

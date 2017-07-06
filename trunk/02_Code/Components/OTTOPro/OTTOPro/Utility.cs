@@ -269,5 +269,17 @@ namespace OTTOPro
 
         public static string LVDetailsAccess = string.Empty;
         public static string CalcAccess = string.Empty;
+        public static string ArticleDataAccess = string.Empty;
+        public static string CustomerDataAccess = string.Empty;
+        public static string OTTODataAccess = string.Empty;
+        public static string SupplierDataAccess = string.Empty;
+        public static string KomissionDataAccess = string.Empty;
+        public static string DeliveryAccess = string.Empty;
+        public static string InvoiceAccess = string.Empty;
+        public static string GeneralTextModuleAccess = string.Empty;
+        public static string CalculationTextModuleAccess = string.Empty;
+        public static string InvoiceTextModuleAccess = string.Empty;
+        public static string LVsectionAddAccess = string.Empty;
+        public static string LVSectionEditAccess = string.Empty;
     }
 }

@@ -286,6 +286,13 @@ namespace OTTOPro
 
         private void frmLoadSupplier_Load(object sender, EventArgs e)
         {
+            if(Utility.SupplierDataAccess == "7")
+            {
+                btnAddAddress.Enabled = false;
+                btnAddArticles.Enabled = false;
+                btnAddContact.Enabled = false;
+                btnAddSupplier.Enabled = false;
+            }
             ObjESupplier = ObjBSupplier.GetSupplier(ObjESupplier);
             BindSupplierData();
             gvSupplier.BestFitColumns();

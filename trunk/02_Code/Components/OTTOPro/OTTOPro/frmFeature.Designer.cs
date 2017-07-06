@@ -128,6 +128,7 @@
             this.gvFeature.GridControl = this.gcFeature;
             this.gvFeature.Name = "gvFeature";
             this.gvFeature.OptionsCustomization.AllowColumnMoving = false;
+            this.gvFeature.OptionsCustomization.AllowSort = false;
             this.gvFeature.OptionsFilter.AllowFilterEditor = false;
             this.gvFeature.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvFeature.OptionsFind.ShowFindButton = false;

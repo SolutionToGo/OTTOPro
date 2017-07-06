@@ -243,6 +243,15 @@ namespace OTTOPro
         {
             try
             {
+                if(Utility.ArticleDataAccess == "7")
+                {
+                    btnNew.Enabled = false;
+                    btnSave.Enabled = false;
+                    btnSaveAs.Enabled = false;
+                    btnCancel.Enabled = false;
+                    btnAddDimension.Enabled = false;
+                    chkIsNew.Enabled = false;
+                }
                 if (ObjEArticle == null)
                     ObjEArticle = new EArticles();
                 if (ObjBArticle == null)
@@ -454,37 +463,36 @@ namespace OTTOPro
 
         private void gvDimensions_DoubleClick(object sender, EventArgs e)
         {
-            try
-            {
-                GridView view = (GridView)sender;
-                Point pt = view.GridControl.PointToClient(Control.MousePosition);
-                GridHitInfo info = view.CalcHitInfo(pt);
+            //try
+            //{
+            //    GridView view = (GridView)sender;
+            //    Point pt = view.GridControl.PointToClient(Control.MousePosition);
+            //    GridHitInfo info = view.CalcHitInfo(pt);
 
-                if (info.InRow || info.InRowCell)
-                {
-                    if (gvDimensions.SelectedRowsCount == 0)
-                    {
-                        return;
-                    }
-                    if (ObjEArticle == null)
-                       ObjEArticle = new EArticles();
-                    GetDimensionDetails();
-                    frmAddDimension frm = new frmAddDimension();
-                    frm.ObjEArticle = ObjEArticle;
-                    frm.ShowDialog();
-                    if (frm.DialogResult == DialogResult.OK)
-                    {
-                        ObjBArticle.GetArticle(ObjEArticle);
-                        BindDimensions(ObjEArticle.WIID);
-                        Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
-                    }
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            //    if (info.InRow || info.InRowCell)
+            //    {
+            //        if (gvDimensions.SelectedRowsCount == 0)
+            //        {
+            //            return;
+            //        }
+            //        if (ObjEArticle == null)
+            //           ObjEArticle = new EArticles();
+            //        GetDimensionDetails();
+            //        frmAddDimension frm = new frmAddDimension();
+            //        frm.ObjEArticle = ObjEArticle;
+            //        frm.ShowDialog();
+            //        if (frm.DialogResult == DialogResult.OK)
+            //        {
+            //            ObjBArticle.GetArticle(ObjEArticle);
+            //            BindDimensions(ObjEArticle.WIID);
+            //            Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
         }
 
         private void GetDimensionDetails()

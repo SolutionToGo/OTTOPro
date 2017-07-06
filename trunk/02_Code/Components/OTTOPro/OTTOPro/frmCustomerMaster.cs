@@ -68,6 +68,12 @@ namespace OTTOPro
         {
             try
             {
+                if(Utility.CustomerDataAccess == "7")
+                {
+                    btnSaveCustomer.Enabled = false;
+                    btnSaveContact.Enabled = false;
+                    btnSaveAddress.Enabled = false;
+                }
                 if (_CustomerType == "Customer")
                 {
                     this.Text = "Stammdaten Kunden";

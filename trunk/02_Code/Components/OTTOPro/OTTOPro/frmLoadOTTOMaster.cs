@@ -93,6 +93,11 @@ namespace OTTOPro
         {
             try
             {
+                if(Utility.OTTODataAccess == "7")
+                {
+                    btnAddContact.Enabled = false;
+                    btnAddOtto.Enabled = false;
+                }
                 BindOTTOData();
                 gvOTTO.BestFitColumns();
                 gvOTTOContact.BestFitColumns();
