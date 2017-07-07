@@ -2963,7 +2963,7 @@
             // 
             // navBarForms
             // 
-            this.navBarForms.Caption = "MODULE";
+            this.navBarForms.Caption = "Funktionsmodul";
             this.navBarForms.Expanded = true;
             this.navBarForms.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
             this.navBarForms.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
@@ -12857,6 +12857,7 @@
             this.txtListPreis.StyleController = this.layoutControl16;
             this.txtListPreis.TabIndex = 11;
             this.txtListPreis.EditValueChanged += new System.EventHandler(this.txtListPreis_EditValueChanged);
+            this.txtListPreis.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtListPreis_KeyDown);
             this.txtListPreis.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtListPreis_KeyPress);
             this.txtListPreis.Leave += new System.EventHandler(this.txtListPreis_Leave);
             // 
@@ -12887,6 +12888,7 @@
             this.txtNewMulti4.StyleController = this.layoutControl16;
             this.txtNewMulti4.TabIndex = 8;
             this.txtNewMulti4.EditValueChanged += new System.EventHandler(this.txtListPreis_EditValueChanged);
+            this.txtNewMulti4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtListPreis_KeyDown);
             this.txtNewMulti4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtListPreis_KeyPress);
             this.txtNewMulti4.Leave += new System.EventHandler(this.txtListPreis_Leave);
             // 
@@ -12908,6 +12910,7 @@
             this.txtNewMulti3.StyleController = this.layoutControl16;
             this.txtNewMulti3.TabIndex = 7;
             this.txtNewMulti3.EditValueChanged += new System.EventHandler(this.txtListPreis_EditValueChanged);
+            this.txtNewMulti3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtListPreis_KeyDown);
             this.txtNewMulti3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtListPreis_KeyPress);
             this.txtNewMulti3.Leave += new System.EventHandler(this.txtListPreis_Leave);
             // 
@@ -12929,6 +12932,7 @@
             this.txtNewMulti2.StyleController = this.layoutControl16;
             this.txtNewMulti2.TabIndex = 6;
             this.txtNewMulti2.EditValueChanged += new System.EventHandler(this.txtListPreis_EditValueChanged);
+            this.txtNewMulti2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtListPreis_KeyDown);
             this.txtNewMulti2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtListPreis_KeyPress);
             this.txtNewMulti2.Leave += new System.EventHandler(this.txtListPreis_Leave);
             // 
@@ -12950,6 +12954,7 @@
             this.txtNewMulti1.StyleController = this.layoutControl16;
             this.txtNewMulti1.TabIndex = 5;
             this.txtNewMulti1.EditValueChanged += new System.EventHandler(this.txtListPreis_EditValueChanged);
+            this.txtNewMulti1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtListPreis_KeyDown);
             this.txtNewMulti1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtListPreis_KeyPress);
             this.txtNewMulti1.Leave += new System.EventHandler(this.txtListPreis_Leave);
             // 

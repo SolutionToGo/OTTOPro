@@ -151,7 +151,7 @@
             // 
             this.gridColumn2.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridColumn2.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn2.Caption = "Feature Name";
+            this.gridColumn2.Caption = "Berechtigungsname";
             this.gridColumn2.FieldName = "FeatureName";
             this.gridColumn2.Fixed = DevExpress.XtraGrid.Columns.FixedStyle.Left;
             this.gridColumn2.Name = "gridColumn2";
@@ -267,7 +267,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmFeature";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Feature";
+            this.Text = "Berechtigung";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFeature_FormClosing);
             this.Load += new System.EventHandler(this.frmFeature_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

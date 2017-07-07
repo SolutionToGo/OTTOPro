@@ -1684,7 +1684,14 @@ namespace OTTOPro
                 }
                 if (cmbLVSection.Text == "NT" || cmbLVSection.Text == "NTM")
                 {
-                    throw new Exception("Cannot Save Positions With NT Or NTM");
+                    if (Utility._IsGermany == true)
+                    {
+                        throw new Exception("Positionen mit NT oder NTM können nicht gespeichert werden");
+                    }
+                    else
+                    {
+                        throw new Exception("Cannot Save Positions With NT Or NTM");
+                    }
                 }
                 if (cmbPositionKZ.Text != "H")
                 {
@@ -6063,7 +6070,14 @@ namespace OTTOPro
             try
             {
                 if (string.IsNullOrEmpty(txtBlattNumber.Text))
-                    throw new Exception("Please Enter Blatt Number");
+                    if (!Utility._IsGermany)
+                    {
+                        throw new Exception("Bitte geben Sie eine BLATT Nummer an");
+                    }
+                    else
+                    {
+                        throw new Exception("Please Enter Blatt Number");
+                    }
                 if (gvDelivery.RowCount == 0)
                 {
                     if (!Utility._IsGermany)
@@ -7874,7 +7888,7 @@ namespace OTTOPro
                                 strNewOZ = iNewOZ.ToString() + ".";
                         }
                         else
-                            throw new Exception("Please select the copy mode OR target location");
+                            throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
                     }
                     else
                         strNewOZ = ObjEProject.LVSprunge.ToString() + ".";
@@ -7892,7 +7906,14 @@ namespace OTTOPro
                             strNewOZ = iNewOZ.ToString() + ".";
                         }
                         else
-                            throw new Exception("Please select the copy mode OR target location");
+                            if(Utility._IsGermany==true)
+                            {
+                                throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
+                            }
+                             else
+                            {
+                                throw new Exception("Please select the copy mode OR target location");
+                            }
                     }
                     else
                         strNewOZ = ObjEProject.LVSprunge.ToString() + ".";
@@ -7912,10 +7933,10 @@ namespace OTTOPro
                                 strNewOZ = iNewOZ.ToString() + ".";
                             }
                             else
-                                throw new Exception("Please select the copy mode OR target location");
+                                throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
                         }
                         else
-                            throw new Exception("Please select the copy mode OR target location");
+                            throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
                     }
                     else
                     {
@@ -8007,10 +8028,10 @@ namespace OTTOPro
                                 }
                             }
                             else
-                                throw new Exception("Please select the copy mode OR target location");
+                                throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
                         }
                         else
-                            throw new Exception("Please select the copy mode OR target location");
+                            throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
                     }
                 }
             }
@@ -8293,6 +8314,12 @@ namespace OTTOPro
         {
             GridView view = sender as GridView;
             view.UpdateTotalSummary();
+        }
+
+        private void txtListPreis_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+                e.Handled = true;
         }
     }
 }

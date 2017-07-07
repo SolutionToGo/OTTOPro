@@ -342,7 +342,7 @@
             // 
             // btnFeature
             // 
-            this.btnFeature.Caption = "Feature";
+            this.btnFeature.Caption = "Berechtigung";
             this.btnFeature.Id = 35;
             this.btnFeature.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.Image")));
             this.btnFeature.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.LargeImage")));

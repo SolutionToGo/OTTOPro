@@ -110,7 +110,14 @@ namespace OTTOPro
 
                 ObjBUserInfo = new BUserInfo();
                 ObjBUserInfo.SaveFeatureMap(ObjEUserInfo, _FeatureTable);
-                frmOTTOPro.UpdateStatus("Features saved successfully for selected role");
+                if(Utility._IsGermany==true)
+                {
+                    frmOTTOPro.UpdateStatus("Berechtigungen für ausgewählte Rolle wurden gespeichert");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("Features saved successfully for selected role");
+                }
             }
             catch (Exception ex)
             {
