@@ -93,8 +93,12 @@ namespace OTTOPro
                            Utility.GeneralTextModuleAccess = Convert.ToString(dr["AccessLevel"]);
                        else if (Convert.ToString(dr["FeatureID"]) == "13")
                            Utility.CalculationTextModuleAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "14")
+                           Utility.CalculationTextModuleAccessEdit = Convert.ToString(dr["AccessLevel"]);
                        else if (Convert.ToString(dr["FeatureID"]) == "15")
                            Utility.InvoiceTextModuleAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "16")
+                           Utility.InvoiceTextModuleAccessEdit = Convert.ToString(dr["AccessLevel"]);
                        else if (Convert.ToString(dr["FeatureID"]) == "17")
                            Utility.UserDataAccess = Convert.ToString(dr["AccessLevel"]);
                        else if (Convert.ToString(dr["FeatureID"]) == "18")

@@ -909,19 +909,22 @@ namespace OTTOPro
                     }
                     else
                     {
-                        if (Utility.LVDetailsAccess != "7")
+                        if (!ObjEProject.IsFinalInvoice)
                         {
-                            layoutControl3.Enabled = true;
-                            btnNew.Enabled = true;
-                            chkCreateNew.Enabled = true;
+                            if (Utility.LVDetailsAccess != "7")
+                            {
+                                layoutControl3.Enabled = true;
+                                btnNew.Enabled = true;
+                                chkCreateNew.Enabled = true;
+                            }
+                            if (Utility.CalcAccess != "7")
+                            {
+                                layoutControl6.Enabled = true;
+                                tlPositions.OptionsBehavior.Editable = true;
+                            }
+                            btnSaveLVDetails.Enabled = true;
+                            btnCancel.Enabled = true;
                         }
-                        if (Utility.CalcAccess != "7")
-                        {
-                            layoutControl6.Enabled = true;
-                            tlPositions.OptionsBehavior.Editable = true;
-                        }
-                        btnSaveLVDetails.Enabled = true;
-                        btnCancel.Enabled = true;
                     }
                     string strHaveDetailKZ = tlPositions.FocusedNode["HaveDetailkz"] == DBNull.Value ? "" : Convert.ToString(tlPositions.FocusedNode["HaveDetailkz"]);
                     bool HaveDetailKZ = false;
@@ -5977,7 +5980,7 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.DeliveryAccess == "7")
+                if (Utility.DeliveryAccess == "7" && ObjEProject.IsFinalInvoice)
                     return;
                 int MaxValue = 0;
                 GridControl grid = sender as GridControl;
@@ -6401,7 +6404,10 @@ namespace OTTOPro
                 {
                     chkFinalInvoice.Checked = true;
                     if (Utility.RoleID != 14)
+                    {
                         chkFinalInvoice.Enabled = false;
+                        btnFinalBill.Enabled = false;
+                    }
                 }
             }
             catch (Exception ex)
@@ -6967,11 +6973,14 @@ namespace OTTOPro
                     }
                     else
                     {
-                        if (Utility.CalcAccess != "7")
+                        if (!ObjEProject.IsFinalInvoice)
                         {
-                            layoutControl16.Enabled = true;
-                            btnSubmit.Enabled = true;
-                            gvSupplier.OptionsBehavior.Editable = true;
+                            if (Utility.CalcAccess != "7")
+                            {
+                                layoutControl16.Enabled = true;
+                                btnSubmit.Enabled = true;
+                                gvSupplier.OptionsBehavior.Editable = true;
+                            }
                         }
                     }
 
@@ -8352,6 +8361,12 @@ namespace OTTOPro
                     ObjEProject.Status = "";
                 }
                 ObjBProject.UpdateStatus(ObjEProject);
+                if(Utility.RoleID != 14 && chkFinalInvoice.Checked == true)
+                {
+                    btnFinalBill.Enabled = false;
+                    chkFinalInvoice.Enabled = false;
+                    ObjBProject.GetProjectDetails(ObjEProject);
+                }
                 if (Utility._IsGermany == true)
                 {
                     frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + " Projektstatus erfolgreich gespeichert");

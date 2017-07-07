@@ -277,12 +277,14 @@ namespace OTTOPro
         public static string KomissionDataAccess = string.Empty;
         public static string DeliveryAccess = string.Empty;
         public static string InvoiceAccess = string.Empty;
-        public static string GeneralTextModuleAccess = string.Empty;
-        public static string CalculationTextModuleAccess = string.Empty;
-        public static string InvoiceTextModuleAccess = string.Empty;
         public static string LVsectionAddAccess = string.Empty;
         public static string LVSectionEditAccess = string.Empty;
         public static string UserDataAccess = string.Empty;
         public static string ProjectDataAccess = string.Empty;
+        public static string GeneralTextModuleAccess = string.Empty;
+        public static string CalculationTextModuleAccess = string.Empty;
+        public static string CalculationTextModuleAccessEdit = string.Empty;
+        public static string InvoiceTextModuleAccess = string.Empty;
+        public static string InvoiceTextModuleAccessEdit = string.Empty;
     }
 }

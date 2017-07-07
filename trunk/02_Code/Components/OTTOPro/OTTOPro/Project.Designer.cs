@@ -766,6 +766,7 @@
             this.layoutControlItem147 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbInvoices = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl13 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnFinalBill = new DevExpress.XtraEditors.SimpleButton();
             this.gcInvoices = new DevExpress.XtraGrid.GridControl();
             this.gvInvoices = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn35 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -803,6 +804,7 @@
             this.layoutControlItem152 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem113 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem154 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbSupplierProposal = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl14 = new DevExpress.XtraLayout.LayoutControl();
             this.gcProposedSupplier = new DevExpress.XtraGrid.GridControl();
@@ -1051,8 +1053,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnFinalBill = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1663,6 +1663,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem152)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem113)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem154)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).BeginInit();
             this.tbSupplierProposal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl14)).BeginInit();
             this.layoutControl14.SuspendLayout();
@@ -1798,7 +1799,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -11085,6 +11085,17 @@
             this.layoutControl13.TabIndex = 0;
             this.layoutControl13.Text = "layoutControl13";
             // 
+            // btnFinalBill
+            // 
+            this.btnFinalBill.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnFinalBill.Location = new System.Drawing.Point(141, 422);
+            this.btnFinalBill.Name = "btnFinalBill";
+            this.btnFinalBill.Size = new System.Drawing.Size(76, 22);
+            this.btnFinalBill.StyleController = this.layoutControl13;
+            this.btnFinalBill.TabIndex = 9;
+            this.btnFinalBill.Text = "Speichern";
+            this.btnFinalBill.Click += new System.EventHandler(this.btnFinalBill_Click);
+            // 
             // gcInvoices
             // 
             this.gcInvoices.Location = new System.Drawing.Point(12, 448);
@@ -11496,6 +11507,15 @@
             this.layoutControlItem154.Size = new System.Drawing.Size(1168, 283);
             this.layoutControlItem154.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem154.TextVisible = false;
+            // 
+            // layoutControlItem137
+            // 
+            this.layoutControlItem137.Control = this.btnFinalBill;
+            this.layoutControlItem137.Location = new System.Drawing.Point(129, 410);
+            this.layoutControlItem137.Name = "layoutControlItem137";
+            this.layoutControlItem137.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem137.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem137.TextVisible = false;
             // 
             // tbSupplierProposal
             // 
@@ -14535,26 +14555,6 @@
             this.toolStripMenuItemRemove.Text = "Entfernen";
             this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripMenuItemRemove_Click);
             // 
-            // btnFinalBill
-            // 
-            this.btnFinalBill.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnFinalBill.Location = new System.Drawing.Point(141, 422);
-            this.btnFinalBill.Name = "btnFinalBill";
-            this.btnFinalBill.Size = new System.Drawing.Size(76, 22);
-            this.btnFinalBill.StyleController = this.layoutControl13;
-            this.btnFinalBill.TabIndex = 9;
-            this.btnFinalBill.Text = "Speichern";
-            this.btnFinalBill.Click += new System.EventHandler(this.btnFinalBill_Click);
-            // 
-            // layoutControlItem137
-            // 
-            this.layoutControlItem137.Control = this.btnFinalBill;
-            this.layoutControlItem137.Location = new System.Drawing.Point(129, 410);
-            this.layoutControlItem137.Name = "layoutControlItem137";
-            this.layoutControlItem137.Size = new System.Drawing.Size(80, 26);
-            this.layoutControlItem137.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem137.TextVisible = false;
-            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -15186,6 +15186,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem152)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem113)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem154)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).EndInit();
             this.tbSupplierProposal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl14)).EndInit();
             this.layoutControl14.ResumeLayout(false);
@@ -15321,7 +15322,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

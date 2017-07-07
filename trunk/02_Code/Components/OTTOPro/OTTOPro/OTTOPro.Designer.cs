@@ -86,6 +86,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
+            this.lblUserName = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -529,11 +530,23 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 5.6 (06-07-2017)";
+            this.label1.Text = "Version 5.8 (07-07-2017)";
             // 
             // fdImportFile
             // 
             this.fdImportFile.FileName = "openFileDialog1";
+            // 
+            // lblUserName
+            // 
+            this.lblUserName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUserName.AutoSize = true;
+            this.lblUserName.BackColor = System.Drawing.Color.Transparent;
+            this.lblUserName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblUserName.ForeColor = System.Drawing.Color.Blue;
+            this.lblUserName.Location = new System.Drawing.Point(1076, 98);
+            this.lblUserName.Name = "lblUserName";
+            this.lblUserName.Size = new System.Drawing.Size(0, 13);
+            this.lblUserName.TabIndex = 21;
             // 
             // frmOTTOPro
             // 
@@ -546,6 +559,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 755);
+            this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -622,5 +636,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
+        private System.Windows.Forms.Label lblUserName;
     }
 }

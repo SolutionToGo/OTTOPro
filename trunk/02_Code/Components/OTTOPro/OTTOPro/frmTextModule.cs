@@ -21,8 +21,7 @@ namespace OTTOPro
         BProposal ObjBProposal = new BProposal();
         DataTable _dtContents = new DataTable();
         int _TextAreaID;
-                int _CategoryID;
-
+        int _CategoryID;
         bool _isValidate = true;
         int _IDValue = -1;
 
@@ -60,11 +59,8 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.GeneralTextModuleAccess == "7")
-                    btnAdd.Enabled = false;
                 BindTextModuleAreas();
                 cmbTextArea_SelectionChangeCommitted(null, null);
-                // BindTextModuleGrid();
             }
             catch (Exception ex)
             {
@@ -105,7 +101,11 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.GeneralTextModuleAccess == "7")
+                if (cmbTextArea.Text == "ALLGEMEIN" && Utility.GeneralTextModuleAccess == "7")
+                    return;
+                else if (cmbTextArea.Text == "KALKULATION" && Utility.CalculationTextModuleAccess == "7")
+                    return;
+                else if (cmbTextArea.Text == "RECHNUNGSLEGUNG" && Utility.InvoiceTextModuleAccess == "7")
                     return;
                 GridView view = (GridView)sender;
                 Point pt = view.GridControl.PointToClient(Control.MousePosition);
@@ -134,6 +134,28 @@ namespace OTTOPro
             {
                 if (cmbTextArea.Text != string.Empty)
                 {
+                    if (cmbTextArea.Text == "ALLGEMEIN")
+                    {
+                        if(Utility.GeneralTextModuleAccess == "7")
+                            btnAdd.Enabled = false;
+                        else
+                            btnAdd.Enabled = true;
+                    }
+                    else if (cmbTextArea.Text == "KALKULATION")
+                    {
+                        if (Utility.CalculationTextModuleAccess == "7")
+                            btnAdd.Enabled = false;
+                        else
+                            btnAdd.Enabled = true;
+                    }
+                    else if (cmbTextArea.Text == "RECHNUNGSLEGUNG")
+                    {
+                        if(Utility.InvoiceTextModuleAccess == "7")
+                            btnAdd.Enabled = false;
+                        else
+                            btnAdd.Enabled = true;
+                    }
+
                     if (int.TryParse(cmbTextArea.SelectedValue.ToString(), out _TextAreaID))
 
                         if (_TextAreaID > 0)
@@ -179,8 +201,6 @@ namespace OTTOPro
             }
         }
 
-
-
         #endregion
 
         #region METHODS
@@ -192,8 +212,26 @@ namespace OTTOPro
                 ObjBProposal.GetTextModuleAreas(ObjEProposal);
                 if (ObjEProposal.dsTextModuleAreas != null)
                 {
-                    cmbTextArea.DataSource = null;
-                    cmbTextArea.DataSource = ObjEProposal.dsTextModuleAreas.Tables[0];
+                    DataTable dt = ObjEProposal.dsTextModuleAreas.Tables[0].Copy();
+                    DataView dv = dt.DefaultView;
+                    if (Utility.GeneralTextModuleAccess == "9")
+                    {
+                        dv.RowFilter = "TextAreas <> 'ALLGEMEIN'";
+                        dt = dv.ToTable().Copy();
+                    }
+                    if (Utility.CalculationTextModuleAccess == "9")
+                    {
+                        dv = dt.DefaultView;
+                        dv.RowFilter = "TextAreas <> 'KALKULATION'";
+                        dt = dv.ToTable().Copy();
+                    }
+                    if (Utility.InvoiceTextModuleAccess == "9")
+                    {
+                        dv = dt.DefaultView;
+                        dv.RowFilter = "TextAreas <> 'RECHNUNGSLEGUNG'";
+                        dt = dv.ToTable().Copy();
+                    }
+                    cmbTextArea.DataSource = dt;
                     cmbTextArea.DisplayMember = "TextAreas";
                     cmbTextArea.ValueMember = "TextAreaID";
                 }
@@ -298,10 +336,5 @@ namespace OTTOPro
         }
 
         #endregion
-
-
-
-
-//****************
     }
 }

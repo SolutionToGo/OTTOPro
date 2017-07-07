@@ -149,10 +149,15 @@ namespace OTTOPro
                 btnOTTO.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             if (Utility.CustomerDataAccess == "9" && Utility.SupplierDataAccess == "9" && Utility.SupplierDataAccess == "9")
                 ribbonPageGroup5.Visible = false;
-            if(Utility.GeneralTextModuleAccess == "9")
-                btnTextModule.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             if (Utility.UserDataAccess == "9")
                 ribbonPageGroup2.Visible = false;
+            if(Utility.GeneralTextModuleAccess == "9" &&
+                Utility.CalculationTextModuleAccess == "9" &&
+                Utility.InvoiceTextModuleAccess == "9")
+            {
+                btnTextModule.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            }
+            lblUserName.Text = "Nutzername : " + Utility.UserName;
         }
 
         private void btnShortCuts_ItemClick(object sender, ItemClickEventArgs e)
