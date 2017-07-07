@@ -511,7 +511,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::OTTOPro.Properties.Resources.LogoLatest;
+            this.pictureBox1.Image = global::OTTOPro.Properties.Resources.LogoLatest_Main;
             this.pictureBox1.Location = new System.Drawing.Point(0, 143);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1230, 571);

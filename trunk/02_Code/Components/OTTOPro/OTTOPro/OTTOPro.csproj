@@ -759,6 +759,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\LogoLatest - Copy1.png" />
+    <None Include="Resources\LogoLatest_Main.png" />
     <None Include="Resources\Status-dialog-password-icon.png" />
     <None Include="Resources\Save-icon %281%29.png" />
     <None Include="Resources\Save-icon.png" />

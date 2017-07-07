@@ -8337,5 +8337,34 @@ namespace OTTOPro
             if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
                 e.Handled = true;
         }
+
+        private void btnFinalBill_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                bool _status = chkFinalInvoice.Checked;
+                if (_status == true)
+                {
+                    ObjEProject.Status = "Completed";
+                }
+                else
+                {
+                    ObjEProject.Status = "";
+                }
+                ObjBProject.UpdateStatus(ObjEProject);
+                if (Utility._IsGermany == true)
+                {
+                    frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + " Projektstatus erfolgreich gespeichert");
+                }
+                else
+                {
+                    frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + " Project Status Saved Successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

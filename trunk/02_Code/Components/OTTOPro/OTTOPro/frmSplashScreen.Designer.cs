@@ -33,10 +33,10 @@
             this.marqueeProgressBarControl1 = new DevExpress.XtraEditors.MarqueeProgressBarControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.pictureEdit2 = new DevExpress.XtraEditors.PictureEdit();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.marqueeProgressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -67,10 +67,23 @@
             this.labelControl2.TabIndex = 7;
             this.labelControl2.Text = "Ladevorgang...";
             // 
+            // timer1
+            // 
+            this.timer1.Interval = 3000;
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.labelControl3.Location = new System.Drawing.Point(477, 267);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(68, 13);
+            this.labelControl3.TabIndex = 10;
+            this.labelControl3.Text = " POWERED BY";
+            // 
             // pictureEdit2
             // 
             this.pictureEdit2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.pictureEdit2.EditValue = global::OTTOPro.Properties.Resources.LogoLatest___Copy;
+            this.pictureEdit2.EditValue = global::OTTOPro.Properties.Resources.LogoLatest___Copy1;
             this.pictureEdit2.Location = new System.Drawing.Point(6, 12);
             this.pictureEdit2.Name = "pictureEdit2";
             this.pictureEdit2.Properties.AllowFocused = false;
@@ -96,19 +109,6 @@
             this.pictureEdit1.Properties.ZoomAccelerationFactor = 1D;
             this.pictureEdit1.Size = new System.Drawing.Size(198, 48);
             this.pictureEdit1.TabIndex = 8;
-            // 
-            // timer1
-            // 
-            this.timer1.Interval = 3000;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.labelControl3.Location = new System.Drawing.Point(477, 267);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(68, 13);
-            this.labelControl3.TabIndex = 10;
-            this.labelControl3.Text = " POWERED BY";
             // 
             // frmSplashScreen
             // 

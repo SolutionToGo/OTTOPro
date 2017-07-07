@@ -205,6 +205,22 @@ namespace BL
             return ObjEProject;
         }
 
+        public EProject UpdateStatus(EProject ObjEProject)
+        {
+            try
+            {
+                if (ObjEProject != null)
+                {
+                    ObjEProject = ObjDAL.UpdateStatus(ObjEProject);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
+
     }
 }
     

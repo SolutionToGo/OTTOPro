@@ -41,6 +41,7 @@ namespace EL
         private DataTable _dtProjectList = null;
         private bool _IsDisable = false;
         private bool _IsFinalInvoice = false;
+        private string _Status = string.Empty;
 
         /// <summary>
         /// Temparary Private Variables for Project Modules
@@ -233,6 +234,11 @@ namespace EL
         {
             get { return _IsFinalInvoice; }
             set { _IsFinalInvoice = value; }
+        }
+        public string Status
+        {
+            get { return _Status; }
+            set { _Status = value; }
         }
     }
 }

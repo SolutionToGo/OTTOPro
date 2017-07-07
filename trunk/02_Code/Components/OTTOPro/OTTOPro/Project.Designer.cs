@@ -1051,6 +1051,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnFinalBill = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1796,6 +1798,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -11067,6 +11070,7 @@
             // layoutControl13
             // 
             this.layoutControl13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl13.Controls.Add(this.btnFinalBill);
             this.layoutControl13.Controls.Add(this.gcInvoices);
             this.layoutControl13.Controls.Add(this.chkFinalInvoice);
             this.layoutControl13.Controls.Add(this.btnGenerate);
@@ -11215,9 +11219,9 @@
             // 
             this.btnGenerate.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnGenerate.Appearance.Options.UseFont = true;
-            this.btnGenerate.Location = new System.Drawing.Point(959, 422);
+            this.btnGenerate.Location = new System.Drawing.Point(976, 422);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(217, 22);
+            this.btnGenerate.Size = new System.Drawing.Size(200, 22);
             this.btnGenerate.StyleController = this.layoutControl13;
             this.btnGenerate.TabIndex = 6;
             this.btnGenerate.Text = "Rechnung erstellen";
@@ -11225,10 +11229,10 @@
             // 
             // txtInvoiceNumber
             // 
-            this.txtInvoiceNumber.Location = new System.Drawing.Point(797, 422);
+            this.txtInvoiceNumber.Location = new System.Drawing.Point(835, 422);
             this.txtInvoiceNumber.MenuManager = this.barManager1;
             this.txtInvoiceNumber.Name = "txtInvoiceNumber";
-            this.txtInvoiceNumber.Size = new System.Drawing.Size(158, 20);
+            this.txtInvoiceNumber.Size = new System.Drawing.Size(137, 20);
             this.txtInvoiceNumber.StyleController = this.layoutControl13;
             this.txtInvoiceNumber.TabIndex = 5;
             // 
@@ -11413,7 +11417,8 @@
             this.layoutControlItem141,
             this.layoutControlItem152,
             this.emptySpaceItem113,
-            this.layoutControlItem154});
+            this.layoutControlItem154,
+            this.layoutControlItem137});
             this.layoutControlGroup22.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup22.Name = "Root";
             this.layoutControlGroup22.Size = new System.Drawing.Size(1522, 749);
@@ -11451,18 +11456,18 @@
             this.layoutControlItem140.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem140.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem140.Control = this.txtInvoiceNumber;
-            this.layoutControlItem140.Location = new System.Drawing.Point(660, 410);
+            this.layoutControlItem140.Location = new System.Drawing.Point(698, 410);
             this.layoutControlItem140.Name = "layoutControlItem140";
-            this.layoutControlItem140.Size = new System.Drawing.Size(287, 26);
+            this.layoutControlItem140.Size = new System.Drawing.Size(266, 26);
             this.layoutControlItem140.Text = "Rechnungsnummer ";
             this.layoutControlItem140.TextSize = new System.Drawing.Size(122, 14);
             // 
             // layoutControlItem141
             // 
             this.layoutControlItem141.Control = this.btnGenerate;
-            this.layoutControlItem141.Location = new System.Drawing.Point(947, 410);
+            this.layoutControlItem141.Location = new System.Drawing.Point(964, 410);
             this.layoutControlItem141.Name = "layoutControlItem141";
-            this.layoutControlItem141.Size = new System.Drawing.Size(221, 26);
+            this.layoutControlItem141.Size = new System.Drawing.Size(204, 26);
             this.layoutControlItem141.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem141.TextVisible = false;
             // 
@@ -11478,9 +11483,9 @@
             // emptySpaceItem113
             // 
             this.emptySpaceItem113.AllowHotTrack = false;
-            this.emptySpaceItem113.Location = new System.Drawing.Point(129, 410);
+            this.emptySpaceItem113.Location = new System.Drawing.Point(209, 410);
             this.emptySpaceItem113.Name = "emptySpaceItem113";
-            this.emptySpaceItem113.Size = new System.Drawing.Size(531, 26);
+            this.emptySpaceItem113.Size = new System.Drawing.Size(489, 26);
             this.emptySpaceItem113.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem154
@@ -14530,6 +14535,26 @@
             this.toolStripMenuItemRemove.Text = "Entfernen";
             this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripMenuItemRemove_Click);
             // 
+            // btnFinalBill
+            // 
+            this.btnFinalBill.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnFinalBill.Location = new System.Drawing.Point(141, 422);
+            this.btnFinalBill.Name = "btnFinalBill";
+            this.btnFinalBill.Size = new System.Drawing.Size(76, 22);
+            this.btnFinalBill.StyleController = this.layoutControl13;
+            this.btnFinalBill.TabIndex = 9;
+            this.btnFinalBill.Text = "Speichern";
+            this.btnFinalBill.Click += new System.EventHandler(this.btnFinalBill_Click);
+            // 
+            // layoutControlItem137
+            // 
+            this.layoutControlItem137.Control = this.btnFinalBill;
+            this.layoutControlItem137.Location = new System.Drawing.Point(129, 410);
+            this.layoutControlItem137.Name = "layoutControlItem137";
+            this.layoutControlItem137.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem137.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem137.TextVisible = false;
+            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -15296,6 +15321,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem137)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -16324,6 +16350,8 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem50;
         private DevExpress.XtraGrid.Columns.GridColumn LVSection;
         private DevExpress.XtraGrid.Columns.GridColumn LVssection;
+        private DevExpress.XtraEditors.SimpleButton btnFinalBill;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem137;
 
 
     }

@@ -226,5 +226,42 @@ namespace DAL
             return ObjEProject;
         }
 
+        public EProject UpdateStatus(EProject ObjEProject)
+        {
+            DataSet dsProjectNo = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_ProjectStatus]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEProject.ProjectID);
+                    cmd.Parameters.AddWithValue("@Status", ObjEProject.Status);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsProjectNo);
+                    }                    
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Speichern des Projektstatus");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Saving the Project status");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEProject;
+        }
+
     }
 }
