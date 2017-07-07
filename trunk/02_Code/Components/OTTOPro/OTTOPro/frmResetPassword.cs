@@ -25,7 +25,8 @@ namespace OTTOPro
             try
             {
                 if (txtOldPassword.Text == txtNewPassword.Text)
-                    if(Utility._IsGermany==true)
+                {
+                    if (Utility._IsGermany == true)
                     {
                         throw new Exception("Altes und Neues Passwort dürfen nicht übereinstimmen");
                     }
@@ -33,8 +34,9 @@ namespace OTTOPro
                     {
                         throw new Exception("Old Password and New Password should not be same");
                     }
-                    throw new Exception("Old Password and New Password should not be same");
-                if(txtNewPassword.Text != txtConfirmPassword.Text)
+                }
+                if (txtNewPassword.Text != txtConfirmPassword.Text)
+                {
                     if (Utility._IsGermany == true)
                     {
                         throw new Exception("Die Passwortangaben stimmen nicht überein");
@@ -43,6 +45,7 @@ namespace OTTOPro
                     {
                         throw new Exception("Passwords do not match.");
                     }
+                }
                 EUserInfo ObjEUserInfo = new EUserInfo();
                 BUserInfo ObjBUserInfo = new BUserInfo();
                 ObjEUserInfo.UserID = Utility.UserID;

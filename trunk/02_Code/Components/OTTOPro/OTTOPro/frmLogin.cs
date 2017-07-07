@@ -51,6 +51,7 @@ namespace OTTOPro
                 if(ObjEUserInfo.dtUserDetails.Rows.Count > 0)
                 {
                     Utility.UserID = ObjEUserInfo.dtUserDetails.Rows[0]["UserID"] == DBNull.Value ? 0 : Convert.ToInt32(ObjEUserInfo.dtUserDetails.Rows[0]["UserID"]);
+                    Utility.RoleID = ObjEUserInfo.dtUserDetails.Rows[0]["RoleID"] == DBNull.Value ? 0 : Convert.ToInt32(ObjEUserInfo.dtUserDetails.Rows[0]["RoleID"]);
                     Utility.UserName = ObjEUserInfo.dtUserDetails.Rows[0]["UserName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["UserName"]);
                     Utility.FirstName = ObjEUserInfo.dtUserDetails.Rows[0]["FirstName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["FirstName"]);
                     Utility.LastName = ObjEUserInfo.dtUserDetails.Rows[0]["LastName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["LastName"]);
@@ -94,6 +95,10 @@ namespace OTTOPro
                            Utility.CalculationTextModuleAccess = Convert.ToString(dr["AccessLevel"]);
                        else if (Convert.ToString(dr["FeatureID"]) == "15")
                            Utility.InvoiceTextModuleAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "17")
+                           Utility.UserDataAccess = Convert.ToString(dr["AccessLevel"]);
+                       else if (Convert.ToString(dr["FeatureID"]) == "18")
+                           Utility.ProjectDataAccess = Convert.ToString(dr["AccessLevel"]);
                    }
                 }
                 else

@@ -89,6 +89,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.UserDataAccess == "7")
+                    btnSave.Enabled = false;
                 RequiredFields.Add(txtUserName);
                 RequiredFields.Add(txtFName);
                 RequiredFields.Add(txtLName);
@@ -192,6 +194,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.UserDataAccess == "7")
+                    return;
                 GetUserDetails();
             }
             catch (Exception ex)

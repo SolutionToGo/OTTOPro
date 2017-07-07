@@ -27,6 +27,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.UserDataAccess == "7")
+                    btnSaveFeature.Enabled = false;
                 BindRoleData();
                 BindAccessLevels();
                 cmbRole.EditValue = 8;

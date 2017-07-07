@@ -266,6 +266,7 @@ namespace OTTOPro
         public static string FirstName;
         public static string LastName;
         public static bool IsOTP;
+        public static int RoleID;
 
         public static string LVDetailsAccess = string.Empty;
         public static string CalcAccess = string.Empty;
@@ -281,5 +282,7 @@ namespace OTTOPro
         public static string InvoiceTextModuleAccess = string.Empty;
         public static string LVsectionAddAccess = string.Empty;
         public static string LVSectionEditAccess = string.Empty;
+        public static string UserDataAccess = string.Empty;
+        public static string ProjectDataAccess = string.Empty;
     }
 }

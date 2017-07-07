@@ -151,6 +151,8 @@ namespace OTTOPro
                 ribbonPageGroup5.Visible = false;
             if(Utility.GeneralTextModuleAccess == "9")
                 btnTextModule.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            if (Utility.UserDataAccess == "9")
+                ribbonPageGroup2.Visible = false;
         }
 
         private void btnShortCuts_ItemClick(object sender, ItemClickEventArgs e)

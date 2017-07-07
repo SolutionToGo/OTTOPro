@@ -167,6 +167,9 @@ namespace BL
 
                             if (bool.TryParse(dtPRojectDetails.Rows[0]["IsCumulated"].ToString(), out LockLV))
                                 ObjEProject.IsCumulated = LockLV;
+
+                            if (bool.TryParse(dtPRojectDetails.Rows[0]["FinalInvoice"].ToString(), out LockLV))
+                                ObjEProject.IsFinalInvoice = LockLV;
                         }
                     }
                 }

@@ -40,6 +40,7 @@ namespace EL
         private DateTime _ProjectEndDate;
         private DataTable _dtProjectList = null;
         private bool _IsDisable = false;
+        private bool _IsFinalInvoice = false;
 
         /// <summary>
         /// Temparary Private Variables for Project Modules
@@ -227,6 +228,11 @@ namespace EL
         {
             get { return _IsCumulated; }
             set { _IsCumulated = value; }
+        }
+        public bool IsFinalInvoice
+        {
+            get { return _IsFinalInvoice; }
+            set { _IsFinalInvoice = value; }
         }
     }
 }

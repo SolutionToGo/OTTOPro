@@ -335,6 +335,8 @@ namespace OTTOPro
                         navBarItemUmlage.Visible = false;
                     }
                 }
+                if (Utility.ProjectDataAccess == "9")
+                    navBarItemProject.Visible = false;
                 if (Utility.DeliveryAccess == "9")
                     nbDeliveryNotes.Visible = false;
                 if (Utility.InvoiceAccess == "9")
@@ -3257,7 +3259,8 @@ namespace OTTOPro
                 btnModify_Click(null, null);
                 if (_IsEditMode)
                 {
-                    btnSaveLVDetails_Click(null, null);
+                    if (!ObjEProject.IsFinalInvoice)
+                        btnSaveLVDetails_Click(null, null);
                     tlPositions.MovePrev();
                     btnModify_Click(null, null);
                 }
@@ -3279,7 +3282,8 @@ namespace OTTOPro
                 btnModify_Click(null, null);
                 if (_IsEditMode)
                 {
-                    btnSaveLVDetails_Click(null, null);
+                    if (!ObjEProject.IsFinalInvoice)
+                        btnSaveLVDetails_Click(null, null);
                     tlPositions.MoveNext();
                     btnModify_Click(null, null);
                 }
@@ -3403,13 +3407,17 @@ namespace OTTOPro
             {
                     if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails" && Utility.CalcAccess != "7")
                     {
+                        if (ObjEProject.IsFinalInvoice)
+                            return false;
                         btnSaveLVDetails.PerformClick();
                         return true;
                     }
                 if (txtkommissionNumber.Text == string.Empty)
                 {
-                    if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails")
+                    if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails" && Utility.ProjectDataAccess != "7")
                     {
+                        if (ObjEProject.IsFinalInvoice)
+                            return false;
                         btnProjectSave_Click(null, null);
                         return true;
                     }
@@ -3694,6 +3702,8 @@ namespace OTTOPro
         {
             try
             {
+                if (ObjEProject.IsFinalInvoice && Utility.LVDetailsAccess == "7")
+                    return;
                 tlPositions.FocusedNode = ((TreeListNodeMenu)e.Menu).Node;
                 string P_value = tlPositions.FocusedNode["PositionKZ"].ToString();
                 if (P_value == "NG" || P_value == "Z" || P_value == "ZS")
@@ -5524,6 +5534,8 @@ namespace OTTOPro
 
         private void navBarItemProject_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            if (ObjEProject.IsFinalInvoice && Utility.ProjectDataAccess == "7")
+                btnProjectSave.Enabled = false;
             ObjTabDetails = tbProjectDetails;
             TabChange(ObjTabDetails);
             ObjBProject.GetProjectDetails(ObjEProject);
@@ -5535,17 +5547,6 @@ namespace OTTOPro
             if (ObjEProject.ProjectID > 0)
             {
                 setMask();
-                //if (ObjEProject.LVRaster != null)
-                //{
-                //    string[] strLV = ObjEProject.LVRaster.Split('.');
-                //    if (strLV != null && strLV.Count() > 1)
-                //    {
-                //        string strOnheStufe = strLV[strLV.Count() - 2];
-                //        txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                //        txtPosition.Properties.Mask.EditMask = "\\d{1," + strOnheStufe.Length + "}(\\R.\\d{0,1})";
-                //        txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
-                //    }
-                //}
                 IntializeLVPositions();
                 ObjTabDetails = tbLVDetails;
                 if (tbLVDetails.PageVisible == false)
@@ -5582,6 +5583,7 @@ namespace OTTOPro
                 chkCreateNew.Enabled = false;
                 btnSaveLVDetails.Enabled = false;
                 btnCancel.Enabled = false;
+                tlPositions.OptionsBehavior.Editable = false;
             }
             if (Utility.CalcAccess == "7")
             {
@@ -5595,12 +5597,18 @@ namespace OTTOPro
                 btnAddLVSection.Enabled = false;
                 cmbLVSection.Enabled = false;
             }
+            if (ObjEProject.IsFinalInvoice)
+            {
+                btnNew.Enabled = false;
+                btnSaveLVDetails.Enabled = false;
+                btnCancel.Enabled = false;
+                chkCreateNew.Enabled = false;
+                tlPositions.OptionsBehavior.Editable = false;
+            }    
         }
 
         private void navBarItemBulkProcess_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            if (Utility.CalcAccess == "7")
-                layoutControl7.Enabled = false;
             ObjBProject.GetProjectDetails(ObjEProject);
             if (ObjEProject.ActualLvs == 0)
                 return;
@@ -5664,6 +5672,8 @@ namespace OTTOPro
                 TabChange(ObjTabDetails);
                 tlBulkProcessPositionDetails.BestFitColumns();
             }
+            if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
+                btnApply.Enabled = false;
         }
 
         private void navBarItemMulti5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -5695,7 +5705,7 @@ namespace OTTOPro
 
                     btnMulti5LoadArticles_Click(null, null);
                     gvMulti5.BestFitColumns();
-                    if (Utility.CalcAccess == "7")
+                    if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
                         btnMulti5UpdateSelbekosten.Enabled = false;
                 }
             }
@@ -5737,7 +5747,7 @@ namespace OTTOPro
 
                     btnMulti6LoadArticles_Click(null, null);
                     gvMulti6.BestFitColumns();
-                    if (Utility.CalcAccess == "7")
+                    if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
                         btnMulti6UpdateSelbekosten.Enabled = false;
                 }
             }
@@ -5752,6 +5762,8 @@ namespace OTTOPro
             try
             {
                 ObjBProject.GetProjectDetails(ObjEProject);
+                if (ObjEProject.IsFinalInvoice)
+                    return;
                 BindPositionData();
                 if (ObjEProject.ActualLvs == 0)
                 {
@@ -5788,6 +5800,8 @@ namespace OTTOPro
             {
                 if (ObjEProject.ProjectID > 0)
                 {
+                    if (ObjEProject.IsFinalInvoice)
+                        return;
                     frmGAEBImport Obj = new frmGAEBImport();
                     Obj.ProjectID = ObjEProject.ProjectID;
                     Obj.KNr = ObjEProject.CommissionNumber;
@@ -5839,12 +5853,11 @@ namespace OTTOPro
                     ObjEUmlage.ProjectID = ObjEProject.ProjectID;
                     ObjEUmlage = ObjBUmlage.GetSpecialCost(ObjEUmlage);
                     gcOmlage.DataSource = ObjEUmlage.dtSpecialCost;
-                    if(Utility.CalcAccess == "7")
+                    if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
                     {
                         btnUmlageSave.Enabled = false;
                         btnAddedCost.Enabled = false;
                     }
-                        
                 }
             }
             catch (Exception ex)
@@ -5905,7 +5918,7 @@ namespace OTTOPro
 
                     gcDeletedDetails.DataSource=null;
                     gcProposedDetails.DataSource = null;
-                    if (Utility.CalcAccess == "7")
+                    if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
                         btnSaveSupplierProposal.Enabled = false;
                 }
             }
@@ -5923,8 +5936,6 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.DeliveryAccess == "7")
-                    btnSave.Enabled = false;
                 TabChange(tbDeliveryNotes);
                 if (ObjEDeliveryNotes == null)
                     ObjEDeliveryNotes = new EDeliveryNotes();
@@ -5938,7 +5949,8 @@ namespace OTTOPro
                 LoadNonActiveDelivery();
                 ObjEDeliveryNotes = ObjBDeliveryNotes.GetBlattNumbers(ObjEDeliveryNotes);
                 gcDeliveryNumbers.DataSource = ObjEDeliveryNotes.dtBlattNumbers;
-
+                if (Utility.DeliveryAccess == "7" || ObjEProject.IsFinalInvoice)
+                    btnSave.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -6257,8 +6269,11 @@ namespace OTTOPro
                     if(gvDeliveryNumbers.FocusedRowHandle != null)
                     {
                         string str = gvDeliveryNumbers.GetFocusedRowCellValue("IsInvoiced").ToString();
-                        if (str.ToLower() != "ja" && gvDelivery.RowCount <= 0 && Utility.DeliveryAccess == "7")
-                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ändern", gcBlattEdit_Click));
+                        if (str.ToLower() != "ja" && gvDelivery.RowCount <= 0)
+                        {
+                            if (Utility.DeliveryAccess != "7" && !ObjEProject.IsFinalInvoice)
+                                e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ã„ndern", gcBlattEdit_Click));
+                        }
                     }
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcBlattViewAddress_Click));
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß ohne Adresskopf, mit LV Positionsnr", gcBlattViewWithouAddress_Click));
@@ -6371,8 +6386,6 @@ namespace OTTOPro
             try
             {
                 TabChange(tbInvoices);
-                if (Utility.InvoiceAccess == "7")
-                    btnGenerate.Enabled = false;
                 if (ObjEInvoice == null)
                     ObjEInvoice = new EInvoice();
                 if (oBJBInvoice == null)
@@ -6382,6 +6395,14 @@ namespace OTTOPro
                 gcDeliveryNotes.DataSource = ObjEInvoice.dtBlattNumbers;
                 ObjEInvoice = oBJBInvoice.GetInvoices(ObjEInvoice);
                 gcInvoices.DataSource = ObjEInvoice.dtInvoices;
+                if (Utility.InvoiceAccess == "7" || ObjEProject.IsFinalInvoice)
+                    btnGenerate.Enabled = false;
+                if (ObjEProject.IsFinalInvoice)
+                {
+                    chkFinalInvoice.Checked = true;
+                    if (Utility.RoleID != 14)
+                        chkFinalInvoice.Enabled = false;
+                }
             }
             catch (Exception ex)
             {
@@ -6841,7 +6862,7 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.CalcAccess == "7")
+                if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
                     return;
                 GridControl grid = sender as GridControl;
                 DataTable table = grid.DataSource as DataTable;
@@ -6893,7 +6914,7 @@ namespace OTTOPro
                     gvProposal_FocusedRowChanged(null, null);
                     gcDeletedDetails.DataSource = null;
                     gcProposedDetails.DataSource = null;
-                    if(Utility.CalcAccess == "7")
+                    if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
                     {
                         layoutControl16.Enabled = false;
                         btnSubmit.Enabled = false;
@@ -7488,12 +7509,7 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.LVDetailsAccess == "7")
-                {
-                    e.Effect = DragDropEffects.None;
-                    return;
-                }
-                if (tlNewProject.Nodes.Count() == 0)
+                if (tlNewProject.Nodes.Count() == 0 || Utility.LVDetailsAccess == "7" || ObjEProject.IsFinalInvoice)
                 {
                     e.Effect = DragDropEffects.None;
                     return;

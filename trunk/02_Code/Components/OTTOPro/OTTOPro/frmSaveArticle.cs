@@ -47,8 +47,6 @@ namespace OTTOPro
         {
             try
             {
-                if (Utility.SupplierDataAccess == "7")
-                    btnSave.Enabled = false;
                 if (string.IsNullOrEmpty(txtWG.Text.Trim()))
                 {
                     _isValidate = false;
@@ -151,6 +149,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Utility.SupplierDataAccess == "7")
+                    btnSave.Enabled = false;
                 if (_ObjEsupplier.SupplierID > 0)
                     BindSupplierDetails();
             }

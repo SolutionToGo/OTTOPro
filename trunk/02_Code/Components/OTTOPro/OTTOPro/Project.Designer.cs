@@ -788,9 +788,9 @@
             this.dtpdeliveredOn = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.gridColumn29 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn75 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.txtBlatPrice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn74 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn30 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtBlatPrice = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn34 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn17 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.chkInvoiced = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
@@ -11338,14 +11338,26 @@
             // gridColumn75
             // 
             this.gridColumn75.Caption = "Zuschlag";
+            this.gridColumn75.ColumnEdit = this.txtBlatPrice;
             this.gridColumn75.FieldName = "Surcharge";
             this.gridColumn75.Name = "gridColumn75";
             this.gridColumn75.Visible = true;
             this.gridColumn75.VisibleIndex = 3;
             // 
+            // txtBlatPrice
+            // 
+            this.txtBlatPrice.AutoHeight = false;
+            this.txtBlatPrice.Mask.EditMask = "n2";
+            this.txtBlatPrice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtBlatPrice.Mask.ShowPlaceHolders = false;
+            this.txtBlatPrice.Mask.UseMaskAsDisplayFormat = true;
+            this.txtBlatPrice.Name = "txtBlatPrice";
+            this.txtBlatPrice.ReadOnly = true;
+            // 
             // gridColumn74
             // 
             this.gridColumn74.Caption = "Vat";
+            this.gridColumn74.ColumnEdit = this.txtBlatPrice;
             this.gridColumn74.FieldName = "VatAmount";
             this.gridColumn74.Name = "gridColumn74";
             this.gridColumn74.Visible = true;
@@ -11361,16 +11373,6 @@
             this.gridColumn30.Name = "gridColumn30";
             this.gridColumn30.Visible = true;
             this.gridColumn30.VisibleIndex = 2;
-            // 
-            // txtBlatPrice
-            // 
-            this.txtBlatPrice.AutoHeight = false;
-            this.txtBlatPrice.Mask.EditMask = "n2";
-            this.txtBlatPrice.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.txtBlatPrice.Mask.ShowPlaceHolders = false;
-            this.txtBlatPrice.Mask.UseMaskAsDisplayFormat = true;
-            this.txtBlatPrice.Name = "txtBlatPrice";
-            this.txtBlatPrice.ReadOnly = true;
             // 
             // gridColumn34
             // 
