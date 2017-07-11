@@ -120,7 +120,7 @@
             this.xrLabel3.LocationFloat = new DevExpress.Utils.PointFloat(199F, 76.37501F);
             this.xrLabel3.Name = "xrLabel3";
             this.xrLabel3.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel3.SizeF = new System.Drawing.SizeF(517F, 25.37499F);
+            this.xrLabel3.SizeF = new System.Drawing.SizeF(504F, 25.37499F);
             this.xrLabel3.StylePriority.UseFont = false;
             this.xrLabel3.StylePriority.UseTextAlignment = false;
             this.xrLabel3.Text = "Aufmasszusammenstellung";
@@ -129,7 +129,7 @@
             // xrLabel8
             // 
             this.xrLabel8.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(604.6036F, 111.2499F);
+            this.xrLabel8.LocationFloat = new DevExpress.Utils.PointFloat(590.6036F, 111.2499F);
             this.xrLabel8.Multiline = true;
             this.xrLabel8.Name = "xrLabel8";
             this.xrLabel8.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -141,7 +141,7 @@
             // 
             this.xrPageInfo2.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrPageInfo2.Format = "{0} von  {1}";
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(640.938F, 111.75F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(626.938F, 111.75F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo2.SizeF = new System.Drawing.SizeF(75.06195F, 23.00002F);
@@ -155,7 +155,7 @@
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(412.5215F, 145.6249F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(303.4785F, 25.54178F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(289.4784F, 25.54178F);
             this.xrLabel2.StylePriority.UseFont = false;
             // 
             // xrLabel1
@@ -223,7 +223,7 @@
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow6});
-            this.xrTable4.SizeF = new System.Drawing.SizeF(725.9999F, 42.91666F);
+            this.xrTable4.SizeF = new System.Drawing.SizeF(703F, 42.91666F);
             this.xrTable4.StylePriority.UseBorders = false;
             this.xrTable4.StylePriority.UseFont = false;
             // 
@@ -364,7 +364,7 @@
             this.xrTable3.Name = "xrTable3";
             this.xrTable3.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow3});
-            this.xrTable3.SizeF = new System.Drawing.SizeF(725.8231F, 24.99997F);
+            this.xrTable3.SizeF = new System.Drawing.SizeF(702.8232F, 24.99997F);
             this.xrTable3.StylePriority.UseBorders = false;
             this.xrTable3.StylePriority.UseFont = false;
             // 
@@ -498,7 +498,7 @@
             this.xrLine1,
             this.xrLabel6,
             this.xrLine2});
-            this.GroupFooter1.HeightF = 30.68752F;
+            this.GroupFooter1.HeightF = 30.68753F;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
             // xrLabel11
@@ -521,7 +521,7 @@
             this.xrLabel10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_BlattdetailsforProject(@ProjectID).ME")});
             this.xrLabel10.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(662.8083F, 0F);
+            this.xrLabel10.LocationFloat = new DevExpress.Utils.PointFloat(639.8083F, 0F);
             this.xrLabel10.Name = "xrLabel10";
             this.xrLabel10.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel10.SizeF = new System.Drawing.SizeF(63.19153F, 28.60419F);
@@ -557,20 +557,20 @@
             // 
             this.xrLine3.LocationFloat = new DevExpress.Utils.PointFloat(0.176843F, 28.60413F);
             this.xrLine3.Name = "xrLine3";
-            this.xrLine3.SizeF = new System.Drawing.SizeF(725.8231F, 2.083397F);
+            this.xrLine3.SizeF = new System.Drawing.SizeF(702.8232F, 2.083397F);
             // 
             // xrLine1
             // 
             this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(3.178914E-05F, 0F);
             this.xrLine1.Name = "xrLine1";
-            this.xrLine1.SizeF = new System.Drawing.SizeF(725.9999F, 2.083333F);
+            this.xrLine1.SizeF = new System.Drawing.SizeF(702.9999F, 2.083333F);
             // 
             // xrLabel6
             // 
             this.xrLabel6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_BlattdetailsforProject(@ProjectID).Quantity")});
             this.xrLabel6.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(588.1586F, 2.083333F);
+            this.xrLabel6.LocationFloat = new DevExpress.Utils.PointFloat(565.1586F, 2.083333F);
             this.xrLabel6.Name = "xrLabel6";
             this.xrLabel6.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel6.SizeF = new System.Drawing.SizeF(74.64978F, 25.60419F);
@@ -619,6 +619,9 @@
             this.DataMember = "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID)";
             this.DataSource = this.sqlDataSource1;
             this.Margins = new System.Drawing.Printing.Margins(68, 56, 241, 50);
+            this.PageHeight = 1169;
+            this.PageWidth = 827;
+            this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.ProjectID});
             this.Version = "17.1";
