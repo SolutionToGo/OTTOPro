@@ -182,16 +182,16 @@ namespace OTTOPro
                     {
                        if(RasterLength == 1 && OZLength > 0)
                        {
-                           str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ;
+                           str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ;
                        }
                        else if (OZLength > 0)
                        {
-                           str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
+                           str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
                        }
                     }
                     else
                     {
-                        str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
+                        str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
                     }
                 }
             }

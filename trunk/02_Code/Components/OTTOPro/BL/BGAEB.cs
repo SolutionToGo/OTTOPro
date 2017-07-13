@@ -216,8 +216,8 @@ namespace BL
             bool _IsRaster_found = false;
             try
             {
-                DataSet dsTMLData = CreateDatasetSchema(strFilePath,strLVSection);
                 string Raster = GetRaster(strFilePath);
+                DataSet dsTMLData = CreateDatasetSchema(strFilePath, strLVSection);
                 objEGAEB.dtLVRaster = Get_LVRasters();
 
                 if (objEGAEB.dtLVRaster.Rows != null)
@@ -271,7 +271,7 @@ namespace BL
                 DataTable dtV = new DataTable("LVPos");
                 dtV.Columns.Add("Art", typeof(string));
                 dtV.Columns.Add("OZ", typeof(string));
-                dtV.Columns.Add("Menge", typeof(int));
+                dtV.Columns.Add("Menge", typeof(decimal));
                 dtV.Columns.Add("Einheit", typeof(string));
                 dtV.Columns.Add("Kurztext", typeof(string));
                 dtV.Columns.Add("Langtext", typeof(string));

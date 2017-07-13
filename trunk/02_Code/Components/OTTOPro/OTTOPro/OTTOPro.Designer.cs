@@ -357,7 +357,6 @@
             this.btnImportArticleData.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_icon;
             this.btnImportArticleData.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Save_icon__1_;
             this.btnImportArticleData.Name = "btnImportArticleData";
-            this.btnImportArticleData.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnImportArticleData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportArticleData_ItemClick);
             // 
             // btnChangePassword

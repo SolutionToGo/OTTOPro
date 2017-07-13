@@ -100,9 +100,9 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@dtImport", dsTMLData.Tables[dsTMLData.Tables.Count - 1]);
                     cmd.Parameters.AddWithValue("@Raster", strRaster);
                     object ObjReturn = cmd.ExecuteScalar();
-                    if(ObjReturn != null)
+                    if (ObjReturn != null)
                     {
-                        if(!int.TryParse(ObjReturn.ToString(),out iValue))
+                        if (!int.TryParse(ObjReturn.ToString(), out iValue))
                         {
                             //throw new Exception(ObjReturn.ToString());
                             if (ObjReturn.ToString().Contains("raster"))
@@ -119,7 +119,7 @@ namespace DataAccess
                                 else
                                     throw new Exception("Position is already exists under selected project.");
                             }
-                            if(ObjReturn.ToString().Contains("titles"))
+                            if (ObjReturn.ToString().Contains("titles"))
                             {
                                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                                     throw new Exception("Die Position ist bereits im ausgewählten Projekt vorhanden!.");
