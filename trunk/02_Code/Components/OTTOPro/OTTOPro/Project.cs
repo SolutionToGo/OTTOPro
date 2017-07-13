@@ -669,13 +669,14 @@ namespace OTTOPro
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                     }
-                }
+                }               
             }
             catch (Exception ex)
             {
                 throw;
             }
         }
+
 
         private void ParsePositionDetails()
         {
@@ -1104,7 +1105,7 @@ namespace OTTOPro
                     if (tlPositions.Nodes.Count > 0)
                     {
                         string P_value = tlPositions.FocusedNode["PositionKZ"].ToString();
-                        if (P_value == "NG" || P_value == "")
+                        if (P_value == "NG")
                         {
                             txtPosition.Enabled = false;
                             btnLongDescription.Enabled = false;
@@ -1113,7 +1114,7 @@ namespace OTTOPro
                         {
                             txtPosition.Enabled = true;
                             btnLongDescription.Enabled = true;
-                        }
+                        }                        
                     }
                     txtMo_TextChanged(null, null);
                 }
@@ -1450,21 +1451,25 @@ namespace OTTOPro
         {
             try
             {
-                tlPositions.Columns["MA_Multi1"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
-                tlPositions.Columns["MA_multi2"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
-                tlPositions.Columns["MA_multi3"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
-                tlPositions.Columns["MA_multi4"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
+                if (Utility.CalcAccess != "7")
+                {
+                    tlPositions.Columns["MA_Multi1"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
+                    tlPositions.Columns["MA_multi2"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
+                    tlPositions.Columns["MA_multi3"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
+                    tlPositions.Columns["MA_multi4"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
 
-                tlPositions.Columns["MO_multi1"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
-                tlPositions.Columns["MO_multi2"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
-                tlPositions.Columns["MO_multi3"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
-                tlPositions.Columns["MO_multi4"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
+                    tlPositions.Columns["MO_multi1"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
+                    tlPositions.Columns["MO_multi2"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
+                    tlPositions.Columns["MO_multi3"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
+                    tlPositions.Columns["MO_multi4"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
 
 
-                tlPositions.Columns["MA_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenME.CheckState);
-                tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenMO.CheckState);
-                tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisME.CheckState);
-                tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisMO.CheckState);
+                    tlPositions.Columns["MA_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenME.CheckState);
+                    tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenMO.CheckState);
+                    tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisME.CheckState);
+                    tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisMO.CheckState);
+                }
+                
 
                 string strNodeType = e.Node["PositionKZ"].ToString().ToLower();
 
@@ -3404,6 +3409,7 @@ namespace OTTOPro
             }
         }
 
+        bool _IsTabPressed = false;
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             if (keyData == (Keys.F9))
@@ -3446,22 +3452,6 @@ namespace OTTOPro
             if (textbox.Text == "0")
             {
                 textbox.Text = "";
-            }
-        }
-
-        private void tlPositions_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyCode == Keys.Enter)
-                {
-                    btnSaveLVDetails_Click(null, null);
-                    tlPositions.MoveNext();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
             }
         }
 
@@ -3528,7 +3518,9 @@ namespace OTTOPro
                         default:
                             break;
                     }
-                    btnSaveLVDetails_Click(null, null);
+                        string strcolumnName = tlPositions.FocusedColumn.FieldName;
+                        btnSaveLVDetails_Click(null, null);
+                        tlPositions.FocusedColumn = tlPositions.Columns[strcolumnName];
 
                 }
             }
@@ -5551,6 +5543,7 @@ namespace OTTOPro
             {
                 setMask();
                 IntializeLVPositions();
+                SetOhnestuffeMask();
                 ObjTabDetails = tbLVDetails;
                 if (tbLVDetails.PageVisible == false)
                 {
@@ -5586,14 +5579,22 @@ namespace OTTOPro
                 chkCreateNew.Enabled = false;
                 btnSaveLVDetails.Enabled = false;
                 btnCancel.Enabled = false;
-                tlPositions.OptionsBehavior.Editable = false;
-            }
+                LVDetailsColumnReadOnly(true);
+            }            
             if (Utility.CalcAccess == "7")
             {
                 layoutControl6.Enabled = false;
-                tlPositions.OptionsBehavior.Editable = false;
+                LVCalculationColumnReadOnly(true);
                 btnSaveLVDetails.Enabled = false;
                 btnCancel.Enabled = false;
+            }
+            if (Utility.LVDetailsAccess == "8")
+            {
+                LVDetailsColumnReadOnly(false);
+            }
+            if (Utility.CalcAccess == "8")
+            {
+                LVCalculationColumnReadOnly(false);
             }
             if(Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7")
             {
@@ -5608,6 +5609,39 @@ namespace OTTOPro
                 chkCreateNew.Enabled = false;
                 tlPositions.OptionsBehavior.Editable = false;
             }    
+        }
+
+        private void SetOhnestuffeMask()
+        {
+            string[] Levels = ObjEProject.LVRaster.Split('.');
+            int Count = Levels.Length;
+            int _Length = Levels[Count - 2].Length;
+            txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            txtPosition.Properties.Mask.EditMask =@"\d{1,"+_Length+"}((\\.)\\d{0,1})?";
+            txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+        }
+
+        private void LVDetailsColumnReadOnly(bool _value)
+        {
+            tlPositions.Columns["WG"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["WA"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["WI"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["Menge"].ColumnEdit.ReadOnly = _value;
+        }
+        private void LVCalculationColumnReadOnly(bool _value)
+        {
+            tlPositions.Columns["MA_Multi1"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MA_multi2"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MA_multi3"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MA_multi4"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MA_selbstkostenMulti"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MO_multi1"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MO_multi2"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MO_multi3"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MO_multi4"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = _value;
+            tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = _value;
         }
 
         private void navBarItemBulkProcess_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -5677,6 +5711,12 @@ namespace OTTOPro
             }
             if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
                 btnApply.Enabled = false;
+             if(!string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+            { 
+                if (Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7"
+                     || Utility.LVSectionEditAccess == "9" || Utility.LVSectionEditAccess == "7")
+                    btnApply.Enabled = false;
+            }
         }
 
         private void navBarItemMulti5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -7448,9 +7488,17 @@ namespace OTTOPro
             {
                 if (ObjEProject.ProjectID > 0)
                 {
-                    ObjTabDetails = tbCopyLVs;
-                    TabChange(ObjTabDetails);
-                    FillProjectNumber();
+                    BindPositionData();
+                    if(tlPositions.AllNodesCount >= 2)
+                    {
+                        ObjTabDetails = tbCopyLVs;
+                        TabChange(ObjTabDetails);
+                        FillProjectNumber();
+                    }
+                    else
+                    {
+                        throw new Exception("Atlease one title and subtitle should be there in the project.");
+                    }
                 }
             }
             catch (Exception ex)

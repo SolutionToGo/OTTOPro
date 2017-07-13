@@ -5449,7 +5449,6 @@
             this.tlPositions.ShownEditor += new System.EventHandler(this.tlPositions_ShownEditor);
             this.tlPositions.PopupMenuShowing += new DevExpress.XtraTreeList.PopupMenuShowingEventHandler(this.tlPositions_PopupMenuShowing);
             this.tlPositions.CellValueChanged += new DevExpress.XtraTreeList.CellValueChangedEventHandler(this.tlPositions_CellValueChanged);
-            this.tlPositions.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tlPositions_KeyDown);
             // 
             // treeListColumn10
             // 
@@ -5492,6 +5491,7 @@
             this.treeListColumn5.Caption = "Det-KZ";
             this.treeListColumn5.FieldName = "DetailKZ";
             this.treeListColumn5.Name = "treeListColumn5";
+            this.treeListColumn5.OptionsColumn.AllowFocus = false;
             this.treeListColumn5.OptionsColumn.AllowSort = false;
             this.treeListColumn5.OptionsColumn.FixedWidth = true;
             this.treeListColumn5.OptionsColumn.ReadOnly = true;
@@ -6197,7 +6197,6 @@
             this.dtpSubmitDate.Properties.EditFormat.FormatString = "G";
             this.dtpSubmitDate.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.dtpSubmitDate.Properties.ExportMode = DevExpress.XtraEditors.Repository.ExportMode.Value;
-            this.dtpSubmitDate.Properties.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.dtpSubmitDate.Properties.Mask.EditMask = "G";
             this.dtpSubmitDate.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.DateTimeAdvancingCaret;
             this.dtpSubmitDate.Properties.MinValue = new System.DateTime(2016, 8, 10, 14, 8, 6, 0);
@@ -6731,7 +6730,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpProjectEndDate.Properties.DisplayFormat.FormatString = "Y";
             this.dtpProjectEndDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpProjectEndDate.Properties.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.dtpProjectEndDate.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
             this.dtpProjectEndDate.Size = new System.Drawing.Size(150, 20);
             this.dtpProjectEndDate.StyleController = this.layoutControl21;
@@ -6751,7 +6749,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpProjectStartDate.Properties.DisplayFormat.FormatString = "Y";
             this.dtpProjectStartDate.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
-            this.dtpProjectStartDate.Properties.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.dtpProjectStartDate.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
             this.dtpProjectStartDate.Size = new System.Drawing.Size(163, 20);
             this.dtpProjectStartDate.StyleController = this.layoutControl21;
@@ -11335,7 +11332,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpdeliveredOn.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpdeliveredOn.FirstDayOfWeek = System.DayOfWeek.Monday;
             this.dtpdeliveredOn.Name = "dtpdeliveredOn";
             this.dtpdeliveredOn.ReadOnly = true;
             // 
