@@ -84,12 +84,12 @@
             this.xrTable2.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(3.999996F, 2F);
+            this.xrTable2.LocationFloat = new DevExpress.Utils.PointFloat(3.999996F, 2.000014F);
             this.xrTable2.Name = "xrTable2";
             this.xrTable2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
             this.xrTable2.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow2});
-            this.xrTable2.SizeF = new System.Drawing.SizeF(644.9165F, 25F);
+            this.xrTable2.SizeF = new System.Drawing.SizeF(624F, 25F);
             this.xrTable2.StylePriority.UseBorderColor = false;
             this.xrTable2.StylePriority.UseBorders = false;
             this.xrTable2.StylePriority.UsePadding = false;
@@ -161,7 +161,7 @@
             this.xrLabel11,
             this.xrLabel10,
             this.xrPictureBox1});
-            this.TopMargin.HeightF = 272.1667F;
+            this.TopMargin.HeightF = 272F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -180,7 +180,7 @@
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
-            this.xrTable1.SizeF = new System.Drawing.SizeF(644.9165F, 34.58333F);
+            this.xrTable1.SizeF = new System.Drawing.SizeF(624.9166F, 34.5833F);
             this.xrTable1.StylePriority.UseBackColor = false;
             this.xrTable1.StylePriority.UseBorderColor = false;
             this.xrTable1.StylePriority.UseBorders = false;
@@ -337,7 +337,7 @@
             // xrPictureBox1
             // 
             this.xrPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("xrPictureBox1.Image")));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(460.2382F, 124.4584F);
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(448.2382F, 124.4584F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(178.5417F, 65.70834F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.ZoomImage;
@@ -354,7 +354,7 @@
             // xrPageInfo1
             // 
             this.xrPageInfo1.Format = "Seite {0} von {1}";
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(534.9999F, 8.999974F);
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(514.9164F, 9.999974F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrPageInfo1.SizeF = new System.Drawing.SizeF(110.0001F, 23F);
@@ -380,7 +380,7 @@
             this.xrCrossBandBox1.Name = "xrCrossBandBox1";
             this.xrCrossBandBox1.StartBand = this.TopMargin;
             this.xrCrossBandBox1.StartPointFloat = new DevExpress.Utils.PointFloat(0F, 85.20835F);
-            this.xrCrossBandBox1.WidthF = 650.9999F;
+            this.xrCrossBandBox1.WidthF = 631F;
             // 
             // ProjectID
             // 
@@ -421,7 +421,10 @@
             this.xrCrossBandBox1});
             this.DataMember = "P_Rpt_GetSupplierProposal(@ProjectID, @ProposalID)";
             this.DataSource = this.sqlDataSource2;
-            this.Margins = new System.Drawing.Printing.Margins(99, 100, 272, 77);
+            this.Margins = new System.Drawing.Printing.Margins(99, 97, 272, 77);
+            this.PageHeight = 1169;
+            this.PageWidth = 827;
+            this.PaperKind = System.Drawing.Printing.PaperKind.A4;
             this.Parameters.AddRange(new DevExpress.XtraReports.Parameters.Parameter[] {
             this.ProposalID,
             this.ProjectID});

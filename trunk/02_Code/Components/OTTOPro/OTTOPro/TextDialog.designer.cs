@@ -84,7 +84,10 @@
             this.Controls.Add(this.txtNewLVSection);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmTextDialog";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Neu LV Sektion";
             this.Load += new System.EventHandler(this.frmTextDialog_Load);

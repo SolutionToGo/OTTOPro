@@ -91,6 +91,7 @@ namespace OTTOPro
             {
                 if (Utility.UserDataAccess == "7")
                     btnSave.Enabled = false;
+                RequiredFields.Add(cmbRoleName);
                 RequiredFields.Add(txtUserName);
                 RequiredFields.Add(txtFName);
                 RequiredFields.Add(txtLName);

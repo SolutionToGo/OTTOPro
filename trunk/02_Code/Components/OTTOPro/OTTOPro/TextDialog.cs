@@ -39,7 +39,14 @@ namespace OTTOPro
             {
                 this._IsSave = true;
                 if (string.IsNullOrEmpty(txtNewLVSection.Text))
-                    throw new Exception("Please Enter Valid Value");
+                    if(Utility._IsGermany==true)
+                    {
+                        throw new Exception("Geben Sie den gültigen Wert ein");
+                    }
+                    else
+                    {
+                        throw new Exception("Please Enter Valid Value");
+                    }                    
                     _NewLVSection = txtNewLVSection.Text;
                 this.Close();
             }
