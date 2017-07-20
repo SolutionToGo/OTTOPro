@@ -68,6 +68,7 @@
             this.btnChangePassword = new DevExpress.XtraBars.BarButtonItem();
             this.barMdiChildrenListItemProject = new DevExpress.XtraBars.BarMdiChildrenListItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.btnAddAccessories = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -127,9 +128,10 @@
             this.btnImportArticleData,
             this.btnChangePassword,
             this.barMdiChildrenListItemProject,
-            this.barButtonItem7});
+            this.barButtonItem7,
+            this.btnAddAccessories});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 40;
+            this.ribbon.MaxItemId = 41;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -357,6 +359,7 @@
             this.btnImportArticleData.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_icon;
             this.btnImportArticleData.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Save_icon__1_;
             this.btnImportArticleData.Name = "btnImportArticleData";
+            this.btnImportArticleData.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnImportArticleData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportArticleData_ItemClick);
             // 
             // btnChangePassword
@@ -381,6 +384,14 @@
             this.barButtonItem7.Caption = "barButtonItem7";
             this.barButtonItem7.Id = 39;
             this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // btnAddAccessories
+            // 
+            this.btnAddAccessories.Caption = "Add Accessories";
+            this.btnAddAccessories.Id = 40;
+            this.btnAddAccessories.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.accessories_text_editor_icon;
+            this.btnAddAccessories.Name = "btnAddAccessories";
+            this.btnAddAccessories.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAddAccessories_ItemClick);
             // 
             // miHome
             // 
@@ -416,6 +427,7 @@
             this.rpgArticleMaster.ItemLinks.Add(this.btnTyp, true, "", "", true);
             this.rpgArticleMaster.ItemLinks.Add(this.btnRabatt, true, "", "", true);
             this.rpgArticleMaster.ItemLinks.Add(this.btnImportArticleData);
+            this.rpgArticleMaster.ItemLinks.Add(this.btnAddAccessories);
             this.rpgArticleMaster.Name = "rpgArticleMaster";
             this.rpgArticleMaster.Text = "Artikels";
             // 
@@ -511,7 +523,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::OTTOPro.Properties.Resources.LogoLatest_Main;
+            this.pictureBox1.Image = global::OTTOPro.Properties.Resources.LogoLatest_Main1;
             this.pictureBox1.Location = new System.Drawing.Point(0, 143);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(1230, 571);
@@ -529,7 +541,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 5.8 (07-07-2017)";
+            this.label1.Text = "Version 6.1 (13-07-2017)";
             // 
             // fdImportFile
             // 
@@ -636,5 +648,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup4;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
         private System.Windows.Forms.Label lblUserName;
+        private DevExpress.XtraBars.BarButtonItem btnAddAccessories;
     }
 }

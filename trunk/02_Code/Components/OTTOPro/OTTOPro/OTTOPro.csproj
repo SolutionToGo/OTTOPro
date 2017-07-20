@@ -219,6 +219,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAccessories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAccessories.Designer.cs">
+      <DependentUpon>frmAccessories.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddDimension.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -338,6 +344,12 @@
     </Compile>
     <Compile Include="frmSaveDimension.Designer.cs">
       <DependentUpon>frmSaveDimension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectAccessories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectAccessories.Designer.cs">
+      <DependentUpon>frmSelectAccessories.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSelectCustomer.cs">
       <SubType>Form</SubType>
@@ -507,6 +519,12 @@
     <Compile Include="Report Design\rptProposalwithprice.Designer.cs">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptQuerKalkulation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptQuerKalkulation.Designer.cs">
+      <DependentUpon>rptQuerKalkulation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptSupplierProposal.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -532,6 +550,9 @@
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmAccessories.resx">
+      <DependentUpon>frmAccessories.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddDimension.resx">
       <DependentUpon>frmAddDimension.cs</DependentUpon>
     </EmbeddedResource>
@@ -591,6 +612,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSaveDimension.resx">
       <DependentUpon>frmSaveDimension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectAccessories.resx">
+      <DependentUpon>frmSelectAccessories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectCustomer.resx">
       <DependentUpon>frmSelectCustomer.cs</DependentUpon>
@@ -675,6 +699,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalwithprice.resx">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptQuerKalkulation.resx">
+      <DependentUpon>rptQuerKalkulation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptSupplierProposal.resx">
       <DependentUpon>rptSupplierProposal.cs</DependentUpon>

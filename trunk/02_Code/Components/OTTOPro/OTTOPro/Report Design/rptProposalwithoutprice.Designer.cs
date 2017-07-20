@@ -79,6 +79,7 @@
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
+            this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -133,7 +134,7 @@
             // xrTableCell9
             // 
             this.xrTableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).Menge")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).Menge", "{0:n2}")});
             this.xrTableCell9.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseFont = false;
@@ -586,7 +587,8 @@
             // DetailReport
             // 
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
-            this.Detail1});
+            this.Detail1,
+            this.GroupHeader1});
             this.DetailReport.DataMember = "P_Rpt_PositionForProposalPrice(@ProjectID)";
             this.DetailReport.DataSource = this.sqlDataSource2;
             this.DetailReport.Level = 0;
@@ -599,6 +601,13 @@
             this.xrRichText1});
             this.Detail1.HeightF = 47.91667F;
             this.Detail1.Name = "Detail1";
+            // 
+            // GroupHeader1
+            // 
+            this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
+            new DevExpress.XtraReports.UI.GroupField("Parent_OZ", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            this.GroupHeader1.HeightF = 0F;
+            this.GroupHeader1.Name = "GroupHeader1";
             // 
             // rptProposalwithoutprice
             // 
@@ -678,5 +687,6 @@
         private DevExpress.XtraReports.UI.DetailBand Detail1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
+        private DevExpress.XtraReports.UI.GroupHeaderBand GroupHeader1;
     }
 }

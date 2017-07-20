@@ -410,5 +410,22 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void btnAddAccessories_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name == "frmAccessories")
+                {
+                    form.Activate();
+                    return;
+                }
+            }
+            frmAccessories Obj = new frmAccessories();
+            Obj.MdiParent = this;
+            label2.Visible = false;
+            pictureBox1.Visible = false;
+            Obj.Show();
+        }
     }
 }

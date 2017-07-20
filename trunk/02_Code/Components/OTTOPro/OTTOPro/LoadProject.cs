@@ -31,9 +31,9 @@ namespace OTTOPro
         }
         
         public void frmLoadProject_Load(object sender, EventArgs e)
-        {
+        {         
             BindData();
-        }
+        }       
 
         public void BindData()
         {
@@ -206,5 +206,7 @@ namespace OTTOPro
                 frmOTTOPro.Instance.SetLableVisible(true);
             }
         }
+
+       
     }
 }
