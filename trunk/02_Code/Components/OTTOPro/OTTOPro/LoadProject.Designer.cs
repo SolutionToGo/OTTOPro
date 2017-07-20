@@ -351,8 +351,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 547);
             this.Controls.Add(this.layoutControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.MinimizeBox = false;
             this.Name = "frmLoadProject";
             this.Text = "Projekt laden";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

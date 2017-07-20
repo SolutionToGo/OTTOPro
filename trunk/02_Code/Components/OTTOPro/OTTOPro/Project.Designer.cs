@@ -132,6 +132,7 @@
             this.navBarReports = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemConsolidateBlatt = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemQuerKalkulation = new DevExpress.XtraNavBar.NavBarItem();
             this.tcProjectDetails = new DevExpress.XtraTab.XtraTabControl();
             this.tbLVDetails = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -284,6 +285,7 @@
             this.layoutControlGroup7 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControl4 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnExportExcel = new DevExpress.XtraEditors.SimpleButton();
             this.cmbSelectGridviewOptions = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.groupControl3 = new DevExpress.XtraEditors.GroupControl();
             this.xtraTabControl1 = new DevExpress.XtraTab.XtraTabControl();
@@ -353,6 +355,7 @@
             this.layoutControlItem82 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem85 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem172 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbProjectDetails = new DevExpress.XtraTab.XtraTabPage();
@@ -1305,6 +1308,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem85)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem172)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.tbProjectDetails.SuspendLayout();
@@ -2953,7 +2957,8 @@
             this.nbDeliveryNotes,
             this.nbInvoices,
             this.navBarItemConsolidateBlatt,
-            this.nbCopyLVs});
+            this.nbCopyLVs,
+            this.navBarItemQuerKalkulation});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 209;
@@ -3122,7 +3127,8 @@
             this.navBarReports.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
             this.navBarReports.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemConsolidateBlatt)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemConsolidateBlatt),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemQuerKalkulation)});
             this.navBarReports.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarReports.LargeImage")));
             this.navBarReports.Name = "navBarReports";
             // 
@@ -3130,7 +3136,7 @@
             // 
             this.navBarItem5.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.navBarItem5.Appearance.Options.UseFont = true;
-            this.navBarItem5.Caption = "     Angebot";
+            this.navBarItem5.Caption = "Angebot";
             this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
             this.navBarItem5.Name = "navBarItem5";
             this.navBarItem5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.SmallImage")));
@@ -3144,6 +3150,15 @@
             this.navBarItemConsolidateBlatt.Name = "navBarItemConsolidateBlatt";
             this.navBarItemConsolidateBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemConsolidateBlatt.SmallImage")));
             this.navBarItemConsolidateBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemConsolidateBlatt_LinkClicked);
+            // 
+            // navBarItemQuerKalkulation
+            // 
+            this.navBarItemQuerKalkulation.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemQuerKalkulation.Appearance.Options.UseFont = true;
+            this.navBarItemQuerKalkulation.Caption = "QuerKalkulation";
+            this.navBarItemQuerKalkulation.Name = "navBarItemQuerKalkulation";
+            this.navBarItemQuerKalkulation.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemQuerKalkulation.SmallImage")));
+            this.navBarItemQuerKalkulation.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQuerKalkulation_LinkClicked);
             // 
             // tcProjectDetails
             // 
@@ -5271,6 +5286,7 @@
             // layoutControl4
             // 
             this.layoutControl4.AllowCustomization = false;
+            this.layoutControl4.Controls.Add(this.btnExportExcel);
             this.layoutControl4.Controls.Add(this.cmbSelectGridviewOptions);
             this.layoutControl4.Controls.Add(this.groupControl3);
             this.layoutControl4.Controls.Add(this.btnNext);
@@ -5288,6 +5304,17 @@
             this.layoutControl4.Size = new System.Drawing.Size(1490, 179);
             this.layoutControl4.TabIndex = 36;
             this.layoutControl4.Text = "layoutControl4";
+            // 
+            // btnExportExcel
+            // 
+            this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
+            this.btnExportExcel.Location = new System.Drawing.Point(1188, 12);
+            this.btnExportExcel.Name = "btnExportExcel";
+            this.btnExportExcel.Size = new System.Drawing.Size(122, 22);
+            this.btnExportExcel.StyleController = this.layoutControl4;
+            this.btnExportExcel.TabIndex = 48;
+            this.btnExportExcel.Text = "Export LVDetails";
+            this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // cmbSelectGridviewOptions
             // 
@@ -5529,6 +5556,7 @@
             // 
             // rpArticles
             // 
+            this.rpArticles.AllowMouseWheel = false;
             this.rpArticles.AutoHeight = false;
             this.rpArticles.Mask.EditMask = "n0";
             this.rpArticles.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -5590,6 +5618,7 @@
             // 
             // rpMenge
             // 
+            this.rpMenge.AllowMouseWheel = false;
             this.rpMenge.AutoHeight = false;
             this.rpMenge.Mask.EditMask = "n3";
             this.rpMenge.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -5855,9 +5884,9 @@
             // 
             this.btnNext.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.ImageOptions.Image")));
             this.btnNext.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnNext.Location = new System.Drawing.Point(1403, 12);
+            this.btnNext.Location = new System.Drawing.Point(1404, 12);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(75, 22);
+            this.btnNext.Size = new System.Drawing.Size(74, 22);
             this.btnNext.StyleController = this.layoutControl4;
             this.btnNext.TabIndex = 44;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -5962,7 +5991,8 @@
             this.emptySpaceItem38,
             this.layoutControlItem82,
             this.layoutControlItem25,
-            this.layoutControlItem85});
+            this.layoutControlItem85,
+            this.layoutControlItem172});
             this.Root.Location = new System.Drawing.Point(0, 0);
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1490, 179);
@@ -6062,18 +6092,18 @@
             // layoutControlItem89
             // 
             this.layoutControlItem89.Control = this.btnNext;
-            this.layoutControlItem89.Location = new System.Drawing.Point(1391, 0);
+            this.layoutControlItem89.Location = new System.Drawing.Point(1392, 0);
             this.layoutControlItem89.Name = "layoutControlItem89";
-            this.layoutControlItem89.Size = new System.Drawing.Size(79, 26);
+            this.layoutControlItem89.Size = new System.Drawing.Size(78, 26);
             this.layoutControlItem89.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem89.TextVisible = false;
             // 
             // emptySpaceItem38
             // 
             this.emptySpaceItem38.AllowHotTrack = false;
-            this.emptySpaceItem38.Location = new System.Drawing.Point(1176, 0);
+            this.emptySpaceItem38.Location = new System.Drawing.Point(1302, 0);
             this.emptySpaceItem38.Name = "emptySpaceItem38";
-            this.emptySpaceItem38.Size = new System.Drawing.Size(215, 26);
+            this.emptySpaceItem38.Size = new System.Drawing.Size(90, 26);
             this.emptySpaceItem38.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem82
@@ -6108,6 +6138,15 @@
             this.layoutControlItem85.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem85.TextVisible = false;
             this.layoutControlItem85.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            // 
+            // layoutControlItem172
+            // 
+            this.layoutControlItem172.Control = this.btnExportExcel;
+            this.layoutControlItem172.Location = new System.Drawing.Point(1176, 0);
+            this.layoutControlItem172.Name = "layoutControlItem172";
+            this.layoutControlItem172.Size = new System.Drawing.Size(126, 26);
+            this.layoutControlItem172.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem172.TextVisible = false;
             // 
             // layoutControlGroup1
             // 
@@ -14561,9 +14600,11 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.LookAndFeel.SkinName = "DevExpress Dark Style";
+            this.MinimizeBox = false;
             this.Name = "frmProject";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Projekt";
@@ -14824,6 +14865,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem82)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem85)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem172)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.tbProjectDetails.ResumeLayout(false);
@@ -16348,6 +16390,9 @@
         private DevExpress.XtraGrid.Columns.GridColumn LVssection;
         private DevExpress.XtraEditors.SimpleButton btnFinalBill;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem137;
+        private DevExpress.XtraNavBar.NavBarItem navBarItemQuerKalkulation;
+        private DevExpress.XtraEditors.SimpleButton btnExportExcel;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem172;
 
 
     }
