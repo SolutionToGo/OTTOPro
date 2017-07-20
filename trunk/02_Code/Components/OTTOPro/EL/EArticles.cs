@@ -53,6 +53,11 @@ namespace EL
         private DataTable _dtRabatt;
         private string _Rabatt;
 
+        private int _ParentID;
+        private int _ChildID;
+        private int _UserID;
+        private int _AccessoriesID;
+
         public int WGID
         {
             get { return _WGID; }
@@ -269,5 +274,34 @@ namespace EL
            get { return _dtDimensionImport; }
            set { _dtDimensionImport = value; }
        }
+
+        public int ParentID
+        {
+            get { return _ParentID; }
+            set { _ParentID = value; }
+        }
+        public int ChildID
+        {
+            get { return _ChildID; }
+            set { _ChildID = value; }
+        }
+        public int UserID
+        {
+            get { return _UserID; }
+            set { _UserID = value; }
+        }
+        public int AccessoriesID
+        {
+            get { return _AccessoriesID; }
+            set { _AccessoriesID = value; }
+        }
+        
+        private DataTable _dtAccessories;
+
+        public DataTable dtAccessories
+        {
+            get { return _dtAccessories; }
+            set { _dtAccessories = value; }
+        }
     }
 }

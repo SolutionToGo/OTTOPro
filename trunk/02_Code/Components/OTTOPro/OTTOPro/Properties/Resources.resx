@@ -118,6 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="LogoLatest_Main1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoLatest_Main1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Close_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -159,6 +162,9 @@
   </data>
   <data name="First_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\First_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LogoLatest - Copy1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoLatest - Copy1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo New" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo New.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -334,7 +340,7 @@
   <data name="Save-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoLatest - Copy1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoLatest - Copy1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="accessories-text-editor-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\accessories-text-editor-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

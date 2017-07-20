@@ -7,6 +7,7 @@ using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -40,6 +41,7 @@ namespace BL
                 dsTMLData.Tables[8].TableName = "LVInfo";
                
                 dsTMLPositionsData.DataSetName = "LV";
+                dsTMLPositionsData.Locale = CultureInfo.CreateSpecificCulture("de-DE");
                 if (dsTMLPositionsData != null && dsTMLPositionsData.Tables.Count > 0)
                 {
                     dsTMLPositionsData.Tables[0].TableName = "LVPos";
@@ -120,7 +122,6 @@ namespace BL
                         dsTMLPositionsData.Relations.Add(dr);
                     }
                 }
-
                 StringBuilder strTMLPosData = new StringBuilder();
                 strTMLPosData.Append(dsTMLPositionsData.GetXml());
                 strTMLPosData.Replace("LVPos1", "LVPos");
@@ -183,6 +184,14 @@ namespace BL
                             break;
                         case "zertifikat":
                             strtype = "20";
+                            break;
+                        case "menge":
+                            strtype = "12";
+                            if (Thread.CurrentThread.CurrentCulture.Name == "de-DE")
+                           {
+                               string strValue = node.InnerText.Replace(".", ",");
+                               node.InnerText = strValue;
+                           }
                             break;
                         default:
                             strtype = "12";
