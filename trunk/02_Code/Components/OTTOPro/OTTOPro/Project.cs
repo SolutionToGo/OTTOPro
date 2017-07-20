@@ -36,6 +36,7 @@ using DevExpress.Utils.Menu;
 using DevExpress.XtraGrid.Views.Layout.Modes;
 using DevExpress.XtraGrid.Views.Base;
 using System.Globalization;
+using DevExpress.XtraPrinting;
 
 namespace OTTOPro
 {
@@ -107,7 +108,7 @@ namespace OTTOPro
             get { return _IsCopy; }
             set { _IsCopy = value; }
         }
-
+        
         /// <summary>
         /// Defualt constructor
         /// </summary>  
@@ -8429,5 +8430,36 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void navBarItemQuerKalkulation_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                rptQuerKalkulation rpt = new rptQuerKalkulation();
+                ReportPrintTool printTool = new ReportPrintTool(rpt);
+                rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                printTool.ShowRibbonPreview();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnExportExcel_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string filePath = "Excrl.xlsx";
+                XlsxExportOptionsEx opt = new XlsxExportOptionsEx();
+                tlPositions.ExportToXlsx(filePath, opt);
+                Process.Start(filePath);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }        
+       
     }
 }

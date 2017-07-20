@@ -904,7 +904,7 @@
             // 
             // txtWADescription
             // 
-            this.txtWADescription.Location = new System.Drawing.Point(865, 39);
+            this.txtWADescription.Location = new System.Drawing.Point(865, 63);
             this.txtWADescription.Name = "txtWADescription";
             this.txtWADescription.Size = new System.Drawing.Size(312, 20);
             this.txtWADescription.StyleController = this.layoutControl1;
@@ -912,7 +912,7 @@
             // 
             // txtWGDescription
             // 
-            this.txtWGDescription.Location = new System.Drawing.Point(865, 63);
+            this.txtWGDescription.Location = new System.Drawing.Point(865, 39);
             this.txtWGDescription.Name = "txtWGDescription";
             this.txtWGDescription.Size = new System.Drawing.Size(312, 20);
             this.txtWGDescription.StyleController = this.layoutControl1;
@@ -1161,8 +1161,8 @@
             this.layoutControlItem16,
             this.layoutControlItem18,
             this.layoutControlItem19,
-            this.layoutControlItem20,
-            this.layoutControlItem21});
+            this.layoutControlItem21,
+            this.layoutControlItem20});
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 27);
             this.layoutControlGroup4.Name = "layoutControlGroup4";
             this.layoutControlGroup4.Size = new System.Drawing.Size(593, 72);
@@ -1225,7 +1225,7 @@
             // 
             this.layoutControlItem20.Control = this.txtWADescription;
             this.layoutControlItem20.CustomizationFormText = "layoutControlItem3";
-            this.layoutControlItem20.Location = new System.Drawing.Point(277, 0);
+            this.layoutControlItem20.Location = new System.Drawing.Point(277, 24);
             this.layoutControlItem20.Name = "layoutControlItem20";
             this.layoutControlItem20.Size = new System.Drawing.Size(316, 24);
             this.layoutControlItem20.Text = "layoutControlItem3";
@@ -1236,7 +1236,7 @@
             // 
             this.layoutControlItem21.Control = this.txtWGDescription;
             this.layoutControlItem21.CustomizationFormText = "layoutControlItem1";
-            this.layoutControlItem21.Location = new System.Drawing.Point(277, 24);
+            this.layoutControlItem21.Location = new System.Drawing.Point(277, 0);
             this.layoutControlItem21.Name = "layoutControlItem21";
             this.layoutControlItem21.Size = new System.Drawing.Size(316, 24);
             this.layoutControlItem21.Text = "layoutControlItem1";
