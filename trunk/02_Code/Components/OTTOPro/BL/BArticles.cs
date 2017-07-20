@@ -310,5 +310,64 @@ namespace BL
             }
             return ObjEArticle;
         }
+
+        public EArticles GetAticleForMapping(EArticles ObjEArticle)
+        {
+            try
+            {
+                if(ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.GetAticleForMapping(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles SaveArticleMapping(EArticles ObjEArticle)
+        {
+            try
+            {
+                if(ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.SaveArticleMapping(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles GetAccessories(EArticles ObjEArticle)
+        {
+            try
+            {
+                ObjEArticle = ObjDArticles.GetAccessories(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles GetAccessoriesForLVs(EArticles ObjEArticle)
+        {
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.GetAccessoriesForLVs(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
     }
 }
