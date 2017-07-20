@@ -507,6 +507,12 @@
     <Compile Include="Report Design\rptProposalwithprice.Designer.cs">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptQuerKalkulation.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptQuerKalkulation.Designer.cs">
+      <DependentUpon>rptQuerKalkulation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptSupplierProposal.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -675,6 +681,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalwithprice.resx">
       <DependentUpon>rptProposalwithprice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptQuerKalkulation.resx">
+      <DependentUpon>rptQuerKalkulation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptSupplierProposal.resx">
       <DependentUpon>rptSupplierProposal.cs</DependentUpon>
