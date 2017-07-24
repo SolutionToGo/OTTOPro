@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -204,7 +204,6 @@
             this.layoutControlItem32 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem33 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem37 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem20 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem22 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem40 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -1056,6 +1055,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAddAccessories = new DevExpress.XtraEditors.SimpleButton();
+            this.layoutControlItem185 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1198,7 +1199,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem40)).BeginInit();
@@ -1803,6 +1803,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem185)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -3267,6 +3268,7 @@
             this.layoutControl6.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
             this.layoutControl6.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl6.BackColor = System.Drawing.Color.Transparent;
+            this.layoutControl6.Controls.Add(this.btnAddAccessories);
             this.layoutControl6.Controls.Add(this.labelControl2);
             this.layoutControl6.Controls.Add(this.labelControl1);
             this.layoutControl6.Controls.Add(this.dtpValidityDate);
@@ -4209,7 +4211,7 @@
             // 
             // txtFaktor
             // 
-            this.txtFaktor.Location = new System.Drawing.Point(221, 152);
+            this.txtFaktor.Location = new System.Drawing.Point(221, 150);
             this.txtFaktor.Name = "txtFaktor";
             this.txtFaktor.Properties.AllowMouseWheel = false;
             this.txtFaktor.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4227,7 +4229,7 @@
             // txtHours
             // 
             this.txtHours.Enabled = false;
-            this.txtHours.Location = new System.Drawing.Point(138, 152);
+            this.txtHours.Location = new System.Drawing.Point(138, 150);
             this.txtHours.Name = "txtHours";
             this.txtHours.Properties.AllowMouseWheel = false;
             this.txtHours.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4244,7 +4246,7 @@
             // 
             // txtMin
             // 
-            this.txtMin.Location = new System.Drawing.Point(55, 152);
+            this.txtMin.Location = new System.Drawing.Point(55, 150);
             this.txtMin.Name = "txtMin";
             this.txtMin.Properties.AllowMouseWheel = false;
             this.txtMin.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4273,7 +4275,6 @@
             this.layoutControlItem32,
             this.layoutControlItem33,
             this.layoutControlItem37,
-            this.emptySpaceItem18,
             this.emptySpaceItem20,
             this.emptySpaceItem22,
             this.layoutControlItem40,
@@ -4343,7 +4344,8 @@
             this.layoutControlItem64,
             this.layoutControlItem69,
             this.layoutControlItem75,
-            this.emptySpaceItem31});
+            this.emptySpaceItem31,
+            this.layoutControlItem185});
             this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "Root";
             this.layoutControlGroup6.Size = new System.Drawing.Size(923, 459);
@@ -4421,7 +4423,7 @@
             this.layoutControlItem32.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem32.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem32.Control = this.txtMin;
-            this.layoutControlItem32.Location = new System.Drawing.Point(43, 120);
+            this.layoutControlItem32.Location = new System.Drawing.Point(43, 118);
             this.layoutControlItem32.Name = "layoutControlItem32";
             this.layoutControlItem32.Size = new System.Drawing.Size(83, 48);
             this.layoutControlItem32.Text = "Min";
@@ -4437,7 +4439,7 @@
             this.layoutControlItem33.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem33.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem33.Control = this.txtHours;
-            this.layoutControlItem33.Location = new System.Drawing.Point(126, 120);
+            this.layoutControlItem33.Location = new System.Drawing.Point(126, 118);
             this.layoutControlItem33.Name = "layoutControlItem33";
             this.layoutControlItem33.Size = new System.Drawing.Size(83, 48);
             this.layoutControlItem33.Text = "Std";
@@ -4460,20 +4462,12 @@
             this.layoutControlItem37.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem37.TextSize = new System.Drawing.Size(79, 17);
             // 
-            // emptySpaceItem18
-            // 
-            this.emptySpaceItem18.AllowHotTrack = false;
-            this.emptySpaceItem18.Location = new System.Drawing.Point(43, 92);
-            this.emptySpaceItem18.Name = "emptySpaceItem18";
-            this.emptySpaceItem18.Size = new System.Drawing.Size(249, 28);
-            this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
-            // 
             // emptySpaceItem20
             // 
             this.emptySpaceItem20.AllowHotTrack = false;
-            this.emptySpaceItem20.Location = new System.Drawing.Point(43, 168);
+            this.emptySpaceItem20.Location = new System.Drawing.Point(43, 166);
             this.emptySpaceItem20.Name = "emptySpaceItem20";
-            this.emptySpaceItem20.Size = new System.Drawing.Size(249, 15);
+            this.emptySpaceItem20.Size = new System.Drawing.Size(249, 17);
             this.emptySpaceItem20.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem22
@@ -4507,7 +4501,7 @@
             this.layoutControlItem34.AppearanceItemCaption.Options.UseTextOptions = true;
             this.layoutControlItem34.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem34.Control = this.txtFaktor;
-            this.layoutControlItem34.Location = new System.Drawing.Point(209, 120);
+            this.layoutControlItem34.Location = new System.Drawing.Point(209, 118);
             this.layoutControlItem34.Name = "layoutControlItem34";
             this.layoutControlItem34.Size = new System.Drawing.Size(83, 48);
             this.layoutControlItem34.Text = "Faktor";
@@ -7845,17 +7839,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -14590,6 +14584,25 @@
             this.toolStripMenuItemRemove.Text = "Entfernen";
             this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripMenuItemRemove_Click);
             // 
+            // btnAddAccessories
+            // 
+            this.btnAddAccessories.Location = new System.Drawing.Point(55, 104);
+            this.btnAddAccessories.Name = "btnAddAccessories";
+            this.btnAddAccessories.Size = new System.Drawing.Size(245, 22);
+            this.btnAddAccessories.StyleController = this.layoutControl6;
+            this.btnAddAccessories.TabIndex = 59;
+            this.btnAddAccessories.Text = "Add Accessories";
+            this.btnAddAccessories.Click += new System.EventHandler(this.btnAddAccessories_Click);
+            // 
+            // layoutControlItem185
+            // 
+            this.layoutControlItem185.Control = this.btnAddAccessories;
+            this.layoutControlItem185.Location = new System.Drawing.Point(43, 92);
+            this.layoutControlItem185.Name = "layoutControlItem185";
+            this.layoutControlItem185.Size = new System.Drawing.Size(249, 26);
+            this.layoutControlItem185.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem185.TextVisible = false;
+            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -14755,7 +14768,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem40)).EndInit();
@@ -15360,6 +15372,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem185)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -15560,7 +15573,6 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem32;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem33;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem37;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem18;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem20;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem22;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem40;
@@ -16393,6 +16405,8 @@
         private DevExpress.XtraNavBar.NavBarItem navBarItemQuerKalkulation;
         private DevExpress.XtraEditors.SimpleButton btnExportExcel;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem172;
+        private DevExpress.XtraEditors.SimpleButton btnAddAccessories;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem185;
 
 
     }

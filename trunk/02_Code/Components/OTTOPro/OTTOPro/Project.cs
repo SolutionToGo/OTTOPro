@@ -8459,7 +8459,231 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }        
-       
+        }
+
+        private void btnAddAccessories_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strPositionKZ = Convert.ToString(tlPositions.FocusedNode["PositionKZ"]);
+                if (strPositionKZ == "N" || strPositionKZ == "E" || strPositionKZ == "A" || strPositionKZ == "M")
+                {
+                    BArticles ObjBArticles = new BArticles();
+                    EArticles ObjEArticles = new EArticles();
+                    int SNo = -1;
+                    if(ObjEPosition.PositionID > 0)
+                    {
+                        if (tlPositions.FocusedNode != null && tlPositions.FocusedNode["SNO"] != null)
+                        {
+                            int IValue = 0;
+                            bool _HaveDetailKZ = false;
+                            if (int.TryParse(Convert.ToString(tlPositions.FocusedNode["DetailKZ"]), out IValue))
+                            {
+                                if(IValue >0)
+                                    return;
+                            }
+                            if (bool.TryParse(Convert.ToString(tlPositions.FocusedNode["HaveDetailkz"]), out _HaveDetailKZ))
+                            {
+                                if (_HaveDetailKZ)
+                                    return;
+                            }
+
+                            if (int.TryParse(Convert.ToString(tlPositions.FocusedNode["SNO"]), out IValue))
+                                SNo = IValue;
+                            else
+                                SNo = -1;
+                        }
+                    }
+
+                    ObjEArticles.WG = txtWG.Text;
+                    ObjEArticles.WA = txtWA.Text;
+                    ObjEArticles.WI = txtWI.Text;
+                    ObjEArticles.A = txtDim1.Text;
+                    ObjEArticles.B = txtDim2.Text;
+                    ObjEArticles.L = txtDim3.Text;
+                    ObjEArticles = ObjBArticles.GetAccessoriesForLVs(ObjEArticles);
+                    if (ObjEArticles.dtAccessories == null || ObjEArticles.dtAccessories.Rows.Count <= 0)
+                        throw new Exception("No Accessories Exists");
+                    DataTable dt = ObjEArticles.dtAccessories.Copy();
+                    ObjEArticles.dtAccessories = new DataTable();
+                    ObjEArticles.dtAccessories = dt.Clone();
+                    DataRow drnew = ObjEArticles.dtAccessories.NewRow();
+                    drnew["WG"] = ObjEArticles.WG;
+                    drnew["WA"] = ObjEArticles.WA;
+                    drnew["WI"] = ObjEArticles.WI;
+                    drnew["A"] = ObjEArticles.A;
+                    drnew["B"] = ObjEArticles.B;
+                    drnew["L"] = ObjEArticles.L;
+                    drnew["MENGE"] = 0;
+                    ObjEArticles.dtAccessories.Rows.Add(drnew);
+                    foreach (DataRow dr in dt.Rows)
+                        ObjEArticles.dtAccessories.ImportRow(dr);
+
+                    frmSelectAccessories Obj = new frmSelectAccessories();
+                    Obj.ObjEArticle = ObjEArticles;
+                    Obj.ShowInTaskbar = false;
+                    Obj.ShowDialog();
+                    if (Obj._ISSave)
+                    {
+                        if (ObjEPosition.PositionID < 0)
+                        {
+                            btnSaveLVDetails_Click(null, null);
+                            btnCancel_Click(null, null);
+                        }
+                        int NewPositionID = 0;
+                        int IDetailKz = 0;
+
+                        DataView dvAccessories = ObjEArticles.dtAccessories.DefaultView;
+                        dvAccessories.RowFilter = "MENGE > 0";
+                        DataTable dtTemp = dvAccessories.ToTable();
+                        foreach (DataRow dr in dtTemp.Rows)
+                        {
+                            if (ObjBPosition == null)
+                                ObjBPosition = new BPosition();
+                            if (ObjEPosition == null)
+                                ObjEPosition = new EPosition();
+                            IDetailKz++;
+                            ParseAccessories(dr, SNo, IDetailKz, cmbLVSection.SelectedText, txtFaktor.Text, ObjEArticles, ObjBArticles);
+                            NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
+                            if (SNo != -1)
+                                SNo++;
+                        }
+                        BindPositionData();
+                        SetFocus(NewPositionID, tlPositions);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void ParseAccessories(DataRow dr, int Sno, int DetailKZ, string strLVSection, string FActor, EArticles ObjEArticles, BArticles ObjBArticles)
+        {
+            try
+            {
+                decimal dValue = 0;
+                DateTime dt = DateTime.Now;
+                ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                ObjEPosition.RasterCount = iRasterCount;
+                ObjEPosition.Stufe1 = txtStufe1Short.Text;
+                ObjEPosition.Stufe2 = txtStufe2Short.Text;
+                ObjEPosition.Stufe3 = txtStufe3Short.Text;
+                ObjEPosition.Stufe4 = txtStufe4Short.Text;
+                ObjEPosition.Position = txtPosition.Text;
+                ObjEPosition.PositionID = -1;
+                ObjEPosition.PositionKZ = "N";
+                ObjEPosition.DetailKZ = DetailKZ;
+                ObjEPosition.LVSection = strLVSection;
+                ObjEPosition.WG = Convert.ToString(dr["WG"]);
+                ObjEPosition.WA = Convert.ToString(dr["WA"]);
+                ObjEPosition.WI = Convert.ToString(dr["WI"]);
+                ObjEPosition.Dim1 = Convert.ToString(dr["A"]);
+                ObjEPosition.Dim2 = Convert.ToString(dr["B"]);
+                ObjEPosition.Dim3 = Convert.ToString(dr["L"]);
+                if (decimal.TryParse(Convert.ToString(dr["Menge"]), out dValue))
+                    ObjEPosition.Menge = dValue;
+                else
+                    ObjEPosition.Menge = 1;
+                ObjEArticles.WG = ObjEPosition.WG;
+                ObjEArticles.WA = ObjEPosition.WA;
+                ObjEArticles.WI = ObjEPosition.WI;
+                ObjEArticles.A = ObjEPosition.Dim1;
+                ObjEArticles.B = ObjEPosition.Dim2;
+                ObjEArticles.L = ObjEPosition.Dim3;
+                ObjEArticles.ValidityDate = ObjEProject.SubmitDate;
+                ObjEArticles = ObjBArticles.GetArticleDetailsForAccessories(ObjEArticles);
+
+                ObjEPosition.PreisText = string.Empty;
+                ObjEPosition.ME = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Menegenheit"]);
+                ObjEPosition.Fabricate = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Fabrikate"]);
+                ObjEPosition.LiefrantMA = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["ShortName"]);
+                ObjEPosition.Type = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Typ"]);
+                ObjEPosition.LongDescription = string.Empty;
+                ObjEPosition.ShortDescription = string.Empty;
+                ObjEPosition.Surcharge_From = string.Empty;
+                ObjEPosition.Surcharge_To = string.Empty;
+                ObjEPosition.Surcharge_Per = 0;
+                ObjEPosition.surchargePercentage_MO = 0;
+                ObjEPosition.ValidityDate = DateTime.Now;
+                ObjEPosition.MA = "X";
+                ObjEPosition.MO = "X";
+                if(string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+                    ObjEPosition.LVStatus = string.Empty;
+                else
+                    ObjEPosition.LVStatus = "A";
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Minuten"]), out dValue))
+                    ObjEPosition.Mins = dValue;
+                else
+                    ObjEPosition.Mins = 0;
+
+                if (decimal.TryParse(FActor, out dValue))
+                    ObjEPosition.Faktor = dValue;
+                else
+                    ObjEPosition.Faktor = 1;
+
+                ObjEPosition.StdSatz = ObjEProject.InternX;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["ListPrice"]), out dValue))
+                    ObjEPosition.LPMA = dValue;
+                else
+                    ObjEPosition.LPMA = 0;
+
+                ObjEPosition.LPMO = (ObjEPosition.Mins / 60) * ObjEPosition.StdSatz * ObjEPosition.Faktor;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Multi1"]), out dValue))
+                    ObjEPosition.Multi1MA = dValue;
+                else
+                    ObjEPosition.Multi1MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Multi2"]), out dValue))
+                    ObjEPosition.Multi2MA = dValue;
+                else
+                    ObjEPosition.Multi2MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Multi3"]), out dValue))
+                    ObjEPosition.Multi3MA = dValue;
+                else
+                    ObjEPosition.Multi3MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Multi4"]), out dValue))
+                    ObjEPosition.Multi4MA = dValue;
+                else
+                    ObjEPosition.Multi4MA = 1;
+                
+                ObjEPosition.Multi1MO = 1;
+                ObjEPosition.Multi2MO = 1;
+                ObjEPosition.Multi3MO = 1;
+                ObjEPosition.Multi4MO = 1;
+                ObjEPosition.EinkaufspreisMA = RoundValue((ObjEPosition.LPMA) * (ObjEPosition.Multi1MA * ObjEPosition.Multi1MA * ObjEPosition.Multi1MA * ObjEPosition.Multi1MA));
+                ObjEPosition.EinkaufspreisMO = ObjEPosition.LPMO;
+                ObjEPosition.SelbstkostenMultiMA = 1;
+                ObjEPosition.SelbstkostenValueMA = ObjEPosition.EinkaufspreisMA;
+                ObjEPosition.SelbstkostenMultiMO = 1;
+                ObjEPosition.SelbstkostenValueMO = ObjEPosition.EinkaufspreisMO;
+                ObjEPosition.VerkaufspreisMultiMA = 1;
+                ObjEPosition.VerkaufspreisValueMA = ObjEPosition.EinkaufspreisMA;
+                ObjEPosition.VerkaufspreisMultiMO = 1;
+                ObjEPosition.VerkaufspreisValueMO = ObjEPosition.EinkaufspreisMO;
+
+                ObjEPosition.EinkaufspreisLockMA = false;
+                ObjEPosition.EinkaufspreisLockMO = false;
+                ObjEPosition.SelbstkostenLockMA = false;
+                ObjEPosition.SelbstkostenLockMO = false;
+                ObjEPosition.VerkaufspreisLockMA = false;
+                ObjEPosition.VerkaufspreisLockMO = false;
+                ObjEPosition.GrandTotalME = ObjEPosition.EinkaufspreisMA;
+                ObjEPosition.GrandTotalMO = ObjEPosition.EinkaufspreisMO;
+                ObjEPosition.EP = ObjEPosition.EinkaufspreisMA + ObjEPosition.EinkaufspreisMO;
+                ObjEPosition.FinalGB = RoundValue(ObjEPosition.EP * ObjEPosition.Menge);
+                ObjEPosition.SNO = Sno;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
