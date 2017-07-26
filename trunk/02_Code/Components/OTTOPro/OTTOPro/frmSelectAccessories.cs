@@ -16,7 +16,7 @@ namespace OTTOPro
     public partial class frmSelectAccessories : DevExpress.XtraEditors.XtraForm
     {
         private EArticles _ObjEArticle = null;
-        private BArticles ObjBArticles = null;
+        public bool _ISSave = false;
         public EArticles ObjEArticle
         {
             get { return _ObjEArticle; }
@@ -32,11 +32,6 @@ namespace OTTOPro
         {
             try
             {
-                if (ObjBArticles == null)
-                    ObjBArticles = new BArticles();
-                if (_ObjEArticle == null)
-                    _ObjEArticle = new EArticles();
-                _ObjEArticle = ObjBArticles.GetAccessoriesForLVs(_ObjEArticle);
                 gcArticles.DataSource = _ObjEArticle.dtAccessories;
             }
             catch (Exception ex)
@@ -47,7 +42,8 @@ namespace OTTOPro
 
         private void btnOK_Click(object sender, EventArgs e)
         {
-
+            _ISSave = true;
+            this.Close();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

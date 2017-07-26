@@ -10,12 +10,12 @@ namespace EL
     public class EArticles
     {
         private int _WGID = -1;
-        private string _WG;
-        private string _WA;
+        private string _WG = string.Empty;
+        private string _WA = string.Empty;
         private string _WGDescription;
         private string _WADescription;
         private int _WIID = -1;
-        private string _WI;
+        private string _WI = string.Empty;
         private string _WIDescription;
         private string _Fabrikate;
         private string _Masseinheit;
@@ -297,11 +297,55 @@ namespace EL
         }
         
         private DataTable _dtAccessories;
-
         public DataTable dtAccessories
         {
             get { return _dtAccessories; }
             set { _dtAccessories = value; }
+        }
+
+        private DataTable _dtArticleDetails;
+        public DataTable dtArticleDetails
+        {
+            get { return _dtArticleDetails;}
+            set { _dtArticleDetails = value; }
+        }
+
+        private string _ChildWG;
+        private string _ChildWA;
+        private string _ChildWI;
+        private string _ChildA;
+        private string _ChildB;
+        private string _ChildL;
+
+        public string ChildWG
+        {
+            get { return _ChildWG; }
+            set { _ChildWG = value; }
+        }
+        public string ChildWA
+        {
+            get { return _ChildWA; }
+            set { _ChildWA = value; }
+        }
+        public string ChildWI
+        {
+            get { return _ChildWI; }
+            set { _ChildWI = value; }
+        }
+        public string ChildA
+        {
+            get { return _ChildA; }
+            set { _ChildA = value; }
+        }
+        public string ChildB
+        {
+            get { return _ChildB; }
+            set { _ChildB = value; }
+        }
+        public string ChildL
+        {
+            get { return _ChildL; }
+            set { _ChildL = value; }
         }
     }
 }

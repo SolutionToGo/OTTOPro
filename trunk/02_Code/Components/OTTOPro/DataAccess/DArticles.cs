@@ -412,39 +412,6 @@ namespace DataAccess
            return ObjEArticle;
        }
 
-       public EArticles GetAticleForMapping(EArticles ObjEArticle)
-       {
-           DataSet dsTyp = new DataSet();
-           try
-           {
-               using (SqlCommand cmd = new SqlCommand())
-               {
-                   cmd.Connection = SQLCon.Sqlconn();
-                   cmd.CommandType = CommandType.StoredProcedure;
-                   cmd.CommandText = "[P_Get_ArticleForMapping]";
-                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                   {
-                       da.Fill(dsTyp);
-                   }
-                   ObjEArticle.dtWG = dsTyp.Tables[0];
-                   ObjEArticle.dtWI = dsTyp.Tables[1];
-                   ObjEArticle.dtDimenstions = dsTyp.Tables[2];
-               }
-           }
-           catch (Exception ex)
-           {
-               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
-               else
-                   throw new Exception("Error While Retrieving the Typ");
-           }
-           finally
-           {
-               SQLCon.Sqlconn().Close();
-           }
-           return ObjEArticle;
-       }
-
        public EArticles SaveArticleMapping(EArticles ObjEArticle)
        {
            try
@@ -454,8 +421,18 @@ namespace DataAccess
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Ins_Accessories]";
-                   cmd.Parameters.AddWithValue("@ParentID", ObjEArticle.ParentID);
-                   cmd.Parameters.AddWithValue("@ChildID", ObjEArticle.ChildID);
+                   cmd.Parameters.AddWithValue("@ParentWG", ObjEArticle.WG);
+                   cmd.Parameters.AddWithValue("@ParentWA", ObjEArticle.WA);
+                   cmd.Parameters.AddWithValue("@ParentWI", ObjEArticle.WI);
+                   cmd.Parameters.AddWithValue("@ParentA", ObjEArticle.A);
+                   cmd.Parameters.AddWithValue("@ParentB", ObjEArticle.B);
+                   cmd.Parameters.AddWithValue("@ParentL", ObjEArticle.L);
+                   cmd.Parameters.AddWithValue("@ChildWG", ObjEArticle.ChildWG);
+                   cmd.Parameters.AddWithValue("@ChildWA", ObjEArticle.ChildWA);
+                   cmd.Parameters.AddWithValue("@ChildWI", ObjEArticle.ChildWI);
+                   cmd.Parameters.AddWithValue("@ChildA", ObjEArticle.ChildA);
+                   cmd.Parameters.AddWithValue("@ChildB", ObjEArticle.ChildB);
+                   cmd.Parameters.AddWithValue("@ChildL", ObjEArticle.ChildL);
                    cmd.Parameters.AddWithValue("@UserID", ObjEArticle.UserID);
                    object ObjReturn = cmd.ExecuteScalar();
                    if (ObjReturn != null)
@@ -490,7 +467,12 @@ namespace DataAccess
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Get_AccessorieS]";
-                   cmd.Parameters.Add("@ParentID", ObjEArticle.ParentID);
+                   cmd.Parameters.Add("@ParentWG", ObjEArticle.WG);
+                   cmd.Parameters.Add("@ParentWA", ObjEArticle.WA);
+                   cmd.Parameters.Add("@ParentWI", ObjEArticle.WI);
+                   cmd.Parameters.Add("@ParentA", ObjEArticle.A);
+                   cmd.Parameters.Add("@ParentB", ObjEArticle.B);
+                   cmd.Parameters.Add("@ParentL", ObjEArticle.L);
                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                    {
                        da.Fill(dsAccessories);
@@ -543,6 +525,151 @@ namespace DataAccess
                    throw new Exception("Fehler bei der Datenaktualisierung für Accessories");
                else
                    throw new Exception("Error While Retrieving the Accessories");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
+
+       public EArticles GetArticleDetailsForAccessories(EArticles ObjEArticle)
+       {
+           DataSet dsArticleDetails = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_ArticleForDetailKz]";
+                   cmd.Parameters.Add("@WG", ObjEArticle.WG);
+                   cmd.Parameters.Add("@WA", ObjEArticle.WA);
+                   cmd.Parameters.Add("@WI", ObjEArticle.WI);
+                   cmd.Parameters.Add("@A", ObjEArticle.A);
+                   cmd.Parameters.Add("@B", ObjEArticle.B);
+                   cmd.Parameters.Add("@L", ObjEArticle.L);
+                   cmd.Parameters.Add("@dtSubmitDate", ObjEArticle.ValidityDate);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsArticleDetails);
+                   }
+                   if (dsArticleDetails != null && dsArticleDetails.Tables.Count > 0)
+                       ObjEArticle.dtArticleDetails = dsArticleDetails.Tables[0];
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für article details");
+               else
+                   throw new Exception("Error While Retrieving article details");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
+
+       public EArticles GetTypForArticle(EArticles ObjEArticle)
+       {
+           DataSet dsTyp = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_TypForMApping]";
+                   cmd.Parameters.AddWithValue("@WG", ObjEArticle.ChildWG);
+                   cmd.Parameters.AddWithValue("@WA", ObjEArticle.ChildWA);
+                   cmd.Parameters.AddWithValue("@WI", ObjEArticle.ChildWI);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsTyp);
+                   }
+                   if (dsTyp != null && dsTyp.Tables.Count > 0)
+                       ObjEArticle.dtTyp = dsTyp.Tables[0];
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
+               else
+                   throw new Exception("Error While Retrieving Typ");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
+
+       public EArticles GetArticleBytyp(EArticles ObjEArticle)
+       {
+           DataSet dsAccessories = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_ArticleByType_Mapping]";
+                   cmd.Parameters.Add("@TypID", ObjEArticle.TypID);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsAccessories);
+                   }
+                   if (dsAccessories != null && dsAccessories.Tables.Count > 0)
+                       ObjEArticle.dtArticleDetails = dsAccessories.Tables[0];
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
+               else
+                   throw new Exception("Error While Retrieving ArticleDetails");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
+
+       public EArticles GetArticleByWG(EArticles ObjEArticle)
+       {
+           DataSet dsArticleDetails = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_ArticleByWG_Mapping]";
+                   cmd.Parameters.Add("@WG", ObjEArticle.WG);
+                   cmd.Parameters.Add("@WA", ObjEArticle.WA);
+                   cmd.Parameters.Add("@WI", ObjEArticle.WI);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsArticleDetails);
+                   }
+                   if (dsArticleDetails != null && dsArticleDetails.Tables.Count > 0)
+                   {
+                       ObjEArticle.dtArticleDetails = dsArticleDetails.Tables[0];
+                       ObjEArticle.dtDimenstions = dsArticleDetails.Tables[1];
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
+               else
+                   throw new Exception("Error While Retrieving ArticleDetails");
            }
            finally
            {
