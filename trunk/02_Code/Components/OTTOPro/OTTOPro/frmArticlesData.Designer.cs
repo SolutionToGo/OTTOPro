@@ -209,6 +209,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.BackColor = System.Drawing.Color.White;
             this.layoutControl1.Controls.Add(this.cmbME);
             this.layoutControl1.Controls.Add(this.btnNew);

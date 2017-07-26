@@ -284,6 +284,7 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.AllowCustomization = false;
             this.layoutControl2.Controls.Add(this.txtWebsite);
             this.layoutControl2.Controls.Add(this.txtComplementary);
             this.layoutControl2.Controls.Add(this.txtMD);
@@ -1201,6 +1202,7 @@
             // 
             // layoutControl3
             // 
+            this.layoutControl3.AllowCustomization = false;
             this.layoutControl3.Controls.Add(this.btnSaveContact);
             this.layoutControl3.Controls.Add(this.btnCancelContact);
             this.layoutControl3.Controls.Add(this.checkEditDefaultContact);

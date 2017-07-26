@@ -45,6 +45,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.Controls.Add(this.btnOpen);
             this.layoutControl1.Controls.Add(this.cmbReportType);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -57,7 +58,7 @@
             // 
             // btnOpen
             // 
-            this.btnOpen.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
+            this.btnOpen.ImageOptions.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
             this.btnOpen.Location = new System.Drawing.Point(291, 37);
             this.btnOpen.Name = "btnOpen";
             this.btnOpen.Size = new System.Drawing.Size(126, 31);

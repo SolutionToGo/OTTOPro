@@ -59,6 +59,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.Controls.Add(this.txtcontents);
             this.layoutControl1.Controls.Add(this.btnOK);
             this.layoutControl1.Controls.Add(this.btnCancel);
@@ -84,7 +85,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
+            this.btnOK.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
             this.btnOK.Location = new System.Drawing.Point(350, 492);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(70, 22);
@@ -96,7 +97,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(424, 492);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(65, 22);

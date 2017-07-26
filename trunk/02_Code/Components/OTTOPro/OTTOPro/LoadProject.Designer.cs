@@ -72,6 +72,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.Controls.Add(this.gcProjectSearch);
             this.layoutControl1.Controls.Add(this.tableLayoutPanel1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;

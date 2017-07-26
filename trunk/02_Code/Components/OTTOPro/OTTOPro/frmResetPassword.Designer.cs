@@ -61,6 +61,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.btnSave);
             this.layoutControl1.Controls.Add(this.txtConfirmPassword);

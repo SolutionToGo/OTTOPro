@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -140,6 +140,7 @@
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
             this.lcCostDetails = new DevExpress.XtraLayout.LayoutControl();
             this.layoutControl6 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnAddAccessories = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.dtpValidityDate = new System.Windows.Forms.DateTimePicker();
@@ -274,6 +275,7 @@
             this.layoutControlItem69 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem75 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem31 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem185 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup2 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItemCostDetails = new DevExpress.XtraLayout.LayoutControlItem();
             this.lcLVDetails = new DevExpress.XtraLayout.LayoutControl();
@@ -1055,8 +1057,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnAddAccessories = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem185 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1269,6 +1269,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem69)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem75)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem185)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCostDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcLVDetails)).BeginInit();
@@ -1803,7 +1804,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem185)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -2154,10 +2154,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -3333,6 +3333,16 @@
             this.layoutControl6.Size = new System.Drawing.Size(923, 459);
             this.layoutControl6.TabIndex = 5;
             this.layoutControl6.Text = "layoutControl6";
+            // 
+            // btnAddAccessories
+            // 
+            this.btnAddAccessories.Location = new System.Drawing.Point(55, 104);
+            this.btnAddAccessories.Name = "btnAddAccessories";
+            this.btnAddAccessories.Size = new System.Drawing.Size(245, 22);
+            this.btnAddAccessories.StyleController = this.layoutControl6;
+            this.btnAddAccessories.TabIndex = 59;
+            this.btnAddAccessories.Text = "Add Accessories";
+            this.btnAddAccessories.Click += new System.EventHandler(this.btnAddAccessories_Click);
             // 
             // labelControl2
             // 
@@ -5176,6 +5186,15 @@
             this.emptySpaceItem31.Size = new System.Drawing.Size(28, 78);
             this.emptySpaceItem31.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem185
+            // 
+            this.layoutControlItem185.Control = this.btnAddAccessories;
+            this.layoutControlItem185.Location = new System.Drawing.Point(43, 92);
+            this.layoutControlItem185.Name = "layoutControlItem185";
+            this.layoutControlItem185.Size = new System.Drawing.Size(249, 26);
+            this.layoutControlItem185.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem185.TextVisible = false;
+            // 
             // layoutControlGroup2
             // 
             this.layoutControlGroup2.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.False;
@@ -6173,6 +6192,7 @@
             // 
             // layoutControl20
             // 
+            this.layoutControl20.AllowCustomization = false;
             this.layoutControl20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl20.Controls.Add(this.groupControl7);
             this.layoutControl20.Controls.Add(this.groupControl9);
@@ -6202,6 +6222,7 @@
             // 
             // layoutControl23
             // 
+            this.layoutControl23.AllowCustomization = false;
             this.layoutControl23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl23.Controls.Add(this.dtpSubmitDate);
             this.layoutControl23.Controls.Add(this.txtSubmitLocation);
@@ -6319,6 +6340,7 @@
             // 
             // layoutControl24
             // 
+            this.layoutControl24.AllowCustomization = false;
             this.layoutControl24.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
             this.layoutControl24.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
@@ -6541,6 +6563,7 @@
             // 
             // layoutControl22
             // 
+            this.layoutControl22.AllowCustomization = false;
             this.layoutControl22.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
             this.layoutControl22.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
@@ -6635,6 +6658,7 @@
             // 
             // layoutControl21
             // 
+            this.layoutControl21.AllowCustomization = false;
             this.layoutControl21.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
             this.layoutControl21.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
@@ -7839,17 +7863,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -10102,6 +10126,7 @@
             // 
             // layoutControl9
             // 
+            this.layoutControl9.AllowCustomization = false;
             this.layoutControl9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl9.Controls.Add(this.txtUmlageValue);
             this.layoutControl9.Controls.Add(this.txtUmlageFactor);
@@ -10395,6 +10420,7 @@
             // 
             // layoutControl10
             // 
+            this.layoutControl10.AllowCustomization = false;
             this.layoutControl10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl10.Controls.Add(this.groupControl2);
             this.layoutControl10.Controls.Add(this.groupControl1);
@@ -10426,6 +10452,7 @@
             // 
             // layoutControl12
             // 
+            this.layoutControl12.AllowCustomization = false;
             this.layoutControl12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl12.Controls.Add(this.txtDeliveredQnty);
             this.layoutControl12.Controls.Add(this.txtOrderedQnty);
@@ -10516,6 +10543,7 @@
             // 
             // layoutControl11
             // 
+            this.layoutControl11.AllowCustomization = false;
             this.layoutControl11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl11.Controls.Add(this.btnSave);
             this.layoutControl11.Controls.Add(this.txtBlattNumber);
@@ -11099,6 +11127,7 @@
             // 
             // layoutControl13
             // 
+            this.layoutControl13.AllowCustomization = false;
             this.layoutControl13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl13.Controls.Add(this.btnFinalBill);
             this.layoutControl13.Controls.Add(this.gcInvoices);
@@ -11555,6 +11584,7 @@
             // 
             // layoutControl14
             // 
+            this.layoutControl14.AllowCustomization = false;
             this.layoutControl14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl14.Controls.Add(this.gcProposedSupplier);
             this.layoutControl14.Controls.Add(this.btnSaveSupplierProposal);
@@ -12382,6 +12412,7 @@
             // 
             // layoutControl15
             // 
+            this.layoutControl15.AllowCustomization = false;
             this.layoutControl15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl15.Controls.Add(this.btnSubmit);
             this.layoutControl15.Controls.Add(this.groupControl4);
@@ -12424,6 +12455,7 @@
             // 
             // layoutControl18
             // 
+            this.layoutControl18.AllowCustomization = false;
             this.layoutControl18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl18.Controls.Add(this.radioGroup1);
             this.layoutControl18.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -12489,6 +12521,7 @@
             // 
             // layoutControl17
             // 
+            this.layoutControl17.AllowCustomization = false;
             this.layoutControl17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl17.Controls.Add(this.txtListPrice);
             this.layoutControl17.Controls.Add(this.txtSupplierName);
@@ -12868,6 +12901,7 @@
             // 
             // layoutControl16
             // 
+            this.layoutControl16.AllowCustomization = false;
             this.layoutControl16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl16.Controls.Add(this.chkUpdateAll);
             this.layoutControl16.Controls.Add(this.txtListPreis);
@@ -13467,6 +13501,7 @@
             // 
             // layoutControl19
             // 
+            this.layoutControl19.AllowCustomization = false;
             this.layoutControl19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl19.Controls.Add(this.rgDropMode);
             this.layoutControl19.Controls.Add(this.tlOldProject);
@@ -14584,25 +14619,6 @@
             this.toolStripMenuItemRemove.Text = "Entfernen";
             this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripMenuItemRemove_Click);
             // 
-            // btnAddAccessories
-            // 
-            this.btnAddAccessories.Location = new System.Drawing.Point(55, 104);
-            this.btnAddAccessories.Name = "btnAddAccessories";
-            this.btnAddAccessories.Size = new System.Drawing.Size(245, 22);
-            this.btnAddAccessories.StyleController = this.layoutControl6;
-            this.btnAddAccessories.TabIndex = 59;
-            this.btnAddAccessories.Text = "Add Accessories";
-            this.btnAddAccessories.Click += new System.EventHandler(this.btnAddAccessories_Click);
-            // 
-            // layoutControlItem185
-            // 
-            this.layoutControlItem185.Control = this.btnAddAccessories;
-            this.layoutControlItem185.Location = new System.Drawing.Point(43, 92);
-            this.layoutControlItem185.Name = "layoutControlItem185";
-            this.layoutControlItem185.Size = new System.Drawing.Size(249, 26);
-            this.layoutControlItem185.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem185.TextVisible = false;
-            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -14838,6 +14854,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem69)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem75)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem185)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemCostDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lcLVDetails)).EndInit();
@@ -15372,7 +15389,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem185)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -277,6 +277,7 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.AllowCustomization = false;
             this.layoutControl2.Controls.Add(this.memoEditCommentary);
             this.layoutControl2.Controls.Add(this.btnSaveCustomer);
             this.layoutControl2.Controls.Add(this.btnCancelCustomer);
@@ -922,6 +923,7 @@
             // 
             // layoutControl3
             // 
+            this.layoutControl3.AllowCustomization = false;
             this.layoutControl3.Controls.Add(this.cmbSalutation);
             this.layoutControl3.Controls.Add(this.chkDefaultContact);
             this.layoutControl3.Controls.Add(this.btnCancelContact);
@@ -1235,6 +1237,7 @@
             // 
             // layoutControl4
             // 
+            this.layoutControl4.AllowCustomization = false;
             this.layoutControl4.Controls.Add(this.chkDefaultAddress);
             this.layoutControl4.Controls.Add(this.btnSaveAddress);
             this.layoutControl4.Controls.Add(this.btnCancelAddress);
