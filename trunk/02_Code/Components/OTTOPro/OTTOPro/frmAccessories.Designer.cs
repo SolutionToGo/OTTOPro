@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gcArticles = new DevExpress.XtraGrid.GridControl();
             this.gvArticles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -175,15 +175,15 @@
             // 
             // gcArticles
             // 
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gcArticles.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
-            this.gcArticles.Location = new System.Drawing.Point(12, 278);
+            gridLevelNode1});
+            this.gcArticles.Location = new System.Drawing.Point(12, 254);
             this.gcArticles.MainView = this.gvArticles;
             this.gcArticles.Name = "gcArticles";
             this.gcArticles.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpChkSelect});
-            this.gcArticles.Size = new System.Drawing.Size(931, 372);
+            this.gcArticles.Size = new System.Drawing.Size(931, 396);
             this.gcArticles.TabIndex = 5;
             this.gcArticles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvArticles,
@@ -279,7 +279,7 @@
             this.groupControl2.Controls.Add(this.layoutControl3);
             this.groupControl2.Location = new System.Drawing.Point(12, 12);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(464, 262);
+            this.groupControl2.Size = new System.Drawing.Size(464, 238);
             this.groupControl2.TabIndex = 9;
             this.groupControl2.Text = "Select Article";
             // 
@@ -305,7 +305,7 @@
             this.layoutControl3.Location = new System.Drawing.Point(2, 21);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.Root = this.layoutControlGroup3;
-            this.layoutControl3.Size = new System.Drawing.Size(460, 239);
+            this.layoutControl3.Size = new System.Drawing.Size(460, 215);
             this.layoutControl3.TabIndex = 0;
             this.layoutControl3.Text = "WG";
             // 
@@ -378,6 +378,7 @@
             this.txtParentWI.TabIndex = 12;
             this.txtParentWI.Tag = "Article WI";
             this.txtParentWI.EditValueChanged += new System.EventHandler(this.txtParentWG_EditValueChanged);
+            this.txtParentWI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParentWG_KeyPress);
             // 
             // txtParentWA
             // 
@@ -447,7 +448,7 @@
             this.layoutControlItem31});
             this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "layoutControlGroup3";
-            this.layoutControlGroup3.Size = new System.Drawing.Size(460, 239);
+            this.layoutControlGroup3.Size = new System.Drawing.Size(460, 215);
             this.layoutControlGroup3.TextVisible = false;
             // 
             // layoutControlItem10
@@ -479,7 +480,7 @@
             this.layoutControlItem3.Control = this.txtParentTyp;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 144);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(440, 75);
+            this.layoutControlItem3.Size = new System.Drawing.Size(440, 51);
             this.layoutControlItem3.Text = "Typ";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(45, 13);
             // 
@@ -585,7 +586,7 @@
             this.groupControl1.Controls.Add(this.layoutControl2);
             this.groupControl1.Location = new System.Drawing.Point(480, 12);
             this.groupControl1.Name = "groupControl1";
-            this.groupControl1.Size = new System.Drawing.Size(463, 262);
+            this.groupControl1.Size = new System.Drawing.Size(463, 238);
             this.groupControl1.TabIndex = 10;
             this.groupControl1.Text = "Select Accessories";
             // 
@@ -615,7 +616,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1352, 388, 450, 400);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(459, 239);
+            this.layoutControl2.Size = new System.Drawing.Size(459, 215);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -717,7 +718,7 @@
             this.btnAdd.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAdd.Location = new System.Drawing.Point(423, 181);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(24, 46);
+            this.btnAdd.Size = new System.Drawing.Size(24, 22);
             this.btnAdd.StyleController = this.layoutControl2;
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -761,7 +762,7 @@
             this.emptySpaceItem1});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(459, 239);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(459, 215);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem13
@@ -896,7 +897,7 @@
             this.layoutControlItem16.Location = new System.Drawing.Point(411, 169);
             this.layoutControlItem16.MinSize = new System.Drawing.Size(28, 26);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(28, 50);
+            this.layoutControlItem16.Size = new System.Drawing.Size(28, 26);
             this.layoutControlItem16.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
@@ -905,8 +906,10 @@
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 169);
+            this.emptySpaceItem1.MinSize = new System.Drawing.Size(104, 24);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(411, 50);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(411, 26);
+            this.emptySpaceItem1.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
@@ -927,7 +930,7 @@
             this.layoutControlItem9.Control = this.groupControl2;
             this.layoutControlItem9.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem9.Name = "layoutControlItem9";
-            this.layoutControlItem9.Size = new System.Drawing.Size(468, 266);
+            this.layoutControlItem9.Size = new System.Drawing.Size(468, 242);
             this.layoutControlItem9.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem9.TextVisible = false;
             // 
@@ -935,9 +938,10 @@
             // 
             this.layoutControlItem5.Control = this.groupControl1;
             this.layoutControlItem5.Location = new System.Drawing.Point(468, 0);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(334, 266);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(467, 242);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(467, 242);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(467, 266);
+            this.layoutControlItem5.Size = new System.Drawing.Size(467, 242);
             this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
@@ -945,9 +949,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gcArticles;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 266);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 242);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(935, 376);
+            this.layoutControlItem2.Size = new System.Drawing.Size(935, 400);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -972,7 +976,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(955, 662);
             this.Controls.Add(this.layoutControl1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAccessories";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Accessories Mapping";
             this.Load += new System.EventHandler(this.frmAccessories_Load);
