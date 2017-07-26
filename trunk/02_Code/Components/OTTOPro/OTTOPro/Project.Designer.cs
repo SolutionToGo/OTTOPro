@@ -5897,9 +5897,9 @@
             // 
             this.btnNext.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNext.ImageOptions.Image")));
             this.btnNext.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnNext.Location = new System.Drawing.Point(1404, 12);
+            this.btnNext.Location = new System.Drawing.Point(1419, 12);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(74, 22);
+            this.btnNext.Size = new System.Drawing.Size(59, 22);
             this.btnNext.StyleController = this.layoutControl4;
             this.btnNext.TabIndex = 44;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
@@ -6105,9 +6105,12 @@
             // layoutControlItem89
             // 
             this.layoutControlItem89.Control = this.btnNext;
-            this.layoutControlItem89.Location = new System.Drawing.Point(1392, 0);
+            this.layoutControlItem89.Location = new System.Drawing.Point(1407, 0);
+            this.layoutControlItem89.MaxSize = new System.Drawing.Size(63, 26);
+            this.layoutControlItem89.MinSize = new System.Drawing.Size(63, 26);
             this.layoutControlItem89.Name = "layoutControlItem89";
-            this.layoutControlItem89.Size = new System.Drawing.Size(78, 26);
+            this.layoutControlItem89.Size = new System.Drawing.Size(63, 26);
+            this.layoutControlItem89.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem89.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem89.TextVisible = false;
             // 
@@ -6116,7 +6119,7 @@
             this.emptySpaceItem38.AllowHotTrack = false;
             this.emptySpaceItem38.Location = new System.Drawing.Point(1302, 0);
             this.emptySpaceItem38.Name = "emptySpaceItem38";
-            this.emptySpaceItem38.Size = new System.Drawing.Size(90, 26);
+            this.emptySpaceItem38.Size = new System.Drawing.Size(105, 26);
             this.emptySpaceItem38.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem82
@@ -6156,8 +6159,11 @@
             // 
             this.layoutControlItem172.Control = this.btnExportExcel;
             this.layoutControlItem172.Location = new System.Drawing.Point(1176, 0);
+            this.layoutControlItem172.MaxSize = new System.Drawing.Size(126, 26);
+            this.layoutControlItem172.MinSize = new System.Drawing.Size(126, 26);
             this.layoutControlItem172.Name = "layoutControlItem172";
             this.layoutControlItem172.Size = new System.Drawing.Size(126, 26);
+            this.layoutControlItem172.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem172.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem172.TextVisible = false;
             // 
