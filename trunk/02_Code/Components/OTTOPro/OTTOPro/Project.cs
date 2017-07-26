@@ -8463,6 +8463,7 @@ namespace OTTOPro
 
         private void btnAddAccessories_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 string strPositionKZ = Convert.ToString(tlPositions.FocusedNode["PositionKZ"]);
@@ -8525,6 +8526,8 @@ namespace OTTOPro
                     Obj.ShowDialog();
                     if (Obj._ISSave)
                     {
+                        SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                        SplashScreenManager.Default.SetWaitFormDescription("Adding Accessories...");
                         if (ObjEPosition.PositionID < 0)
                         {
                             btnSaveLVDetails_Click(null, null);
@@ -8552,6 +8555,7 @@ namespace OTTOPro
                         SetFocus(NewPositionID, tlPositions);
                     }
                 }
+                SplashScreenManager.CloseForm(false);
             }
             catch (Exception ex)
             {
