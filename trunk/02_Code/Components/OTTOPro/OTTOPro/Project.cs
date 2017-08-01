@@ -344,6 +344,14 @@ namespace OTTOPro
                     nbInvoices.Visible = false;
                 if (Utility.KomissionDataAccess == "9" || Utility.KomissionDataAccess == "7")
                     txtkommissionNumber.Enabled = false;
+
+                if (Utility.RoleID != 14)
+                {
+                    chkLockHierarchy.Enabled = false;
+                    chkLockHierarchy.Enabled = false;
+                    btnAddRaster.Enabled = false;
+                }
+                chkLockHierarchy_CheckedChanged(null,null);
             }
             catch (Exception ex)
             {
@@ -3167,7 +3175,7 @@ namespace OTTOPro
                 string strLVSecction = cmbLVSection.Text;
                 if (strLVSecction.ToLower() == "nt" || strLVSecction.ToLower() == "ntm")
                 {
-                    frmTextDialog Obj = new frmTextDialog();
+                    frmTextDialog Obj = new frmTextDialog("LV Section");
                     Obj.ShowInTaskbar = false;
                     Obj.NewLVSection = strLVSecction + ObjBPosition.GetNewLVSection(cmbLVSection.Text, ObjEProject.ProjectID);
                     Obj.ShowDialog();
@@ -5691,18 +5699,18 @@ namespace OTTOPro
                 checkEditNachtragsnummer.Enabled = false;
 
             }
-            if (cmbLVStatus.Text == "A")
-            {
-                if (Utility._IsGermany == true)
-                {
-                    XtraMessageBox.Show("Die globale LV Bearbeitung wird nicht auf abgelehnte LV Positionen angewandt.");
-                }
-                else
-                {
-                    XtraMessageBox.Show("Bulk Process should not happend for Rejected LVs.");
-                }
-                return;
-            }
+            //if (cmbLVStatus.Text == "A")
+            //{
+            //    if (Utility._IsGermany == true)
+            //    {
+            //        XtraMessageBox.Show("Die globale LV Bearbeitung wird nicht auf abgelehnte LV Positionen angewandt.");
+            //    }
+            //    else
+            //    {
+            //        XtraMessageBox.Show("Bulk Process should not happend for Rejected LVs.");
+            //    }
+            //    return;
+            //}
             if (ObjEProject.ProjectID > 0)
             {
                 tlBulkProcessPositionDetails.Cursor = Cursors.Default;
@@ -8687,6 +8695,42 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+
+        private void btnAddRaster_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmTextDialog frm = new frmTextDialog("Raster");
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    ddlRaster.Text = frm.NewLVSection;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void chkLockHierarchy_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkLockHierarchy.Checked == true)
+                {
+                    btnAddRaster.Enabled = false;
+                }
+                else
+                {
+                    btnAddRaster.Enabled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
     }

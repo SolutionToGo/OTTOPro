@@ -42,6 +42,7 @@ namespace EL
         private bool _IsDisable = false;
         private bool _IsFinalInvoice = false;
         private string _Status = string.Empty;
+        private string _OldRaster;
 
         /// <summary>
         /// Temparary Private Variables for Project Modules
@@ -190,6 +191,12 @@ namespace EL
         {
             get { return _ProjectEndDate; }
             set { _ProjectEndDate = value; }
+        }
+
+        public string OldRaster
+        {
+            get { return _OldRaster; }
+            set { _OldRaster = value; }
         }
 
         /// <summary>

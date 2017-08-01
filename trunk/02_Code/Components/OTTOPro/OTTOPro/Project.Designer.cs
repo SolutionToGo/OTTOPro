@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -396,6 +396,7 @@
             this.layoutControlItem217 = new DevExpress.XtraLayout.LayoutControlItem();
             this.groupControl5 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl21 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnAddRaster = new DevExpress.XtraEditors.SimpleButton();
             this.txtProjectNumber = new DevExpress.XtraEditors.TextEdit();
             this.txtkommissionNumber = new DevExpress.XtraEditors.TextEdit();
             this.ddlRaster = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -426,6 +427,7 @@
             this.emptySpaceItem117 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem9 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem23 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem231 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem199 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem215 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -1388,6 +1390,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem231)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem199)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem215)).BeginInit();
@@ -2154,10 +2157,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -6380,6 +6383,7 @@
             this.chkLockHierarchy.Size = new System.Drawing.Size(240, 19);
             this.chkLockHierarchy.StyleController = this.layoutControl24;
             this.chkLockHierarchy.TabIndex = 300;
+            this.chkLockHierarchy.CheckedChanged += new System.EventHandler(this.chkLockHierarchy_CheckedChanged);
             // 
             // chkCumulated
             // 
@@ -6668,6 +6672,7 @@
             this.layoutControl21.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
             this.layoutControl21.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl21.Controls.Add(this.btnAddRaster);
             this.layoutControl21.Controls.Add(this.txtProjectNumber);
             this.layoutControl21.Controls.Add(this.txtkommissionNumber);
             this.layoutControl21.Controls.Add(this.ddlRaster);
@@ -6689,6 +6694,17 @@
             this.layoutControl21.Size = new System.Drawing.Size(1023, 184);
             this.layoutControl21.TabIndex = 0;
             this.layoutControl21.Text = "layoutControl21";
+            // 
+            // btnAddRaster
+            // 
+            this.btnAddRaster.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnAddRaster.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+            this.btnAddRaster.Location = new System.Drawing.Point(470, 60);
+            this.btnAddRaster.Name = "btnAddRaster";
+            this.btnAddRaster.Size = new System.Drawing.Size(36, 22);
+            this.btnAddRaster.StyleController = this.layoutControl21;
+            this.btnAddRaster.TabIndex = 102;
+            this.btnAddRaster.Click += new System.EventHandler(this.btnAddRaster_Click);
             // 
             // txtProjectNumber
             // 
@@ -6717,14 +6733,14 @@
             this.ddlRaster.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.ddlRaster.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.ddlRaster.Size = new System.Drawing.Size(346, 20);
+            this.ddlRaster.Size = new System.Drawing.Size(306, 20);
             this.ddlRaster.StyleController = this.layoutControl21;
             this.ddlRaster.TabIndex = 2;
             this.ddlRaster.Tag = "LV-Raster";
             // 
             // txtMWST
             // 
-            this.txtMWST.Location = new System.Drawing.Point(160, 107);
+            this.txtMWST.Location = new System.Drawing.Point(160, 109);
             this.txtMWST.Name = "txtMWST";
             this.txtMWST.Properties.Mask.EditMask = "n3";
             this.txtMWST.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
@@ -6740,7 +6756,7 @@
             this.lblGeplanteAusführungszeit.BackColor = System.Drawing.Color.Transparent;
             this.lblGeplanteAusführungszeit.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGeplanteAusführungszeit.ForeColor = System.Drawing.Color.White;
-            this.lblGeplanteAusführungszeit.Location = new System.Drawing.Point(510, 108);
+            this.lblGeplanteAusführungszeit.Location = new System.Drawing.Point(510, 110);
             this.lblGeplanteAusführungszeit.Name = "lblGeplanteAusführungszeit";
             this.lblGeplanteAusführungszeit.Size = new System.Drawing.Size(130, 40);
             this.lblGeplanteAusführungszeit.TabIndex = 0;
@@ -6749,7 +6765,7 @@
             // 
             // txtLVSprunge
             // 
-            this.txtLVSprunge.Location = new System.Drawing.Point(160, 131);
+            this.txtLVSprunge.Location = new System.Drawing.Point(160, 133);
             this.txtLVSprunge.Name = "txtLVSprunge";
             this.txtLVSprunge.Properties.Mask.EditMask = "n0";
             this.txtLVSprunge.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -6763,7 +6779,7 @@
             // 
             // ChkRaster
             // 
-            this.ChkRaster.Location = new System.Drawing.Point(160, 84);
+            this.ChkRaster.Location = new System.Drawing.Point(160, 86);
             this.ChkRaster.MenuManager = this.barManager1;
             this.ChkRaster.Name = "ChkRaster";
             this.ChkRaster.Properties.Caption = "";
@@ -6774,7 +6790,7 @@
             // 
             // txtPlanner
             // 
-            this.txtPlanner.Location = new System.Drawing.Point(658, 84);
+            this.txtPlanner.Location = new System.Drawing.Point(658, 86);
             this.txtPlanner.Name = "txtPlanner";
             this.txtPlanner.Size = new System.Drawing.Size(353, 20);
             this.txtPlanner.StyleController = this.layoutControl21;
@@ -6783,7 +6799,7 @@
             // dtpProjectEndDate
             // 
             this.dtpProjectEndDate.EditValue = null;
-            this.dtpProjectEndDate.Location = new System.Drawing.Point(861, 118);
+            this.dtpProjectEndDate.Location = new System.Drawing.Point(861, 120);
             this.dtpProjectEndDate.Name = "dtpProjectEndDate";
             this.dtpProjectEndDate.Properties.AllowMouseWheel = false;
             this.dtpProjectEndDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -6802,7 +6818,7 @@
             // dtpProjectStartDate
             // 
             this.dtpProjectStartDate.EditValue = null;
-            this.dtpProjectStartDate.Location = new System.Drawing.Point(669, 118);
+            this.dtpProjectStartDate.Location = new System.Drawing.Point(669, 120);
             this.dtpProjectStartDate.Name = "dtpProjectStartDate";
             this.dtpProjectStartDate.Properties.AllowMouseWheel = false;
             this.dtpProjectStartDate.Properties.AllowNullInput = DevExpress.Utils.DefaultBoolean.False;
@@ -6870,7 +6886,8 @@
             this.layoutControlItem212,
             this.emptySpaceItem117,
             this.emptySpaceItem9,
-            this.emptySpaceItem23});
+            this.emptySpaceItem23,
+            this.layoutControlItem231});
             this.layoutControlGroup29.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup29.Name = "Root";
             this.layoutControlGroup29.Size = new System.Drawing.Size(1023, 184);
@@ -6911,7 +6928,7 @@
             this.layoutControlItem202.Control = this.ddlRaster;
             this.layoutControlItem202.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem202.Name = "layoutControlItem202";
-            this.layoutControlItem202.Size = new System.Drawing.Size(498, 24);
+            this.layoutControlItem202.Size = new System.Drawing.Size(458, 26);
             this.layoutControlItem202.Text = "LV-Raster ";
             this.layoutControlItem202.TextSize = new System.Drawing.Size(145, 13);
             // 
@@ -6922,7 +6939,7 @@
             this.layoutControlItem203.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem203.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem203.Control = this.txtMWST;
-            this.layoutControlItem203.Location = new System.Drawing.Point(0, 95);
+            this.layoutControlItem203.Location = new System.Drawing.Point(0, 97);
             this.layoutControlItem203.Name = "layoutControlItem203";
             this.layoutControlItem203.Size = new System.Drawing.Size(498, 24);
             this.layoutControlItem203.Text = "MWST% ";
@@ -6935,9 +6952,9 @@
             this.layoutControlItem204.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem204.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem204.Control = this.txtLVSprunge;
-            this.layoutControlItem204.Location = new System.Drawing.Point(0, 119);
+            this.layoutControlItem204.Location = new System.Drawing.Point(0, 121);
             this.layoutControlItem204.Name = "layoutControlItem204";
-            this.layoutControlItem204.Size = new System.Drawing.Size(498, 45);
+            this.layoutControlItem204.Size = new System.Drawing.Size(498, 43);
             this.layoutControlItem204.Text = "LV Sprung  *";
             this.layoutControlItem204.TextSize = new System.Drawing.Size(145, 13);
             // 
@@ -6948,7 +6965,7 @@
             this.layoutControlItem205.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem205.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem205.Control = this.ChkRaster;
-            this.layoutControlItem205.Location = new System.Drawing.Point(0, 72);
+            this.layoutControlItem205.Location = new System.Drawing.Point(0, 74);
             this.layoutControlItem205.Name = "layoutControlItem205";
             this.layoutControlItem205.Size = new System.Drawing.Size(498, 23);
             this.layoutControlItem205.Text = "LV Raster von GAEB-Datei";
@@ -6989,7 +7006,7 @@
             this.layoutControlItem208.Control = this.txtKundeName;
             this.layoutControlItem208.Location = new System.Drawing.Point(498, 48);
             this.layoutControlItem208.Name = "layoutControlItem208";
-            this.layoutControlItem208.Size = new System.Drawing.Size(505, 24);
+            this.layoutControlItem208.Size = new System.Drawing.Size(505, 26);
             this.layoutControlItem208.Text = "Kunde Name ";
             this.layoutControlItem208.TextSize = new System.Drawing.Size(145, 13);
             // 
@@ -7000,7 +7017,7 @@
             this.layoutControlItem209.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem209.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem209.Control = this.txtPlanner;
-            this.layoutControlItem209.Location = new System.Drawing.Point(498, 72);
+            this.layoutControlItem209.Location = new System.Drawing.Point(498, 74);
             this.layoutControlItem209.Name = "layoutControlItem209";
             this.layoutControlItem209.Size = new System.Drawing.Size(505, 24);
             this.layoutControlItem209.Text = "Planer ";
@@ -7009,7 +7026,7 @@
             // layoutControlItem210
             // 
             this.layoutControlItem210.Control = this.lblGeplanteAusführungszeit;
-            this.layoutControlItem210.Location = new System.Drawing.Point(498, 96);
+            this.layoutControlItem210.Location = new System.Drawing.Point(498, 98);
             this.layoutControlItem210.Name = "layoutControlItem210";
             this.layoutControlItem210.Size = new System.Drawing.Size(134, 44);
             this.layoutControlItem210.TextSize = new System.Drawing.Size(0, 0);
@@ -7022,7 +7039,7 @@
             this.layoutControlItem211.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem211.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem211.Control = this.dtpProjectStartDate;
-            this.layoutControlItem211.Location = new System.Drawing.Point(632, 106);
+            this.layoutControlItem211.Location = new System.Drawing.Point(632, 108);
             this.layoutControlItem211.Name = "layoutControlItem211";
             this.layoutControlItem211.Size = new System.Drawing.Size(192, 24);
             this.layoutControlItem211.Text = "Von";
@@ -7037,7 +7054,7 @@
             this.layoutControlItem212.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem212.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem212.Control = this.dtpProjectEndDate;
-            this.layoutControlItem212.Location = new System.Drawing.Point(824, 106);
+            this.layoutControlItem212.Location = new System.Drawing.Point(824, 108);
             this.layoutControlItem212.Name = "layoutControlItem212";
             this.layoutControlItem212.Size = new System.Drawing.Size(179, 24);
             this.layoutControlItem212.Text = "Bis";
@@ -7048,7 +7065,7 @@
             // emptySpaceItem117
             // 
             this.emptySpaceItem117.AllowHotTrack = false;
-            this.emptySpaceItem117.Location = new System.Drawing.Point(632, 96);
+            this.emptySpaceItem117.Location = new System.Drawing.Point(632, 98);
             this.emptySpaceItem117.Name = "emptySpaceItem117";
             this.emptySpaceItem117.Size = new System.Drawing.Size(371, 10);
             this.emptySpaceItem117.TextSize = new System.Drawing.Size(0, 0);
@@ -7056,7 +7073,7 @@
             // emptySpaceItem9
             // 
             this.emptySpaceItem9.AllowHotTrack = false;
-            this.emptySpaceItem9.Location = new System.Drawing.Point(632, 130);
+            this.emptySpaceItem9.Location = new System.Drawing.Point(632, 132);
             this.emptySpaceItem9.Name = "emptySpaceItem9";
             this.emptySpaceItem9.Size = new System.Drawing.Size(371, 10);
             this.emptySpaceItem9.TextSize = new System.Drawing.Size(0, 0);
@@ -7064,10 +7081,22 @@
             // emptySpaceItem23
             // 
             this.emptySpaceItem23.AllowHotTrack = false;
-            this.emptySpaceItem23.Location = new System.Drawing.Point(498, 140);
+            this.emptySpaceItem23.Location = new System.Drawing.Point(498, 142);
             this.emptySpaceItem23.Name = "emptySpaceItem23";
-            this.emptySpaceItem23.Size = new System.Drawing.Size(505, 24);
+            this.emptySpaceItem23.Size = new System.Drawing.Size(505, 22);
             this.emptySpaceItem23.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem231
+            // 
+            this.layoutControlItem231.Control = this.btnAddRaster;
+            this.layoutControlItem231.Location = new System.Drawing.Point(458, 48);
+            this.layoutControlItem231.MaxSize = new System.Drawing.Size(40, 26);
+            this.layoutControlItem231.MinSize = new System.Drawing.Size(40, 26);
+            this.layoutControlItem231.Name = "layoutControlItem231";
+            this.layoutControlItem231.Size = new System.Drawing.Size(40, 26);
+            this.layoutControlItem231.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem231.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem231.TextVisible = false;
             // 
             // layoutControlGroup3
             // 
@@ -7869,17 +7898,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -14979,6 +15008,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem117)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem231)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem199)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem215)).EndInit();
@@ -16429,6 +16459,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem172;
         private DevExpress.XtraEditors.SimpleButton btnAddAccessories;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem185;
+        private DevExpress.XtraEditors.SimpleButton btnAddRaster;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem231;
 
 
     }
