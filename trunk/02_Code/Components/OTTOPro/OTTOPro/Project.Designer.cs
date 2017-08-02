@@ -2234,7 +2234,8 @@
             "Z",
             "E",
             "A",
-            "M"});
+            "M",
+            "P"});
             this.cmbPositionKZ.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPositionKZ.Size = new System.Drawing.Size(98, 24);
             this.cmbPositionKZ.StyleController = this.layoutControl3;

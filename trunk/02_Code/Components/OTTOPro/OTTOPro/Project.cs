@@ -723,7 +723,12 @@ namespace OTTOPro
                 ObjEPosition.WI = txtWI.Text;
 
                 if (decimal.TryParse(txtMenge.Text, out dValue))
-                    ObjEPosition.Menge = dValue;
+                {
+                    if (ObjEPosition.PositionKZ == "P")
+                        ObjEPosition.Menge = 1;
+                    else
+                        ObjEPosition.Menge = dValue;
+                }
 
                 ObjEPosition.ME = cmbME.Text;
                 ObjEPosition.Fabricate = txtFabrikate.Text;
