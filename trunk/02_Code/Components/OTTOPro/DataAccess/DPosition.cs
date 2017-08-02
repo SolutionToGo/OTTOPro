@@ -680,6 +680,37 @@ namespace DataAccess
             }
             return dsPositionsList;
         }
+
+        public int CopyPosition(EPosition ObjEPosition)
+        {
+            int ProjectID = -1;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_CopyPosition]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEPosition.ProjectID);
+                    cmd.Parameters.AddWithValue("@ParentID", ObjEPosition.ParentID);
+                    cmd.Parameters.AddWithValue("@PositionOZ", ObjEPosition.Position_OZ);
+                    cmd.Parameters.AddWithValue("@SNO", ObjEPosition.SNO);
+                    cmd.Parameters.AddWithValue("@dtCopyPosition", ObjEPosition.dtCopyPosition);
+                    object returnObj = cmd.ExecuteScalar();
+                    if(!int.TryParse(Convert.ToString(returnObj),out ProjectID))
+                        throw new Exception("Error While Moving the position");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error While Moving the position");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ProjectID;
+        }
     }
 }
     

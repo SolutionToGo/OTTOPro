@@ -74,7 +74,17 @@ namespace OTTOPro
                 CmbTyp.DataSource = ObjEArticles.dtTyp;
                 CmbTyp.ValueMember = "TypID";
                 CmbTyp.DisplayMember = "Typ";
-                CmbTyp.SelectedValue = IValue;
+                txtChildWG.Text = string.Empty;
+                txtChildWA.Text = string.Empty;
+                txtChildWI.Text = string.Empty;
+                txtChildA.Text = string.Empty;
+                txtChildB.Text = string.Empty;
+                txtChildL.Text = string.Empty;
+                txtChildLifrant.Text = string.Empty;
+                txtChildFabrikate.Text = string.Empty;
+                txtChildWADescription.Text = string.Empty;
+                txtChildWGDescription.Text = string.Empty;
+                txtChildWIDescription.Text = string.Empty;
             }
             catch (Exception ex)
             {
@@ -160,35 +170,6 @@ namespace OTTOPro
             gcArticles.DataSource = null;
         }
 
-        private void CmbTyp_SelectedValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int IValue = 0;
-                if (int.TryParse(Convert.ToString(CmbTyp.SelectedValue), out IValue))
-                    ObjEArticles.TypID = IValue;
-                ObjEArticles = ObjBArticles.GetArticleBytyp(ObjEArticles);
-                if(ObjEArticles.dtArticleDetails.Rows.Count > 0)
-                {
-                    txtChildWG.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WG"]);
-                    txtChildWA.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WA"]);
-                    txtChildWI.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WI"]);
-                    txtChildA.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["A"]);
-                    txtChildB.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["B"]);
-                    txtChildL.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["L"]);
-                    txtChildWGDescription.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WGDescription"]);
-                    txtChildWADescription.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WADescription"]);
-                    txtChildWIDescription.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WIDescription"]);
-                    txtChildFabrikate.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Fabrikate"]);
-                    txtChildLifrant.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["FullName"]);
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void txtChildWG_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -215,6 +196,35 @@ namespace OTTOPro
             try
             {
                 BindAccessories();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void CmbTyp_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            try
+            {
+                int IValue = 0;
+                if (int.TryParse(Convert.ToString(CmbTyp.SelectedValue), out IValue))
+                    ObjEArticles.TypID = IValue;
+                ObjEArticles = ObjBArticles.GetArticleBytyp(ObjEArticles);
+                if (ObjEArticles.dtArticleDetails.Rows.Count > 0)
+                {
+                    txtChildWG.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WG"]);
+                    txtChildWA.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WA"]);
+                    txtChildWI.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WI"]);
+                    txtChildA.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["A"]);
+                    txtChildB.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["B"]);
+                    txtChildL.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["L"]);
+                    txtChildWGDescription.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WGDescription"]);
+                    txtChildWADescription.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WADescription"]);
+                    txtChildWIDescription.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["WIDescription"]);
+                    txtChildFabrikate.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Fabrikate"]);
+                    txtChildLifrant.Text = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["FullName"]);
+                }
             }
             catch (Exception ex)
             {

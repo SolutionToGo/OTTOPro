@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.gcArticles = new DevExpress.XtraGrid.GridControl();
             this.gvArticles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -175,9 +175,9 @@
             // 
             // gcArticles
             // 
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gcArticles.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gcArticles.Location = new System.Drawing.Point(12, 254);
             this.gcArticles.MainView = this.gvArticles;
             this.gcArticles.Name = "gcArticles";
@@ -624,12 +624,14 @@
             // 
             // CmbTyp
             // 
+            this.CmbTyp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbTyp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CmbTyp.FormattingEnabled = true;
             this.CmbTyp.Location = new System.Drawing.Point(60, 12);
             this.CmbTyp.Name = "CmbTyp";
             this.CmbTyp.Size = new System.Drawing.Size(387, 21);
             this.CmbTyp.TabIndex = 20;
-            this.CmbTyp.SelectedValueChanged += new System.EventHandler(this.CmbTyp_SelectedValueChanged);
+            this.CmbTyp.SelectionChangeCommitted += new System.EventHandler(this.CmbTyp_SelectionChangeCommitted);
             // 
             // txtChildWIDescription
             // 

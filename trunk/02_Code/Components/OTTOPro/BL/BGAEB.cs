@@ -45,15 +45,15 @@ namespace BL
                 if (dsTMLPositionsData != null && dsTMLPositionsData.Tables.Count > 0)
                 {
                     dsTMLPositionsData.Tables[0].TableName = "LVPos";
-                    if(strFormat.Contains("D"))
+                    if (strFormat.Contains("D"))
+                    {
+                        foreach (DataRow dr in dsTMLPositionsData.Tables[0].Rows)
                         {
-                            foreach(DataRow dr in dsTMLPositionsData.Tables[0].Rows)
-                            {
-                                string strKurztext = dr["Kurztext"] == DBNull.Value ? "" : dr["Kurztext"].ToString();
-                                string strPlantext = GetPlaintext(strKurztext);
-                                dr["Kurztext"] = strPlantext;
-                            }
+                            string strKurztext = dr["Kurztext"] == DBNull.Value ? "" : dr["Kurztext"].ToString();
+                            string strPlantext = GetPlaintext(strKurztext);
+                            dr["Kurztext"] = strPlantext;
                         }
+                    }
                     if(dsTMLPositionsData.Tables.Count > 1)
                     {
                         dsTMLPositionsData.Tables[1].TableName = "LVPos1";
@@ -398,8 +398,8 @@ namespace BL
                     else
                     {
                         string strSNO = dr["SNO"].ToString();
-                        string MaxValue = dsXmlData.Tables[0].Compute("MIN(SNO)", "SNO >'" + strSNO + "'AND Art <> 'H'").ToString();
-                        DataRow[] drNextPosition = dsXmlData.Tables[0].Select("SNO='" + MaxValue + "'");
+                        string MaxValue = dsXmlData.Tables[0].Compute("MIN(SNO)", "SNO >'" + strSNO + "'AND OZ <> ''").ToString();
+                        DataRow[] drNextPosition = dsXmlData.Tables[0].Select("SNO=" + MaxValue);
                         dr["ParentOz"] = GetParentOZ(drNextPosition[0]["OZ"].ToString());
 
                     }

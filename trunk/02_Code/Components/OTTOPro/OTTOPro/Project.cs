@@ -5552,7 +5552,7 @@ namespace OTTOPro
             {
                 setMask();
                 IntializeLVPositions();
-                SetOhnestuffeMask();
+                //SetOhnestuffeMask();
                 ObjTabDetails = tbLVDetails;
                 if (tbLVDetails.PageVisible == false)
                 {
@@ -5622,12 +5622,19 @@ namespace OTTOPro
 
         private void SetOhnestuffeMask()
         {
-            string[] Levels = ObjEProject.LVRaster.Split('.');
-            int Count = Levels.Length;
-            int _Length = Levels[Count - 2].Length;
-            txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            txtPosition.Properties.Mask.EditMask =@"\d{1,"+_Length+"}((\\.)\\d{0,1})?";
-            txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+            try
+            {
+                string[] Levels = ObjEProject.LVRaster.Split('.');
+                int Count = Levels.Length;
+                int _Length = Levels[Count - 2].Length;
+                txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                txtPosition.Properties.Mask.EditMask = @"\d{1," + _Length + "}((\\.)\\d{0,1})?";
+                txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void LVDetailsColumnReadOnly(bool _value)
@@ -7649,7 +7656,7 @@ namespace OTTOPro
                         if (!int.TryParse(strNO, out I_index))
                             I_index = 0;
                     }
-                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, "");
+                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, "", rgDropMode.SelectedIndex);
                     Position_OZ = ParentOZ + _Suggested_OZ;
                 }
                 else
@@ -7687,7 +7694,7 @@ namespace OTTOPro
                         else
                             I_index = iTemp - 1;
                     }
-                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, strnextLV);
+                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, strnextLV,rgDropMode.SelectedIndex);
                     Position_OZ = ParentOZ + _Suggested_OZ;
                 }
                 string strLongDescription = ObjBPosition.GetLongDescription(IPositionID);
@@ -7942,12 +7949,12 @@ namespace OTTOPro
             }
         }
 
-        private string SuggestOZForCopy(string PositionOZ, string strNextLV)
+        private string SuggestOZForCopy(string PositionOZ, string strNextLV, int Index = 0)
         {
             string strNewOZ = string.Empty;
             try
             {
-                if (rgDropMode.SelectedIndex == 0)
+                if (Index == 0)
                 {
                     string[] OZList = PositionOZ.Split('.');
                     if (OZList != null && OZList.Count() > 1)
@@ -7975,7 +7982,7 @@ namespace OTTOPro
                     else
                         strNewOZ = ObjEProject.LVSprunge.ToString() + ".";
                 }
-                else if (rgDropMode.SelectedIndex == 1)
+                else if (Index == 1)
                 {
                     string[] OZList = PositionOZ.Split('.');
                     if (OZList != null && OZList.Count() > 1)
@@ -8624,7 +8631,7 @@ namespace OTTOPro
                 if(string.IsNullOrEmpty(ObjEProject.CommissionNumber))
                     ObjEPosition.LVStatus = string.Empty;
                 else
-                    ObjEPosition.LVStatus = "A";
+                    ObjEPosition.LVStatus = "B";
 
                 if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Minuten"]), out dValue))
                     ObjEPosition.Mins = dValue;
@@ -8727,6 +8734,138 @@ namespace OTTOPro
                 {
                     btnAddRaster.Enabled = true;
                 }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void tlPositions_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void tlPositions_DragDrop(object sender, DragEventArgs e)
+        {
+            try
+            {
+                e.Effect = DragDropEffects.None;
+                DXDragEventArgs args = tlPositions.GetDXDragEventArgs(e);
+                DataRow dataRow = (tlPositions.GetDataRecordByNode(tlPositions.FocusedNode) as DataRowView).Row;
+                if (dataRow == null) return;
+                string _OldPosKZ = dataRow["PositionKZ"] == DBNull.Value ? "" : dataRow["PositionKZ"].ToString();
+                if (_OldPosKZ == "NG")
+                    return;
+                TreeListNode Tnode = args.TargetNode;
+
+                int IValue = 0;
+                if (int.TryParse(Convert.ToString(Tnode["DetailKZ"]), out IValue))
+                {
+                    if (IValue > 0)
+                        return;
+                }
+                else
+                    return;
+
+                bool _HaveDetailKZ = false;
+                if (bool.TryParse(Convert.ToString(Tnode["HaveDetailkz"]), out _HaveDetailKZ))
+                {
+                    if (_HaveDetailKZ)
+                        return;
+                }
+                else
+                    return;
+
+                string TargetPositionKZ = Convert.ToString(Tnode["PositionKZ"]);
+                string SNO = string.Empty;
+                string ParentID = string.Empty;
+                string ParentOZ = string.Empty;
+                string PositionOZ = string.Empty;
+                string strnextLV = string.Empty;
+                int IIndex = 0;
+
+                if (TargetPositionKZ == "NG")
+                {
+                    string[] _Raster = ObjEProject.LVRaster.Split('.');
+                    int _Rastercount = _Raster.Count();
+                    ParentOZ = Tnode["Position_OZ"].ToString();
+                    string[] _OZ = ParentOZ.Split('.');
+                    int _OZCount = _OZ.Count();
+                    if (_OZCount != _Rastercount - 1)
+                        return;
+                    IIndex = 0;
+                    ParentID = Convert.ToString(Tnode["PositionID"]);
+                    if (Tnode.FirstNode != null)
+                    {
+                        SNO = Convert.ToString(Tnode.FirstNode["SNO"]);
+                        PositionOZ = Convert.ToString(Tnode.FirstNode["Position_OZ"]);
+                    }
+                    int iTemp = 0;
+                    if (!int.TryParse(SNO, out iTemp))
+                        SNO = Convert.ToString(Tnode["SNO"]);
+                    else
+                        SNO = (iTemp - 2).ToString();
+                }
+                else
+                {
+                    SNO = Convert.ToString(Tnode["SNO"]);
+                    ParentID = Convert.ToString(Tnode["Parent_OZ"]);
+                    ParentOZ = Convert.ToString(Tnode.ParentNode["Position_OZ"]);
+                    PositionOZ = Convert.ToString(Tnode["Position_OZ"]);
+                    IIndex = 2;
+                    int INodeIndex = tlPositions.GetNodeIndex(Tnode);
+                    if (INodeIndex != null)
+                    {
+                        if (Tnode.ParentNode.Nodes.Count > INodeIndex + 1)
+                            strnextLV = Convert.ToString(Tnode.ParentNode.Nodes[INodeIndex + 1]["Position_OZ"]);
+                    }
+                }
+
+                int IPositionID = dataRow["PositionID"] == DBNull.Value ? -1 : Convert.ToInt32(dataRow["PositionID"]);
+                string strPositionOZ = Convert.ToString(dataRow["Position_OZ"]);
+
+                if (ObjBPosition == null)
+                    ObjBPosition = new BPosition();
+                if (ObjEPosition == null)
+                    ObjEPosition = new EPosition();
+
+                DataTable dtTemp = ObjEPosition.dsPositionList.Tables[0].Copy();
+                DataView dvTemp = dtTemp.DefaultView;
+                dvTemp.RowFilter = "Position_OZ = '" + strPositionOZ + "'";
+                ObjEPosition.dtCopyPosition = dvTemp.ToTable();
+                foreach (DataColumn dc in dtTemp.Columns)
+                {
+                    if (dc.ColumnName != "PositionID")
+                    {
+                        if (dc.ColumnName != "SNO")
+                            ObjEPosition.dtCopyPosition.Columns.Remove(dc.ColumnName);
+                    }
+                }
+                string _Suggested_OZ = SuggestOZForCopy(PositionOZ, strnextLV, IIndex);
+                string strNewOz = ParentOZ + _Suggested_OZ;
+                ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                ObjEPosition.PositionID = IPositionID;
+                ObjEPosition.Position_OZ = strNewOz;
+                int IParnetValue = 0;
+                if (int.TryParse(ParentID, out IParnetValue))
+                    ObjEPosition.ParentID = IParnetValue;
+                else
+                    throw new Exception("Error While Moving the position");
+
+                if (int.TryParse(SNO, out IValue))
+                    ObjEPosition.SNO = IValue;
+                else
+                    throw new Exception("Error While Moving the position");
+                int ITemp = ObjEPosition.SNO;
+                foreach (DataRow dr in ObjEPosition.dtCopyPosition.Rows)
+                {
+                    ITemp++;
+                    dr["SNO"] = ITemp;
+                }
+                int NewPositionID = ObjBPosition.CopyPosition(ObjEPosition);
+                BindPositionData();
+                SetFocus(NewPositionID, tlPositions);
             }
             catch (Exception ex)
             {

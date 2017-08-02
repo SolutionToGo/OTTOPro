@@ -422,5 +422,19 @@ namespace BL
             }
             return ds;
         }
+
+        public int CopyPosition(EPosition ObjEPosition)
+        {
+            int NewPositionID = 0;
+            try
+            {
+                NewPositionID = ObjDPosition.CopyPosition(ObjEPosition);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return NewPositionID;
+        }
     }
 }
