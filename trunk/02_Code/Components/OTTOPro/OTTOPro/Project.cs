@@ -5552,7 +5552,7 @@ namespace OTTOPro
             {
                 setMask();
                 IntializeLVPositions();
-                //SetOhnestuffeMask();
+                SetOhnestuffeMask();
                 ObjTabDetails = tbLVDetails;
                 if (tbLVDetails.PageVisible == false)
                 {
@@ -5626,10 +5626,13 @@ namespace OTTOPro
             {
                 string[] Levels = ObjEProject.LVRaster.Split('.');
                 int Count = Levels.Length;
-                int _Length = Levels[Count - 2].Length;
-                txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                txtPosition.Properties.Mask.EditMask = @"\d{1," + _Length + "}((\\.)\\d{0,1})?";
-                txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+                if (Count >= 2)
+                {
+                    int _Length = Levels[Count - 2].Length;
+                    txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                    txtPosition.Properties.Mask.EditMask = @"\d{1," + _Length + "}((\\.)\\d{0,1})?";
+                    txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+                }
             }
             catch (Exception ex)
             {
