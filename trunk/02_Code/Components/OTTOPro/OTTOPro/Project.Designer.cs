@@ -28,11 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -40,7 +39,7 @@
             this.txtStufe2Title = new System.Windows.Forms.TextBox();
             this.txtStufe1Title = new System.Windows.Forms.TextBox();
             this.txtLiefrantMA = new DevExpress.XtraEditors.TextEdit();
-            this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
+            this.barManager1 = new DevExpress.XtraBars.BarManager();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
@@ -630,7 +629,6 @@
             this.layoutControlGroup15 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.emptySpaceItem98 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup16 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.emptySpaceItem97 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup20 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem24 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbMulti5 = new DevExpress.XtraTab.XtraTabPage();
@@ -1048,13 +1046,13 @@
             this.layoutControlItem194 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem197 = new DevExpress.XtraLayout.LayoutControlItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
-            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.popupMenu1 = new DevExpress.XtraBars.PopupMenu();
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem15 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem17 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider(this.components);
+            this.dxValidationProvider1 = new DevExpress.XtraEditors.DXErrorProvider.DXValidationProvider();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip();
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
@@ -1541,7 +1539,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem98)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup16)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem97)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).BeginInit();
             this.tbMulti5.SuspendLayout();
@@ -2154,10 +2151,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -7180,6 +7177,8 @@
             // layoutControl7
             // 
             this.layoutControl7.AllowCustomization = false;
+            this.layoutControl7.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
+            this.layoutControl7.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl7.Controls.Add(this.cmbBulkProcessSelection);
             this.layoutControl7.Controls.Add(this.label23);
             this.layoutControl7.Controls.Add(this.label22);
@@ -7249,7 +7248,7 @@
             // 
             // cmbBulkProcessSelection
             // 
-            this.cmbBulkProcessSelection.Location = new System.Drawing.Point(24, 69);
+            this.cmbBulkProcessSelection.Location = new System.Drawing.Point(24, 66);
             this.cmbBulkProcessSelection.MenuManager = this.barManager1;
             this.cmbBulkProcessSelection.Name = "cmbBulkProcessSelection";
             this.cmbBulkProcessSelection.Properties.Appearance.BackColor = System.Drawing.Color.White;
@@ -7428,7 +7427,7 @@
             this.label8.ForeColor = System.Drawing.Color.White;
             this.label8.Location = new System.Drawing.Point(12, 12);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(283, 23);
+            this.label8.Size = new System.Drawing.Size(283, 20);
             this.label8.TabIndex = 60;
             this.label8.Text = "Auswahl";
             // 
@@ -7536,21 +7535,23 @@
             // 
             // txtBulkProcessWA
             // 
-            this.txtBulkProcessWA.Location = new System.Drawing.Point(35, 346);
+            this.txtBulkProcessWA.Enabled = false;
+            this.txtBulkProcessWA.Location = new System.Drawing.Point(137, 370);
             this.txtBulkProcessWA.Name = "txtBulkProcessWA";
             this.txtBulkProcessWA.Properties.Mask.EditMask = "\\d+(\\.?\\d)*";
             this.txtBulkProcessWA.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtBulkProcessWA.Size = new System.Drawing.Size(260, 20);
+            this.txtBulkProcessWA.Size = new System.Drawing.Size(75, 20);
             this.txtBulkProcessWA.StyleController = this.layoutControl7;
             this.txtBulkProcessWA.TabIndex = 53;
             // 
             // txtBulkProcessWG
             // 
-            this.txtBulkProcessWG.Location = new System.Drawing.Point(35, 322);
+            this.txtBulkProcessWG.Enabled = false;
+            this.txtBulkProcessWG.Location = new System.Drawing.Point(35, 370);
             this.txtBulkProcessWG.Name = "txtBulkProcessWG";
             this.txtBulkProcessWG.Properties.Mask.EditMask = "\\d+(\\.?\\d)*";
             this.txtBulkProcessWG.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            this.txtBulkProcessWG.Size = new System.Drawing.Size(260, 20);
+            this.txtBulkProcessWG.Size = new System.Drawing.Size(75, 20);
             this.txtBulkProcessWG.StyleController = this.layoutControl7;
             this.txtBulkProcessWG.TabIndex = 52;
             // 
@@ -7864,26 +7865,27 @@
             this.gvAddRemovePositions.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
-            this.gvAddRemovePositions.Location = new System.Drawing.Point(12, 131);
+            this.gvAddRemovePositions.Enabled = false;
+            this.gvAddRemovePositions.Location = new System.Drawing.Point(12, 128);
             this.gvAddRemovePositions.Name = "gvAddRemovePositions";
-            this.gvAddRemovePositions.Size = new System.Drawing.Size(283, 187);
+            this.gvAddRemovePositions.Size = new System.Drawing.Size(283, 237);
             this.gvAddRemovePositions.TabIndex = 50;
             this.gvAddRemovePositions.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.gvAddRemovePositions_EditingControlShowing);
             this.gvAddRemovePositions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gvAddRemovePositions_MouseClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -7902,25 +7904,23 @@
             // 
             this.btnAdd.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAdd.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnAdd.Location = new System.Drawing.Point(199, 105);
+            this.btnAdd.Location = new System.Drawing.Point(199, 102);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(46, 22);
             this.btnAdd.StyleController = this.layoutControl7;
             this.btnAdd.TabIndex = 48;
             this.btnAdd.ToolTip = "hinzufügen";
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // btnRemove
             // 
             this.btnRemove.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnRemove.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-            this.btnRemove.Location = new System.Drawing.Point(249, 105);
+            this.btnRemove.Location = new System.Drawing.Point(249, 102);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(46, 22);
             this.btnRemove.StyleController = this.layoutControl7;
             this.btnRemove.TabIndex = 47;
             this.btnRemove.ToolTip = "Entfernen";
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // btnSavesectionB
             // 
@@ -9218,7 +9218,7 @@
             // lciRemoveLV
             // 
             this.lciRemoveLV.Control = this.btnRemove;
-            this.lciRemoveLV.Location = new System.Drawing.Point(237, 93);
+            this.lciRemoveLV.Location = new System.Drawing.Point(237, 90);
             this.lciRemoveLV.Name = "lciRemoveLV";
             this.lciRemoveLV.Size = new System.Drawing.Size(50, 26);
             this.lciRemoveLV.TextSize = new System.Drawing.Size(0, 0);
@@ -9228,7 +9228,7 @@
             // lciAddLV
             // 
             this.lciAddLV.Control = this.btnAdd;
-            this.lciAddLV.Location = new System.Drawing.Point(187, 93);
+            this.lciAddLV.Location = new System.Drawing.Point(187, 90);
             this.lciAddLV.Name = "lciAddLV";
             this.lciAddLV.Size = new System.Drawing.Size(50, 26);
             this.lciAddLV.TextSize = new System.Drawing.Size(0, 0);
@@ -9261,12 +9261,9 @@
             this.lcgWGWA.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.lcgWGWA.AppearanceGroup.Options.UseBackColor = true;
             this.lcgWGWA.GroupBordersVisible = false;
-            this.lcgWGWA.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.lciWG,
-            this.lciWA});
-            this.lcgWGWA.Location = new System.Drawing.Point(0, 310);
+            this.lcgWGWA.Location = new System.Drawing.Point(0, 357);
             this.lcgWGWA.Name = "lcgWGWA";
-            this.lcgWGWA.Size = new System.Drawing.Size(287, 48);
+            this.lcgWGWA.Size = new System.Drawing.Size(287, 1);
             this.lcgWGWA.TextVisible = false;
             this.lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
@@ -9279,7 +9276,7 @@
             this.lciWG.Control = this.txtBulkProcessWG;
             this.lciWG.Location = new System.Drawing.Point(0, 0);
             this.lciWG.Name = "lciWG";
-            this.lciWG.Size = new System.Drawing.Size(287, 24);
+            this.lciWG.Size = new System.Drawing.Size(102, 26);
             this.lciWG.Text = "WG ";
             this.lciWG.TextSize = new System.Drawing.Size(20, 13);
             // 
@@ -9290,9 +9287,9 @@
             this.lciWA.AppearanceItemCaption.Options.UseBackColor = true;
             this.lciWA.AppearanceItemCaption.Options.UseForeColor = true;
             this.lciWA.Control = this.txtBulkProcessWA;
-            this.lciWA.Location = new System.Drawing.Point(0, 24);
+            this.lciWA.Location = new System.Drawing.Point(102, 0);
             this.lciWA.Name = "lciWA";
-            this.lciWA.Size = new System.Drawing.Size(287, 24);
+            this.lciWA.Size = new System.Drawing.Size(102, 26);
             this.lciWA.Text = "WA ";
             this.lciWA.TextSize = new System.Drawing.Size(20, 13);
             // 
@@ -9303,9 +9300,9 @@
             this.lcgBulkProcessLVGrid.GroupBordersVisible = false;
             this.lcgBulkProcessLVGrid.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem115});
-            this.lcgBulkProcessLVGrid.Location = new System.Drawing.Point(0, 119);
+            this.lcgBulkProcessLVGrid.Location = new System.Drawing.Point(0, 116);
             this.lcgBulkProcessLVGrid.Name = "lcgBulkProcessLVGrid";
-            this.lcgBulkProcessLVGrid.Size = new System.Drawing.Size(287, 191);
+            this.lcgBulkProcessLVGrid.Size = new System.Drawing.Size(287, 241);
             this.lcgBulkProcessLVGrid.TextVisible = false;
             // 
             // layoutControlItem115
@@ -9313,7 +9310,7 @@
             this.layoutControlItem115.Control = this.gvAddRemovePositions;
             this.layoutControlItem115.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem115.Name = "item0";
-            this.layoutControlItem115.Size = new System.Drawing.Size(287, 191);
+            this.layoutControlItem115.Size = new System.Drawing.Size(287, 241);
             this.layoutControlItem115.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem115.TextVisible = false;
             // 
@@ -9330,7 +9327,7 @@
             this.layoutControlItem8.Control = this.label8;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(287, 27);
+            this.layoutControlItem8.Size = new System.Drawing.Size(287, 24);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -9408,7 +9405,7 @@
             this.layoutControlGroup15.GroupBordersVisible = false;
             this.layoutControlGroup15.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.emptySpaceItem98});
-            this.layoutControlGroup15.Location = new System.Drawing.Point(0, 93);
+            this.layoutControlGroup15.Location = new System.Drawing.Point(0, 90);
             this.layoutControlGroup15.Name = "layoutControlGroup15";
             this.layoutControlGroup15.Size = new System.Drawing.Size(187, 26);
             this.layoutControlGroup15.TextVisible = false;
@@ -9429,19 +9426,12 @@
             this.layoutControlGroup16.AppearanceGroup.Options.UseBackColor = true;
             this.layoutControlGroup16.GroupBordersVisible = false;
             this.layoutControlGroup16.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.emptySpaceItem97});
+            this.lciWG,
+            this.lciWA});
             this.layoutControlGroup16.Location = new System.Drawing.Point(0, 358);
             this.layoutControlGroup16.Name = "layoutControlGroup16";
             this.layoutControlGroup16.Size = new System.Drawing.Size(204, 26);
             this.layoutControlGroup16.TextVisible = false;
-            // 
-            // emptySpaceItem97
-            // 
-            this.emptySpaceItem97.AllowHotTrack = false;
-            this.emptySpaceItem97.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem97.Name = "emptySpaceItem4";
-            this.emptySpaceItem97.Size = new System.Drawing.Size(204, 26);
-            this.emptySpaceItem97.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup20
             // 
@@ -9451,7 +9441,7 @@
             this.layoutControlGroup20.AppearanceGroup.Options.UseFont = true;
             this.layoutControlGroup20.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem24});
-            this.layoutControlGroup20.Location = new System.Drawing.Point(0, 27);
+            this.layoutControlGroup20.Location = new System.Drawing.Point(0, 24);
             this.layoutControlGroup20.Name = "layoutControlGroup20";
             this.layoutControlGroup20.Size = new System.Drawing.Size(287, 66);
             this.layoutControlGroup20.Text = "Auswahlmethode";
@@ -12912,6 +12902,8 @@
             // layoutControl16
             // 
             this.layoutControl16.AllowCustomization = false;
+            this.layoutControl16.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
+            this.layoutControl16.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl16.Controls.Add(this.chkUpdateAll);
             this.layoutControl16.Controls.Add(this.txtListPreis);
@@ -12945,6 +12937,7 @@
             // 
             // txtListPreis
             // 
+            this.txtListPreis.Enabled = false;
             this.txtListPreis.Location = new System.Drawing.Point(188, 12);
             this.txtListPreis.MenuManager = this.barManager1;
             this.txtListPreis.Name = "txtListPreis";
@@ -12963,6 +12956,7 @@
             // 
             // txtNewSupplierName
             // 
+            this.txtNewSupplierName.Enabled = false;
             this.txtNewSupplierName.Location = new System.Drawing.Point(1192, 12);
             this.txtNewSupplierName.Name = "txtNewSupplierName";
             this.txtNewSupplierName.Properties.ReadOnly = true;
@@ -15136,7 +15130,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem98)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup16)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem97)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem24)).EndInit();
             this.tbMulti5.ResumeLayout(false);
@@ -15792,7 +15785,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem96;
         private DevExpress.XtraLayout.LayoutControlItem lciRemoveLV;
         private DevExpress.XtraLayout.LayoutControlItem lciAddLV;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem97;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem113;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem114;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem98;

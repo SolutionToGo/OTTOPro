@@ -127,7 +127,7 @@
             this.dgProjectSearch.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.dgProjectSearch.GridControl = this.gcProjectSearch;
             this.dgProjectSearch.Name = "dgProjectSearch";
-            this.dgProjectSearch.OptionsBehavior.ReadOnly = true;
+            this.dgProjectSearch.OptionsBehavior.Editable = false;
             this.dgProjectSearch.OptionsCustomization.AllowColumnMoving = false;
             this.dgProjectSearch.OptionsCustomization.AllowFilter = false;
             this.dgProjectSearch.OptionsCustomization.AllowSort = false;

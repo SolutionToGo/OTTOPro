@@ -3814,51 +3814,6 @@ namespace OTTOPro
 
         #region BULK PROCESS
 
-
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cmbBulkProcessSelection.Text == "")
-                {
-                    if (Utility._IsGermany == true)
-                    {
-                        throw new Exception("Bitte wählen Sie die Filtermethode.!");
-                    }
-                    else
-                    {
-                        throw new Exception("Please select Typ.!");
-                    }                    
-                }
-                gvAddRemovePositions.Rows.Add();
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (this.gvAddRemovePositions.SelectedRows.Count > 0)
-                {
-                    // gvAddRemovePositions.Rows.RemoveAt(this.gvAddRemovePositions.SelectedRows[0].Index);
-                    foreach (DataGridViewRow item in this.gvAddRemovePositions.SelectedRows)
-                    {
-                        gvAddRemovePositions.Rows.RemoveAt(item.Index);
-                    }
-                    tlBulkProcessPositionDetails.DataSource = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         string tType = null;
         private void AssignPosition_type()
         {
@@ -4663,7 +4618,6 @@ namespace OTTOPro
         {
             try
             {
-                // e.Control.KeyPress -= new KeyPressEventHandler(DataGrid_KeyPress);
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
                 {
@@ -5336,13 +5290,15 @@ namespace OTTOPro
             {
                 if (cmbBulkProcessSelection.SelectedIndex == 2)
                 {
-                    lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    gvAddRemovePositions.Enabled = false;
+                    txtBulkProcessWG.Enabled = true;
+                    txtBulkProcessWA.Enabled = true;
                 }
                 else
                 {
-                    lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    gvAddRemovePositions.Enabled = true;
+                    txtBulkProcessWG.Enabled = false;
+                    txtBulkProcessWA.Enabled = false;
                 }
                 if (ObjEPosition.dsPositionOZList != null)
                 {
@@ -5367,12 +5323,6 @@ namespace OTTOPro
         {
             frmDesignReport Obj = new frmDesignReport(ObjEProject.ProjectID);
             Obj.ShowDialog();
-
-            //Delivery Notes related report
-            //rptDeliveryNotes rpt = new rptDeliveryNotes(ObjEProject.ProjectID, ObjEProject.KundeID);
-            //ReportPrintTool printTool = new ReportPrintTool(rpt);
-            //// Invoke the Print dialog.
-            //printTool.ShowRibbonPreview();
         }
 
         private void txtType_Leave(object sender, EventArgs e)
@@ -8364,7 +8314,7 @@ namespace OTTOPro
         {
             try
             {
-                btnAdd_Click(null, null);
+                gvAddRemovePositions.Rows.Add();
             }
             catch (Exception ex)
             {
@@ -8377,7 +8327,15 @@ namespace OTTOPro
         {
             try
             {
-                btnRemove_Click(null, null);
+                if (this.gvAddRemovePositions.SelectedRows.Count > 0)
+                {
+                    // gvAddRemovePositions.Rows.RemoveAt(this.gvAddRemovePositions.SelectedRows[0].Index);
+                    foreach (DataGridViewRow item in this.gvAddRemovePositions.SelectedRows)
+                    {
+                        gvAddRemovePositions.Rows.RemoveAt(item.Index);
+                    }
+                    tlBulkProcessPositionDetails.DataSource = null;
+                }
             }
             catch (Exception ex)
             {
