@@ -15,8 +15,7 @@ namespace OTTOPro
 {
     public partial class frmTextDialog : DevExpress.XtraEditors.XtraForm
     {
-        private EProposal _ObjEProposal = null;
-        private BGAEB objBGAEB = null;
+        private EProposal _ObjEProposal = null;        
         public string strName = string.Empty;
         private string _NewLVSection = string.Empty;
         private bool _IsSave = false;
@@ -39,13 +38,7 @@ namespace OTTOPro
         public frmTextDialog()
         {
             InitializeComponent();
-        }
-        public frmTextDialog(string _Type)
-        {
-            InitializeComponent();
-            _FormType = _Type;
-        }
-
+        }       
         private void btnOK_Click(object sender, EventArgs e)
         {
             try
@@ -61,32 +54,7 @@ namespace OTTOPro
                     {
                         _isValidate = false;
                         throw new Exception("Please Enter Valid Value");
-                    }
-                if (_FormType == "Raster")
-                {
-                    DataTable dt = new DataTable();
-                    objBGAEB = new BGAEB();
-                    dt = objBGAEB.Get_LVRasters();
-                    if (dt != null)
-                    {
-                        foreach (DataRow dr in dt.Rows)
-                        {
-                            if (dr["LVRasterName"].ToString() == txtNewLVSection.Text.Trim())
-                            {
-                                if (!Utility._IsGermany)
-                                {
-                                    _isValidate = false;
-                                    throw new Exception("Raster already exist.!");
-                                }
-                                else
-                                {
-                                    //throw new Exception("Diese Kategorie existiert berets.!");
-                                }
-
-                            }
-                        }
-                    }
-                }
+                    }                
                 _NewLVSection = txtNewLVSection.Text;
                 _isValidate = true;
                 this.Close();
@@ -106,18 +74,7 @@ namespace OTTOPro
 
         private void frmTextDialog_Load(object sender, EventArgs e)
         {
-            if(_FormType=="LV Section")
-            {
-                this.Text = "Neu LV Sektion";
-                lcitext.Text = "Neu LV Sektion";
-                txtNewLVSection.Text = _NewLVSection;
-            }
-            if (_FormType == "Raster")
-            {
-                this.Text = "Neu LV Raster";
-                lcitext.Text = "Neu LV Raster";
-            }
-
+            txtNewLVSection.Text = _NewLVSection;
         }
 
         private void txtNewLVSection_TextChanged(object sender, EventArgs e)

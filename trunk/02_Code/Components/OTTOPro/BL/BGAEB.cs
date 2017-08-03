@@ -20,7 +20,7 @@ namespace BL
         DGAEB ObjGAEB = new DGAEB();
         EGAEB objEGAEB = new EGAEB();
 
-        public XmlDocument Export(int ProjectID, string strLVSection,string strFormat)
+        public XmlDocument Export(int ProjectID, string strLVSection,string strFormat,string _Raster)
         {
             XmlDocument xmldoc = new XmlDocument();
             try
@@ -28,7 +28,7 @@ namespace BL
                 DataSet dsTMLData = null;
                 DataSet dsTMLPositionsData = null;
                 dsTMLData = ObjGAEB.Export(ProjectID);
-                dsTMLPositionsData = ObjGAEB.GetPositionsDataForTML(ProjectID, strLVSection);
+                dsTMLPositionsData = ObjGAEB.GetPositionsDataForTML(ProjectID, strLVSection, _Raster);
                 dsTMLData.DataSetName = "Generic";
                 dsTMLData.Tables[0].TableName = "DateiInfo";
                 dsTMLData.Tables[1].TableName = "AG";
@@ -695,5 +695,19 @@ namespace BL
             }
         }
 
+        public string GetOld_Raster(int _ProjectID)
+        {
+            string Old_raster = string.Empty;
+
+            try
+            {
+                Old_raster = ObjGAEB.GetOld_LVRaster(_ProjectID);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return Old_raster;
+        }
     }
 }

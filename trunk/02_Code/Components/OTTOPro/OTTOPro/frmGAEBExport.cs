@@ -15,6 +15,7 @@ using System.Xml;
 using DevExpress.XtraSplashScreen;
 using System.Threading;
 using System.Globalization;
+using EL;
 namespace OTTOPro
 {
     public partial class frmGAEBExport : Form
@@ -25,8 +26,10 @@ namespace OTTOPro
         public string OutputFilePath = string.Empty;
         public string KNr = string.Empty;
         BGAEB ObjBGAEB = null;
+        EGAEB ObjEGAEB = null;
+        private string _NewRaster=string.Empty;
 
-        public frmGAEBExport(string tProjectNo, int ProjectID,int Raster_Count)
+        public frmGAEBExport(string tProjectNo, int ProjectID,int Raster_Count,string _raster)
         {
             InitializeComponent();
             txtProjectName.Text = tProjectNo;
@@ -34,6 +37,7 @@ namespace OTTOPro
             _ProjectID = ProjectID;
             ProjectNumber = tProjectNo;
             _Raster = Raster_Count;
+            _NewRaster = _raster;
         }
 
         private void frmGAEBExport_Load(object sender, EventArgs e)
@@ -93,24 +97,43 @@ namespace OTTOPro
         private void btnExport_Click(object sender, EventArgs e)
         {
             try
-            {
-                this.Close();
-                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                SplashScreenManager.Default.SetWaitFormDescription("Exportieren...");
-                XmlDocument XMLDoc = null;
+            {                
                 if (ObjBGAEB == null)
                 {
                     ObjBGAEB = new BGAEB();
                 }
+                if (ObjEGAEB == null)
+                {
+                    ObjEGAEB = new EGAEB();
+                }
+                ObjEGAEB.OldRaster= ObjBGAEB.GetOld_Raster(_ProjectID);
+                if (ObjEGAEB.OldRaster != "")
+                {
+                    ObjEGAEB.NewRaster = _NewRaster;
+                    frmSelectRaster frm = new frmSelectRaster(ObjEGAEB);
+                    frm.ShowDialog();
+                    if(frm.DialogResult==DialogResult.OK)
+                    {
+                        _NewRaster = frm.LVRaster;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+                this.Close();
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Exportieren...");
+                XmlDocument XMLDoc = null;                
                 if (cmbFormatType.Text != string.Empty)
                 {
-                    XMLDoc = ObjBGAEB.Export(_ProjectID, cmbLVSection.Text, cmbFormatType.Text);
+                    XMLDoc = ObjBGAEB.Export(_ProjectID, cmbLVSection.Text, cmbFormatType.Text, _NewRaster);
                     string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
                     if (!Directory.Exists(strOTTOFilePath))
                         Directory.CreateDirectory(strOTTOFilePath);
                     string strOutputFilePath = string.Empty;
                     strOutputFilePath = OutputFilePath = txtFilePath.Text + "\\" + txtFileName.Text + "." + cmbFormatType.Text;
-                    string strInputFilePath = strOTTOFilePath + txtFileName.Text + ".tml";
+                    string strInputFilePath = strOTTOFilePath + txtFileName.Text + ".tml";  
                     XMLDoc.Save(strInputFilePath);
                     Utility.ProcesssFile(strInputFilePath, strOutputFilePath);
                 }

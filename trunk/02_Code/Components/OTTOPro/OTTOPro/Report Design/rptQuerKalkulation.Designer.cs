@@ -1133,7 +1133,6 @@
             xrSummary21.FormatString = "{0:n2}";
             xrSummary21.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
             this.xrTableCell58.Summary = xrSummary21;
-            this.xrTableCell58.Text = "B";
             this.xrTableCell58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell58.Weight = 0.23774289734157875D;
             // 

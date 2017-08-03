@@ -349,7 +349,6 @@ namespace OTTOPro
                 {
                     chkLockHierarchy.Enabled = false;
                     chkLockHierarchy.Enabled = false;
-                    btnAddRaster.Enabled = false;
                 }
                 chkLockHierarchy_CheckedChanged(null,null);
             }
@@ -3180,7 +3179,7 @@ namespace OTTOPro
                 string strLVSecction = cmbLVSection.Text;
                 if (strLVSecction.ToLower() == "nt" || strLVSecction.ToLower() == "ntm")
                 {
-                    frmTextDialog Obj = new frmTextDialog("LV Section");
+                    frmTextDialog Obj = new frmTextDialog();
                     Obj.ShowInTaskbar = false;
                     Obj.NewLVSection = strLVSecction + ObjBPosition.GetNewLVSection(cmbLVSection.Text, ObjEProject.ProjectID);
                     Obj.ShowDialog();
@@ -3592,7 +3591,7 @@ namespace OTTOPro
                 {
                     int raster_count = ddlRaster.Text.Replace(".", string.Empty).Length;
 
-                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count);
+                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count,ObjEProject.LVRaster);
                     Obj.KNr = ObjEProject.CommissionNumber;
                     Obj.ShowDialog();
                     if (File.Exists(Obj.OutputFilePath))
@@ -5848,7 +5847,7 @@ namespace OTTOPro
                 {
                     int raster_count = ddlRaster.Text.Replace(".", string.Empty).Length;
 
-                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count);
+                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count,ObjEProject.LVRaster);
                     Obj.KNr = ObjEProject.CommissionNumber;
                     Obj.ShowDialog();
                     if (File.Exists(Obj.OutputFilePath))
@@ -8713,35 +8712,23 @@ namespace OTTOPro
             }
         }
 
-        private void btnAddRaster_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmTextDialog frm = new frmTextDialog("Raster");
-                frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
-                {
-                    ddlRaster.Text = frm.NewLVSection;
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void chkLockHierarchy_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
-                if (chkLockHierarchy.Checked == true)
+                if (chkLockHierarchy.Checked == false)
                 {
-                    btnAddRaster.Enabled = false;
+                    if (ddlRaster.Text != "")
+                    {
+                        frmAddRaster frm = new frmAddRaster(ddlRaster.Text);
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            ddlRaster.Text = frm.NewRaster;
+                        }
+                    }
                 }
-                else
-                {
-                    btnAddRaster.Enabled = true;
-                }
+                chkLockHierarchy.Checked = true;
             }
             catch (Exception ex)
             {
