@@ -1437,7 +1437,7 @@
             // 
             this.GESAMTVK.DataMember = "P_Rpt_QuerCalculation(@ProjectID)";
             this.GESAMTVK.DataSource = this.sqlDataSource2;
-            this.GESAMTVK.Expression = "[MA_EK] + [MO_EK]";
+            this.GESAMTVK.Expression = "[MA_VK] + [MO_VK]";
             this.GESAMTVK.Name = "GESAMTVK";
             this.GESAMTVK.Scripts.OnGetValue = "GESAMTVK_GetValue";
             // 

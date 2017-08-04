@@ -27,7 +27,7 @@ namespace BL
             {
                 DataSet dsTMLData = null;
                 DataSet dsTMLPositionsData = null;
-                dsTMLData = ObjGAEB.Export(ProjectID);
+                dsTMLData = ObjGAEB.Export(ProjectID, _Raster);
                 dsTMLPositionsData = ObjGAEB.GetPositionsDataForTML(ProjectID, strLVSection, _Raster);
                 dsTMLData.DataSetName = "Generic";
                 dsTMLData.Tables[0].TableName = "DateiInfo";

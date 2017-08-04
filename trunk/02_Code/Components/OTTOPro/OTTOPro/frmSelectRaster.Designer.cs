@@ -81,6 +81,7 @@
             // CLCRasters
             // 
             this.CLCRasters.CheckOnClick = true;
+            this.CLCRasters.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1;
             this.CLCRasters.Cursor = System.Windows.Forms.Cursors.Default;
             this.CLCRasters.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Old"),

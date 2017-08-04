@@ -12,7 +12,7 @@ namespace DataAccess
 {
     public class DGAEB
     {
-        public DataSet Export(int ProjectID)
+        public DataSet Export(int ProjectID, string _Raster)
         {
             DataSet dsTMLData = new DataSet();
             try
@@ -23,6 +23,7 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_TMLFile]";
                     cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    cmd.Parameters.AddWithValue("@LVRaster", _Raster);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsTMLData, "TMLData");
