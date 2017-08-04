@@ -165,7 +165,6 @@
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.GESAMTVK = new DevExpress.XtraReports.UI.CalculatedField();
             this.ANTEIL = new DevExpress.XtraReports.UI.CalculatedField();
-            this.MAEKP = new DevExpress.XtraReports.UI.CalculatedField();
             this.MAMULTI = new DevExpress.XtraReports.UI.CalculatedField();
             this.MAVK = new DevExpress.XtraReports.UI.CalculatedField();
             this.MOEKP = new DevExpress.XtraReports.UI.CalculatedField();
@@ -603,7 +602,7 @@
             // 
             this.xrTableCell17.CanGrow = false;
             this.xrTableCell17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MAEKP", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_EK", "{0:n2}")});
             this.xrTableCell17.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.StylePriority.UseFont = false;
@@ -631,7 +630,7 @@
             // 
             this.xrTableCell19.CanGrow = false;
             this.xrTableCell19.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MAVK", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_VK", "{0:n2}")});
             this.xrTableCell19.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell19.Name = "xrTableCell19";
             this.xrTableCell19.StylePriority.UseFont = false;
@@ -645,7 +644,7 @@
             // 
             this.xrTableCell20.CanGrow = false;
             this.xrTableCell20.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MOEKP", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_EK", "{0:n2}")});
             this.xrTableCell20.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell20.Name = "xrTableCell20";
             this.xrTableCell20.StylePriority.UseFont = false;
@@ -673,7 +672,7 @@
             // 
             this.xrTableCell22.CanGrow = false;
             this.xrTableCell22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MOVK", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_VK", "{0:n2}")});
             this.xrTableCell22.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell22.Name = "xrTableCell22";
             this.xrTableCell22.StylePriority.UseFont = false;
@@ -838,7 +837,7 @@
             // 
             this.xrTableCell30.CanGrow = false;
             this.xrTableCell30.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MAEKP")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_EK")});
             this.xrTableCell30.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell30.Name = "xrTableCell30";
             this.xrTableCell30.StylePriority.UseFont = false;
@@ -868,7 +867,7 @@
             // 
             this.xrTableCell32.CanGrow = false;
             this.xrTableCell32.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MAVK")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_VK")});
             this.xrTableCell32.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell32.Name = "xrTableCell32";
             this.xrTableCell32.StylePriority.UseFont = false;
@@ -883,7 +882,7 @@
             // 
             this.xrTableCell33.CanGrow = false;
             this.xrTableCell33.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MOEKP")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_EK")});
             this.xrTableCell33.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell33.Name = "xrTableCell33";
             this.xrTableCell33.StylePriority.UseFont = false;
@@ -913,7 +912,7 @@
             // 
             this.xrTableCell35.CanGrow = false;
             this.xrTableCell35.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MOVK")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_VK")});
             this.xrTableCell35.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell35.Name = "xrTableCell35";
             this.xrTableCell35.StylePriority.UseFont = false;
@@ -1065,7 +1064,7 @@
             // 
             this.xrTableCell54.CanGrow = false;
             this.xrTableCell54.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MAEKP")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_EK")});
             this.xrTableCell54.Font = new System.Drawing.Font("Arial", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.xrTableCell54.KeepTogether = true;
             this.xrTableCell54.Name = "xrTableCell54";
@@ -1096,7 +1095,7 @@
             // 
             this.xrTableCell56.CanGrow = false;
             this.xrTableCell56.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MAVK")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_VK")});
             this.xrTableCell56.Font = new System.Drawing.Font("Arial", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.StylePriority.UseFont = false;
@@ -1111,7 +1110,7 @@
             // 
             this.xrTableCell57.CanGrow = false;
             this.xrTableCell57.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MOEKP")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_EK")});
             this.xrTableCell57.Font = new System.Drawing.Font("Arial", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.xrTableCell57.Name = "xrTableCell57";
             this.xrTableCell57.StylePriority.UseFont = false;
@@ -1134,7 +1133,6 @@
             xrSummary21.FormatString = "{0:n2}";
             xrSummary21.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
             this.xrTableCell58.Summary = xrSummary21;
-            this.xrTableCell58.Text = "B";
             this.xrTableCell58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell58.Weight = 0.23774289734157875D;
             // 
@@ -1142,7 +1140,7 @@
             // 
             this.xrTableCell59.CanGrow = false;
             this.xrTableCell59.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MOVK")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_VK")});
             this.xrTableCell59.Font = new System.Drawing.Font("Arial", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.xrTableCell59.Name = "xrTableCell59";
             this.xrTableCell59.StylePriority.UseFont = false;
@@ -1439,7 +1437,7 @@
             // 
             this.GESAMTVK.DataMember = "P_Rpt_QuerCalculation(@ProjectID)";
             this.GESAMTVK.DataSource = this.sqlDataSource2;
-            this.GESAMTVK.Expression = "[MAEKP]+[MOEKP]";
+            this.GESAMTVK.Expression = "[MA_EK] + [MO_EK]";
             this.GESAMTVK.Name = "GESAMTVK";
             this.GESAMTVK.Scripts.OnGetValue = "GESAMTVK_GetValue";
             // 
@@ -1450,18 +1448,11 @@
             this.ANTEIL.Expression = "[GESAMTVK] / Sum([GESAMTVK]) * 100";
             this.ANTEIL.Name = "ANTEIL";
             // 
-            // MAEKP
-            // 
-            this.MAEKP.DataMember = "P_Rpt_QuerCalculation(@ProjectID)";
-            this.MAEKP.DataSource = this.sqlDataSource2;
-            this.MAEKP.Expression = "[Menge] * [MA_EKPrice]";
-            this.MAEKP.Name = "MAEKP";
-            // 
             // MAMULTI
             // 
             this.MAMULTI.DataMember = "P_Rpt_QuerCalculation(@ProjectID)";
             this.MAMULTI.DataSource = this.sqlDataSource2;
-            this.MAMULTI.Expression = "[MA_SBMULTI] * [MA_VKMULTI]";
+            this.MAMULTI.Expression = "[MA_VK] / [MA_EK]";
             this.MAMULTI.Name = "MAMULTI";
             // 
             // MAVK
@@ -1482,7 +1473,7 @@
             // 
             this.MOMULTI.DataMember = "P_Rpt_QuerCalculation(@ProjectID)";
             this.MOMULTI.DataSource = this.sqlDataSource2;
-            this.MOMULTI.Expression = "[MO_SBMULTI]*[MO_VKMULTI]";
+            this.MOMULTI.Expression = "[MO_VK] / [MO_EK]";
             this.MOMULTI.Name = "MOMULTI";
             // 
             // MOVK
@@ -1496,14 +1487,14 @@
             // 
             this.SumMAMulti.DataMember = "P_Rpt_QuerCalculation(@ProjectID)";
             this.SumMAMulti.DataSource = this.sqlDataSource2;
-            this.SumMAMulti.Expression = "Sum([MAVK] / Sum([MAEKP]))";
+            this.SumMAMulti.Expression = "Sum([MA_VK] / Sum([MA_EK]))";
             this.SumMAMulti.Name = "SumMAMulti";
             // 
             // SumMOMulti
             // 
             this.SumMOMulti.DataMember = "P_Rpt_QuerCalculation(@ProjectID)";
             this.SumMOMulti.DataSource = this.sqlDataSource2;
-            this.SumMOMulti.Expression = "Sum([MOVK] / Sum([MOEKP]))";
+            this.SumMOMulti.Expression = "Sum([MO_VK] / Sum([MO_EK]))";
             this.SumMOMulti.Name = "SumMOMulti";
             // 
             // DetailReport1
@@ -1543,7 +1534,6 @@
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.GESAMTVK,
             this.ANTEIL,
-            this.MAEKP,
             this.MAMULTI,
             this.MAVK,
             this.MOEKP,
@@ -1646,7 +1636,6 @@
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.CalculatedField GESAMTVK;
         private DevExpress.XtraReports.UI.CalculatedField ANTEIL;
-        private DevExpress.XtraReports.UI.CalculatedField MAEKP;
         private DevExpress.XtraReports.UI.CalculatedField MAMULTI;
         private DevExpress.XtraReports.UI.CalculatedField MAVK;
         private DevExpress.XtraReports.UI.CalculatedField MOEKP;

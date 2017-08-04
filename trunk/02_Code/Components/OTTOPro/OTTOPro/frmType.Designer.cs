@@ -75,6 +75,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl1.Controls.Add(this.gcTyp);
             this.layoutControl1.Controls.Add(this.cmbSupplier);
@@ -416,7 +417,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Typ";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmType_FormClosing);
             this.Load += new System.EventHandler(this.frmType_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

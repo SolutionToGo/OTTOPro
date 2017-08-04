@@ -311,21 +311,6 @@ namespace BL
             return ObjEArticle;
         }
 
-        public EArticles GetAticleForMapping(EArticles ObjEArticle)
-        {
-            try
-            {
-                if(ObjDArticles == null)
-                    ObjDArticles = new DArticles();
-                ObjEArticle = ObjDArticles.GetAticleForMapping(ObjEArticle);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return ObjEArticle;
-        }
-
         public EArticles SaveArticleMapping(EArticles ObjEArticle)
         {
             try
@@ -369,5 +354,64 @@ namespace BL
             return ObjEArticle;
         }
 
+        public EArticles GetArticleDetailsForAccessories(EArticles ObjEArticle)
+        {
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.GetArticleDetailsForAccessories(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles GetTypForArticle(EArticles ObjEArticle)
+        {
+            try
+            {
+                if(ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.GetTypForArticle(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles GetArticleBytyp(EArticles ObjEArticle)
+        {
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles(); 
+                ObjEArticle = ObjDArticles.GetArticleBytyp(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles GetArticleByWG(EArticles ObjEArticle)
+        {
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.GetArticleByWG(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
     }
 }

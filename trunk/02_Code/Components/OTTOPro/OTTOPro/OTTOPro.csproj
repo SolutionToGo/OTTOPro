@@ -231,6 +231,12 @@
     <Compile Include="frmAddDimension.Designer.cs">
       <DependentUpon>frmAddDimension.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddRaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddRaster.Designer.cs">
+      <DependentUpon>frmAddRaster.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmArticlesData.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -362,6 +368,12 @@
     </Compile>
     <Compile Include="frmSelectDimension.Designer.cs">
       <DependentUpon>frmSelectDimension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectRaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectRaster.Designer.cs">
+      <DependentUpon>frmSelectRaster.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSelectTextModuleDetails.cs">
       <SubType>Form</SubType>
@@ -556,6 +568,9 @@
     <EmbeddedResource Include="frmAddDimension.resx">
       <DependentUpon>frmAddDimension.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddRaster.resx">
+      <DependentUpon>frmAddRaster.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmArticlesData.resx">
       <DependentUpon>frmArticlesData.cs</DependentUpon>
     </EmbeddedResource>
@@ -621,6 +636,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectDimension.resx">
       <DependentUpon>frmSelectDimension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectRaster.resx">
+      <DependentUpon>frmSelectRaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectTextModuleDetails.resx">
       <DependentUpon>frmSelectTextModuleDetails.cs</DependentUpon>

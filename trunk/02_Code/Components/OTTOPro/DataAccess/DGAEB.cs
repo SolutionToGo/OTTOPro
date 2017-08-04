@@ -48,7 +48,7 @@ namespace DataAccess
             return dsTMLData;
         }
 
-        public DataSet GetPositionsDataForTML(int ProjectID, string strLVSection)
+        public DataSet GetPositionsDataForTML(int ProjectID, string strLVSection, string _Raster)
         {
             DataSet dsTMLData = new DataSet();
             try
@@ -60,6 +60,7 @@ namespace DataAccess
                     cmd.CommandText = "[P_Get_PositionForTML]";
                     cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
                     cmd.Parameters.AddWithValue("@LVSection", strLVSection);
+                    cmd.Parameters.AddWithValue("@LVRaster", _Raster);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsTMLData, "TMLData");
@@ -206,5 +207,37 @@ namespace DataAccess
             return dtLVSecton;
         }
 
+        public string GetOld_LVRaster(int _ProjectID)
+        {
+            string Old_Raster = string.Empty;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_Old_LVRaster]";
+                    cmd.Parameters.AddWithValue("@ProjectID", _ProjectID);
+                    object _objreturn = cmd.ExecuteScalar();
+                    Old_Raster = Convert.ToString(_objreturn);
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der Rasters");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving Rasters");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return Old_Raster;
+        }
     }
 }

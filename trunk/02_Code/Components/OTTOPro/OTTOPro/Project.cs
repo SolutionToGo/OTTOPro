@@ -344,6 +344,13 @@ namespace OTTOPro
                     nbInvoices.Visible = false;
                 if (Utility.KomissionDataAccess == "9" || Utility.KomissionDataAccess == "7")
                     txtkommissionNumber.Enabled = false;
+
+                if (Utility.RoleID != 14)
+                {
+                    chkLockHierarchy.Enabled = false;
+                    chkLockHierarchy.Enabled = false;
+                }
+                chkLockHierarchy_CheckedChanged(null,null);
             }
             catch (Exception ex)
             {
@@ -715,7 +722,12 @@ namespace OTTOPro
                 ObjEPosition.WI = txtWI.Text;
 
                 if (decimal.TryParse(txtMenge.Text, out dValue))
-                    ObjEPosition.Menge = dValue;
+                {
+                    if (ObjEPosition.PositionKZ == "P")
+                        ObjEPosition.Menge = 1;
+                    else
+                        ObjEPosition.Menge = dValue;
+                }
 
                 ObjEPosition.ME = cmbME.Text;
                 ObjEPosition.Fabricate = txtFabrikate.Text;
@@ -3579,7 +3591,7 @@ namespace OTTOPro
                 {
                     int raster_count = ddlRaster.Text.Replace(".", string.Empty).Length;
 
-                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count);
+                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count,ObjEProject.LVRaster);
                     Obj.KNr = ObjEProject.CommissionNumber;
                     Obj.ShowDialog();
                     if (File.Exists(Obj.OutputFilePath))
@@ -3801,51 +3813,6 @@ namespace OTTOPro
         }
 
         #region BULK PROCESS
-
-
-
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cmbBulkProcessSelection.Text == "")
-                {
-                    if (Utility._IsGermany == true)
-                    {
-                        throw new Exception("Bitte wählen Sie die Filtermethode.!");
-                    }
-                    else
-                    {
-                        throw new Exception("Please select Typ.!");
-                    }                    
-                }
-                gvAddRemovePositions.Rows.Add();
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (this.gvAddRemovePositions.SelectedRows.Count > 0)
-                {
-                    // gvAddRemovePositions.Rows.RemoveAt(this.gvAddRemovePositions.SelectedRows[0].Index);
-                    foreach (DataGridViewRow item in this.gvAddRemovePositions.SelectedRows)
-                    {
-                        gvAddRemovePositions.Rows.RemoveAt(item.Index);
-                    }
-                    tlBulkProcessPositionDetails.DataSource = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         string tType = null;
         private void AssignPosition_type()
@@ -4651,7 +4618,6 @@ namespace OTTOPro
         {
             try
             {
-                // e.Control.KeyPress -= new KeyPressEventHandler(DataGrid_KeyPress);
                 TextBox tb = e.Control as TextBox;
                 if (tb != null)
                 {
@@ -5324,13 +5290,15 @@ namespace OTTOPro
             {
                 if (cmbBulkProcessSelection.SelectedIndex == 2)
                 {
-                    lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                    gvAddRemovePositions.Enabled = false;
+                    txtBulkProcessWG.Enabled = true;
+                    txtBulkProcessWA.Enabled = true;
                 }
                 else
                 {
-                    lcgBulkProcessLVGrid.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                    lcgWGWA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                    gvAddRemovePositions.Enabled = true;
+                    txtBulkProcessWG.Enabled = false;
+                    txtBulkProcessWA.Enabled = false;
                 }
                 if (ObjEPosition.dsPositionOZList != null)
                 {
@@ -5355,12 +5323,6 @@ namespace OTTOPro
         {
             frmDesignReport Obj = new frmDesignReport(ObjEProject.ProjectID);
             Obj.ShowDialog();
-
-            //Delivery Notes related report
-            //rptDeliveryNotes rpt = new rptDeliveryNotes(ObjEProject.ProjectID, ObjEProject.KundeID);
-            //ReportPrintTool printTool = new ReportPrintTool(rpt);
-            //// Invoke the Print dialog.
-            //printTool.ShowRibbonPreview();
         }
 
         private void txtType_Leave(object sender, EventArgs e)
@@ -5614,12 +5576,22 @@ namespace OTTOPro
 
         private void SetOhnestuffeMask()
         {
-            string[] Levels = ObjEProject.LVRaster.Split('.');
-            int Count = Levels.Length;
-            int _Length = Levels[Count - 2].Length;
-            txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            txtPosition.Properties.Mask.EditMask =@"\d{1,"+_Length+"}((\\.)\\d{0,1})?";
-            txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+            try
+            {
+                string[] Levels = ObjEProject.LVRaster.Split('.');
+                int Count = Levels.Length;
+                if (Count >= 2)
+                {
+                    int _Length = Levels[Count - 2].Length;
+                    txtPosition.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                    txtPosition.Properties.Mask.EditMask = @"\d{1," + _Length + "}((\\.)\\d{0,1})?";
+                    txtPosition.Properties.Mask.UseMaskAsDisplayFormat = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void LVDetailsColumnReadOnly(bool _value)
@@ -5691,18 +5663,18 @@ namespace OTTOPro
                 checkEditNachtragsnummer.Enabled = false;
 
             }
-            if (cmbLVStatus.Text == "A")
-            {
-                if (Utility._IsGermany == true)
-                {
-                    XtraMessageBox.Show("Die globale LV Bearbeitung wird nicht auf abgelehnte LV Positionen angewandt.");
-                }
-                else
-                {
-                    XtraMessageBox.Show("Bulk Process should not happend for Rejected LVs.");
-                }
-                return;
-            }
+            //if (cmbLVStatus.Text == "A")
+            //{
+            //    if (Utility._IsGermany == true)
+            //    {
+            //        XtraMessageBox.Show("Die globale LV Bearbeitung wird nicht auf abgelehnte LV Positionen angewandt.");
+            //    }
+            //    else
+            //    {
+            //        XtraMessageBox.Show("Bulk Process should not happend for Rejected LVs.");
+            //    }
+            //    return;
+            //}
             if (ObjEProject.ProjectID > 0)
             {
                 tlBulkProcessPositionDetails.Cursor = Cursors.Default;
@@ -5825,7 +5797,7 @@ namespace OTTOPro
                 {
                     int raster_count = ddlRaster.Text.Replace(".", string.Empty).Length;
 
-                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count);
+                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count,ObjEProject.LVRaster);
                     Obj.KNr = ObjEProject.CommissionNumber;
                     Obj.ShowDialog();
                     if (File.Exists(Obj.OutputFilePath))
@@ -7641,7 +7613,7 @@ namespace OTTOPro
                         if (!int.TryParse(strNO, out I_index))
                             I_index = 0;
                     }
-                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, "");
+                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, "", rgDropMode.SelectedIndex);
                     Position_OZ = ParentOZ + _Suggested_OZ;
                 }
                 else
@@ -7679,7 +7651,7 @@ namespace OTTOPro
                         else
                             I_index = iTemp - 1;
                     }
-                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, strnextLV);
+                    string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, strnextLV,rgDropMode.SelectedIndex);
                     Position_OZ = ParentOZ + _Suggested_OZ;
                 }
                 string strLongDescription = ObjBPosition.GetLongDescription(IPositionID);
@@ -7934,12 +7906,12 @@ namespace OTTOPro
             }
         }
 
-        private string SuggestOZForCopy(string PositionOZ, string strNextLV)
+        private string SuggestOZForCopy(string PositionOZ, string strNextLV, int Index = 0)
         {
             string strNewOZ = string.Empty;
             try
             {
-                if (rgDropMode.SelectedIndex == 0)
+                if (Index == 0)
                 {
                     string[] OZList = PositionOZ.Split('.');
                     if (OZList != null && OZList.Count() > 1)
@@ -7967,7 +7939,7 @@ namespace OTTOPro
                     else
                         strNewOZ = ObjEProject.LVSprunge.ToString() + ".";
                 }
-                else if (rgDropMode.SelectedIndex == 1)
+                else if (Index == 1)
                 {
                     string[] OZList = PositionOZ.Split('.');
                     if (OZList != null && OZList.Count() > 1)
@@ -8342,7 +8314,7 @@ namespace OTTOPro
         {
             try
             {
-                btnAdd_Click(null, null);
+                gvAddRemovePositions.Rows.Add();
             }
             catch (Exception ex)
             {
@@ -8355,7 +8327,15 @@ namespace OTTOPro
         {
             try
             {
-                btnRemove_Click(null, null);
+                if (this.gvAddRemovePositions.SelectedRows.Count > 0)
+                {
+                    // gvAddRemovePositions.Rows.RemoveAt(this.gvAddRemovePositions.SelectedRows[0].Index);
+                    foreach (DataGridViewRow item in this.gvAddRemovePositions.SelectedRows)
+                    {
+                        gvAddRemovePositions.Rows.RemoveAt(item.Index);
+                    }
+                    tlBulkProcessPositionDetails.DataSource = null;
+                }
             }
             catch (Exception ex)
             {
@@ -8459,7 +8439,391 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }        
-       
+        }
+
+        private void btnAddAccessories_Click(object sender, EventArgs e)
+        {
+            
+            try
+            {
+                string strPositionKZ = Convert.ToString(tlPositions.FocusedNode["PositionKZ"]);
+                if (strPositionKZ == "N" || strPositionKZ == "E" || strPositionKZ == "A" || strPositionKZ == "M")
+                {
+                    BArticles ObjBArticles = new BArticles();
+                    EArticles ObjEArticles = new EArticles();
+                    int SNo = -1;
+                    if(ObjEPosition.PositionID > 0)
+                    {
+                        if (tlPositions.FocusedNode != null && tlPositions.FocusedNode["SNO"] != null)
+                        {
+                            int IValue = 0;
+                            bool _HaveDetailKZ = false;
+                            if (int.TryParse(Convert.ToString(tlPositions.FocusedNode["DetailKZ"]), out IValue))
+                            {
+                                if(IValue >0)
+                                    return;
+                            }
+                            if (bool.TryParse(Convert.ToString(tlPositions.FocusedNode["HaveDetailkz"]), out _HaveDetailKZ))
+                            {
+                                if (_HaveDetailKZ)
+                                    return;
+                            }
+
+                            if (int.TryParse(Convert.ToString(tlPositions.FocusedNode["SNO"]), out IValue))
+                                SNo = IValue;
+                            else
+                                SNo = -1;
+                        }
+                    }
+
+                    ObjEArticles.WG = txtWG.Text;
+                    ObjEArticles.WA = txtWA.Text;
+                    ObjEArticles.WI = txtWI.Text;
+                    ObjEArticles.A = txtDim1.Text;
+                    ObjEArticles.B = txtDim2.Text;
+                    ObjEArticles.L = txtDim3.Text;
+                    ObjEArticles = ObjBArticles.GetAccessoriesForLVs(ObjEArticles);
+                    if (ObjEArticles.dtAccessories == null || ObjEArticles.dtAccessories.Rows.Count <= 0)
+                        throw new Exception("No Accessories Exists");
+                    DataTable dt = ObjEArticles.dtAccessories.Copy();
+                    ObjEArticles.dtAccessories = new DataTable();
+                    ObjEArticles.dtAccessories = dt.Clone();
+                    DataRow drnew = ObjEArticles.dtAccessories.NewRow();
+                    drnew["WG"] = ObjEArticles.WG;
+                    drnew["WA"] = ObjEArticles.WA;
+                    drnew["WI"] = ObjEArticles.WI;
+                    drnew["A"] = ObjEArticles.A;
+                    drnew["B"] = ObjEArticles.B;
+                    drnew["L"] = ObjEArticles.L;
+                    drnew["MENGE"] = 0;
+                    ObjEArticles.dtAccessories.Rows.Add(drnew);
+                    foreach (DataRow dr in dt.Rows)
+                        ObjEArticles.dtAccessories.ImportRow(dr);
+
+                    frmSelectAccessories Obj = new frmSelectAccessories();
+                    Obj.ObjEArticle = ObjEArticles;
+                    Obj.ShowInTaskbar = false;
+                    Obj.ShowDialog();
+                    if (Obj._ISSave)
+                    {
+                        SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                        SplashScreenManager.Default.SetWaitFormDescription("Adding Accessories...");
+                        if (ObjEPosition.PositionID < 0)
+                        {
+                            btnSaveLVDetails_Click(null, null);
+                            btnCancel_Click(null, null);
+                        }
+                        int NewPositionID = 0;
+                        int IDetailKz = 0;
+
+                        DataView dvAccessories = ObjEArticles.dtAccessories.DefaultView;
+                        dvAccessories.RowFilter = "MENGE > 0";
+                        DataTable dtTemp = dvAccessories.ToTable();
+                        foreach (DataRow dr in dtTemp.Rows)
+                        {
+                            if (ObjBPosition == null)
+                                ObjBPosition = new BPosition();
+                            if (ObjEPosition == null)
+                                ObjEPosition = new EPosition();
+                            IDetailKz++;
+                            ParseAccessories(dr, SNo, IDetailKz, cmbLVSection.SelectedText, txtFaktor.Text, ObjEArticles, ObjBArticles);
+                            NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
+                            if (SNo != -1)
+                                SNo++;
+                        }
+                        BindPositionData();
+                        SetFocus(NewPositionID, tlPositions);
+                    }
+                }
+                SplashScreenManager.CloseForm(false);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void ParseAccessories(DataRow dr, int Sno, int DetailKZ, string strLVSection, string FActor, EArticles ObjEArticles, BArticles ObjBArticles)
+        {
+            try
+            {
+                decimal dValue = 0;
+                DateTime dt = DateTime.Now;
+                ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                ObjEPosition.RasterCount = iRasterCount;
+                ObjEPosition.Stufe1 = txtStufe1Short.Text;
+                ObjEPosition.Stufe2 = txtStufe2Short.Text;
+                ObjEPosition.Stufe3 = txtStufe3Short.Text;
+                ObjEPosition.Stufe4 = txtStufe4Short.Text;
+                ObjEPosition.Position = txtPosition.Text;
+                ObjEPosition.PositionID = -1;
+                ObjEPosition.PositionKZ = "N";
+                ObjEPosition.DetailKZ = DetailKZ;
+                ObjEPosition.LVSection = strLVSection;
+                ObjEPosition.WG = Convert.ToString(dr["WG"]);
+                ObjEPosition.WA = Convert.ToString(dr["WA"]);
+                ObjEPosition.WI = Convert.ToString(dr["WI"]);
+                ObjEPosition.Dim1 = Convert.ToString(dr["A"]);
+                ObjEPosition.Dim2 = Convert.ToString(dr["B"]);
+                ObjEPosition.Dim3 = Convert.ToString(dr["L"]);
+                if (decimal.TryParse(Convert.ToString(dr["Menge"]), out dValue))
+                    ObjEPosition.Menge = dValue;
+                else
+                    ObjEPosition.Menge = 1;
+                ObjEArticles.WG = ObjEPosition.WG;
+                ObjEArticles.WA = ObjEPosition.WA;
+                ObjEArticles.WI = ObjEPosition.WI;
+                ObjEArticles.A = ObjEPosition.Dim1;
+                ObjEArticles.B = ObjEPosition.Dim2;
+                ObjEArticles.L = ObjEPosition.Dim3;
+                ObjEArticles.ValidityDate = ObjEProject.SubmitDate;
+                ObjEArticles = ObjBArticles.GetArticleDetailsForAccessories(ObjEArticles);
+
+                ObjEPosition.PreisText = string.Empty;
+                ObjEPosition.ME = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Menegenheit"]);
+                ObjEPosition.Fabricate = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Fabrikate"]);
+                ObjEPosition.LiefrantMA = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["ShortName"]);
+                ObjEPosition.Type = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Typ"]);
+                ObjEPosition.LongDescription = string.Empty;
+                ObjEPosition.ShortDescription = string.Empty;
+                ObjEPosition.Surcharge_From = string.Empty;
+                ObjEPosition.Surcharge_To = string.Empty;
+                ObjEPosition.Surcharge_Per = 0;
+                ObjEPosition.surchargePercentage_MO = 0;
+                ObjEPosition.ValidityDate = DateTime.Now;
+                ObjEPosition.MA = "X";
+                ObjEPosition.MO = "X";
+                if(string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+                    ObjEPosition.LVStatus = string.Empty;
+                else
+                    ObjEPosition.LVStatus = "B";
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Minuten"]), out dValue))
+                    ObjEPosition.Mins = dValue;
+                else
+                    ObjEPosition.Mins = 0;
+
+                if (decimal.TryParse(FActor, out dValue))
+                    ObjEPosition.Faktor = dValue;
+                else
+                    ObjEPosition.Faktor = 1;
+
+                ObjEPosition.StdSatz = ObjEProject.InternX;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["ListPrice"]), out dValue))
+                    ObjEPosition.LPMA = dValue;
+                else
+                    ObjEPosition.LPMA = 0;
+
+                ObjEPosition.LPMO = (ObjEPosition.Mins / 60) * ObjEPosition.StdSatz * ObjEPosition.Faktor;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Multi1"]), out dValue))
+                    ObjEPosition.Multi1MA = dValue;
+                else
+                    ObjEPosition.Multi1MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Multi2"]), out dValue))
+                    ObjEPosition.Multi2MA = dValue;
+                else
+                    ObjEPosition.Multi2MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Multi3"]), out dValue))
+                    ObjEPosition.Multi3MA = dValue;
+                else
+                    ObjEPosition.Multi3MA = 1;
+
+                if (decimal.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Multi4"]), out dValue))
+                    ObjEPosition.Multi4MA = dValue;
+                else
+                    ObjEPosition.Multi4MA = 1;
+                
+                ObjEPosition.Multi1MO = 1;
+                ObjEPosition.Multi2MO = 1;
+                ObjEPosition.Multi3MO = 1;
+                ObjEPosition.Multi4MO = 1;
+                ObjEPosition.EinkaufspreisMA = RoundValue((ObjEPosition.LPMA) * (ObjEPosition.Multi1MA * ObjEPosition.Multi1MA * ObjEPosition.Multi1MA * ObjEPosition.Multi1MA));
+                ObjEPosition.EinkaufspreisMO = ObjEPosition.LPMO;
+                ObjEPosition.SelbstkostenMultiMA = 1;
+                ObjEPosition.SelbstkostenValueMA = ObjEPosition.EinkaufspreisMA;
+                ObjEPosition.SelbstkostenMultiMO = 1;
+                ObjEPosition.SelbstkostenValueMO = ObjEPosition.EinkaufspreisMO;
+                ObjEPosition.VerkaufspreisMultiMA = 1;
+                ObjEPosition.VerkaufspreisValueMA = ObjEPosition.EinkaufspreisMA;
+                ObjEPosition.VerkaufspreisMultiMO = 1;
+                ObjEPosition.VerkaufspreisValueMO = ObjEPosition.EinkaufspreisMO;
+
+                ObjEPosition.EinkaufspreisLockMA = false;
+                ObjEPosition.EinkaufspreisLockMO = false;
+                ObjEPosition.SelbstkostenLockMA = false;
+                ObjEPosition.SelbstkostenLockMO = false;
+                ObjEPosition.VerkaufspreisLockMA = false;
+                ObjEPosition.VerkaufspreisLockMO = false;
+                ObjEPosition.GrandTotalME = ObjEPosition.EinkaufspreisMA;
+                ObjEPosition.GrandTotalMO = ObjEPosition.EinkaufspreisMO;
+                ObjEPosition.EP = ObjEPosition.EinkaufspreisMA + ObjEPosition.EinkaufspreisMO;
+                ObjEPosition.FinalGB = RoundValue(ObjEPosition.EP * ObjEPosition.Menge);
+                ObjEPosition.SNO = Sno;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void chkLockHierarchy_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkLockHierarchy.Checked == false)
+                {
+                    if (ddlRaster.Text != "")
+                    {
+                        frmAddRaster frm = new frmAddRaster(ddlRaster.Text);
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                        {
+                            ddlRaster.Text = frm.NewRaster;
+                        }
+                    }
+                }
+                chkLockHierarchy.Checked = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void tlPositions_DragEnter(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.Move;
+        }
+
+        private void tlPositions_DragDrop(object sender, DragEventArgs e)
+        {
+            try
+            {
+                e.Effect = DragDropEffects.None;
+                DXDragEventArgs args = tlPositions.GetDXDragEventArgs(e);
+                DataRow dataRow = (tlPositions.GetDataRecordByNode(tlPositions.FocusedNode) as DataRowView).Row;
+                if (dataRow == null) return;
+                string _OldPosKZ = dataRow["PositionKZ"] == DBNull.Value ? "" : dataRow["PositionKZ"].ToString();
+                if (_OldPosKZ == "NG")
+                    return;
+                TreeListNode Tnode = args.TargetNode;
+
+                int IValue = 0;
+                if (int.TryParse(Convert.ToString(Tnode["DetailKZ"]), out IValue))
+                {
+                    if (IValue > 0)
+                        return;
+                }
+                else
+                    return;
+
+                bool _HaveDetailKZ = false;
+                if (bool.TryParse(Convert.ToString(Tnode["HaveDetailkz"]), out _HaveDetailKZ))
+                {
+                    if (_HaveDetailKZ)
+                        return;
+                }
+                else
+                    return;
+
+                string TargetPositionKZ = Convert.ToString(Tnode["PositionKZ"]);
+                string SNO = string.Empty;
+                string ParentID = string.Empty;
+                string ParentOZ = string.Empty;
+                string PositionOZ = string.Empty;
+                string strnextLV = string.Empty;
+                int IIndex = 0;
+
+                if (TargetPositionKZ == "NG")
+                {
+                    string[] _Raster = ObjEProject.LVRaster.Split('.');
+                    int _Rastercount = _Raster.Count();
+                    ParentOZ = Tnode["Position_OZ"].ToString();
+                    string[] _OZ = ParentOZ.Split('.');
+                    int _OZCount = _OZ.Count();
+                    if (_OZCount != _Rastercount - 1)
+                        return;
+                    IIndex = 0;
+                    ParentID = Convert.ToString(Tnode["PositionID"]);
+                    if (Tnode.FirstNode != null)
+                    {
+                        SNO = Convert.ToString(Tnode.FirstNode["SNO"]);
+                        PositionOZ = Convert.ToString(Tnode.FirstNode["Position_OZ"]);
+                    }
+                    int iTemp = 0;
+                    if (!int.TryParse(SNO, out iTemp))
+                        SNO = Convert.ToString(Tnode["SNO"]);
+                    else
+                        SNO = (iTemp - 2).ToString();
+                }
+                else
+                {
+                    SNO = Convert.ToString(Tnode["SNO"]);
+                    ParentID = Convert.ToString(Tnode["Parent_OZ"]);
+                    ParentOZ = Convert.ToString(Tnode.ParentNode["Position_OZ"]);
+                    PositionOZ = Convert.ToString(Tnode["Position_OZ"]);
+                    IIndex = 2;
+                    int INodeIndex = tlPositions.GetNodeIndex(Tnode);
+                    if (INodeIndex != null)
+                    {
+                        if (Tnode.ParentNode.Nodes.Count > INodeIndex + 1)
+                            strnextLV = Convert.ToString(Tnode.ParentNode.Nodes[INodeIndex + 1]["Position_OZ"]);
+                    }
+                }
+
+                int IPositionID = dataRow["PositionID"] == DBNull.Value ? -1 : Convert.ToInt32(dataRow["PositionID"]);
+                string strPositionOZ = Convert.ToString(dataRow["Position_OZ"]);
+
+                if (ObjBPosition == null)
+                    ObjBPosition = new BPosition();
+                if (ObjEPosition == null)
+                    ObjEPosition = new EPosition();
+
+                DataTable dtTemp = ObjEPosition.dsPositionList.Tables[0].Copy();
+                DataView dvTemp = dtTemp.DefaultView;
+                dvTemp.RowFilter = "Position_OZ = '" + strPositionOZ + "'";
+                ObjEPosition.dtCopyPosition = dvTemp.ToTable();
+                foreach (DataColumn dc in dtTemp.Columns)
+                {
+                    if (dc.ColumnName != "PositionID")
+                    {
+                        if (dc.ColumnName != "SNO")
+                            ObjEPosition.dtCopyPosition.Columns.Remove(dc.ColumnName);
+                    }
+                }
+                string _Suggested_OZ = SuggestOZForCopy(PositionOZ, strnextLV, IIndex);
+                string strNewOz = ParentOZ + _Suggested_OZ;
+                ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                ObjEPosition.PositionID = IPositionID;
+                ObjEPosition.Position_OZ = strNewOz;
+                int IParnetValue = 0;
+                if (int.TryParse(ParentID, out IParnetValue))
+                    ObjEPosition.ParentID = IParnetValue;
+                else
+                    throw new Exception("Error While Moving the position");
+
+                if (int.TryParse(SNO, out IValue))
+                    ObjEPosition.SNO = IValue;
+                else
+                    throw new Exception("Error While Moving the position");
+                int ITemp = ObjEPosition.SNO;
+                foreach (DataRow dr in ObjEPosition.dtCopyPosition.Rows)
+                {
+                    ITemp++;
+                    dr["SNO"] = ITemp;
+                }
+                int NewPositionID = ObjBPosition.CopyPosition(ObjEPosition);
+                BindPositionData();
+                SetFocus(NewPositionID, tlPositions);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

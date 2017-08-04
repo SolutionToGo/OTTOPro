@@ -78,7 +78,7 @@ namespace DAL
                             {
                                 throw new Exception("ComissionNumber Nr Already Exists");
                             }
-                        }
+                        }                       
                         if (!int.TryParse(returnObj.ToString(), out ProjectID))
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
@@ -262,6 +262,7 @@ namespace DAL
             }
             return ObjEProject;
         }
+
 
     }
 }

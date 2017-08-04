@@ -550,5 +550,19 @@ namespace EL
             get { return _dtDimensions; }
             set { _dtDimensions = value; }
         }
+
+        private int _ParentID;
+        public int ParentID
+        {
+            get { return _ParentID; }
+            set { _ParentID = value; }
+        }
+
+        private DataTable _dtCopyPosition;
+        public DataTable dtCopyPosition
+        {
+            get { return _dtCopyPosition; }
+            set { _dtCopyPosition = value; }
+        }
     }
 }

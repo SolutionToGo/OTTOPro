@@ -97,6 +97,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl1.Controls.Add(this.txtArt);
             this.layoutControl1.Controls.Add(this.cmbType);
@@ -608,7 +609,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rabatt Gruppe ";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRabattGroup_FormClosing);
             this.Load += new System.EventHandler(this.frmRabattGroup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

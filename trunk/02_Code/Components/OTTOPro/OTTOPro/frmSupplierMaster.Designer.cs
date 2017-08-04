@@ -232,6 +232,7 @@
             // 
             // layoutControl2
             // 
+            this.layoutControl2.AllowCustomization = false;
             this.layoutControl2.Controls.Add(this.txtSupplierEmail);
             this.layoutControl2.Controls.Add(this.btnSave);
             this.layoutControl2.Controls.Add(this.btnCancel);
@@ -510,6 +511,7 @@
             // 
             // layoutControl3
             // 
+            this.layoutControl3.AllowCustomization = false;
             this.layoutControl3.Controls.Add(this.btnSaveContact);
             this.layoutControl3.Controls.Add(this.btnCancelContact);
             this.layoutControl3.Controls.Add(this.chkDefaultContact);
@@ -814,6 +816,7 @@
             // 
             // layoutControl4
             // 
+            this.layoutControl4.AllowCustomization = false;
             this.layoutControl4.Controls.Add(this.btnSaveAddress);
             this.layoutControl4.Controls.Add(this.btnCancelAddress);
             this.layoutControl4.Controls.Add(this.chkDefaultAddress);

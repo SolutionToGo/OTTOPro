@@ -239,20 +239,9 @@ namespace OTTOPro
         }
 
         private void btnArticledata_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.Name == "frmArticlesData")
-                {
-                    form.Activate();
-                    return;
-                }
-            }
+        {            
             frmArticlesData Obj = new frmArticlesData();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+            Obj.ShowDialog();
         }
 
         private void btnTextModule_ItemClick(object sender, ItemClickEventArgs e)
@@ -268,37 +257,15 @@ namespace OTTOPro
         }
 
         private void btnTyp_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.Name == "frmType")
-                {
-                    form.Activate();
-                    return;
-                }
-            }
-            frmType Obj = new frmType();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+        {            
+            frmType Obj = new frmType();          
+            Obj.ShowDialog();
         }
 
         private void btnRabatt_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.Name == "frmRabattGroup")
-                {
-                    form.Activate();
-                    return;
-                }
-            }
-            frmRabattGroup Obj = new frmRabattGroup();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+        {            
+            frmRabattGroup Obj = new frmRabattGroup();           
+            Obj.ShowDialog();
         }
 
         private void xtraTabbedMdiManager1_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
@@ -332,20 +299,9 @@ namespace OTTOPro
         private void btnUserData_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
-            {
-                foreach (Form form in Application.OpenForms)
-                {
-                    if (form.Name == "frmLoadUsers")
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-                frmLoadUsers Obj = new frmLoadUsers();
-                Obj.MdiParent = this;
-                label2.Visible = false;
-                pictureBox1.Visible = false;
-                Obj.Show();
+            {                
+                frmLoadUsers Obj = new frmLoadUsers();                
+                Obj.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -356,20 +312,9 @@ namespace OTTOPro
         private void btnFeature_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
-            {
-                foreach (Form form in Application.OpenForms)
-                {
-                    if (form.Name == "frmFeature")
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-                frmFeature Obj = new frmFeature();
-                Obj.MdiParent = this;
-                label2.Visible = false;
-                pictureBox1.Visible = false;
-                Obj.Show();
+            {                
+                frmFeature Obj = new frmFeature();              
+                Obj.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -412,20 +357,9 @@ namespace OTTOPro
         }
 
         private void btnAddAccessories_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.Name == "frmAccessories")
-                {
-                    form.Activate();
-                    return;
-                }
-            }
-            frmAccessories Obj = new frmAccessories();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+        {           
+            frmAccessories Obj = new frmAccessories();           
+            Obj.ShowDialog();
         }
     }
 }

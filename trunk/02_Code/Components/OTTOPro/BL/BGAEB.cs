@@ -20,7 +20,7 @@ namespace BL
         DGAEB ObjGAEB = new DGAEB();
         EGAEB objEGAEB = new EGAEB();
 
-        public XmlDocument Export(int ProjectID, string strLVSection,string strFormat)
+        public XmlDocument Export(int ProjectID, string strLVSection,string strFormat,string _Raster)
         {
             XmlDocument xmldoc = new XmlDocument();
             try
@@ -28,7 +28,7 @@ namespace BL
                 DataSet dsTMLData = null;
                 DataSet dsTMLPositionsData = null;
                 dsTMLData = ObjGAEB.Export(ProjectID);
-                dsTMLPositionsData = ObjGAEB.GetPositionsDataForTML(ProjectID, strLVSection);
+                dsTMLPositionsData = ObjGAEB.GetPositionsDataForTML(ProjectID, strLVSection, _Raster);
                 dsTMLData.DataSetName = "Generic";
                 dsTMLData.Tables[0].TableName = "DateiInfo";
                 dsTMLData.Tables[1].TableName = "AG";
@@ -45,15 +45,15 @@ namespace BL
                 if (dsTMLPositionsData != null && dsTMLPositionsData.Tables.Count > 0)
                 {
                     dsTMLPositionsData.Tables[0].TableName = "LVPos";
-                    if(strFormat.Contains("D"))
+                    if (strFormat.Contains("D"))
+                    {
+                        foreach (DataRow dr in dsTMLPositionsData.Tables[0].Rows)
                         {
-                            foreach(DataRow dr in dsTMLPositionsData.Tables[0].Rows)
-                            {
-                                string strKurztext = dr["Kurztext"] == DBNull.Value ? "" : dr["Kurztext"].ToString();
-                                string strPlantext = GetPlaintext(strKurztext);
-                                dr["Kurztext"] = strPlantext;
-                            }
+                            string strKurztext = dr["Kurztext"] == DBNull.Value ? "" : dr["Kurztext"].ToString();
+                            string strPlantext = GetPlaintext(strKurztext);
+                            dr["Kurztext"] = strPlantext;
                         }
+                    }
                     if(dsTMLPositionsData.Tables.Count > 1)
                     {
                         dsTMLPositionsData.Tables[1].TableName = "LVPos1";
@@ -290,6 +290,11 @@ namespace BL
                 dtV.Columns.Add("ParentOz", typeof(string));
                 dtV.Columns.Add("Title", typeof(string));
                 dtV.Columns.Add("SNO", typeof(int));
+                dtV.Columns.Add("BezugBeschr", typeof(string));
+                dtV.Columns.Add("BezugAusfNr", typeof(string));
+                dtV.Columns.Add("Bedarf", typeof(string));
+                dtV.Columns.Add("Nr", typeof(string));
+                dtV.Columns.Add("BezugOZ", typeof(string));
                 dsXmlData.Tables.Add(dtV);
 
                 XmlDocument xDoc = new XmlDocument();
@@ -329,6 +334,26 @@ namespace BL
                     XmlNode xnEinheit = xnPos.SelectSingleNode("Einheit");
                     if (xnEinheit != null)
                         drLVPos["Einheit"] = xnEinheit.InnerText;
+
+                    XmlNode xnBezugBeschr = xnPos.SelectSingleNode("BezugBeschr");
+                    if (xnEinheit != null)
+                        drLVPos["BezugBeschr"] = xnBezugBeschr.InnerText;
+
+                    XmlNode xnBezugAusfNr = xnPos.SelectSingleNode("BezugAusfNr");
+                    if (xnEinheit != null)
+                        drLVPos["BezugAusfNr"] = xnBezugAusfNr.InnerText;
+
+                    XmlNode xnBedarf = xnPos.SelectSingleNode("Bedarf");
+                    if (xnEinheit != null)
+                        drLVPos["Bedarf"] = xnBedarf.InnerText;
+
+                    XmlNode xnNr = xnPos.SelectSingleNode("Nr");
+                    if (xnEinheit != null)
+                        drLVPos["Nr"] = xnNr.InnerText;
+
+                    XmlNode xnBezugOZ = xnPos.SelectSingleNode("BezugOZ");
+                    if (xnEinheit != null)
+                        drLVPos["BezugOZ"] = xnBezugOZ.InnerText;
 
                     XmlNode xnKurztext = xnPos.SelectSingleNode("Kurztext");
                     if (xnKurztext != null)
@@ -398,9 +423,18 @@ namespace BL
                     else
                     {
                         string strSNO = dr["SNO"].ToString();
-                        string MaxValue = dsXmlData.Tables[0].Compute("MIN(SNO)", "SNO >'" + strSNO + "'AND Art <> 'H'").ToString();
-                        DataRow[] drNextPosition = dsXmlData.Tables[0].Select("SNO='" + MaxValue + "'");
-                        dr["ParentOz"] = GetParentOZ(drNextPosition[0]["OZ"].ToString());
+                        string MaxValue = dsXmlData.Tables[0].Compute("MIN(SNO)", "SNO >'" + strSNO + "'AND OZ <> ''").ToString();
+                        if (MaxValue != string.Empty)
+                        {
+                            DataRow[] drNextPosition = dsXmlData.Tables[0].Select("SNO=" + MaxValue);
+                            dr["ParentOz"] = GetParentOZ(drNextPosition[0]["OZ"].ToString());
+                        }
+                        else
+                        {
+                            string Value = dsXmlData.Tables[0].Compute("MAX(SNO)", "SNO <'" + strSNO + "'AND OZ <> ''").ToString();
+                            DataRow[] drNextPosition = dsXmlData.Tables[0].Select("SNO=" + Value);
+                            dr["ParentOz"] = GetParentOZ(drNextPosition[0]["OZ"].ToString());
+                        }
 
                     }
                 }
@@ -661,5 +695,19 @@ namespace BL
             }
         }
 
+        public string GetOld_Raster(int _ProjectID)
+        {
+            string Old_raster = string.Empty;
+
+            try
+            {
+                Old_raster = ObjGAEB.GetOld_LVRaster(_ProjectID);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return Old_raster;
+        }
     }
 }
