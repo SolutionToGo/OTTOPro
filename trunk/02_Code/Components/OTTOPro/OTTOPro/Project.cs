@@ -8865,6 +8865,7 @@ namespace OTTOPro
         {
             try
             {
+                toggleSwitchType.IsOn = true;
                 BindCoaprePrice("Project");
                 BgvComparePrice.Columns["ProjectNumber"].Visible = false;
             }
@@ -8899,10 +8900,14 @@ namespace OTTOPro
         private void BindCoaprePrice(string _type)
         {
             try
-            {
+            {                
                 int PosID = 0;
                 if (int.TryParse(tlPositions.FocusedNode["PositionID"].ToString(), out PosID))
                 {
+                    if (_IsNewMode == true || chkCreateNew.Checked == true)
+                    {
+                        PosID = -1;
+                    }
                     ObjBProject.GetComparePrice(ObjEProject, txtWG.Text, txtWA.Text, txtType.Text, _type, PosID);
                     if (ObjEProject.dsComaparePrice != null)
                     {

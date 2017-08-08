@@ -2015,7 +2015,7 @@
             this.dockPanelArticles.Appearance.Options.UseBackColor = true;
             this.dockPanelArticles.Controls.Add(this.dockPanel1_Container);
             this.dockPanelArticles.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(369, 990);
+            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(486, 383);
             this.dockPanelArticles.FloatSize = new System.Drawing.Size(933, 252);
             this.dockPanelArticles.FloatVertical = true;
             this.dockPanelArticles.ID = new System.Guid("8ea5025b-bc1a-4908-8665-6b66fa4197b4");
