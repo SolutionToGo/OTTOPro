@@ -8715,7 +8715,8 @@ namespace OTTOPro
                 if (_OldPosKZ == "NG")
                     return;
                 TreeListNode Tnode = args.TargetNode;
-
+                if (Tnode == null)
+                    return;
                 int IValue = 0;
                 if (int.TryParse(Convert.ToString(Tnode["DetailKZ"]), out IValue))
                 {
@@ -8834,10 +8835,6 @@ namespace OTTOPro
         {
             try
             {
-                if (txtWG.Text == "" && txtWA.Text == "")
-                {
-                    throw new Exception("Please select WG and WA.");
-                }
                 TextEdit textBox = (TextEdit)sender;
                 if (e.KeyData == Keys.F5)
                 {
@@ -8869,15 +8866,22 @@ namespace OTTOPro
 
         private void toggleSwitchType_Toggled(object sender, EventArgs e)
         {
-            if (toggleSwitchType.IsOn)
+            try
             {
-                BindCoaprePrice("Project");
-                BgvComparePrice.Columns["ProjectNumber"].Visible = false;
+                if (toggleSwitchType.IsOn)
+                {
+                    BindCoaprePrice("Project");
+                    BgvComparePrice.Columns["ProjectNumber"].Visible = false;
+                }
+                else
+                {
+                    BindCoaprePrice("Customer");
+                    BgvComparePrice.Columns["ProjectNumber"].Visible = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                BindCoaprePrice("Customer");
-                BgvComparePrice.Columns["ProjectNumber"].Visible = true;
+                Utility.ShowError(ex);
             }
         }
 
