@@ -67,14 +67,46 @@ namespace OTTOPro
             try
             {
                 string[] Levels = txtOldRaster.Text.Split('.');
-                int Count = Levels.Length;
-                if (Count >= 2)
+                if (Levels != null)
                 {
-                    for (int i = 1; i <= _Number; i++)
+                    int Count = Levels.Length;
+                    if (Count == 3)//99.1111.9
                     {
-                        Levels[0] = '9' + Levels[0];
-                        Levels[1] = '9' + Levels[1];
-                        Levels[2] = '1' + Levels[2];
+                        for (int i = 1; i <= _Number; i++)
+                        {
+                            Levels[0] = '9' + Levels[0];
+                            Levels[1] = '1' + Levels[1];
+                        }
+                    }
+                    else if (Count == 4)//99.99.1111.9
+                    {
+                        for (int i = 1; i <= _Number; i++)
+                        {
+                            Levels[0] = '9' + Levels[0];
+                            Levels[1] = '9' + Levels[1];
+                            Levels[2] = '1' + Levels[2];
+                        }
+                    }
+                    else if (Count == 5)//99.99.99.1111.9
+                    {
+                        for (int i = 1; i <= _Number; i++)
+                        {
+                            Levels[0] = '9' + Levels[0];
+                            Levels[1] = '9' + Levels[1];
+                            Levels[2] = '9' + Levels[2];
+                            Levels[3] = '1' + Levels[3];
+                        }
+                    }
+                    else if (Count == 6)//99.99.99.99.1111.9
+                    {
+                        for (int i = 1; i <= _Number; i++)
+                        {
+                            Levels[0] = '9' + Levels[0];
+                            Levels[1] = '9' + Levels[1];
+                            Levels[2] = '9' + Levels[2];
+                            Levels[3] = '9' + Levels[3];
+                            Levels[4] = '1' + Levels[4];
+                        }
                     }
                 }
                 String result = string.Join(".", Levels);

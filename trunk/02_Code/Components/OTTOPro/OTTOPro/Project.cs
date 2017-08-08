@@ -5787,20 +5787,31 @@ namespace OTTOPro
                 if (ObjEProject.ActualLvs == 0)
                 {
                     if (Utility._IsGermany == true)
-                    {
                         XtraMessageBox.Show("Es liegen keine LV Positionen für den Export vor!");
-                    }
                     else
-                    {
                         XtraMessageBox.Show("No LV Positions to Export.!");
-                    }
                     return;
                 }
                 if (ObjEProject.ProjectID > 0)
                 {
-                    int raster_count = ddlRaster.Text.Replace(".", string.Empty).Length;
-
-                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count,ObjEProject.LVRaster);
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    if (objEGAEB == null)
+                        objEGAEB = new EGAEB();
+                    string SelectedRaster = ObjEProject.LVRaster;
+                    objEGAEB.OldRaster = objBGAEB.GetOld_Raster(_ProjectID);
+                    if (objEGAEB.OldRaster != "")
+                    {
+                        objEGAEB.NewRaster = ObjEProject.LVRaster;
+                        frmSelectRaster frm = new frmSelectRaster(objEGAEB);
+                        frm.ShowDialog();
+                        if (frm.DialogResult == DialogResult.OK)
+                            SelectedRaster = frm.LVRaster;
+                        else
+                            return;
+                    }
+                    int raster_count = SelectedRaster.Replace(".", string.Empty).Length;
+                    frmGAEBExport Obj = new frmGAEBExport(ObjEProject.ProjectNumber, ObjEProject.ProjectID, raster_count, SelectedRaster);
                     Obj.KNr = ObjEProject.CommissionNumber;
                     Obj.ShowDialog();
                     if (File.Exists(Obj.OutputFilePath))

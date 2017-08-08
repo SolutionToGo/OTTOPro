@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -2014,7 +2015,7 @@
             this.dockPanelArticles.Appearance.Options.UseBackColor = true;
             this.dockPanelArticles.Controls.Add(this.dockPanel1_Container);
             this.dockPanelArticles.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(1065, 193);
+            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(369, 990);
             this.dockPanelArticles.FloatSize = new System.Drawing.Size(933, 252);
             this.dockPanelArticles.FloatVertical = true;
             this.dockPanelArticles.ID = new System.Guid("8ea5025b-bc1a-4908-8665-6b66fa4197b4");
@@ -2022,7 +2023,7 @@
             this.dockPanelArticles.Name = "dockPanelArticles";
             this.dockPanelArticles.Options.ShowAutoHideButton = false;
             this.dockPanelArticles.OriginalSize = new System.Drawing.Size(242, 171);
-            this.dockPanelArticles.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top;
+            this.dockPanelArticles.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
             this.dockPanelArticles.SavedIndex = 0;
             this.dockPanelArticles.Size = new System.Drawing.Size(933, 252);
             this.dockPanelArticles.Text = "Compare Price";
@@ -2484,10 +2485,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 22;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -8217,17 +8218,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -10983,6 +10984,9 @@
             // gcPositions
             // 
             this.gcPositions.AllowDrop = true;
+            gridLevelNode1.RelationName = "Level1";
+            this.gcPositions.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
+            gridLevelNode1});
             this.gcPositions.Location = new System.Drawing.Point(768, 128);
             this.gcPositions.MainView = this.gvPositions;
             this.gcPositions.Name = "gcPositions";
@@ -10993,7 +10997,6 @@
             this.gcPositions.TabIndex = 15;
             this.gcPositions.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvPositions});
-            this.gcPositions.DragDrop += new System.Windows.Forms.DragEventHandler(this.gcPositions_DragDrop);
             this.gcPositions.DragOver += new System.Windows.Forms.DragEventHandler(this.gcPositions_DragOver);
             // 
             // gvPositions
@@ -11016,6 +11019,7 @@
             this.gvPositions.OptionsCustomization.AllowColumnMoving = false;
             this.gvPositions.OptionsCustomization.AllowFilter = false;
             this.gvPositions.OptionsCustomization.AllowSort = false;
+            this.gvPositions.OptionsSelection.MultiSelect = true;
             this.gvPositions.OptionsView.ShowGroupPanel = false;
             this.gvPositions.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvPositions_MouseDown);
             this.gvPositions.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvPositions_MouseMove);
