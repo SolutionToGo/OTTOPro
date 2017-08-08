@@ -8682,6 +8682,7 @@ namespace OTTOPro
                     if (ddlRaster.Text != "")
                     {
                         frmAddRaster frm = new frmAddRaster(ddlRaster.Text);
+                        frm._ProjectID = ObjEProject.ProjectID;
                         frm.ShowDialog();
                         if (frm.DialogResult == DialogResult.OK)
                         {

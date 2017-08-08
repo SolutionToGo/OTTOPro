@@ -33,14 +33,9 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
                     throw new Exception("Fehler beim Laden der Positionsliste");
-                }
                 else
-                {
                     throw new Exception("Error Occured While Retreiving Position List");
-
-                }
             }
             finally
             {
@@ -70,14 +65,14 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Laden der Positionsliste");
-                }
+                if (ex.Message.Contains("RasterError"))
+                    throw new Exception("Operation not possible with Old Raster");
                 else
                 {
-                    throw new Exception("Error Occured While Retreiving Position List");
-
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Laden der Positionsliste");
+                    else
+                        throw new Exception("Error Occured While Retreiving Position List");
                 }
             }
             finally

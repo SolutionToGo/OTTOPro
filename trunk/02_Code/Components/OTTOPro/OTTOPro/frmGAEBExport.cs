@@ -97,62 +97,34 @@ namespace OTTOPro
         private void btnExport_Click(object sender, EventArgs e)
         {
             try
-            {                
-                if (ObjBGAEB == null)
-                {
-                    ObjBGAEB = new BGAEB();
-                }
-                if (ObjEGAEB == null)
-                {
-                    ObjEGAEB = new EGAEB();
-                }
-                ObjEGAEB.OldRaster= ObjBGAEB.GetOld_Raster(_ProjectID);
-                if (ObjEGAEB.OldRaster != "")
-                {
-                    ObjEGAEB.NewRaster = _NewRaster;
-                    frmSelectRaster frm = new frmSelectRaster(ObjEGAEB);
-                    frm.ShowDialog();
-                    if(frm.DialogResult==DialogResult.OK)
-                    {
-                        _NewRaster = frm.LVRaster;
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
+            {
                 this.Close();
                 SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
                 SplashScreenManager.Default.SetWaitFormDescription("Exportieren...");
-                XmlDocument XMLDoc = null;                
+                XmlDocument XMLDoc = null;
                 if (cmbFormatType.Text != string.Empty)
                 {
+                    if (ObjBGAEB == null)
+                        ObjBGAEB = new BGAEB();
                     XMLDoc = ObjBGAEB.Export(_ProjectID, cmbLVSection.Text, cmbFormatType.Text, _NewRaster);
                     string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
                     if (!Directory.Exists(strOTTOFilePath))
                         Directory.CreateDirectory(strOTTOFilePath);
                     string strOutputFilePath = string.Empty;
                     strOutputFilePath = OutputFilePath = txtFilePath.Text + "\\" + txtFileName.Text + "." + cmbFormatType.Text;
-                    string strInputFilePath = strOTTOFilePath + txtFileName.Text + ".tml";  
+                    string strInputFilePath = strOTTOFilePath + txtFileName.Text + ".tml";
                     XMLDoc.Save(strInputFilePath);
                     Utility.ProcesssFile(strInputFilePath, strOutputFilePath);
                 }
                 else
                 {
-                    if(!Utility._IsGermany)
-                    {
-                        throw new Exception("Please select the format of GAEB file");
-                    }
-                    else
-                    {
-                        throw new Exception("Bitte wählen Sie das gewünschte GAEB Exportformat");
-                    }
-                    
+                    throw new Exception("Bitte wählen Sie das gewünschte GAEB Exportformat");
                 }
                 SplashScreenManager.CloseForm(false);
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
         }

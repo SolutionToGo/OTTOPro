@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BL;
+using EL;
 
 namespace OTTOPro
 {
     public partial class frmAddRaster : DevExpress.XtraEditors.XtraForm
     {
+        public int _ProjectID = 0;
         bool _isValidate = false;
         private string _NewRaster = string.Empty;
         private BGAEB objBGAEB = null;
@@ -49,11 +51,9 @@ namespace OTTOPro
                 }
                 if (rgRasterNumbers.SelectedIndex == 1)
                 {
-                    AddRaster(2);
-                }
-                if (rgRasterNumbers.SelectedIndex == 2)
-                {
-                    AddRaster(3);
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                   txtNewRaster.Text = _NewRaster = objBGAEB.GetOld_Raster(_ProjectID);
                 }
             }
             catch (Exception ex)
@@ -103,19 +103,6 @@ namespace OTTOPro
                         throw new Exception("Please Enter Valid Value");
                     }
                 }
-                    DataTable dt = new DataTable();
-                    objBGAEB = new BGAEB();
-                    dt = objBGAEB.Get_LVRasters();
-                    if (dt != null)
-                    {
-                        foreach (DataRow dr in dt.Rows)
-                        {
-                            if (dr["LVRasterName"].ToString() == txtNewRaster.Text.Trim())
-                            {
-                                txtNewRaster.Text = dr["LVRasterName"].ToString();                               
-                            }
-                        }
-                    }
                 _NewRaster = txtNewRaster.Text;
                 _isValidate = true;
                 this.Close();

@@ -60,37 +60,30 @@ namespace DAL
                         if (returnObj.ToString().Contains("ProjectNumber"))
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
                                 throw new Exception("Diese Projektnummer existiert bereits");
-                            }
                             else
-                            {
                                 throw new Exception("Project Nr Already Exists");
-                            }
                         }
                         else if (returnObj.ToString().Contains("ComissionNumber"))
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
                                 throw new Exception("Kommission Nummer existiert bereits");
-                            }
                             else
-                            {
                                 throw new Exception("ComissionNumber Nr Already Exists");
-                            }
-                        }                       
-                        if (!int.TryParse(returnObj.ToString(), out ProjectID))
+                        }
+                        else if (returnObj.ToString().Contains("RasterError"))
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
-                                throw new Exception("Fehler beim Speichern der Projektangaben");
-                            }
+                                throw new Exception("Operation not Possible with Old Raster");
                             else
-                            {
+                                throw new Exception("Operation not Possible with Old Raster");
+                        }
+                        else if (!int.TryParse(returnObj.ToString(), out ProjectID))
+                        {
+                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                throw new Exception("Fehler beim Speichern der Projektangaben");
+                            else
                                 throw new Exception("Error Occured While Saving the Project Details");
-
-                            }
-
                         }
                     }
                 }

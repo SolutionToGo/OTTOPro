@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.CLCRasters = new DevExpress.XtraEditors.CheckedListBoxControl();
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.txtNewRaster = new DevExpress.XtraEditors.TextEdit();
@@ -43,10 +42,12 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.chkOldRaster = new System.Windows.Forms.CheckBox();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ChkNewRaster = new System.Windows.Forms.CheckBox();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.CLCRasters)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNewRaster.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldRaster.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -57,13 +58,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
+            this.layoutControl1.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
+            this.layoutControl1.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControl1.Controls.Add(this.CLCRasters);
+            this.layoutControl1.Controls.Add(this.ChkNewRaster);
+            this.layoutControl1.Controls.Add(this.chkOldRaster);
             this.layoutControl1.Controls.Add(this.btnOk);
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.txtNewRaster);
@@ -77,21 +82,6 @@
             this.layoutControl1.Size = new System.Drawing.Size(422, 165);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // CLCRasters
-            // 
-            this.CLCRasters.CheckOnClick = true;
-            this.CLCRasters.CheckStyle = DevExpress.XtraEditors.Controls.CheckStyles.Style1;
-            this.CLCRasters.Cursor = System.Windows.Forms.Cursors.Default;
-            this.CLCRasters.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "Old"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem(null, "New")});
-            this.CLCRasters.Location = new System.Drawing.Point(350, 73);
-            this.CLCRasters.Name = "CLCRasters";
-            this.CLCRasters.Size = new System.Drawing.Size(60, 44);
-            this.CLCRasters.StyleController = this.layoutControl1;
-            this.CLCRasters.TabIndex = 11;
-            this.CLCRasters.SelectedIndexChanged += new System.EventHandler(this.CLCRasters_SelectedIndexChanged);
             // 
             // btnOk
             // 
@@ -118,19 +108,21 @@
             // 
             // txtNewRaster
             // 
+            this.txtNewRaster.Enabled = false;
             this.txtNewRaster.Location = new System.Drawing.Point(78, 97);
             this.txtNewRaster.Name = "txtNewRaster";
             this.txtNewRaster.Properties.ReadOnly = true;
-            this.txtNewRaster.Size = new System.Drawing.Size(268, 20);
+            this.txtNewRaster.Size = new System.Drawing.Size(308, 20);
             this.txtNewRaster.StyleController = this.layoutControl1;
             this.txtNewRaster.TabIndex = 6;
             // 
             // txtOldRaster
             // 
+            this.txtOldRaster.Enabled = false;
             this.txtOldRaster.Location = new System.Drawing.Point(78, 73);
             this.txtOldRaster.Name = "txtOldRaster";
             this.txtOldRaster.Properties.ReadOnly = true;
-            this.txtOldRaster.Size = new System.Drawing.Size(268, 20);
+            this.txtOldRaster.Size = new System.Drawing.Size(308, 20);
             this.txtOldRaster.StyleController = this.layoutControl1;
             this.txtOldRaster.TabIndex = 5;
             // 
@@ -157,7 +149,8 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.emptySpaceItem2,
-            this.layoutControlItem8});
+            this.layoutControlItem4,
+            this.layoutControlItem5});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(422, 165);
@@ -189,7 +182,7 @@
             this.layoutControlItem2.Control = this.txtOldRaster;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 61);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(338, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(378, 24);
             this.layoutControlItem2.Text = "Old Raster";
             this.layoutControlItem2.TextSize = new System.Drawing.Size(63, 14);
             // 
@@ -202,7 +195,7 @@
             this.layoutControlItem3.Control = this.txtNewRaster;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 85);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(338, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(378, 24);
             this.layoutControlItem3.Text = "New Raster";
             this.layoutControlItem3.TextSize = new System.Drawing.Size(63, 14);
             // 
@@ -238,14 +231,43 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(402, 10);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem8
+            // chkOldRaster
             // 
-            this.layoutControlItem8.Control = this.CLCRasters;
-            this.layoutControlItem8.Location = new System.Drawing.Point(338, 61);
-            this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(64, 48);
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem8.TextVisible = false;
+            this.chkOldRaster.Location = new System.Drawing.Point(390, 73);
+            this.chkOldRaster.Name = "chkOldRaster";
+            this.chkOldRaster.Size = new System.Drawing.Size(20, 20);
+            this.chkOldRaster.TabIndex = 11;
+            this.chkOldRaster.Text = "checkBox1";
+            this.chkOldRaster.UseVisualStyleBackColor = true;
+            this.chkOldRaster.CheckedChanged += new System.EventHandler(this.chkOldRaster_CheckedChanged);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.chkOldRaster;
+            this.layoutControlItem4.Location = new System.Drawing.Point(378, 61);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(24, 24);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // ChkNewRaster
+            // 
+            this.ChkNewRaster.Location = new System.Drawing.Point(390, 97);
+            this.ChkNewRaster.Name = "ChkNewRaster";
+            this.ChkNewRaster.Size = new System.Drawing.Size(20, 20);
+            this.ChkNewRaster.TabIndex = 12;
+            this.ChkNewRaster.Text = "checkBox2";
+            this.ChkNewRaster.UseVisualStyleBackColor = true;
+            this.ChkNewRaster.CheckedChanged += new System.EventHandler(this.ChkNewRaster_CheckedChanged);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.ChkNewRaster;
+            this.layoutControlItem5.Location = new System.Drawing.Point(378, 85);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(24, 24);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // frmSelectRaster
             // 
@@ -257,12 +279,12 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSelectRaster";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Raster";
             this.Load += new System.EventHandler(this.frmSelectRaster_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.CLCRasters)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtNewRaster.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtOldRaster.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -273,7 +295,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -294,7 +317,9 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem6;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem7;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
-        private DevExpress.XtraEditors.CheckedListBoxControl CLCRasters;
+        private System.Windows.Forms.CheckBox ChkNewRaster;
+        private System.Windows.Forms.CheckBox chkOldRaster;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem5;
     }
 }

@@ -38,22 +38,11 @@ namespace OTTOPro
             {
                 txtOldRaster.Text = objEGAEB.OldRaster;
                 txtNewRaster.Text = objEGAEB.NewRaster;
+                ChkNewRaster.Checked = true;
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        private void CLCRasters_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if(CLCRasters.SelectedIndex==0)
-            {
-                _LVRaster = txtOldRaster.Text;
-            }
-            else
-            {
-                _LVRaster = txtNewRaster.Text;
             }
         }
 
@@ -69,6 +58,46 @@ namespace OTTOPro
             }
         }
 
-       
+        private void chkOldRaster_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (chkOldRaster.Checked == true)
+                {
+                    _LVRaster = txtOldRaster.Text;
+                    ChkNewRaster.Checked = false;
+                }
+                else
+                {
+                    _LVRaster = txtNewRaster.Text;
+                    ChkNewRaster.Checked = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void ChkNewRaster_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ChkNewRaster.Checked == true)
+                {
+                    _LVRaster = txtNewRaster.Text;
+                    chkOldRaster.Checked = false;
+                }
+                else
+                {
+                    _LVRaster = txtOldRaster.Text;
+                    chkOldRaster.Checked = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }
