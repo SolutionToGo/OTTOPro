@@ -804,6 +804,32 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Icon_Import1.png" />
+    <None Include="Resources\Icon_Master-Article.png" />
+    <None Include="Resources\Icon_Special-Cost.png" />
+    <None Include="Resources\Icon_-Project-Properties.png" />
+    <None Include="Resources\Icon_Copy-LV-Position.png" />
+    <None Include="Resources\Icon_Bill-Invoice.png" />
+    <None Include="Resources\Icon_Delivery-Notes.png" />
+    <None Include="Resources\Icon_Update-Proposal.png" />
+    <None Include="Resources\Icon_Send-Supplier-Proposal.png" />
+    <None Include="Resources\Icon_Import.png" />
+    <None Include="Resources\Icon_Export.png" />
+    <None Include="Resources\Icon_Bulk-Operations.png" />
+    <None Include="Resources\Icon_LV-Detail.png" />
+    <None Include="Resources\Icon_Change-PAssword.png" />
+    <None Include="Resources\Icon_Shortcut.png" />
+    <None Include="Resources\Icon_Text-Module.png" />
+    <None Include="Resources\Icon_Show-Opened-File.png" />
+    <None Include="Resources\Icon_User-Features-.png" />
+    <None Include="Resources\Icon_User-Information.png" />
+    <None Include="Resources\Icon_Rabatt.png" />
+    <None Include="Resources\TYP.png" />
+    <None Include="Resources\Icon_Supplier.png" />
+    <None Include="Resources\Icon_Otto.png" />
+    <None Include="Resources\Icon_Kunden.png" />
+    <None Include="Resources\Icon_Load-Project.png" />
+    <None Include="Resources\Icon_New-Project.png" />
     <None Include="Resources\LogoLatest - Copy1.png" />
     <None Include="Resources\LogoLatest_Main.png" />
     <None Include="Resources\Status-dialog-password-icon.png" />

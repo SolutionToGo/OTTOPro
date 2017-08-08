@@ -351,6 +351,9 @@ namespace OTTOPro
                     chkLockHierarchy.Enabled = false;
                 }
                 chkLockHierarchy_CheckedChanged(null,null);
+                panelControldoc.Visible = false;
+                toggleSwitchType.Visible = false;
+                dockPanelArticles.Hide();
             }
             catch (Exception ex)
             {
@@ -8824,6 +8827,96 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
+        }
+
+        private void txtWG_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (txtWG.Text == "" && txtWA.Text == "")
+                {
+                    throw new Exception("Please select WG and WA.");
+                }
+                TextEdit textBox = (TextEdit)sender;
+                if (e.KeyData == Keys.F5)
+                {
+                    panelControldoc.Visible = true;
+                    toggleSwitchType.Visible = true;
+                    dockPanelArticles.Show();
+                    dockPanelArticles_Click(null,null);
+                }                
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void dockPanelArticles_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindCoaprePrice("Project");
+                BgvComparePrice.Columns["ProjectNumber"].Visible = false;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+
+        }
+
+        private void toggleSwitchType_Toggled(object sender, EventArgs e)
+        {
+            if (toggleSwitchType.IsOn)
+            {
+                BindCoaprePrice("Project");
+                BgvComparePrice.Columns["ProjectNumber"].Visible = false;
+            }
+            else
+            {
+                BindCoaprePrice("Customer");
+                BgvComparePrice.Columns["ProjectNumber"].Visible = true;
+            }
+        }
+
+        private void BindCoaprePrice(string _type)
+        {
+            try
+            {
+                int PosID = 0;
+                if (int.TryParse(tlPositions.FocusedNode["PositionID"].ToString(), out PosID))
+                {
+                    ObjBProject.GetComparePrice(ObjEProject, txtWG.Text, txtWA.Text, txtType.Text, _type, PosID);
+                    if (ObjEProject.dsComaparePrice != null)
+                    {
+                        gcComparePrice.DataSource = ObjEProject.dsComaparePrice.Tables[0];
+                        BgvComparePrice.BestFitColumns();
+                    }
+                }                                
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void txtType_KeyDown(object sender, KeyEventArgs e)
+        {
+            //try
+            //{
+            //    if (e.KeyData == Keys.F5)
+            //    {
+            //        panelControldoc.Visible = true;
+            //        toggleSwitchType.Visible = true;
+            //        dockPanelArticles.Show();
+            //        BindCoaprePrice("Type");
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
         }
     }
 }

@@ -221,6 +221,22 @@ namespace BL
             return ObjEProject;
         }
 
+
+        public EProject GetComparePrice(EProject ObjEProject, string _wg, string _wa, string _typ, string _Type, int _PosID)
+        {
+            try
+            {
+                if (ObjEProject != null)
+                {
+                    ObjEProject = ObjDAL.GetComparePrice(ObjEProject, _wg, _wa, _typ, _Type,_PosID);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
     }
 }
     

@@ -63,6 +63,14 @@ namespace EL
             set { _dtProjecNumber = value; }
         }
 
+
+        //Compare Price
+        private DataSet _dsComaparePrice = null;
+        public DataSet dsComaparePrice
+        {
+            get { return _dsComaparePrice; }
+            set { _dsComaparePrice = value; }
+        }
         /// <summary>
         /// Public Properties for Project Module
         /// </summary>

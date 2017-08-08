@@ -508,7 +508,7 @@
             this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_InvoiceDetails(@InvoiceID).ShortDescription")});
             this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(219.7562F, 25F);
+            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(269.7562F, 27.08333F);
             this.xrRichText1.Name = "xrRichText1";
             this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
             this.xrRichText1.SizeF = new System.Drawing.SizeF(284.4871F, 22.91666F);
@@ -551,18 +551,18 @@
             this.xrTableCell6.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell6.Name = "xrTableCell6";
             this.xrTableCell6.StylePriority.UseFont = false;
-            this.xrTableCell6.Weight = 0.41658703381727924D;
+            this.xrTableCell6.Weight = 0.66475163382471625D;
             // 
             // xrTableCell9
             // 
             this.xrTableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_InvoiceDetails(@InvoiceID).Menge")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_InvoiceDetails(@InvoiceID).Quantity")});
             this.xrTableCell9.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell9.Name = "xrTableCell9";
             this.xrTableCell9.StylePriority.UseFont = false;
             this.xrTableCell9.StylePriority.UseTextAlignment = false;
             this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell9.Weight = 0.31545206521140506D;
+            this.xrTableCell9.Weight = 0.30617227383183432D;
             // 
             // xrTableCell10
             // 
@@ -573,7 +573,7 @@
             this.xrTableCell10.StylePriority.UseFont = false;
             this.xrTableCell10.StylePriority.UseTextAlignment = false;
             this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell10.Weight = 0.22996932590400385D;
+            this.xrTableCell10.Weight = 0.25073827125525905D;
             // 
             // xrTableCell12
             // 
@@ -584,7 +584,7 @@
             this.xrTableCell12.StylePriority.UsePadding = false;
             this.xrTableCell12.StylePriority.UseTextAlignment = false;
             this.xrTableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell12.Weight = 1.2635827949237846D;
+            this.xrTableCell12.Weight = 1.1469877947987364D;
             // 
             // xrTableCell15
             // 
@@ -595,7 +595,7 @@
             this.xrTableCell15.StylePriority.UseFont = false;
             this.xrTableCell15.StylePriority.UseTextAlignment = false;
             this.xrTableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell15.Weight = 0.525429613129247D;
+            this.xrTableCell15.Weight = 0.48664810268087316D;
             // 
             // xrTableCell16
             // 
@@ -606,7 +606,7 @@
             this.xrTableCell16.StylePriority.UseFont = false;
             this.xrTableCell16.StylePriority.UseTextAlignment = false;
             this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell16.Weight = 0.57056998299554806D;
+            this.xrTableCell16.Weight = 0.46629273958984818D;
             // 
             // GroupHeader1
             // 
@@ -934,7 +934,7 @@
             this.xrTableCell5.StylePriority.UseTextAlignment = false;
             this.xrTableCell5.Text = "Gesamtpreis in EURO";
             this.xrTableCell5.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell5.Weight = 0.45911896479359926D;
+            this.xrTableCell5.Weight = 0.37521072992580068D;
             // 
             // xrTableCell4
             // 
@@ -946,7 +946,7 @@
             this.xrTableCell4.StylePriority.UseTextAlignment = false;
             this.xrTableCell4.Text = "Einheitspreis in EURO";
             this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell4.Weight = 0.42648844051270374D;
+            this.xrTableCell4.Weight = 0.39896477565686927D;
             // 
             // xrTableCell7
             // 
@@ -958,7 +958,7 @@
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "Beschreibung (Kurztext)";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell7.Weight = 1.0168995474983362D;
+            this.xrTableCell7.Weight = 0.915568309083188D;
             // 
             // xrTableCell3
             // 
@@ -970,7 +970,7 @@
             this.xrTableCell3.StylePriority.UseTextAlignment = false;
             this.xrTableCell3.Text = "ME";
             this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell3.Weight = 0.18507347149839482D;
+            this.xrTableCell3.Weight = 0.20176105336627917D;
             // 
             // xrTableCell2
             // 
@@ -983,7 +983,7 @@
             this.xrTableCell2.StylePriority.UseTextAlignment = false;
             this.xrTableCell2.Text = "Menge";
             this.xrTableCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell2.Weight = 0.25386792186400181D;
+            this.xrTableCell2.Weight = 0.24636645756273887D;
             // 
             // xrTableCell11
             // 
@@ -995,7 +995,7 @@
             this.xrTableCell11.StylePriority.UseTextAlignment = false;
             this.xrTableCell11.Text = "Position";
             this.xrTableCell11.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell11.Weight = 0.34300344820707568D;
+            this.xrTableCell11.Weight = 0.5465804687792355D;
             // 
             // xrTableRow1
             // 

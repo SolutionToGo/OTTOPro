@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -143,7 +143,8 @@
             // 
             this.btnNewProject.Caption = "Neues Projekt ";
             this.btnNewProject.Id = 1;
-            this.btnNewProject.ImageOptions.ImageUri.Uri = "AddItem";
+            this.btnNewProject.ImageOptions.Image = global::OTTOPro.Properties.Resources.Icon_New_Project;
+            this.btnNewProject.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_New_Project;
             this.btnNewProject.Name = "btnNewProject";
             this.btnNewProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNewProject_ItemClick);
             // 
@@ -152,6 +153,7 @@
             this.btnLoadProject.Caption = "Projekt laden";
             this.btnLoadProject.Id = 2;
             this.btnLoadProject.ImageOptions.ImageUri.Uri = "Up";
+            this.btnLoadProject.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Load_Project;
             this.btnLoadProject.Name = "btnLoadProject";
             this.btnLoadProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLoadProject_ItemClick);
             // 
@@ -224,13 +226,13 @@
             // 
             // 
             // 
-            galleryItemGroup4.Caption = "Group1";
-            galleryItemGroup5.Caption = "Group2";
-            galleryItemGroup6.Caption = "Group3";
+            galleryItemGroup1.Caption = "Group1";
+            galleryItemGroup2.Caption = "Group2";
+            galleryItemGroup3.Caption = "Group3";
             this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup4,
-            galleryItemGroup5,
-            galleryItemGroup6});
+            galleryItemGroup1,
+            galleryItemGroup2,
+            galleryItemGroup3});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -244,7 +246,7 @@
             // 
             this.btnShortCuts.Caption = "Abkürzungen";
             this.btnShortCuts.Id = 23;
-            this.btnShortCuts.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Reset_32x32;
+            this.btnShortCuts.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Shortcut;
             this.btnShortCuts.Name = "btnShortCuts";
             this.btnShortCuts.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnShortCuts_ItemClick);
             // 
@@ -269,7 +271,7 @@
             // 
             this.btnCustomer.Caption = "Kunden";
             this.btnCustomer.Id = 26;
-            this.btnCustomer.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.BOCustomer_32x32;
+            this.btnCustomer.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Kunden;
             this.btnCustomer.Name = "btnCustomer";
             this.btnCustomer.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCustomer_ItemClick);
             // 
@@ -277,7 +279,7 @@
             // 
             this.btnOTTO.Caption = "OTTO";
             this.btnOTTO.Id = 27;
-            this.btnOTTO.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.BORole_32x32;
+            this.btnOTTO.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Otto;
             this.btnOTTO.Name = "btnOTTO";
             this.btnOTTO.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnOTTO_ItemClick);
             // 
@@ -286,7 +288,7 @@
             this.btnSupplier.Caption = "Lieferant";
             this.btnSupplier.Id = 28;
             this.btnSupplier.ImageOptions.Image = global::OTTOPro.Properties.Resources._1470736995_User_Customers;
-            this.btnSupplier.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources._1470736995_User_Customers;
+            this.btnSupplier.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Supplier;
             this.btnSupplier.Name = "btnSupplier";
             this.btnSupplier.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSupplier_ItemClick);
             // 
@@ -295,7 +297,7 @@
             this.btnArticledata.Caption = "Artikels daten";
             this.btnArticledata.Id = 29;
             this.btnArticledata.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnArticledata.ImageOptions.Image")));
-            this.btnArticledata.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnArticledata.ImageOptions.LargeImage")));
+            this.btnArticledata.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Master_Article;
             this.btnArticledata.Name = "btnArticledata";
             this.btnArticledata.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnArticledata_ItemClick);
             // 
@@ -303,7 +305,7 @@
             // 
             this.btnTextModule.Caption = "Textmodul";
             this.btnTextModule.Id = 30;
-            this.btnTextModule.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.TextBox_32x32;
+            this.btnTextModule.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Text_Module;
             this.btnTextModule.Name = "btnTextModule";
             this.btnTextModule.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTextModule_ItemClick);
             // 
@@ -321,7 +323,7 @@
             this.btnTyp.Caption = "Typ";
             this.btnTyp.Id = 32;
             this.btnTyp.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnTyp.ImageOptions.Image")));
-            this.btnTyp.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnTyp.ImageOptions.LargeImage")));
+            this.btnTyp.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.TYP;
             this.btnTyp.Name = "btnTyp";
             this.btnTyp.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTyp_ItemClick);
             // 
@@ -330,7 +332,7 @@
             this.btnRabatt.Caption = "Rabatt";
             this.btnRabatt.Id = 33;
             this.btnRabatt.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRabatt.ImageOptions.Image")));
-            this.btnRabatt.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRabatt.ImageOptions.LargeImage")));
+            this.btnRabatt.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Rabatt;
             this.btnRabatt.Name = "btnRabatt";
             this.btnRabatt.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRabatt_ItemClick);
             // 
@@ -339,7 +341,7 @@
             this.btnUserData.Caption = "Nutzerdaten";
             this.btnUserData.Id = 34;
             this.btnUserData.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUserData.ImageOptions.Image")));
-            this.btnUserData.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnUserData.ImageOptions.LargeImage")));
+            this.btnUserData.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_User_Information;
             this.btnUserData.Name = "btnUserData";
             this.btnUserData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnUserData_ItemClick);
             // 
@@ -348,7 +350,7 @@
             this.btnFeature.Caption = "Berechtigung";
             this.btnFeature.Id = 35;
             this.btnFeature.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.Image")));
-            this.btnFeature.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFeature.ImageOptions.LargeImage")));
+            this.btnFeature.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_User_Features_;
             this.btnFeature.Name = "btnFeature";
             this.btnFeature.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFeature_ItemClick);
             // 
@@ -357,7 +359,7 @@
             this.btnImportArticleData.Caption = "Import Artikels Data";
             this.btnImportArticleData.Id = 36;
             this.btnImportArticleData.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_icon;
-            this.btnImportArticleData.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Save_icon__1_;
+            this.btnImportArticleData.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Import1;
             this.btnImportArticleData.Name = "btnImportArticleData";
             this.btnImportArticleData.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnImportArticleData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportArticleData_ItemClick);
@@ -366,7 +368,7 @@
             // 
             this.btnChangePassword.Caption = "Passwortänderung";
             this.btnChangePassword.Id = 37;
-            this.btnChangePassword.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Status_dialog_password_icon;
+            this.btnChangePassword.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Change_PAssword;
             this.btnChangePassword.Name = "btnChangePassword";
             this.btnChangePassword.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnChangePassword_ItemClick);
             // 
@@ -375,7 +377,7 @@
             this.barMdiChildrenListItemProject.Caption = "Kürzlich angesehen";
             this.barMdiChildrenListItemProject.Id = 38;
             this.barMdiChildrenListItemProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barMdiChildrenListItemProject.ImageOptions.Image")));
-            this.barMdiChildrenListItemProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barMdiChildrenListItemProject.ImageOptions.LargeImage")));
+            this.barMdiChildrenListItemProject.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Show_Opened_File;
             this.barMdiChildrenListItemProject.Name = "barMdiChildrenListItemProject";
             this.barMdiChildrenListItemProject.ShowNumbers = false;
             // 
@@ -478,12 +480,12 @@
             this.BarButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BarButtonItem10.ImageOptions.Image")));
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem2.Text = "Otto Pro";
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "Maintains Customer Information";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            superToolTip2.Items.Add(toolTipItem2);
-            this.BarButtonItem10.SuperTip = superToolTip2;
+            toolTipTitleItem1.Text = "Otto Pro";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Maintains Customer Information";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            this.BarButtonItem10.SuperTip = superToolTip1;
             // 
             // statusStrip1
             // 
