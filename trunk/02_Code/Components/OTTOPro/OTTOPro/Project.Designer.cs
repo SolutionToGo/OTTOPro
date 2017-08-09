@@ -664,6 +664,7 @@
             this.gcMulti5 = new DevExpress.XtraGrid.GridControl();
             this.gvMulti5 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn78 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -688,6 +689,7 @@
             this.gcMulti6 = new DevExpress.XtraGrid.GridControl();
             this.gvMulti6 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -2015,7 +2017,7 @@
             this.dockPanelArticles.Appearance.Options.UseBackColor = true;
             this.dockPanelArticles.Controls.Add(this.dockPanel1_Container);
             this.dockPanelArticles.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(486, 383);
+            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(484, 417);
             this.dockPanelArticles.FloatSize = new System.Drawing.Size(933, 252);
             this.dockPanelArticles.FloatVertical = true;
             this.dockPanelArticles.ID = new System.Guid("8ea5025b-bc1a-4908-8665-6b66fa4197b4");
@@ -9893,6 +9895,7 @@
             this.gvMulti5.AppearancePrint.HeaderPanel.Options.UseFont = true;
             this.gvMulti5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
+            this.gridColumn78,
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
@@ -9926,6 +9929,14 @@
             this.gridColumn1.Visible = true;
             this.gridColumn1.VisibleIndex = 0;
             // 
+            // gridColumn78
+            // 
+            this.gridColumn78.Caption = "WA";
+            this.gridColumn78.FieldName = "WA";
+            this.gridColumn78.Name = "gridColumn78";
+            this.gridColumn78.Visible = true;
+            this.gridColumn78.VisibleIndex = 1;
+            // 
             // gridColumn2
             // 
             this.gridColumn2.Caption = "WG Beschreibung";
@@ -9936,7 +9947,7 @@
             this.gridColumn2.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
+            this.gridColumn2.VisibleIndex = 2;
             // 
             // gridColumn3
             // 
@@ -9952,7 +9963,7 @@
             this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "XValue", "SUMME = {0:n3}", "XValue")});
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
+            this.gridColumn3.VisibleIndex = 3;
             // 
             // gridColumn4
             // 
@@ -9968,7 +9979,7 @@
             this.gridColumn4.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SValue", "SUMME= {0:n3}", "SValue")});
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 3;
+            this.gridColumn4.VisibleIndex = 4;
             // 
             // gridColumn5
             // 
@@ -9979,7 +9990,7 @@
             this.gridColumn5.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "XFactor", "Gewichtet [in %]= {0:N3}", "XFactor")});
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 4;
+            this.gridColumn5.VisibleIndex = 5;
             // 
             // rpMulti5texteidt
             // 
@@ -10002,7 +10013,7 @@
             this.gridColumn6.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "SFactor", "Gewichtet [in %] = {0:N3}", "SFactor")});
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 5;
+            this.gridColumn6.VisibleIndex = 6;
             // 
             // layoutControlGroup17
             // 
@@ -10211,6 +10222,7 @@
             this.gvMulti6.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvMulti6.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn7,
+            this.gridColumn79,
             this.gridColumn8,
             this.gridColumn9,
             this.gridColumn10,
@@ -10241,6 +10253,14 @@
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 0;
             // 
+            // gridColumn79
+            // 
+            this.gridColumn79.Caption = "WA";
+            this.gridColumn79.FieldName = "WA";
+            this.gridColumn79.Name = "gridColumn79";
+            this.gridColumn79.Visible = true;
+            this.gridColumn79.VisibleIndex = 1;
+            // 
             // gridColumn8
             // 
             this.gridColumn8.Caption = "WG Beschreibung";
@@ -10251,7 +10271,7 @@
             this.gridColumn8.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
             this.gridColumn8.OptionsColumn.ReadOnly = true;
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 1;
+            this.gridColumn8.VisibleIndex = 2;
             // 
             // gridColumn9
             // 
@@ -10265,7 +10285,7 @@
             this.gridColumn9.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "XValue", "SUMME={0:n3}", "XValue")});
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 2;
+            this.gridColumn9.VisibleIndex = 3;
             // 
             // gridColumn10
             // 
@@ -10279,7 +10299,7 @@
             this.gridColumn10.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SValue", "SUMME={0:n3}", "SValue")});
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 3;
+            this.gridColumn10.VisibleIndex = 4;
             // 
             // gridColumn11
             // 
@@ -10290,7 +10310,7 @@
             this.gridColumn11.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "XFactor", "Gewichtet [in %]={0:n3}", "XFactor")});
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 4;
+            this.gridColumn11.VisibleIndex = 5;
             // 
             // rpedit6
             // 
@@ -10311,7 +10331,7 @@
             this.gridColumn12.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Custom, "SFactor", "Gewichtet [in %]={0:n3}", "SFactor")});
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 5;
+            this.gridColumn12.VisibleIndex = 6;
             // 
             // layoutControlGroup18
             // 
@@ -16802,6 +16822,8 @@
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand BandMaterial;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand BandMontage;
         private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn78;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn79;
 
 
     }
