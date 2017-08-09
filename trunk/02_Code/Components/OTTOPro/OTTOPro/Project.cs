@@ -1573,10 +1573,10 @@ namespace OTTOPro
                     object ObjMO = null;
 
                     ObjMA = dt.Compute("SUM(MAWithMulti)", "SNO >=" + ifromValue +
-                       "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M')");
+                       "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
 
                     ObjMO = dt.Compute("SUM(MOWithMulti)", "SNO >=" + ifromValue +
-                       "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M')");
+                       "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
 
                     decimal MAPrice = ObjMA == DBNull.Value ? 0 : Convert.ToDecimal(ObjMA);
                     decimal MOPrice = ObjMO == DBNull.Value ? 0 : Convert.ToDecimal(ObjMO);
@@ -1587,7 +1587,7 @@ namespace OTTOPro
                 else
                 {
                     Obj = dt.Compute("SUM(" + strField + ")", "SNO >=" + ifromValue +
-                          "And SNO <=" + itoValue + "And DetailKZ = 0 AND (PositionKZ = 'N' OR PositionKZ = 'Z' OR PositionKZ = 'M')");
+                          "And SNO <=" + itoValue + "And DetailKZ = 0 AND (PositionKZ = 'N' OR PositionKZ = 'Z' OR PositionKZ = 'M' OR PositionKZ = 'P')");
                     Sum = Obj == DBNull.Value ? 0 : Convert.ToDecimal(Obj);
                     TotalValue = Sum;
                 }
@@ -3112,9 +3112,9 @@ namespace OTTOPro
                 string MinValue = string.Empty;
 
                 if (strPositionKZ.ToLower() == "zs")
-                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z')");
+                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z' OR PositionKZ = 'P')");
                 else if (strPositionKZ.ToLower() == "z")
-                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M')");
+                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
 
                 if (Min_Identity != DBNull.Value)
                 {
@@ -3140,9 +3140,9 @@ namespace OTTOPro
                 object Max_Identity = null;
 
                 if (strPositionKZ.ToLower() == "zs")
-                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z')");
+                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z' OR PositionKZ = 'P')");
                 else if (strPositionKZ.ToLower() == "z")
-                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M')");
+                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
 
                 if (Max_Identity != DBNull.Value)
                 {
@@ -5799,7 +5799,7 @@ namespace OTTOPro
                     if (objEGAEB == null)
                         objEGAEB = new EGAEB();
                     string SelectedRaster = ObjEProject.LVRaster;
-                    objEGAEB.OldRaster = objBGAEB.GetOld_Raster(_ProjectID);
+                    objEGAEB.OldRaster = objBGAEB.GetOld_Raster(ObjEProject.ProjectID);
                     if (objEGAEB.OldRaster != "")
                     {
                         objEGAEB.NewRaster = ObjEProject.LVRaster;
@@ -6012,31 +6012,28 @@ namespace OTTOPro
                 int MaxValue = 0;
                 GridControl grid = sender as GridControl;
                 DataTable table = grid.DataSource as DataTable;
-                DataRow row = e.Data.GetData(typeof(DataRow)) as DataRow;
-                if (row != null && table != null && row.Table != table)
+
+                foreach (int i in gvPositions.GetSelectedRows())
                 {
-                    object strPositionID = row["PositionID"].ToString();
-                    DataRow[] foundRows = table.Select("PositionID = '" + strPositionID + "'");
-                    if(table.Rows.Count >0)
+                    DataRow row = gvPositions.GetDataRow(i);
+                    if (row != null && table != null && row.Table != table)
                     {
-                        MaxValue = Convert.ToInt32(table.Compute("MAX([SNO])", string.Empty));
-                    }                    
-                    if (foundRows.Count() <= 0)
-                    {
-                        
-                        DataRow drTemp = table.NewRow();
-                        drTemp.ItemArray = row.ItemArray.Clone() as object[];
-                        drTemp["Menge"] = 0;
-                        drTemp["SNO"] = MaxValue +1;
-                        table.Rows.Add(drTemp);
-                        Utility.Setfocus(gvDelivery, "PositionID", Convert.ToInt32(strPositionID));
-                    }
-                    else
-                    {
-                        if (!Utility._IsGermany)
-                            throw new Exception("Position Already Exists in Blatt");
-                        else
-                            throw new Exception("Diese LV Position wurde für dieses BLATT bereits einmal ausgewählt");
+                        object strPositionID = row["PositionID"].ToString();
+                        DataRow[] foundRows = table.Select("PositionID = '" + strPositionID + "'");
+                        if (table.Rows.Count > 0)
+                        {
+                            MaxValue = Convert.ToInt32(table.Compute("MAX([SNO])", string.Empty));
+                        }
+                        if (foundRows.Count() <= 0)
+                        {
+
+                            DataRow drTemp = table.NewRow();
+                            drTemp.ItemArray = row.ItemArray.Clone() as object[];
+                            drTemp["Menge"] = 0;
+                            drTemp["SNO"] = MaxValue + 1;
+                            table.Rows.Add(drTemp);
+                            Utility.Setfocus(gvDelivery, "PositionID", Convert.ToInt32(strPositionID));
+                        }
                     }
                 }
             }
@@ -6188,12 +6185,15 @@ namespace OTTOPro
                 double RemainingQuantity = 0;
                 double notSavedQnty = 0;
                 double AvailedQnty = 0;
+                double DeliveredQnty = 0;
 
                 string sPositionID = gvDelivery.GetFocusedRowCellValue("PositionID").ToString();
                 if (double.TryParse(gvDelivery.GetFocusedRowCellValue("OrderedQuantity").ToString(), out dValue))
                     OrderedQuantity = dValue;
                 if (double.TryParse(gvDelivery.GetFocusedRowCellValue("RemainingQuantity").ToString(), out dValue))
                     RemainingQuantity = dValue;
+                if (double.TryParse(gvDelivery.GetFocusedRowCellValue("DeliveredQuantity").ToString(), out dValue))
+                    DeliveredQnty = dValue;
                 DataTable table = gcDelivery.DataSource as DataTable;
                 int i = e.RowHandle;
                 string str = table.Rows[i][e.Column.FieldName] == DBNull.Value ? "" : table.Rows[i][e.Column.FieldName].ToString();
@@ -6201,17 +6201,20 @@ namespace OTTOPro
                     table.Rows[i][e.Column.FieldName] = 0;
                 notSavedQnty = Convert.ToDouble(table.Compute("SUM(Menge)", "PositionID = " + sPositionID));
                 AvailedQnty = RemainingQuantity + (OrderedQuantity * 0.1);
-                if (notSavedQnty != 0 && notSavedQnty > AvailedQnty)
+                if (DeliveredQnty + notSavedQnty < 0)
                 {
-                    if (!Utility._IsGermany)
+                    table.Rows[i][e.Column.FieldName] = 0;
+                    throw new Exception("Total Quantity not matching Delivered Quantity");
+                }
+                else
+                {
+                    if (notSavedQnty != 0 && notSavedQnty > AvailedQnty)
                     {
-                        XtraMessageBox.Show("Total Quantity Exceeding Ordered Quantity");
+                        if (!Utility._IsGermany)
+                            XtraMessageBox.Show("Total Quantity Exceeding Ordered Quantity");
+                        else
+                            XtraMessageBox.Show("Die Gesamtmenge übersteigt die beauftragte Menge");
                     }
-                    else
-                    {
-                        XtraMessageBox.Show("Die Gesamtmenge übersteigt die beauftragte Menge");
-                    }
-                    
                 }
             }
             catch (Exception ex)
