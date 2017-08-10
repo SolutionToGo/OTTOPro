@@ -214,7 +214,7 @@
             // xrLabel13
             // 
             this.xrLabel13.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID).CustomerShortName")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID).CCity")});
             this.xrLabel13.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrLabel13.LocationFloat = new DevExpress.Utils.PointFloat(0F, 183.1041F);
             this.xrLabel13.Name = "xrLabel13";

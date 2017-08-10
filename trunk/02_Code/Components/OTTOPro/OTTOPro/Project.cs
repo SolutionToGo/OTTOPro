@@ -295,6 +295,7 @@ namespace OTTOPro
                 tbSupplierProposal.PageVisible = false;
                 tbUpdateSupplier.PageVisible = false;
                 tbCopyLVs.PageVisible = false;
+                tbAufmassReport.PageVisible = false;
                 cmbPositionKZ.Text = "N";
                 chkCumulated.Checked = true;
 
@@ -8447,7 +8448,7 @@ namespace OTTOPro
         {
             try
             {
-                string filePath = "Excrl.xlsx";
+                string filePath = "LVDetails.xlsx";
                 XlsxExportOptionsEx opt = new XlsxExportOptionsEx();
                 tlPositions.ExportToXlsx(filePath, opt);
                 Process.Start(filePath);
@@ -8942,5 +8943,124 @@ namespace OTTOPro
             //    Utility.ShowError(ex);
             //}
         }
+
+        private void navBarItemDeliveryNote_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                TabChange(tbAufmassReport);
+                if (ObjEDeliveryNotes == null)
+                    ObjEDeliveryNotes = new EDeliveryNotes();
+                if (ObjBDeliveryNotes == null)
+                    ObjBDeliveryNotes = new BDeliveryNotes();
+                ObjEDeliveryNotes.ProjectID = ObjEProject.ProjectID;
+                ObjEDeliveryNotes = ObjBDeliveryNotes.GetBlattNumbers(ObjEDeliveryNotes);
+                gcDeliveryNoteReport.DataSource = ObjEDeliveryNotes.dtBlattNumbers;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcDeliveryReportAddress_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvDeliveryNoteReport.FocusedRowHandle != null && gvDeliveryNoteReport.GetFocusedRowCellValue("BlattID") != null)
+                {
+                    int IValue = 0;
+                    string strBlattID = gvDeliveryNoteReport.GetFocusedRowCellValue("BlattID").ToString();
+                    if (int.TryParse(strBlattID, out IValue))
+                    {
+                        rptDeliveryNotes Obj = new rptDeliveryNotes();
+                        ReportPrintTool printTool = new ReportPrintTool(Obj);
+                        Obj.Parameters["ID"].Value = IValue;
+                        Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                        printTool.ShowRibbonPreview();
+
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcDeliveryReportWithouAddress_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvDeliveryNoteReport.FocusedRowHandle != null && gvDeliveryNoteReport.GetFocusedRowCellValue("BlattID") != null)
+                {
+                    int IValue = 0;
+                    string strBlattID = gvDeliveryNoteReport.GetFocusedRowCellValue("BlattID").ToString();
+
+                    if (int.TryParse(strBlattID, out IValue))
+                    {
+                        rptDeliveryNotesWithoutAddress Obj = new rptDeliveryNotesWithoutAddress();
+                        ReportPrintTool printTool = new ReportPrintTool(Obj);
+                        Obj.Parameters["BlattID"].Value = IValue;
+                        Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+
+                        printTool.ShowRibbonPreview();
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeliveryNoteReport_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcDeliveryReportAddress_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß ohne Adresskopf, mit LV Positionsnr", gcDeliveryReportWithouAddress_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnUmlageExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string filePath = "Umlage.xlsx";
+                XlsxExportOptionsEx opt = new XlsxExportOptionsEx();
+                gvOmlage.ExportToXlsx(filePath, opt);
+                Process.Start(filePath);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvSupplier_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    gvSupplier.MoveNext();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
     }
 }

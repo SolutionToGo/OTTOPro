@@ -258,8 +258,6 @@
             this.dxValidationProviderSupplierEmail.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtSupplierEmail.Location = new System.Drawing.Point(151, 72);
             this.txtSupplierEmail.Name = "txtSupplierEmail";
-            this.txtSupplierEmail.Properties.Mask.EditMask = "[a-zA-Z0-9.-]+@[a-zA-Z0-9-]+\\.[A-Za-z]{2,6}";
-            this.txtSupplierEmail.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtSupplierEmail.Properties.Mask.ShowPlaceHolders = false;
             this.txtSupplierEmail.Size = new System.Drawing.Size(283, 20);
             this.txtSupplierEmail.StyleController = this.layoutControl2;
