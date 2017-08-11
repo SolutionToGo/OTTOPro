@@ -336,6 +336,10 @@ namespace OTTOPro
                         navBarItemUpdateSupplierProposal.Visible = false;
                         navBarItemUmlage.Visible = false;
                     }
+                    if (Utility.LVsectionAddAccess == "8" || Utility.LVSectionEditAccess == "8")
+                    {
+                        navBarItemLVDetails.Visible = true;
+                    }
                 }
                 if (Utility.ProjectDataAccess == "9")
                     navBarItemProject.Visible = false;
@@ -5568,6 +5572,13 @@ namespace OTTOPro
                 btnAddLVSection.Enabled = false;
                 cmbLVSection.Enabled = false;
             }
+            else
+            {
+                if(Utility.LVDetailsAccess != "8")
+                {
+                    cmbLVSection.Items.Remove("HA");
+                }
+            }
             if (ObjEProject.IsFinalInvoice)
             {
                 btnNew.Enabled = false;
@@ -6300,14 +6311,10 @@ namespace OTTOPro
             {
                 if (e.HitInfo.InRow)
                 {
-                    if(gvDeliveryNumbers.FocusedRowHandle != null)
+                    if (gvDeliveryNumbers.FocusedRowHandle != null)
                     {
-                        string str = gvDeliveryNumbers.GetFocusedRowCellValue("IsInvoiced").ToString();
-                        if (str.ToLower() != "ja" && gvDelivery.RowCount <= 0)
-                        {
-                            if (Utility.DeliveryAccess != "7" && !ObjEProject.IsFinalInvoice)
-                                e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ã„ndern", gcBlattEdit_Click));
-                        }
+                        if (Utility.DeliveryAccess != "7" && !ObjEProject.IsFinalInvoice)
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ã„ndern", gcBlattEdit_Click));
                     }
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcBlattViewAddress_Click));
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß ohne Adresskopf, mit LV Positionsnr", gcBlattViewWithouAddress_Click));
