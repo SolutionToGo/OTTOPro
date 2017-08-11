@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.gcArticles = new DevExpress.XtraGrid.GridControl();
             this.gvArticles = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -175,9 +175,9 @@
             // 
             // gcArticles
             // 
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gcArticles.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gcArticles.Location = new System.Drawing.Point(12, 254);
             this.gcArticles.MainView = this.gvArticles;
             this.gcArticles.Name = "gcArticles";
@@ -281,7 +281,7 @@
             this.groupControl2.Name = "groupControl2";
             this.groupControl2.Size = new System.Drawing.Size(464, 238);
             this.groupControl2.TabIndex = 9;
-            this.groupControl2.Text = "Select Article";
+            this.groupControl2.Text = "Artikelauswahl";
             // 
             // layoutControl3
             // 
@@ -589,7 +589,7 @@
             this.groupControl1.Name = "groupControl1";
             this.groupControl1.Size = new System.Drawing.Size(463, 238);
             this.groupControl1.TabIndex = 10;
-            this.groupControl1.Text = "Select Accessories";
+            this.groupControl1.Text = "Zubehörauswahl";
             // 
             // layoutControl2
             // 
@@ -987,7 +987,7 @@
             this.Name = "frmAccessories";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Accessories Mapping";
+            this.Text = "Zuordnung des Zubehör zu Artikelstammdaten";
             this.Load += new System.EventHandler(this.frmAccessories_Load);
             ((System.ComponentModel.ISupportInitialize)(this.gcArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvArticles)).EndInit();

@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
@@ -2044,7 +2044,7 @@
             this.dockPanelArticles.Appearance.Options.UseBackColor = true;
             this.dockPanelArticles.Controls.Add(this.dockPanel1_Container);
             this.dockPanelArticles.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(453, 442);
+            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(436, 424);
             this.dockPanelArticles.FloatSize = new System.Drawing.Size(933, 252);
             this.dockPanelArticles.FloatVertical = true;
             this.dockPanelArticles.ID = new System.Guid("8ea5025b-bc1a-4908-8665-6b66fa4197b4");
@@ -2052,10 +2052,10 @@
             this.dockPanelArticles.Name = "dockPanelArticles";
             this.dockPanelArticles.Options.ShowAutoHideButton = false;
             this.dockPanelArticles.OriginalSize = new System.Drawing.Size(242, 171);
-            this.dockPanelArticles.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Bottom;
+            this.dockPanelArticles.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top;
             this.dockPanelArticles.SavedIndex = 0;
             this.dockPanelArticles.Size = new System.Drawing.Size(933, 252);
-            this.dockPanelArticles.Text = "Compare Price";
+            this.dockPanelArticles.Text = "Preisvergleich";
             this.dockPanelArticles.Click += new System.EventHandler(this.dockPanelArticles_Click);
             // 
             // dockPanel1_Container
@@ -2074,7 +2074,7 @@
             this.panelControldoc.Controls.Add(this.toggleSwitchType);
             this.panelControldoc.Location = new System.Drawing.Point(3, 3);
             this.panelControldoc.Name = "panelControldoc";
-            this.panelControldoc.Size = new System.Drawing.Size(227, 42);
+            this.panelControldoc.Size = new System.Drawing.Size(242, 42);
             this.panelControldoc.TabIndex = 1;
             // 
             // toggleSwitchType
@@ -2088,11 +2088,11 @@
             this.toggleSwitchType.Properties.Appearance.Options.UseBackColor = true;
             this.toggleSwitchType.Properties.Appearance.Options.UseFont = true;
             this.toggleSwitchType.Properties.Appearance.Options.UseForeColor = true;
-            this.toggleSwitchType.Properties.OffText = "Show By Customer";
-            this.toggleSwitchType.Properties.OnText = "Show By Current Project";
+            this.toggleSwitchType.Properties.OffText = "Anzeige Kunde";
+            this.toggleSwitchType.Properties.OnText = "Anzeige Laufendes Projekt";
             this.toggleSwitchType.Properties.ValueOff = true;
             this.toggleSwitchType.Properties.ValueOn = false;
-            this.toggleSwitchType.Size = new System.Drawing.Size(217, 25);
+            this.toggleSwitchType.Size = new System.Drawing.Size(232, 25);
             this.toggleSwitchType.TabIndex = 0;
             this.toggleSwitchType.Toggled += new System.EventHandler(this.toggleSwitchType_Toggled);
             // 
@@ -3714,7 +3714,7 @@
             this.btnAddAccessories.Size = new System.Drawing.Size(245, 22);
             this.btnAddAccessories.StyleController = this.layoutControl6;
             this.btnAddAccessories.TabIndex = 59;
-            this.btnAddAccessories.Text = "Add Accessories";
+            this.btnAddAccessories.Text = "Zubehör hinzufügen";
             this.btnAddAccessories.Click += new System.EventHandler(this.btnAddAccessories_Click);
             // 
             // labelControl2
@@ -5703,10 +5703,10 @@
             this.btnExportExcel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnExportExcel.ImageOptions.Image")));
             this.btnExportExcel.Location = new System.Drawing.Point(1190, 12);
             this.btnExportExcel.Name = "btnExportExcel";
-            this.btnExportExcel.Size = new System.Drawing.Size(122, 22);
+            this.btnExportExcel.Size = new System.Drawing.Size(144, 22);
             this.btnExportExcel.StyleController = this.layoutControl4;
             this.btnExportExcel.TabIndex = 48;
-            this.btnExportExcel.Text = "Export LVDetails";
+            this.btnExportExcel.Text = "LV Angaben exportieren";
             this.btnExportExcel.Click += new System.EventHandler(this.btnExportExcel_Click);
             // 
             // cmbSelectGridviewOptions
@@ -6501,9 +6501,9 @@
             // emptySpaceItem38
             // 
             this.emptySpaceItem38.AllowHotTrack = false;
-            this.emptySpaceItem38.Location = new System.Drawing.Point(1304, 0);
+            this.emptySpaceItem38.Location = new System.Drawing.Point(1326, 0);
             this.emptySpaceItem38.Name = "emptySpaceItem38";
-            this.emptySpaceItem38.Size = new System.Drawing.Size(103, 26);
+            this.emptySpaceItem38.Size = new System.Drawing.Size(81, 26);
             this.emptySpaceItem38.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem82
@@ -6543,10 +6543,10 @@
             // 
             this.layoutControlItem172.Control = this.btnExportExcel;
             this.layoutControlItem172.Location = new System.Drawing.Point(1178, 0);
-            this.layoutControlItem172.MaxSize = new System.Drawing.Size(126, 26);
-            this.layoutControlItem172.MinSize = new System.Drawing.Size(126, 26);
+            this.layoutControlItem172.MaxSize = new System.Drawing.Size(148, 26);
+            this.layoutControlItem172.MinSize = new System.Drawing.Size(148, 26);
             this.layoutControlItem172.Name = "layoutControlItem172";
-            this.layoutControlItem172.Size = new System.Drawing.Size(126, 26);
+            this.layoutControlItem172.Size = new System.Drawing.Size(148, 26);
             this.layoutControlItem172.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem172.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem172.TextVisible = false;
@@ -8259,17 +8259,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -10549,12 +10549,12 @@
             // btnUmlageExport
             // 
             this.btnUmlageExport.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUmlageExport.ImageOptions.Image")));
-            this.btnUmlageExport.Location = new System.Drawing.Point(916, 12);
+            this.btnUmlageExport.Location = new System.Drawing.Point(913, 12);
             this.btnUmlageExport.Name = "btnUmlageExport";
-            this.btnUmlageExport.Size = new System.Drawing.Size(119, 22);
+            this.btnUmlageExport.Size = new System.Drawing.Size(122, 22);
             this.btnUmlageExport.StyleController = this.layoutControl9;
             this.btnUmlageExport.TabIndex = 13;
-            this.btnUmlageExport.Text = "Export Umlage";
+            this.btnUmlageExport.Text = "Umlage exportieren";
             this.btnUmlageExport.Click += new System.EventHandler(this.btnUmlageExport_Click);
             // 
             // txtUmlageValue
@@ -10617,7 +10617,7 @@
             this.lblOmlage.ForeColor = System.Drawing.Color.White;
             this.lblOmlage.Location = new System.Drawing.Point(12, 12);
             this.lblOmlage.Name = "lblOmlage";
-            this.lblOmlage.Size = new System.Drawing.Size(900, 22);
+            this.lblOmlage.Size = new System.Drawing.Size(897, 22);
             this.lblOmlage.TabIndex = 5;
             this.lblOmlage.Text = "Umlage ";
             // 
@@ -10735,7 +10735,7 @@
             this.layoutControlItem133.Control = this.lblOmlage;
             this.layoutControlItem133.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem133.Name = "layoutControlItem133";
-            this.layoutControlItem133.Size = new System.Drawing.Size(904, 26);
+            this.layoutControlItem133.Size = new System.Drawing.Size(901, 26);
             this.layoutControlItem133.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem133.TextVisible = false;
             // 
@@ -10828,9 +10828,9 @@
             // layoutControlItem232
             // 
             this.layoutControlItem232.Control = this.btnUmlageExport;
-            this.layoutControlItem232.Location = new System.Drawing.Point(904, 0);
+            this.layoutControlItem232.Location = new System.Drawing.Point(901, 0);
             this.layoutControlItem232.Name = "layoutControlItem232";
-            this.layoutControlItem232.Size = new System.Drawing.Size(123, 26);
+            this.layoutControlItem232.Size = new System.Drawing.Size(126, 26);
             this.layoutControlItem232.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem232.TextVisible = false;
             // 
@@ -14995,7 +14995,7 @@
             this.tbAufmassReport.Controls.Add(this.layoutControl25);
             this.tbAufmassReport.Name = "tbAufmassReport";
             this.tbAufmassReport.Size = new System.Drawing.Size(1522, 749);
-            this.tbAufmassReport.Text = "Aufmass Report";
+            this.tbAufmassReport.Text = "Lieferungen";
             // 
             // layoutControl25
             // 

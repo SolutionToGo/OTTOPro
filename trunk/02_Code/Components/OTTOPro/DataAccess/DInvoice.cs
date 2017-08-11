@@ -140,7 +140,7 @@ namespace DataAccess
                 catch (Exception ex)
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        throw new Exception("To Be Updated");
+                        throw new Exception("Fehler bei der Aufbereitung des Aufmasses");
                     else
                         throw new Exception("Error While Retrieving the Delivery Notes");
                 }

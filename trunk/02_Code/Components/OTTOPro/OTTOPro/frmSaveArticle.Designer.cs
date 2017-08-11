@@ -237,7 +237,7 @@
             this.MinimizeBox = false;
             this.Name = "frmSaveArticle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Save Articles";
+            this.Text = "Artikel speichern";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSaveArticle_FormClosing);
             this.Load += new System.EventHandler(this.frmSaveArticle_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

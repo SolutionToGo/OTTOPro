@@ -698,11 +698,14 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@dtCopyPosition", ObjEPosition.dtCopyPosition);
                     object returnObj = cmd.ExecuteScalar();
                     if(!int.TryParse(Convert.ToString(returnObj),out ProjectID))
-                        throw new Exception("Error While Moving the position");
+                        throw new Exception("Fehler beim Verschieben der Position");
                 }
             }
             catch (Exception ex)
             {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler beim Verschieben der Position");
+                else
                 throw new Exception("Error While Moving the position");
             }
             finally

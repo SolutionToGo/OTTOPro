@@ -69,19 +69,21 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(388, 408);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(87, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(283, 408);
+            this.btnOk.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
+            this.btnOk.Location = new System.Drawing.Point(306, 408);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(101, 22);
+            this.btnOk.Size = new System.Drawing.Size(78, 22);
             this.btnOk.StyleController = this.layoutControl1;
             this.btnOk.TabIndex = 5;
             this.btnOk.Text = "OK";
@@ -158,9 +160,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnOk;
-            this.layoutControlItem2.Location = new System.Drawing.Point(271, 396);
+            this.layoutControlItem2.Location = new System.Drawing.Point(294, 396);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(105, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(82, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -178,7 +180,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 396);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(271, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(294, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // frmSelectDimension
@@ -190,7 +192,7 @@
             this.KeyPreview = true;
             this.Name = "frmSelectDimension";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Select Dimension";
+            this.Text = "Maße auswählen";
             this.Load += new System.EventHandler(this.frmSelectDimension_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmSelectDimension_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

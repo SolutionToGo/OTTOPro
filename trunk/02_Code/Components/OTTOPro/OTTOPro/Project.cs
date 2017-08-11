@@ -6314,7 +6314,7 @@ namespace OTTOPro
                     if (gvDeliveryNumbers.FocusedRowHandle != null)
                     {
                         if (Utility.DeliveryAccess != "7" && !ObjEProject.IsFinalInvoice)
-                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ã„ndern", gcBlattEdit_Click));
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ändern", gcBlattEdit_Click));
                     }
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcBlattViewAddress_Click));
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß ohne Adresskopf, mit LV Positionsnr", gcBlattViewWithouAddress_Click));
@@ -8509,7 +8509,7 @@ namespace OTTOPro
                     ObjEArticles.L = txtDim3.Text;
                     ObjEArticles = ObjBArticles.GetAccessoriesForLVs(ObjEArticles);
                     if (ObjEArticles.dtAccessories == null || ObjEArticles.dtAccessories.Rows.Count <= 0)
-                        throw new Exception("No Accessories Exists");
+                        throw new Exception("Keine Zubehörangaben für ausgewählten Artikel");
                     DataTable dt = ObjEArticles.dtAccessories.Copy();
                     ObjEArticles.dtAccessories = new DataTable();
                     ObjEArticles.dtAccessories = dt.Clone();
@@ -8532,7 +8532,7 @@ namespace OTTOPro
                     if (Obj._ISSave)
                     {
                         SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                        SplashScreenManager.Default.SetWaitFormDescription("Adding Accessories...");
+                        SplashScreenManager.Default.SetWaitFormDescription("Zubehör hinzufügen...");
                         if (ObjEPosition.PositionID < 0)
                         {
                             btnSaveLVDetails_Click(null, null);
@@ -8831,12 +8831,12 @@ namespace OTTOPro
                 if (int.TryParse(ParentID, out IParnetValue))
                     ObjEPosition.ParentID = IParnetValue;
                 else
-                    throw new Exception("Error While Moving the position");
+                    throw new Exception("Fehler beim Verschieben der Position");
 
                 if (int.TryParse(SNO, out IValue))
                     ObjEPosition.SNO = IValue;
                 else
-                    throw new Exception("Error While Moving the position");
+                    throw new Exception("Fehler beim Verschieben der Position");
                 int ITemp = ObjEPosition.SNO;
                 foreach (DataRow dr in ObjEPosition.dtCopyPosition.Rows)
                 {
