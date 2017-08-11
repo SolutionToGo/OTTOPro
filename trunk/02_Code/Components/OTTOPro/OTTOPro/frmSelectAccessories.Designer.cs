@@ -78,19 +78,21 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(637, 381);
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.Location = new System.Drawing.Point(633, 381);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(76, 22);
+            this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOK
             // 
+            this.btnOK.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
             this.btnOK.Location = new System.Drawing.Point(557, 381);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(76, 22);
+            this.btnOK.Size = new System.Drawing.Size(72, 22);
             this.btnOK.StyleController = this.layoutControl1;
             this.btnOK.TabIndex = 7;
             this.btnOK.Text = "Ok";
@@ -231,16 +233,16 @@
             this.layoutControlItem2.Control = this.btnOK;
             this.layoutControlItem2.Location = new System.Drawing.Point(545, 369);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(76, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(625, 369);
+            this.layoutControlItem3.Location = new System.Drawing.Point(621, 369);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 

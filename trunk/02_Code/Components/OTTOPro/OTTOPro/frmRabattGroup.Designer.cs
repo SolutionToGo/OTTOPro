@@ -251,6 +251,10 @@
             this.gvRabatt.OptionsCustomization.AllowColumnMoving = false;
             this.gvRabatt.OptionsCustomization.AllowFilter = false;
             this.gvRabatt.OptionsCustomization.AllowSort = false;
+            this.gvRabatt.OptionsFilter.AllowFilterEditor = false;
+            this.gvRabatt.OptionsMenu.EnableColumnMenu = false;
+            this.gvRabatt.OptionsMenu.EnableFooterMenu = false;
+            this.gvRabatt.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvRabatt.OptionsView.ShowGroupPanel = false;
             this.gvRabatt.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvRabatt_FocusedRowChanged);
             // 

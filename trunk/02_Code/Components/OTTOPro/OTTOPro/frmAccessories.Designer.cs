@@ -204,6 +204,10 @@
             this.gvArticles.OptionsBehavior.Editable = false;
             this.gvArticles.OptionsCustomization.AllowColumnMoving = false;
             this.gvArticles.OptionsCustomization.AllowSort = false;
+            this.gvArticles.OptionsFilter.AllowFilterEditor = false;
+            this.gvArticles.OptionsMenu.EnableColumnMenu = false;
+            this.gvArticles.OptionsMenu.EnableFooterMenu = false;
+            this.gvArticles.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvArticles.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn1

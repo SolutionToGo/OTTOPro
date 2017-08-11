@@ -128,6 +128,10 @@
             this.gvTyp.OptionsCustomization.AllowColumnMoving = false;
             this.gvTyp.OptionsCustomization.AllowFilter = false;
             this.gvTyp.OptionsCustomization.AllowSort = false;
+            this.gvTyp.OptionsFilter.AllowFilterEditor = false;
+            this.gvTyp.OptionsMenu.EnableColumnMenu = false;
+            this.gvTyp.OptionsMenu.EnableFooterMenu = false;
+            this.gvTyp.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvTyp.OptionsView.ShowGroupPanel = false;
             this.gvTyp.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvTyp_FocusedRowChanged);
             // 

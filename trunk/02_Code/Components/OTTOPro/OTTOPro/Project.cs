@@ -6316,8 +6316,6 @@ namespace OTTOPro
                         if (Utility.DeliveryAccess != "7" && !ObjEProject.IsFinalInvoice)
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Ändern", gcBlattEdit_Click));
                     }
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß mit Adresskopf", gcBlattViewAddress_Click));
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Aufmaß ohne Adresskopf, mit LV Positionsnr", gcBlattViewWithouAddress_Click));
                 }
             }
             catch (Exception ex)
@@ -6363,61 +6361,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
-        private void gcBlattViewAddress_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (gvDeliveryNumbers.FocusedRowHandle != null && gvDeliveryNumbers.GetFocusedRowCellValue("BlattID") != null)
-                {
-                    int IValue = 0;
-                    string strBlattID = gvDeliveryNumbers.GetFocusedRowCellValue("BlattID").ToString();
-                        if (int.TryParse(strBlattID, out IValue))
-                        {
-                            rptDeliveryNotes Obj = new rptDeliveryNotes();
-                            ReportPrintTool printTool = new ReportPrintTool(Obj);
-                            Obj.Parameters["ID"].Value = IValue;
-                            Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
-                            printTool.ShowRibbonPreview();
-
-                        }
-                }               
-                
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void gcBlattViewWithouAddress_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (gvDeliveryNumbers.FocusedRowHandle != null && gvDeliveryNumbers.GetFocusedRowCellValue("BlattID") != null)
-                {
-                    int IValue = 0;
-                    string strBlattID = gvDeliveryNumbers.GetFocusedRowCellValue("BlattID").ToString();
-
-                    if (int.TryParse(strBlattID, out IValue))
-                    {
-                        rptDeliveryNotesWithoutAddress Obj = new rptDeliveryNotesWithoutAddress();
-                        ReportPrintTool printTool = new ReportPrintTool(Obj);
-                        Obj.Parameters["BlattID"].Value = IValue;
-                        Obj.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
-
-                        printTool.ShowRibbonPreview();
-                    }                   
-                }
-
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-
         #endregion
 
         #region "Invoice Changes"

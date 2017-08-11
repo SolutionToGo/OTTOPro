@@ -510,6 +510,10 @@
             this.gvDimensions.OptionsCustomization.AllowColumnResizing = false;
             this.gvDimensions.OptionsCustomization.AllowGroup = false;
             this.gvDimensions.OptionsCustomization.AllowSort = false;
+            this.gvDimensions.OptionsFilter.AllowFilterEditor = false;
+            this.gvDimensions.OptionsMenu.EnableColumnMenu = false;
+            this.gvDimensions.OptionsMenu.EnableFooterMenu = false;
+            this.gvDimensions.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvDimensions.OptionsView.ShowGroupPanel = false;
             this.gvDimensions.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDimensions_CellValueChanged);
             this.gvDimensions.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvDimensions_BeforeLeaveRow);

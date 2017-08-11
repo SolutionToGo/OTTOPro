@@ -2044,7 +2044,7 @@
             this.dockPanelArticles.Appearance.Options.UseBackColor = true;
             this.dockPanelArticles.Controls.Add(this.dockPanel1_Container);
             this.dockPanelArticles.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
-            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(436, 424);
+            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(418, 425);
             this.dockPanelArticles.FloatSize = new System.Drawing.Size(933, 252);
             this.dockPanelArticles.FloatVertical = true;
             this.dockPanelArticles.ID = new System.Guid("8ea5025b-bc1a-4908-8665-6b66fa4197b4");
@@ -6933,9 +6933,10 @@
             this.btnProjectSave.Appearance.Options.UseBackColor = true;
             this.btnProjectSave.Appearance.Options.UseFont = true;
             this.btnProjectSave.Appearance.Options.UseForeColor = true;
+            this.btnProjectSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnProjectSave.Location = new System.Drawing.Point(12, 475);
             this.btnProjectSave.Name = "btnProjectSave";
-            this.btnProjectSave.Size = new System.Drawing.Size(87, 22);
+            this.btnProjectSave.Size = new System.Drawing.Size(93, 22);
             this.btnProjectSave.StyleController = this.layoutControl20;
             this.btnProjectSave.TabIndex = 19;
             this.btnProjectSave.Text = "&Speichern";
@@ -7522,7 +7523,7 @@
             this.layoutControlItem230.Control = this.btnProjectSave;
             this.layoutControlItem230.Location = new System.Drawing.Point(0, 463);
             this.layoutControlItem230.Name = "layoutControlItem230";
-            this.layoutControlItem230.Size = new System.Drawing.Size(91, 26);
+            this.layoutControlItem230.Size = new System.Drawing.Size(97, 26);
             this.layoutControlItem230.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem230.TextVisible = false;
             // 
@@ -7546,9 +7547,9 @@
             // emptySpaceItem122
             // 
             this.emptySpaceItem122.AllowHotTrack = false;
-            this.emptySpaceItem122.Location = new System.Drawing.Point(91, 463);
+            this.emptySpaceItem122.Location = new System.Drawing.Point(97, 463);
             this.emptySpaceItem122.Name = "emptySpaceItem122";
-            this.emptySpaceItem122.Size = new System.Drawing.Size(940, 26);
+            this.emptySpaceItem122.Size = new System.Drawing.Size(934, 26);
             this.emptySpaceItem122.TextSize = new System.Drawing.Size(0, 0);
             // 
             // tbBulkProcess
@@ -7989,6 +7990,10 @@
             this.tlBulkProcessPositionDetails.Location = new System.Drawing.Point(12, 406);
             this.tlBulkProcessPositionDetails.Name = "tlBulkProcessPositionDetails";
             this.tlBulkProcessPositionDetails.OptionsBehavior.Editable = false;
+            this.tlBulkProcessPositionDetails.OptionsFilter.AllowFilterEditor = false;
+            this.tlBulkProcessPositionDetails.OptionsMenu.EnableColumnMenu = false;
+            this.tlBulkProcessPositionDetails.OptionsMenu.EnableFooterMenu = false;
+            this.tlBulkProcessPositionDetails.OptionsMenu.ShowAutoFilterRowItem = false;
             this.tlBulkProcessPositionDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpMultis});
             this.tlBulkProcessPositionDetails.Size = new System.Drawing.Size(1498, 331);
@@ -10655,6 +10660,10 @@
             this.gvOmlage.OptionsCustomization.AllowColumnMoving = false;
             this.gvOmlage.OptionsCustomization.AllowFilter = false;
             this.gvOmlage.OptionsCustomization.AllowSort = false;
+            this.gvOmlage.OptionsFilter.AllowFilterEditor = false;
+            this.gvOmlage.OptionsMenu.EnableColumnMenu = false;
+            this.gvOmlage.OptionsMenu.EnableFooterMenu = false;
+            this.gvOmlage.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvOmlage.OptionsView.ShowFooter = true;
             this.gvOmlage.OptionsView.ShowGroupPanel = false;
             this.gvOmlage.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvMulti5_CellValueChanged);
@@ -11228,6 +11237,10 @@
             this.gvDeliveryNumbers.OptionsCustomization.AllowColumnMoving = false;
             this.gvDeliveryNumbers.OptionsCustomization.AllowFilter = false;
             this.gvDeliveryNumbers.OptionsCustomization.AllowSort = false;
+            this.gvDeliveryNumbers.OptionsFilter.AllowFilterEditor = false;
+            this.gvDeliveryNumbers.OptionsMenu.EnableColumnMenu = false;
+            this.gvDeliveryNumbers.OptionsMenu.EnableFooterMenu = false;
+            this.gvDeliveryNumbers.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvDeliveryNumbers.OptionsView.ShowGroupPanel = false;
             this.gvDeliveryNumbers.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvDeliveryNumbers_PopupMenuShowing);
             // 
@@ -11355,6 +11368,10 @@
             this.gvDelivery.OptionsCustomization.AllowColumnMoving = false;
             this.gvDelivery.OptionsCustomization.AllowFilter = false;
             this.gvDelivery.OptionsCustomization.AllowSort = false;
+            this.gvDelivery.OptionsFilter.AllowFilterEditor = false;
+            this.gvDelivery.OptionsMenu.EnableColumnMenu = false;
+            this.gvDelivery.OptionsMenu.EnableFooterMenu = false;
+            this.gvDelivery.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvDelivery.OptionsView.ShowGroupPanel = false;
             this.gvDelivery.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvDelivery_PopupMenuShowing);
             this.gvDelivery.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvDelivery_FocusedRowChanged);
@@ -11617,6 +11634,10 @@
             this.gvInvoices.OptionsCustomization.AllowColumnMoving = false;
             this.gvInvoices.OptionsCustomization.AllowFilter = false;
             this.gvInvoices.OptionsCustomization.AllowSort = false;
+            this.gvInvoices.OptionsFilter.AllowFilterEditor = false;
+            this.gvInvoices.OptionsMenu.EnableColumnMenu = false;
+            this.gvInvoices.OptionsMenu.EnableFooterMenu = false;
+            this.gvInvoices.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvInvoices.OptionsView.ShowGroupPanel = false;
             this.gvInvoices.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvInvoices_PopupMenuShowing);
             // 
@@ -11772,6 +11793,10 @@
             this.gvDeliveryNotes.OptionsCustomization.AllowColumnMoving = false;
             this.gvDeliveryNotes.OptionsCustomization.AllowFilter = false;
             this.gvDeliveryNotes.OptionsCustomization.AllowSort = false;
+            this.gvDeliveryNotes.OptionsFilter.AllowFilterEditor = false;
+            this.gvDeliveryNotes.OptionsMenu.EnableColumnMenu = false;
+            this.gvDeliveryNotes.OptionsMenu.EnableFooterMenu = false;
+            this.gvDeliveryNotes.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvDeliveryNotes.OptionsView.ShowGroupPanel = false;
             this.gvDeliveryNotes.ShowingEditor += new System.ComponentModel.CancelEventHandler(this.gvDeliveryNotes_ShowingEditor);
             // 
