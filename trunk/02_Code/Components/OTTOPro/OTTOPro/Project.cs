@@ -1127,17 +1127,19 @@ namespace OTTOPro
 
                     if (tlPositions.Nodes.Count > 0)
                     {
-                        string P_value = tlPositions.FocusedNode["PositionKZ"].ToString();
-                        if (P_value == "NG")
+                        if(e!=null)
                         {
-                            txtPosition.Enabled = false;
-                            btnLongDescription.Enabled = false;
-                        }
-                        else
-                        {
-                            txtPosition.Enabled = true;
-                            btnLongDescription.Enabled = true;
-                        }
+                            if (e.Node.HasChildren)
+                            {
+                                txtPosition.Enabled = false;
+                                btnLongDescription.Enabled = false;
+                            }
+                            else
+                            {
+                                txtPosition.Enabled = true;
+                                btnLongDescription.Enabled = true;
+                            }
+                        } 
                     }
                     txtMo_TextChanged(null, null);
                 }
