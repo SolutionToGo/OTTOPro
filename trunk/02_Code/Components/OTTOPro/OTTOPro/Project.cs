@@ -297,6 +297,7 @@ namespace OTTOPro
                 tbUpdateSupplier.PageVisible = false;
                 tbCopyLVs.PageVisible = false;
                 tbAufmassReport.PageVisible = false;
+                tbReports.PageVisible = false;
                 cmbPositionKZ.Text = "N";
                 chkCumulated.Checked = true;
 
@@ -1136,7 +1137,7 @@ namespace OTTOPro
                         {
                             txtPosition.Enabled = true;
                             btnLongDescription.Enabled = true;
-                        }                        
+                        }
                     }
                     txtMo_TextChanged(null, null);
                 }
@@ -8900,6 +8901,7 @@ namespace OTTOPro
         {
             try
             {
+                tbReports.PageVisible = false;
                 TabChange(tbAufmassReport);
                 if (ObjEDeliveryNotes == null)
                     ObjEDeliveryNotes = new EDeliveryNotes();
@@ -9008,6 +9010,31 @@ namespace OTTOPro
                 {
                     gvSupplier.MoveNext();
                 }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void navBarReports_ItemChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                TabChange(tbReports);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void navBarForms_ItemChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                navBarItemProject_LinkClicked(null, null);
+                tbReports.PageVisible = false;
             }
             catch (Exception ex)
             {
