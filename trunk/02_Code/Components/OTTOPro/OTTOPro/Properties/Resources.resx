@@ -235,9 +235,6 @@
   <data name="UpDownBars_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\UpDownBars_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Diary-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Diary-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Icon_Master-Article" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Master-Article.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -303,6 +300,9 @@
   </data>
   <data name="images (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TextBox_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\TextBox_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Icon_Delivery-Notes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Icon_Delivery-Notes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -370,6 +370,12 @@
   <data name="Mail_32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Mail_32x321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Icon_S" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_S.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Icon_Import1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_Import1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Logo New" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo New.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -385,8 +391,8 @@
   <data name="edit_icon__1_" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit-icon (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TextBox_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\TextBox_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Icon_Copy-LV-Position" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_Copy-LV-Position.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Close_32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Close_32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -412,13 +418,13 @@
   <data name="Save-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Save-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon_Copy-LV-Position" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_Copy-LV-Position.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Diary-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Diary-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Logo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logo1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Icon_Import1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Icon_Import1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Icon_V" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Icon_V.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

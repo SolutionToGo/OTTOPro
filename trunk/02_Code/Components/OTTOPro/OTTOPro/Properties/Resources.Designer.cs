@@ -563,6 +563,16 @@ namespace OTTOPro.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Icon_S {
+            get {
+                object obj = ResourceManager.GetObject("Icon_S", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Icon_Send_Supplier_Proposal {
             get {
                 object obj = ResourceManager.GetObject("Icon_Send-Supplier-Proposal", resourceCulture);
@@ -646,6 +656,16 @@ namespace OTTOPro.Properties {
         internal static System.Drawing.Bitmap Icon_User_Information {
             get {
                 object obj = ResourceManager.GetObject("Icon_User-Information", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Icon_V {
+            get {
+                object obj = ResourceManager.GetObject("Icon_V", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
