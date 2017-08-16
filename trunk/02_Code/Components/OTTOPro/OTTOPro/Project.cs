@@ -37,6 +37,7 @@ using DevExpress.XtraGrid.Views.Layout.Modes;
 using DevExpress.XtraGrid.Views.Base;
 using System.Globalization;
 using DevExpress.XtraPrinting;
+using DevExpress.XtraBars.Docking;
 
 namespace OTTOPro
 {
@@ -8398,9 +8399,10 @@ namespace OTTOPro
         {
             try
             {
-                string filePath = "LVDetails.xlsx";
+                string filePath = @"D:\LVDetails.xlsx";
                 XlsxExportOptionsEx opt = new XlsxExportOptionsEx();
                 tlPositions.ExportToXlsx(filePath, opt);
+                tlPositions.BestFitColumns();
                 Process.Start(filePath);
             }
             catch (Exception ex)
@@ -8986,9 +8988,10 @@ namespace OTTOPro
         {
             try
             {
-                string filePath = "Umlage.xlsx";
+                string filePath = @"D:\Umlage.xlsx";
                 XlsxExportOptionsEx opt = new XlsxExportOptionsEx();
                 gvOmlage.ExportToXlsx(filePath, opt);
+                gvOmlage.BestFitColumns();
                 Process.Start(filePath);
             }
             catch (Exception ex)
