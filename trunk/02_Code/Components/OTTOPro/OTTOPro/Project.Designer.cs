@@ -2264,7 +2264,7 @@
             // 
             this.bandedGridColumn7.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bandedGridColumn7.AppearanceHeader.Options.UseFont = true;
-            this.bandedGridColumn7.Caption = "List Price";
+            this.bandedGridColumn7.Caption = "ListenPreis";
             this.bandedGridColumn7.ColumnEdit = this.rpiAll;
             this.bandedGridColumn7.FieldName = "MO_listprice";
             this.bandedGridColumn7.Name = "bandedGridColumn7";
