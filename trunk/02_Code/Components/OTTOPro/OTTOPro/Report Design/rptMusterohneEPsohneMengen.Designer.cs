@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptMusterohneEPsohneMengen));
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery3 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptMusterohneEPsohneMengen));
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.xrLabel21 = new DevExpress.XtraReports.UI.XRLabel();
@@ -65,7 +65,6 @@
             this.xrLabel10 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel9 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel12 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel17 = new DevExpress.XtraReports.UI.XRLabel();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
@@ -130,6 +129,7 @@
             this.xrLabel41 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrRichText3 = new DevExpress.XtraReports.UI.XRRichText();
             this.sqlDataSource3 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.xrRichText5 = new DevExpress.XtraReports.UI.XRRichText();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
@@ -138,6 +138,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -169,8 +170,8 @@
             this.xrLabel10,
             this.xrLabel9,
             this.xrLabel16,
-            this.xrLabel12,
-            this.xrLabel17});
+            this.xrLabel17,
+            this.xrRichText5});
             this.TopMargin.HeightF = 322F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
@@ -479,31 +480,19 @@
             this.xrLabel16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID).CustomerStreet")});
             this.xrLabel16.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(0F, 79.1147F);
+            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(0F, 91.1147F);
             this.xrLabel16.Name = "xrLabel16";
             this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel16.SizeF = new System.Drawing.SizeF(318.2432F, 23.00001F);
             this.xrLabel16.StylePriority.UseFont = false;
             this.xrLabel16.Text = "xrLabel19";
             // 
-            // xrLabel12
-            // 
-            this.xrLabel12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID).CustomerFullName")});
-            this.xrLabel12.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLabel12.LocationFloat = new DevExpress.Utils.PointFloat(0F, 56.11459F);
-            this.xrLabel12.Name = "xrLabel12";
-            this.xrLabel12.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel12.SizeF = new System.Drawing.SizeF(318.2432F, 23F);
-            this.xrLabel12.StylePriority.UseFont = false;
-            this.xrLabel12.Text = "xrLabel2";
-            // 
             // xrLabel17
             // 
             this.xrLabel17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID).CPostalCode")});
             this.xrLabel17.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(0F, 102.1147F);
+            this.xrLabel17.LocationFloat = new DevExpress.Utils.PointFloat(0F, 114.1147F);
             this.xrLabel17.Name = "xrLabel17";
             this.xrLabel17.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel17.SizeF = new System.Drawing.SizeF(318.2432F, 23.00001F);
@@ -1215,6 +1204,16 @@
             storedProcQuery3});
             this.sqlDataSource3.ResultSchemaSerializable = resources.GetString("sqlDataSource3.ResultSchemaSerializable");
             // 
+            // xrRichText5
+            // 
+            this.xrRichText5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID).CustomerFullName")});
+            this.xrRichText5.Font = new System.Drawing.Font("Times New Roman", 9.75F);
+            this.xrRichText5.LocationFloat = new DevExpress.Utils.PointFloat(1.351118F, 56.65637F);
+            this.xrRichText5.Name = "xrRichText5";
+            this.xrRichText5.SerializableRtfString = resources.GetString("xrRichText5.SerializableRtfString");
+            this.xrRichText5.SizeF = new System.Drawing.SizeF(316.8921F, 34.45832F);
+            // 
             // rptMusterohneEPsohneMengen
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1247,6 +1246,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1282,7 +1282,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel10;
         private DevExpress.XtraReports.UI.XRLabel xrLabel9;
         private DevExpress.XtraReports.UI.XRLabel xrLabel16;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel12;
         private DevExpress.XtraReports.UI.XRLabel xrLabel17;
         private DevExpress.XtraReports.UI.DetailReportBand DetailReport;
         private DevExpress.XtraReports.UI.DetailBand Detail1;
@@ -1346,5 +1345,6 @@
         private DevExpress.XtraReports.UI.XRLabel xrLabel41;
         private DevExpress.XtraReports.UI.XRRichText xrRichText3;
         private DevExpress.XtraReports.UI.XRLine xrLine10;
+        private DevExpress.XtraReports.UI.XRRichText xrRichText5;
     }
 }

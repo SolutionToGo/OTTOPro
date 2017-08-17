@@ -79,7 +79,7 @@ namespace OTTOPro
                     this.Text = "Stammdaten Kunden";
                     ObjTabDetails = tbCustomerMaster;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(760, 689);
+                    this.MinimumSize = new System.Drawing.Size(760, 715);
 
                 }
                 if (_CustomerType == "Contact")

@@ -66,7 +66,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (ex.Message.Contains("RasterError"))
-                    throw new Exception("Operation not possible with Old Raster");
+                    throw new Exception("Betrieb nicht möglich mit altem Raster");
                 else
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
