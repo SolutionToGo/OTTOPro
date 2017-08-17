@@ -630,6 +630,7 @@
             // 
             this.CmbTyp.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.CmbTyp.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbTyp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTyp.FormattingEnabled = true;
             this.CmbTyp.Location = new System.Drawing.Point(60, 12);
             this.CmbTyp.Name = "CmbTyp";
@@ -993,6 +994,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zuordnung des Zubehör zu Artikelstammdaten";
             this.Load += new System.EventHandler(this.frmAccessories_Load);
+            this.Shown += new System.EventHandler(this.frmAccessories_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.gcArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpChkSelect)).EndInit();

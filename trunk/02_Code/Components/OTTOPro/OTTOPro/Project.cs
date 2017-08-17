@@ -7688,7 +7688,11 @@ namespace OTTOPro
                         ObjEPosition.DetailKZ = 0;
                 }
 
-                ObjEPosition.LVSection = "HA";
+                if (cmbLVSection.Text == string.Empty)
+                    ObjEPosition.LVSection = "HA";
+                else
+                    ObjEPosition.LVSection = cmbLVSection.Text;
+
                 ObjEPosition.WG = Convert.ToString(dr["WG"]);
                 ObjEPosition.WA = Convert.ToString(dr["WA"]);
                 ObjEPosition.WI = Convert.ToString(dr["WI"]);
@@ -8498,7 +8502,7 @@ namespace OTTOPro
                             if (ObjEPosition == null)
                                 ObjEPosition = new EPosition();
                             IDetailKz++;
-                            ParseAccessories(dr, SNo, IDetailKz, cmbLVSection.SelectedText, txtFaktor.Text, ObjEArticles, ObjBArticles);
+                            ParseAccessories(dr, SNo, IDetailKz, cmbLVSection.Text, txtFaktor.Text, ObjEArticles, ObjBArticles);
                             NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
                             if (SNo != -1)
                                 SNo++;

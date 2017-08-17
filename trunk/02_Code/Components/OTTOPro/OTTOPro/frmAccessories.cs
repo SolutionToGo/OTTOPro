@@ -206,7 +206,7 @@ namespace OTTOPro
         private void CmbTyp_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
-            {
+            {  
                 int IValue = 0;
                 if (int.TryParse(Convert.ToString(CmbTyp.SelectedValue), out IValue))
                     ObjEArticles.TypID = IValue;
@@ -230,6 +230,11 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
+        }
+
+        private void frmAccessories_Shown(object sender, EventArgs e)
+        {
+            CmbTyp.SelectedIndex = -1;
         }
     }
 }
