@@ -2692,6 +2692,8 @@ namespace OTTOPro
                 txtFinalGB.Text = "0";
                 if (Utility.LVsectionAddAccess == "7" || Utility.LVsectionAddAccess == "9")
                     cmbLVSection.Text = "HA";
+                else
+                    cmbLVSection.Text = "NT";
                 
             }
             catch (Exception ex)
