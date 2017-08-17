@@ -2690,7 +2690,7 @@ namespace OTTOPro
                 txtDetailKZ.Text = "0";
                 txtEP.Text = "0";
                 txtFinalGB.Text = "0";
-                if (Utility.LVsectionAddAccess == "7")
+                if (Utility.LVsectionAddAccess == "7" || Utility.LVsectionAddAccess == "9")
                     cmbLVSection.Text = "HA";
                 
             }
@@ -3439,7 +3439,7 @@ namespace OTTOPro
         {
             if (keyData == (Keys.F9))
             {
-                    if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails" && Utility.CalcAccess != "7")
+                    if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                     {
                         if (ObjEProject.IsFinalInvoice)
                             return false;
@@ -5580,7 +5580,18 @@ namespace OTTOPro
             {
                 if(Utility.LVDetailsAccess != "8")
                 {
-                    cmbLVSection.Items.Remove("HA");
+                    DataView dvLVSection = ObjEProject.dtLVSection.DefaultView;
+                    dvLVSection.RowFilter = "LVSectionName <> 'HA'";
+                    cmbLVSection.DataSource = ObjEProject.dtLVSection;
+                    cmbLVSection.DisplayMember = "LVSectionName";
+                    cmbLVSection.ValueMember = "LVSectionID";
+
+                    layoutControl3.Enabled = true;
+                    btnNew.Enabled = true;
+                    chkCreateNew.Enabled = true;
+                    btnSaveLVDetails.Enabled = true;
+                    btnCancel.Enabled = true;
+                    LVDetailsColumnReadOnly(true);
                 }
             }
             if (ObjEProject.IsFinalInvoice)
@@ -5682,18 +5693,6 @@ namespace OTTOPro
                 checkEditNachtragsnummer.Enabled = false;
 
             }
-            //if (cmbLVStatus.Text == "A")
-            //{
-            //    if (Utility._IsGermany == true)
-            //    {
-            //        XtraMessageBox.Show("Die globale LV Bearbeitung wird nicht auf abgelehnte LV Positionen angewandt.");
-            //    }
-            //    else
-            //    {
-            //        XtraMessageBox.Show("Bulk Process should not happend for Rejected LVs.");
-            //    }
-            //    return;
-            //}
             if (ObjEProject.ProjectID > 0)
             {
                 tlBulkProcessPositionDetails.Cursor = Cursors.Default;

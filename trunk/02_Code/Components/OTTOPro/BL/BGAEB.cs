@@ -222,48 +222,11 @@ namespace BL
         {
 
             int iValue = 0;
-            bool _IsRaster_found = false;
             try
             {
                 string Raster = GetRaster(strFilePath);
-                DataSet dsTMLData = CreateDatasetSchema(strFilePath, strLVSection);
-                objEGAEB.dtLVRaster = Get_LVRasters();
-
-                if (objEGAEB.dtLVRaster.Rows != null)
-                {
-                    foreach (DataRow dr in objEGAEB.dtLVRaster.Rows)
-                    {
-                        if (Raster == dr["LVRasterName"].ToString())
-                        {
-                            _IsRaster_found = true;
-                        }
-                    }
-                }                
-                if (_IsRaster_found == true)
-                {
-                    iValue = ObjGAEB.Import(ProjectID, dsTMLData, Raster);
-                }
-                else
-                {
-                    string _message = null;
-                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    {
-                        _message = "Neues Raster wurde in der Importdatei erkennt, wollen Sie es lokal speichern?";
-                    }
-                    else
-                    {
-                        _message = "New Raster Detected, do you want save the Raster..?";
-                    }
-                    DialogResult dialogResult = MessageBox.Show(_message, "Bestätigung", MessageBoxButtons.YesNo);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        iValue = ObjGAEB.Import(ProjectID, dsTMLData, Raster);
-                    }
-                    else
-                    {
-                        return 0;
-                    }
-                }
+                DataSet dsTMLData = CreateDatasetSchema(strFilePath, strLVSection, Raster);
+                iValue = ObjGAEB.Import(ProjectID, dsTMLData, Raster);
             }
             catch (Exception ex)
             {
@@ -272,7 +235,7 @@ namespace BL
             return iValue;
         }
 
-        private DataSet CreateDatasetSchema(string strFilePath, string strLVSection)
+        private DataSet CreateDatasetSchema(string strFilePath, string strLVSection, string Raster)
         {
             DataSet dsXmlData = new DataSet("Generic");
             try
@@ -316,7 +279,7 @@ namespace BL
                    {
                        if (!xnOZ.InnerText.Contains("Z"))
                        {
-                           drLVPos["OZ"] = xnOZ.InnerText;
+                           drLVPos["OZ"] = PrepareOZ(xnOZ.InnerText,Raster);
                        }
                        else
                        {
@@ -708,6 +671,51 @@ namespace BL
                 throw;
             }
             return Old_raster;
+        }
+
+        public string PrepareOZ(string strOZ, string strRaster)
+        {
+            string str = string.Empty;
+            try
+            {
+                string[] strPOZ = strOZ.Split('.');
+                string[] strPRaster = strRaster.Split('.');
+                int Count = -1;
+                int i = -1;
+                Count = strPOZ.Count();
+                while (Count > 0)
+                {
+                    i = i + 1;
+                    Count = Count - 1;
+                    string OZ = string.Empty;
+                    int OZLength = 0;
+                    int RasterLength = 0;
+
+                    OZ = strPOZ[i].Trim();
+                    RasterLength = strPRaster[i].Length;
+                    OZLength = (strPOZ[i].Trim()).Length;
+                    if (Count == 0)
+                    {
+                        if (RasterLength == 1 && OZLength > 0)
+                        {
+                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ;
+                        }
+                        else if (OZLength > 0)
+                        {
+                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
+                        }
+                    }
+                    else
+                    {
+                        str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return str;
         }
     }
 }

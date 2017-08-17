@@ -139,6 +139,7 @@
             this.gridColumn2.Caption = "WG";
             this.gridColumn2.FieldName = "WG";
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
             // 
@@ -147,6 +148,7 @@
             this.gridColumn3.Caption = "WA";
             this.gridColumn3.FieldName = "WA";
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
             // 
@@ -155,6 +157,7 @@
             this.gridColumn4.Caption = "WI";
             this.gridColumn4.FieldName = "WI";
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
             // 
@@ -163,6 +166,7 @@
             this.gridColumn5.Caption = "A";
             this.gridColumn5.FieldName = "A";
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
             this.gridColumn5.VisibleIndex = 3;
             // 
@@ -171,6 +175,7 @@
             this.gridColumn6.Caption = "B";
             this.gridColumn6.FieldName = "B";
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
             this.gridColumn6.VisibleIndex = 4;
             // 
@@ -179,6 +184,7 @@
             this.gridColumn7.Caption = "L";
             this.gridColumn7.FieldName = "L";
             this.gridColumn7.Name = "gridColumn7";
+            this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
             // 
