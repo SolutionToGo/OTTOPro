@@ -6228,7 +6228,7 @@ namespace OTTOPro
                 if (DeliveredQnty + notSavedQnty < 0)
                 {
                     table.Rows[i][e.Column.FieldName] = 0;
-                    throw new Exception("Total Quantity not matching Delivered Quantity");
+                    throw new Exception("Die Gesamt-Menge ist nicht vereinbar mit der Liefermenge");
                 }
                 else
                 {

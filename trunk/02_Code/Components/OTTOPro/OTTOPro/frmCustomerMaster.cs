@@ -444,5 +444,36 @@ namespace OTTOPro
 
 
         #endregion
+
+        private void txtCustShortName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar != ' ' && !Char.IsDigit(e.KeyChar))
+                    e.Handled = false;
+                else
+                    e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtCustStreet_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter && txtCustStreet.Lines.Length >= 2)
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+                
+        }
     }
 }

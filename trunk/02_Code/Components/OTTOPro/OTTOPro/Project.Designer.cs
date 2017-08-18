@@ -11320,7 +11320,7 @@
             // 
             // gridColumn72
             // 
-            this.gridColumn72.Caption = "Vat";
+            this.gridColumn72.Caption = "MWST% ";
             this.gridColumn72.ColumnEdit = this.txtprice;
             this.gridColumn72.FieldName = "VatAmount";
             this.gridColumn72.Name = "gridColumn72";
@@ -11728,7 +11728,7 @@
             // 
             // gridColumn76
             // 
-            this.gridColumn76.Caption = "Surcharge";
+            this.gridColumn76.Caption = "Zuschlag";
             this.gridColumn76.ColumnEdit = this.txtInvoicePrice;
             this.gridColumn76.FieldName = "Surcharge";
             this.gridColumn76.Name = "gridColumn76";
@@ -11737,7 +11737,7 @@
             // 
             // gridColumn77
             // 
-            this.gridColumn77.Caption = "Vat";
+            this.gridColumn77.Caption = "MWST% ";
             this.gridColumn77.ColumnEdit = this.txtInvoicePrice;
             this.gridColumn77.FieldName = "Vat";
             this.gridColumn77.Name = "gridColumn77";
@@ -11906,7 +11906,7 @@
             // 
             // gridColumn74
             // 
-            this.gridColumn74.Caption = "Vat";
+            this.gridColumn74.Caption = "MWST% ";
             this.gridColumn74.ColumnEdit = this.txtBlatPrice;
             this.gridColumn74.FieldName = "VatAmount";
             this.gridColumn74.Name = "gridColumn74";

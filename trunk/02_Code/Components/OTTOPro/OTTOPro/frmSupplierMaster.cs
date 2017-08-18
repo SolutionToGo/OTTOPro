@@ -421,6 +421,21 @@ namespace OTTOPro
             e.ErrorText = "ungültig mail";
         }
 
+        private void txtAddrStreetNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter && txtAddrStreetNo.Lines.Length >= 2)
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
 
 
 

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.tcCustomers = new DevExpress.XtraTab.XtraTabControl();
             this.tbCustomerMaster = new DevExpress.XtraTab.XtraTabPage();
@@ -314,6 +314,7 @@
             this.txtCustStreet.Size = new System.Drawing.Size(217, 61);
             this.txtCustStreet.TabIndex = 24;
             this.txtCustStreet.Text = "";
+            this.txtCustStreet.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCustStreet_KeyDown);
             // 
             // txtCustFullName
             // 
@@ -503,13 +504,17 @@
             this.dxValidationProviderContactName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtCustShortName.Location = new System.Drawing.Point(147, 87);
             this.txtCustShortName.Name = "txtCustShortName";
+            this.txtCustShortName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtCustShortName.Properties.Mask.EditMask = "[a-zA-Z]+";
+            this.txtCustShortName.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtCustShortName.Size = new System.Drawing.Size(217, 20);
             this.txtCustShortName.StyleController = this.layoutControl2;
             this.txtCustShortName.TabIndex = 1;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Bitte eingeben Kurz Name";
-            this.dxValidationProviderCustShortName.SetValidationRule(this.txtCustShortName, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Bitte eingeben Kurz Name";
+            this.dxValidationProviderCustShortName.SetValidationRule(this.txtCustShortName, conditionValidationRule4);
             this.txtCustShortName.TextChanged += new System.EventHandler(this.txtCustFullName_TextChanged);
+            this.txtCustShortName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustShortName_KeyPress);
             // 
             // layoutControlGroup2
             // 
@@ -1038,9 +1043,9 @@
             this.txtContactName.Size = new System.Drawing.Size(612, 20);
             this.txtContactName.StyleController = this.layoutControl3;
             this.txtContactName.TabIndex = 5;
-            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule4.ErrorText = "Bitte eingeben Name";
-            this.dxValidationProviderContactName.SetValidationRule(this.txtContactName, conditionValidationRule4);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Bitte eingeben Name";
+            this.dxValidationProviderContactName.SetValidationRule(this.txtContactName, conditionValidationRule1);
             this.txtContactName.TextChanged += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // layoutControlGroup3
