@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.tcCustomers = new DevExpress.XtraTab.XtraTabControl();
             this.tbCustomerMaster = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl2 = new DevExpress.XtraLayout.LayoutControl();
@@ -64,13 +64,13 @@
             this.emptySpaceItem10 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlGroup6 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlGroup9 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem21 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup10 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem20 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup11 = new DevExpress.XtraLayout.LayoutControlGroup();
@@ -171,13 +171,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).BeginInit();
@@ -275,6 +275,7 @@
             // layoutControl2
             // 
             this.layoutControl2.AllowCustomization = false;
+            this.layoutControl2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl2.Controls.Add(this.txtCustStreet);
             this.layoutControl2.Controls.Add(this.txtCustFullName);
             this.layoutControl2.Controls.Add(this.memoEditCommentary);
@@ -324,9 +325,9 @@
             // 
             // memoEditCommentary
             // 
-            this.memoEditCommentary.Location = new System.Drawing.Point(423, 41);
+            this.memoEditCommentary.Location = new System.Drawing.Point(414, 41);
             this.memoEditCommentary.Name = "memoEditCommentary";
-            this.memoEditCommentary.Size = new System.Drawing.Size(291, 527);
+            this.memoEditCommentary.Size = new System.Drawing.Size(300, 527);
             this.memoEditCommentary.TabIndex = 22;
             this.memoEditCommentary.Text = "";
             // 
@@ -496,8 +497,8 @@
             // 
             // txtCustShortName
             // 
-            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustShortName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderAddShortName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtCustShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtCustShortName.Location = new System.Drawing.Point(147, 87);
@@ -505,9 +506,9 @@
             this.txtCustShortName.Size = new System.Drawing.Size(217, 20);
             this.txtCustShortName.StyleController = this.layoutControl2;
             this.txtCustShortName.TabIndex = 1;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Bitte eingeben Kurz Name";
-            this.dxValidationProviderCustShortName.SetValidationRule(this.txtCustShortName, conditionValidationRule1);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Bitte eingeben Kurz Name";
+            this.dxValidationProviderCustShortName.SetValidationRule(this.txtCustShortName, conditionValidationRule3);
             this.txtCustShortName.TextChanged += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // layoutControlGroup2
@@ -561,7 +562,7 @@
             this.emptySpaceItem10.AllowHotTrack = false;
             this.emptySpaceItem10.Location = new System.Drawing.Point(380, 0);
             this.emptySpaceItem10.Name = "emptySpaceItem10";
-            this.emptySpaceItem10.Size = new System.Drawing.Size(19, 572);
+            this.emptySpaceItem10.Size = new System.Drawing.Size(10, 572);
             this.emptySpaceItem10.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup6
@@ -593,19 +594,6 @@
             this.layoutControlGroup9.Name = "layoutControlGroup9";
             this.layoutControlGroup9.Size = new System.Drawing.Size(356, 260);
             this.layoutControlGroup9.TextVisible = false;
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
-            this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem2.Control = this.txtCustShortName;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 51);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(332, 24);
-            this.layoutControlItem2.Text = "Kurz Name ";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 14);
             // 
             // layoutControlItem7
             // 
@@ -691,13 +679,26 @@
             this.layoutControlItem1.Text = "Anschrift";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 14);
             // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.Black;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem2.Control = this.txtCustShortName;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 51);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(332, 24);
+            this.layoutControlItem2.Text = "Kurz Name ";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 14);
+            // 
             // layoutControlGroup10
             // 
             this.layoutControlGroup10.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem20});
-            this.layoutControlGroup10.Location = new System.Drawing.Point(399, 0);
+            this.layoutControlGroup10.Location = new System.Drawing.Point(390, 0);
             this.layoutControlGroup10.Name = "layoutControlGroup10";
-            this.layoutControlGroup10.Size = new System.Drawing.Size(319, 572);
+            this.layoutControlGroup10.Size = new System.Drawing.Size(328, 572);
             this.layoutControlGroup10.TextVisible = false;
             // 
             // layoutControlItem20
@@ -709,7 +710,7 @@
             this.layoutControlItem20.Control = this.memoEditCommentary;
             this.layoutControlItem20.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem20.Name = "layoutControlItem20";
-            this.layoutControlItem20.Size = new System.Drawing.Size(295, 548);
+            this.layoutControlItem20.Size = new System.Drawing.Size(304, 548);
             this.layoutControlItem20.Text = "Kommentar ";
             this.layoutControlItem20.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem20.TextSize = new System.Drawing.Size(108, 14);
@@ -921,6 +922,7 @@
             // layoutControl3
             // 
             this.layoutControl3.AllowCustomization = false;
+            this.layoutControl3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl3.Controls.Add(this.cmbSalutation);
             this.layoutControl3.Controls.Add(this.chkDefaultContact);
             this.layoutControl3.Controls.Add(this.btnCancelContact);
@@ -1027,8 +1029,8 @@
             // 
             // txtContactName
             // 
-            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustShortName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderAddShortName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtContactName.Location = new System.Drawing.Point(102, 66);
@@ -1036,9 +1038,9 @@
             this.txtContactName.Size = new System.Drawing.Size(612, 20);
             this.txtContactName.StyleController = this.layoutControl3;
             this.txtContactName.TabIndex = 5;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Bitte eingeben Name";
-            this.dxValidationProviderContactName.SetValidationRule(this.txtContactName, conditionValidationRule2);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Bitte eingeben Name";
+            this.dxValidationProviderContactName.SetValidationRule(this.txtContactName, conditionValidationRule4);
             this.txtContactName.TextChanged += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // layoutControlGroup3
@@ -1235,6 +1237,7 @@
             // layoutControl4
             // 
             this.layoutControl4.AllowCustomization = false;
+            this.layoutControl4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl4.Controls.Add(this.chkDefaultAddress);
             this.layoutControl4.Controls.Add(this.btnSaveAddress);
             this.layoutControl4.Controls.Add(this.btnCancelAddress);
@@ -1324,8 +1327,8 @@
             // 
             // txtAddShortName
             // 
-            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderCustShortName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderCustFullName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderAddShortName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderContactName.SetIconAlignment(this.txtAddShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtAddShortName.Location = new System.Drawing.Point(89, 42);
@@ -1333,9 +1336,9 @@
             this.txtAddShortName.Size = new System.Drawing.Size(625, 20);
             this.txtAddShortName.StyleController = this.layoutControl4;
             this.txtAddShortName.TabIndex = 4;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Bitte eingeben Name";
-            this.dxValidationProviderAddShortName.SetValidationRule(this.txtAddShortName, conditionValidationRule3);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Bitte eingeben Name";
+            this.dxValidationProviderAddShortName.SetValidationRule(this.txtAddShortName, conditionValidationRule2);
             this.txtAddShortName.Validated += new System.EventHandler(this.txtCustFullName_TextChanged);
             // 
             // layoutControlGroup4
@@ -1547,13 +1550,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem21)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup11)).EndInit();
