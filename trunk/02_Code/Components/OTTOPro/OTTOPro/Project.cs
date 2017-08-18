@@ -1448,6 +1448,10 @@ namespace OTTOPro
                 {
                     EnableAndDisableAllControls(true);
                 }
+                if(cmbPositionKZ.Text=="P")
+                {
+                    cmbME.Text = "psch";
+                }
             }
             catch (Exception ex)
             {
@@ -1584,7 +1588,7 @@ namespace OTTOPro
                     ObjMA = dt.Compute("SUM(MAWithMulti)", "SNO >=" + ifromValue +
                        "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
 
-                    ObjMO = dt.Compute("SUM(MOWithMulti)", "SNO >=" + ifromValue +
+                    ObjMO = dt.Compute("SUM(MOWithMulti)", "SNO =" + ifromValue +
                        "And SNO <=" + itoValue + "And DetailKZ = 0 and (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
 
                     decimal MAPrice = ObjMA == DBNull.Value ? 0 : Convert.ToDecimal(ObjMA);
@@ -2693,7 +2697,10 @@ namespace OTTOPro
                 if (Utility.LVsectionAddAccess == "7" || Utility.LVsectionAddAccess == "9")
                     cmbLVSection.Text = "HA";
                 else
-                    cmbLVSection.Text = "NT";
+                {
+                    if (Utility.LVDetailsAccess != "8" && !string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+                        cmbLVSection.Text = "NT";
+                }
                 
             }
             catch (Exception ex)

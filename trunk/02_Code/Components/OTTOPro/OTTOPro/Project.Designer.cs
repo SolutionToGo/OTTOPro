@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
@@ -1090,6 +1090,15 @@
             this.gridColumn87 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.layoutControlGroup33 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem231 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.tbReports = new DevExpress.XtraTab.XtraTabPage();
+            this.layoutControl26 = new DevExpress.XtraLayout.LayoutControl();
+            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlGroup34 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem233 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem13 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem53 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem54 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.popupMenu1 = new DevExpress.XtraBars.PopupMenu(this.components);
             this.emptySpaceItem14 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -1100,15 +1109,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
-            this.tbReports = new DevExpress.XtraTab.XtraTabPage();
-            this.layoutControl26 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup34 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlItem233 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem13 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem18 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem53 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem54 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1866,12 +1866,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem231)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.tbReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl26)).BeginInit();
             this.layoutControl26.SuspendLayout();
@@ -1881,6 +1875,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem53)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem54)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -6571,6 +6571,7 @@
             this.layoutControlItem172.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem172.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem172.TextVisible = false;
+            this.layoutControlItem172.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlGroup1
             // 
@@ -8285,17 +8286,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -15204,6 +15205,106 @@
             this.layoutControlItem231.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem231.TextVisible = false;
             // 
+            // tbReports
+            // 
+            this.tbReports.Controls.Add(this.layoutControl26);
+            this.tbReports.Name = "tbReports";
+            this.tbReports.Size = new System.Drawing.Size(1522, 749);
+            this.tbReports.Text = "Dokumente";
+            // 
+            // layoutControl26
+            // 
+            this.layoutControl26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl26.Controls.Add(this.labelControl3);
+            this.layoutControl26.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.layoutControl26.Location = new System.Drawing.Point(0, 0);
+            this.layoutControl26.Name = "layoutControl26";
+            this.layoutControl26.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(398, 314, 450, 400);
+            this.layoutControl26.Root = this.layoutControlGroup34;
+            this.layoutControl26.Size = new System.Drawing.Size(1522, 749);
+            this.layoutControl26.TabIndex = 0;
+            this.layoutControl26.Text = "layoutControl26";
+            // 
+            // labelControl3
+            // 
+            this.labelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl3.Appearance.Options.UseBackColor = true;
+            this.labelControl3.Appearance.Options.UseFont = true;
+            this.labelControl3.Appearance.Options.UseForeColor = true;
+            this.labelControl3.Appearance.Options.UseTextOptions = true;
+            this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.labelControl3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.labelControl3.Location = new System.Drawing.Point(566, 336);
+            this.labelControl3.Name = "labelControl3";
+            this.labelControl3.Size = new System.Drawing.Size(325, 77);
+            this.labelControl3.StyleController = this.layoutControl26;
+            this.labelControl3.TabIndex = 4;
+            this.labelControl3.Text = "Dokumente";
+            // 
+            // layoutControlGroup34
+            // 
+            this.layoutControlGroup34.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup34.GroupBordersVisible = false;
+            this.layoutControlGroup34.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem233,
+            this.emptySpaceItem13,
+            this.emptySpaceItem18,
+            this.emptySpaceItem53,
+            this.emptySpaceItem54});
+            this.layoutControlGroup34.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup34.Name = "Root";
+            this.layoutControlGroup34.Size = new System.Drawing.Size(1522, 749);
+            this.layoutControlGroup34.TextVisible = false;
+            // 
+            // layoutControlItem233
+            // 
+            this.layoutControlItem233.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem233.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem233.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.layoutControlItem233.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.layoutControlItem233.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
+            this.layoutControlItem233.Control = this.labelControl3;
+            this.layoutControlItem233.Location = new System.Drawing.Point(554, 324);
+            this.layoutControlItem233.Name = "layoutControlItem233";
+            this.layoutControlItem233.Size = new System.Drawing.Size(329, 81);
+            this.layoutControlItem233.Text = "Dokumente";
+            this.layoutControlItem233.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem233.TextVisible = false;
+            // 
+            // emptySpaceItem13
+            // 
+            this.emptySpaceItem13.AllowHotTrack = false;
+            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 405);
+            this.emptySpaceItem13.Name = "emptySpaceItem13";
+            this.emptySpaceItem13.Size = new System.Drawing.Size(1502, 324);
+            this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem18
+            // 
+            this.emptySpaceItem18.AllowHotTrack = false;
+            this.emptySpaceItem18.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem18.Name = "emptySpaceItem18";
+            this.emptySpaceItem18.Size = new System.Drawing.Size(1502, 324);
+            this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem53
+            // 
+            this.emptySpaceItem53.AllowHotTrack = false;
+            this.emptySpaceItem53.Location = new System.Drawing.Point(0, 324);
+            this.emptySpaceItem53.Name = "emptySpaceItem53";
+            this.emptySpaceItem53.Size = new System.Drawing.Size(554, 81);
+            this.emptySpaceItem53.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem54
+            // 
+            this.emptySpaceItem54.AllowHotTrack = false;
+            this.emptySpaceItem54.Location = new System.Drawing.Point(883, 324);
+            this.emptySpaceItem54.Name = "emptySpaceItem54";
+            this.emptySpaceItem54.Size = new System.Drawing.Size(619, 81);
+            this.emptySpaceItem54.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // navBarItem1
             // 
             this.navBarItem1.Name = "navBarItem1";
@@ -15264,106 +15365,6 @@
             this.toolStripMenuItemRemove.Size = new System.Drawing.Size(134, 22);
             this.toolStripMenuItemRemove.Text = "Entfernen";
             this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripMenuItemRemove_Click);
-            // 
-            // tbReports
-            // 
-            this.tbReports.Controls.Add(this.layoutControl26);
-            this.tbReports.Name = "tbReports";
-            this.tbReports.Size = new System.Drawing.Size(1522, 749);
-            this.tbReports.Text = "Dokumente";
-            // 
-            // layoutControl26
-            // 
-            this.layoutControl26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControl26.Controls.Add(this.labelControl3);
-            this.layoutControl26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.layoutControl26.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl26.Name = "layoutControl26";
-            this.layoutControl26.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(398, 314, 450, 400);
-            this.layoutControl26.Root = this.layoutControlGroup34;
-            this.layoutControl26.Size = new System.Drawing.Size(1522, 749);
-            this.layoutControl26.TabIndex = 0;
-            this.layoutControl26.Text = "layoutControl26";
-            // 
-            // layoutControlGroup34
-            // 
-            this.layoutControlGroup34.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup34.GroupBordersVisible = false;
-            this.layoutControlGroup34.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem233,
-            this.emptySpaceItem13,
-            this.emptySpaceItem18,
-            this.emptySpaceItem53,
-            this.emptySpaceItem54});
-            this.layoutControlGroup34.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup34.Name = "Root";
-            this.layoutControlGroup34.Size = new System.Drawing.Size(1522, 749);
-            this.layoutControlGroup34.TextVisible = false;
-            // 
-            // labelControl3
-            // 
-            this.labelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.labelControl3.Appearance.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl3.Appearance.Options.UseBackColor = true;
-            this.labelControl3.Appearance.Options.UseFont = true;
-            this.labelControl3.Appearance.Options.UseForeColor = true;
-            this.labelControl3.Appearance.Options.UseTextOptions = true;
-            this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.labelControl3.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.labelControl3.Location = new System.Drawing.Point(566, 336);
-            this.labelControl3.Name = "labelControl3";
-            this.labelControl3.Size = new System.Drawing.Size(325, 77);
-            this.labelControl3.StyleController = this.layoutControl26;
-            this.labelControl3.TabIndex = 4;
-            this.labelControl3.Text = "Dokumente";
-            // 
-            // layoutControlItem233
-            // 
-            this.layoutControlItem233.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem233.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem233.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.layoutControlItem233.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.layoutControlItem233.AppearanceItemCaption.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Center;
-            this.layoutControlItem233.Control = this.labelControl3;
-            this.layoutControlItem233.Location = new System.Drawing.Point(554, 324);
-            this.layoutControlItem233.Name = "layoutControlItem233";
-            this.layoutControlItem233.Size = new System.Drawing.Size(329, 81);
-            this.layoutControlItem233.Text = "Dokumente";
-            this.layoutControlItem233.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem233.TextVisible = false;
-            // 
-            // emptySpaceItem13
-            // 
-            this.emptySpaceItem13.AllowHotTrack = false;
-            this.emptySpaceItem13.Location = new System.Drawing.Point(0, 405);
-            this.emptySpaceItem13.Name = "emptySpaceItem13";
-            this.emptySpaceItem13.Size = new System.Drawing.Size(1502, 324);
-            this.emptySpaceItem13.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem18
-            // 
-            this.emptySpaceItem18.AllowHotTrack = false;
-            this.emptySpaceItem18.Location = new System.Drawing.Point(0, 0);
-            this.emptySpaceItem18.Name = "emptySpaceItem18";
-            this.emptySpaceItem18.Size = new System.Drawing.Size(1502, 324);
-            this.emptySpaceItem18.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem53
-            // 
-            this.emptySpaceItem53.AllowHotTrack = false;
-            this.emptySpaceItem53.Location = new System.Drawing.Point(0, 324);
-            this.emptySpaceItem53.Name = "emptySpaceItem53";
-            this.emptySpaceItem53.Size = new System.Drawing.Size(554, 81);
-            this.emptySpaceItem53.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem54
-            // 
-            this.emptySpaceItem54.AllowHotTrack = false;
-            this.emptySpaceItem54.Location = new System.Drawing.Point(883, 324);
-            this.emptySpaceItem54.Name = "emptySpaceItem54";
-            this.emptySpaceItem54.Size = new System.Drawing.Size(619, 81);
-            this.emptySpaceItem54.TextSize = new System.Drawing.Size(0, 0);
             // 
             // frmProject
             // 
@@ -16145,12 +16146,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem231)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.tbReports.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl26)).EndInit();
             this.layoutControl26.ResumeLayout(false);
@@ -16160,6 +16155,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem18)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem53)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem54)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.popupMenu1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem15)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

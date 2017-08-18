@@ -649,7 +649,7 @@
             this.Street.AppearanceCell.Options.UseFont = true;
             this.Street.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Street.AppearanceHeader.Options.UseFont = true;
-            this.Street.Caption = "Strasse";
+            this.Street.Caption = "Anschrift";
             this.Street.FieldName = "Street";
             this.Street.Name = "Street";
             this.Street.Visible = true;
@@ -664,8 +664,6 @@
             this.PostalCode.Caption = "PLZ";
             this.PostalCode.FieldName = "PostalCode";
             this.PostalCode.Name = "PostalCode";
-            this.PostalCode.Visible = true;
-            this.PostalCode.VisibleIndex = 3;
             // 
             // City
             // 
@@ -676,8 +674,6 @@
             this.City.Caption = "Ort";
             this.City.FieldName = "City";
             this.City.Name = "City";
-            this.City.Visible = true;
-            this.City.VisibleIndex = 4;
             // 
             // Country
             // 
@@ -688,8 +684,6 @@
             this.Country.Caption = "LandBez";
             this.Country.FieldName = "Country";
             this.Country.Name = "Country";
-            this.Country.Visible = true;
-            this.Country.VisibleIndex = 5;
             // 
             // ILN
             // 
@@ -701,7 +695,7 @@
             this.ILN.FieldName = "ILN";
             this.ILN.Name = "ILN";
             this.ILN.Visible = true;
-            this.ILN.VisibleIndex = 6;
+            this.ILN.VisibleIndex = 3;
             // 
             // Telephone
             // 
@@ -713,7 +707,7 @@
             this.Telephone.FieldName = "Telephone";
             this.Telephone.Name = "Telephone";
             this.Telephone.Visible = true;
-            this.Telephone.VisibleIndex = 7;
+            this.Telephone.VisibleIndex = 4;
             // 
             // Fax
             // 
@@ -725,7 +719,7 @@
             this.Fax.FieldName = "Fax";
             this.Fax.Name = "Fax";
             this.Fax.Visible = true;
-            this.Fax.VisibleIndex = 8;
+            this.Fax.VisibleIndex = 5;
             // 
             // EmailID
             // 
@@ -737,7 +731,7 @@
             this.EmailID.FieldName = "EmailID";
             this.EmailID.Name = "EmailID";
             this.EmailID.Visible = true;
-            this.EmailID.VisibleIndex = 9;
+            this.EmailID.VisibleIndex = 6;
             // 
             // TaxNumber
             // 

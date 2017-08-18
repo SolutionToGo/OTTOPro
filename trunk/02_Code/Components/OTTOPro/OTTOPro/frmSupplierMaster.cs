@@ -88,7 +88,7 @@ namespace OTTOPro
                     this.Text = "Lieferantenaddresse";
                     ObjTabDetails = tbSupplierAddress;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(504, 350);
+                    this.MinimumSize = new System.Drawing.Size(504, 310);
                 }
                 if (_SupplierType == "Supplier" && _ObjEsupplier.SupplierID > 0)
                     BindSupplierDetails();

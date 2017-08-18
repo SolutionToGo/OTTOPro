@@ -437,7 +437,7 @@
             // 
             this.gridColumn24.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gridColumn24.AppearanceHeader.Options.UseFont = true;
-            this.gridColumn24.Caption = "StrasseNr";
+            this.gridColumn24.Caption = "Anschrift";
             this.gridColumn24.FieldName = "StreetNo";
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.Visible = true;
@@ -450,8 +450,6 @@
             this.gridColumn25.Caption = "PLZ";
             this.gridColumn25.FieldName = "PostalCode";
             this.gridColumn25.Name = "gridColumn25";
-            this.gridColumn25.Visible = true;
-            this.gridColumn25.VisibleIndex = 3;
             // 
             // gridColumn26
             // 
@@ -460,8 +458,6 @@
             this.gridColumn26.Caption = "Ort";
             this.gridColumn26.FieldName = "City";
             this.gridColumn26.Name = "gridColumn26";
-            this.gridColumn26.Visible = true;
-            this.gridColumn26.VisibleIndex = 4;
             // 
             // gridColumn27
             // 
@@ -470,8 +466,6 @@
             this.gridColumn27.Caption = "LandBez";
             this.gridColumn27.FieldName = "Country";
             this.gridColumn27.Name = "gridColumn27";
-            this.gridColumn27.Visible = true;
-            this.gridColumn27.VisibleIndex = 5;
             // 
             // gcContact
             // 
