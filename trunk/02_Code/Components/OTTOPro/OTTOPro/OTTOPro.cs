@@ -126,7 +126,14 @@ namespace OTTOPro
 
         public void tmrStatus_Tick(object sender, EventArgs e)
         {
-            frmOTTOPro.Instance.tsStatus.Text = null;
+            try
+            {
+                frmOTTOPro.Instance.tsStatus.Text = null;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -361,5 +368,7 @@ namespace OTTOPro
             frmAccessories Obj = new frmAccessories();           
             Obj.ShowDialog();
         }
+
+       
     }
 }

@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using BL;
 using EL;
 using DevExpress.XtraReports.UI;
+using DevExpress.LookAndFeel;
 
 namespace OTTOPro
 {
@@ -138,12 +139,12 @@ namespace OTTOPro
                          this.Hide();
                          Report_Design.rptMusterohneEPs rptMusterohneEPs = new Report_Design.rptMusterohneEPs();
                          ReportPrintTool printTool7 = new ReportPrintTool(rptMusterohneEPs);
-                         rptMusterohneEPs.Parameters["ProjectID"].Value = _Projectid;
-                         printTool7.ShowRibbonPreview();
-                        break;
+                         rptMusterohneEPs.Parameters["ProjectID"].Value = _Projectid;  
+                         printTool7.ShowRibbonPreview();                        
+                         
+                         break;
                     default:
                         throw new Exception("Bitte wählen Sie eine Berichtsvorlage");
-                        break;
                 }
                 this.Close();
             }

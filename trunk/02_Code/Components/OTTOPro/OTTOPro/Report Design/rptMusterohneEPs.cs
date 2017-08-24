@@ -16,8 +16,15 @@ namespace OTTOPro.Report_Design
         double totalUnits = 0;
         private void xrLabel18_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            e.Result = totalUnits;
-            e.Handled = true;
+            try
+            {
+                e.Result = totalUnits;
+                e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void xrLabel18_SummaryReset(object sender, EventArgs e)
@@ -27,8 +34,15 @@ namespace OTTOPro.Report_Design
 
         private void xrLabel18_SummaryRowChanged(object sender, EventArgs e)
         {
-            xrLblGB.Text = "0.00";
-            xrLblMO.Text = "0.00";
+            try
+            {
+                xrLblGB.Text = "0.00";
+                xrLblMO.Text = "0.00";
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void xrLabel18_PrintOnPage(object sender, PrintOnPageEventArgs e)

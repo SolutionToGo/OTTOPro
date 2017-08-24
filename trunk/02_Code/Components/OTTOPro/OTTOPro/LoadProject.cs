@@ -25,6 +25,7 @@ namespace OTTOPro
         EProject ObjEProject = new EProject();
         DataTable dtPRojectList;
 
+
         public frmLoadProject()
         {
             InitializeComponent();
@@ -55,7 +56,7 @@ namespace OTTOPro
         }
 
         private void btnLoad_Click(object sender, EventArgs e)
-        {
+        {            
             LoadProject(false);
         }
 
@@ -75,26 +76,15 @@ namespace OTTOPro
                     int ProjectID = 0;
                     if (int.TryParse(dgProjectSearch.GetFocusedDataRow()["ProjectId"].ToString(), out ProjectID))
                     {
-                       string _PrNr=dgProjectSearch.GetFocusedDataRow()["ProjectNumber"].ToString();
-                       DevExpress.XtraBars.BarMdiChildrenListItem mdiChildList = frmOTTOPro.Instance.ChildItems;
-
-                       if (mdiChildList.ItemLinks.Count > 0)
-                       {
-                           for (int i = 0; i < mdiChildList.ItemLinks.Count; i++)
-                           {
-                               if (mdiChildList.ItemLinks[i].Item.Caption.Contains(_PrNr))
-                               {
-                                   foreach (Form form in Application.OpenForms)
-                                   {
-                                       if (form.Text == _PrNr)
-                                       {
-                                           form.Activate();
-                                           return;
-                                       }
-                                   }
-                               }                               
-                           }
-                       }
+                        string _PrNr = dgProjectSearch.GetFocusedDataRow()["ProjectNumber"].ToString();                       
+                        foreach (Form form in Application.OpenForms)
+                        {
+                            if (form.Text == _PrNr)
+                            {
+                                form.Activate();
+                                return;
+                            }
+                        }
                        frmProject Obj = new frmProject();
                        Obj.ProjectID = ProjectID;
                        Obj.IsCopy = IsCopy;

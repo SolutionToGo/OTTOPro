@@ -1073,6 +1073,14 @@ namespace OTTOPro
                     txtMenge.Text = tlPositions.FocusedNode["Menge"] == DBNull.Value ? "" : tlPositions.FocusedNode["Menge"].ToString();
                     cmbPositionKZ.Text = tlPositions.FocusedNode["PositionKZ"] == DBNull.Value ? "" : tlPositions.FocusedNode["PositionKZ"].ToString(); //cmbPositionKZ.Properties.Items.IndexOf(dtTemp.Rows[0]["PositionKZ"] == DBNull.Value ? string.Empty : dtTemp.Rows[0]["PositionKZ"].ToString());
                     txtDetailKZ.Text = tlPositions.FocusedNode["DetailKZ"] == DBNull.Value ? "" : tlPositions.FocusedNode["DetailKZ"].ToString();
+                    int _DetailKZ =0;
+                    if (int.TryParse(txtDetailKZ.Text, out _DetailKZ))
+                    {
+                        if (_DetailKZ > 0)
+                            btnAddAccessories.Enabled = false;
+                        else
+                            btnAddAccessories.Enabled = true;
+                    }
                     txtShortDescription.Rtf = tlPositions.FocusedNode["ShortDescription"] == DBNull.Value ? "" : tlPositions.FocusedNode["ShortDescription"].ToString();
                     cmbME.Text = tlPositions.FocusedNode["ME"] == DBNull.Value ? "" : tlPositions.FocusedNode["ME"].ToString();
                     cmbLVSection.Text = tlPositions.FocusedNode["LVSection"] == DBNull.Value ? "" : tlPositions.FocusedNode["LVSection"].ToString();
@@ -1256,10 +1264,9 @@ namespace OTTOPro
                     return;
                 editor.ContextMenuStrip = new ContextMenuStrip();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                Utility.ShowError(ex);
             }
 
         }
@@ -1533,7 +1540,7 @@ namespace OTTOPro
             }
             catch (Exception ex)
             {
-
+                Utility.ShowError(ex);
             }
         }
 
@@ -3558,9 +3565,9 @@ namespace OTTOPro
 
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                Utility.ShowError(ex);
             }
 
         }
@@ -8432,7 +8439,7 @@ namespace OTTOPro
             try
             {
                 string strPositionKZ = Convert.ToString(tlPositions.FocusedNode["PositionKZ"]);
-                if (strPositionKZ == "N" || strPositionKZ == "E" || strPositionKZ == "A" || strPositionKZ == "M")
+                if (strPositionKZ == "N" || strPositionKZ == "E" || strPositionKZ == "A" || strPositionKZ == "M" || strPositionKZ == "P")
                 {
                     BArticles ObjBArticles = new BArticles();
                     EArticles ObjEArticles = new EArticles();
@@ -8873,19 +8880,22 @@ namespace OTTOPro
             try
             {                
                 int PosID = 0;
-                if (int.TryParse(tlPositions.FocusedNode["PositionID"].ToString(), out PosID))
+                if (ObjEPosition.dsPositionList.Tables[0].Rows.Count >0)
                 {
-                    if (_IsNewMode == true || chkCreateNew.Checked == true)
+                    if (int.TryParse(tlPositions.FocusedNode["PositionID"].ToString(), out PosID))
                     {
-                        PosID = -1;
-                    }
-                    ObjBProject.GetComparePrice(ObjEProject, txtWG.Text, txtWA.Text, txtType.Text, _type, PosID);
-                    if (ObjEProject.dsComaparePrice != null)
-                    {
-                        gcComparePrice.DataSource = ObjEProject.dsComaparePrice.Tables[0];
-                        BgvComparePrice.BestFitColumns();
-                    }
-                }                                
+                        if (_IsNewMode == true || chkCreateNew.Checked == true)
+                        {
+                            PosID = -1;
+                        }
+                        ObjBProject.GetComparePrice(ObjEProject, txtWG.Text, txtWA.Text, txtType.Text, _type, PosID);
+                        if (ObjEProject.dsComaparePrice != null)
+                        {
+                            gcComparePrice.DataSource = ObjEProject.dsComaparePrice.Tables[0];
+                            BgvComparePrice.BestFitColumns();
+                        }
+                    }          
+                }                                      
             }
             catch (Exception ex)
             {
@@ -9055,6 +9065,7 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
 
     }
 }
