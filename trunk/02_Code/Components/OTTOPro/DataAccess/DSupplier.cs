@@ -312,7 +312,6 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_LVSectionForProposal]";
                     cmd.Parameters.AddWithValue("@ProjectID", _Pid);
-                   // cmd.Parameters.AddWithValue("@LVSection", _LvSection);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsWGWA);

@@ -136,6 +136,7 @@
             this.dgProjectSearch.OptionsFind.ShowFindButton = false;
             this.dgProjectSearch.OptionsView.ShowFooter = true;
             this.dgProjectSearch.OptionsView.ShowGroupPanel = false;
+            this.dgProjectSearch.DoubleClick += new System.EventHandler(this.dgProjectSearch_DoubleClick);
             // 
             // ProjectID
             // 

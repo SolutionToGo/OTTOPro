@@ -53,7 +53,7 @@ namespace OTTOPro
                 {
                     if (objBGAEB == null)
                         objBGAEB = new BGAEB();
-                   txtNewRaster.Text = _NewRaster = objBGAEB.GetOld_Raster(_ProjectID);
+                    txtNewRaster.Text = _NewRaster = objBGAEB.GetOld_Raster(_ProjectID);;
                 }
             }
             catch (Exception ex)
@@ -167,6 +167,13 @@ namespace OTTOPro
         {
             try
             {
+                if (objBGAEB == null)
+                    objBGAEB = new BGAEB();
+                string strTemp = objBGAEB.GetOld_Raster(_ProjectID);
+                if (!string.IsNullOrEmpty(strTemp))
+                    rgRasterNumbers.Properties.Items[0].Enabled = false;
+                else
+                    rgRasterNumbers.Properties.Items[1].Enabled = false;
                 rgRasterNumbers.SelectedIndex = -1;
             }
             catch (Exception ex)
@@ -174,7 +181,5 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
-//****************************
     }
 }

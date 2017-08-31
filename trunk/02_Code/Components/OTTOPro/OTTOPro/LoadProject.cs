@@ -197,6 +197,9 @@ namespace OTTOPro
             }
         }
 
-       
+        private void dgProjectSearch_DoubleClick(object sender, EventArgs e)
+        {
+            LoadProject(false);
+        }
     }
 }

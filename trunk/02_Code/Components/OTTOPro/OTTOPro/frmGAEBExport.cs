@@ -28,8 +28,9 @@ namespace OTTOPro
         BGAEB ObjBGAEB = null;
         EGAEB ObjEGAEB = null;
         private string _NewRaster=string.Empty;
+        private bool rtnOldRaster = false;
 
-        public frmGAEBExport(string tProjectNo, int ProjectID,int Raster_Count,string _raster)
+        public frmGAEBExport(string tProjectNo, int ProjectID, int Raster_Count, string _raster, bool _rtnOldRaster)
         {
             InitializeComponent();
             txtProjectName.Text = tProjectNo;
@@ -38,6 +39,7 @@ namespace OTTOPro
             ProjectNumber = tProjectNo;
             _Raster = Raster_Count;
             _NewRaster = _raster;
+            rtnOldRaster = _rtnOldRaster;
         }
 
         private void frmGAEBExport_Load(object sender, EventArgs e)
@@ -75,6 +77,11 @@ namespace OTTOPro
                 DataRow dr = dtLVSection.NewRow();
                 dr["LVSection"] = "ALL";
                 dtLVSection.Rows.Add(dr);
+                if (rtnOldRaster)
+                {
+                    DataView dvLVSection = dtLVSection.DefaultView;
+                    dvLVSection.RowFilter = "LVSection =  'HA'";
+                }
                 cmbLVSection.DataSource = dtLVSection;
                 cmbLVSection.DisplayMember = "LVSection";
                 cmbLVSection.ValueMember = "LVSection";

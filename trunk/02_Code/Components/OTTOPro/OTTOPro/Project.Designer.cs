@@ -321,6 +321,7 @@
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn6 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn141 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn64 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.rpArticles = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.treeListColumn63 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -839,6 +840,7 @@
             this.layoutControlItem137 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbSupplierProposal = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl14 = new DevExpress.XtraLayout.LayoutControl();
+            this.cmbLVSectionProposal = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.gcProposedSupplier = new DevExpress.XtraGrid.GridControl();
             this.gvProposedSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -872,7 +874,6 @@
             this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn54 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbLVSectionforSupplier = new System.Windows.Forms.ComboBox();
             this.cmbWGWA = new System.Windows.Forms.ComboBox();
             this.btnSendEmail = new DevExpress.XtraEditors.SimpleButton();
             this.btnGeneratePDF = new DevExpress.XtraEditors.SimpleButton();
@@ -889,7 +890,6 @@
             this.layoutControlGroup23 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem155 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem109 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem159 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem160 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem162 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem163 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -901,6 +901,7 @@
             this.layoutControlItem195 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem47 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem161 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem234 = new DevExpress.XtraLayout.LayoutControlItem();
             this.tbUpdateSupplier = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl15 = new DevExpress.XtraLayout.LayoutControl();
             this.btnSubmit = new DevExpress.XtraEditors.SimpleButton();
@@ -1732,6 +1733,7 @@
             this.tbSupplierProposal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl14)).BeginInit();
             this.layoutControl14.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLVSectionProposal.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcProposedSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProposedSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).BeginInit();
@@ -1749,7 +1751,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem155)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem109)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem159)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem160)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem162)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem163)).BeginInit();
@@ -1761,6 +1762,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem234)).BeginInit();
             this.tbUpdateSupplier.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl15)).BeginInit();
             this.layoutControl15.SuspendLayout();
@@ -2340,21 +2342,18 @@
             this.barButtonItemAddSumPosition.Caption = "Add Sum Position";
             this.barButtonItemAddSumPosition.Id = 0;
             this.barButtonItemAddSumPosition.Name = "barButtonItemAddSumPosition";
-            this.barButtonItemAddSumPosition.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAddSumPosition_ItemClick);
             // 
             // barButtonItemAddTextPosition
             // 
             this.barButtonItemAddTextPosition.Caption = "Add Text Position";
             this.barButtonItemAddTextPosition.Id = 1;
             this.barButtonItemAddTextPosition.Name = "barButtonItemAddTextPosition";
-            this.barButtonItemAddTextPosition.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAddTextPosition_ItemClick);
             // 
             // barButtonItemAddSurchange
             // 
             this.barButtonItemAddSurchange.Caption = "Add Surchange Position";
             this.barButtonItemAddSurchange.Id = 2;
             this.barButtonItemAddSurchange.Name = "barButtonItemAddSurchange";
-            this.barButtonItemAddSurchange.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItemAddSurchange_ItemClick);
             // 
             // btnAddLVSection
             // 
@@ -2462,7 +2461,6 @@
             this.txtType.Size = new System.Drawing.Size(188, 24);
             this.txtType.StyleController = this.layoutControl3;
             this.txtType.TabIndex = 18;
-            this.txtType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtType_KeyDown);
             this.txtType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtType_KeyPress);
             // 
             // txtFabrikate
@@ -5828,6 +5826,7 @@
             this.treeListColumn1,
             this.treeListColumn5,
             this.treeListColumn6,
+            this.treeListColumn141,
             this.treeListColumn64,
             this.treeListColumn63,
             this.treeListColumn62,
@@ -5960,6 +5959,17 @@
             this.treeListColumn6.VisibleIndex = 3;
             this.treeListColumn6.Width = 70;
             // 
+            // treeListColumn141
+            // 
+            this.treeListColumn141.Caption = "LV Sektion";
+            this.treeListColumn141.FieldName = "LVSection";
+            this.treeListColumn141.Name = "treeListColumn141";
+            this.treeListColumn141.OptionsColumn.AllowSize = false;
+            this.treeListColumn141.OptionsColumn.AllowSort = false;
+            this.treeListColumn141.OptionsColumn.ReadOnly = true;
+            this.treeListColumn141.Visible = true;
+            this.treeListColumn141.VisibleIndex = 4;
+            // 
             // treeListColumn64
             // 
             this.treeListColumn64.Caption = "WG";
@@ -5969,7 +5979,7 @@
             this.treeListColumn64.OptionsColumn.AllowSort = false;
             this.treeListColumn64.OptionsColumn.FixedWidth = true;
             this.treeListColumn64.Visible = true;
-            this.treeListColumn64.VisibleIndex = 4;
+            this.treeListColumn64.VisibleIndex = 5;
             this.treeListColumn64.Width = 50;
             // 
             // rpArticles
@@ -5989,7 +5999,7 @@
             this.treeListColumn63.OptionsColumn.AllowSort = false;
             this.treeListColumn63.OptionsColumn.FixedWidth = true;
             this.treeListColumn63.Visible = true;
-            this.treeListColumn63.VisibleIndex = 5;
+            this.treeListColumn63.VisibleIndex = 6;
             this.treeListColumn63.Width = 50;
             // 
             // treeListColumn62
@@ -6001,7 +6011,7 @@
             this.treeListColumn62.OptionsColumn.AllowSort = false;
             this.treeListColumn62.OptionsColumn.FixedWidth = true;
             this.treeListColumn62.Visible = true;
-            this.treeListColumn62.VisibleIndex = 6;
+            this.treeListColumn62.VisibleIndex = 7;
             this.treeListColumn62.Width = 50;
             // 
             // ME
@@ -6031,7 +6041,7 @@
             this.treeListColumn3.SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Sum;
             this.treeListColumn3.SummaryFooterStrFormat = "Total: {0:c0}";
             this.treeListColumn3.Visible = true;
-            this.treeListColumn3.VisibleIndex = 7;
+            this.treeListColumn3.VisibleIndex = 8;
             this.treeListColumn3.Width = 70;
             // 
             // rpMenge
@@ -6260,7 +6270,7 @@
             this.treeListColumn2.OptionsColumn.AllowSort = false;
             this.treeListColumn2.OptionsColumn.ReadOnly = true;
             this.treeListColumn2.Visible = true;
-            this.treeListColumn2.VisibleIndex = 8;
+            this.treeListColumn2.VisibleIndex = 9;
             this.treeListColumn2.Width = 105;
             // 
             // treeListColumn4
@@ -6271,7 +6281,7 @@
             this.treeListColumn4.OptionsColumn.AllowSort = false;
             this.treeListColumn4.OptionsColumn.ReadOnly = true;
             this.treeListColumn4.Visible = true;
-            this.treeListColumn4.VisibleIndex = 9;
+            this.treeListColumn4.VisibleIndex = 10;
             this.treeListColumn4.Width = 105;
             // 
             // clmEdit
@@ -11138,6 +11148,7 @@
             this.gvPositions.OptionsView.ShowGroupPanel = false;
             this.gvPositions.MouseDown += new System.Windows.Forms.MouseEventHandler(this.gvPositions_MouseDown);
             this.gvPositions.MouseMove += new System.Windows.Forms.MouseEventHandler(this.gvPositions_MouseMove);
+            this.gvPositions.DoubleClick += new System.EventHandler(this.gvPositions_DoubleClick);
             // 
             // LVPositionNr
             // 
@@ -12063,13 +12074,13 @@
             // 
             this.layoutControl14.AllowCustomization = false;
             this.layoutControl14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl14.Controls.Add(this.cmbLVSectionProposal);
             this.layoutControl14.Controls.Add(this.gcProposedSupplier);
             this.layoutControl14.Controls.Add(this.btnSaveSupplierProposal);
             this.layoutControl14.Controls.Add(this.chkSupplierLists);
             this.layoutControl14.Controls.Add(this.label24);
             this.layoutControl14.Controls.Add(this.gcProposedDetails);
             this.layoutControl14.Controls.Add(this.gcDeletedDetails);
-            this.layoutControl14.Controls.Add(this.cmbLVSectionforSupplier);
             this.layoutControl14.Controls.Add(this.cmbWGWA);
             this.layoutControl14.Controls.Add(this.btnSendEmail);
             this.layoutControl14.Controls.Add(this.btnGeneratePDF);
@@ -12082,6 +12093,18 @@
             this.layoutControl14.Size = new System.Drawing.Size(1522, 749);
             this.layoutControl14.TabIndex = 0;
             this.layoutControl14.Text = "layoutControl14";
+            // 
+            // cmbLVSectionProposal
+            // 
+            this.cmbLVSectionProposal.Location = new System.Drawing.Point(263, 12);
+            this.cmbLVSectionProposal.MenuManager = this.barManager1;
+            this.cmbLVSectionProposal.Name = "cmbLVSectionProposal";
+            this.cmbLVSectionProposal.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbLVSectionProposal.Size = new System.Drawing.Size(206, 20);
+            this.cmbLVSectionProposal.StyleController = this.layoutControl14;
+            this.cmbLVSectionProposal.TabIndex = 28;
+            this.cmbLVSectionProposal.Closed += new DevExpress.XtraEditors.Controls.ClosedEventHandler(this.cmbLVSectionProposal_Closed);
             // 
             // gcProposedSupplier
             // 
@@ -12248,12 +12271,12 @@
             // gcProposedDetails
             // 
             this.gcProposedDetails.AllowDrop = true;
-            this.gcProposedDetails.Location = new System.Drawing.Point(899, 297);
+            this.gcProposedDetails.Location = new System.Drawing.Point(899, 296);
             this.gcProposedDetails.MainView = this.gvProposedDetails;
             this.gcProposedDetails.Name = "gcProposedDetails";
             this.gcProposedDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRichTextEdit2});
-            this.gcProposedDetails.Size = new System.Drawing.Size(611, 200);
+            this.gcProposedDetails.Size = new System.Drawing.Size(611, 201);
             this.gcProposedDetails.TabIndex = 23;
             this.gcProposedDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvProposedDetails});
@@ -12381,7 +12404,7 @@
             this.gcDeletedDetails.Name = "gcDeletedDetails";
             this.gcDeletedDetails.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemRichTextEdit1});
-            this.gcDeletedDetails.Size = new System.Drawing.Size(611, 187);
+            this.gcDeletedDetails.Size = new System.Drawing.Size(611, 186);
             this.gcDeletedDetails.TabIndex = 22;
             this.gcDeletedDetails.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvDeletedDetails});
@@ -12502,23 +12525,13 @@
             this.gridColumn54.FieldName = "PositionsStatus";
             this.gridColumn54.Name = "gridColumn54";
             // 
-            // cmbLVSectionforSupplier
-            // 
-            this.cmbLVSectionforSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbLVSectionforSupplier.FormattingEnabled = true;
-            this.cmbLVSectionforSupplier.Location = new System.Drawing.Point(263, 12);
-            this.cmbLVSectionforSupplier.Name = "cmbLVSectionforSupplier";
-            this.cmbLVSectionforSupplier.Size = new System.Drawing.Size(206, 21);
-            this.cmbLVSectionforSupplier.TabIndex = 20;
-            this.cmbLVSectionforSupplier.SelectionChangeCommitted += new System.EventHandler(this.cmbLVSectionforSupplier_SelectionChangeCommitted);
-            // 
             // cmbWGWA
             // 
             this.cmbWGWA.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbWGWA.FormattingEnabled = true;
             this.cmbWGWA.Items.AddRange(new object[] {
             ""});
-            this.cmbWGWA.Location = new System.Drawing.Point(263, 37);
+            this.cmbWGWA.Location = new System.Drawing.Point(263, 36);
             this.cmbWGWA.Name = "cmbWGWA";
             this.cmbWGWA.Size = new System.Drawing.Size(206, 21);
             this.cmbWGWA.TabIndex = 19;
@@ -12690,7 +12703,6 @@
             this.layoutControlGroup23.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem155,
             this.emptySpaceItem109,
-            this.layoutControlItem159,
             this.layoutControlItem160,
             this.layoutControlItem162,
             this.layoutControlItem163,
@@ -12701,7 +12713,8 @@
             this.layoutControlItem192,
             this.layoutControlItem195,
             this.emptySpaceItem47,
-            this.layoutControlItem161});
+            this.layoutControlItem161,
+            this.layoutControlItem234});
             this.layoutControlGroup23.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup23.Name = "Root";
             this.layoutControlGroup23.Size = new System.Drawing.Size(1522, 749);
@@ -12732,24 +12745,6 @@
             this.emptySpaceItem109.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem109.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // layoutControlItem159
-            // 
-            this.layoutControlItem159.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControlItem159.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.layoutControlItem159.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.layoutControlItem159.AppearanceItemCaption.Options.UseBackColor = true;
-            this.layoutControlItem159.AppearanceItemCaption.Options.UseFont = true;
-            this.layoutControlItem159.AppearanceItemCaption.Options.UseForeColor = true;
-            this.layoutControlItem159.Control = this.cmbLVSectionforSupplier;
-            this.layoutControlItem159.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem159.MaxSize = new System.Drawing.Size(461, 25);
-            this.layoutControlItem159.MinSize = new System.Drawing.Size(461, 25);
-            this.layoutControlItem159.Name = "layoutControlItem159";
-            this.layoutControlItem159.Size = new System.Drawing.Size(461, 25);
-            this.layoutControlItem159.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem159.Text = "LV Sektion ";
-            this.layoutControlItem159.TextSize = new System.Drawing.Size(248, 14);
-            // 
             // layoutControlItem160
             // 
             this.layoutControlItem160.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
@@ -12759,11 +12754,11 @@
             this.layoutControlItem160.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem160.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem160.Control = this.cmbWGWA;
-            this.layoutControlItem160.Location = new System.Drawing.Point(0, 25);
+            this.layoutControlItem160.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem160.MaxSize = new System.Drawing.Size(461, 25);
             this.layoutControlItem160.MinSize = new System.Drawing.Size(461, 25);
             this.layoutControlItem160.Name = "layoutControlItem160";
-            this.layoutControlItem160.Size = new System.Drawing.Size(461, 25);
+            this.layoutControlItem160.Size = new System.Drawing.Size(461, 26);
             this.layoutControlItem160.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem160.Text = "Auswahlliste zu WG/WA Kombinationen ";
             this.layoutControlItem160.TextSize = new System.Drawing.Size(248, 14);
@@ -12777,7 +12772,7 @@
             this.layoutControlItem162.Control = this.gcDeletedDetails;
             this.layoutControlItem162.Location = new System.Drawing.Point(887, 60);
             this.layoutControlItem162.Name = "layoutControlItem162";
-            this.layoutControlItem162.Size = new System.Drawing.Size(615, 208);
+            this.layoutControlItem162.Size = new System.Drawing.Size(615, 207);
             this.layoutControlItem162.Text = "Gelöschte Positionen ";
             this.layoutControlItem162.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem162.TextSize = new System.Drawing.Size(248, 14);
@@ -12789,9 +12784,9 @@
             this.layoutControlItem163.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem163.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem163.Control = this.gcProposedDetails;
-            this.layoutControlItem163.Location = new System.Drawing.Point(887, 268);
+            this.layoutControlItem163.Location = new System.Drawing.Point(887, 267);
             this.layoutControlItem163.Name = "layoutControlItem163";
-            this.layoutControlItem163.Size = new System.Drawing.Size(615, 221);
+            this.layoutControlItem163.Size = new System.Drawing.Size(615, 222);
             this.layoutControlItem163.Text = "Angefragte Positionen ";
             this.layoutControlItem163.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem163.TextSize = new System.Drawing.Size(248, 14);
@@ -12879,6 +12874,19 @@
             this.layoutControlItem161.Size = new System.Drawing.Size(615, 32);
             this.layoutControlItem161.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem161.TextVisible = false;
+            // 
+            // layoutControlItem234
+            // 
+            this.layoutControlItem234.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem234.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlItem234.AppearanceItemCaption.Options.UseFont = true;
+            this.layoutControlItem234.AppearanceItemCaption.Options.UseForeColor = true;
+            this.layoutControlItem234.Control = this.cmbLVSectionProposal;
+            this.layoutControlItem234.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem234.Name = "layoutControlItem234";
+            this.layoutControlItem234.Size = new System.Drawing.Size(461, 24);
+            this.layoutControlItem234.Text = "LV Sektion";
+            this.layoutControlItem234.TextSize = new System.Drawing.Size(248, 14);
             // 
             // tbUpdateSupplier
             // 
@@ -16012,6 +16020,7 @@
             this.tbSupplierProposal.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl14)).EndInit();
             this.layoutControl14.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLVSectionProposal.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcProposedSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvProposedSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit3)).EndInit();
@@ -16029,7 +16038,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem155)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem109)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem159)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem160)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem162)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem163)).EndInit();
@@ -16041,6 +16049,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem195)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem47)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem161)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem234)).EndInit();
             this.tbUpdateSupplier.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl15)).EndInit();
             this.layoutControl15.ResumeLayout(false);
@@ -16871,9 +16880,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem157;
         private DevExpress.XtraEditors.SimpleButton btnSendEmail;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem158;
-        private System.Windows.Forms.ComboBox cmbLVSectionforSupplier;
         private System.Windows.Forms.ComboBox cmbWGWA;
-        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem159;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem160;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label24;
@@ -17246,6 +17253,9 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem18;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem53;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem54;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn141;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit cmbLVSectionProposal;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem234;
 
 
     }
