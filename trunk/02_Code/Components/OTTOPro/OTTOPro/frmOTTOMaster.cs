@@ -159,18 +159,6 @@ namespace OTTOPro
             }
         }
 
-        private void txtFullName_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                TextEdit textbox = (TextEdit)sender;
-                textbox.Text = ToTitleCase(textbox.Text);
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         private void frmOTTOMaster_FormClosing(object sender, FormClosingEventArgs e)
         {

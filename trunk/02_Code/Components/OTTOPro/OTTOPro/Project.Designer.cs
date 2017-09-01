@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtStufe4Title = new System.Windows.Forms.TextBox();
@@ -1894,7 +1894,7 @@
             this.txtSurchargeTo.Properties.Appearance.Options.UseFont = true;
             this.txtSurchargeTo.Size = new System.Drawing.Size(74, 24);
             this.txtSurchargeTo.StyleController = this.layoutControl3;
-            this.txtSurchargeTo.TabIndex = 0;
+            this.txtSurchargeTo.TabIndex = 53;
             this.txtSurchargeTo.Tag = "To OZ";
             this.txtSurchargeTo.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             // 
@@ -1997,8 +1997,7 @@
             this.txtLiefrantMA.Properties.AllowMouseWheel = false;
             this.txtLiefrantMA.Size = new System.Drawing.Size(98, 20);
             this.txtLiefrantMA.StyleController = this.layoutControl3;
-            this.txtLiefrantMA.TabIndex = 0;
-            this.txtLiefrantMA.TabStop = false;
+            this.txtLiefrantMA.TabIndex = 10;
             // 
             // barManager1
             // 
@@ -2369,6 +2368,7 @@
             this.btnAddLVSection.Name = "btnAddLVSection";
             this.btnAddLVSection.Size = new System.Drawing.Size(40, 24);
             this.btnAddLVSection.TabIndex = 0;
+            this.btnAddLVSection.TabStop = false;
             this.btnAddLVSection.UseVisualStyleBackColor = true;
             this.btnAddLVSection.Click += new System.EventHandler(this.btnAddPositionKZ_Click);
             // 
@@ -2397,8 +2397,7 @@
             this.cmbLVStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbLVStatus.Size = new System.Drawing.Size(188, 20);
             this.cmbLVStatus.StyleController = this.layoutControl3;
-            this.cmbLVStatus.TabIndex = 0;
-            this.cmbLVStatus.TabStop = false;
+            this.cmbLVStatus.TabIndex = 13;
             this.cmbLVStatus.Tag = "LV-Status";
             // 
             // btnLongDescription
@@ -2411,7 +2410,7 @@
             this.btnLongDescription.Name = "btnLongDescription";
             this.btnLongDescription.Size = new System.Drawing.Size(188, 22);
             this.btnLongDescription.StyleController = this.layoutControl3;
-            this.btnLongDescription.TabIndex = 21;
+            this.btnLongDescription.TabIndex = 0;
             this.btnLongDescription.TabStop = false;
             this.btnLongDescription.Text = "Bearbeiten";
             this.btnLongDescription.Click += new System.EventHandler(this.btnLongDescription_Click);
@@ -2495,8 +2494,7 @@
             this.txtDetailKZ.Properties.ReadOnly = true;
             this.txtDetailKZ.Size = new System.Drawing.Size(188, 24);
             this.txtDetailKZ.StyleController = this.layoutControl3;
-            this.txtDetailKZ.TabIndex = 0;
-            this.txtDetailKZ.TabStop = false;
+            this.txtDetailKZ.TabIndex = 11;
             // 
             // txtSurchargePerME
             // 
@@ -2510,7 +2508,7 @@
             this.txtSurchargePerME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSurchargePerME.Size = new System.Drawing.Size(86, 24);
             this.txtSurchargePerME.StyleController = this.layoutControl3;
-            this.txtSurchargePerME.TabIndex = 0;
+            this.txtSurchargePerME.TabIndex = 51;
             // 
             // txtMenge
             // 
@@ -2539,12 +2537,12 @@
             this.txtSurchargeFrom.Properties.Appearance.Options.UseFont = true;
             this.txtSurchargeFrom.Size = new System.Drawing.Size(74, 24);
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
-            this.txtSurchargeFrom.TabIndex = 0;
+            this.txtSurchargeFrom.TabIndex = 52;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
+            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -2560,7 +2558,7 @@
             this.txtSurchargePerMO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSurchargePerMO.Size = new System.Drawing.Size(86, 24);
             this.txtSurchargePerMO.StyleController = this.layoutControl3;
-            this.txtSurchargePerMO.TabIndex = 0;
+            this.txtSurchargePerMO.TabIndex = 50;
             // 
             // txtStufe1Short
             // 
@@ -2624,8 +2622,7 @@
             this.cmbPositionKZ.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPositionKZ.Size = new System.Drawing.Size(98, 24);
             this.cmbPositionKZ.StyleController = this.layoutControl3;
-            this.cmbPositionKZ.TabIndex = 0;
-            this.cmbPositionKZ.TabStop = false;
+            this.cmbPositionKZ.TabIndex = 12;
             this.cmbPositionKZ.SelectedValueChanged += new System.EventHandler(this.cmbPositionKZ_SelectedValueChanged);
             // 
             // txtPosition
@@ -2696,8 +2693,7 @@
             this.txtShortDescription.MaxLength = 80;
             this.txtShortDescription.Name = "txtShortDescription";
             this.txtShortDescription.Size = new System.Drawing.Size(416, 21);
-            this.txtShortDescription.TabIndex = 0;
-            this.txtShortDescription.TabStop = false;
+            this.txtShortDescription.TabIndex = 14;
             this.txtShortDescription.Text = "";
             // 
             // txtLVPosition
@@ -3749,7 +3745,8 @@
             this.btnAddAccessories.Name = "btnAddAccessories";
             this.btnAddAccessories.Size = new System.Drawing.Size(245, 22);
             this.btnAddAccessories.StyleController = this.layoutControl6;
-            this.btnAddAccessories.TabIndex = 59;
+            this.btnAddAccessories.TabIndex = 0;
+            this.btnAddAccessories.TabStop = false;
             this.btnAddAccessories.Text = "Zubehör hinzufügen";
             this.btnAddAccessories.Click += new System.EventHandler(this.btnAddAccessories_Click);
             // 
@@ -3793,7 +3790,7 @@
             this.dtpValidityDate.Location = new System.Drawing.Point(12, 32);
             this.dtpValidityDate.Name = "dtpValidityDate";
             this.dtpValidityDate.Size = new System.Drawing.Size(245, 21);
-            this.dtpValidityDate.TabIndex = 56;
+            this.dtpValidityDate.TabIndex = 0;
             this.dtpValidityDate.TabStop = false;
             // 
             // txtEP
@@ -3847,7 +3844,7 @@
             this.txtLPMO.Properties.ReadOnly = true;
             this.txtLPMO.Size = new System.Drawing.Size(196, 24);
             this.txtLPMO.StyleController = this.layoutControl6;
-            this.txtLPMO.TabIndex = 19;
+            this.txtLPMO.TabIndex = 27;
             this.txtLPMO.Tag = "Einzelpreise MO";
             this.txtLPMO.TextChanged += new System.EventHandler(this.txtLPMO_TextChanged);
             // 
@@ -3863,7 +3860,7 @@
             this.txtLPMe.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtLPMe.Size = new System.Drawing.Size(204, 24);
             this.txtLPMe.StyleController = this.layoutControl6;
-            this.txtLPMe.TabIndex = 12;
+            this.txtLPMe.TabIndex = 20;
             this.txtLPMe.Tag = "Einzelpreise MA";
             this.txtLPMe.TextChanged += new System.EventHandler(this.txtLPMe_TextChanged);
             this.txtLPMe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4076,7 +4073,7 @@
             this.txtMulti1MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti1MO.Size = new System.Drawing.Size(100, 24);
             this.txtMulti1MO.StyleController = this.layoutControl6;
-            this.txtMulti1MO.TabIndex = 20;
+            this.txtMulti1MO.TabIndex = 28;
             this.txtMulti1MO.Tag = "Multi 1 MO";
             this.txtMulti1MO.TextChanged += new System.EventHandler(this.txtLPMO_TextChanged);
             this.txtMulti1MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4097,7 +4094,7 @@
             this.txtMulti2MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti2MO.Size = new System.Drawing.Size(100, 24);
             this.txtMulti2MO.StyleController = this.layoutControl6;
-            this.txtMulti2MO.TabIndex = 21;
+            this.txtMulti2MO.TabIndex = 29;
             this.txtMulti2MO.Tag = "Multi 2 MO";
             this.txtMulti2MO.TextChanged += new System.EventHandler(this.txtValue1MO_TextChanged);
             this.txtMulti2MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4159,7 +4156,7 @@
             this.txtMulti3MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti3MO.Size = new System.Drawing.Size(100, 24);
             this.txtMulti3MO.StyleController = this.layoutControl6;
-            this.txtMulti3MO.TabIndex = 22;
+            this.txtMulti3MO.TabIndex = 30;
             this.txtMulti3MO.Tag = "Multi 3 MO";
             this.txtMulti3MO.TextChanged += new System.EventHandler(this.txtValue2MO_TextChanged);
             this.txtMulti3MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4180,7 +4177,7 @@
             this.txtVerkaufspreisMultiMO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtVerkaufspreisMultiMO.Size = new System.Drawing.Size(100, 24);
             this.txtVerkaufspreisMultiMO.StyleController = this.layoutControl6;
-            this.txtVerkaufspreisMultiMO.TabIndex = 25;
+            this.txtVerkaufspreisMultiMO.TabIndex = 33;
             this.txtVerkaufspreisMultiMO.TextChanged += new System.EventHandler(this.txtSelbstkostenValueMO_TextChanged);
             this.txtVerkaufspreisMultiMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtVerkaufspreisMultiMO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4200,7 +4197,7 @@
             this.txtMulti4MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti4MO.Size = new System.Drawing.Size(100, 24);
             this.txtMulti4MO.StyleController = this.layoutControl6;
-            this.txtMulti4MO.TabIndex = 23;
+            this.txtMulti4MO.TabIndex = 31;
             this.txtMulti4MO.TextChanged += new System.EventHandler(this.txtValue3MO_TextChanged);
             this.txtMulti4MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtMulti4MO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4238,7 +4235,7 @@
             this.txtMulti1ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti1ME.Size = new System.Drawing.Size(105, 24);
             this.txtMulti1ME.StyleController = this.layoutControl6;
-            this.txtMulti1ME.TabIndex = 13;
+            this.txtMulti1ME.TabIndex = 21;
             this.txtMulti1ME.Tag = "Multi 1 MA";
             this.txtMulti1ME.TextChanged += new System.EventHandler(this.txtLPMe_TextChanged);
             this.txtMulti1ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4274,7 +4271,7 @@
             this.txtDim3.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtDim3.Size = new System.Drawing.Size(79, 24);
             this.txtDim3.StyleController = this.layoutControl6;
-            this.txtDim3.TabIndex = 29;
+            this.txtDim3.TabIndex = 17;
             this.txtDim3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim3.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
@@ -4292,7 +4289,7 @@
             this.txtVerkaufspreisMultiME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtVerkaufspreisMultiME.Size = new System.Drawing.Size(105, 24);
             this.txtVerkaufspreisMultiME.StyleController = this.layoutControl6;
-            this.txtVerkaufspreisMultiME.TabIndex = 18;
+            this.txtVerkaufspreisMultiME.TabIndex = 26;
             this.txtVerkaufspreisMultiME.TextChanged += new System.EventHandler(this.txtSelbstkostenValueME_TextChanged);
             this.txtVerkaufspreisMultiME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtVerkaufspreisMultiME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4408,7 +4405,7 @@
             this.txtSelbstkostenMultiMO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSelbstkostenMultiMO.Size = new System.Drawing.Size(100, 24);
             this.txtSelbstkostenMultiMO.StyleController = this.layoutControl6;
-            this.txtSelbstkostenMultiMO.TabIndex = 24;
+            this.txtSelbstkostenMultiMO.TabIndex = 32;
             this.txtSelbstkostenMultiMO.TextChanged += new System.EventHandler(this.txtEinkaufspreisMO_TextChanged);
             this.txtSelbstkostenMultiMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtSelbstkostenMultiMO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4428,7 +4425,7 @@
             this.txtMulti2ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti2ME.Size = new System.Drawing.Size(105, 24);
             this.txtMulti2ME.StyleController = this.layoutControl6;
-            this.txtMulti2ME.TabIndex = 14;
+            this.txtMulti2ME.TabIndex = 22;
             this.txtMulti2ME.Tag = "Multi 2 MA";
             this.txtMulti2ME.TextChanged += new System.EventHandler(this.txtValue1ME_TextChanged);
             this.txtMulti2ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4480,7 +4477,7 @@
             this.txtDim2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtDim2.Size = new System.Drawing.Size(79, 24);
             this.txtDim2.StyleController = this.layoutControl6;
-            this.txtDim2.TabIndex = 28;
+            this.txtDim2.TabIndex = 16;
             this.txtDim2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim2.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
@@ -4498,7 +4495,7 @@
             this.txtSelbstkostenMultiME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSelbstkostenMultiME.Size = new System.Drawing.Size(105, 24);
             this.txtSelbstkostenMultiME.StyleController = this.layoutControl6;
-            this.txtSelbstkostenMultiME.TabIndex = 17;
+            this.txtSelbstkostenMultiME.TabIndex = 25;
             this.txtSelbstkostenMultiME.TextChanged += new System.EventHandler(this.txtEinkaufspreisME_TextChanged);
             this.txtSelbstkostenMultiME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtSelbstkostenMultiME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4536,7 +4533,7 @@
             this.txtMulti3ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti3ME.Size = new System.Drawing.Size(105, 24);
             this.txtMulti3ME.StyleController = this.layoutControl6;
-            this.txtMulti3ME.TabIndex = 15;
+            this.txtMulti3ME.TabIndex = 23;
             this.txtMulti3ME.Tag = "Multi 3 MA";
             this.txtMulti3ME.TextChanged += new System.EventHandler(this.txtValue2ME_TextChanged);
             this.txtMulti3ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4613,7 +4610,7 @@
             this.txtDim1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtDim1.Size = new System.Drawing.Size(79, 24);
             this.txtDim1.StyleController = this.layoutControl6;
-            this.txtDim1.TabIndex = 27;
+            this.txtDim1.TabIndex = 15;
             this.txtDim1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim1.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
@@ -4631,7 +4628,7 @@
             this.txtMulti4ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti4ME.Size = new System.Drawing.Size(105, 24);
             this.txtMulti4ME.StyleController = this.layoutControl6;
-            this.txtMulti4ME.TabIndex = 16;
+            this.txtMulti4ME.TabIndex = 24;
             this.txtMulti4ME.TextChanged += new System.EventHandler(this.txtValue3ME_TextChanged);
             this.txtMulti4ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtMulti4ME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4666,7 +4663,7 @@
             this.txtFaktor.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtFaktor.Size = new System.Drawing.Size(79, 24);
             this.txtFaktor.StyleController = this.layoutControl6;
-            this.txtFaktor.TabIndex = 11;
+            this.txtFaktor.TabIndex = 19;
             this.txtFaktor.Tag = "Faktor";
             this.txtFaktor.TextChanged += new System.EventHandler(this.txtStdSatz_TextChanged);
             this.txtFaktor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4701,7 +4698,7 @@
             this.txtMin.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMin.Size = new System.Drawing.Size(79, 24);
             this.txtMin.StyleController = this.layoutControl6;
-            this.txtMin.TabIndex = 10;
+            this.txtMin.TabIndex = 18;
             this.txtMin.Tag = "Minutes";
             this.txtMin.TextChanged += new System.EventHandler(this.txtMin_TextChanged);
             this.txtMin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -8336,17 +8333,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -11149,9 +11146,9 @@
             // gcPositions
             // 
             this.gcPositions.AllowDrop = true;
-            gridLevelNode1.RelationName = "Level1";
+            gridLevelNode2.RelationName = "Level1";
             this.gcPositions.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
+            gridLevelNode2});
             this.gcPositions.Location = new System.Drawing.Point(768, 128);
             this.gcPositions.MainView = this.gvPositions;
             this.gcPositions.Name = "gcPositions";

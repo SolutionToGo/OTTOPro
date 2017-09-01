@@ -323,6 +323,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(951, 257, 250, 350);
+            this.layoutControl2.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl2.Root = this.layoutControlGroup2;
             this.layoutControl2.Size = new System.Drawing.Size(713, 673);
             this.layoutControl2.TabIndex = 0;
@@ -335,7 +336,7 @@
             this.txtWebsite.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
             this.txtWebsite.Size = new System.Drawing.Size(202, 20);
             this.txtWebsite.StyleController = this.layoutControl2;
-            this.txtWebsite.TabIndex = 33;
+            this.txtWebsite.TabIndex = 9;
             // 
             // txtComplementary
             // 
@@ -343,8 +344,7 @@
             this.txtComplementary.Name = "txtComplementary";
             this.txtComplementary.Size = new System.Drawing.Size(213, 20);
             this.txtComplementary.StyleController = this.layoutControl2;
-            this.txtComplementary.TabIndex = 32;
-            this.txtComplementary.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtComplementary.TabIndex = 24;
             // 
             // txtMD
             // 
@@ -352,8 +352,7 @@
             this.txtMD.Name = "txtMD";
             this.txtMD.Size = new System.Drawing.Size(213, 20);
             this.txtMD.StyleController = this.layoutControl2;
-            this.txtMD.TabIndex = 31;
-            this.txtMD.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtMD.TabIndex = 23;
             // 
             // txtseatofcompany
             // 
@@ -361,7 +360,7 @@
             this.txtseatofcompany.Name = "txtseatofcompany";
             this.txtseatofcompany.Size = new System.Drawing.Size(213, 20);
             this.txtseatofcompany.StyleController = this.layoutControl2;
-            this.txtseatofcompany.TabIndex = 30;
+            this.txtseatofcompany.TabIndex = 22;
             // 
             // txtHotline
             // 
@@ -369,7 +368,7 @@
             this.txtHotline.Name = "txtHotline";
             this.txtHotline.Size = new System.Drawing.Size(202, 20);
             this.txtHotline.StyleController = this.layoutControl2;
-            this.txtHotline.TabIndex = 29;
+            this.txtHotline.TabIndex = 10;
             // 
             // txtTelefax
             // 
@@ -377,7 +376,7 @@
             this.txtTelefax.Name = "txtTelefax";
             this.txtTelefax.Size = new System.Drawing.Size(202, 20);
             this.txtTelefax.StyleController = this.layoutControl2;
-            this.txtTelefax.TabIndex = 27;
+            this.txtTelefax.TabIndex = 8;
             // 
             // txtOTTOTelefone
             // 
@@ -385,7 +384,7 @@
             this.txtOTTOTelefone.Name = "txtOTTOTelefone";
             this.txtOTTOTelefone.Size = new System.Drawing.Size(202, 20);
             this.txtOTTOTelefone.StyleController = this.layoutControl2;
-            this.txtOTTOTelefone.TabIndex = 26;
+            this.txtOTTOTelefone.TabIndex = 7;
             // 
             // txtUSTNr
             // 
@@ -393,7 +392,7 @@
             this.txtUSTNr.Name = "txtUSTNr";
             this.txtUSTNr.Size = new System.Drawing.Size(202, 20);
             this.txtUSTNr.StyleController = this.layoutControl2;
-            this.txtUSTNr.TabIndex = 25;
+            this.txtUSTNr.TabIndex = 16;
             // 
             // txtBIC
             // 
@@ -401,7 +400,7 @@
             this.txtBIC.Name = "txtBIC";
             this.txtBIC.Size = new System.Drawing.Size(202, 20);
             this.txtBIC.StyleController = this.layoutControl2;
-            this.txtBIC.TabIndex = 24;
+            this.txtBIC.TabIndex = 15;
             // 
             // txtIBAN
             // 
@@ -409,7 +408,7 @@
             this.txtIBAN.Name = "txtIBAN";
             this.txtIBAN.Size = new System.Drawing.Size(202, 20);
             this.txtIBAN.StyleController = this.layoutControl2;
-            this.txtIBAN.TabIndex = 23;
+            this.txtIBAN.TabIndex = 14;
             // 
             // btnSaveOtto
             // 
@@ -419,7 +418,7 @@
             this.btnSaveOtto.Name = "btnSaveOtto";
             this.btnSaveOtto.Size = new System.Drawing.Size(75, 23);
             this.btnSaveOtto.StyleController = this.layoutControl2;
-            this.btnSaveOtto.TabIndex = 21;
+            this.btnSaveOtto.TabIndex = 31;
             this.btnSaveOtto.Text = "Speichern";
             this.btnSaveOtto.Click += new System.EventHandler(this.btnSaveOtto_Click);
             // 
@@ -431,7 +430,7 @@
             this.btnCancelOtto.Name = "btnCancelOtto";
             this.btnCancelOtto.Size = new System.Drawing.Size(80, 23);
             this.btnCancelOtto.StyleController = this.layoutControl2;
-            this.btnCancelOtto.TabIndex = 22;
+            this.btnCancelOtto.TabIndex = 32;
             this.btnCancelOtto.Text = "Abbrechen";
             this.btnCancelOtto.Click += new System.EventHandler(this.btnCancelOtto_Click);
             // 
@@ -446,7 +445,7 @@
             this.checkEditIsBranch.Properties.Caption = "Niederlassung";
             this.checkEditIsBranch.Size = new System.Drawing.Size(324, 19);
             this.checkEditIsBranch.StyleController = this.layoutControl2;
-            this.checkEditIsBranch.TabIndex = 20;
+            this.checkEditIsBranch.TabIndex = 30;
             // 
             // txtBGNr
             // 
@@ -454,8 +453,7 @@
             this.txtBGNr.Name = "txtBGNr";
             this.txtBGNr.Size = new System.Drawing.Size(213, 20);
             this.txtBGNr.StyleController = this.layoutControl2;
-            this.txtBGNr.TabIndex = 19;
-            this.txtBGNr.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtBGNr.TabIndex = 29;
             // 
             // txtBGDatum
             // 
@@ -463,8 +461,7 @@
             this.txtBGDatum.Name = "txtBGDatum";
             this.txtBGDatum.Size = new System.Drawing.Size(213, 20);
             this.txtBGDatum.StyleController = this.layoutControl2;
-            this.txtBGDatum.TabIndex = 18;
-            this.txtBGDatum.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtBGDatum.TabIndex = 28;
             // 
             // txtBGBez
             // 
@@ -472,8 +469,7 @@
             this.txtBGBez.Name = "txtBGBez";
             this.txtBGBez.Size = new System.Drawing.Size(213, 20);
             this.txtBGBez.StyleController = this.layoutControl2;
-            this.txtBGBez.TabIndex = 17;
-            this.txtBGBez.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtBGBez.TabIndex = 27;
             // 
             // txtArtNU
             // 
@@ -481,8 +477,7 @@
             this.txtArtNU.Name = "txtArtNU";
             this.txtArtNU.Size = new System.Drawing.Size(213, 20);
             this.txtArtNU.StyleController = this.layoutControl2;
-            this.txtArtNU.TabIndex = 15;
-            this.txtArtNU.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtArtNU.TabIndex = 25;
             // 
             // txtArtBevBew
             // 
@@ -490,8 +485,7 @@
             this.txtArtBevBew.Name = "txtArtBevBew";
             this.txtArtBevBew.Size = new System.Drawing.Size(213, 20);
             this.txtArtBevBew.StyleController = this.layoutControl2;
-            this.txtArtBevBew.TabIndex = 16;
-            this.txtArtBevBew.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtArtBevBew.TabIndex = 26;
             // 
             // txtIndustry
             // 
@@ -499,8 +493,7 @@
             this.txtIndustry.Name = "txtIndustry";
             this.txtIndustry.Size = new System.Drawing.Size(202, 20);
             this.txtIndustry.StyleController = this.layoutControl2;
-            this.txtIndustry.TabIndex = 14;
-            this.txtIndustry.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtIndustry.TabIndex = 21;
             // 
             // txtCountryType
             // 
@@ -508,8 +501,7 @@
             this.txtCountryType.Name = "txtCountryType";
             this.txtCountryType.Size = new System.Drawing.Size(202, 20);
             this.txtCountryType.StyleController = this.layoutControl2;
-            this.txtCountryType.TabIndex = 13;
-            this.txtCountryType.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtCountryType.TabIndex = 20;
             // 
             // txtDebtorNo
             // 
@@ -517,8 +509,7 @@
             this.txtDebtorNo.Name = "txtDebtorNo";
             this.txtDebtorNo.Size = new System.Drawing.Size(202, 20);
             this.txtDebtorNo.StyleController = this.layoutControl2;
-            this.txtDebtorNo.TabIndex = 12;
-            this.txtDebtorNo.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtDebtorNo.TabIndex = 19;
             // 
             // txtTenderNo
             // 
@@ -526,8 +517,7 @@
             this.txtTenderNo.Name = "txtTenderNo";
             this.txtTenderNo.Size = new System.Drawing.Size(202, 20);
             this.txtTenderNo.StyleController = this.layoutControl2;
-            this.txtTenderNo.TabIndex = 11;
-            this.txtTenderNo.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtTenderNo.TabIndex = 18;
             // 
             // txtDVNr
             // 
@@ -535,8 +525,7 @@
             this.txtDVNr.Name = "txtDVNr";
             this.txtDVNr.Size = new System.Drawing.Size(202, 20);
             this.txtDVNr.StyleController = this.layoutControl2;
-            this.txtDVNr.TabIndex = 10;
-            this.txtDVNr.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtDVNr.TabIndex = 17;
             // 
             // txtBankAccNo
             // 
@@ -544,8 +533,7 @@
             this.txtBankAccNo.Name = "txtBankAccNo";
             this.txtBankAccNo.Size = new System.Drawing.Size(202, 20);
             this.txtBankAccNo.StyleController = this.layoutControl2;
-            this.txtBankAccNo.TabIndex = 9;
-            this.txtBankAccNo.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtBankAccNo.TabIndex = 13;
             // 
             // txtBankPCode
             // 
@@ -553,8 +541,7 @@
             this.txtBankPCode.Name = "txtBankPCode";
             this.txtBankPCode.Size = new System.Drawing.Size(202, 20);
             this.txtBankPCode.StyleController = this.layoutControl2;
-            this.txtBankPCode.TabIndex = 8;
-            this.txtBankPCode.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtBankPCode.TabIndex = 12;
             // 
             // txtBankName
             // 
@@ -562,8 +549,7 @@
             this.txtBankName.Name = "txtBankName";
             this.txtBankName.Size = new System.Drawing.Size(202, 20);
             this.txtBankName.StyleController = this.layoutControl2;
-            this.txtBankName.TabIndex = 7;
-            this.txtBankName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
+            this.txtBankName.TabIndex = 11;
             // 
             // txtILN
             // 
@@ -572,7 +558,6 @@
             this.txtILN.Size = new System.Drawing.Size(202, 20);
             this.txtILN.StyleController = this.layoutControl2;
             this.txtILN.TabIndex = 6;
-            this.txtILN.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtCountry
             // 
@@ -581,7 +566,6 @@
             this.txtCountry.Size = new System.Drawing.Size(202, 20);
             this.txtCountry.StyleController = this.layoutControl2;
             this.txtCountry.TabIndex = 5;
-            this.txtCountry.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtCity
             // 
@@ -590,7 +574,6 @@
             this.txtCity.Size = new System.Drawing.Size(202, 20);
             this.txtCity.StyleController = this.layoutControl2;
             this.txtCity.TabIndex = 4;
-            this.txtCity.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtPostalCode
             // 
@@ -599,7 +582,6 @@
             this.txtPostalCode.Size = new System.Drawing.Size(202, 20);
             this.txtPostalCode.StyleController = this.layoutControl2;
             this.txtPostalCode.TabIndex = 3;
-            this.txtPostalCode.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtStreet
             // 
@@ -608,7 +590,6 @@
             this.txtStreet.Size = new System.Drawing.Size(202, 20);
             this.txtStreet.StyleController = this.layoutControl2;
             this.txtStreet.TabIndex = 2;
-            this.txtStreet.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtShortName
             // 
@@ -624,7 +605,6 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Bitte eingeben Kurz Name";
             this.dxValidationProviderShortName.SetValidationRule(this.txtShortName, conditionValidationRule1);
-            this.txtShortName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtFullName
             // 
@@ -641,7 +621,6 @@
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Bitte eingeben Vollständiger Name";
             this.dxValidationProviderFullName.SetValidationRule(this.txtFullName, conditionValidationRule2);
-            this.txtFullName.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // layoutControlGroup2
             // 
@@ -1266,7 +1245,6 @@
             this.txtTaxNo.Size = new System.Drawing.Size(587, 20);
             this.txtTaxNo.StyleController = this.layoutControl3;
             this.txtTaxNo.TabIndex = 8;
-            this.txtTaxNo.Validated += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtemail
             // 
@@ -1283,7 +1261,6 @@
             this.txtFax.Size = new System.Drawing.Size(587, 20);
             this.txtFax.StyleController = this.layoutControl3;
             this.txtFax.TabIndex = 6;
-            this.txtFax.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // txtTelephone
             // 
@@ -1306,7 +1283,6 @@
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule3.ErrorText = "Bitte eingeben Name";
             this.dxValidationProviderContName.SetValidationRule(this.txtContactPerson, conditionValidationRule3);
-            this.txtContactPerson.TextChanged += new System.EventHandler(this.txtFullName_TextChanged);
             // 
             // layoutControlGroup3
             // 
