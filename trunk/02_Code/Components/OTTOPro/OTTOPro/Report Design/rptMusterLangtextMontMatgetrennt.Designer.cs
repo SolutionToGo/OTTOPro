@@ -94,6 +94,7 @@
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrRichText4 = new DevExpress.XtraReports.UI.XRRichText();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
@@ -155,17 +156,16 @@
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -741,6 +741,17 @@
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell8.Weight = 0.52134807709445075D;
             // 
+            // xrRichText1
+            // 
+            this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPrice(@ProjectID).LangText")});
+            this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(237.3681F, 25F);
+            this.xrRichText1.Name = "xrRichText1";
+            this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
+            this.xrRichText1.SizeF = new System.Drawing.SizeF(267.2267F, 23F);
+            this.xrRichText1.StylePriority.UseFont = false;
+            // 
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
@@ -754,6 +765,7 @@
             this.xrLabel23});
             this.GroupFooter1.HeightF = 55.97916F;
             this.GroupFooter1.Name = "GroupFooter1";
+            this.GroupFooter1.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBand;
             // 
             // xrRichText4
             // 
@@ -1533,17 +1545,6 @@
             this.calculatedField1.DataMember = "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID)";
             this.calculatedField1.Name = "calculatedField1";
             // 
-            // xrRichText1
-            // 
-            this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPrice(@ProjectID).LangText")});
-            this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(237.3681F, 25F);
-            this.xrRichText1.Name = "xrRichText1";
-            this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
-            this.xrRichText1.SizeF = new System.Drawing.SizeF(267.2267F, 23F);
-            this.xrRichText1.StylePriority.UseFont = false;
-            // 
             // rptMusterLangtextMontMatgetrennt
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1576,12 +1577,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }

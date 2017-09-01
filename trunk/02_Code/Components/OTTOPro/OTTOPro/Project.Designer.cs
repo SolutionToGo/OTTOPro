@@ -1894,7 +1894,7 @@
             this.txtSurchargeTo.Properties.Appearance.Options.UseFont = true;
             this.txtSurchargeTo.Size = new System.Drawing.Size(74, 24);
             this.txtSurchargeTo.StyleController = this.layoutControl3;
-            this.txtSurchargeTo.TabIndex = 23;
+            this.txtSurchargeTo.TabIndex = 0;
             this.txtSurchargeTo.Tag = "To OZ";
             this.txtSurchargeTo.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             // 
@@ -1938,6 +1938,7 @@
             this.layoutControl3.MinimumSize = new System.Drawing.Size(1, 1);
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(210, 289, 250, 350);
+            this.layoutControl3.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl3.OptionsView.ControlDefaultMaxSizeCalcMode = DevExpress.XtraLayout.ControlMaxSizeCalcMode.UseControlMaximumSizeIfNotZero;
             this.layoutControl3.Root = this.LCGLVDetails;
             this.layoutControl3.Size = new System.Drawing.Size(533, 466);
@@ -1953,6 +1954,7 @@
             this.txtStufe4Title.ReadOnly = true;
             this.txtStufe4Title.Size = new System.Drawing.Size(327, 24);
             this.txtStufe4Title.TabIndex = 30;
+            this.txtStufe4Title.TabStop = false;
             // 
             // txtStufe3Title
             // 
@@ -1963,6 +1965,7 @@
             this.txtStufe3Title.ReadOnly = true;
             this.txtStufe3Title.Size = new System.Drawing.Size(327, 24);
             this.txtStufe3Title.TabIndex = 29;
+            this.txtStufe3Title.TabStop = false;
             // 
             // txtStufe2Title
             // 
@@ -1973,6 +1976,7 @@
             this.txtStufe2Title.ReadOnly = true;
             this.txtStufe2Title.Size = new System.Drawing.Size(327, 24);
             this.txtStufe2Title.TabIndex = 28;
+            this.txtStufe2Title.TabStop = false;
             // 
             // txtStufe1Title
             // 
@@ -1983,6 +1987,7 @@
             this.txtStufe1Title.ReadOnly = true;
             this.txtStufe1Title.Size = new System.Drawing.Size(327, 24);
             this.txtStufe1Title.TabIndex = 27;
+            this.txtStufe1Title.TabStop = false;
             // 
             // txtLiefrantMA
             // 
@@ -1992,7 +1997,8 @@
             this.txtLiefrantMA.Properties.AllowMouseWheel = false;
             this.txtLiefrantMA.Size = new System.Drawing.Size(98, 20);
             this.txtLiefrantMA.StyleController = this.layoutControl3;
-            this.txtLiefrantMA.TabIndex = 26;
+            this.txtLiefrantMA.TabIndex = 0;
+            this.txtLiefrantMA.TabStop = false;
             // 
             // barManager1
             // 
@@ -2372,7 +2378,8 @@
             this.cmbLVSection.Location = new System.Drawing.Point(94, 345);
             this.cmbLVSection.Name = "cmbLVSection";
             this.cmbLVSection.Size = new System.Drawing.Size(98, 21);
-            this.cmbLVSection.TabIndex = 17;
+            this.cmbLVSection.TabIndex = 0;
+            this.cmbLVSection.TabStop = false;
             this.cmbLVSection.Tag = "LV -Section";
             this.cmbLVSection.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbLVSection_KeyPress);
             // 
@@ -2390,7 +2397,8 @@
             this.cmbLVStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbLVStatus.Size = new System.Drawing.Size(188, 20);
             this.cmbLVStatus.StyleController = this.layoutControl3;
-            this.cmbLVStatus.TabIndex = 19;
+            this.cmbLVStatus.TabIndex = 0;
+            this.cmbLVStatus.TabStop = false;
             this.cmbLVStatus.Tag = "LV-Status";
             // 
             // btnLongDescription
@@ -2404,6 +2412,7 @@
             this.btnLongDescription.Size = new System.Drawing.Size(188, 22);
             this.btnLongDescription.StyleController = this.layoutControl3;
             this.btnLongDescription.TabIndex = 21;
+            this.btnLongDescription.TabStop = false;
             this.btnLongDescription.Text = "Bearbeiten";
             this.btnLongDescription.Click += new System.EventHandler(this.btnLongDescription_Click);
             // 
@@ -2418,7 +2427,7 @@
             this.txtWI.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtWI.Size = new System.Drawing.Size(58, 24);
             this.txtWI.StyleController = this.layoutControl3;
-            this.txtWI.TabIndex = 12;
+            this.txtWI.TabIndex = 7;
             this.txtWI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
             // 
             // txtWA
@@ -2432,7 +2441,7 @@
             this.txtWA.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtWA.Size = new System.Drawing.Size(61, 24);
             this.txtWA.StyleController = this.layoutControl3;
-            this.txtWA.TabIndex = 11;
+            this.txtWA.TabIndex = 6;
             this.txtWA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtWA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
             // 
@@ -2447,7 +2456,7 @@
             this.txtWG.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtWG.Size = new System.Drawing.Size(53, 24);
             this.txtWG.StyleController = this.layoutControl3;
-            this.txtWG.TabIndex = 10;
+            this.txtWG.TabIndex = 5;
             this.txtWG.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtWG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
             // 
@@ -2460,7 +2469,7 @@
             this.txtType.Properties.Appearance.Options.UseFont = true;
             this.txtType.Size = new System.Drawing.Size(188, 24);
             this.txtType.StyleController = this.layoutControl3;
-            this.txtType.TabIndex = 18;
+            this.txtType.TabIndex = 8;
             this.txtType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtType_KeyPress);
             // 
             // txtFabrikate
@@ -2472,7 +2481,7 @@
             this.txtFabrikate.Properties.Appearance.Options.UseFont = true;
             this.txtFabrikate.Size = new System.Drawing.Size(98, 24);
             this.txtFabrikate.StyleController = this.layoutControl3;
-            this.txtFabrikate.TabIndex = 17;
+            this.txtFabrikate.TabIndex = 9;
             // 
             // txtDetailKZ
             // 
@@ -2486,7 +2495,8 @@
             this.txtDetailKZ.Properties.ReadOnly = true;
             this.txtDetailKZ.Size = new System.Drawing.Size(188, 24);
             this.txtDetailKZ.StyleController = this.layoutControl3;
-            this.txtDetailKZ.TabIndex = 16;
+            this.txtDetailKZ.TabIndex = 0;
+            this.txtDetailKZ.TabStop = false;
             // 
             // txtSurchargePerME
             // 
@@ -2500,7 +2510,7 @@
             this.txtSurchargePerME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSurchargePerME.Size = new System.Drawing.Size(86, 24);
             this.txtSurchargePerME.StyleController = this.layoutControl3;
-            this.txtSurchargePerME.TabIndex = 20;
+            this.txtSurchargePerME.TabIndex = 0;
             // 
             // txtMenge
             // 
@@ -2514,7 +2524,8 @@
             this.txtMenge.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMenge.Size = new System.Drawing.Size(125, 24);
             this.txtMenge.StyleController = this.layoutControl3;
-            this.txtMenge.TabIndex = 13;
+            this.txtMenge.TabIndex = 0;
+            this.txtMenge.TabStop = false;
             this.txtMenge.TextChanged += new System.EventHandler(this.txtMenge_TextChanged);
             this.txtMenge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtMenge.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMenge_KeyPress);
@@ -2528,7 +2539,7 @@
             this.txtSurchargeFrom.Properties.Appearance.Options.UseFont = true;
             this.txtSurchargeFrom.Size = new System.Drawing.Size(74, 24);
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
-            this.txtSurchargeFrom.TabIndex = 22;
+            this.txtSurchargeFrom.TabIndex = 0;
             this.txtSurchargeFrom.Tag = "From OZ";
             compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
             compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
@@ -2549,7 +2560,7 @@
             this.txtSurchargePerMO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSurchargePerMO.Size = new System.Drawing.Size(86, 24);
             this.txtSurchargePerMO.StyleController = this.layoutControl3;
-            this.txtSurchargePerMO.TabIndex = 21;
+            this.txtSurchargePerMO.TabIndex = 0;
             // 
             // txtStufe1Short
             // 
@@ -2562,7 +2573,7 @@
             this.txtStufe1Short.Properties.MaxLength = 2;
             this.txtStufe1Short.Size = new System.Drawing.Size(85, 24);
             this.txtStufe1Short.StyleController = this.layoutControl3;
-            this.txtStufe1Short.TabIndex = 1;
+            this.txtStufe1Short.TabIndex = 0;
             this.txtStufe1Short.Tag = "Stufe1";
             this.txtStufe1Short.TextChanged += new System.EventHandler(this.txtStufe1Short_TextChanged);
             this.txtStufe1Short.Leave += new System.EventHandler(this.txtStufe1Short_Leave);
@@ -2590,7 +2601,8 @@
             this.cmbME.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbME.Size = new System.Drawing.Size(134, 24);
             this.cmbME.StyleController = this.layoutControl3;
-            this.cmbME.TabIndex = 14;
+            this.cmbME.TabIndex = 0;
+            this.cmbME.TabStop = false;
             // 
             // cmbPositionKZ
             // 
@@ -2612,7 +2624,8 @@
             this.cmbPositionKZ.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbPositionKZ.Size = new System.Drawing.Size(98, 24);
             this.cmbPositionKZ.StyleController = this.layoutControl3;
-            this.cmbPositionKZ.TabIndex = 15;
+            this.cmbPositionKZ.TabIndex = 0;
+            this.cmbPositionKZ.TabStop = false;
             this.cmbPositionKZ.SelectedValueChanged += new System.EventHandler(this.cmbPositionKZ_SelectedValueChanged);
             // 
             // txtPosition
@@ -2625,7 +2638,7 @@
             this.txtPosition.Properties.Mask.ShowPlaceHolders = false;
             this.txtPosition.Size = new System.Drawing.Size(85, 24);
             this.txtPosition.StyleController = this.layoutControl3;
-            this.txtPosition.TabIndex = 9;
+            this.txtPosition.TabIndex = 4;
             this.txtPosition.Leave += new System.EventHandler(this.txtStufe1Short_Leave);
             // 
             // txtStufe3Short
@@ -2639,7 +2652,7 @@
             this.txtStufe3Short.Properties.MaxLength = 2;
             this.txtStufe3Short.Size = new System.Drawing.Size(85, 24);
             this.txtStufe3Short.StyleController = this.layoutControl3;
-            this.txtStufe3Short.TabIndex = 5;
+            this.txtStufe3Short.TabIndex = 2;
             this.txtStufe3Short.Tag = "Stufe3";
             this.txtStufe3Short.TextChanged += new System.EventHandler(this.txtStufe3Short_TextChanged);
             this.txtStufe3Short.Leave += new System.EventHandler(this.txtStufe1Short_Leave);
@@ -2655,7 +2668,7 @@
             this.txtStufe4Short.Properties.MaxLength = 2;
             this.txtStufe4Short.Size = new System.Drawing.Size(85, 24);
             this.txtStufe4Short.StyleController = this.layoutControl3;
-            this.txtStufe4Short.TabIndex = 7;
+            this.txtStufe4Short.TabIndex = 3;
             this.txtStufe4Short.Tag = "Stufe4";
             this.txtStufe4Short.TextChanged += new System.EventHandler(this.txtStufe4Short_TextChanged);
             this.txtStufe4Short.Leave += new System.EventHandler(this.txtStufe1Short_Leave);
@@ -2671,7 +2684,7 @@
             this.txtStufe2Short.Properties.MaxLength = 2;
             this.txtStufe2Short.Size = new System.Drawing.Size(85, 24);
             this.txtStufe2Short.StyleController = this.layoutControl3;
-            this.txtStufe2Short.TabIndex = 3;
+            this.txtStufe2Short.TabIndex = 1;
             this.txtStufe2Short.Tag = "Stufe2";
             this.txtStufe2Short.TextChanged += new System.EventHandler(this.txtStufe2Short_TextChanged);
             this.txtStufe2Short.Leave += new System.EventHandler(this.txtStufe1Short_Leave);
@@ -2683,7 +2696,8 @@
             this.txtShortDescription.MaxLength = 80;
             this.txtShortDescription.Name = "txtShortDescription";
             this.txtShortDescription.Size = new System.Drawing.Size(416, 21);
-            this.txtShortDescription.TabIndex = 20;
+            this.txtShortDescription.TabIndex = 0;
+            this.txtShortDescription.TabStop = false;
             this.txtShortDescription.Text = "";
             // 
             // txtLVPosition
@@ -3595,6 +3609,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(244, 176, 250, 350);
+            this.layoutControl1.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(1522, 749);
             this.layoutControl1.TabIndex = 0;
@@ -3635,6 +3650,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(0, 0);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(432, 174, 250, 350);
+            this.layoutControl2.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl2.Root = this.layoutControlGroup5;
             this.layoutControl2.Size = new System.Drawing.Size(1490, 532);
             this.layoutControl2.TabIndex = 35;
@@ -3649,6 +3665,7 @@
             this.lcCostDetails.Location = new System.Drawing.Point(585, 42);
             this.lcCostDetails.MinimumSize = new System.Drawing.Size(1, 1);
             this.lcCostDetails.Name = "lcCostDetails";
+            this.lcCostDetails.OptionsFocus.EnableAutoTabOrder = false;
             this.lcCostDetails.Root = this.layoutControlGroup2;
             this.lcCostDetails.Size = new System.Drawing.Size(881, 466);
             this.lcCostDetails.TabIndex = 39;
@@ -3777,6 +3794,7 @@
             this.dtpValidityDate.Name = "dtpValidityDate";
             this.dtpValidityDate.Size = new System.Drawing.Size(245, 21);
             this.dtpValidityDate.TabIndex = 56;
+            this.dtpValidityDate.TabStop = false;
             // 
             // txtEP
             // 
@@ -3792,6 +3810,7 @@
             this.txtEP.Size = new System.Drawing.Size(203, 24);
             this.txtEP.StyleController = this.layoutControl6;
             this.txtEP.TabIndex = 55;
+            this.txtEP.TabStop = false;
             // 
             // btnDocuwareLink
             // 
@@ -3814,6 +3833,7 @@
             this.txtPreisText.Size = new System.Drawing.Size(245, 21);
             this.txtPreisText.StyleController = this.layoutControl6;
             this.txtPreisText.TabIndex = 0;
+            this.txtPreisText.TabStop = false;
             // 
             // txtLPMO
             // 
@@ -3827,7 +3847,7 @@
             this.txtLPMO.Properties.ReadOnly = true;
             this.txtLPMO.Size = new System.Drawing.Size(196, 24);
             this.txtLPMO.StyleController = this.layoutControl6;
-            this.txtLPMO.TabIndex = 41;
+            this.txtLPMO.TabIndex = 19;
             this.txtLPMO.Tag = "Einzelpreise MO";
             this.txtLPMO.TextChanged += new System.EventHandler(this.txtLPMO_TextChanged);
             // 
@@ -3843,7 +3863,7 @@
             this.txtLPMe.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtLPMe.Size = new System.Drawing.Size(204, 24);
             this.txtLPMe.StyleController = this.layoutControl6;
-            this.txtLPMe.TabIndex = 34;
+            this.txtLPMe.TabIndex = 12;
             this.txtLPMe.Tag = "Einzelpreise MA";
             this.txtLPMe.TextChanged += new System.EventHandler(this.txtLPMe_TextChanged);
             this.txtLPMe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -3861,6 +3881,7 @@
             this.txtValue4MO.Size = new System.Drawing.Size(92, 24);
             this.txtValue4MO.StyleController = this.layoutControl6;
             this.txtValue4MO.TabIndex = 0;
+            this.txtValue4MO.TabStop = false;
             this.txtValue4MO.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtValue4MO.TextChanged += new System.EventHandler(this.txtValue4MO_TextChanged);
             // 
@@ -3877,6 +3898,7 @@
             this.txtGrundValueMO.Size = new System.Drawing.Size(92, 24);
             this.txtGrundValueMO.StyleController = this.layoutControl6;
             this.txtGrundValueMO.TabIndex = 0;
+            this.txtGrundValueMO.TabStop = false;
             this.txtGrundValueMO.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             // 
             // txtGrundMultiMO
@@ -3894,6 +3916,7 @@
             this.txtGrundMultiMO.Size = new System.Drawing.Size(100, 24);
             this.txtGrundMultiMO.StyleController = this.layoutControl6;
             this.txtGrundMultiMO.TabIndex = 0;
+            this.txtGrundMultiMO.TabStop = false;
             this.txtGrundMultiMO.TextChanged += new System.EventHandler(this.txtGrundMultiMO1_TextChanged);
             // 
             // txtGrundMultiME
@@ -3911,6 +3934,7 @@
             this.txtGrundMultiME.Size = new System.Drawing.Size(105, 24);
             this.txtGrundMultiME.StyleController = this.layoutControl6;
             this.txtGrundMultiME.TabIndex = 0;
+            this.txtGrundMultiME.TabStop = false;
             this.txtGrundMultiME.TextChanged += new System.EventHandler(this.txtGrundMultiME1_TextChanged);
             // 
             // txtGrundValueME
@@ -3926,6 +3950,7 @@
             this.txtGrundValueME.Size = new System.Drawing.Size(95, 24);
             this.txtGrundValueME.StyleController = this.layoutControl6;
             this.txtGrundValueME.TabIndex = 0;
+            this.txtGrundValueME.TabStop = false;
             this.txtGrundValueME.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             // 
             // txtValue3MO
@@ -3941,6 +3966,7 @@
             this.txtValue3MO.Size = new System.Drawing.Size(92, 24);
             this.txtValue3MO.StyleController = this.layoutControl6;
             this.txtValue3MO.TabIndex = 0;
+            this.txtValue3MO.TabStop = false;
             this.txtValue3MO.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtValue3MO.TextChanged += new System.EventHandler(this.txtValue3MO_TextChanged);
             // 
@@ -3957,6 +3983,7 @@
             this.txtValue2MO.Size = new System.Drawing.Size(92, 24);
             this.txtValue2MO.StyleController = this.layoutControl6;
             this.txtValue2MO.TabIndex = 0;
+            this.txtValue2MO.TabStop = false;
             this.txtValue2MO.Tag = "Value 2 MO";
             this.txtValue2MO.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtValue2MO.TextChanged += new System.EventHandler(this.txtValue2MO_TextChanged);
@@ -3977,6 +4004,7 @@
             this.txtFinalGB.Size = new System.Drawing.Size(195, 24);
             this.txtFinalGB.StyleController = this.layoutControl6;
             this.txtFinalGB.TabIndex = 0;
+            this.txtFinalGB.TabStop = false;
             // 
             // txtGrandTotalMO
             // 
@@ -3994,6 +4022,7 @@
             this.txtGrandTotalMO.Size = new System.Drawing.Size(195, 24);
             this.txtGrandTotalMO.StyleController = this.layoutControl6;
             this.txtGrandTotalMO.TabIndex = 0;
+            this.txtGrandTotalMO.TabStop = false;
             this.txtGrandTotalMO.TextChanged += new System.EventHandler(this.txtGrandTotalME_TextChanged);
             // 
             // txtGrandTotalME
@@ -4012,6 +4041,7 @@
             this.txtGrandTotalME.Size = new System.Drawing.Size(204, 24);
             this.txtGrandTotalME.StyleController = this.layoutControl6;
             this.txtGrandTotalME.TabIndex = 0;
+            this.txtGrandTotalME.TabStop = false;
             this.txtGrandTotalME.TextChanged += new System.EventHandler(this.txtGrandTotalME_TextChanged);
             // 
             // txtValue1MO
@@ -4027,6 +4057,7 @@
             this.txtValue1MO.Size = new System.Drawing.Size(92, 24);
             this.txtValue1MO.StyleController = this.layoutControl6;
             this.txtValue1MO.TabIndex = 0;
+            this.txtValue1MO.TabStop = false;
             this.txtValue1MO.Tag = "Value 1 MO";
             this.txtValue1MO.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtValue1MO.TextChanged += new System.EventHandler(this.txtValue1MO_TextChanged);
@@ -4045,7 +4076,7 @@
             this.txtMulti1MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti1MO.Size = new System.Drawing.Size(100, 24);
             this.txtMulti1MO.StyleController = this.layoutControl6;
-            this.txtMulti1MO.TabIndex = 42;
+            this.txtMulti1MO.TabIndex = 20;
             this.txtMulti1MO.Tag = "Multi 1 MO";
             this.txtMulti1MO.TextChanged += new System.EventHandler(this.txtLPMO_TextChanged);
             this.txtMulti1MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4066,7 +4097,7 @@
             this.txtMulti2MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti2MO.Size = new System.Drawing.Size(100, 24);
             this.txtMulti2MO.StyleController = this.layoutControl6;
-            this.txtMulti2MO.TabIndex = 43;
+            this.txtMulti2MO.TabIndex = 21;
             this.txtMulti2MO.Tag = "Multi 2 MO";
             this.txtMulti2MO.TextChanged += new System.EventHandler(this.txtValue1MO_TextChanged);
             this.txtMulti2MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4094,7 +4125,7 @@
             this.chkVerkaufspreisME.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.chkVerkaufspreisME.Size = new System.Drawing.Size(27, 19);
             this.chkVerkaufspreisME.StyleController = this.layoutControl6;
-            this.chkVerkaufspreisME.TabIndex = 51;
+            this.chkVerkaufspreisME.TabIndex = 15;
             this.chkVerkaufspreisME.CheckedChanged += new System.EventHandler(this.chkVerkaufspreisME_CheckedChanged);
             // 
             // txtVerkaufspreisValueMO
@@ -4110,6 +4141,7 @@
             this.txtVerkaufspreisValueMO.Size = new System.Drawing.Size(91, 24);
             this.txtVerkaufspreisValueMO.StyleController = this.layoutControl6;
             this.txtVerkaufspreisValueMO.TabIndex = 0;
+            this.txtVerkaufspreisValueMO.TabStop = false;
             this.txtVerkaufspreisValueMO.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtVerkaufspreisValueMO.TextChanged += new System.EventHandler(this.txtVerkaufspreisValueMO_TextChanged);
             // 
@@ -4127,7 +4159,7 @@
             this.txtMulti3MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti3MO.Size = new System.Drawing.Size(100, 24);
             this.txtMulti3MO.StyleController = this.layoutControl6;
-            this.txtMulti3MO.TabIndex = 44;
+            this.txtMulti3MO.TabIndex = 22;
             this.txtMulti3MO.Tag = "Multi 3 MO";
             this.txtMulti3MO.TextChanged += new System.EventHandler(this.txtValue2MO_TextChanged);
             this.txtMulti3MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4148,7 +4180,7 @@
             this.txtVerkaufspreisMultiMO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtVerkaufspreisMultiMO.Size = new System.Drawing.Size(100, 24);
             this.txtVerkaufspreisMultiMO.StyleController = this.layoutControl6;
-            this.txtVerkaufspreisMultiMO.TabIndex = 47;
+            this.txtVerkaufspreisMultiMO.TabIndex = 25;
             this.txtVerkaufspreisMultiMO.TextChanged += new System.EventHandler(this.txtSelbstkostenValueMO_TextChanged);
             this.txtVerkaufspreisMultiMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtVerkaufspreisMultiMO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4168,7 +4200,7 @@
             this.txtMulti4MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti4MO.Size = new System.Drawing.Size(100, 24);
             this.txtMulti4MO.StyleController = this.layoutControl6;
-            this.txtMulti4MO.TabIndex = 45;
+            this.txtMulti4MO.TabIndex = 23;
             this.txtMulti4MO.TextChanged += new System.EventHandler(this.txtValue3MO_TextChanged);
             this.txtMulti4MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtMulti4MO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4187,6 +4219,7 @@
             this.txtVerkaufspreisValueME.Size = new System.Drawing.Size(93, 24);
             this.txtVerkaufspreisValueME.StyleController = this.layoutControl6;
             this.txtVerkaufspreisValueME.TabIndex = 0;
+            this.txtVerkaufspreisValueME.TabStop = false;
             this.txtVerkaufspreisValueME.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtVerkaufspreisValueME.TextChanged += new System.EventHandler(this.txtVerkaufspreisValueME_TextChanged);
             // 
@@ -4205,7 +4238,7 @@
             this.txtMulti1ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti1ME.Size = new System.Drawing.Size(105, 24);
             this.txtMulti1ME.StyleController = this.layoutControl6;
-            this.txtMulti1ME.TabIndex = 35;
+            this.txtMulti1ME.TabIndex = 13;
             this.txtMulti1ME.Tag = "Multi 1 MA";
             this.txtMulti1ME.TextChanged += new System.EventHandler(this.txtLPMe_TextChanged);
             this.txtMulti1ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4225,6 +4258,7 @@
             this.txtValue1ME.Size = new System.Drawing.Size(95, 24);
             this.txtValue1ME.StyleController = this.layoutControl6;
             this.txtValue1ME.TabIndex = 0;
+            this.txtValue1ME.TabStop = false;
             this.txtValue1ME.Tag = "Value 1 MA";
             this.txtValue1ME.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtValue1ME.TextChanged += new System.EventHandler(this.txtValue1ME_TextChanged);
@@ -4258,7 +4292,7 @@
             this.txtVerkaufspreisMultiME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtVerkaufspreisMultiME.Size = new System.Drawing.Size(105, 24);
             this.txtVerkaufspreisMultiME.StyleController = this.layoutControl6;
-            this.txtVerkaufspreisMultiME.TabIndex = 40;
+            this.txtVerkaufspreisMultiME.TabIndex = 18;
             this.txtVerkaufspreisMultiME.TextChanged += new System.EventHandler(this.txtSelbstkostenValueME_TextChanged);
             this.txtVerkaufspreisMultiME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtVerkaufspreisMultiME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4277,6 +4311,7 @@
             this.txtValue2ME.Size = new System.Drawing.Size(95, 24);
             this.txtValue2ME.StyleController = this.layoutControl6;
             this.txtValue2ME.TabIndex = 0;
+            this.txtValue2ME.TabStop = false;
             this.txtValue2ME.Tag = "Value 2 MA";
             this.txtValue2ME.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtValue2ME.TextChanged += new System.EventHandler(this.txtValue2ME_TextChanged);
@@ -4295,6 +4330,7 @@
             this.txtMo.Size = new System.Drawing.Size(79, 24);
             this.txtMo.StyleController = this.layoutControl6;
             this.txtMo.TabIndex = 33;
+            this.txtMo.TabStop = false;
             this.txtMo.TextChanged += new System.EventHandler(this.txtMo_TextChanged);
             this.txtMo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMa_KeyPress);
             // 
@@ -4320,7 +4356,7 @@
             this.chkSelbstkostenME.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.chkSelbstkostenME.Size = new System.Drawing.Size(19, 19);
             this.chkSelbstkostenME.StyleController = this.layoutControl6;
-            this.chkSelbstkostenME.TabIndex = 39;
+            this.chkSelbstkostenME.TabIndex = 14;
             this.chkSelbstkostenME.CheckedChanged += new System.EventHandler(this.chkSelbstkostenME_CheckedChanged);
             // 
             // txtSelbstkostenValueMO
@@ -4336,6 +4372,7 @@
             this.txtSelbstkostenValueMO.Size = new System.Drawing.Size(91, 24);
             this.txtSelbstkostenValueMO.StyleController = this.layoutControl6;
             this.txtSelbstkostenValueMO.TabIndex = 0;
+            this.txtSelbstkostenValueMO.TabStop = false;
             this.txtSelbstkostenValueMO.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtSelbstkostenValueMO.TextChanged += new System.EventHandler(this.txtSelbstkostenValueMO_TextChanged);
             // 
@@ -4352,6 +4389,7 @@
             this.txtValue3ME.Size = new System.Drawing.Size(95, 24);
             this.txtValue3ME.StyleController = this.layoutControl6;
             this.txtValue3ME.TabIndex = 0;
+            this.txtValue3ME.TabStop = false;
             this.txtValue3ME.Tag = "Value 3 MA";
             this.txtValue3ME.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtValue3ME.TextChanged += new System.EventHandler(this.txtValue3ME_TextChanged);
@@ -4370,7 +4408,7 @@
             this.txtSelbstkostenMultiMO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSelbstkostenMultiMO.Size = new System.Drawing.Size(100, 24);
             this.txtSelbstkostenMultiMO.StyleController = this.layoutControl6;
-            this.txtSelbstkostenMultiMO.TabIndex = 46;
+            this.txtSelbstkostenMultiMO.TabIndex = 24;
             this.txtSelbstkostenMultiMO.TextChanged += new System.EventHandler(this.txtEinkaufspreisMO_TextChanged);
             this.txtSelbstkostenMultiMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtSelbstkostenMultiMO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4390,7 +4428,7 @@
             this.txtMulti2ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti2ME.Size = new System.Drawing.Size(105, 24);
             this.txtMulti2ME.StyleController = this.layoutControl6;
-            this.txtMulti2ME.TabIndex = 36;
+            this.txtMulti2ME.TabIndex = 14;
             this.txtMulti2ME.Tag = "Multi 2 MA";
             this.txtMulti2ME.TextChanged += new System.EventHandler(this.txtValue1ME_TextChanged);
             this.txtMulti2ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4410,6 +4448,7 @@
             this.txtSelbstkostenValueME.Size = new System.Drawing.Size(93, 24);
             this.txtSelbstkostenValueME.StyleController = this.layoutControl6;
             this.txtSelbstkostenValueME.TabIndex = 0;
+            this.txtSelbstkostenValueME.TabStop = false;
             this.txtSelbstkostenValueME.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtSelbstkostenValueME.TextChanged += new System.EventHandler(this.txtSelbstkostenValueME_TextChanged);
             // 
@@ -4426,6 +4465,7 @@
             this.txtValue4ME.Size = new System.Drawing.Size(95, 24);
             this.txtValue4ME.StyleController = this.layoutControl6;
             this.txtValue4ME.TabIndex = 0;
+            this.txtValue4ME.TabStop = false;
             this.txtValue4ME.EditValueChanged += new System.EventHandler(this.txtValue1ME_EditValueChanged);
             this.txtValue4ME.TextChanged += new System.EventHandler(this.txtValue4MO_TextChanged);
             // 
@@ -4458,7 +4498,7 @@
             this.txtSelbstkostenMultiME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSelbstkostenMultiME.Size = new System.Drawing.Size(105, 24);
             this.txtSelbstkostenMultiME.StyleController = this.layoutControl6;
-            this.txtSelbstkostenMultiME.TabIndex = 39;
+            this.txtSelbstkostenMultiME.TabIndex = 17;
             this.txtSelbstkostenMultiME.TextChanged += new System.EventHandler(this.txtEinkaufspreisME_TextChanged);
             this.txtSelbstkostenMultiME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtSelbstkostenMultiME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4478,6 +4518,7 @@
             this.txtMa.Size = new System.Drawing.Size(79, 24);
             this.txtMa.StyleController = this.layoutControl6;
             this.txtMa.TabIndex = 32;
+            this.txtMa.TabStop = false;
             this.txtMa.TextChanged += new System.EventHandler(this.txtMa_TextChanged);
             this.txtMa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMa_KeyPress);
             // 
@@ -4495,7 +4536,7 @@
             this.txtMulti3ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti3ME.Size = new System.Drawing.Size(105, 24);
             this.txtMulti3ME.StyleController = this.layoutControl6;
-            this.txtMulti3ME.TabIndex = 37;
+            this.txtMulti3ME.TabIndex = 15;
             this.txtMulti3ME.Tag = "Multi 3 MA";
             this.txtMulti3ME.TextChanged += new System.EventHandler(this.txtValue2ME_TextChanged);
             this.txtMulti3ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4558,6 +4599,7 @@
             this.txtEinkaufspreisMO.Size = new System.Drawing.Size(195, 24);
             this.txtEinkaufspreisMO.StyleController = this.layoutControl6;
             this.txtEinkaufspreisMO.TabIndex = 0;
+            this.txtEinkaufspreisMO.TabStop = false;
             this.txtEinkaufspreisMO.TextChanged += new System.EventHandler(this.txtEinkaufspreisMO_TextChanged);
             // 
             // txtDim1
@@ -4589,7 +4631,7 @@
             this.txtMulti4ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti4ME.Size = new System.Drawing.Size(105, 24);
             this.txtMulti4ME.StyleController = this.layoutControl6;
-            this.txtMulti4ME.TabIndex = 38;
+            this.txtMulti4ME.TabIndex = 16;
             this.txtMulti4ME.TextChanged += new System.EventHandler(this.txtValue3ME_TextChanged);
             this.txtMulti4ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtMulti4ME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4609,6 +4651,7 @@
             this.txtEinkaufspreisME.Size = new System.Drawing.Size(203, 24);
             this.txtEinkaufspreisME.StyleController = this.layoutControl6;
             this.txtEinkaufspreisME.TabIndex = 0;
+            this.txtEinkaufspreisME.TabStop = false;
             this.txtEinkaufspreisME.TextChanged += new System.EventHandler(this.txtEinkaufspreisME_TextChanged);
             // 
             // txtFaktor
@@ -4623,7 +4666,7 @@
             this.txtFaktor.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtFaktor.Size = new System.Drawing.Size(79, 24);
             this.txtFaktor.StyleController = this.layoutControl6;
-            this.txtFaktor.TabIndex = 31;
+            this.txtFaktor.TabIndex = 11;
             this.txtFaktor.Tag = "Faktor";
             this.txtFaktor.TextChanged += new System.EventHandler(this.txtStdSatz_TextChanged);
             this.txtFaktor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4658,7 +4701,7 @@
             this.txtMin.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMin.Size = new System.Drawing.Size(79, 24);
             this.txtMin.StyleController = this.layoutControl6;
-            this.txtMin.TabIndex = 30;
+            this.txtMin.TabIndex = 10;
             this.txtMin.Tag = "Minutes";
             this.txtMin.TextChanged += new System.EventHandler(this.txtMin_TextChanged);
             this.txtMin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -5793,10 +5836,8 @@
             this.tlPositions.Appearance.Caption.Options.UseBackColor = true;
             this.tlPositions.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
             this.tlPositions.Appearance.Empty.Options.UseBackColor = true;
-            this.tlPositions.Appearance.FocusedCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.tlPositions.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.tlPositions.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.tlPositions.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.tlPositions.Appearance.FocusedRow.Options.UseBackColor = true;
             this.tlPositions.Appearance.HeaderPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.tlPositions.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tlPositions.Appearance.HeaderPanel.Options.UseBackColor = true;
@@ -5874,6 +5915,7 @@
             this.tlPositions.OptionsMenu.EnableColumnMenu = false;
             this.tlPositions.OptionsMenu.EnableFooterMenu = false;
             this.tlPositions.OptionsMenu.ShowAutoFilterRowItem = false;
+            this.tlPositions.OptionsNavigation.AutoMoveRowFocus = true;
             this.tlPositions.OptionsNavigation.UseTabKey = true;
             this.tlPositions.OptionsView.AllowBandColumnsMultiRow = true;
             this.tlPositions.OptionsView.AnimationType = DevExpress.XtraTreeList.TreeListAnimationType.AnimateAllContent;
@@ -5919,7 +5961,6 @@
             this.treeListColumn1.Caption = "OZ";
             this.treeListColumn1.FieldName = "Position_OZ";
             this.treeListColumn1.Name = "treeListColumn1";
-            this.treeListColumn1.OptionsColumn.AllowFocus = false;
             this.treeListColumn1.OptionsColumn.AllowSort = false;
             this.treeListColumn1.OptionsColumn.ReadOnly = true;
             this.treeListColumn1.Visible = true;
@@ -5935,7 +5976,6 @@
             this.treeListColumn5.Caption = "Det-KZ";
             this.treeListColumn5.FieldName = "DetailKZ";
             this.treeListColumn5.Name = "treeListColumn5";
-            this.treeListColumn5.OptionsColumn.AllowFocus = false;
             this.treeListColumn5.OptionsColumn.AllowSort = false;
             this.treeListColumn5.OptionsColumn.FixedWidth = true;
             this.treeListColumn5.OptionsColumn.ReadOnly = true;
