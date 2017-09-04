@@ -277,6 +277,8 @@ namespace OTTOPro
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
+
         private void frmProject_Load(object sender, EventArgs e)
         {
             try
@@ -309,6 +311,8 @@ namespace OTTOPro
 
                 LoadExistingRasters();
                 LoadExistingProject();
+
+                SetRoundingPriceforColumn();
 
                 if (ProjectID > 0)
                     ChkRaster.Enabled = false;
@@ -1137,6 +1141,25 @@ namespace OTTOPro
                     txtFinalGB.Text = tlPositions.FocusedNode["GB"] == DBNull.Value ? "" : tlPositions.FocusedNode["GB"].ToString();
                     txtEP.Text = tlPositions.FocusedNode["EP"] == DBNull.Value ? "" : tlPositions.FocusedNode["EP"].ToString();
 
+
+                    if (Utility.CalcAccess != "7")
+                    {
+                        tlPositions.Columns["MA_Multi1"].OptionsColumn.AllowEdit
+                            = tlPositions.Columns["MA_multi2"].OptionsColumn.AllowEdit
+                            = tlPositions.Columns["MA_multi3"].OptionsColumn.AllowEdit
+                            = tlPositions.Columns["MA_multi4"].OptionsColumn.AllowEdit=Convert.ToBoolean(!chkEinkaufspreisME.Checked);
+
+                        tlPositions.Columns["MO_multi1"].OptionsColumn.AllowEdit 
+                            = tlPositions.Columns["MO_multi2"].OptionsColumn.AllowEdit
+                            = tlPositions.Columns["MO_multi3"].OptionsColumn.AllowEdit
+                            = tlPositions.Columns["MO_multi4"].OptionsColumn.AllowEdit=Convert.ToBoolean(!chkEinkaufspreisMO.Checked);
+
+                        tlPositions.Columns["MA_selbstkostenMulti"].OptionsColumn.AllowEdit = Convert.ToBoolean(!chkSelbstkostenME.Checked);
+                        tlPositions.Columns["MO_selbstkostenMulti"].OptionsColumn.AllowEdit = Convert.ToBoolean(!chkSelbstkostenMO.Checked);
+                        tlPositions.Columns["MA_verkaufspreis_Multi"].OptionsColumn.AllowEdit = Convert.ToBoolean(!chkVerkaufspreisME.Checked);
+                        tlPositions.Columns["MO_verkaufspreisMulti"].OptionsColumn.AllowEdit = Convert.ToBoolean(!chkVerkaufspreisMO.Checked);
+                    }
+
                     if (tlPositions.Nodes.Count > 0)
                     {
                         if(e!=null)
@@ -1154,6 +1177,8 @@ namespace OTTOPro
                         } 
                     }
                     txtMo_TextChanged(null, null);
+                    chkEinkaufspreisME_CheckedChanged(null,null);
+                    chkEinkaufspreisMO_CheckedChanged(null, null);	
                 }
             }
             catch (Exception ex)
@@ -1458,67 +1483,6 @@ namespace OTTOPro
             txtSurchargeTo.Text = "";
         }
 
-        private void tlPositions_NodeCellStyle(object sender, GetCustomNodeCellStyleEventArgs e)
-        {
-            try
-            {
-                if (Utility.CalcAccess != "7")
-                {
-                    tlPositions.Columns["MA_Multi1"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
-                    tlPositions.Columns["MA_multi2"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
-                    tlPositions.Columns["MA_multi3"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
-                    tlPositions.Columns["MA_multi4"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
-
-                    tlPositions.Columns["MO_multi1"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
-                    tlPositions.Columns["MO_multi2"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
-                    tlPositions.Columns["MO_multi3"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
-                    tlPositions.Columns["MO_multi4"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
-
-
-                    tlPositions.Columns["MA_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenME.CheckState);
-                    tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkSelbstkostenMO.CheckState);
-                    tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisME.CheckState);
-                    tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = Convert.ToBoolean(chkVerkaufspreisMO.CheckState);
-                }
-                
-
-                string strNodeType = e.Node["PositionKZ"].ToString().ToLower();
-
-                if (strNodeType == "zs" || strNodeType == "z")
-                {
-                    if (strNodeType == "zs")
-                        e.Appearance.BackColor = Color.Orange;
-                    else if (strNodeType == "z")
-                        e.Appearance.BackColor = Color.YellowGreen;
-                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
-                }
-
-                int _DetKZ = Convert.ToInt32(e.Node["DetailKZ"]);
-                if (_DetKZ > 0)
-                {
-                    Color _Color = Color.FromArgb(132, 107, 75);
-                    e.Appearance.BackColor = _Color;
-                    e.Appearance.Font = new Font(e.Appearance.Font, FontStyle.Bold);
-                }
-                if (e.Column.FieldName == "MA_einkaufspreis" ||
-                    e.Column.FieldName == "MA_selbstkosten" ||
-                    e.Column.FieldName == "MA_verkaufspreis" ||
-                    e.Column.FieldName == "MO_Einkaufspreis" ||
-                    e.Column.FieldName == "MO_selbstkosten" ||
-                    e.Column.FieldName == "MO_verkaufspreis" ||
-                    e.Column.FieldName == "EP" ||
-                    e.Column.FieldName == "GB")
-                {
-                    e.Column.Format.FormatType = DevExpress.Utils.FormatType.Numeric;
-                    e.Column.Format.FormatString = "n" + ObjEProject.RoundingPrice.ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void CalculatePositions(DataTable dt, string strField)
         {
             try
@@ -1594,6 +1558,34 @@ namespace OTTOPro
             return TotalValue.ToString("F2");
         }
 
+        private void SetRoundingPriceforColumn()
+        {
+            string _Mask = "n" + ObjEProject.RoundingPrice.ToString();
+            tlPositions.Columns["MA_einkaufspreis"].Format.FormatType=DevExpress.Utils.FormatType.Numeric;
+            tlPositions.Columns["MA_einkaufspreis"].Format.FormatString = _Mask;
+
+            tlPositions.Columns["MA_selbstkosten"].Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            tlPositions.Columns["MA_selbstkosten"].Format.FormatString = _Mask;
+
+            tlPositions.Columns["MA_verkaufspreis"].Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            tlPositions.Columns["MA_verkaufspreis"].Format.FormatString = _Mask;
+
+            tlPositions.Columns["MO_Einkaufspreis"].Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            tlPositions.Columns["MO_Einkaufspreis"].Format.FormatString = _Mask;
+
+            tlPositions.Columns["MO_selbstkosten"].Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            tlPositions.Columns["MO_selbstkosten"].Format.FormatString = _Mask;
+
+            tlPositions.Columns["MO_verkaufspreis"].Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            tlPositions.Columns["MO_verkaufspreis"].Format.FormatString = _Mask;
+
+            tlPositions.Columns["EP"].Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            tlPositions.Columns["EP"].Format.FormatString = _Mask;
+
+            tlPositions.Columns["GB"].Format.FormatType = DevExpress.Utils.FormatType.Numeric;
+            tlPositions.Columns["GB"].Format.FormatString = _Mask;
+        }
+
         private void btnProjectSave_Click(object sender, EventArgs e)
         {
             try
@@ -1661,6 +1653,7 @@ namespace OTTOPro
                 }
                 setMask();
                 SetMaskForMaulties();
+                SetRoundingPriceforColumn();
             }
             catch (Exception ex)
             {
@@ -2766,7 +2759,7 @@ namespace OTTOPro
                 txtValue3MO.Properties.Mask.EditMask = strMask;
                 txtValue4MO.Properties.Mask.EditMask = strMask;
                 txtGrundValueME.Properties.Mask.EditMask = strMask;
-                txtGrundValueMO.Properties.Mask.EditMask = strMask;
+                txtGrundValueMO.Properties.Mask.EditMask = strMask; 
                 txtEinkaufspreisME.Properties.Mask.EditMask = strMask;
                 txtSelbstkostenValueME.Properties.Mask.EditMask = strMask;
                 txtVerkaufspreisValueME.Properties.Mask.EditMask = strMask;
@@ -5553,7 +5546,9 @@ namespace OTTOPro
                 btnCancel.Enabled = false;
                 chkCreateNew.Enabled = false;
                 tlPositions.OptionsBehavior.Editable = false;
-            }    
+            }
+
+            SetRoundingPriceforColumn();
         }
 
         private void SetOhnestuffeMask()
