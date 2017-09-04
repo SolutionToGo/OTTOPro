@@ -7194,7 +7194,6 @@
             this.txtProjectNumber.StyleController = this.layoutControl21;
             this.txtProjectNumber.TabIndex = 0;
             this.txtProjectNumber.Tag = "Project Nr";
-            this.txtProjectNumber.TextChanged += new System.EventHandler(this.txtProjectNumber_TextChanged);
             // 
             // txtkommissionNumber
             // 
