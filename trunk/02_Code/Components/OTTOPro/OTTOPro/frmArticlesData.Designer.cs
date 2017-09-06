@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArticlesData));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnAddTyp = new DevExpress.XtraEditors.SimpleButton();
             this.cmbME = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
             this.btnSaveAs = new DevExpress.XtraEditors.SimpleButton();
@@ -120,6 +121,7 @@
             this.layoutControlItem25 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem33 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem26 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlGroup3 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem28 = new DevExpress.XtraLayout.LayoutControlItem();
@@ -196,6 +198,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).BeginInit();
@@ -211,6 +214,7 @@
             // 
             this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.BackColor = System.Drawing.Color.White;
+            this.layoutControl1.Controls.Add(this.btnAddTyp);
             this.layoutControl1.Controls.Add(this.cmbME);
             this.layoutControl1.Controls.Add(this.btnNew);
             this.layoutControl1.Controls.Add(this.btnSaveAs);
@@ -251,6 +255,17 @@
             this.layoutControl1.Size = new System.Drawing.Size(1189, 781);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // btnAddTyp
+            // 
+            this.btnAddTyp.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnAddTyp.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnAddTyp.Location = new System.Drawing.Point(854, 135);
+            this.btnAddTyp.Name = "btnAddTyp";
+            this.btnAddTyp.Size = new System.Drawing.Size(38, 22);
+            this.btnAddTyp.StyleController = this.layoutControl1;
+            this.btnAddTyp.TabIndex = 35;
+            this.btnAddTyp.Click += new System.EventHandler(this.btnAddTyp_Click);
             // 
             // cmbME
             // 
@@ -440,7 +455,7 @@
             // 
             // txtLiferent
             // 
-            this.txtLiferent.Location = new System.Drawing.Point(688, 159);
+            this.txtLiferent.Location = new System.Drawing.Point(688, 161);
             this.txtLiferent.Name = "txtLiferent";
             this.txtLiferent.Properties.ReadOnly = true;
             this.txtLiferent.Size = new System.Drawing.Size(204, 20);
@@ -452,7 +467,7 @@
             this.txtTyp.Location = new System.Drawing.Point(688, 135);
             this.txtTyp.Name = "txtTyp";
             this.txtTyp.Properties.ReadOnly = true;
-            this.txtTyp.Size = new System.Drawing.Size(204, 20);
+            this.txtTyp.Size = new System.Drawing.Size(162, 20);
             this.txtTyp.StyleController = this.layoutControl1;
             this.txtTyp.TabIndex = 8;
             // 
@@ -1074,7 +1089,8 @@
             this.layoutControlItem24,
             this.layoutControlItem25,
             this.layoutControlItem33,
-            this.emptySpaceItem6});
+            this.emptySpaceItem6,
+            this.layoutControlItem8});
             this.layoutControlGroup2.Location = new System.Drawing.Point(576, 0);
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.Size = new System.Drawing.Size(593, 329);
@@ -1102,7 +1118,7 @@
             this.layoutControlItem5.Control = this.txtTyp;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 123);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(308, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(266, 26);
             this.layoutControlItem5.Text = "Typ ";
             this.layoutControlItem5.TextSize = new System.Drawing.Size(97, 17);
             // 
@@ -1281,9 +1297,9 @@
             this.layoutControlItem6.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem6.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem6.Control = this.txtLiferent;
-            this.layoutControlItem6.Location = new System.Drawing.Point(0, 147);
+            this.layoutControlItem6.Location = new System.Drawing.Point(0, 149);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(308, 28);
+            this.layoutControlItem6.Size = new System.Drawing.Size(308, 26);
             this.layoutControlItem6.Text = "Lieferant";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(97, 17);
             // 
@@ -1398,6 +1414,15 @@
             this.emptySpaceItem6.Name = "emptySpaceItem6";
             this.emptySpaceItem6.Size = new System.Drawing.Size(593, 10);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem8
+            // 
+            this.layoutControlItem8.Control = this.btnAddTyp;
+            this.layoutControlItem8.Location = new System.Drawing.Point(266, 123);
+            this.layoutControlItem8.Name = "layoutControlItem8";
+            this.layoutControlItem8.Size = new System.Drawing.Size(42, 26);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem8.TextVisible = false;
             // 
             // layoutControlItem26
             // 
@@ -1562,6 +1587,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem33)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem26)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem28)).EndInit();
@@ -1677,6 +1703,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem30;
         private DevExpress.XtraEditors.ComboBoxEdit cmbME;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem33;
+        private DevExpress.XtraEditors.SimpleButton btnAddTyp;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
 
     }
 }

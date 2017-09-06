@@ -413,5 +413,21 @@ namespace BL
             }
             return ObjEArticle;
         }
+
+        public EArticles GetMultipleTyp(EArticles ObjEArticle, int _ID)
+        {
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.GetMultipleTyp(ObjEArticle, _ID);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
     }
 }

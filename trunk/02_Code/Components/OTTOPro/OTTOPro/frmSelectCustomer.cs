@@ -59,16 +59,30 @@ namespace OTTOPro
 
         private void gvCustomer_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
-            if (gvCustomer.FocusedColumn != null && gvCustomer.GetFocusedRowCellValue("CustomerID") != null)
+            try
             {
-                _CustomerID = gvCustomer.GetFocusedRowCellValue("CustomerID") == DBNull.Value ? "" : gvCustomer.GetFocusedRowCellValue("CustomerID").ToString();
-                _FullName = gvCustomer.GetFocusedRowCellValue("CustomerFullName") == DBNull.Value ? "" : gvCustomer.GetFocusedRowCellValue("CustomerFullName").ToString();
+                if (gvCustomer.FocusedColumn != null && gvCustomer.GetFocusedRowCellValue("CustomerID") != null)
+                {
+                    _CustomerID = gvCustomer.GetFocusedRowCellValue("CustomerID") == DBNull.Value ? "" : gvCustomer.GetFocusedRowCellValue("CustomerID").ToString();
+                    _FullName = gvCustomer.GetFocusedRowCellValue("CustomerFullName") == DBNull.Value ? "" : gvCustomer.GetFocusedRowCellValue("CustomerFullName").ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
         {
-            gvCustomer_FocusedRowChanged(null,null);
+            try
+            {
+                gvCustomer_FocusedRowChanged(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -78,8 +92,15 @@ namespace OTTOPro
 
         private void frmSelectCustomer_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-                btnOk_Click(null, null);
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                    btnOk_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 //*****************
     }

@@ -618,14 +618,6 @@ namespace OTTOPro
             }
         }
 
-        private void txtProjectNumber_TextChanged(object sender, EventArgs e)
-        {
-
-            //if (txtProjectNumber.Text != string.Empty)
-            //    _NeedConfirm = true;
-            //else
-            //    _NeedConfirm = false;
-        }
 
         private void IntializeLVPositions()
         {
@@ -1227,61 +1219,8 @@ namespace OTTOPro
             }
         }
 
-        private void btnEdit_ButtonClick(object sender, ButtonPressedEventArgs e)
-        {
-            //try
-            //{
-            //    int iValue = 0;
-            //    if (tlPositions.FocusedNode != null 
-            //        && tlPositions.FocusedNode["PositionID"] != null 
-            //        && Int32.TryParse(tlPositions.FocusedNode["PositionID"].ToString(), out iValue) 
-            //        && _IsEditMode == false)
-            //    {
-            //        _IsEditMode = true;
-            //        _PositionID = iValue;
-            //        txtStufe1Title.Enabled = false;
-            //        txtStufe2Title.Enabled = false;
-            //        txtStufe3Title.Enabled = false;
-            //        txtStufe4Title.Enabled = false;
-            //    }
-            //    else if(_IsEditMode)
-            //    {
-            //        XtraMessageBox.Show("Please save the changes", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //    else
-            //    {
-            //        XtraMessageBox.Show("Please select atleast one position", "Inoformation..", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw;
-            //}
-        }
 
-        private void tabNavigationHierarchical_TabIndexChanged(object sender, EventArgs e)
-        {
-            //try
-            //{
-            //    tlPositions.ExpandAll();
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw;
-            //}
-        }
 
-        private void tabPane1_SelectedPageChanged(object sender, DevExpress.XtraBars.Navigation.SelectedPageChangedEventArgs e)
-        {
-            //if (tabPane1.SelectedPage.Caption == "Hierarchical")
-            //{
-            //    BindPositionData();
-            //}
-            //else
-            //{
-            //    BindPositionDataTabular();
-            //}
-        }
 
         private void tlPositions_ShownEditor(object sender, EventArgs e)
         {
@@ -1301,18 +1240,6 @@ namespace OTTOPro
         }
 
         XtraTabPage ObjTabDetails = null;
-        private void xtraTabControl1_SelectedPageChanged(object sender, TabPageChangedEventArgs e)
-        {
-            //if (xtraTabControl1.SelectedTabPage.Name == "xtraTabPageHierachical")
-            //{
-            //    BindPositionData();
-            //}
-            //else
-            //{
-            //    BindPositionDataTabular();
-
-            //}
-        }
 
         private void CalculateNodes(TreeList Objtreelist, string strField)
         {
@@ -2420,41 +2347,7 @@ namespace OTTOPro
                         ddlRaster.Enabled = true;
                     }
                     ObjBProject.GetProjectDetails(ObjEProject);
-                }
-                else if (tcProjectDetails.SelectedTabPage.Name == "tbBulkProcess")
-                {
-                }
-                else if (tcProjectDetails.SelectedTabPage.Name == "tbMulti5")
-                {
-                    //if (ObjEProject.ProjectID > 0)
-                    //{
-                    //    if (objBGAEB == null)
-                    //        objBGAEB = new BGAEB();
-                    //    DataTable dtLVSection = new DataTable();
-                    //    cmbLVSectionFilter.Properties.Items.Clear();
-                    //    dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
-                    //    foreach (DataRow dr in dtLVSection.Rows)
-                    //        cmbLVSectionFilter.Properties.Items.Add(dr["LVSection"]);
-                    //    cmbLVSectionFilter.SetEditValue("HA");                        
-                    //}
-                }
-                else if (tcProjectDetails.SelectedTabPage.Name == "tbMulti6")
-                {
-                    //if (objBGAEB == null)
-                    //    objBGAEB = new BGAEB();
-                    //DataTable dtLVSection = new DataTable();
-                    //cmbMulti6LVFilter.Properties.Items.Clear();
-                    //gcMulti6.DataSource = null;
-                    //dtLVSection = objBGAEB.GetLVSection(ObjEProject.ProjectID);
-                    //foreach (DataRow dr in dtLVSection.Rows)
-                    //    cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
-                    //cmbMulti6LVFilter.SetEditValue("HA");
-                    //cmbType.Text = "Montage";
-                }
-                else if (tcProjectDetails.SelectedTabPage.Name == "tbOmlage")
-                {
-                    
-                }
+                }                
             }
             catch (Exception ex)
             {
@@ -2715,31 +2608,34 @@ namespace OTTOPro
 
         private void EnableDisableLVAndCostDetails(bool Lcvalue, bool LcCostvalue, bool _IsNew, bool _IsEdit)
         {
-            //  lcLVDetails.Enabled = Lcvalue;
-            // lcCostDetails.Enabled = LcCostvalue;
             _IsNewMode = _IsNew;
             _IsEditMode = _IsEdit;
         }
 
         private void EnableDisableButtons(bool tnew, bool tmodify, bool tsave, bool tnext, bool tprev)
         {
-            // btnNew.Enabled = tnew;
             btnModify.Enabled = tmodify;
-            // btnSaveLVDetails.Enabled = tsave;
             btnNext.Enabled = tnext;
             btnPrevious.Enabled = tprev;
         }
 
         private void txtLPMe_Leave(object sender, EventArgs e)
         {
-            TextEdit textbox = (TextEdit)sender;
-            decimal dValue = 0;
-            if (textbox.Text == string.Empty || decimal.TryParse(textbox.Text, out dValue))
+            try
             {
-                if (dValue == 0)
+                TextEdit textbox = (TextEdit)sender;
+                decimal dValue = 0;
+                if (textbox.Text == string.Empty || decimal.TryParse(textbox.Text, out dValue))
                 {
-                    textbox.Text = RoundValue(1).ToString();
+                    if (dValue == 0)
+                    {
+                        textbox.Text = RoundValue(1).ToString();
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
 
@@ -2775,9 +2671,16 @@ namespace OTTOPro
 
         private void SetMaskForMaulties()
         {
-            rpiMulti1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-            rpiMulti1.Mask.EditMask = @"\d{1,2}(\R.\d{0,3})";
-            rpiMulti1.Mask.UseMaskAsDisplayFormat = true;
+            try
+            {
+                rpiMulti1.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                rpiMulti1.Mask.EditMask = @"\d{1,2}(\R.\d{0,3})";
+                rpiMulti1.Mask.UseMaskAsDisplayFormat = true;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         private void txtMo_TextChanged(object sender, EventArgs e)
@@ -2793,15 +2696,22 @@ namespace OTTOPro
             }
             catch (Exception ex)
             {
-                throw;
+                Utility.ShowError(ex);
             }
         }
 
         private void frmProject_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            try
             {
-                btnCancel_Click(null, null);
+                if (e.KeyCode == Keys.Escape)
+                {
+                    btnCancel_Click(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
 
@@ -2815,7 +2725,6 @@ namespace OTTOPro
             txtLiefrantMA.Enabled = false;
             txtType.Enabled = false;
             txtDetailKZ.Enabled = false;
-            //cmbLVSection.Enabled = false;
             cmbME.Enabled = false;
             txtWG.Text = string.Empty;
             txtWA.Text = string.Empty;
@@ -2840,9 +2749,7 @@ namespace OTTOPro
             txtLiefrantMA.Enabled = true;
             txtType.Enabled = true;
             txtDetailKZ.Enabled = true;
-            //cmbLVSection.Enabled = true;
             cmbME.Enabled = true;
-            // txtMenge.Text = "1";
         }
 
         private string PrepareOZ()
@@ -2941,34 +2848,22 @@ namespace OTTOPro
             return strNewOZ;
         }
 
-        private void txtRemarks_TextChanged(object sender, EventArgs e)
-        {
-            IsControlChanged();
-        }
-
-        private void IsControlChanged()
-        {
-            foreach (Control c in this.Controls)
-            {
-                c.TextChanged += new EventHandler(c_ControlChanged);
-            }
-
-        }
-
-        void c_ControlChanged(object sender, EventArgs e)
-        {
-            // _NeedConfirm = true;
-        }
-
         private void txtMa_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.ToString().ToLower() == "s" || e.KeyChar.ToString().ToLower() == "x" || e.KeyChar == '\b')
+            try
             {
-                e.Handled = false;
+                if (e.KeyChar.ToString().ToLower() == "s" || e.KeyChar.ToString().ToLower() == "x" || e.KeyChar == '\b')
+                {
+                    e.Handled = false;
+                }
+                else
+                {
+                    e.Handled = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                e.Handled = true;
+                Utility.ShowError(ex);
             }
         }
 
@@ -3311,21 +3206,20 @@ namespace OTTOPro
             }
         }
 
-        private void splitContainerControl1_SplitGroupPanelCollapsed(object sender, SplitGroupPanelCollapsedEventArgs e)
-        {
-            // splitContainerControl1.Panel1.Hide();
-        }
 
-        private void txtMenge_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
-        }
 
         private void txtMulti1ME_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ','))
+            try
             {
-                e.Handled = true;
+                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.') && (e.KeyChar != ','))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
 
@@ -3335,7 +3229,6 @@ namespace OTTOPro
             {
                 if (string.IsNullOrEmpty(ObjEProject.CommissionNumber))
                 {
-                    //cmbLVSection.Enabled = false;
                     cmbLVStatus.Enabled = false;
                     cmbLVStatus.SelectedIndex = cmbLVStatus.Properties.Items.IndexOf("");
                     cmbLVSection.Text = "";
@@ -3344,7 +3237,6 @@ namespace OTTOPro
                 {
                     if (RequiredPositionFields != null && RequiredPositionFields.Count > 0)
                         RequiredPositionFields.Clear();
-                    //cmbLVSection.Enabled = true;
                     cmbLVStatus.Enabled = true;
                     cmbLVStatus.SelectedIndex = cmbLVStatus.Properties.Items.IndexOf("");
                     RequiredPositionFields.Add(cmbLVSection);
@@ -3417,8 +3309,10 @@ namespace OTTOPro
         bool _IsTabPressed = false;
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == (Keys.F9))
+            try
             {
+                if (keyData == (Keys.F9))
+                {
                     if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                     {
                         if (ObjEProject.IsFinalInvoice)
@@ -3426,37 +3320,49 @@ namespace OTTOPro
                         btnSaveLVDetails.PerformClick();
                         return true;
                     }
-                if (txtkommissionNumber.Text == string.Empty)
-                {
-                    if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails" && Utility.ProjectDataAccess != "7")
+                    if (txtkommissionNumber.Text == string.Empty)
                     {
-                        if (ObjEProject.IsFinalInvoice)
-                            return false;
-                        btnProjectSave_Click(null, null);
-                        return true;
+                        if (tcProjectDetails.SelectedTabPage.Name == "tbProjectDetails" && Utility.ProjectDataAccess != "7")
+                        {
+                            if (ObjEProject.IsFinalInvoice)
+                                return false;
+                            btnProjectSave_Click(null, null);
+                            return true;
+                        }
                     }
                 }
+                if (keyData == (Keys.PageDown))
+                {
+                    btnNext.PerformClick();
+                    return true;
+                }
+                if (keyData == (Keys.PageUp))
+                {
+                    btnPrevious.PerformClick();
+                    return true;
+                }
             }
-            if (keyData == (Keys.PageDown))
+            catch (Exception ex)
             {
-                //txtLPMe_TextChanged(null,null);
-                btnNext.PerformClick();
-                return true;
-            }
-            if (keyData == (Keys.PageUp))
-            {
-                btnPrevious.PerformClick();
-                return true;
+                Utility.ShowError(ex);
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
         private void txtStufe1Short_Leave(object sender, EventArgs e)
         {
-            TextEdit textbox = (TextEdit)sender;
-            if (textbox.Text == "0")
+            try
             {
-                textbox.Text = "";
+                TextEdit textbox = (TextEdit)sender;
+                if (textbox.Text == "0")
+                {
+                    textbox.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
 
@@ -3546,14 +3452,7 @@ namespace OTTOPro
                     Color _Color = Color.FromArgb(255, 183, 0);
                     LCGLVDetails.AppearanceGroup.BackColor = _Color;
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                }
-                //else
-                //{
-                //    tlPositions.OptionsBehavior.ReadOnly = false;
-                //    Color _Color = Color.FromArgb(0, 158, 224);
-                //    LCGLVDetails.AppearanceGroup.BackColor = _Color;
-                //    tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                //}
+                }               
             }
             catch (Exception)
             {
@@ -3572,7 +3471,6 @@ namespace OTTOPro
                 }
                 else
                 {
-                    // ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf(ObjEProject.LVRaster);
                     ddlRaster.Enabled = true;
                     ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf("99.99.1111.9");
                 }
@@ -3725,18 +3623,6 @@ namespace OTTOPro
             }
         }
 
-        private void bbAddTitle_Click(object sender, EventArgs e)
-        {
-            try
-            {
-
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void bbAddDetailKZ_Click(object sender, EventArgs e)
         {
             try
@@ -3774,21 +3660,29 @@ namespace OTTOPro
         string tType = null;
         private void AssignPosition_type()
         {
-            if (cmbBulkProcessSelection.SelectedIndex == 0)
+            try
             {
-                tType = "Parent Position";
+                if (cmbBulkProcessSelection.SelectedIndex == 0)
+                {
+                    tType = "Parent Position";
+                }
+                if (cmbBulkProcessSelection.SelectedIndex == 1)
+                {
+                    tType = "LV Position";
+                }
+                if (cmbBulkProcessSelection.SelectedIndex == 2)
+                {
+                    tType = "WG/WA";
+                }
+                if (cmbBulkProcessSelection.SelectedIndex == 3)
+                {
+                    tType = "Supplier";
+                }
             }
-            if (cmbBulkProcessSelection.SelectedIndex == 1)
+            catch (Exception ex)
             {
-                tType = "LV Position";
-            }
-            if (cmbBulkProcessSelection.SelectedIndex == 2)
-            {
-                tType = "WG/WA";
-            }
-            if (cmbBulkProcessSelection.SelectedIndex == 3)
-            {
-                tType = "Supplier";
+
+                throw;
             }
         }
 
@@ -3981,9 +3875,6 @@ namespace OTTOPro
             lciLieferantMA.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lciNachtragsnummer.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
 
-
-
-            //checkEditLVPositionKZ.Checked = false;
             checkEditPositionMenge.Checked = false;
             checkEditMaterialKz.Checked = false;
             checkEditMontageKZ.Checked = false;
@@ -4052,7 +3943,6 @@ namespace OTTOPro
                 }
                 else
                 {
-                    //checkEditLVPositionKZ.Checked = false;
                     checkEditPositionMenge.Checked = false;
                     checkEditMaterialKz.Checked = false;
                     checkEditMontageKZ.Checked = false;
@@ -4292,7 +4182,6 @@ namespace OTTOPro
 
         private void checkEditArtikelnummerWG_CheckedChanged(object sender, EventArgs e)
         {
-            //VisibleBulkProcess_SectionB_Controls(checkEditArtikelnummerWG, lciArtikelnummerWG, txtArtikelnummerWG);
             try
             {
                 if (radioGroupActionB.SelectedIndex == 0)
@@ -4336,17 +4225,7 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
-
-        private void checkEditWarenart_CheckedChanged(object sender, EventArgs e)
-        {
-            //VisibleBulkProcess_SectionB_Controls(checkEditWA, lciWarenart, txtArtikelnummerWA);
-        }
-
-        private void checkEditWarenident_CheckedChanged(object sender, EventArgs e)
-        {
-            //VisibleBulkProcess_SectionB_Controls(checkEditWI, lciWarenident, txtArtikelnummerWI);
-        }
+        }    
 
         private void checkEditFabrikat_CheckedChanged(object sender, EventArgs e)
         {
@@ -4365,11 +4244,18 @@ namespace OTTOPro
 
         private void checkEditNachtragsnummer_CheckedChanged(object sender, EventArgs e)
         {
-            if (checkEditNachtragsnummer.Checked == true)
+            try
             {
-                btnSavesectionB.Enabled = true;
+                if (checkEditNachtragsnummer.Checked == true)
+                {
+                    btnSavesectionB.Enabled = true;
+                }
+                VisibleBulkProcess_SectionB_Controls(checkEditNachtragsnummer, lciNachtragsnummer, txtNachtragsnummer);
             }
-            VisibleBulkProcess_SectionB_Controls(checkEditNachtragsnummer, lciNachtragsnummer, txtNachtragsnummer);
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnSavesectionB_Click(object sender, EventArgs e)
@@ -4794,8 +4680,15 @@ namespace OTTOPro
 
         private void txtLPMe_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
-                e.Handled = true;
+            try
+            {
+                if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+                    e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void txtStufe1Short_TextChanged(object sender, EventArgs e)
@@ -5396,38 +5289,59 @@ namespace OTTOPro
 
         private void txtWI_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
-                e.Handled = true;
-            if (e.KeyChar == (char)Keys.Enter)
-                txtWI_Leave(null, null);
+            try
+            {
+                if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
+                    e.Handled = true;
+                if (e.KeyChar == (char)Keys.Enter)
+                    txtWI_Leave(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void txtDim1_Leave(object sender, EventArgs e)
         {
-            if (ObjBPosition == null)
-                ObjBPosition = new BPosition();
-            if (ObjEPosition == null)
-                ObjEPosition = new EPosition();
+            try
+            {
+                if (ObjBPosition == null)
+                    ObjBPosition = new BPosition();
+                if (ObjEPosition == null)
+                    ObjEPosition = new EPosition();
 
-            ObjEPosition.WG = txtWG.Text;
-            ObjEPosition.WA = txtWA.Text;
-            ObjEPosition.WI = txtWI.Text;
-            ObjEPosition.Dim1 = txtDim1.Text;
-            ObjEPosition.Dim2 = txtDim2.Text;
-            ObjEPosition.Dim3 = txtDim3.Text;
-            ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
-            ObjEPosition = ObjBPosition.GetArticleByDimension(ObjEPosition);
-            txtMin.Text = ObjEPosition.Mins.ToString();
-            txtFaktor.Text = ObjEPosition.Faktor.ToString();
-            txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
+                ObjEPosition.WG = txtWG.Text;
+                ObjEPosition.WA = txtWA.Text;
+                ObjEPosition.WI = txtWI.Text;
+                ObjEPosition.Dim1 = txtDim1.Text;
+                ObjEPosition.Dim2 = txtDim2.Text;
+                ObjEPosition.Dim3 = txtDim3.Text;
+                ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
+                ObjEPosition = ObjBPosition.GetArticleByDimension(ObjEPosition);
+                txtMin.Text = ObjEPosition.Mins.ToString();
+                txtFaktor.Text = ObjEPosition.Faktor.ToString();
+                txtLPMe.Text = ObjEPosition.LPMA.ToString();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void txtDim1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
-                e.Handled = true;
-            if (e.KeyChar == (char)Keys.Enter)
-                txtDim1_Leave(null, null);
+            try
+            {
+                if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
+                    e.Handled = true;
+                if (e.KeyChar == (char)Keys.Enter)
+                    txtDim1_Leave(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void navBarItemConsolidateBlatt_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -5449,106 +5363,120 @@ namespace OTTOPro
 
         private void navBarItemProject_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            if (ObjEProject.IsFinalInvoice && Utility.ProjectDataAccess == "7")
-                btnProjectSave.Enabled = false;
-            ObjTabDetails = tbProjectDetails;
-            TabChange(ObjTabDetails);
-            ObjBProject.GetProjectDetails(ObjEProject);
+            try
+            {
+                if (ObjEProject.IsFinalInvoice && Utility.ProjectDataAccess == "7")
+                    btnProjectSave.Enabled = false;
+                ObjTabDetails = tbProjectDetails;
+                TabChange(ObjTabDetails);
+                ObjBProject.GetProjectDetails(ObjEProject);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void navBarItemLVDetails_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             tlPositions.Cursor = Cursors.Default;
-            if (ObjEProject.ProjectID > 0)
+            try
             {
-                setMask();
-                IntializeLVPositions();
-                SetOhnestuffeMask();
-                ObjTabDetails = tbLVDetails;
-                if (tbLVDetails.PageVisible == false)
+                if (ObjEProject.ProjectID > 0)
                 {
-                    BindPositionData();
-                    tlPositions.BestFitColumns();
+                    setMask();
+                    IntializeLVPositions();
+                    SetOhnestuffeMask();
+                    ObjTabDetails = tbLVDetails;
+                    if (tbLVDetails.PageVisible == false)
+                    {
+                        BindPositionData();
+                        tlPositions.BestFitColumns();
+                    }
+                    if (tlPositions.Nodes != null && tlPositions.Nodes.Count > 0)
+                    {
+                        tlPositions.SetFocusedNode(tlPositions.MoveLastVisible());
+                    }
+                    else
+                    {
+                        btnNext.Enabled = false;
+                        btnPrevious.Enabled = false;
+                    }
+                    TabChange(ObjTabDetails);
                 }
-                if (tlPositions.Nodes != null && tlPositions.Nodes.Count > 0)
+                SetMaskForMaulties();
+                if (txtkommissionNumber.Text != "")
                 {
-                    tlPositions.SetFocusedNode(tlPositions.MoveLastVisible());
+                    cmbLVSection.Enabled = true;
+                    btnAddLVSection.Enabled = true;
                 }
                 else
                 {
-                    btnNext.Enabled = false;
-                    btnPrevious.Enabled = false;
+                    cmbLVSection.Enabled = false;
+                    btnAddLVSection.Enabled = false;
                 }
-                TabChange(ObjTabDetails);
-            }
-            SetMaskForMaulties();
-            if (txtkommissionNumber.Text != "")
-            {
-                cmbLVSection.Enabled = true;
-                btnAddLVSection.Enabled = true;
-            }
-            else
-            {
-                cmbLVSection.Enabled = false;
-                btnAddLVSection.Enabled = false;
-            }
-            if (Utility.LVDetailsAccess != "8")
-            {
-                layoutControl3.Enabled = false;
-                btnNew.Enabled = false;
-                chkCreateNew.Enabled = false;
-                btnSaveLVDetails.Enabled = false;
-                btnCancel.Enabled = false;
-                LVDetailsColumnReadOnly(true);
-            }            
-            if (Utility.CalcAccess != "8")
-            {
-                layoutControl6.Enabled = false;
-                LVCalculationColumnReadOnly(true);
-                btnSaveLVDetails.Enabled = false;
-                btnCancel.Enabled = false;
-            }
-            if (Utility.LVDetailsAccess == "8")
-            {
-                LVDetailsColumnReadOnly(false);
-            }
-            if (Utility.CalcAccess == "8")
-            {
-                LVCalculationColumnReadOnly(false);
-            }
-            if(Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7")
-            {
-                btnAddLVSection.Enabled = false;
-                cmbLVSection.Enabled = false;
-            }
-            else
-            {
-                if(Utility.LVDetailsAccess != "8" && !string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+                if (Utility.LVDetailsAccess != "8")
                 {
-                    DataView dvLVSection = ObjEProject.dtLVSection.DefaultView;
-                    dvLVSection.RowFilter = "LVSectionName <> 'HA'";
-                    cmbLVSection.DataSource = ObjEProject.dtLVSection;
-                    cmbLVSection.DisplayMember = "LVSectionName";
-                    cmbLVSection.ValueMember = "LVSectionID";
-
-                    layoutControl3.Enabled = true;
-                    btnNew.Enabled = true;
-                    chkCreateNew.Enabled = true;
-                    btnSaveLVDetails.Enabled = true;
-                    btnCancel.Enabled = true;
+                    layoutControl3.Enabled = false;
+                    btnNew.Enabled = false;
+                    chkCreateNew.Enabled = false;
+                    btnSaveLVDetails.Enabled = false;
+                    btnCancel.Enabled = false;
                     LVDetailsColumnReadOnly(true);
                 }
-            }
-            if (ObjEProject.IsFinalInvoice)
-            {
-                btnNew.Enabled = false;
-                btnSaveLVDetails.Enabled = false;
-                btnCancel.Enabled = false;
-                chkCreateNew.Enabled = false;
-                tlPositions.OptionsBehavior.Editable = false;
-            }
+                if (Utility.CalcAccess != "8")
+                {
+                    layoutControl6.Enabled = false;
+                    LVCalculationColumnReadOnly(true);
+                    btnSaveLVDetails.Enabled = false;
+                    btnCancel.Enabled = false;
+                }
+                if (Utility.LVDetailsAccess == "8")
+                {
+                    LVDetailsColumnReadOnly(false);
+                }
+                if (Utility.CalcAccess == "8")
+                {
+                    LVCalculationColumnReadOnly(false);
+                }
+                if (Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7")
+                {
+                    btnAddLVSection.Enabled = false;
+                    cmbLVSection.Enabled = false;
+                }
+                else
+                {
+                    if (Utility.LVDetailsAccess != "8" && !string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+                    {
+                        DataView dvLVSection = ObjEProject.dtLVSection.DefaultView;
+                        dvLVSection.RowFilter = "LVSectionName <> 'HA'";
+                        cmbLVSection.DataSource = ObjEProject.dtLVSection;
+                        cmbLVSection.DisplayMember = "LVSectionName";
+                        cmbLVSection.ValueMember = "LVSectionID";
 
-            SetRoundingPriceforColumn();
+                        layoutControl3.Enabled = true;
+                        btnNew.Enabled = true;
+                        chkCreateNew.Enabled = true;
+                        btnSaveLVDetails.Enabled = true;
+                        btnCancel.Enabled = true;
+                        LVDetailsColumnReadOnly(true);
+                    }
+                }
+                if (ObjEProject.IsFinalInvoice)
+                {
+                    btnNew.Enabled = false;
+                    btnSaveLVDetails.Enabled = false;
+                    btnCancel.Enabled = false;
+                    chkCreateNew.Enabled = false;
+                    tlPositions.OptionsBehavior.Editable = false;
+                }
+
+                SetRoundingPriceforColumn();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void SetOhnestuffeMask()
@@ -5573,87 +5501,107 @@ namespace OTTOPro
 
         private void LVDetailsColumnReadOnly(bool _value)
         {
-            tlPositions.Columns["WG"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["WA"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["WI"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["Menge"].ColumnEdit.ReadOnly = _value;
+            try
+            {
+                tlPositions.Columns["WG"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["WA"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["WI"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["Menge"].ColumnEdit.ReadOnly = _value;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
         private void LVCalculationColumnReadOnly(bool _value)
         {
-            tlPositions.Columns["MA_Multi1"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MA_multi2"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MA_multi3"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MA_multi4"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MA_selbstkostenMulti"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MO_multi1"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MO_multi2"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MO_multi3"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MO_multi4"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = _value;
-            tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = _value;
+            try
+            {
+                tlPositions.Columns["MA_Multi1"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MA_multi2"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MA_multi3"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MA_multi4"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MA_selbstkostenMulti"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MO_multi1"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MO_multi2"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MO_multi3"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MO_multi4"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MO_selbstkostenMulti"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MA_verkaufspreis_Multi"].ColumnEdit.ReadOnly = _value;
+                tlPositions.Columns["MO_verkaufspreisMulti"].ColumnEdit.ReadOnly = _value;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
         }
 
         private void navBarItemBulkProcess_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            ObjBProject.GetProjectDetails(ObjEProject);
-            if (ObjEProject.ActualLvs == 0)
-                return;
-            if (GetCommisssionNo() != "")
+            try
             {
-                checkEditSectionAMulti5MA.Enabled = false;
-                checkEditSectionAMulti5MO.Enabled = false;
-                checkEditSectionAMulti6MA.Enabled = false;
-                checkEditSectionAMulti6MO.Enabled = false;
-                btnSaveActionA.Enabled = false;
+                ObjBProject.GetProjectDetails(ObjEProject);
+                if (ObjEProject.ActualLvs == 0)
+                    return;
+                if (GetCommisssionNo() != "")
+                {
+                    checkEditSectionAMulti5MA.Enabled = false;
+                    checkEditSectionAMulti5MO.Enabled = false;
+                    checkEditSectionAMulti6MA.Enabled = false;
+                    checkEditSectionAMulti6MO.Enabled = false;
+                    btnSaveActionA.Enabled = false;
 
-                //checkEditLVPositionKZ.Enabled = false;
-                checkEditPositionMenge.Enabled = false;
-                checkEditMaterialKz.Enabled = false;
-                checkEditMontageKZ.Enabled = false;
-                checkEditPreisErstaztext.Enabled = false;
-                checkEditArtikelnummerWG.Enabled = false;
-                checkEditFabrikat.Enabled = false;
-                checkEditTyp.Enabled = false;
-                checkEditLieferantMA.Enabled = false;
-                btnSavesectionB.Enabled = false;
-                checkEditNachtragsnummer.Enabled = true;
-            }
-            else
-            {
-                checkEditSectionAMulti5MA.Enabled = true;
-                checkEditSectionAMulti5MO.Enabled = true;
-                checkEditSectionAMulti6MA.Enabled = true;
-                checkEditSectionAMulti6MO.Enabled = true;
-                btnSaveActionA.Enabled = true;
+                    checkEditPositionMenge.Enabled = false;
+                    checkEditMaterialKz.Enabled = false;
+                    checkEditMontageKZ.Enabled = false;
+                    checkEditPreisErstaztext.Enabled = false;
+                    checkEditArtikelnummerWG.Enabled = false;
+                    checkEditFabrikat.Enabled = false;
+                    checkEditTyp.Enabled = false;
+                    checkEditLieferantMA.Enabled = false;
+                    btnSavesectionB.Enabled = false;
+                    checkEditNachtragsnummer.Enabled = true;
+                }
+                else
+                {
+                    checkEditSectionAMulti5MA.Enabled = true;
+                    checkEditSectionAMulti5MO.Enabled = true;
+                    checkEditSectionAMulti6MA.Enabled = true;
+                    checkEditSectionAMulti6MO.Enabled = true;
+                    btnSaveActionA.Enabled = true;
 
-                //checkEditLVPositionKZ.Enabled = true;
-                checkEditPositionMenge.Enabled = true;
-                checkEditMaterialKz.Enabled = true;
-                checkEditMontageKZ.Enabled = true;
-                checkEditPreisErstaztext.Enabled = true;
-                checkEditArtikelnummerWG.Enabled = true;
-                checkEditFabrikat.Enabled = true;
-                checkEditTyp.Enabled = true;
-                checkEditLieferantMA.Enabled = true;
-                btnSavesectionB.Enabled = true;
-                checkEditNachtragsnummer.Enabled = false;
+                    checkEditPositionMenge.Enabled = true;
+                    checkEditMaterialKz.Enabled = true;
+                    checkEditMontageKZ.Enabled = true;
+                    checkEditPreisErstaztext.Enabled = true;
+                    checkEditArtikelnummerWG.Enabled = true;
+                    checkEditFabrikat.Enabled = true;
+                    checkEditTyp.Enabled = true;
+                    checkEditLieferantMA.Enabled = true;
+                    btnSavesectionB.Enabled = true;
+                    checkEditNachtragsnummer.Enabled = false;
 
-            }
-            if (ObjEProject.ProjectID > 0)
-            {
-                tlBulkProcessPositionDetails.Cursor = Cursors.Default;
-                ObjTabDetails = tbBulkProcess;
-                TabChange(ObjTabDetails);
-                tlBulkProcessPositionDetails.BestFitColumns();
-            }
-            if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
-                btnApply.Enabled = false;
-             if(!string.IsNullOrEmpty(ObjEProject.CommissionNumber))
-            { 
-                if (Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7"
-                     || Utility.LVSectionEditAccess == "9" || Utility.LVSectionEditAccess == "7")
+                }
+                if (ObjEProject.ProjectID > 0)
+                {
+                    tlBulkProcessPositionDetails.Cursor = Cursors.Default;
+                    ObjTabDetails = tbBulkProcess;
+                    TabChange(ObjTabDetails);
+                    tlBulkProcessPositionDetails.BestFitColumns();
+                }
+                if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
                     btnApply.Enabled = false;
+                if (!string.IsNullOrEmpty(ObjEProject.CommissionNumber))
+                {
+                    if (Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7"
+                         || Utility.LVSectionEditAccess == "9" || Utility.LVSectionEditAccess == "7")
+                        btnApply.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
 
@@ -5865,17 +5813,18 @@ namespace OTTOPro
 
         private void navBarItem5_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
-            if (ObjEProject.ProjectID > 0)
+            try
             {
-                frmDesignReport Obj = new frmDesignReport(ObjEProject.ProjectID);
-                Obj.ShowDialog();
-            }           
-
-            //Delivery Notes related report
-            //rptDeliveryNotes rpt = new rptDeliveryNotes(ObjEProject.ProjectID, ObjEProject.KundeID);
-            //ReportPrintTool printTool = new ReportPrintTool(rpt);
-            //// Invoke the Print dialog.
-            //printTool.ShowRibbonPreview();
+                if (ObjEProject.ProjectID > 0)
+                {
+                    frmDesignReport Obj = new frmDesignReport(ObjEProject.ProjectID);
+                    Obj.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void navBarControl1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -6067,7 +6016,7 @@ namespace OTTOPro
             }
             catch (Exception ex)
             {
-
+                Utility.ShowError(ex);
             }
         }
 
@@ -6486,9 +6435,6 @@ namespace OTTOPro
                             foreach (DataRow dr in ObjESupplier.Article.Tables[0].Rows)
                             {
                                 cmbLVSectionProposal.Properties.Items.Add(dr["LVSection"]);
-                                //cmbLVSectionProposal.DataSource = ObjESupplier.Article.Tables[0];
-                                //cmbLVSectionProposal.DisplayMember = "LVSection";
-                                //cmbLVSectionProposal.ValueMember = "LVSection";
                             }
                         }
                     }
@@ -6760,33 +6706,6 @@ namespace OTTOPro
             }
         }
 
-        private void gvLVDetailsforSupplier_RowStyle(object sender, RowStyleEventArgs e)
-        {
-            //GridView View = sender as GridView;
-            //if (e.RowHandle >= 0)
-            //{
-            //    if (gvLVDetailsforSupplier.FocusedColumn != null && gvLVDetailsforSupplier.GetFocusedRowCellValue("PositionID") != null)
-            //    {
-            //        if (View.Columns["PositionsStatus"] != null)
-            //        {
-            //            string _status = View.GetRowCellDisplayText(e.RowHandle, View.Columns["PositionsStatus"]);
-            //            if (_status == "P")
-            //            {
-            //                e.Appearance.BackColor = Color.LightPink;
-            //            }
-            //            if (_status == "D")
-            //            {
-            //                e.Appearance.BackColor = Color.Salmon;
-            //            }
-            //            if (_status == "N")
-            //            {
-            //                e.Appearance.BackColor = Color.LightSeaGreen;
-            //            }
-            //        }
-            //    }
-
-           // }
-        }
 
         private void gvLVDetailsforSupplier_MouseDown(object sender, MouseEventArgs e)
         {
@@ -8071,13 +7990,6 @@ namespace OTTOPro
         {
             try
             {
-                //if (gvLVDetailsforSupplier.DataRowCount == 0)
-                //{
-                //    if (!Utility._IsGermany)
-                //        throw new Exception("No Positions to generate.");
-                //    else
-                //        throw new Exception("Es wurden keine LV Positionen ausgewählt");
-                //}
                 if (chkSupplierLists.CheckedItems.Count == 0)
                 {
                     if (!Utility._IsGermany)
@@ -8321,35 +8233,70 @@ namespace OTTOPro
 
         private void txtListPreis_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
-                txtListPreis_Leave(null, null);
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                    txtListPreis_Leave(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void txtListPreis_Leave(object sender, EventArgs e)
         {
-            if (_IsSave)
+            try
             {
-                btnSaveTemparary_Click(null, null);
-                _IsSave = false;
+                if (_IsSave)
+                {
+                    btnSaveTemparary_Click(null, null);
+                    _IsSave = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
 
         private void txtListPreis_EditValueChanged(object sender, EventArgs e)
         {
-            if (_IsValueChanged)
-                _IsSave = true;
+            try
+            {
+                if (_IsValueChanged)
+                    _IsSave = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void gvMulti5_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            GridView view = sender as GridView;
-            view.UpdateTotalSummary();
+            try
+            {
+                GridView view = sender as GridView;
+                view.UpdateTotalSummary();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void txtListPreis_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
-                e.Handled = true;
+            try
+            {
+                if (e.KeyCode == Keys.Up || e.KeyCode == Keys.Down)
+                    e.Handled = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnFinalBill_Click(object sender, EventArgs e)

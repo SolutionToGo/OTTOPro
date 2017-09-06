@@ -677,5 +677,39 @@ namespace DataAccess
            }
            return ObjEArticle;
        }
+
+       public EArticles GetMultipleTyp(EArticles ObjEArticle,int _ID)
+       {
+           DataSet dsTyp = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_MultipleTyp]";
+                   cmd.Parameters.Add("@WIID", _ID);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsTyp);
+                   }
+                   if (dsTyp != null && dsTyp.Tables.Count > 0)
+                       ObjEArticle.dtAddTyp = dsTyp.Tables[0];
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
+               else
+                   throw new Exception("Error While Retrieving Typ");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
+
    }
 }

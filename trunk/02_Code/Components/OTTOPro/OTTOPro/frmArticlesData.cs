@@ -533,5 +533,23 @@ namespace OTTOPro
             }
         }
 
+        private void btnAddTyp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmAddType frm = new frmAddType(_WIIDValue);
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    txtTyp.Text = frm.Typ;
+                    txtLiferent.Text = frm.FullName;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
     }
 }
