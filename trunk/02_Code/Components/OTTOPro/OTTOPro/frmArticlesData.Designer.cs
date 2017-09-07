@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmArticlesData));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnValidityDate = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddTyp = new DevExpress.XtraEditors.SimpleButton();
             this.cmbME = new DevExpress.XtraEditors.ComboBoxEdit();
             this.btnNew = new DevExpress.XtraEditors.SimpleButton();
@@ -131,6 +132,7 @@
             this.layoutControlItem32 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem10 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem30 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem34 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cmbME.Properties)).BeginInit();
@@ -208,12 +210,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem34)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
             this.layoutControl1.AllowCustomization = false;
             this.layoutControl1.BackColor = System.Drawing.Color.White;
+            this.layoutControl1.Controls.Add(this.btnValidityDate);
             this.layoutControl1.Controls.Add(this.btnAddTyp);
             this.layoutControl1.Controls.Add(this.cmbME);
             this.layoutControl1.Controls.Add(this.btnNew);
@@ -255,6 +259,16 @@
             this.layoutControl1.Size = new System.Drawing.Size(1189, 781);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // btnValidityDate
+            // 
+            this.btnValidityDate.Location = new System.Drawing.Point(483, 341);
+            this.btnValidityDate.Name = "btnValidityDate";
+            this.btnValidityDate.Size = new System.Drawing.Size(88, 22);
+            this.btnValidityDate.StyleController = this.layoutControl1;
+            this.btnValidityDate.TabIndex = 36;
+            this.btnValidityDate.Text = "Gültigkeitsdatum";
+            this.btnValidityDate.Click += new System.EventHandler(this.btnValidityDate_Click);
             // 
             // btnAddTyp
             // 
@@ -372,7 +386,7 @@
             this.lblArticle.ForeColor = System.Drawing.Color.White;
             this.lblArticle.Location = new System.Drawing.Point(12, 341);
             this.lblArticle.Name = "lblArticle";
-            this.lblArticle.Size = new System.Drawing.Size(559, 22);
+            this.lblArticle.Size = new System.Drawing.Size(467, 22);
             this.lblArticle.TabIndex = 26;
             this.lblArticle.Text = "Artikelübersicht zu ";
             // 
@@ -1017,7 +1031,8 @@
             this.layoutControlItem31,
             this.layoutControlItem32,
             this.layoutControlItem10,
-            this.layoutControlItem30});
+            this.layoutControlItem30,
+            this.layoutControlItem34});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1189, 781);
@@ -1429,7 +1444,7 @@
             this.layoutControlItem26.Control = this.lblArticle;
             this.layoutControlItem26.Location = new System.Drawing.Point(0, 329);
             this.layoutControlItem26.Name = "layoutControlItem26";
-            this.layoutControlItem26.Size = new System.Drawing.Size(563, 26);
+            this.layoutControlItem26.Size = new System.Drawing.Size(471, 26);
             this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem26.TextVisible = false;
             // 
@@ -1504,6 +1519,15 @@
             this.layoutControlItem30.Size = new System.Drawing.Size(53, 26);
             this.layoutControlItem30.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem30.TextVisible = false;
+            // 
+            // layoutControlItem34
+            // 
+            this.layoutControlItem34.Control = this.btnValidityDate;
+            this.layoutControlItem34.Location = new System.Drawing.Point(471, 329);
+            this.layoutControlItem34.Name = "layoutControlItem34";
+            this.layoutControlItem34.Size = new System.Drawing.Size(92, 26);
+            this.layoutControlItem34.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem34.TextVisible = false;
             // 
             // frmArticlesData
             // 
@@ -1597,6 +1621,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem32)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem34)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1705,6 +1730,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem33;
         private DevExpress.XtraEditors.SimpleButton btnAddTyp;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem8;
+        private DevExpress.XtraEditors.SimpleButton btnValidityDate;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem34;
 
     }
 }

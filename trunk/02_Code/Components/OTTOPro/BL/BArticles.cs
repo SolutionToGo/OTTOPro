@@ -414,19 +414,52 @@ namespace BL
             return ObjEArticle;
         }
 
-        public EArticles GetMultipleTyp(EArticles ObjEArticle, int _ID)
+        public DataTable GetMultipleTyp(int _ID)
         {
+            DataTable dt = new DataTable();
             try
-            {
+            {                
                 if (ObjDArticles == null)
                     ObjDArticles = new DArticles();
-                ObjEArticle = ObjDArticles.GetMultipleTyp(ObjEArticle, _ID);
+                 dt= ObjDArticles.GetMultipleTyp(_ID);
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return ObjEArticle;
+            return dt;
+        }
+
+        public DataTable GetValidityDates(int _ID)
+        {
+            DataTable _dt = new DataTable();
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                _dt = ObjDArticles.GetValidityDates(_ID);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return _dt;
+        }
+
+        public DataTable GetValidityDatesDimensions(int _ID,DateTime _date)
+        {
+            DataTable _dt = new DataTable();
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                _dt = ObjDArticles.GetValidityDatesDimensions(_ID, _date);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return _dt;
         }
 
     }

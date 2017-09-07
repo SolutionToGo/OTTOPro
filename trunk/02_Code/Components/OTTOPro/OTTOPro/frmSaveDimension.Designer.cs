@@ -93,7 +93,7 @@
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1296, 288, 450, 400);
+            this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(931, 288, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
             this.layoutControl1.Size = new System.Drawing.Size(989, 464);
             this.layoutControl1.TabIndex = 0;
@@ -390,6 +390,7 @@
             this.dateEditGultigkeit.EditValue = null;
             this.dateEditGultigkeit.Location = new System.Drawing.Point(218, 12);
             this.dateEditGultigkeit.Name = "dateEditGultigkeit";
+            this.dateEditGultigkeit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
             this.dateEditGultigkeit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dateEditGultigkeit.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -404,7 +405,7 @@
             this.dateEditGultigkeit.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearView;
             this.dateEditGultigkeit.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
             this.dateEditGultigkeit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dateEditGultigkeit.Size = new System.Drawing.Size(188, 20);
+            this.dateEditGultigkeit.Size = new System.Drawing.Size(210, 20);
             this.dateEditGultigkeit.StyleController = this.layoutControl1;
             this.dateEditGultigkeit.TabIndex = 4;
             // 
@@ -447,9 +448,9 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(398, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(420, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(571, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(549, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
@@ -490,7 +491,7 @@
             this.layoutControlItem1.Control = this.dateEditGultigkeit;
             this.layoutControlItem1.Location = new System.Drawing.Point(108, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(290, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(312, 24);
             this.layoutControlItem1.Text = "Gültigkeit Datum ";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(95, 14);
             // 

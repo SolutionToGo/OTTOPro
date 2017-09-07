@@ -428,7 +428,7 @@ namespace OTTOPro
                     return;
                 if (_IsSaveDimension)
                     throw new Exception("Bitte Speichern der Maße");
-                frmSaveDimension Obj = new frmSaveDimension();
+                frmSaveDimension Obj = new frmSaveDimension("Dimension","");
                 Obj.ObjEArticle = ObjEArticle;
                 Obj.ObjBArticle = ObjBArticle;
                 Obj.strArticle = "Info's zur Aktuellen Abmessung : " + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
@@ -534,15 +534,36 @@ namespace OTTOPro
         }
 
         private void btnAddTyp_Click(object sender, EventArgs e)
+        {            
+            try
+            {
+                frmAddType frm = new frmAddType(_WIIDValue, "Type");
+                frm.ShowDialog();
+                if (frm.Typ!=null)
+                {
+                    txtTyp.Text = frm.Typ;
+                    txtLiferent.Text = frm.FullName;  
+                }
+                  
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnValidityDate_Click(object sender, EventArgs e)
         {
             try
             {
-                frmAddType frm = new frmAddType(_WIIDValue);
+                frmAddType frm = new frmAddType(_WIIDValue, "ValidityDate");
                 frm.ShowDialog();
-                if (frm.DialogResult == DialogResult.OK)
+                if (frm.Date != null)
                 {
-                    txtTyp.Text = frm.Typ;
-                    txtLiferent.Text = frm.FullName;
+                    frm.Hide();
+                    frmSaveDimension Objfrm = new frmSaveDimension("ValidityDate", frm.Date, _WIIDValue);
+                    Objfrm.ShowDialog();
+                    frm.Close();
                 }
             }
             catch (Exception ex)

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using EL;
 using BL;
+using DevExpress.XtraEditors.Repository;
 
 namespace OTTOPro
 {
@@ -19,16 +20,20 @@ namespace OTTOPro
         BArticles ObjBArticle = null;
         private string _Typ = null;
         private string _FullName = null;
+        private string _Date = null;
         int _WIID = 0;
+        string _FormType = string.Empty;
 
         public frmAddType()
         {
             InitializeComponent();
         }
-        public frmAddType(int _id)
+
+        public frmAddType(int _id,string _type)
         {
             InitializeComponent();
             _WIID = _id;
+            _FormType = _type;
         }
 
         public string Typ
@@ -36,55 +41,98 @@ namespace OTTOPro
             get { return _Typ; }
             set { _Typ = value; }
         }
+
         public string FullName
         {
             get { return _FullName; }
             set { _FullName = value; }
         }
 
+        public string Date
+        {
+            get { return _Date; }
+            set { _Date = value; }
+        }
+
         private void frmAddType_Load(object sender, EventArgs e)
         {
             try
             {
-                if (ObjEArticle == null)
-                    ObjEArticle = new EArticles();
+                if(_FormType=="Type")
+                {
+                    FillTypeData();
+                }
+                if (_FormType == "ValidityDate")
+                {
+                    FillValidityDates();       
+                    // Bind the item to the control's column. 
+                    gvAddTyp.Columns["GültigkeitDatum"].ColumnEdit = repositoryItemDateEdit1;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void FillTypeData()
+        {
+            try
+            {
+                DataTable _dtType = new DataTable();
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
-                ObjBArticle.GetMultipleTyp(ObjEArticle, _WIID);
-                if (ObjEArticle.dtAddTyp != null)
+               _dtType= ObjBArticle.GetMultipleTyp(_WIID);
+               if (_dtType != null)
                 {
-                    gcAddTyp.DataSource = ObjEArticle.dtAddTyp;
+                    gcAddTyp.DataSource = _dtType;
                     gvAddTyp.BestFitColumns();
                 }
             }
             catch (Exception ex)
             {
-                Utility.ShowError(ex);
+
+                throw;
             }
         }
 
-        private void gvAddTyp_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void FillValidityDates()
         {
             try
             {
-                if (gvAddTyp.FocusedColumn != null && gvAddTyp.GetFocusedRowCellValue("TypID") != null)
+                DataTable _dtyDates=new DataTable();
+                if (ObjBArticle == null)
+                    ObjBArticle = new BArticles();
+               _dtyDates= ObjBArticle.GetValidityDates(_WIID);
+               if (_dtyDates != null)
                 {
-                    _Typ = gvAddTyp.GetFocusedRowCellValue("Typ") == DBNull.Value ? "" : gvAddTyp.GetFocusedRowCellValue("Typ").ToString();
-                    _FullName = gvAddTyp.GetFocusedRowCellValue("FullName") == DBNull.Value ? "" : gvAddTyp.GetFocusedRowCellValue("FullName").ToString();
+                    gcAddTyp.DataSource = _dtyDates;
+                    gvAddTyp.BestFitColumns();
                 }
             }
             catch (Exception ex)
             {
-                Utility.ShowError(ex);
+
+                throw;
             }
         }
 
-        private void frmAddType_KeyPress(object sender, KeyPressEventArgs e)
+        private void gvAddTyp_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
                 if (e.KeyChar == (char)Keys.Enter)
-                    btnOk_Click(null, null);
+                {
+                    if (_FormType == "Type")
+                    {
+                        GetValues();
+                    }
+                    if (_FormType == "ValidityDate")
+                    {
+                        GetDates();
+                    }
+                }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -92,11 +140,19 @@ namespace OTTOPro
             }
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void gvAddTyp_DoubleClick(object sender, EventArgs e)
         {
             try
             {
-                gvAddTyp_FocusedRowChanged(null, null);
+                if (_FormType == "Type")
+                {
+                    GetValues();
+                }
+                if (_FormType == "ValidityDate")
+                {
+                    GetDates();
+                }
+                this.Close();
             }
             catch (Exception ex)
             {
@@ -104,11 +160,35 @@ namespace OTTOPro
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void GetValues()
         {
-            this.Close();
+            try
+            {
+                if (gvAddTyp.FocusedColumn != null && gvAddTyp.GetFocusedRowCellValue("Typ") != null)
+                {
+                    _Typ = gvAddTyp.GetFocusedRowCellValue("Typ") == DBNull.Value ? "" : gvAddTyp.GetFocusedRowCellValue("Typ").ToString();
+                    _FullName = gvAddTyp.GetFocusedRowCellValue("Lieferant") == DBNull.Value ? "" : gvAddTyp.GetFocusedRowCellValue("Lieferant").ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
-
+        private void GetDates()
+        {
+            try
+            {
+                if (gvAddTyp.FocusedColumn != null && gvAddTyp.GetFocusedRowCellValue("GültigkeitDatum") != null)
+                {
+                    _Date = gvAddTyp.GetFocusedRowCellValue("GültigkeitDatum") == DBNull.Value ? "" : gvAddTyp.GetFocusedRowCellValue("GültigkeitDatum").ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

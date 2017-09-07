@@ -678,9 +678,9 @@ namespace DataAccess
            return ObjEArticle;
        }
 
-       public EArticles GetMultipleTyp(EArticles ObjEArticle,int _ID)
+       public DataTable GetMultipleTyp(int _ID)
        {
-           DataSet dsTyp = new DataSet();
+           DataTable dtTyp = new DataTable();
            try
            {
                using (SqlCommand cmd = new SqlCommand())
@@ -691,10 +691,8 @@ namespace DataAccess
                    cmd.Parameters.Add("@WIID", _ID);
                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                    {
-                       da.Fill(dsTyp);
-                   }
-                   if (dsTyp != null && dsTyp.Tables.Count > 0)
-                       ObjEArticle.dtAddTyp = dsTyp.Tables[0];
+                       da.Fill(dtTyp);
+                   }                   
                }
            }
            catch (Exception ex)
@@ -708,8 +706,72 @@ namespace DataAccess
            {
                SQLCon.Sqlconn().Close();
            }
-           return ObjEArticle;
+           return dtTyp;
        }
+
+       public DataTable GetValidityDates(int _ID)
+       {
+           DataTable dtDates = new DataTable();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_DimensionValidiyDates]";
+                   cmd.Parameters.Add("@WIID", _ID);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dtDates);
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für datum");
+               else
+                   throw new Exception("Error While Retrieving ValidityDate");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return dtDates;
+       }
+
+       public DataTable GetValidityDatesDimensions(int _ID,DateTime _date)
+       {
+           DataTable dtDates = new DataTable();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_DimensionsByDate]";
+                   cmd.Parameters.Add("@WIID", _ID);
+                   cmd.Parameters.Add("@ValidityDate", _date);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dtDates);
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für datum");
+               else
+                   throw new Exception("Error While Retrieving ValidityDate");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return dtDates;
+       }
+
 
    }
 }

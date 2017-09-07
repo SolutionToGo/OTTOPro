@@ -35,7 +35,7 @@ namespace EL
         private DataTable _dtWG;
         private DataTable _dtWI;
         private DataTable _dtDimenstions;
-        private DataTable _dtAddTyp;
+
 
         private int _DimensionID;
 	    private string _A;
@@ -190,13 +190,7 @@ namespace EL
             get { return _dtDimenstions; }
             set { _dtDimenstions = value; }
         }
-
-        public DataTable dtAddTyp
-        {
-            get { return _dtAddTyp; }
-            set { _dtAddTyp = value; }
-        }
-
+        
         public int DimensionID
         {
             get { return _DimensionID; }
