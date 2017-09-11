@@ -164,13 +164,18 @@ namespace OTTOPro
         {
             try
             {
-                switch (tcProjectDetails.SelectedTabPage.Name)
+                ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
+               // switch (tcProjectDetails.SelectedTabPage.Name)
+                switch (arg.Page.Text)
                 {
-                    case "tbProjectDetails":
+                    case "Projekteigenschaften":
                         DialogResult dr = XtraMessageBox.Show("Wollen Sie die Angaben speichern?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                         if (dr == DialogResult.Yes)
                         {
-                            btnProjectSave_Click(null, null);
+                            if (txtkommissionNumber.Text==string.Empty)
+                            {
+                                btnProjectSave_Click(null, null);
+                            }                            
                         }
                         if (dr == DialogResult.Cancel)
                         {
@@ -178,7 +183,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbLVDetails":
+                    case "LV Detailsicht":
                         DialogResult drLV = XtraMessageBox.Show("Wollen Sie die Angaben speichern?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
                         if (drLV == DialogResult.Yes)
                         {
@@ -190,7 +195,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbBulkProcess":
+                    case "Globale LV Bearbeitung":
                         DialogResult drBP = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drBP == DialogResult.No)
                         {
@@ -198,7 +203,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbMulti5":
+                    case "Selbstkosten":
                         DialogResult drM5 = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drM5 == DialogResult.No)
                         {
@@ -206,7 +211,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbMulti6":
+                    case "Verkaufskosten":
                         DialogResult drM6 = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drM6 == DialogResult.No)
                         {
@@ -215,7 +220,7 @@ namespace OTTOPro
 
                         break;
 
-                    case "tbOmlage":
+                    case "Umlage":
                         DialogResult drOm = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drOm == DialogResult.No)
                         {
@@ -223,7 +228,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbDeliveryNotes":
+                    case "Aufmasse":
                         DialogResult drtest = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drtest == DialogResult.No)
                         {
@@ -231,7 +236,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbInvoices":
+                    case "Rechnungen":
                         DialogResult drIN = MessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drIN == DialogResult.No)
                         {
@@ -239,7 +244,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbSupplierProposal":
+                    case "Preisanfrage Starten":
                         DialogResult drSP = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drSP == DialogResult.No)
                         {
@@ -247,7 +252,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbUpdateSupplier":
+                    case "Preisanfrage Erfassung":
                         DialogResult drUS = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drUS == DialogResult.No)
                         {
@@ -255,7 +260,7 @@ namespace OTTOPro
                         }
                         break;
 
-                    case "tbCopyLVs":
+                    case "LV Positionen kopieren":
                         DialogResult drCLV = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                         if (drCLV == DialogResult.No)
                         {
@@ -263,7 +268,7 @@ namespace OTTOPro
                         }
                         break;
                 }
-                ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
+               // ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
                 (arg.Page as XtraTabPage).PageVisible = false;
             }
             catch (Exception ex)
