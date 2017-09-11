@@ -69,7 +69,7 @@ namespace DAL
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                                 throw new Exception("Kommission Nummer existiert bereits");
                             else
-                                throw new Exception("ComissionNumber Nr Already Exists");
+                                throw new Exception("ComissionNumber Already Exists");
                         }
                         else if (returnObj.ToString().Contains("RasterError"))
                         {

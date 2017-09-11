@@ -6009,7 +6009,7 @@ namespace OTTOPro
         {
             try
             {
-                if (gvDelivery.FocusedColumn != null)
+                if (gvDelivery.GetFocusedRowCellValue("Position_OZ") != null)
                 {
                     string strPosition = gvDelivery.GetFocusedRowCellValue("Position_OZ") == DBNull.Value ? "" : gvDelivery.GetFocusedRowCellValue("Position_OZ").ToString();
                     lblSelectedLVPosition.Text = "Ausgewählte LV Positionen  : " + strPosition;
@@ -6025,6 +6025,7 @@ namespace OTTOPro
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 if (string.IsNullOrEmpty(txtBlattNumber.Text))
