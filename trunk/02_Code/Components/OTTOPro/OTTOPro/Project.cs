@@ -1169,8 +1169,14 @@ namespace OTTOPro
                         } 
                     }
                     txtMo_TextChanged(null, null);
-                    chkEinkaufspreisME_CheckedChanged(null,null);
-                    chkEinkaufspreisMO_CheckedChanged(null, null);	
+                    if (txtkommissionNumber.Text!=string.Empty)
+                    {
+                        chkEinkaufspreisME_CheckedChanged(null, null);
+                        chkEinkaufspreisMO_CheckedChanged(null, null);
+                        chkVerkaufspreisME_CheckedChanged(null, null);
+                        chkVerkaufspreisMO_CheckedChanged(null, null);
+                    }                   
+
                 }
             }
             catch (Exception ex)
@@ -1218,9 +1224,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
-
-
 
         private void tlPositions_ShownEditor(object sender, EventArgs e)
         {
@@ -8979,6 +8982,9 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+
+       
 
     }
 }

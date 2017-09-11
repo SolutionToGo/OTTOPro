@@ -767,6 +767,7 @@
             this.xrLabelEP1});
             this.GroupFooter2.HeightF = 53.10428F;
             this.GroupFooter2.Name = "GroupFooter2";
+            this.GroupFooter2.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBand;
             // 
             // xrRichText4
             // 
