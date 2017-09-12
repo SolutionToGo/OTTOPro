@@ -708,7 +708,19 @@ namespace OTTOPro
                 ObjEPosition.Stufe3 = txtStufe3Short.Text;
                 ObjEPosition.Stufe4 = txtStufe4Short.Text;
                 ObjEPosition.Position = txtPosition.Text;
+
+                if (txtShortDescription.Text == "")
+                {
+                    RichTextBox _Langtext = new RichTextBox();
+                    _Langtext.Rtf = ObjBPosition.GetLongDescription(Convert.ToInt32(tlPositions.FocusedNode["PositionID"]));
+
+                    if (_Langtext.Text != "")
+                    {
+                       txtShortDescription.Rtf = _Langtext.Rtf;
+                    }
+                }
                 ObjEPosition.ShortDescription = txtShortDescription.Rtf;
+
                 if (txtPosition.Text == string.Empty)
                     ObjEPosition.Title = txtShortDescription.Text;
                 if (txtPosition.Text != string.Empty)
@@ -1155,7 +1167,7 @@ namespace OTTOPro
                         tlPositions.Columns["MO_selbstkostenMulti"].OptionsColumn.AllowEdit = Convert.ToBoolean(!chkSelbstkostenMO.Checked);
                         tlPositions.Columns["MA_verkaufspreis_Multi"].OptionsColumn.AllowEdit = Convert.ToBoolean(!chkVerkaufspreisME.Checked);
                         tlPositions.Columns["MO_verkaufspreisMulti"].OptionsColumn.AllowEdit = Convert.ToBoolean(!chkVerkaufspreisMO.Checked);
-                    }
+                    }                   
 
                     if (tlPositions.Nodes.Count > 0)
                     {
@@ -1694,7 +1706,8 @@ namespace OTTOPro
                         ObjEPosition.Parent_OZ = "";
                     }
                 }
-                int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);
+                int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);               
+
                 if (Utility._IsGermany == true)
                 {
                     frmOTTOPro.UpdateStatus("'" + ObjEPosition.Position_OZ + "'" + " Vorgang abgeschlossen: Speichern der OZ");
