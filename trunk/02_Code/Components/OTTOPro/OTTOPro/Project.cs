@@ -709,14 +709,18 @@ namespace OTTOPro
                 ObjEPosition.Stufe4 = txtStufe4Short.Text;
                 ObjEPosition.Position = txtPosition.Text;
 
-                if (txtShortDescription.Text == "")
-                {
-                    RichTextBox _Langtext = new RichTextBox();
-                    _Langtext.Rtf = ObjBPosition.GetLongDescription(Convert.ToInt32(tlPositions.FocusedNode["PositionID"]));
 
-                    if (_Langtext.Text != "")
+                if (string.IsNullOrEmpty(txtShortDescription.Text))
+                {                    
+                    if(ObjEPosition.PositionID > 0)
                     {
-                       txtShortDescription.Rtf = _Langtext.Rtf;
+                        LongDescription = ObjBPosition.GetLongDescription(Convert.ToInt32(tlPositions.FocusedNode["PositionID"]));
+                    }
+                    if (!string.IsNullOrEmpty(LongDescription))
+                    {
+                        string plaintext= Utility.GetPlaintext(LongDescription);
+                        string _substring = plaintext.Substring(0,80);
+                        txtShortDescription.Text = _substring;
                     }
                 }
                 ObjEPosition.ShortDescription = txtShortDescription.Rtf;

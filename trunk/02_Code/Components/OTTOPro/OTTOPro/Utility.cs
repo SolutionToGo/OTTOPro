@@ -261,6 +261,48 @@ namespace OTTOPro
             return sec.EncryptInner(input);
         }
 
+        public static string GetRTFFormat(string Plaintext)
+        {
+            try
+            {
+                System.Windows.Forms.RichTextBox rtf = new System.Windows.Forms.RichTextBox();
+                rtf.Text = Plaintext;
+                return rtf.Rtf;
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Datenimport langtext");
+                }
+                else
+                {
+                    throw new Exception("Error while importing langtext");
+                }
+            }
+        }
+
+        public static string GetPlaintext(string RTFText)
+        {
+            try
+            {
+                System.Windows.Forms.RichTextBox rtf = new System.Windows.Forms.RichTextBox();
+                rtf.Rtf = RTFText;
+                return rtf.Text;
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Datenimport langtext");
+                }
+                else
+                {
+                    throw new Exception("Error while importing langtext");
+                }
+            }
+        }
+
         public static int UserID;
         public static string UserName;
         public static string FirstName;
@@ -287,4 +329,5 @@ namespace OTTOPro
         public static string InvoiceTextModuleAccess = string.Empty;
         public static string InvoiceTextModuleAccessEdit = string.Empty;
     }
+
 }
