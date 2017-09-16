@@ -437,7 +437,18 @@ namespace BL
             return NewPositionID;
         }
 
-
+        public EPosition GetArticleByA(EPosition ObjEPositon)
+        {
+            try
+            {
+                ObjEPositon = ObjDPosition.GetArticleByA(ObjEPositon);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
       
     }
 }

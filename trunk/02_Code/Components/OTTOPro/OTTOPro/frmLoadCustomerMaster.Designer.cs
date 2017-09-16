@@ -694,6 +694,7 @@
             this.ILN.Caption = "ILN";
             this.ILN.FieldName = "ILN";
             this.ILN.Name = "ILN";
+            this.ILN.OptionsColumn.FixedWidth = true;
             this.ILN.Visible = true;
             this.ILN.VisibleIndex = 3;
             // 

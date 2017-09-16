@@ -715,6 +715,39 @@ namespace DataAccess
             return ProjectID;
         }
 
+        public EPosition GetArticleByA(EPosition ObjEPositon)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ArticleByA]";
+                    cmd.Parameters.AddWithValue("@WG", ObjEPositon.WG);
+                    cmd.Parameters.AddWithValue("@WA", ObjEPositon.WA);
+                    cmd.Parameters.AddWithValue("@WI", ObjEPositon.WI);                    
+                    cmd.Parameters.AddWithValue("@dtSubmitDate", ObjEPositon.ValidityDate);
+                    cmd.Parameters.AddWithValue("@A", ObjEPositon.Dim1);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        ObjEPositon.A = dt.Rows[0]["A"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["A"]);
+                        ObjEPositon.B = dt.Rows[0]["B"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["B"]);
+                        ObjEPositon.L = dt.Rows[0]["L"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["L"]);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
 
        
     }

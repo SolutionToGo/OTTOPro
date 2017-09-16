@@ -602,7 +602,7 @@
             // 
             this.xrTableCell17.CanGrow = false;
             this.xrTableCell17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_EK", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_EK", "{0:n3}")});
             this.xrTableCell17.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.StylePriority.UseFont = false;
@@ -616,7 +616,7 @@
             // 
             this.xrTableCell18.CanGrow = false;
             this.xrTableCell18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MAMULTI", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MAMULTI", "{0:n3}")});
             this.xrTableCell18.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.StylePriority.UseFont = false;
@@ -630,7 +630,7 @@
             // 
             this.xrTableCell19.CanGrow = false;
             this.xrTableCell19.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_VK", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MA_VK", "{0:n3}")});
             this.xrTableCell19.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell19.Name = "xrTableCell19";
             this.xrTableCell19.StylePriority.UseFont = false;
@@ -644,7 +644,7 @@
             // 
             this.xrTableCell20.CanGrow = false;
             this.xrTableCell20.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_EK", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_EK", "{0:n3}")});
             this.xrTableCell20.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell20.Name = "xrTableCell20";
             this.xrTableCell20.StylePriority.UseFont = false;
@@ -658,7 +658,7 @@
             // 
             this.xrTableCell21.CanGrow = false;
             this.xrTableCell21.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MOMULTI", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MOMULTI", "{0:n3}")});
             this.xrTableCell21.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell21.Name = "xrTableCell21";
             this.xrTableCell21.StylePriority.UseFont = false;
@@ -672,7 +672,7 @@
             // 
             this.xrTableCell22.CanGrow = false;
             this.xrTableCell22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_VK", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).MO_VK", "{0:n3}")});
             this.xrTableCell22.Font = new System.Drawing.Font("Arial", 8F);
             this.xrTableCell22.Name = "xrTableCell22";
             this.xrTableCell22.StylePriority.UseFont = false;
@@ -842,7 +842,7 @@
             this.xrTableCell30.Name = "xrTableCell30";
             this.xrTableCell30.StylePriority.UseFont = false;
             this.xrTableCell30.StylePriority.UseTextAlignment = false;
-            xrSummary9.FormatString = "{0:n2}";
+            xrSummary9.FormatString = "{0:n3}";
             xrSummary9.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell30.Summary = xrSummary9;
             this.xrTableCell30.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -852,7 +852,7 @@
             // 
             this.xrTableCell31.CanGrow = false;
             this.xrTableCell31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).SumMAMulti", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).SumMAMulti", "{0:n3}")});
             this.xrTableCell31.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell31.Name = "xrTableCell31";
             this.xrTableCell31.StylePriority.UseFont = false;
@@ -872,7 +872,7 @@
             this.xrTableCell32.Name = "xrTableCell32";
             this.xrTableCell32.StylePriority.UseFont = false;
             this.xrTableCell32.StylePriority.UseTextAlignment = false;
-            xrSummary11.FormatString = "{0:n2}";
+            xrSummary11.FormatString = "{0:n3}";
             xrSummary11.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell32.Summary = xrSummary11;
             this.xrTableCell32.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -887,7 +887,7 @@
             this.xrTableCell33.Name = "xrTableCell33";
             this.xrTableCell33.StylePriority.UseFont = false;
             this.xrTableCell33.StylePriority.UseTextAlignment = false;
-            xrSummary12.FormatString = "{0:n2}";
+            xrSummary12.FormatString = "{0:n3}";
             xrSummary12.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell33.Summary = xrSummary12;
             this.xrTableCell33.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -897,7 +897,7 @@
             // 
             this.xrTableCell34.CanGrow = false;
             this.xrTableCell34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).SumMOMulti", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).SumMOMulti", "{0:n3}")});
             this.xrTableCell34.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell34.Name = "xrTableCell34";
             this.xrTableCell34.StylePriority.UseFont = false;
@@ -917,7 +917,7 @@
             this.xrTableCell35.Name = "xrTableCell35";
             this.xrTableCell35.StylePriority.UseFont = false;
             this.xrTableCell35.StylePriority.UseTextAlignment = false;
-            xrSummary14.FormatString = "{0:n2}";
+            xrSummary14.FormatString = "{0:n3}";
             xrSummary14.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell35.Summary = xrSummary14;
             this.xrTableCell35.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -1070,7 +1070,7 @@
             this.xrTableCell54.Name = "xrTableCell54";
             this.xrTableCell54.StylePriority.UseFont = false;
             this.xrTableCell54.StylePriority.UseTextAlignment = false;
-            xrSummary17.FormatString = "{0:n2}";
+            xrSummary17.FormatString = "{0:n3}";
             xrSummary17.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell54.Summary = xrSummary17;
             this.xrTableCell54.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -1080,7 +1080,7 @@
             // 
             this.xrTableCell55.CanGrow = false;
             this.xrTableCell55.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).SumMAMulti", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).SumMAMulti", "{0:n3}")});
             this.xrTableCell55.Font = new System.Drawing.Font("Arial", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.xrTableCell55.Name = "xrTableCell55";
             this.xrTableCell55.StylePriority.UseFont = false;
@@ -1100,7 +1100,7 @@
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.StylePriority.UseFont = false;
             this.xrTableCell56.StylePriority.UseTextAlignment = false;
-            xrSummary19.FormatString = "{0:n2}";
+            xrSummary19.FormatString = "{0:n3}";
             xrSummary19.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell56.Summary = xrSummary19;
             this.xrTableCell56.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -1115,7 +1115,7 @@
             this.xrTableCell57.Name = "xrTableCell57";
             this.xrTableCell57.StylePriority.UseFont = false;
             this.xrTableCell57.StylePriority.UseTextAlignment = false;
-            xrSummary20.FormatString = "{0:n2}";
+            xrSummary20.FormatString = "{0:n3}";
             xrSummary20.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell57.Summary = xrSummary20;
             this.xrTableCell57.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
@@ -1125,7 +1125,7 @@
             // 
             this.xrTableCell58.CanGrow = false;
             this.xrTableCell58.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).SumMOMulti", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation(@ProjectID).SumMOMulti", "{0:n3}")});
             this.xrTableCell58.Font = new System.Drawing.Font("Arial", 8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
             this.xrTableCell58.Name = "xrTableCell58";
             this.xrTableCell58.StylePriority.UseFont = false;
@@ -1145,7 +1145,7 @@
             this.xrTableCell59.Name = "xrTableCell59";
             this.xrTableCell59.StylePriority.UseFont = false;
             this.xrTableCell59.StylePriority.UseTextAlignment = false;
-            xrSummary22.FormatString = "{0:n2}";
+            xrSummary22.FormatString = "{0:n3}";
             xrSummary22.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell59.Summary = xrSummary22;
             this.xrTableCell59.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;

@@ -719,8 +719,16 @@ namespace OTTOPro
                     if (!string.IsNullOrEmpty(LongDescription))
                     {
                         string plaintext= Utility.GetPlaintext(LongDescription);
-                        string _substring = plaintext.Substring(0,80);
-                        txtShortDescription.Text = _substring;
+                        if (plaintext.Length >= 80)
+                        {
+                            string _substring = plaintext.Substring(0, 80);
+                            txtShortDescription.Text = _substring;
+                        }
+                        if (plaintext.Length < 80)
+                        {
+                            string _substring = plaintext;
+                            txtShortDescription.Text = _substring;
+                        }
                     }
                 }
                 ObjEPosition.ShortDescription = txtShortDescription.Rtf;
@@ -2372,7 +2380,7 @@ namespace OTTOPro
                         ddlRaster.Enabled = true;
                     }
                     ObjBProject.GetProjectDetails(ObjEProject);
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -3217,7 +3225,9 @@ namespace OTTOPro
                 {
                     if (!ObjEProject.IsFinalInvoice)
                         btnSaveLVDetails_Click(null, null);
+
                     tlPositions.MoveNext();
+
                     btnModify_Click(null, null);
                 }
                 else if (!_IsNewMode)
@@ -3571,7 +3581,8 @@ namespace OTTOPro
                         if (strConfirmation.ToLower() == "yes")
                         {
                             ObjBPosition.Deleteposition(iValue);
-                            BindPositionData();
+                            tlPositions.DeleteSelectedNodes();
+                           // BindPositionData();                            
                         }
                         else
                         {
@@ -5343,10 +5354,17 @@ namespace OTTOPro
                 ObjEPosition.Dim2 = txtDim2.Text;
                 ObjEPosition.Dim3 = txtDim3.Text;
                 ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
+
+                ObjEPosition = ObjBPosition.GetArticleByA(ObjEPosition);
+                txtDim1.Text = ObjEPosition.A.ToString();
+                txtDim2.Text = ObjEPosition.B.ToString();
+                txtDim3.Text = ObjEPosition.L.ToString();
+
                 ObjEPosition = ObjBPosition.GetArticleByDimension(ObjEPosition);
                 txtMin.Text = ObjEPosition.Mins.ToString();
                 txtFaktor.Text = ObjEPosition.Faktor.ToString();
                 txtLPMe.Text = ObjEPosition.LPMA.ToString();
+
             }
             catch (Exception ex)
             {
@@ -5386,21 +5404,6 @@ namespace OTTOPro
 
         #region "NavigationBar Events"
 
-        private void navBarItemProject_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
-        {
-            try
-            {
-                if (ObjEProject.IsFinalInvoice && Utility.ProjectDataAccess == "7")
-                    btnProjectSave.Enabled = false;
-                ObjTabDetails = tbProjectDetails;
-                TabChange(ObjTabDetails);
-                ObjBProject.GetProjectDetails(ObjEProject);
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         private void navBarItemLVDetails_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -7354,11 +7357,16 @@ namespace OTTOPro
                             string _strShort = _str.Trim();
                             gvSupplier.Columns[_strShort].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                             gvSupplier.Columns[_strShort].SummaryItem.FieldName = _strShort;
-                            gvSupplier.Columns[_strShort].SummaryItem.DisplayFormat = "SUMME= {0:n2}";
+                            gvSupplier.Columns[_strShort].SummaryItem.DisplayFormat = "{0:n2}";
+
+                            gvSupplier.Columns[_strShort].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+                            gvSupplier.Columns[_strShort].DisplayFormat.FormatString = "n3";
                         }
                         gvSupplier.Columns["Cheapest"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                         gvSupplier.Columns["Cheapest"].SummaryItem.FieldName = "Cheapest";
-                        gvSupplier.Columns["Cheapest"].SummaryItem.DisplayFormat = "SUMME= {0:n2}";
+                        gvSupplier.Columns["Cheapest"].SummaryItem.DisplayFormat = "{0:n2}";
+
+                        
                     }
                 }
             }
@@ -7634,7 +7642,7 @@ namespace OTTOPro
                     else
                         ObjEPosition.DetailKZ = 0;
                 }
-
+               
                 if (cmbLVSection.Text == string.Empty)
                     ObjEPosition.LVSection = "HA";
                 else
@@ -7643,11 +7651,8 @@ namespace OTTOPro
                 ObjEPosition.WG = Convert.ToString(dr["WG"]);
                 ObjEPosition.WA = Convert.ToString(dr["WA"]);
                 ObjEPosition.WI = Convert.ToString(dr["WI"]);
-
-                if (decimal.TryParse(Convert.ToString(dr["Menge"]), out dValue))
-                    ObjEPosition.Menge = dValue;
-                else
-                    ObjEPosition.Menge = 1;
+                               
+                ObjEPosition.Menge = 1;
 
                 ObjEPosition.ME = Convert.ToString(dr["ME"]);
                 ObjEPosition.Fabricate = Convert.ToString(dr["Fabricate"]);
@@ -8997,8 +9002,74 @@ namespace OTTOPro
         {
             try
             {
-                navBarItemProject_LinkClicked(null, null);
+               // navBarItemProject_LinkClicked(null, null);
                 tbReports.PageVisible = false;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvMulti5_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    gvMulti5.MoveNext();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvMulti6_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    gvMulti6.MoveNext();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+               
+
+        private void nbComparePrice_LinkPressed(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                if (tlPositions.Nodes.Count > 0)
+                {
+                    panelControldoc.Visible = true;
+                    toggleSwitchType.Visible = true;
+                    dockPanelArticles.Show();
+                    dockPanelArticles_Click(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+
+        private void navBarItemProject_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                if (ObjEProject.IsFinalInvoice && Utility.ProjectDataAccess == "7")
+                    btnProjectSave.Enabled = false;
+                ObjTabDetails = tbProjectDetails;
+                TabChange(ObjTabDetails);
+                ObjBProject.GetProjectDetails(ObjEProject);
             }
             catch (Exception ex)
             {

@@ -98,6 +98,9 @@ namespace EL
         private decimal _EP;
         private int _SNO;
         private int _RasterCount;
+        private int _A; 
+        private int _B; 
+        private int _L;
 
         //Copy of LVs
         private DataTable _dtCopyNewLVs;
@@ -556,6 +559,22 @@ namespace EL
         {
             get { return _ParentID; }
             set { _ParentID = value; }
+        }
+
+        public int A
+        {
+            get { return _A; }
+            set { _A = value; }
+        }
+        public int B
+        {
+            get { return _B; }
+            set { _B = value; }
+        }
+        public int L
+        {
+            get { return _L; }
+            set { _L = value; }
         }
 
         private DataTable _dtCopyPosition;

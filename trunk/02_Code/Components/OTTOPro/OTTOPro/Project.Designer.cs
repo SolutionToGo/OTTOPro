@@ -161,6 +161,7 @@
             this.nbDeliveryNotes = new DevExpress.XtraNavBar.NavBarItem();
             this.nbInvoices = new DevExpress.XtraNavBar.NavBarItem();
             this.nbCopyLVs = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbComparePrice = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarReports = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemConsolidateBlatt = new DevExpress.XtraNavBar.NavBarItem();
@@ -2075,17 +2076,17 @@
             this.dockPanelArticles.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.dockPanelArticles.Appearance.Options.UseBackColor = true;
             this.dockPanelArticles.Controls.Add(this.dockPanel1_Container);
-            this.dockPanelArticles.Dock = DevExpress.XtraBars.Docking.DockingStyle.Top;
+            this.dockPanelArticles.Dock = DevExpress.XtraBars.Docking.DockingStyle.Float;
+            this.dockPanelArticles.FloatLocation = new System.Drawing.Point(499, 437);
             this.dockPanelArticles.FloatSize = new System.Drawing.Size(933, 252);
             this.dockPanelArticles.FloatVertical = true;
             this.dockPanelArticles.ID = new System.Guid("8ea5025b-bc1a-4908-8665-6b66fa4197b4");
-            this.dockPanelArticles.Location = new System.Drawing.Point(0, 0);
+            this.dockPanelArticles.Location = new System.Drawing.Point(-32768, -32768);
             this.dockPanelArticles.Name = "dockPanelArticles";
             this.dockPanelArticles.Options.ShowAutoHideButton = false;
             this.dockPanelArticles.OriginalSize = new System.Drawing.Size(242, 171);
-            this.dockPanelArticles.SavedDock = DevExpress.XtraBars.Docking.DockingStyle.Top;
             this.dockPanelArticles.SavedIndex = 0;
-            this.dockPanelArticles.Size = new System.Drawing.Size(1746, 171);
+            this.dockPanelArticles.Size = new System.Drawing.Size(933, 252);
             this.dockPanelArticles.Text = "Preisvergleich";
             this.dockPanelArticles.Visibility = DevExpress.XtraBars.Docking.DockVisibility.Hidden;
             this.dockPanelArticles.Click += new System.EventHandler(this.dockPanelArticles_Click);
@@ -2094,9 +2095,9 @@
             // 
             this.dockPanel1_Container.Controls.Add(this.panelControldoc);
             this.dockPanel1_Container.Controls.Add(this.gcComparePrice);
-            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 23);
+            this.dockPanel1_Container.Location = new System.Drawing.Point(4, 24);
             this.dockPanel1_Container.Name = "dockPanel1_Container";
-            this.dockPanel1_Container.Size = new System.Drawing.Size(1738, 143);
+            this.dockPanel1_Container.Size = new System.Drawing.Size(925, 224);
             this.dockPanel1_Container.TabIndex = 0;
             // 
             // panelControldoc
@@ -2139,7 +2140,7 @@
             this.gcComparePrice.Name = "gcComparePrice";
             this.gcComparePrice.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpiAll});
-            this.gcComparePrice.Size = new System.Drawing.Size(1735, 92);
+            this.gcComparePrice.Size = new System.Drawing.Size(922, 173);
             this.gcComparePrice.TabIndex = 0;
             this.gcComparePrice.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.BgvComparePrice});
@@ -2433,6 +2434,7 @@
             this.txtWI.Size = new System.Drawing.Size(58, 24);
             this.txtWI.StyleController = this.layoutControl3;
             this.txtWI.TabIndex = 8;
+            this.txtWI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtWI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
             // 
             // txtWA
@@ -3386,7 +3388,8 @@
             this.navBarItemConsolidateBlatt,
             this.nbCopyLVs,
             this.navBarItemQuerKalkulation,
-            this.navBarItemDeliveryNote});
+            this.navBarItemDeliveryNote,
+            this.nbComparePrice});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 209;
@@ -3415,7 +3418,8 @@
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemUpdateSupplierProposal),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbDeliveryNotes),
             new DevExpress.XtraNavBar.NavBarItemLink(this.nbInvoices),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCopyLVs)});
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCopyLVs),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbComparePrice)});
             this.navBarForms.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarForms.LargeImage")));
             this.navBarForms.LargeImageIndex = 0;
             this.navBarForms.Name = "navBarForms";
@@ -3549,6 +3553,15 @@
             this.nbCopyLVs.Name = "nbCopyLVs";
             this.nbCopyLVs.SmallImage = global::OTTOPro.Properties.Resources.Icon_Copy_LV_Position;
             this.nbCopyLVs.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCopyLVs_LinkClicked);
+            // 
+            // nbComparePrice
+            // 
+            this.nbComparePrice.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbComparePrice.Appearance.Options.UseFont = true;
+            this.nbComparePrice.Caption = "     Preisvergleich";
+            this.nbComparePrice.Name = "nbComparePrice";
+            this.nbComparePrice.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbComparePrice.SmallImage")));
+            this.nbComparePrice.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbComparePrice_LinkPressed);
             // 
             // navBarReports
             // 
@@ -4310,6 +4323,7 @@
             this.txtDim3.Size = new System.Drawing.Size(79, 24);
             this.txtDim3.StyleController = this.layoutControl6;
             this.txtDim3.TabIndex = 17;
+            this.txtDim3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtDim3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim3.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
@@ -4516,6 +4530,7 @@
             this.txtDim2.Size = new System.Drawing.Size(79, 24);
             this.txtDim2.StyleController = this.layoutControl6;
             this.txtDim2.TabIndex = 16;
+            this.txtDim2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtDim2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim2.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
@@ -4649,6 +4664,7 @@
             this.txtDim1.Size = new System.Drawing.Size(79, 24);
             this.txtDim1.StyleController = this.layoutControl6;
             this.txtDim1.TabIndex = 15;
+            this.txtDim1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtDim1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim1.Leave += new System.EventHandler(this.txtDim1_Leave);
             // 
@@ -10100,6 +10116,7 @@
             this.gvMulti5.OptionsView.ShowGroupPanel = false;
             this.gvMulti5.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gvMulti5_CustomSummaryCalculate);
             this.gvMulti5.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvMulti5_CellValueChanged);
+            this.gvMulti5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvMulti5_KeyDown);
             // 
             // gridColumn1
             // 
@@ -10118,6 +10135,10 @@
             this.gridColumn78.Caption = "WA";
             this.gridColumn78.FieldName = "WA";
             this.gridColumn78.Name = "gridColumn78";
+            this.gridColumn78.OptionsColumn.AllowEdit = false;
+            this.gridColumn78.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn78.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn78.OptionsColumn.ReadOnly = true;
             this.gridColumn78.Visible = true;
             this.gridColumn78.VisibleIndex = 1;
             // 
@@ -10424,6 +10445,7 @@
             this.gvMulti6.OptionsView.ShowGroupPanel = false;
             this.gvMulti6.CustomSummaryCalculate += new DevExpress.Data.CustomSummaryEventHandler(this.gvMulti5_CustomSummaryCalculate);
             this.gvMulti6.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvMulti5_CellValueChanged);
+            this.gvMulti6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvMulti6_KeyDown);
             // 
             // gridColumn7
             // 
@@ -10442,6 +10464,10 @@
             this.gridColumn79.Caption = "WA";
             this.gridColumn79.FieldName = "WA";
             this.gridColumn79.Name = "gridColumn79";
+            this.gridColumn79.OptionsColumn.AllowEdit = false;
+            this.gridColumn79.OptionsColumn.AllowGroup = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn79.OptionsColumn.AllowSort = DevExpress.Utils.DefaultBoolean.False;
+            this.gridColumn79.OptionsColumn.ReadOnly = true;
             this.gridColumn79.Visible = true;
             this.gridColumn79.VisibleIndex = 1;
             // 
@@ -17361,6 +17387,7 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn5;
         private DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit rpiKtext;
+        private DevExpress.XtraNavBar.NavBarItem nbComparePrice;
 
 
     }
