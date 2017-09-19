@@ -27,6 +27,9 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PaymentCondition", ObjEsupplier.PaymentCondition);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Commentary", ObjEsupplier.Commentary);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjEsupplier.SupplierEmailID);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Street", ObjEsupplier.SupplierStreet);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Telephone", ObjEsupplier.SupplierTelephone);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Fax", ObjEsupplier.SupplierFax);
 
                 ObjEsupplier = ObjDSupplier.SaveSupplierDetails(Xdoc, ObjEsupplier);
                 return ObjEsupplier;

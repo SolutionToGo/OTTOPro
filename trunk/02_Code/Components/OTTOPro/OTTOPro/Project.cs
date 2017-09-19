@@ -3582,7 +3582,7 @@ namespace OTTOPro
                         {
                             ObjBPosition.Deleteposition(iValue);
                             tlPositions.DeleteSelectedNodes();
-                           // BindPositionData();                            
+                            btnSaveLVDetails_Click(null, null);
                         }
                         else
                         {
@@ -6452,6 +6452,7 @@ namespace OTTOPro
         {
             try
             {
+                cmbLVSectionProposal.Properties.Items.Clear();
                 ObjESupplier = ObjBSupplier.GetLVSectionForProposal(ObjESupplier, ObjEProject.ProjectID);
                 if (ObjESupplier.Article != null)
                 {
@@ -8512,7 +8513,7 @@ namespace OTTOPro
                 ObjEPosition.Stufe4 = txtStufe4Short.Text;
                 ObjEPosition.Position = txtPosition.Text;
                 ObjEPosition.PositionID = -1;
-                ObjEPosition.PositionKZ = "N";
+                ObjEPosition.PositionKZ = cmbPositionKZ.Text;
                 ObjEPosition.DetailKZ = DetailKZ;
                 ObjEPosition.LVSection = strLVSection;
                 ObjEPosition.WG = Convert.ToString(dr["WG"]);
@@ -9075,6 +9076,11 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
+        }
+
+        private void tlOldProject_DragDrop(object sender, DragEventArgs e)
+        {
+            e.Effect = DragDropEffects.None;
         }
 
 

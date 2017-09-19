@@ -24,6 +24,9 @@ namespace EL
         private string _Commentary;
         private DataSet _dsSupplier;
         private DataTable _dtSupplier;
+        private string _SupplierStreet;
+        private string _SupplierTelephone;
+        private string _SupplierFax;
 
 
         // To hold the Supplier Contacts
@@ -194,6 +197,24 @@ namespace EL
         {
             get { return _dtSupplier; }
             set { _dtSupplier = value; }
+        }
+
+        public string SupplierStreet
+        {
+            get { return _SupplierStreet; }
+            set { _SupplierStreet = value; }
+        }
+
+        public string SupplierTelephone
+        {
+            get { return _SupplierTelephone; }
+            set { _SupplierTelephone = value; }
+        }
+
+        public string SupplierFax
+        {
+            get { return _SupplierFax; }
+            set { _SupplierFax = value; }
         }
 
         // Supplier Contact Properties

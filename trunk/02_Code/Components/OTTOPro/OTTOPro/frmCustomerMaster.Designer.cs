@@ -434,7 +434,6 @@
             this.txtCustEmail.Location = new System.Drawing.Point(147, 248);
             this.txtCustEmail.Name = "txtCustEmail";
             this.txtCustEmail.Size = new System.Drawing.Size(217, 20);
-            this.txtCustEmail.StyleController = this.layoutControl2;
             this.txtCustEmail.TabIndex = 6;
             // 
             // txtCustFax
@@ -442,7 +441,6 @@
             this.txtCustFax.Location = new System.Drawing.Point(147, 224);
             this.txtCustFax.Name = "txtCustFax";
             this.txtCustFax.Size = new System.Drawing.Size(217, 20);
-            this.txtCustFax.StyleController = this.layoutControl2;
             this.txtCustFax.TabIndex = 5;
             // 
             // txtCustTelephone
@@ -450,7 +448,6 @@
             this.txtCustTelephone.Location = new System.Drawing.Point(147, 200);
             this.txtCustTelephone.Name = "txtCustTelephone";
             this.txtCustTelephone.Size = new System.Drawing.Size(217, 20);
-            this.txtCustTelephone.StyleController = this.layoutControl2;
             this.txtCustTelephone.TabIndex = 4;
             // 
             // txtILN

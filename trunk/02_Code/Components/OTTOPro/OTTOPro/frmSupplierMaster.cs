@@ -262,6 +262,9 @@ namespace OTTOPro
                 txtCommentary.Text = _ObjEsupplier.Commentary;
                 txtPaymentCondition.Text = _ObjEsupplier.PaymentCondition;
                 txtSupplierEmail.Text = _ObjEsupplier.SupplierEmailID;
+                txtSupptreet.Text = _ObjEsupplier.SupplierStreet;
+                txtSuppTelephone.Text = _ObjEsupplier.SupplierTelephone;
+                txtSuppFax.Text = _ObjEsupplier.SupplierFax;
             }
             catch (Exception ex)
             {
@@ -360,6 +363,9 @@ namespace OTTOPro
                 _ObjEsupplier.Commentary = txtCommentary.Text;
                 _ObjEsupplier.PaymentCondition = txtPaymentCondition.Text;
                 _ObjEsupplier.SupplierEmailID = txtSupplierEmail.Text;
+                _ObjEsupplier.SupplierStreet = txtSupptreet.Text;
+                _ObjEsupplier.SupplierTelephone = txtSuppTelephone.Text;
+                _ObjEsupplier.SupplierFax = txtSuppFax.Text;
             }
             catch (Exception ex)
             {
@@ -425,7 +431,8 @@ namespace OTTOPro
         {
             try
             {
-                if (e.KeyCode == Keys.Enter && txtAddrStreetNo.Lines.Length >= 2)
+                RichTextBox txt=(RichTextBox)sender;
+                if (e.KeyCode == Keys.Enter && txt.Lines.Length >= 2)
                 {
                     e.Handled = true;
                 }
@@ -435,6 +442,7 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
 
 
 

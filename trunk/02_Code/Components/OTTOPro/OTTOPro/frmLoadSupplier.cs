@@ -480,7 +480,9 @@ namespace OTTOPro
                     ObjESupplier.Commentary = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
                     ObjESupplier.PaymentCondition = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
                     ObjESupplier.SupplierEmailID = gvSupplier.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("EmailID").ToString();
-
+                    ObjESupplier.SupplierStreet = gvSupplier.GetFocusedRowCellValue("Street") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Street").ToString();
+                    ObjESupplier.SupplierTelephone = gvSupplier.GetFocusedRowCellValue("Telephone") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Telephone").ToString();
+                    ObjESupplier.SupplierFax = gvSupplier.GetFocusedRowCellValue("Fax") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Fax").ToString();
                 }
 
             }
