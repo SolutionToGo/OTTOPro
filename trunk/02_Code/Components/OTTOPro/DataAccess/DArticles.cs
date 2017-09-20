@@ -193,13 +193,13 @@ namespace DataAccess
                        {
                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                            {
-                               throw new Exception("Dieser TYP existiert bereits");
+                               throw new Exception("Dieser daten existiert bereits");
                            }
                            else
                            {
-                               throw new Exception("Typ Already Exists");
+                               throw new Exception("Data Already Exists");
                            }
-                       }                       
+                       }                        
                            else
                            throw new Exception("Fehler beim Speichern von TYP");
                        }
