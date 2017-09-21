@@ -272,13 +272,13 @@
             // 
             // btnAddTyp
             // 
-            this.btnAddTyp.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAddTyp.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAddTyp.Location = new System.Drawing.Point(854, 135);
             this.btnAddTyp.Name = "btnAddTyp";
             this.btnAddTyp.Size = new System.Drawing.Size(38, 22);
             this.btnAddTyp.StyleController = this.layoutControl1;
             this.btnAddTyp.TabIndex = 35;
+            this.btnAddTyp.Text = "...";
             this.btnAddTyp.Click += new System.EventHandler(this.btnAddTyp_Click);
             // 
             // cmbME

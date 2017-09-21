@@ -2397,6 +2397,7 @@ namespace OTTOPro
                     Color _Color = Color.FromArgb(255, 135, 0);
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
                     LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                    btnAddAccessories.Enabled = true;
                 }
                 if (Utility.LVSectionEditAccess == "7")
                 {
@@ -3487,6 +3488,7 @@ namespace OTTOPro
                     Color _Color = Color.FromArgb(255, 183, 0);
                     LCGLVDetails.AppearanceGroup.BackColor = _Color;
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
+                    btnAddAccessories.Enabled = true;
                 }               
             }
             catch (Exception)
@@ -5240,7 +5242,14 @@ namespace OTTOPro
                         ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[0]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["Minuten"]);
                     }
                 }
-
+                else
+                {
+                    ObjEPosition.Dim1 = "";
+                    ObjEPosition.Dim2 = "";
+                    ObjEPosition.Dim3 = "";
+                    ObjEPosition.LPMA = 0;
+                    ObjEPosition.Mins = 0;
+                }
                 txtWG.Text = ObjEPosition.WG;
                 txtWA.Text = ObjEPosition.WA;
                 txtWI.Text = ObjEPosition.WI;
@@ -7012,6 +7021,7 @@ namespace OTTOPro
                     SaveListPrice(iIvalue, e.Column.FieldName);
                 }
                 gvSupplier.UpdateTotalSummary();
+                gvSupplier.BestFitColumns();
             }
             catch (Exception ex)
             {
@@ -7649,182 +7659,91 @@ namespace OTTOPro
                 else
                     ObjEPosition.LVSection = cmbLVSection.Text;
 
-                ObjEPosition.WG = Convert.ToString(dr["WG"]);
-                ObjEPosition.WA = Convert.ToString(dr["WA"]);
-                ObjEPosition.WI = Convert.ToString(dr["WI"]);
+                ObjEPosition.WG = string.Empty;
+                ObjEPosition.WA = string.Empty;
+                ObjEPosition.WI = string.Empty;
                                
                 ObjEPosition.Menge = 1;
 
-                ObjEPosition.ME = Convert.ToString(dr["ME"]);
-                ObjEPosition.Fabricate = Convert.ToString(dr["Fabricate"]);
-                ObjEPosition.LiefrantMA = Convert.ToString(dr["LiefrantMA"]);
-                ObjEPosition.Type = Convert.ToString(dr["Type"]);
-                ObjEPosition.LongDescription = strLongDescription;
-                ObjEPosition.ShortDescription = Convert.ToString(dr["ShortDescription"]);
-                ObjEPosition.Surcharge_From = Convert.ToString(dr["surchargefrom"]);
-                ObjEPosition.Surcharge_To = Convert.ToString(dr["surchargeto"]);
+                ObjEPosition.ME = string.Empty;
+                ObjEPosition.Fabricate = string.Empty;
+                ObjEPosition.LiefrantMA = string.Empty;
+                ObjEPosition.Type = string.Empty;
+                ObjEPosition.LongDescription = string.Empty;
+                ObjEPosition.ShortDescription = string.Empty;
+                ObjEPosition.Surcharge_From = string.Empty;
+                ObjEPosition.Surcharge_To = string.Empty;
+                
+                ObjEPosition.Surcharge_Per = 0;
+                ObjEPosition.surchargePercentage_MO = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["surchargePercentage"]), out dValue))
-                    ObjEPosition.Surcharge_Per = dValue;
-                else
-                    ObjEPosition.Surcharge_Per = 0;
+                ObjEPosition.ValidityDate = DateTime.Now;
 
-                if (decimal.TryParse(Convert.ToString(dr["surchargePercentage_MO"]), out dValue))
-                    ObjEPosition.surchargePercentage_MO = dValue;
-                else
-                    ObjEPosition.surchargePercentage_MO = 0;
+                ObjEPosition.MA = "X";
+                ObjEPosition.MO = "X";
 
-                if (DateTime.TryParse(Convert.ToString(dr["validitydate"]), out dt))
-                    ObjEPosition.ValidityDate = dt;
-                else
-                    ObjEPosition.ValidityDate = DateTime.Now;
+                ObjEPosition.Mins = 0;
 
-                ObjEPosition.MA = Convert.ToString(dr["MA"]);
-                ObjEPosition.MO = Convert.ToString(dr["MO"]);
+                ObjEPosition.Faktor = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["minutes"]), out dValue))
-                    ObjEPosition.Mins = dValue;
-                else
-                    ObjEPosition.Mins = 0;
+                ObjEPosition.LPMA = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["Faktor"]), out dValue))
-                    ObjEPosition.Faktor = dValue;
-                else
-                    ObjEPosition.Faktor = 1;
+                ObjEPosition.LPMO = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_listprice"]), out dValue))
-                    ObjEPosition.LPMA = dValue;
-                else
-                    ObjEPosition.LPMA = 0;
+                ObjEPosition.Multi1MA = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_listprice"]), out dValue))
-                    ObjEPosition.LPMO = dValue;
-                else
-                    ObjEPosition.LPMO = 0;
+                ObjEPosition.Multi2MA = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_Multi1"]), out dValue))
-                    ObjEPosition.Multi1MA = dValue;
-                else
-                    ObjEPosition.Multi1MA = 1;
+                ObjEPosition.Multi3MA = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_multi2"]), out dValue))
-                    ObjEPosition.Multi2MA = dValue;
-                else
-                    ObjEPosition.Multi2MA = 1;
+                ObjEPosition.Multi4MA = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_multi3"]), out dValue))
-                    ObjEPosition.Multi3MA = dValue;
-                else
-                    ObjEPosition.Multi3MA = 1;
+                ObjEPosition.Multi1MO = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_multi4"]), out dValue))
-                    ObjEPosition.Multi4MA = dValue;
-                else
-                    ObjEPosition.Multi4MA = 1;
+                ObjEPosition.Multi2MO = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_multi1"]), out dValue))
-                    ObjEPosition.Multi1MO = dValue;
-                else
-                    ObjEPosition.Multi1MO = 1;
+                ObjEPosition.Multi3MO = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_multi2"]), out dValue))
-                    ObjEPosition.Multi2MO = dValue;
-                else
-                    ObjEPosition.Multi2MO = 1;
+                ObjEPosition.Multi4MO = 1;
+                ObjEPosition.EinkaufspreisMA = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_multi3"]), out dValue))
-                    ObjEPosition.Multi3MO = dValue;
-                else
-                    ObjEPosition.Multi3MO = 1;
+                ObjEPosition.EinkaufspreisMO = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_multi4"]), out dValue))
-                    ObjEPosition.Multi4MO = dValue;
-                else
-                    ObjEPosition.Multi4MO = 1;
-                if (decimal.TryParse(Convert.ToString(dr["MA_einkaufspreis"]), out dValue))
-                    ObjEPosition.EinkaufspreisMA = dValue;
-                else
-                    ObjEPosition.EinkaufspreisMA = 0;
+                ObjEPosition.SelbstkostenMultiMA = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_Einkaufspreis"]), out dValue))
-                    ObjEPosition.EinkaufspreisMO = dValue;
-                else
-                    ObjEPosition.EinkaufspreisMO = 0;
+                ObjEPosition.SelbstkostenValueMA = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_selbstkostenMulti"]), out dValue))
-                    ObjEPosition.SelbstkostenMultiMA = dValue;
-                else
-                    ObjEPosition.SelbstkostenMultiMA = 1;
+                ObjEPosition.SelbstkostenMultiMO = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_selbstkosten"]), out dValue))
-                    ObjEPosition.SelbstkostenValueMA = dValue;
-                else
-                    ObjEPosition.SelbstkostenValueMA = 0;
+                ObjEPosition.SelbstkostenValueMO = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_selbstkostenMulti"]), out dValue))
-                    ObjEPosition.SelbstkostenMultiMO = dValue;
-                else
-                    ObjEPosition.SelbstkostenMultiMO = 1;
+                ObjEPosition.VerkaufspreisMultiMA = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_selbstkosten"]), out dValue))
-                    ObjEPosition.SelbstkostenValueMO = dValue;
-                else
-                    ObjEPosition.SelbstkostenValueMO = 0;
+                ObjEPosition.VerkaufspreisValueMA = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_verkaufspreis_Multi"]), out dValue))
-                    ObjEPosition.VerkaufspreisMultiMA = dValue;
-                else
-                    ObjEPosition.VerkaufspreisMultiMA = 1;
+                ObjEPosition.VerkaufspreisMultiMO = 1;
 
-                if (decimal.TryParse(Convert.ToString(dr["MA_verkaufspreis"]), out dValue))
-                    ObjEPosition.VerkaufspreisValueMA = dValue;
-                else
-                    ObjEPosition.VerkaufspreisValueMA = 0;
+                ObjEPosition.VerkaufspreisValueMO = 0;
+                ObjEPosition.StdSatz = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["MO_verkaufspreisMulti"]), out dValue))
-                    ObjEPosition.VerkaufspreisMultiMO = dValue;
-                else
-                    ObjEPosition.VerkaufspreisMultiMO = 1;
-
-                if (decimal.TryParse(Convert.ToString(dr["MO_verkaufspreis"]), out dValue))
-                    ObjEPosition.VerkaufspreisValueMO = dValue;
-                else
-                    ObjEPosition.VerkaufspreisValueMO = 0;
-                if (decimal.TryParse(Convert.ToString(dr["std_satz"]), out dValue))
-                    ObjEPosition.StdSatz = dValue;
-                else
-                    ObjEPosition.StdSatz = 0;
-
-                ObjEPosition.PreisText = Convert.ToString(dr["PreisText"]);
+                ObjEPosition.PreisText = string.Empty;
                 ObjEPosition.EinkaufspreisLockMA = false;
                 ObjEPosition.EinkaufspreisLockMO = false;
                 ObjEPosition.SelbstkostenLockMA = false;
                 ObjEPosition.SelbstkostenLockMO = false;
                 ObjEPosition.VerkaufspreisLockMA = false;
                 ObjEPosition.VerkaufspreisLockMO = false;
-                ObjEPosition.Dim1 = Convert.ToString(dr["A"]);
-                ObjEPosition.Dim2 = Convert.ToString(dr["B"]);
-                ObjEPosition.Dim3 = Convert.ToString(dr["L"]);
-                ObjEPosition.LVStatus = Convert.ToString(dr["LVStatus"]);
-                if (decimal.TryParse(Convert.ToString(dr["GrandTotalME"]), out dValue))
-                    ObjEPosition.GrandTotalME = dValue;
-                else
-                    ObjEPosition.GrandTotalME = 0;
+                ObjEPosition.Dim1 = "";
+                ObjEPosition.Dim2 = "";
+                ObjEPosition.Dim3 = "";
+                ObjEPosition.LVStatus = string.Empty;
+                ObjEPosition.GrandTotalME = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["GrandTotalMO"]), out dValue))
-                    ObjEPosition.GrandTotalMO = dValue;
-                else
-                    ObjEPosition.GrandTotalMO = 0;
+                ObjEPosition.GrandTotalMO = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["GB"]), out dValue))
-                    ObjEPosition.FinalGB = dValue;
-                else
-                    ObjEPosition.FinalGB = 0;
+                ObjEPosition.FinalGB = 0;
 
-                if (decimal.TryParse(Convert.ToString(dr["EP"]), out dValue))
-                    ObjEPosition.EP = dValue;
-                else
-                    ObjEPosition.EP = 0;
+                ObjEPosition.EP = 0;
 
                 ObjEPosition.SNO = iTempSNO;
             }

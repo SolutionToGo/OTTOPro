@@ -452,7 +452,8 @@ namespace OTTOPro
         {
             try
             {
-                if (e.KeyCode == Keys.Enter && txtCustStreet.Lines.Length >= 2)
+                RichTextBox txt = (RichTextBox)sender;
+                if (e.KeyCode == Keys.Enter && txt.Lines.Length >= 2)
                 {
                     e.Handled = true;
                 }

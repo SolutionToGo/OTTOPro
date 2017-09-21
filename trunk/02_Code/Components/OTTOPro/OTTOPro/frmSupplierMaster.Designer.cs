@@ -268,6 +268,7 @@
             this.txtFullName.Size = new System.Drawing.Size(283, 44);
             this.txtFullName.TabIndex = 12;
             this.txtFullName.Text = "";
+            this.txtFullName.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtAddrStreetNo_KeyDown);
             // 
             // txtSupplierEmail
             // 
