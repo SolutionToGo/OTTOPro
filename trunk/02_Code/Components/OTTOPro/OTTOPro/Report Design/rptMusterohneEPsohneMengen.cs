@@ -74,6 +74,22 @@ namespace OTTOPro.Report_Design
             {
                 Utility.ShowError(ex);
             }
+        }       
+
+        private void lblTitle_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(lblTitle.Text))
+                {
+                    string _title = lblTitle.Text;
+                    lblTitle.Text = _title.Substring(0, 3);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
     }

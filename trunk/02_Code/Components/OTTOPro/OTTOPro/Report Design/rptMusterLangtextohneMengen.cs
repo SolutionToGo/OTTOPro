@@ -319,6 +319,16 @@ namespace OTTOPro.Report_Design
         }
 
 
+        private void lbltitle_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lbltitle.Text))
+            {
+                string _title = lbltitle.Text;
+                lbltitle.Text = _title.Substring(0, 3);
+            }       
+        }
+
+
     
 //**********************
 

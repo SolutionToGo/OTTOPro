@@ -94,6 +94,8 @@
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.lbltitle = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLine11 = new DevExpress.XtraReports.UI.XRLine();
             this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrRichText4 = new DevExpress.XtraReports.UI.XRRichText();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
@@ -749,10 +751,35 @@
             // 
             // GroupHeader1
             // 
+            this.GroupHeader1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.lbltitle,
+            this.xrLine11});
             this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("Parent_OZ", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
-            this.GroupHeader1.HeightF = 0F;
+            this.GroupHeader1.HeightF = 27.61459F;
             this.GroupHeader1.Name = "GroupHeader1";
+            // 
+            // lbltitle
+            // 
+            this.lbltitle.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).Parent")});
+            this.lbltitle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lbltitle.ForeColor = System.Drawing.Color.Black;
+            this.lbltitle.LocationFloat = new DevExpress.Utils.PointFloat(2.749984F, 0F);
+            this.lbltitle.Name = "lbltitle";
+            this.lbltitle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lbltitle.SizeF = new System.Drawing.SizeF(133.5742F, 23F);
+            this.lbltitle.StylePriority.UseFont = false;
+            this.lbltitle.StylePriority.UseForeColor = false;
+            this.lbltitle.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.lbltitle_BeforePrint);
+            // 
+            // xrLine11
+            // 
+            this.xrLine11.ForeColor = System.Drawing.Color.Maroon;
+            this.xrLine11.LocationFloat = new DevExpress.Utils.PointFloat(0.0002066294F, 25.53126F);
+            this.xrLine11.Name = "xrLine11";
+            this.xrLine11.SizeF = new System.Drawing.SizeF(774.9645F, 2.083334F);
+            this.xrLine11.StylePriority.UseForeColor = false;
             // 
             // GroupFooter2
             // 
@@ -1679,5 +1706,7 @@
         private DevExpress.XtraReports.UI.XRLine xrLine10;
         private DevExpress.XtraReports.UI.XRRichText xrRichText5;
         private DevExpress.XtraReports.UI.XRRichText xrRichText6;
+        private DevExpress.XtraReports.UI.XRLine xrLine11;
+        private DevExpress.XtraReports.UI.XRLabel lbltitle;
     }
 }

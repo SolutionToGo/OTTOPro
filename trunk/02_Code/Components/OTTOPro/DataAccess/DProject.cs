@@ -256,7 +256,7 @@ namespace DAL
             return ObjEProject;
         }
 
-        public EProject GetComparePrice(EProject ObjEProject, string _wg, string _wa, string _typ, string _Type,int _PosID)
+        public EProject GetComparePrice(EProject ObjEProject, string _wg, string _wa, string _wi, string _a, string _b, string _l, string _typ, string _Type, int _PosID)
         {
             DataSet dsComnparePrice = new DataSet();
             try
@@ -270,6 +270,10 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@CustomerID", ObjEProject.KundeNr);
                     cmd.Parameters.AddWithValue("@WG", _wg);
                     cmd.Parameters.AddWithValue("@WA", _wa);
+                    cmd.Parameters.AddWithValue("@WI", _wi);
+                    cmd.Parameters.AddWithValue("@A", _a);
+                    cmd.Parameters.AddWithValue("@B", _b);
+                    cmd.Parameters.AddWithValue("@L", _l);
                     cmd.Parameters.AddWithValue("@TYP", _typ);
                     cmd.Parameters.AddWithValue("@TYPE", _Type);
                     cmd.Parameters.AddWithValue("@PositionID", _PosID);

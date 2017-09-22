@@ -6296,7 +6296,7 @@ namespace OTTOPro
                        gcDelivery.DataSource = ObjEDeliveryNotes.dtNonActivedelivery;
                        SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count;
                    }
-               }
+               }               
             }
             catch (Exception ex)
             {
@@ -6392,6 +6392,8 @@ namespace OTTOPro
                 ObjEInvoice.InvoiceID = -1;
                 ObjEInvoice.ProjectID = ObjEProject.ProjectID;
                 ObjEInvoice.InvoiceNumber = txtInvoiceNumber.Text;
+                ObjEInvoice.InvoiceDescription = txtInvoiceDescription.Text;
+                ObjEInvoice.InvoiceType = txtInvoiceType.Text;
                 ObjEInvoice.IsFinalInvoice = chkFinalInvoice.Checked == true ? true : false;
                 DataTable dtTemp = ObjEInvoice.dtBlattNumbers.Copy();
                 dtTemp.Columns.Remove("BlattNumber");
@@ -6413,6 +6415,8 @@ namespace OTTOPro
                     frmOTTOPro.UpdateStatus("'" + txtInvoiceNumber.Text + "' Invoice Saved Successfully");
                 }
                 txtInvoiceNumber.Text = string.Empty;
+                txtInvoiceDescription.Text = string.Empty;
+                txtInvoiceType.Text = string.Empty;
             }
             catch (Exception ex)
             {
@@ -8771,7 +8775,7 @@ namespace OTTOPro
                         {
                             PosID = -1;
                         }
-                        ObjBProject.GetComparePrice(ObjEProject, txtWG.Text, txtWA.Text, txtType.Text, _type, PosID);
+                        ObjBProject.GetComparePrice(ObjEProject, txtWG.Text, txtWA.Text, txtWI.Text, txtDim1.Text, txtDim2.Text, txtDim3.Text, txtType.Text, _type, PosID);
                         if (ObjEProject.dsComaparePrice != null)
                         {
                             gcComparePrice.DataSource = ObjEProject.dsComaparePrice.Tables[0];
@@ -9001,6 +9005,7 @@ namespace OTTOPro
         {
             e.Effect = DragDropEffects.None;
         }
+
 
 
        

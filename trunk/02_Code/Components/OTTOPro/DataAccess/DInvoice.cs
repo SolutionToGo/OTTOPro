@@ -68,6 +68,8 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@InvoiceID", ObjEInvoice.InvoiceID);
                     cmd.Parameters.AddWithValue("@ProjectID", ObjEInvoice.ProjectID);
                     cmd.Parameters.AddWithValue("@InvoiceNumber", ObjEInvoice.InvoiceNumber);
+                    cmd.Parameters.AddWithValue("@InvoiceDescription", ObjEInvoice.InvoiceDescription);
+                    cmd.Parameters.AddWithValue("@InvoiceType", ObjEInvoice.InvoiceType);
                     cmd.Parameters.AddWithValue("@dtInvoice", ObjEInvoice.dtInvoice);
                     cmd.Parameters.AddWithValue("@IsFinalInvoice", ObjEInvoice.IsFinalInvoice);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))

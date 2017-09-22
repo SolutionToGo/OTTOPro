@@ -222,13 +222,13 @@ namespace BL
         }
 
 
-        public EProject GetComparePrice(EProject ObjEProject, string _wg, string _wa, string _typ, string _Type, int _PosID)
+        public EProject GetComparePrice(EProject ObjEProject, string _wg, string _wa, string _wi, string _a, string _b, string _l,string _typ, string _Type, int _PosID)
         {
             try
             {
                 if (ObjEProject != null)
                 {
-                    ObjEProject = ObjDAL.GetComparePrice(ObjEProject, _wg, _wa, _typ, _Type,_PosID);
+                    ObjEProject = ObjDAL.GetComparePrice(ObjEProject, _wg, _wa,_wi,_a,_b,_l,_typ, _Type,_PosID);
                 }
             }
             catch (Exception ex)
