@@ -24,37 +24,6 @@ namespace OTTOPro
             InitializeComponent();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Utility.ValidateRequiredFields(ReqFields) == false)
-                    return;
-                int iValue = 0;
-                if (ObjBArticle == null)
-                    ObjBArticle = new BArticles();
-                if (ObjEArticle == null)
-                    ObjEArticle = new EArticles();
-                ParseRabattDetails();
-                ObjEArticle = ObjBArticle.SaveRabatt(ObjEArticle);
-                iValue = ObjEArticle.RabattID;
-                BindRabattData();
-                Utility.Setfocus(gvRabatt, "RabattID", iValue);
-                if (Utility._IsGermany == true)
-                {
-                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Rabattgruppe(n)");
-                }
-                else
-                {
-                    frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -157,7 +126,6 @@ namespace OTTOPro
                     ObjEArticle.Multi4 = 1;
 
                 ObjEArticle.ValidityDate = dateEditValidityDate.DateTime;
-
             }
             catch (Exception ex)
             {
@@ -179,13 +147,14 @@ namespace OTTOPro
                         _IsBind = false;
                         ObjEArticle.RabattID = _IDValue;
                         txtRabatt.Text = gvRabatt.GetFocusedRowCellValue("Rabatt") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Rabatt").ToString();
-                        cmbType.SelectedValue = gvRabatt.GetFocusedRowCellValue("TypeID") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("TypeID");
                         txtMulti1.Text = gvRabatt.GetFocusedRowCellValue("Multi1") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Multi1").ToString();
                         txtMulti2.Text = gvRabatt.GetFocusedRowCellValue("Multi2") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Multi2").ToString();
                         txtMulti3.Text = gvRabatt.GetFocusedRowCellValue("Multi3") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Multi3").ToString();
                         txtMulti4.Text = gvRabatt.GetFocusedRowCellValue("Multi4") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Multi4").ToString();
                         dateEditValidityDate.DateTime = gvRabatt.GetFocusedRowCellValue("ValidityDate") == DBNull.Value ?
                             DateTime.Now : Convert.ToDateTime(gvRabatt.GetFocusedRowCellValue("ValidityDate"));
+                        ObjEArticle = ObjBArticle.GetTypByRabatt(ObjEArticle);
+                        gcTyp.DataSource = ObjEArticle.dtTypID;
                     }
                 }
             }
@@ -208,5 +177,89 @@ namespace OTTOPro
             }
         }
 
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(cmbType.SelectedValue != null)
+                {
+                    if (Utility.ValidateRequiredFields(ReqFields) == false)
+                        return;
+                    int iValue = 0;
+                    if (ObjBArticle == null)
+                        ObjBArticle = new BArticles();
+                    if (ObjEArticle == null)
+                        ObjEArticle = new EArticles();
+                    ParseRabattDetails();
+                    ObjEArticle = ObjBArticle.SaveRabatt(ObjEArticle);
+                    iValue = ObjEArticle.RabattID;
+                    BindRabattData();
+                    Utility.Setfocus(gvRabatt, "RabattID", iValue);
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Rabattgruppe(n)");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
+                    }
+
+                    //string IDValue = Convert.ToString(cmbType.SelectedValue);
+                    //string IDText = cmbType.Text;
+                    //if (ObjEArticle == null)
+                    //    ObjEArticle = new EArticles();
+                    //if(ObjEArticle.dtTypID == null)
+                    //{
+                    //    ObjEArticle.dtTypID = new DataTable();
+                    //    ObjEArticle.dtTypID.Columns.Add("TypID", typeof(int));
+                    //    ObjEArticle.dtTypID.Columns.Add("Typ", typeof(string));
+                    //}
+                    //DataRow[] FoundRows = ObjEArticle.dtTypID.Select("TypID = " + IDValue);
+                    //if (FoundRows.Length == 0)
+                    //{
+                    //    DataRow drnew = ObjEArticle.dtTypID.NewRow();
+                    //    drnew["TypID"] = IDValue;
+                    //    drnew["Typ"] = IDText;
+                    //    ObjEArticle.dtTypID.Rows.Add(drnew);
+                    //    gcTyp.DataSource = ObjEArticle.dtTypID;
+                    //}
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Utility.ValidateRequiredFields(ReqFields) == false)
+                        return;
+                    int iValue = 0;
+                    if (ObjBArticle == null)
+                        ObjBArticle = new BArticles();
+                    if (ObjEArticle == null)
+                        ObjEArticle = new EArticles();
+                    ParseRabattDetails();
+                    ObjEArticle = ObjBArticle.CopyRabatt(ObjEArticle);
+                    iValue = ObjEArticle.RabattID;
+                    BindRabattData();
+                    Utility.Setfocus(gvRabatt, "RabattID", iValue);
+                    if (Utility._IsGermany == true)
+                    {
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Rabattgruppe(n)");
+                    }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
+                    }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

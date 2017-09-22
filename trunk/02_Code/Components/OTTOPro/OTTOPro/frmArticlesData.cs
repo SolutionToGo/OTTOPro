@@ -378,7 +378,6 @@ namespace OTTOPro
                 frm.ShowDialog();
                 if (frm.DialogResult == DialogResult.OK)
                 {
-                    ObjBArticle.GetArticle(ObjEArticle);
                     BindDimensions(ObjEArticle.WIID);
                     Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
                     if (Utility._IsGermany == true)

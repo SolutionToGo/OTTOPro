@@ -53,6 +53,8 @@ namespace EL
         private int _RabbatID = -1;
         private DataTable _dtRabatt;
         private string _Rabatt;
+        private DataTable _dtTypID;
+        private DataTable _dtID;
 
         private int _ParentID;
         private int _ChildID;
@@ -347,6 +349,16 @@ namespace EL
         {
             get { return _ChildL; }
             set { _ChildL = value; }
+        }
+        public DataTable dtTypID
+        {
+            get { return _dtTypID; }
+            set { _dtTypID = value; }
+        }
+        public DataTable dtID
+        {
+            get { return _dtID; }
+            set { _dtID = value; }
         }
     }
 }

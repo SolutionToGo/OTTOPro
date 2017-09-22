@@ -277,7 +277,18 @@ namespace DataAccess
                            ObjEArticle.RabattID = iValue;
                            ObjEArticle.dtRabatt = dsRabatt.Tables[1];
                        }
-                       else if(str.Contains("UNIQUE"))
+                       else if (str.Contains("UC_RabattTypMap"))
+                       {
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                           {
+                               throw new Exception("Diese Typ existiert bereits");
+                           }
+                           else
+                           {
+                               throw new Exception("Typ OR Rabattgruppe Already Exists With Given ValidityDate");
+                           }
+                       }
+                       else if (str.Contains("UC_Rabatt"))
                        {
                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                            {
@@ -772,6 +783,98 @@ namespace DataAccess
            return dtDates;
        }
 
+       public EArticles GetTypByRabatt(EArticles ObjEArticle)
+       {
+           try
+           {
+               ObjEArticle.dtTypID = new DataTable();
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_TypByRabatt]";
+                   cmd.Parameters.Add("@RabattID", ObjEArticle.RabattID);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(ObjEArticle.dtTypID);
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               throw new Exception("Error While Retrieving Types");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
 
+       public EArticles CopyRabatt(XmlDocument xml, EArticles ObjEArticle)
+       {
+           DataSet dsRabatt = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   string innerxml = xml.InnerXml;
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Ins_Rabatt_Copy]";
+                   SqlParameter param = new SqlParameter("@XMLRabatt", SqlDbType.Xml);
+                   param.Value = innerxml;
+                   cmd.Parameters.Add(param);
+                   cmd.Parameters.Add("@dtTyp", ObjEArticle.dtID);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsRabatt);
+                   }
+                   if (dsRabatt != null && dsRabatt.Tables.Count > 0)
+                   {
+                       int iValue = 0;
+                       string str = dsRabatt.Tables[0].Rows[0][0] == DBNull.Value ? "" : dsRabatt.Tables[0].Rows[0][0].ToString();
+                       if (int.TryParse(str, out iValue))
+                       {
+                           ObjEArticle.RabattID = iValue;
+                           ObjEArticle.dtRabatt = dsRabatt.Tables[1];
+                       }
+                       else if (str.Contains("UC_RabattTypMap"))
+                       {
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                           {
+                               throw new Exception("Diese Typ existiert bereits");
+                           }
+                           else
+                           {
+                               throw new Exception("Typ OR Rabattgruppe Already Exists With Given ValidityDate");
+                           }
+                       }
+                       else if (str.Contains("UC_Rabatt"))
+                       {
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                           {
+                               throw new Exception("Diese Rabattgruppe existiert bereits");
+                           }
+                           else
+                           {
+                               throw new Exception("Rabatt Already Exists");
+                           }
+                       }
+                       else
+                           throw new Exception("Fehler beim Speichern der Rabattgruppe");
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               throw;
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
    }
 }

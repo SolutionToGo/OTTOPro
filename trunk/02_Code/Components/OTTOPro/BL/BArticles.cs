@@ -462,5 +462,54 @@ namespace BL
             return _dt;
         }
 
+        public EArticles GetTypByRabatt(EArticles ObjEArticle)
+        {
+            try
+            {
+                ObjEArticle = ObjDArticles.GetTypByRabatt(ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles CopyRabatt(EArticles ObjEArticle)
+        {
+            try
+            {
+                XmlDocument Xdoc = new XmlDocument();
+                string XPath = "/Nouns/Rabatt";
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RabattID", ObjEArticle.RabattID.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Rabatt", ObjEArticle.Rabatt.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TypeID", ObjEArticle.TypID.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1", ObjEArticle.Multi1.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2", ObjEArticle.Multi2.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3", ObjEArticle.Multi3.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4", ObjEArticle.Multi4.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEArticle.ValidityDate.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CreatedBy", ObjEArticle.CreatedBy.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastUpdatedBy", ObjEArticle.LastUpdatedBy.ToString());
+                if(ObjEArticle.dtTypID != null)
+                {
+                    ObjEArticle.dtID = ObjEArticle.dtTypID.Copy();
+                    ObjEArticle.dtID.Columns.Remove("Typ");
+                }
+                else
+                {
+                    ObjEArticle.dtID = new DataTable();
+                    ObjEArticle.dtID.Columns.Add("TypID", typeof(int));
+                }
+                if(ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjEArticle = ObjDArticles.CopyRabatt(Xdoc, ObjEArticle);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEArticle;
+        }
     }
 }
