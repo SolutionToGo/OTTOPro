@@ -8963,27 +8963,28 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
-               
+        }               
 
         private void nbComparePrice_LinkPressed(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             try
             {
-                if (tlPositions.Nodes.Count > 0)
+                if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                 {
-                    panelControldoc.Visible = true;
-                    toggleSwitchType.Visible = true;
-                    dockPanelArticles.Show();
-                    dockPanelArticles_Click(null, null);
-                }
+                    if (tlPositions.Nodes.Count > 0)
+                    {
+                        panelControldoc.Visible = true;
+                        toggleSwitchType.Visible = true;
+                        dockPanelArticles.Show();
+                        dockPanelArticles_Click(null, null);
+                    }
+                }                
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
-
 
         private void navBarItemProject_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -9005,9 +9006,7 @@ namespace OTTOPro
         {
             e.Effect = DragDropEffects.None;
         }
-
-
-
+      
        
 
     }

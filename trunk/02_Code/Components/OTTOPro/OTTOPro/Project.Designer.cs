@@ -3015,6 +3015,7 @@
             this.layoutControlItem26.Control = this.txtShortDescription;
             this.layoutControlItem26.Location = new System.Drawing.Point(0, 340);
             this.layoutControlItem26.Name = "layoutControlItem26";
+            this.layoutControlItem26.OptionsToolTip.ToolTip = "80 Figuren";
             this.layoutControlItem26.Size = new System.Drawing.Size(454, 28);
             this.layoutControlItem26.Text = "Kurz Text ";
             this.layoutControlItem26.TextLocation = DevExpress.Utils.Locations.Left;
@@ -4990,6 +4991,7 @@
             this.layoutControlItem40.Control = this.txtPreisText;
             this.layoutControlItem40.Location = new System.Drawing.Point(0, 234);
             this.layoutControlItem40.Name = "layoutControlItem40";
+            this.layoutControlItem40.OptionsToolTip.IconToolTip = "200 Figuren";
             this.layoutControlItem40.Size = new System.Drawing.Size(249, 44);
             this.layoutControlItem40.Text = "Preis Text";
             this.layoutControlItem40.TextLocation = DevExpress.Utils.Locations.Top;
