@@ -1108,7 +1108,7 @@
             this.xrLabelMO2,
             this.xrLabelEP2,
             this.xrLabel41});
-            this.GroupFooter4.HeightF = 54.85408F;
+            this.GroupFooter4.HeightF = 56.93741F;
             this.GroupFooter4.Name = "GroupFooter4";
             // 
             // xrLine10
@@ -1465,7 +1465,7 @@
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrLine4.ForeColor = System.Drawing.Color.Black;
-            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(0.7500331F, 7.479159F);
+            this.xrLine4.LocationFloat = new DevExpress.Utils.PointFloat(0.7500331F, 1.479159F);
             this.xrLine4.Name = "xrLine4";
             this.xrLine4.SizeF = new System.Drawing.SizeF(774.2147F, 2.083333F);
             this.xrLine4.StylePriority.UseBorderDashStyle = false;

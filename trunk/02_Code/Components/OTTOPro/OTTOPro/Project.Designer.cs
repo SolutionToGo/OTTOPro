@@ -6079,7 +6079,7 @@
             this.treeListColumn5.OptionsColumn.ReadOnly = true;
             this.treeListColumn5.Visible = true;
             this.treeListColumn5.VisibleIndex = 4;
-            this.treeListColumn5.Width = 70;
+            this.treeListColumn5.Width = 140;
             // 
             // rpiKtext
             // 

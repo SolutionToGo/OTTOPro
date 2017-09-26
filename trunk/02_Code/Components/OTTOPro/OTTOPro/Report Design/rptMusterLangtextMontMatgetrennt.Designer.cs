@@ -105,6 +105,7 @@
             this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             this.GroupHeader1 = new DevExpress.XtraReports.UI.GroupHeaderBand();
+            this.xrLine11 = new DevExpress.XtraReports.UI.XRLine();
             this.lblTitle = new DevExpress.XtraReports.UI.XRLabel();
             this.ProjectID = new DevExpress.XtraReports.Parameters.Parameter();
             this.sqlDataSource1 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
@@ -157,7 +158,6 @@
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrLine11 = new DevExpress.XtraReports.UI.XRLine();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -498,7 +498,7 @@
             this.xrTableCell7.StylePriority.UseFont = false;
             this.xrTableCell7.StylePriority.UseForeColor = false;
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
-            this.xrTableCell7.Text = "Text                  Materialpreis";
+            this.xrTableCell7.Text = "Text                 Materialpreis";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrTableCell7.Weight = 0.72420371225723845D;
             // 
@@ -909,6 +909,14 @@
             this.GroupHeader1.HeightF = 26.375F;
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.BeforeBand;
+            // 
+            // xrLine11
+            // 
+            this.xrLine11.ForeColor = System.Drawing.Color.Maroon;
+            this.xrLine11.LocationFloat = new DevExpress.Utils.PointFloat(0F, 23.81251F);
+            this.xrLine11.Name = "xrLine11";
+            this.xrLine11.SizeF = new System.Drawing.SizeF(777.0004F, 2.562491F);
+            this.xrLine11.StylePriority.UseForeColor = false;
             // 
             // lblTitle
             // 
@@ -1563,14 +1571,6 @@
             // 
             this.calculatedField1.DataMember = "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID)";
             this.calculatedField1.Name = "calculatedField1";
-            // 
-            // xrLine11
-            // 
-            this.xrLine11.ForeColor = System.Drawing.Color.Maroon;
-            this.xrLine11.LocationFloat = new DevExpress.Utils.PointFloat(0F, 23.81251F);
-            this.xrLine11.Name = "xrLine11";
-            this.xrLine11.SizeF = new System.Drawing.SizeF(777.0004F, 2.562491F);
-            this.xrLine11.StylePriority.UseForeColor = false;
             // 
             // rptMusterLangtextMontMatgetrennt
             // 

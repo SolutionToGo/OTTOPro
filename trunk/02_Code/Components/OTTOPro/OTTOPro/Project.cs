@@ -751,7 +751,7 @@ namespace OTTOPro
                     ObjEPosition.LVSection = cmbLVSection.Text;
                 ObjEPosition.WG = txtWG.Text;
                 ObjEPosition.WA = txtWA.Text;
-                ObjEPosition.WI = txtWI.Text;
+                ObjEPosition.WI = txtWI.Text;                       
 
                 if (decimal.TryParse(txtMenge.Text, out dValue))
                         ObjEPosition.Menge = dValue;
@@ -7641,7 +7641,7 @@ namespace OTTOPro
             try
             {
                 int iValue = 0;
-                decimal dValue = 0;
+                decimal _menge = 0;
                 DateTime dt = DateTime.Now;
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
                 ObjEPosition.PositionID = -1;
@@ -7666,9 +7666,22 @@ namespace OTTOPro
                 ObjEPosition.WG = string.Empty;
                 ObjEPosition.WA = string.Empty;
                 ObjEPosition.WI = string.Empty;
-                               
-                ObjEPosition.Menge = 1;
 
+                DataTable _dtMenge = null;
+                DataView dvMenge = ObjEPosition.dsPositionList.Tables[0].DefaultView;
+                dvMenge.RowFilter = "Position_OZ = '" + strPositionsOZ + "' AND DetailKZ = '" + 0 + "'";
+                _dtMenge = dvMenge.ToTable();
+               
+                foreach(DataRow row in _dtMenge.Rows)
+                {
+                    if (decimal.TryParse(Convert.ToString(row["Menge"]), out _menge))
+                    {
+                        ObjEPosition.Menge = _menge * 1;
+                    }
+                    else
+                        ObjEPosition.Menge = 1;
+                }            
+                
                 ObjEPosition.ME = string.Empty;
                 ObjEPosition.Fabricate = string.Empty;
                 ObjEPosition.LiefrantMA = string.Empty;
@@ -8427,6 +8440,7 @@ namespace OTTOPro
             try
             {
                 decimal dValue = 0;
+                decimal _Menge = 0;
                 DateTime dt = DateTime.Now;
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
                 ObjEPosition.RasterCount = iRasterCount;
@@ -8445,10 +8459,15 @@ namespace OTTOPro
                 ObjEPosition.Dim1 = Convert.ToString(dr["A"]);
                 ObjEPosition.Dim2 = Convert.ToString(dr["B"]);
                 ObjEPosition.Dim3 = Convert.ToString(dr["L"]);
+
+                if (decimal.TryParse(txtMenge.Text, out _Menge))
+                {  }
                 if (decimal.TryParse(Convert.ToString(dr["Menge"]), out dValue))
-                    ObjEPosition.Menge = dValue;
+                    ObjEPosition.Menge = _Menge * dValue;
                 else
                     ObjEPosition.Menge = 1;
+
+
                 ObjEArticles.WG = ObjEPosition.WG;
                 ObjEArticles.WA = ObjEPosition.WA;
                 ObjEArticles.WI = ObjEPosition.WI;
