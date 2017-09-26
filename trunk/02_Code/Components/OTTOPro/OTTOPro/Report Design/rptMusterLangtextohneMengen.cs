@@ -182,7 +182,6 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport1.GetCurrentColumnValue("GB") != DBNull.Value)
                     totalFinalGB3 += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("GB"));
-                xrLblGB.Text = Convert.ToDouble(totalFinalGB3).ToString("n2");
             }
             catch (Exception ex)
             {
@@ -233,7 +232,6 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport1.GetCurrentColumnValue("MoPrice") != DBNull.Value)
                     totalMO2Price += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MoPrice"));
-                xrLblMO.Text = Convert.ToDouble(totalMO2Price).ToString("n2");
             }
             catch (Exception ex)
             {
@@ -259,7 +257,6 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport1.GetCurrentColumnValue("MAPrice") != DBNull.Value)
                     totalMA2Price += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("MAPrice"));
-                xrLblMA.Text = Convert.ToDouble(totalMA2Price).ToString("n2"); ;
             }
             catch (Exception ex)
             {
@@ -326,6 +323,54 @@ namespace OTTOPro.Report_Design
                 string _title = lbltitle.Text;
                 lbltitle.Text = _title.Substring(0, 3);
             }       
+        }
+
+        private void xrLabel12_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            double _MAvalue = 0;
+            try
+            {
+                if (double.TryParse(Convert.ToString(xrLabel12.Summary.GetResult()), out _MAvalue))
+                {
+                    xrLblMA.Text = _MAvalue.ToString("n2");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void xrLabel15_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            double _MOvalue = 0;
+            try
+            {
+                if (double.TryParse(Convert.ToString(xrLabel15.Summary.GetResult()), out _MOvalue))
+                {
+                    xrLblMO.Text = _MOvalue.ToString("n2");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void xrLabel17_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            double _GBvalue = 0;
+            try
+            {
+                if (double.TryParse(Convert.ToString(xrLabel17.Summary.GetResult()), out _GBvalue))
+                {
+                    xrLblGB.Text = _GBvalue.ToString("n2");
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
 
