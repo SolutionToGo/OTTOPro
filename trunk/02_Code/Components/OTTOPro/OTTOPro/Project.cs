@@ -7380,8 +7380,7 @@ namespace OTTOPro
                             gvSupplier.Columns[_strShort].SummaryItem.FieldName = _strShort;
                             gvSupplier.Columns[_strShort].SummaryItem.DisplayFormat = "{0:n2}";
 
-                            gvSupplier.Columns[_strShort].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                            gvSupplier.Columns[_strShort].DisplayFormat.FormatString = "n3";
+                            gvSupplier.Columns[_strShort].ColumnEdit = riSupplier;
                         }
                         gvSupplier.Columns["Cheapest"].SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Sum;
                         gvSupplier.Columns["Cheapest"].SummaryItem.FieldName = "Cheapest";

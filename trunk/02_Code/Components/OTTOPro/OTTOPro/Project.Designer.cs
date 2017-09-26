@@ -1123,6 +1123,7 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
+            this.riSupplier = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -1899,6 +1900,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.riSupplier)).BeginInit();
             this.SuspendLayout();
             // 
             // txtSurchargeTo
@@ -13906,7 +13908,8 @@
             this.gcSupplier.MainView = this.gvSupplier;
             this.gcSupplier.Name = "gcSupplier";
             this.gcSupplier.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemCheckEdit1});
+            this.repositoryItemCheckEdit1,
+            this.riSupplier});
             this.gcSupplier.Size = new System.Drawing.Size(1498, 384);
             this.gcSupplier.TabIndex = 17;
             this.gcSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -15581,6 +15584,14 @@
             this.toolStripMenuItemRemove.Text = "Entfernen";
             this.toolStripMenuItemRemove.Click += new System.EventHandler(this.toolStripMenuItemRemove_Click);
             // 
+            // riSupplier
+            // 
+            this.riSupplier.AutoHeight = false;
+            this.riSupplier.Mask.EditMask = "n3";
+            this.riSupplier.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.riSupplier.Mask.UseMaskAsDisplayFormat = true;
+            this.riSupplier.Name = "riSupplier";
+            // 
             // frmProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -16380,6 +16391,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem17)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dxValidationProvider1)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.riSupplier)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -17473,6 +17485,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem235;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn89;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn88;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit riSupplier;
 
 
     }
