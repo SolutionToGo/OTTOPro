@@ -744,9 +744,55 @@ namespace BL
             try
             {
                 string Raster = GetRaster(strFilePath);
-                objEGAEB.dsLVData = CreateDatasetSchema(strFilePath, string.Empty, Raster,objEGAEB);
+                objEGAEB.dsLVData = CreateDatasetSchema(strFilePath, string.Empty, Raster, objEGAEB);
+                DataRow[] TopRows = objEGAEB.dsLVData.Tables[0].Select("Art NOT IN ('NG','H')");
+                if (TopRows != null && TopRows.Count() > 0)
+                {
+                    string strFirstOZ = string.Empty;
+                    string strSecondOZ = string.Empty;
+                    if (TopRows.Count() > 0)
+                    {
+                        strFirstOZ = TopRows[0]["OZ"] == DBNull.Value ? "" : Convert.ToString(TopRows[0]["OZ"]);
+                        if (TopRows.Count() > 1)
+                            strSecondOZ = TopRows[1]["OZ"] == DBNull.Value ? "" : Convert.ToString(TopRows[1]["OZ"]);
+                    }
+                    string[] FirstOZ = strFirstOZ.Split('.');
+                    string[] SecondOZ = strSecondOZ.Split('.');
+                    int IValue = 0;
+                    int FirstValue = 0;
+                    int SecondValue = 0;
+                    if (FirstOZ != null)
+                    {
+                        if (FirstOZ.Count() > 2 && int.TryParse(FirstOZ[FirstOZ.Count() - 2], out IValue))
+                        {
+                            FirstValue = IValue;
+                            if (SecondOZ != null)
+                            {
+                                if (SecondOZ.Count() > 2 && int.TryParse(SecondOZ[SecondOZ.Count() - 2], out IValue))
+                                {
+                                    SecondValue = IValue;
+                                    if (SecondValue > FirstValue && SecondValue > 0 && FirstValue > 0)
+                                    {
+                                        objEGAEB.LVSprunge = SecondValue - FirstValue;
+                                    }
+                                    else
+                                        objEGAEB.LVSprunge = 10;
+                                }
+                                else
+                                    objEGAEB.LVSprunge = 10;
+                            }
+                            else
+                                objEGAEB.LVSprunge = 10;
+                        }
+                        else
+                            objEGAEB.LVSprunge = 10;
+                    }
+                    else
+                        objEGAEB.LVSprunge = 10;
+                }
+                else
+                    objEGAEB.LVSprunge = 10;
                 objEGAEB.LvRaster = Raster;
-                objEGAEB.LVSprunge = 10;
                 ObjGAEB.ProjectImport(objEGAEB);
             }
             catch (Exception ex)

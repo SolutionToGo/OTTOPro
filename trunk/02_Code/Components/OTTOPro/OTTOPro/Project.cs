@@ -3584,7 +3584,13 @@ namespace OTTOPro
                         {
                             ObjBPosition.Deleteposition(iValue);
                             tlPositions.DeleteSelectedNodes();
-                            btnSaveLVDetails_Click(null, null);
+                            string strTempID = tlPositions.FocusedNode["PositionID"] == null ? "" : Convert.ToString(tlPositions.FocusedNode["PositionID"]);
+                            BindPositionData();
+                            int ID = 0;
+                            if (int.TryParse(strTempID, out ID))
+                            {
+                                SetFocus(ID, tlPositions);
+                            }
                         }
                         else
                         {
@@ -8338,7 +8344,7 @@ namespace OTTOPro
             
             try
             {
-                string strPositionKZ = Convert.ToString(tlPositions.FocusedNode["PositionKZ"]);
+                string strPositionKZ = cmbPositionKZ.Text;
                 if (strPositionKZ == "N" || strPositionKZ == "E" || strPositionKZ == "A" || strPositionKZ == "M" || strPositionKZ == "P")
                 {
                     BArticles ObjBArticles = new BArticles();
@@ -8400,11 +8406,8 @@ namespace OTTOPro
                     {
                         SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
                         SplashScreenManager.Default.SetWaitFormDescription("Zubehör hinzufügen...");
-                        if (ObjEPosition.PositionID < 0)
-                        {
-                            btnSaveLVDetails_Click(null, null);
-                            btnCancel_Click(null, null);
-                        }
+                        btnSaveLVDetails_Click(null, null);
+                        btnCancel_Click(null, null);
                         int NewPositionID = 0;
                         int IDetailKz = 0;
 
@@ -8460,10 +8463,13 @@ namespace OTTOPro
                 ObjEPosition.Dim2 = Convert.ToString(dr["B"]);
                 ObjEPosition.Dim3 = Convert.ToString(dr["L"]);
 
-                if (decimal.TryParse(txtMenge.Text, out _Menge))
-                {  }
+                if (decimal.TryParse(txtMenge.Text, out dValue))
+                    _Menge = dValue;
+                else
+                    _Menge = 1;
+
                 if (decimal.TryParse(Convert.ToString(dr["Menge"]), out dValue))
-                    ObjEPosition.Menge = _Menge * dValue;
+                    ObjEPosition.Menge = dValue * _Menge;
                 else
                     ObjEPosition.Menge = 1;
 

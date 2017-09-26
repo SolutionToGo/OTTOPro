@@ -67,6 +67,7 @@ namespace OTTOPro
                     layoutControlItem4.Visibility=DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     layoutControlItem3.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lblArticle.Text = strArticle;
+                    gvDimensions.OptionsBehavior.Editable = false;
                 }
                 
             }
