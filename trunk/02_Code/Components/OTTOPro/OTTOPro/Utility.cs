@@ -139,10 +139,6 @@ namespace OTTOPro
             try
             {
                 string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-                //string ProductFilePath = appPath + ConfigurationManager.AppSettings["ProductFilePath"].ToString();
-                //string ClientFilePath = appPath + ConfigurationManager.AppSettings["ClientFilePath"].ToString();
-
-
                 string ProductFilePath = appPath + ConfigurationManager.AppSettings["ProductFilePath"].ToString();
                 string ClientFilePath = appPath + ConfigurationManager.AppSettings["ClientFilePath"].ToString();
                 string LicenseKey = ConfigurationManager.AppSettings["LicenseKey"].ToString();

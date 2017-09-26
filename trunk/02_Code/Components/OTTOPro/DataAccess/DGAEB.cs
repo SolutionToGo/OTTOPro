@@ -1,4 +1,5 @@
 ﻿using DAL;
+using EL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -234,6 +235,49 @@ namespace DataAccess
                 SQLCon.Sqlconn().Close();
             }
             return Old_Raster;
+        }
+
+        public int ProjectImport(EGAEB ObjEGAEB)
+        {
+            int iValue = 0;
+            try
+            {
+                if (ObjEGAEB.dsLVData != null && ObjEGAEB.dsLVData.Tables.Count > 0)
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = SQLCon.Sqlconn();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "[P_Imp_project]";
+                        cmd.Parameters.AddWithValue("@ProjectNumber", ObjEGAEB.ProjectNumber);
+                        cmd.Parameters.AddWithValue("@ProjectDescription", ObjEGAEB.ProjectDescription);
+                        cmd.Parameters.AddWithValue("@LVRaster", ObjEGAEB.LvRaster);
+                        cmd.Parameters.AddWithValue("@LVSprunge", ObjEGAEB.LVSprunge);
+                        cmd.Parameters.AddWithValue("@CustomerName", ObjEGAEB.CustomerName);
+                        cmd.Parameters.AddWithValue("@dtImport", ObjEGAEB.dsLVData.Tables[ObjEGAEB.dsLVData.Tables.Count - 1]);
+                        cmd.Parameters.AddWithValue("@UserID", ObjEGAEB.UserID);
+                        cmd.Parameters.AddWithValue("@IsSave", ObjEGAEB.IsSave);
+                        ObjEGAEB.dsProject = new DataSet();
+                        using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        {
+                            da.Fill(ObjEGAEB.dsProject, "Positions");
+                        }
+                        if (ObjEGAEB.dsProject.Tables.Count > 1)
+                        {
+                            ObjEGAEB.ProjectNumber = Convert.ToString(ObjEGAEB.dsProject.Tables[1].Rows[0]["ProjectNumber"]);
+                            ObjEGAEB.ProjectDescription = Convert.ToString(ObjEGAEB.dsProject.Tables[1].Rows[0]["ProjectDescription"]);
+                            ObjEGAEB.CustomerName = Convert.ToString(ObjEGAEB.dsProject.Tables[1].Rows[0]["CustomerName"]);
+                        }
+                        else
+                        {
+                            throw new Exception("Selected Project Number Already Exists");
+                        }
+                    }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return iValue;
         }
     }
 }

@@ -13,6 +13,8 @@ using System.Threading;
 using DevExpress.XtraSplashScreen;
 using EL;
 using BL;
+using System.Configuration;
+using System.IO;
 
 namespace OTTOPro
 {
@@ -368,6 +370,52 @@ namespace OTTOPro
             frmAccessories Obj = new frmAccessories();           
             Obj.ShowDialog();
         }
-       
+
+        private void btnProjectImport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                string strFilePath = string.Empty;
+                OpenFileDialog dlg = new OpenFileDialog();
+
+                dlg.InitialDirectory = @"C:\";
+                dlg.Title = "Dateiauswahl für GAEB Import";
+
+                dlg.CheckFileExists = true;
+                dlg.CheckPathExists = true;
+
+                dlg.Filter = "All files (*.*)|*.*";
+                dlg.RestoreDirectory = true;
+
+                dlg.ReadOnlyChecked = true;
+                dlg.ShowReadOnly = true;
+                if (dlg.ShowDialog() == DialogResult.OK)
+                    strFilePath = dlg.FileName;
+                if (!string.IsNullOrEmpty(strFilePath))
+                {
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
+                    string strOutputFilepath = string.Empty;
+                    string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    if (!Directory.Exists(strOTTOFilePath))
+                        Directory.CreateDirectory(strOTTOFilePath);
+                    string strFileName = Path.GetFileNameWithoutExtension(strFilePath);
+                    strOutputFilepath = strOTTOFilePath + strFileName + ".tml";
+                    Utility.ProcesssFile(strFilePath, strOutputFilepath);
+                    SplashScreenManager.CloseForm(false);
+                    BGAEB ObjBGAEB = new BGAEB();
+                    EGAEB ObjEGAEB = new EGAEB();
+                    ObjEGAEB.UserID = Utility.UserID;
+                    ObjEGAEB = ObjBGAEB.ProjectImport(strOutputFilepath, ObjEGAEB);
+                    frmViewProject Obj = new frmViewProject(ObjEGAEB);
+                    Obj.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
+            }   
+        }
     }
 }

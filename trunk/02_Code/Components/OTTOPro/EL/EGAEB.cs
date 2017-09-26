@@ -14,6 +14,16 @@ namespace EL
         private XmlDocument _XMLDoc = null;
         private string _OldRaster = string.Empty;
         private string _NewRaster = string.Empty;
+        private DataSet _dsLVData;
+        private string _ProjectDescription = string.Empty;
+        private string _ProjectNumber = string.Empty;
+        private string _LvRaster = string.Empty;
+        private int _LVSprunge = 0;
+        private string _customerName = string.Empty;
+        private int _UserID = 0;
+        private DataSet _dsProject = null;
+        private bool _IsSave = false;
+
 
         public int ProjectID
         {
@@ -42,6 +52,51 @@ namespace EL
         {
             get { return _dtLVRaster; }
             set { _dtLVRaster = value; }
+        }
+        public DataSet dsLVData
+        {
+            get { return _dsLVData; }
+            set { _dsLVData = value; }
+        }
+        public string ProjectDescription
+        {
+            get { return _ProjectDescription; }
+            set { _ProjectDescription = value; }
+        }
+        public string LvRaster
+        {
+            get { return _LvRaster; }
+            set { _LvRaster = value; }
+        }
+        public int LVSprunge
+        {
+            get { return _LVSprunge; }
+            set { _LVSprunge = value; }
+        }
+        public string CustomerName
+        {
+            get { return _customerName; }
+            set { _customerName = value; }
+        }
+        public int UserID
+        {
+            get { return _UserID; }
+            set { _UserID = value; }
+        }
+        public string ProjectNumber
+        {
+            get { return _ProjectNumber; }
+            set { _ProjectNumber = value; }
+        }
+        public DataSet dsProject
+        {
+            get { return _dsProject; }
+            set { _dsProject = value; }
+        }
+        public bool IsSave
+        {
+            get { return _IsSave; }
+            set { _IsSave = value; }
         }
     }
 }

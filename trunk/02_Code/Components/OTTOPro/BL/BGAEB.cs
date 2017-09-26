@@ -18,7 +18,6 @@ namespace BL
     public class BGAEB
     {
         DGAEB ObjGAEB = new DGAEB();
-        EGAEB objEGAEB = new EGAEB();
 
         public XmlDocument Export(int ProjectID, string strLVSection,string strFormat,string _Raster)
         {
@@ -225,7 +224,8 @@ namespace BL
             try
             {
                 string Raster = GetRaster(strFilePath);
-                DataSet dsTMLData = CreateDatasetSchema(strFilePath, strLVSection, Raster);
+                EGAEB ObjEGAEB = new EGAEB();
+                DataSet dsTMLData = CreateDatasetSchema(strFilePath, strLVSection, Raster, ObjEGAEB);
                 iValue = ObjGAEB.Import(ProjectID, dsTMLData, Raster);
             }
             catch (Exception ex)
@@ -235,7 +235,7 @@ namespace BL
             return iValue;
         }
 
-        private DataSet CreateDatasetSchema(string strFilePath, string strLVSection, string Raster)
+        private DataSet CreateDatasetSchema(string strFilePath, string strLVSection, string Raster, EGAEB ObjEGAEB)
         {
             DataSet dsXmlData = new DataSet("Generic");
             try
@@ -262,6 +262,27 @@ namespace BL
 
                 XmlDocument xDoc = new XmlDocument();
                 xDoc.Load(strFilePath);
+                
+                XmlNodeList xnProjectInfo = xDoc.GetElementsByTagName("PrjInfo");
+                foreach (XmlNode xn in xnProjectInfo)
+                {
+                    XmlNode xnPDescription = xn.SelectSingleNode("Bez");
+                    if (xnPDescription != null)
+                        ObjEGAEB.ProjectDescription = xnPDescription.InnerText;
+                    else
+                        ObjEGAEB.CustomerName = string.Empty;
+                }
+
+                XmlNodeList xnAGInfo = xDoc.GetElementsByTagName("AG");
+                foreach (XmlNode xn in xnProjectInfo)
+                {
+                    XmlNode xnCustomerName = xn.SelectSingleNode("Name1");
+                    if (xnCustomerName != null)
+                        ObjEGAEB.CustomerName = xnCustomerName.InnerText;
+                    else
+                        ObjEGAEB.CustomerName = string.Empty;
+                }
+
                 XmlNodeList xnLVPos = xDoc.GetElementsByTagName("LVPos");
                 string strART = string.Empty;
                 int iSNO = 0;
@@ -716,6 +737,36 @@ namespace BL
                 throw;
             }
             return str;
+        }
+
+        public EGAEB ProjectImport(string strFilePath, EGAEB objEGAEB)
+        {
+            try
+            {
+                string Raster = GetRaster(strFilePath);
+                objEGAEB.dsLVData = CreateDatasetSchema(strFilePath, string.Empty, Raster,objEGAEB);
+                objEGAEB.LvRaster = Raster;
+                objEGAEB.LVSprunge = 10;
+                ObjGAEB.ProjectImport(objEGAEB);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objEGAEB;
+        }
+        
+        public EGAEB SaveeProject(EGAEB objEGAEB)
+        {
+            try
+            {
+                ObjGAEB.ProjectImport(objEGAEB);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return objEGAEB;
         }
     }
 }

@@ -43,7 +43,7 @@
             this.btnCustomers = new DevExpress.XtraBars.BarButtonItem();
             this.btnSuppliers = new DevExpress.XtraBars.BarButtonItem();
             this.btnPlanners = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItemSave = new DevExpress.XtraBars.BarButtonItem();
+            this.btnProjectImport = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItemShortcuts = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
@@ -104,7 +104,7 @@
             this.btnCustomers,
             this.btnSuppliers,
             this.btnPlanners,
-            this.barButtonItemSave,
+            this.btnProjectImport,
             this.barButtonItemShortcuts,
             this.barButtonItem1,
             this.barButtonItem2,
@@ -182,12 +182,13 @@
             this.btnPlanners.Id = 7;
             this.btnPlanners.Name = "btnPlanners";
             // 
-            // barButtonItemSave
+            // btnProjectImport
             // 
-            this.barButtonItemSave.Caption = "Projekt speichern";
-            this.barButtonItemSave.Id = 10;
-            this.barButtonItemSave.Name = "barButtonItemSave";
-            this.barButtonItemSave.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+            this.btnProjectImport.Caption = "Project Import";
+            this.btnProjectImport.Id = 10;
+            this.btnProjectImport.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Import;
+            this.btnProjectImport.Name = "btnProjectImport";
+            this.btnProjectImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnProjectImport_ItemClick);
             // 
             // barButtonItemShortcuts
             // 
@@ -409,7 +410,7 @@
             // 
             this.ribbonPageGroup1.ItemLinks.Add(this.btnNewProject);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLoadProject, true);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemSave, true);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnProjectImport, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemExitProject, true);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Projekt";
@@ -542,7 +543,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 7.2 (13-09-2017)";
+            this.label1.Text = "Version 7.3 (23-09-2017)";
             // 
             // fdImportFile
             // 
@@ -611,7 +612,7 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel tsStatus;
         private System.Windows.Forms.Timer tmrStatus;
-        private DevExpress.XtraBars.BarButtonItem barButtonItemSave;
+        private DevExpress.XtraBars.BarButtonItem btnProjectImport;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DevExpress.XtraBars.BarButtonItem barButtonItemShortcuts;

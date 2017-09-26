@@ -423,6 +423,12 @@
     <Compile Include="frmViewdescription.Designer.cs">
       <DependentUpon>frmViewdescription.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmViewProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewProject.Designer.cs">
+      <DependentUpon>frmViewProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoadProject.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -669,6 +675,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewdescription.resx">
       <DependentUpon>frmViewdescription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewProject.resx">
+      <DependentUpon>frmViewProject.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LoadProject.resx">
       <DependentUpon>LoadProject.cs</DependentUpon>
