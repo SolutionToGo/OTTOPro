@@ -31,7 +31,6 @@ namespace OTTOPro.Report_Design
             {
                 if (DetailReport1.GetCurrentColumnValue("GB") != DBNull.Value)
                     totalUnits += Convert.ToDouble(DetailReport1.GetCurrentColumnValue("GB"));
-                xrLblGB.Text = Convert.ToDouble(totalUnits).ToString("n2");
             }
             catch (Exception ex)
             {
@@ -149,6 +148,22 @@ namespace OTTOPro.Report_Design
                 {
                     string _title = lblTitle.Text;
                     lblTitle.Text = _title.Substring(0, 3);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void xrLabel23_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            double _GBvalue = 0;
+            try
+            {
+                if (double.TryParse(Convert.ToString(xrLabel23.Summary.GetResult()), out _GBvalue))
+                {
+                    xrLblGB.Text = _GBvalue.ToString("n2");
                 }
             }
             catch (Exception ex)
