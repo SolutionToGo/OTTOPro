@@ -213,6 +213,7 @@ namespace DataAccess
                         da.Fill(dsPositions);
                     }
                     ObjEDeliveryNotes.dtNonActivedelivery = dsPositions.Tables[0];
+                    ObjEDeliveryNotes.dtPositions = dsPositions.Tables[1];
                 }
             }
             catch (Exception ex)

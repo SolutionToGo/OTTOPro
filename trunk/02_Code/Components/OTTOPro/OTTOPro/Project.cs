@@ -6300,6 +6300,7 @@ namespace OTTOPro
                        txtBlattNumber.Text = ObjEDeliveryNotes.BlattName;
                        ObjEDeliveryNotes = ObjBDeliveryNotes.GetBlattDetails(ObjEDeliveryNotes);
                        gcDelivery.DataSource = ObjEDeliveryNotes.dtNonActivedelivery;
+                       gcPositions.DataSource = ObjEDeliveryNotes.dtPositions;
                        SNO = ObjEDeliveryNotes.dtNonActivedelivery.Rows.Count;
                    }
                }               
@@ -7671,22 +7672,7 @@ namespace OTTOPro
                 ObjEPosition.WG = string.Empty;
                 ObjEPosition.WA = string.Empty;
                 ObjEPosition.WI = string.Empty;
-
-                DataTable _dtMenge = null;
-                DataView dvMenge = ObjEPosition.dsPositionList.Tables[0].DefaultView;
-                dvMenge.RowFilter = "Position_OZ = '" + strPositionsOZ + "' AND DetailKZ = '" + 0 + "'";
-                _dtMenge = dvMenge.ToTable();
-               
-                foreach(DataRow row in _dtMenge.Rows)
-                {
-                    if (decimal.TryParse(Convert.ToString(row["Menge"]), out _menge))
-                    {
-                        ObjEPosition.Menge = _menge * 1;
-                    }
-                    else
-                        ObjEPosition.Menge = 1;
-                }            
-                
+                ObjEPosition.Menge = 1;
                 ObjEPosition.ME = string.Empty;
                 ObjEPosition.Fabricate = string.Empty;
                 ObjEPosition.LiefrantMA = string.Empty;
@@ -8442,7 +8428,6 @@ namespace OTTOPro
             try
             {
                 decimal dValue = 0;
-                decimal _Menge = 0;
                 DateTime dt = DateTime.Now;
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
                 ObjEPosition.RasterCount = iRasterCount;
@@ -8462,13 +8447,8 @@ namespace OTTOPro
                 ObjEPosition.Dim2 = Convert.ToString(dr["B"]);
                 ObjEPosition.Dim3 = Convert.ToString(dr["L"]);
 
-                if (decimal.TryParse(txtMenge.Text, out dValue))
-                    _Menge = dValue;
-                else
-                    _Menge = 1;
-
                 if (decimal.TryParse(Convert.ToString(dr["Menge"]), out dValue))
-                    ObjEPosition.Menge = dValue * _Menge;
+                    ObjEPosition.Menge = dValue;
                 else
                     ObjEPosition.Menge = 1;
 
