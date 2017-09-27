@@ -651,7 +651,7 @@
             this.xrTableCell20.StylePriority.UseTextAlignment = false;
             xrSummary4.FormatString = "{0:n2}";
             this.xrTableCell20.Summary = xrSummary4;
-            this.xrTableCell20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrTableCell20.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell20.Weight = 0.31519344654862369D;
             // 
             // xrTableCell21
@@ -665,7 +665,7 @@
             this.xrTableCell21.StylePriority.UseTextAlignment = false;
             xrSummary5.FormatString = "{0:n2}";
             this.xrTableCell21.Summary = xrSummary5;
-            this.xrTableCell21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrTableCell21.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell21.Weight = 0.21883170378021902D;
             // 
             // xrTableCell22
@@ -679,7 +679,7 @@
             this.xrTableCell22.StylePriority.UseTextAlignment = false;
             xrSummary6.FormatString = "{0:n2}";
             this.xrTableCell22.Summary = xrSummary6;
-            this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell22.Weight = 0.33298966115983064D;
             // 
             // xrTableCell23
@@ -693,7 +693,7 @@
             this.xrTableCell23.StylePriority.UseTextAlignment = false;
             xrSummary7.FormatString = "{0:n2}";
             this.xrTableCell23.Summary = xrSummary7;
-            this.xrTableCell23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrTableCell23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell23.Weight = 0.33198468076339288D;
             // 
             // xrTableCell24
@@ -707,7 +707,7 @@
             this.xrTableCell24.StylePriority.UseTextAlignment = false;
             xrSummary8.FormatString = "{0:n2}";
             this.xrTableCell24.Summary = xrSummary8;
-            this.xrTableCell24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrTableCell24.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
             this.xrTableCell24.Weight = 0.22474663200582931D;
             // 
             // xrTable3
