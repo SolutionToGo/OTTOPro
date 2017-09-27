@@ -17,6 +17,10 @@ namespace OTTOPro.Report_Design
         {
             try
             {
+                if (double.TryParse(Convert.ToString(xrTableCell36.Summary.GetResult()), out value))
+                {
+                    xrTableCell60.Text = value.ToString("n2");
+                }
                 if (DetailReport1.GetCurrentColumnValue("Total") != DBNull.Value)
                 {
                     value = Convert.ToDouble(xrTableCell36.Summary.GetResult()) + Convert.ToDouble(DetailReport1.GetCurrentColumnValue("Total"));

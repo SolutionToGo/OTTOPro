@@ -81,14 +81,14 @@ namespace OTTOPro
                     this.Text = "Lieferantenkontact";
                     ObjTabDetails = tbSupplierContact;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(504, 375);
+                    this.MinimumSize = new System.Drawing.Size(504, 320);
                 }
                 if (_SupplierType == "Address")
                 {
                     this.Text = "Lieferantenaddresse";
                     ObjTabDetails = tbSupplierAddress;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(504, 310);
+                    this.MinimumSize = new System.Drawing.Size(504, 270);
                 }
                 if (_SupplierType == "Supplier" && _ObjEsupplier.SupplierID > 0)
                     BindSupplierDetails();

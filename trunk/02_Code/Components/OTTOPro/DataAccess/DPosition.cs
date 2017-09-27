@@ -473,7 +473,7 @@ namespace DataAccess
                 if (ex.Message.Contains("Positions"))
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        throw new Exception("Selected Position Is Having DetailKZ Positions");
+                        throw new Exception("Die ausgewählte Position enthält eine Detail KZ Position");
                     else
                         throw new Exception("Selected Position Is Having DetailKZ Positions");
                 }

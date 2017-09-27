@@ -338,7 +338,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception("Der Login konnte nicht erfolgen");
             }
             finally
             {

@@ -222,7 +222,7 @@
             // 
             // btnCopy
             // 
-            this.btnCopy.Appearance.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnCopy.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.btnCopy.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCopy.Appearance.ForeColor = System.Drawing.Color.White;
             this.btnCopy.Appearance.Options.UseBackColor = true;
@@ -239,7 +239,7 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Appearance.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnLoad.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.btnLoad.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoad.Appearance.ForeColor = System.Drawing.Color.White;
             this.btnLoad.Appearance.Options.UseBackColor = true;
@@ -255,7 +255,7 @@
             // 
             // btnImport
             // 
-            this.btnImport.Appearance.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.btnImport.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.btnImport.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnImport.Appearance.ForeColor = System.Drawing.Color.White;
             this.btnImport.Appearance.Options.UseBackColor = true;

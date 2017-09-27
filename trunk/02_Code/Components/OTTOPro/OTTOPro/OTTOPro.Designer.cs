@@ -184,7 +184,7 @@
             // 
             // btnProjectImport
             // 
-            this.btnProjectImport.Caption = "Project Import";
+            this.btnProjectImport.Caption = "Projektimport";
             this.btnProjectImport.Id = 10;
             this.btnProjectImport.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Import;
             this.btnProjectImport.Name = "btnProjectImport";

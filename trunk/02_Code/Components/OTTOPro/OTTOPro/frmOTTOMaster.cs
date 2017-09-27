@@ -72,14 +72,14 @@ namespace OTTOPro
                     this.Text = "OTTO Firmendaten";
                     ObjTabDetails = tbOTTO;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(759, 779);
+                    this.MinimumSize = new System.Drawing.Size(658, 669);
                 }
                 if (_type == "Contact")
                 {
                     this.Text = "OTTO Kontaktdaten";
                     ObjTabDetails = tbContact;
                     TabChange(ObjTabDetails);
-                    this.MinimumSize = new System.Drawing.Size(470, 340);
+                    this.MinimumSize = new System.Drawing.Size(470, 300);
                 }
                 if (_type == "OTTO")
                     BindOTTODetails();

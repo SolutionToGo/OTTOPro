@@ -109,8 +109,12 @@
             this.rgRasterNumbers.Location = new System.Drawing.Point(12, 45);
             this.rgRasterNumbers.Name = "rgRasterNumbers";
             this.rgRasterNumbers.Properties.AllowMouseWheel = false;
+            this.rgRasterNumbers.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.rgRasterNumbers.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rgRasterNumbers.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.rgRasterNumbers.Properties.Appearance.Options.UseBackColor = true;
             this.rgRasterNumbers.Properties.Appearance.Options.UseFont = true;
+            this.rgRasterNumbers.Properties.Appearance.Options.UseForeColor = true;
             this.rgRasterNumbers.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Erhöhung um eine Stelle"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Zurücksetzen auf initiales Stellenraster")});

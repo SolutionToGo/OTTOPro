@@ -7417,7 +7417,15 @@ namespace OTTOPro
                     }
                     else
                     {
-                        throw new Exception("Atlease one title and subtitle should be there in the project.");
+                        if (!Utility._IsGermany)
+                        {
+                            throw new Exception("Bitte legen Sie mindestens einen Titel und einen Untertitel an");
+                        }
+                        else
+                        {
+                            throw new Exception("Atleast one title and subtitle should be there in the project.");
+                        }
+                        
                     }
                 }
             }

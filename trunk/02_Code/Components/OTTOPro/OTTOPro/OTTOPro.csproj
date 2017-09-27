@@ -822,6 +822,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\stg_white.png" />
     <None Include="Resources\Icon_V.png" />
     <None Include="Resources\Icon_S.png" />
     <None Include="Resources\Icon_Import1.png" />
