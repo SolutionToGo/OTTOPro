@@ -362,6 +362,7 @@
             this.btnImportArticleData.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_icon;
             this.btnImportArticleData.ImageOptions.LargeImage = global::OTTOPro.Properties.Resources.Icon_Import1;
             this.btnImportArticleData.Name = "btnImportArticleData";
+            this.btnImportArticleData.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnImportArticleData.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnImportArticleData_ItemClick);
             // 
             // btnChangePassword
@@ -543,7 +544,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 7.5 (27-09-2017)";
+            this.label1.Text = "Version 7.6 (27-09-2017)";
             // 
             // fdImportFile
             // 

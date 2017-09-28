@@ -394,6 +394,7 @@ namespace DataAccess
        {
            try
            {
+               string STR = string.Empty;
                DataSet dsDimesions = new DataSet();
                using (SqlCommand cmd = new SqlCommand())
                {
@@ -402,7 +403,8 @@ namespace DataAccess
                    cmd.CommandText = "[P_Imp_ArticleData]";
                    cmd.Parameters.AddWithValue("@dtArticle", ObjEArticle.dtArticleImport);
                    cmd.Parameters.AddWithValue("@dtDimensions", ObjEArticle.dtDimensionImport);
-                   cmd.ExecuteNonQuery();
+                   object ObjReturn = cmd.ExecuteScalar();
+                   STR = Convert.ToString(ObjReturn);
                }
            }
            catch (Exception ex)
