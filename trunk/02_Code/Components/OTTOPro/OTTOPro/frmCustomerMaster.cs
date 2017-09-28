@@ -19,13 +19,18 @@ namespace OTTOPro
 {
     public partial class frmCustomerMaster : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// private variables to store temp data
+        /// </summary>
         ECustomer ObjECustomer =null;
         BCustomer ObjBCustomer = null;
         string _CustomerType = null;
         private ECustomer _ObjEcustomer = null;
         bool _isValidate = false;
 
-
+        /// <summary>
+        /// to assign the values in different forms
+        /// </summary>
         #region PROPERTY SETTING
 
         public ECustomer ObjEcustomer
@@ -50,6 +55,11 @@ namespace OTTOPro
             InitializeComponent();
         }
 
+        /// <summary>
+        ///parametrised constructor: to get the customer type like we have three type customer,contact, address and to recieve the customer object
+        /// </summary>
+        /// <param name="_Type"></param>
+        /// <param name="ObjECustomer1"></param>
         public frmCustomerMaster(string _Type, ECustomer ObjECustomer1)
         {
             InitializeComponent();
@@ -63,6 +73,9 @@ namespace OTTOPro
 
         #region EVENTS
 
+        /// <summary>
+        /// form load event
+        /// </summary>
         XtraTabPage ObjTabDetails = null;
         private void frmCustomerMaster_Load(object sender, EventArgs e)
         {
@@ -110,12 +123,22 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// form close event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelCustomer_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
+        /// <summary>
+        /// to save the customer data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveCustomer_Click(object sender, EventArgs e)
         {
             try
@@ -147,6 +170,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to save contact person data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveContact_Click(object sender, EventArgs e)
         {
             try
@@ -179,6 +207,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to save Address data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveAddress_Click(object sender, EventArgs e)
         {
             try
@@ -212,7 +245,11 @@ namespace OTTOPro
             }
         }
 
-
+        /// <summary>
+        /// form close event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmCustomerMaster_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -236,7 +273,10 @@ namespace OTTOPro
 
 
         #region METHODS
-
+        /// <summary>
+        /// to activate tab according to type
+        /// </summary>
+        /// <param name="ObjTabDetails"></param>
         private void TabChange(XtraTabPage ObjTabDetails)
         {
             try
@@ -258,6 +298,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// assigning the value to Ecustomer object for customer 
+        /// </summary>
         private void ParseCustomerDetails()
         {
             try
@@ -290,6 +333,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning the value from DB to textboxes of customer
+        /// </summary>
         private void BindCustomerDetails()
         {
             try
@@ -322,6 +368,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning the value to Ecustomer object for Contact 
+        /// </summary>
         private void ParseCustomerContactsDetails()
         {
             try
@@ -341,6 +390,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning the value from DB to textboxes of Contact
+        /// </summary>
         private void BindContactsDetails()
         {
             try
@@ -360,6 +412,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning the value to Ecustomer object for address
+        /// </summary>
         private void ParseCustomerAddressDetails()
         {
             try
@@ -378,6 +433,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning the value from DB to textboxes of Address
+        /// </summary>
         private void BindAddressDetails()
         {
             try
@@ -396,18 +454,9 @@ namespace OTTOPro
 
         }
 
-        public static string ToTitleCase(string stringToConvert)
-        {
-            try
-            {
-                return Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(stringToConvert);
-            }
-            catch (Exception Ex)
-            {
-                throw;
-            }
-        }
-
+        /// <summary>
+        /// for validation
+        /// </summary>
         private void ValidatControls()
         {
             try
@@ -433,6 +482,11 @@ namespace OTTOPro
 
         #endregion
 
+        /// <summary>
+        /// for restriction of characters
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCustShortName_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -448,6 +502,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// for accepting only two lines
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void txtCustStreet_KeyDown(object sender, KeyEventArgs e)
         {
             try

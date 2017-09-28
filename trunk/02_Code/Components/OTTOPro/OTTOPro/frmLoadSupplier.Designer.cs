@@ -170,7 +170,6 @@
             this.gcArticles.TabIndex = 23;
             this.gcArticles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvArticles});
-            this.gcArticles.EditorKeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gcArticles_EditorKeyPress);
             // 
             // gvArticles
             // 
@@ -200,9 +199,6 @@
             this.gvArticles.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvArticles.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvArticles.OptionsView.ShowGroupPanel = false;
-            this.gvArticles.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvArticles_CellValueChanged);
-            this.gvArticles.BeforeLeaveRow += new DevExpress.XtraGrid.Views.Base.RowAllowEventHandler(this.gvArticles_BeforeLeaveRow);
-            this.gvArticles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gvArticles_KeyPress);
             this.gvArticles.DoubleClick += new System.EventHandler(this.gvArticles_DoubleClick);
             // 
             // gridColumn1

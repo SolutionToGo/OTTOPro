@@ -29,20 +29,5 @@ namespace OTTOPro
         {
         }
 
-        private void frmSplashScreen_Load(object sender, EventArgs e)
-        {
-            //timer1.Interval = 100;// 2000;
-            //timer1.Enabled = true;
-            //timer1.Start();
-            //timer1.Tick += new System.EventHandler(OnTimerEvent);
-        }
-
-        public void OnTimerEvent(object source, EventArgs e)
-        {
-            //timer1.Stop();
-            //this.Hide(); 
-
-
-        }
     }
 }

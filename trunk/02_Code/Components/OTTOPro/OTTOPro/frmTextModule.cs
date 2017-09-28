@@ -17,6 +17,9 @@ namespace OTTOPro
 {
     public partial class frmTextModule : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// private variables to save temp data
+        /// </summary>
         EProposal ObjEProposal = new EProposal();
         BProposal ObjBProposal = new BProposal();
         DataTable _dtContents = new DataTable();
@@ -25,6 +28,9 @@ namespace OTTOPro
         bool _isValidate = true;
         int _IDValue = -1;
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
         #region CONSTRUCTOR
 
         public frmTextModule()
@@ -35,6 +41,11 @@ namespace OTTOPro
 
         #region EVENTS
 
+        /// <summary>
+        /// to add category for particular text area
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             try
@@ -55,6 +66,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// form load event to bind the data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmTextModule_Load(object sender, EventArgs e)
         {
             try
@@ -68,6 +84,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to save the entered data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -92,11 +113,21 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        ///form cancel button to close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// to load the data when we double click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvContentDetails_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -128,6 +159,12 @@ namespace OTTOPro
             }
         }
 
+
+        /// <summary>
+        /// to load category data according text area
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbTextArea_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -171,6 +208,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to load the data according to category
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cmbCategory_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -205,6 +247,9 @@ namespace OTTOPro
 
         #region METHODS
 
+        /// <summary>
+        /// to bind text module areas into combobox
+        /// </summary>
         private void BindTextModuleAreas()
         {
             try
@@ -242,6 +287,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to display all text module in gridview
+        /// </summary>
         private void BindTextModuleGrid()
         {
             try
@@ -259,6 +307,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to bind category data
+        /// </summary>
         private void BindCategories()
         {
             try
@@ -279,6 +330,12 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// setting the focus for selected row
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="_id"></param>
+        /// <param name="_IdValue"></param>
         private void Setfocus(GridView view, string _id, int _IdValue)
         {
             try
@@ -296,6 +353,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// assigning text module data to object
+        /// </summary>
         private void ParseTextModuleDetails()
         {
             try
@@ -313,6 +373,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// to get data from gridview to textboxes.
+        /// </summary>
         private void GetTextModuleDetails()
         {
             try

@@ -303,7 +303,6 @@
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmSplashScreen";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.frmSplashScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();

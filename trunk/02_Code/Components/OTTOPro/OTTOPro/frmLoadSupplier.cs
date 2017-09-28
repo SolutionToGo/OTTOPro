@@ -19,6 +19,9 @@ namespace OTTOPro
 {
     public partial class frmLoadSupplier : System.Windows.Forms.Form
     {
+        /// <summary>
+        /// private varibles to set temp data
+        /// </summary>
         EArticles ObjEArticles = new EArticles();
         ESupplier ObjESupplier = new ESupplier();
         BSupplier ObjBSupplier = new BSupplier();
@@ -29,7 +32,9 @@ namespace OTTOPro
         private bool _IsSave = false;
         private bool _IsSaveDimension = false;
 
-
+        /// <summary>
+        /// default constructor
+        /// </summary>
         #region CONSTRUCTOR
 
         public frmLoadSupplier()
@@ -39,6 +44,11 @@ namespace OTTOPro
         #endregion
 
         #region EVENTS
+        /// <summary>
+        /// to add articles for particular supplier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddArticles_Click(object sender, EventArgs e)
         {
             try
@@ -73,6 +83,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to save supplier data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
             try
@@ -103,6 +118,11 @@ namespace OTTOPro
             }
         } 
 
+        /// <summary>
+        /// to save contact details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddContact_Click(object sender, EventArgs e)
         {
             try
@@ -145,6 +165,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to save address details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddAddress_Click(object sender, EventArgs e)
         {
             try
@@ -187,6 +212,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to get existing supplier data for edit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvSupplier_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -221,6 +251,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to get existing contact data for editing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvContact_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -254,6 +289,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to get existing address details for editing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvAddress_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -288,6 +328,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// binding the data for contact and address based on supplier
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvSupplier_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             int _IDValue = -1;
@@ -312,6 +357,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// form load for binding all the data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmLoadSupplier_Load(object sender, EventArgs e)
         {
             if(Utility.SupplierDataAccess == "7")
@@ -328,58 +378,16 @@ namespace OTTOPro
             gvAddress.BestFitColumns();
         }
 
-        private void gvArticles_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
-        {
-            //if (!_IsSave)
-            //    _IsSave = true;
-        }
-
-        private void gvArticles_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
-        {
-            //try
-            //{
-            //    int RowHandle = e.RowHandle;
-            //    GetArticleDetails(RowHandle);
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
-        }
-
-        private void gcArticles_EditorKeyPress(object sender, KeyPressEventArgs e)
-        {
-            //try
-            //{
-            //    GridControl grid = sender as GridControl;
-            //    gvArticles_KeyPress(grid.FocusedView, e);
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw;
-            //}
-        }
-
-        private void gvArticles_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //try
-            //{
-            //    if (e.KeyChar == (char)Keys.Enter)
-            //    {
-            //        int RowHandle = gvArticles.FocusedRowHandle;
-            //      //  GetArticleDetails(RowHandle);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
-        }
-
         #endregion
 
         #region METHODS
 
+        /// <summary>
+        /// to set focus on selected row after saving
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="_id"></param>
+        /// <param name="_IdValue"></param>
         private void Setfocus(GridView view, string _id, int _IdValue)
         {
             try
@@ -397,6 +405,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// binding supplier data
+        /// </summary>
         public void BindSupplierData()
         {
             try
@@ -413,6 +424,10 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// binding contact data
+        /// </summary>
+        /// <param name="SupplierID"></param>
         public void BindContactData(int SupplierID)
         {
             try
@@ -431,6 +446,10 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// binding address data
+        /// </summary>
+        /// <param name="SuplierID"></param>
         public void BindAddressData(int SuplierID)
         {
             try
@@ -449,6 +468,10 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// binding article data
+        /// </summary>
+        /// <param name="SuplierID"></param>
         private void BindArticleData(int SuplierID)
         {
             try
@@ -467,6 +490,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// assigning existing supplier value for edit
+        /// </summary>
         private void GetSupplierDetails()
         {
             try
@@ -493,6 +519,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning existing contact details for edit
+        /// </summary>
         private void GetContactDetails()
         {
             try
@@ -519,6 +548,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning existing address details for edit
+        /// </summary>
         private void GetAddressDetails()
         {
             try
@@ -544,6 +576,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning article values to edit
+        /// </summary>
         private void GetArticleDetails()
         {
             try
@@ -570,6 +605,11 @@ namespace OTTOPro
 
         #endregion
 
+        /// <summary>
+        /// to modify existing values
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvArticles_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -604,6 +644,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// form close event to set logo after closing
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmLoadSupplier_FormClosing(object sender, FormClosingEventArgs e)
         {
             try

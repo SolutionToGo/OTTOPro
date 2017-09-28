@@ -17,16 +17,30 @@ namespace OTTOPro
 {
     public partial class frmDesignReport : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// private variables to save temp data
+        /// </summary>
         BReportDesign ObjBReportDesign = new BReportDesign();
         EReportDesign ObjEReportDesign = new EReportDesign();
 
         string _ViewType;
         int _Projectid;
         int _Customerid;
+
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public frmDesignReport()
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// parameterised constructor to get values 
+        /// </summary>
+        /// <param name="_type"></param>
+        /// <param name="_Prjid"></param>
+        /// <param name="_Cutid"></param>
         public frmDesignReport(string _type, int _Prjid, int _Cutid)
         {
             InitializeComponent();
@@ -35,36 +49,21 @@ namespace OTTOPro
             _Customerid = _Cutid;
         }
 
+        /// <summary>
+        /// parameterised constructor to get values 
+        /// </summary>
+        /// <param name="_Prjid"></param>
         public frmDesignReport(int _Prjid)
         {
             InitializeComponent();
             _Projectid = _Prjid;
         }
 
-        private void frmDesignReport_Load(object sender, EventArgs e)
-        {
-            // BindReportTypes();
-        }
-
-        private void BindReportTypes()
-        {
-            try
-            {
-                ObjBReportDesign.GetReportDesignTypes(ObjEReportDesign, "");
-                if (ObjEReportDesign.dsReportDesign != null)
-                {
-                    cmbReportType.DataSource = null;
-                    cmbReportType.DataSource = ObjEReportDesign.dsReportDesign.Tables[0];
-                    cmbReportType.DisplayMember = "DesignType";
-                    cmbReportType.ValueMember = "DesignID";
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
+        /// <summary>
+        /// to open reports according to selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOpen_Click(object sender, EventArgs e)
         {
             try

@@ -17,13 +17,19 @@ namespace OTTOPro
 {
     public partial class frmOTTOMaster : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// private variables to store temp data
+        /// </summary>
         EOTTO ObjEOTTO = null;
         BOTTO ObjBOTTO = null;
         string _type = null;
         private EOTTO _ObjEOTTO = null;
         bool _isValidate = false;
 
-
+        /// <summary>
+        /// to assign the values in different forms
+        /// </summary>
+ 
         #region PROPERTY SETTING
 
         public EOTTO ObjEOtto
@@ -41,12 +47,19 @@ namespace OTTOPro
         #endregion
 
         #region CONSTRUCTORS
-
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public frmOTTOMaster()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// parametrised constructor to get type and values
+        /// </summary>
+        /// <param name="_Type"></param>
+        /// <param name="ObjEOTTO1"></param>
         public frmOTTOMaster(string _Type, EOTTO ObjEOTTO1)
         {
             InitializeComponent();
@@ -57,6 +70,9 @@ namespace OTTOPro
 
         #region EVENTS
 
+        /// <summary>
+        /// form load event
+        /// </summary>
         XtraTabPage ObjTabDetails = null;
         private void frmOTTOMaster_Load(object sender, EventArgs e)
         {
@@ -92,12 +108,22 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// form cancel event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancelOtto_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
+        /// <summary>
+        /// to save OTTO master details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveOtto_Click(object sender, EventArgs e)
         {
             try
@@ -129,6 +155,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to save contact details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSaveContact_Click(object sender, EventArgs e)
         {
             try
@@ -159,7 +190,11 @@ namespace OTTOPro
             }
         }
 
-
+        /// <summary>
+        /// form close event
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmOTTOMaster_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -182,6 +217,10 @@ namespace OTTOPro
 
         #region METHODS
 
+        /// <summary>
+        /// changing the tab according to type
+        /// </summary>
+        /// <param name="ObjTabDetails"></param>
         private void TabChange(XtraTabPage ObjTabDetails)
         {
             try
@@ -203,6 +242,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// assigning the OTTO master details to object
+        /// </summary>
         private void ParseOTTODetails()
         {
             try
@@ -246,6 +288,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// assigning contact values to object
+        /// </summary>
         private void ParseOTTOContactsDetails()
         {
             try
@@ -264,6 +309,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// binding OTTO master values to textboxes
+        /// </summary>
         private void BindOTTODetails()
         {
             try
@@ -308,6 +356,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// binding contact values to textboxes
+        /// </summary>
         private void BindContactsDetails()
         {
             try
@@ -326,18 +377,9 @@ namespace OTTOPro
 
         }
 
-        public static string ToTitleCase(string stringToConvert)
-        {
-            try
-            {
-                return Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(stringToConvert);
-            }
-            catch (Exception Ex)
-            {
-                throw;
-            }
-        }
-
+        /// <summary>
+        /// validating the controls
+        /// </summary>
         private void ValidatControls()
         {
             try
