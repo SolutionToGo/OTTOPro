@@ -421,7 +421,6 @@ namespace OTTOPro
                 e.Handled = true;
         }
 
-
         private void txtSupplierEmail_InvalidValue(object sender, DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs e)
         {
             e.ErrorText = "ungültig mail";
@@ -442,11 +441,5 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
-
-
-
-
-//***************
     }
 }

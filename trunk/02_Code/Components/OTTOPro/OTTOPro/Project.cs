@@ -3342,7 +3342,6 @@ namespace OTTOPro
             }
         }
 
-        bool _IsTabPressed = false;
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
             try
@@ -3367,15 +3366,44 @@ namespace OTTOPro
                         }
                     }
                 }
-                if (keyData == (Keys.PageDown))
+                else if (tcProjectDetails.SelectedTabPage == tbLVDetails && keyData == (Keys.PageDown))
                 {
                     btnNext.PerformClick();
                     return true;
                 }
-                if (keyData == (Keys.PageUp))
+                else if (tcProjectDetails.SelectedTabPage == tbLVDetails && keyData == (Keys.PageUp))
                 {
                     btnPrevious.PerformClick();
                     return true;
+                }
+                else if (tcProjectDetails.SelectedTabPage == tbUpdateSupplier && keyData == (Keys.F6))
+                {
+                    string strWGWA = Convert.ToString(gvProposal.GetFocusedRowCellValue("WGWA"));
+                    string[] WGWA = strWGWA.Split('-');
+                    if (WGWA != null && WGWA.Count() > 1)
+                    {
+                        if (ObjESupplier == null)
+                            ObjESupplier = new ESupplier();
+                        ObjESupplier.WG = WGWA[0].Trim();
+                        ObjESupplier.WA = WGWA[1].Trim();
+                        frmSupplierList Obj = new frmSupplierList();
+                        Obj.ObjESupplier = ObjESupplier;
+                        Obj.ShowDialog();
+                        if (ObjESupplier.SupplierID > 0)
+                        {
+                            int IValue = 0;
+                            if (int.TryParse(Convert.ToString(gvProposal.GetFocusedRowCellValue("ProposalID")), out IValue))
+                            {
+                                ObjESupplier.ProposalID = IValue;
+                                if (ObjBSupplier == null)
+                                    ObjBSupplier = new BSupplier();
+                                ObjESupplier = ObjBSupplier.UpdateSupplierProposal(ObjESupplier);
+                                gcProposal.DataSource = ObjESupplier.dtProposal;
+                                Utility.Setfocus(gvProposal, "ProposalID", ObjESupplier.ProposalID);
+                                gvProposal_FocusedRowChanged(null, null);
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -7209,6 +7237,57 @@ namespace OTTOPro
 
                 }
                 ObjESupplier.ProjectID = ObjEProject.ProjectID;
+                ObjESupplier.dtUpdateSupplierPrice = new DataTable();
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("PositionID", typeof(int));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("ListPrice", typeof(decimal));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Fabrikate", typeof(string));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Supplier", typeof(string));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi1", typeof(decimal));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi2", typeof(decimal));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi3", typeof(decimal));
+                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi4", typeof(decimal));
+
+                List<string> boolColumnNames = new List<string>();
+                foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                {
+                    if (dc.ColumnName.Contains("Check"))
+                        boolColumnNames.Add(dc.ColumnName);
+                }
+
+                foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
+                {
+                    foreach (string s in boolColumnNames)
+                    {
+                        if (Convert.ToBoolean(dr[s]))
+                        {
+                            string strSupplierColumnName = s.Replace("Check", "");
+                            DataRow drNew = ObjESupplier.dtUpdateSupplierPrice.NewRow();
+                            drNew["PositionID"] = dr["PositionID"] == DBNull.Value ? -1 : dr["PositionID"];
+                            drNew["ListPrice"] = dr[strSupplierColumnName] == DBNull.Value ? 0 : dr[strSupplierColumnName];
+                            drNew["Fabrikate"] = dr[strSupplierColumnName + "Fabricate"] == DBNull.Value ? "" : dr[strSupplierColumnName + "Fabricate"];
+                            drNew["Supplier"] = dr[strSupplierColumnName + "SupplierName"] == DBNull.Value ? "" : dr[strSupplierColumnName + "SupplierName"];
+                            drNew["Multi1"] = dr[strSupplierColumnName + "Multi1"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi1"];
+                            drNew["Multi2"] = dr[strSupplierColumnName + "Multi2"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi2"];
+                            drNew["Multi3"] = dr[strSupplierColumnName + "Multi3"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi3"];
+                            drNew["Multi4"] = dr[strSupplierColumnName + "Multi4"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi4"];
+                            ObjESupplier.dtUpdateSupplierPrice.Rows.Add(drNew);
+                        }
+                    }
+                }
+
+                DataRow[] FindRows = ObjESupplier.dtUpdateSupplierPrice.Select("ListPrice = 0");
+                if(FindRows.Count() > 0)
+                {
+                    var Result = XtraMessageBox.Show("Do you want to transfer 0 or keep the existing cost for that LV position?", "Question..?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if(Convert.ToString(Result).ToLower() == "no")
+                    {
+                        DataTable dtTemp = ObjESupplier.dtUpdateSupplierPrice.Copy();
+                        DataView dvPrice = dtTemp.DefaultView;
+                        dvPrice.RowFilter = "ListPrice <> 0";
+                        ObjESupplier.dtUpdateSupplierPrice = new DataTable();
+                        ObjESupplier.dtUpdateSupplierPrice = dvPrice.ToTable();
+                    }
+                }
                 ObjESupplier = ObjBSupplier.UpdateSupplierPrice(ObjESupplier);
                 frmOTTOPro.UpdateStatus("Preisübersicht für Lieferanten wurde erfolgreich aktualisiert");
                 gvProposal_FocusedRowChanged(null, null);
@@ -9019,7 +9098,5 @@ namespace OTTOPro
             e.Effect = DragDropEffects.None;
         }
       
-       
-
     }
 }

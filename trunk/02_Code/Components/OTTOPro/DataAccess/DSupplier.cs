@@ -632,5 +632,72 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        public string CheckSupplierArticle(ESupplier ObjESupplier)
+        {
+            string str = string.Empty;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Chk_SupplierArticle]";
+                    cmd.Parameters.AddWithValue("@SupplierID", ObjESupplier.SupplierID);
+                    cmd.Parameters.AddWithValue("@WG", ObjESupplier.WG);
+                    cmd.Parameters.AddWithValue("@WA", ObjESupplier.WA);
+                    object ObjReturn = cmd.ExecuteScalar();
+                    str = Convert.ToString(ObjReturn);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Fehler beim Laden der daten");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return str;
+        }
+
+        public ESupplier UpdateSupplierProposal(ESupplier ObjESupplier)
+        {
+            DataSet dsWGWA = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_SupplierProposal]";
+                    cmd.Parameters.AddWithValue("@ProposalID", ObjESupplier.ProposalID);
+                    cmd.Parameters.AddWithValue("@SupplierID", ObjESupplier.SupplierID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsWGWA);
+                    }
+                    if (dsWGWA != null && dsWGWA.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtProposal = dsWGWA.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der daten");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving records");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
     }
 }
