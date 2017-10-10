@@ -19,6 +19,9 @@ namespace OTTOPro
 {
     public partial class frmLoadCustomerMaster : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// private variables to store temp values
+        /// </summary>
         ECustomer ObjECustomer = new ECustomer();
         BCustomer ObjBCustomer = new BCustomer();
         private int _CustomerID =-1;
@@ -28,7 +31,9 @@ namespace OTTOPro
 
 
         #region CONSTRUCTORS
-
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public frmLoadCustomerMaster()
         {
             InitializeComponent();
@@ -36,7 +41,11 @@ namespace OTTOPro
         #endregion
 
         #region EVENTS
-
+        /// <summary>
+        /// to open customer master form to save data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCustomerAdd_Click(object sender, EventArgs e)
         {
             try
@@ -65,6 +74,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to open contact form to add contact details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnContactAdd_Click(object sender, EventArgs e)
         {
             try
@@ -105,6 +119,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to open address form and save address details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddressAdd_Click(object sender, EventArgs e)
         {
             try
@@ -145,6 +164,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// form load event to bind all the data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmLoadCustomerMaster_Load(object sender, EventArgs e)
         {
             try
@@ -167,6 +191,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// event to change fill the data in contact and address form based on customer
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvCustomers_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             int _IDValue = -1;
@@ -196,6 +225,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to open customer master form and modify the existing data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvCustomers_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -229,6 +263,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to edit existing contact details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvContacts_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -261,6 +300,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to edit existing address details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvAddress_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -299,6 +343,9 @@ namespace OTTOPro
 
         #region METHODS
 
+        /// <summary>
+        /// to bind customer data
+        /// </summary>
         public void BindCustomerData()
         {
             try
@@ -316,6 +363,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to bind contact data
+        /// </summary>
         public void BindContactData()
         {
             try
@@ -335,6 +385,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to bind address data
+        /// </summary>
         public void BindAddressData()
         {
             try
@@ -354,6 +407,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to assign customer value for edit 
+        /// </summary>
         private void GetCustomerDetails()
         {
             try
@@ -392,6 +448,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// to assign contact value for editing
+        /// </summary>
         private void GetContactDetails()
         {
             try
@@ -418,6 +477,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// to assign address value for editing
+        /// </summary>
         private void GetAddressDetails()
         {
             try
@@ -443,6 +505,12 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// after saving the data to set focus on selected row
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="_id"></param>
+        /// <param name="_IdValue"></param>
         private void Setfocus(GridView view, string _id,int _IdValue)
         {
             try
@@ -462,6 +530,11 @@ namespace OTTOPro
 
         #endregion
 
+        /// <summary>
+        /// to set the logo after closing form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmLoadCustomerMaster_FormClosing(object sender, FormClosingEventArgs e)
         {
             try

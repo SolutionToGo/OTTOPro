@@ -17,13 +17,18 @@ namespace OTTOPro
 {
     public partial class frmLoadOTTOMaster : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// private variables to store temp data
+        /// </summary>
         EOTTO ObjEOTTO = new EOTTO();
         BOTTO ObjBOTTO = new BOTTO();
         private int _OTTOID = -1;
         private int _ContactID = -1;
         int _IDValue = -1;
 
-
+        /// <summary>
+        /// default constructor
+        /// </summary>
         #region CONSTRUCTOR
 
         public frmLoadOTTOMaster()
@@ -34,6 +39,11 @@ namespace OTTOPro
 
         #region EVENTS
 
+        /// <summary>
+        /// to save OTTO master data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddOtto_Click(object sender, EventArgs e)
         {
             try
@@ -62,6 +72,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to save contact data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddContact_Click(object sender, EventArgs e)
         {
             try
@@ -103,6 +118,11 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// form load event to bind the data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmLoadOTTOMaster_Load(object sender, EventArgs e)
         {
             try
@@ -122,6 +142,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to edit OTTO master data
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvOTTO_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -154,6 +179,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to edit contact details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvOTTOContact_DoubleClick(object sender, EventArgs e)
         {
             try
@@ -186,6 +216,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to bind contact details accoeding to OTTO details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvOTTO_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             int _IDValue = -1;
@@ -213,6 +248,9 @@ namespace OTTOPro
 
         #region METHODS
 
+        /// <summary>
+        /// to bind OTTO master details
+        /// </summary>
         public void BindOTTOData()
         {
             try
@@ -230,6 +268,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to bind contact details
+        /// </summary>
         public void BindContactData()
         {
             try
@@ -249,6 +290,12 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// to set focus on selected row
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="_id"></param>
+        /// <param name="_IdValue"></param>
         private void Setfocus(GridView view, string _id, int _IdValue)
         {
             try
@@ -266,6 +313,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// To get otto details for editing existing data
+        /// </summary>
         private void GetOTTODetails()
         {
             try
@@ -316,6 +366,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// to get contact details for editing existing data
+        /// </summary>
         private void GetContactDetails()
         {
             try
@@ -343,6 +396,11 @@ namespace OTTOPro
 
         #endregion
 
+        /// <summary>
+        /// form close event to set logo after closing form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmLoadOTTOMaster_FormClosing(object sender, FormClosingEventArgs e)
         {
             try

@@ -15,16 +15,25 @@ namespace OTTOPro
 {
     public partial class frmSelectCustomer : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// private variables to save temp data
+        /// </summary>
         ECustomer ObjECustomer = new ECustomer();
         BCustomer ObjBCustomer = new BCustomer();
         private string _CustomerID = null;
         private string _FullName = null;
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public frmSelectCustomer()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// to get and set ID and name 
+        /// </summary>
         public string CustomerID
         {
             get { return _CustomerID; }
@@ -35,11 +44,20 @@ namespace OTTOPro
             get { return _FullName; }
             set { _FullName = value; }
         }
+
+        /// <summary>
+        /// form load event to bind all customer details
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmSelectCustomer_Load(object sender, EventArgs e)
         {
             BindCustomerData();
         }
 
+        /// <summary>
+        /// to bind customer details to gridview
+        /// </summary>
         public void BindCustomerData()
         {
             try
@@ -57,6 +75,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// setting the values according to selection
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void gvCustomer_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             try
@@ -73,6 +96,11 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// form ok button event to get selected customer name and ID
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOk_Click(object sender, EventArgs e)
         {
             try
@@ -85,11 +113,21 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// form cancel event to close the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// seleting the customer when we press enter key
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void frmSelectCustomer_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
@@ -102,6 +140,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-//*****************
+
     }
 }
