@@ -3392,14 +3392,15 @@ namespace OTTOPro
                         if (ObjESupplier.SupplierID > 0)
                         {
                             int IValue = 0;
-                            if (int.TryParse(Convert.ToString(gvProposal.GetFocusedRowCellValue("ProposalID")), out IValue))
+                            if (int.TryParse(Convert.ToString(gvProposal.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
                             {
-                                ObjESupplier.ProposalID = IValue;
+                                ObjESupplier.SupplierProposalID = IValue;
+                                ObjESupplier.ProjectID = ObjEProject.ProjectID;
                                 if (ObjBSupplier == null)
                                     ObjBSupplier = new BSupplier();
                                 ObjESupplier = ObjBSupplier.UpdateSupplierProposal(ObjESupplier);
                                 gcProposal.DataSource = ObjESupplier.dtProposal;
-                                Utility.Setfocus(gvProposal, "ProposalID", ObjESupplier.ProposalID);
+                                Utility.Setfocus(gvProposal, "SupplierProposalID", ObjESupplier.SupplierProposalID);
                                 gvProposal_FocusedRowChanged(null, null);
                             }
                         }
@@ -6646,18 +6647,18 @@ namespace OTTOPro
 
         private void chkSupplierLists_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
         {
-            try
-            {
-                if (chkSupplierLists.CheckedItems.Count == 9)
-                {
-                    Int32 checkedItemIndex = chkSupplierLists.CheckedIndices[0];
-                    chkSupplierLists.SetItemChecked(checkedItemIndex, false);
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            //try
+            //{
+            //    if (chkSupplierLists.CheckedItems.Count == 9)
+            //    {
+            //        Int32 checkedItemIndex = chkSupplierLists.CheckedIndices[0];
+            //        chkSupplierLists.SetItemChecked(checkedItemIndex, false);
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
         }
 
         private void btnGeneratePDF_Click(object sender, EventArgs e)
@@ -9097,6 +9098,6 @@ namespace OTTOPro
         {
             e.Effect = DragDropEffects.None;
         }
-      
+
     }
 }
