@@ -450,7 +450,7 @@ namespace DataAccess
             }
         }
 
-        public void DeletePosition(int PositionID)
+        public void DeletePosition(int PositionID,string _PosKZ)
         {
             string strError = string.Empty;
             try
@@ -461,6 +461,7 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Del_Position]";
                     cmd.Parameters.AddWithValue("@PositionID", PositionID);
+                    cmd.Parameters.AddWithValue("@PositionKZ", _PosKZ);
                     object ObjReturn = cmd.ExecuteScalar();
                     if(!string.IsNullOrEmpty(Convert.ToString(ObjReturn)))
                     {

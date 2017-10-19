@@ -358,11 +358,11 @@ namespace BL
             }
         }
 
-        public void Deleteposition(int PositionID)
+        public void Deleteposition(int PositionID, string _PosKZ)
         {
             try
             {
-                ObjDPosition.DeletePosition(PositionID);
+                ObjDPosition.DeletePosition(PositionID, _PosKZ);
             }
             catch (Exception ex)
             {
