@@ -6002,6 +6002,7 @@ namespace OTTOPro
         {
             try
             {
+                string _DimType = string.Empty;
                 if (ObjBPosition == null)
                     ObjBPosition = new BPosition();
                 if (ObjEPosition == null)
@@ -6014,8 +6015,16 @@ namespace OTTOPro
                 ObjEPosition.Dim2 = txtDim2.Text;
                 ObjEPosition.Dim3 = txtDim3.Text;
                 ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
-
-                ObjEPosition = ObjBPosition.GetArticleByA(ObjEPosition);
+                if (_txtDimensions == "txtDim1")
+                {
+                    _DimType = "A";
+                    ObjEPosition = ObjBPosition.GetArticleByA(ObjEPosition, _DimType);
+                }
+                if (_txtDimensions == "txtDim2")
+                {
+                    _DimType = "B";
+                    ObjEPosition = ObjBPosition.GetArticleByB(ObjEPosition, _DimType);
+                }                
                 txtDim1.Text = ObjEPosition.A.ToString();
                 txtDim2.Text = ObjEPosition.B.ToString();
                 txtDim3.Text = ObjEPosition.L.ToString();
@@ -6032,10 +6041,13 @@ namespace OTTOPro
             }
         }
 
+        string _txtDimensions = string.Empty;
         private void txtDim1_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
+                TextEdit txtDimens = (TextEdit)sender;
+                _txtDimensions = txtDimens.Name;
                 if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
                     e.Handled = true;
                 if (e.KeyChar == (char)Keys.Enter)
