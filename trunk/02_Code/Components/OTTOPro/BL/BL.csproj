@@ -57,6 +57,7 @@
     <Compile Include="BArticles.cs" />
     <Compile Include="BCustomer.cs" />
     <Compile Include="BDeliveryNotes.cs" />
+    <Compile Include="BFormBlatt.cs" />
     <Compile Include="BGAEB.cs" />
     <Compile Include="BInvoice.cs" />
     <Compile Include="BMulti.cs" />

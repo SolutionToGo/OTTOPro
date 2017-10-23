@@ -249,43 +249,6 @@ namespace BL
         {
             try
             {
-                ObjESupplier.dtUpdateSupplierPrice = new DataTable();
-                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("PositionID", typeof(int));
-                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("ListPrice", typeof(decimal));
-                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Fabrikate", typeof(string));
-                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Supplier", typeof(string));
-                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi1", typeof(decimal));
-                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi2", typeof(decimal));
-                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi3", typeof(decimal));
-                ObjESupplier.dtUpdateSupplierPrice.Columns.Add("Multi4", typeof(decimal));
-
-                List<string> boolColumnNames = new List<string>();
-                foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
-                {
-                    if (dc.ColumnName.Contains("Check"))
-                        boolColumnNames.Add(dc.ColumnName);
-                }
-
-                foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
-                {
-                    foreach (string s in boolColumnNames)
-                    {
-                        if (Convert.ToBoolean(dr[s]))
-                        {
-                            string strSupplierColumnName = s.Replace("Check", "");
-                            DataRow drNew = ObjESupplier.dtUpdateSupplierPrice.NewRow();
-                            drNew["PositionID"] = dr["PositionID"] == DBNull.Value ? -1 : dr["PositionID"];
-                            drNew["ListPrice"] = dr[strSupplierColumnName] == DBNull.Value ? 0 : dr[strSupplierColumnName];
-                            drNew["Fabrikate"] = dr[strSupplierColumnName + "Fabricate"] == DBNull.Value ? "" : dr[strSupplierColumnName + "Fabricate"];
-                            drNew["Supplier"] = dr[strSupplierColumnName + "SupplierName"] == DBNull.Value ? "" : dr[strSupplierColumnName + "SupplierName"];
-                            drNew["Multi1"] = dr[strSupplierColumnName + "Multi1"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi1"];
-                            drNew["Multi2"] = dr[strSupplierColumnName + "Multi2"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi2"];
-                            drNew["Multi3"] = dr[strSupplierColumnName + "Multi3"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi3"];
-                            drNew["Multi4"] = dr[strSupplierColumnName + "Multi4"] == DBNull.Value ? 1 : dr[strSupplierColumnName + "Multi4"];
-                            ObjESupplier.dtUpdateSupplierPrice.Rows.Add(drNew);
-                        }
-                    }
-                }
                 ObjESupplier = ObjDSupplier.UpdateSupplierPrice(ObjESupplier);
             }
             catch (Exception ex)
@@ -445,6 +408,33 @@ namespace BL
                 throw;
             }
             return ObjEsupplier;
+        }
+
+        public string CheckSupplierArticle(ESupplier ObjESupplier)
+        {
+            try
+            {
+                return ObjDSupplier.CheckSupplierArticle(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public ESupplier UpdateSupplierProposal(ESupplier ObjESupplier)
+        {
+            try
+            {
+                if(ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+                ObjESupplier = ObjDSupplier.UpdateSupplierProposal(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
         }
     }
 }

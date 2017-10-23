@@ -437,5 +437,6 @@ namespace EL
             get { return _IsSingle; }
             set { _IsSingle = value; }
         }
+
     }
 }

@@ -42,6 +42,7 @@
     <Compile Include="EArticles.cs" />
     <Compile Include="ECustomer.cs" />
     <Compile Include="EDeliveryNotes.cs" />
+    <Compile Include="EFormBlatt.cs" />
     <Compile Include="EGAEB.cs" />
     <Compile Include="EInvoice.cs" />
     <Compile Include="EMulti.cs" />

@@ -372,7 +372,20 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw;
+                if (ex.Message.Contains("Cannot"))
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Cannot send proposal more than 8 suppliers");
+                    else
+                        throw new Exception("Cannot send proposal more than 8 suppliers");
+                }
+                else
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Laden der daten");
+                    else
+                        throw new Exception("Error occured while saving suplier proposal");
+                }
             }
             finally
             {
@@ -632,5 +645,83 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        public string CheckSupplierArticle(ESupplier ObjESupplier)
+        {
+            string str = string.Empty;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Chk_SupplierArticle]";
+                    cmd.Parameters.AddWithValue("@SupplierID", ObjESupplier.SupplierID);
+                    cmd.Parameters.AddWithValue("@WG", ObjESupplier.WG);
+                    cmd.Parameters.AddWithValue("@WA", ObjESupplier.WA);
+                    object ObjReturn = cmd.ExecuteScalar();
+                    str = Convert.ToString(ObjReturn);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Fehler beim Laden der daten");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return str;
+        }
+
+        public ESupplier UpdateSupplierProposal(ESupplier ObjESupplier)
+        {
+            DataSet dsWGWA = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_SupplierProposal]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    cmd.Parameters.AddWithValue("@SupplierID", ObjESupplier.SupplierID);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsWGWA);
+                    }
+                    if (dsWGWA != null && dsWGWA.Tables.Count > 0)
+                    {
+                        int IValue = 0;
+                        if (int.TryParse(Convert.ToString(dsWGWA.Tables[0].Rows[0][0]), out IValue))
+                            ObjESupplier.dtProposal = dsWGWA.Tables[0];
+                        else
+                            throw new Exception(Convert.ToString(dsWGWA.Tables[0].Rows[0][0]));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Cannot"))
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Cannot send proposal more than 8 suppliers");
+                    else
+                        throw new Exception("Cannot send proposal more than 8 suppliers");
+                }
+                else
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Laden der daten");
+                    else
+                        throw new Exception("Error Occured While Retreiving records");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
     }
 }

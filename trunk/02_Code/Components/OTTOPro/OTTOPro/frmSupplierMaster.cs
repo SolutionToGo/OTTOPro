@@ -17,9 +17,6 @@ namespace OTTOPro
 {
     public partial class frmSupplierMaster : DevExpress.XtraEditors.XtraForm
     {
-        /// <summary>
-        /// private variables to store temp data
-        /// </summary>
         BSupplier ObjBSupplier = null;
         string _SupplierType = null;
         private ESupplier _ObjEsupplier = null;
@@ -29,18 +26,11 @@ namespace OTTOPro
 
         #region CONSTRUCTORS
 
-        /// <summary>
-        /// default constructor
-        /// </summary>
         public frmSupplierMaster()
         {
             InitializeComponent();
         }
 
-        /// <summary>
-        /// parameterised constructor to get type 
-        /// </summary>
-        /// <param name="_Type"></param>
         public frmSupplierMaster(string _Type)
         {
             InitializeComponent();
@@ -48,9 +38,7 @@ namespace OTTOPro
         } 
         #endregion
 
-        /// <summary>
-        /// to assign the values in different forms
-        /// </summary>
+
         #region PROPERTY SETTING
 
         public ESupplier ObjEsupplier
@@ -70,9 +58,6 @@ namespace OTTOPro
 
         #region EVENTS
 
-        /// <summary>
-        /// form load event
-        /// </summary>
         XtraTabPage ObjTabDetails = null;
         private void frmSupplierMaster_Load(object sender, EventArgs e)
         {
@@ -119,22 +104,12 @@ namespace OTTOPro
             }
         }
 
-        /// <summary>
-        /// form cancel event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        /// <summary>
-        /// to save supplier data
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -167,12 +142,6 @@ namespace OTTOPro
             }
         }
 
-
-        /// <summary>
-        /// to save contact data
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnSaveContact_Click(object sender, EventArgs e)
         {
             try
@@ -206,11 +175,6 @@ namespace OTTOPro
             }
         }
 
-        /// <summary>
-        /// to save address data
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void btnSaveAddress_Click(object sender, EventArgs e)
         {
             try
@@ -244,11 +208,7 @@ namespace OTTOPro
             }
         }
 
-        /// <summary>
-        /// form close event
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void frmSupplierMaster_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
@@ -267,11 +227,6 @@ namespace OTTOPro
             }
         }
 
-        /// <summary>
-        /// to restrict characters
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void txtShortName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != ' ' && !Char.IsDigit(e.KeyChar))
@@ -286,9 +241,18 @@ namespace OTTOPro
 
         #region METHODS
 
-        /// <summary>
-        /// to bind supplier data 
-        /// </summary>
+        public static string ToTitleCase(string stringToConvert)
+        {
+            try
+            {
+                return Thread.CurrentThread.CurrentCulture.TextInfo.ToTitleCase(stringToConvert);
+            }
+            catch (Exception Ex)
+            {
+                throw;
+            }
+        }
+
         private void BindSupplierDetails()
         {
             try
@@ -309,9 +273,6 @@ namespace OTTOPro
 
         }
 
-        /// <summary>
-        /// to bind contact details
-        /// </summary>
         private void BindContactsDetails()
         {
             try
@@ -331,9 +292,6 @@ namespace OTTOPro
 
         }
 
-        /// <summary>
-        /// to bind address data            
-        /// </summary>
         private void BindAddressDetails()
         {
             try
@@ -352,10 +310,6 @@ namespace OTTOPro
 
         }
 
-        /// <summary>
-        /// tab change according to type
-        /// </summary>
-        /// <param name="ObjTabDetails"></param>
         private void TabChange(XtraTabPage ObjTabDetails)
         {
             try
@@ -377,9 +331,6 @@ namespace OTTOPro
             }
         }
 
-        /// <summary>
-        /// to validate controls 
-        /// </summary>
         private void ValidatControls()
         {
             try
@@ -403,9 +354,6 @@ namespace OTTOPro
 
         }
 
-        /// <summary>
-        /// to assign supplier values to object
-        /// </summary>
         private void ParseSupplierDetails()
         {
             try
@@ -426,9 +374,6 @@ namespace OTTOPro
 
         }
 
-        /// <summary>
-        /// to assign contact values to object
-        /// </summary>
         private void ParseSupplierContactsDetails()
         {
             try
@@ -448,9 +393,6 @@ namespace OTTOPro
 
         }
 
-        /// <summary>
-        /// to assign address values to data
-        /// </summary>
         private void ParseSupplierAddressDetails()
         {
             try
@@ -471,11 +413,6 @@ namespace OTTOPro
 
         #endregion
 
-        /// <summary>
-        /// to restrict blank space
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void txtSupplierEmail_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar != ' ')
@@ -484,21 +421,11 @@ namespace OTTOPro
                 e.Handled = true;
         }
 
-        /// <summary>
-        /// to show message in german ie: invalid mail
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void txtSupplierEmail_InvalidValue(object sender, DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs e)
         {
             e.ErrorText = "ungültig mail";
         }
 
-        /// <summary>
-        /// to restrict only two lines in control
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void txtAddrStreetNo_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -514,11 +441,5 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
-
-
-
-
-//***************
     }
 }

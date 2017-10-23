@@ -43,6 +43,7 @@
     <Compile Include="DArticles.cs" />
     <Compile Include="DCustomer.cs" />
     <Compile Include="DDeliveryNotes.cs" />
+    <Compile Include="DFormBlatt.cs" />
     <Compile Include="DGAEB.cs" />
     <Compile Include="DInvoice.cs" />
     <Compile Include="DMulti.cs" />
