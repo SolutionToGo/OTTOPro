@@ -437,11 +437,11 @@ namespace BL
             return NewPositionID;
         }
 
-        public EPosition GetArticleByA(EPosition ObjEPositon)
+        public EPosition GetArticleByA(EPosition ObjEPositon, string _DimType)
         {
             try
             {
-                ObjEPositon = ObjDPosition.GetArticleByA(ObjEPositon);
+                ObjEPositon = ObjDPosition.GetArticleByA(ObjEPositon, _DimType);
             }
             catch (Exception ex)
             {
@@ -449,6 +449,18 @@ namespace BL
             }
             return ObjEPositon;
         }
-      
+
+        public EPosition GetArticleByB(EPosition ObjEPositon, string _DimType)
+        {
+            try
+            {
+                ObjEPositon = ObjDPosition.GetArticleByB(ObjEPositon, _DimType);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
     }
 }
