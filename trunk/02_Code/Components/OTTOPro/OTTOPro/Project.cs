@@ -6002,6 +6002,11 @@ namespace OTTOPro
         {
             try
             {
+                TextEdit txtDimens = (TextEdit)sender;
+                if (txtDimens!=null)
+                {
+                    _txtDimensions = txtDimens.Name;
+                }                
                 string _DimType = string.Empty;
                 if (ObjBPosition == null)
                     ObjBPosition = new BPosition();
@@ -6024,10 +6029,10 @@ namespace OTTOPro
                 {
                     _DimType = "B";
                     ObjEPosition = ObjBPosition.GetArticleByB(ObjEPosition, _DimType);
-                }                
-                txtDim1.Text = ObjEPosition.A.ToString();
-                txtDim2.Text = ObjEPosition.B.ToString();
-                txtDim3.Text = ObjEPosition.L.ToString();
+                }
+                txtDim1.Text = ObjEPosition.Dim1;
+                txtDim2.Text = ObjEPosition.Dim2;
+                txtDim3.Text = ObjEPosition.Dim3;
 
                 ObjEPosition = ObjBPosition.GetArticleByDimension(ObjEPosition);
                 txtMin.Text = ObjEPosition.Mins.ToString();
@@ -9907,13 +9912,19 @@ namespace OTTOPro
                             txtCustomerName.Text = row["CustomerName"].ToString();
                         }
                     }
+
+                    ObjBFormBlatt.Get_tbl221_2(ObjEFormBlatt);
+                    gctbl_221_2.DataSource = ObjEFormBlatt.dtBlatt221_2;
+                    bgvtbl_221_2.BestFitColumns();
                 }
+               
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
+
 
     }
 }

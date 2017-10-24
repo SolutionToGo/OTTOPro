@@ -24,5 +24,18 @@ namespace BL
             }
             return ObjEFormBlatt;
         }
+
+        public EFormBlatt Get_tbl221_2(EFormBlatt ObjEFormBlatt)
+        {
+            try
+            {
+                ObjEFormBlatt = ObjDFormBlatt.Get_tbl221_2(ObjEFormBlatt);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEFormBlatt;
+        }
     }
 }

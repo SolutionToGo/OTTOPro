@@ -53,5 +53,45 @@ namespace DataAccess
             return ObjEFormBlatt;
         }
 
+        public EFormBlatt Get_tbl221_2(EFormBlatt ObjEFormBlatt)
+        {
+            try
+            {
+                DataSet ds = new DataSet();
+                ObjEFormBlatt.dtBlatt221_2 = new DataTable();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_tbl221_2]";
+                    cmd.Parameters.Add("@ProjectID", ObjEFormBlatt.ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ds);
+                    }
+                    if (ds != null && ds.Tables.Count > 0)
+                    {
+                        ObjEFormBlatt.dtBlatt221_2 = ds.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    // throw new Exception("Fehler beim Laden der Generellen Kosten");
+                }
+                else
+                {
+                    throw new Exception("Error while retrieving form blatt");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEFormBlatt;
+        }
+
     }
 }

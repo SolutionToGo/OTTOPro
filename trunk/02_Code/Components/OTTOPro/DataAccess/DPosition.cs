@@ -739,9 +739,10 @@ namespace DataAccess
                     }
                     if (dt != null && dt.Rows.Count > 0)
                     {
-                        ObjEPositon.A = dt.Rows[0]["A"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["A"]);
-                        ObjEPositon.B = dt.Rows[0]["B"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["B"]);
-                        ObjEPositon.L = dt.Rows[0]["L"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["L"]);
+                        string value = string.Empty;
+                        ObjEPositon.Dim1 = dt.Rows[0]["A"] == DBNull.Value ? "" : dt.Rows[0]["A"].ToString();
+                        ObjEPositon.Dim2 = dt.Rows[0]["B"] == DBNull.Value ? "" : dt.Rows[0]["B"].ToString();
+                        ObjEPositon.Dim3 = dt.Rows[0]["L"] == DBNull.Value ? "" : dt.Rows[0]["L"].ToString();
                     }
                 }
             }
@@ -774,9 +775,9 @@ namespace DataAccess
                     }
                     if (dt != null && dt.Rows.Count > 0)
                     {
-                        ObjEPositon.A = dt.Rows[0]["A"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["A"]);
-                        ObjEPositon.B = dt.Rows[0]["B"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["B"]);
-                        ObjEPositon.L = dt.Rows[0]["L"] == DBNull.Value ? 0 : Convert.ToInt16(dt.Rows[0]["L"]);
+                        ObjEPositon.Dim1 = dt.Rows[0]["A"] == DBNull.Value ? "" : dt.Rows[0]["A"].ToString();
+                        ObjEPositon.Dim2 = dt.Rows[0]["B"] == DBNull.Value ? "" : dt.Rows[0]["B"].ToString();
+                        ObjEPositon.Dim3 = dt.Rows[0]["L"] == DBNull.Value ? "" : dt.Rows[0]["L"].ToString();
                     }
                 }
             }
