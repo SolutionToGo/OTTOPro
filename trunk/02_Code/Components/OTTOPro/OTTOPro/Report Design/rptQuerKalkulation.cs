@@ -4,11 +4,15 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using System.Data;
+using System.Data.SqlClient;
+using DAL;
+using System.Configuration;
+
 
 namespace OTTOPro.Report_Design
 {
     public partial class rptQuerKalkulation : DevExpress.XtraReports.UI.XtraReport
-    {
+    {      
         DataTable dtValue;
         int _PID = 0;
         string _Type = string.Empty;
@@ -51,6 +55,8 @@ namespace OTTOPro.Report_Design
         {
             try
             {
+                this.p_Rpt_QuerCalculationTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
+                this.p_Rpt_QuerCalculationTableAdapter.ClearBeforeFill = true;
                 this.p_Rpt_QuerCalculationTableAdapter.Fill(dsQuerKalculation1.P_Rpt_QuerCalculation, dtValue, _PID, _Type);
             }
             catch (Exception ex)

@@ -174,6 +174,7 @@
             this.ANTEIL = new DevExpress.XtraReports.UI.CalculatedField();
             this.SumMAMulti = new DevExpress.XtraReports.UI.CalculatedField();
             this.SumMOMulti = new DevExpress.XtraReports.UI.CalculatedField();
+            this.p_Rpt_QuerCalculationTableAdapter1 = new OTTOPro.Report_Design.dsQuerKalculationTableAdapters.P_Rpt_QuerCalculationTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -943,7 +944,7 @@
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1,
             this.GroupFooter1});
-            this.DetailReport.DataAdapter = this.p_Rpt_QuerCalculationTableAdapter;
+            this.DetailReport.DataAdapter = this.p_Rpt_QuerCalculationTableAdapter1;
             this.DetailReport.DataMember = "P_Rpt_QuerCalculation";
             this.DetailReport.DataSource = this.dsQuerKalculation1;
             this.DetailReport.Level = 0;
@@ -1512,6 +1513,10 @@
             this.SumMOMulti.Expression = "Sum([MO_VK] / Sum([MO_EK]))";
             this.SumMOMulti.Name = "SumMOMulti";
             // 
+            // p_Rpt_QuerCalculationTableAdapter1
+            // 
+            this.p_Rpt_QuerCalculationTableAdapter1.ClearBeforeFill = true;
+            // 
             // rptQuerKalkulation
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1670,5 +1675,6 @@
         private DevExpress.XtraReports.UI.CalculatedField ANTEIL;
         private DevExpress.XtraReports.UI.CalculatedField SumMAMulti;
         private DevExpress.XtraReports.UI.CalculatedField SumMOMulti;
+        private dsQuerKalculationTableAdapters.P_Rpt_QuerCalculationTableAdapter p_Rpt_QuerCalculationTableAdapter1;
     }
 }
