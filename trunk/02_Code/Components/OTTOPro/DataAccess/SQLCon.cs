@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
-    static class SQLCon
+    public static class SQLCon
     {
         /// <summary>
         /// Static SQL Connection to connect with database
@@ -27,6 +27,10 @@ namespace DAL
                 ObjCon.Open();
                 return ObjCon;
             }
+        }
+        public static string ConnectionString()
+        {
+            return ConfigurationManager.ConnectionStrings["OTTOPro"].ToString();
         }
     }
 }
