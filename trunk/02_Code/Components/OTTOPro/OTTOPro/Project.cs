@@ -309,7 +309,6 @@ namespace OTTOPro
                 cmbPositionKZ.Text = "N";
                 chkCumulated.Checked = true;
                 tbFormBlatt1.PageVisible = false;
-                tbFormBlatt.PageVisible = false;
 
                 RequiredFields.Add(txtProjectNumber);
                 RequiredFields.Add(txtMWST);
@@ -9709,23 +9708,7 @@ namespace OTTOPro
                         ObjEFormBlatt = new EFormBlatt();
                     if (ObjBFormBlatt == null)
                         ObjBFormBlatt = new BFormBlatt();
-                    ObjEFormBlatt.ProjectID = ObjEProject.ProjectID;
-                    //ObjEFormBlatt = ObjBFormBlatt.Get_tbl221_1(ObjEFormBlatt);
-                    //if (ObjEFormBlatt.dtBlatt221_1!=null)
-                    //{
-                    //    gctbl221_1.DataSource = ObjEFormBlatt.dtBlatt221_1;
-                    //    gvtbl221_1.BestFitColumns();
-                    //}                  
-
-                    //if (ObjEFormBlatt.dtProjectDetails != null)
-                    //{
-                    //    foreach (DataRow row in ObjEFormBlatt.dtProjectDetails.Rows)
-                    //    {
-                    //        txtProjectNr.Text = row["ProjectNumber"].ToString();
-                    //        txtProjectDescription.Text = row["ProjectDescription"].ToString();
-                    //        txtCustomerName.Text = row["CustomerName"].ToString();
-                    //    }
-                    //}
+                    ObjEFormBlatt.ProjectID = ObjEProject.ProjectID;                   
 
                     ObjBFormBlatt.Get_tbl221_2(ObjEFormBlatt);
                     if (ObjEFormBlatt.dtBlatt221_2 != null)

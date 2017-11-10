@@ -166,6 +166,10 @@ namespace OTTOPro
             {
                 btnTextModule.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             }
+            if(Utility.RoleID ==8)
+            {
+                btnFormBlattarticles.Enabled = true;
+            }
             lblUserName.Text = "Nutzername : " + Utility.UserName;
         }
 
