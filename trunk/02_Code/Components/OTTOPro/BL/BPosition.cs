@@ -101,6 +101,7 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FinalGB", ObjEPosition.FinalGB.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EP", ObjEPosition.EP.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SNO", ObjEPosition.SNO.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Discount", ObjEPosition.Discount.ToString(CInfo));
 
                 PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription);
                 if (PositionID < 0)

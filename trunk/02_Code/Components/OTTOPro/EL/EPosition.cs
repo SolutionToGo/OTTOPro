@@ -101,6 +101,7 @@ namespace EL
         private int _A; 
         private int _B; 
         private int _L;
+        private decimal _Discount;
 
         //Copy of LVs
         private DataTable _dtCopyNewLVs;
@@ -583,6 +584,10 @@ namespace EL
             get { return _dtCopyPosition; }
             set { _dtCopyPosition = value; }
         }       
-        
+        public decimal Discount
+        {
+            get { return _Discount; }
+            set { _Discount = value; }
+        }
     }
 }
