@@ -93,5 +93,120 @@ namespace DataAccess
             return ObjEFormBlatt;
         }
 
+        public EFormBlatt GetFormBlatttype(EFormBlatt ObjEFormBlatt)
+        {
+            DataSet dsFormBlatt = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_FormBlattType]";
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsFormBlatt);
+                    }
+                    if (dsFormBlatt != null && dsFormBlatt.Tables.Count > 0)
+                    {
+                        ObjEFormBlatt.dtBlattTypes = dsFormBlatt.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                   // throw new Exception("Fehler beim Laden der Zugangsinformationen");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving Access FormBlatt Types");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEFormBlatt;
+        }
+
+        public EFormBlatt Get_FormBlattArticles(EFormBlatt ObjEFormBlatt)
+        {
+            DataSet dsFormBlattArticle = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_FormBlattArticlesByType]";
+                    cmd.Parameters.Add("@LookUpID", ObjEFormBlatt.LookUpID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsFormBlattArticle);
+                    }
+                    if (dsFormBlattArticle != null && dsFormBlattArticle.Tables.Count > 0)
+                    {
+                        ObjEFormBlatt.dtBlattArticles = dsFormBlattArticle.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    // throw new Exception("Fehler beim Laden der Zugangsinformationen");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving FormBlatt Types");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEFormBlatt;
+        }
+
+        public EFormBlatt Save_FormBlattArticles(EFormBlatt ObjEFormBlatt,DataTable _dt)
+        {
+            DataSet dsFormBlattArticle = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_FormBlattarticles]";
+                    cmd.Parameters.Add("@LookupID", ObjEFormBlatt.LookUpID);
+                    cmd.Parameters.Add("@dtBlattArticles", _dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsFormBlattArticle);
+                    }                    
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    // throw new Exception("Fehler beim Laden der Zugangsinformationen");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Saving FormBlatt Types");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEFormBlatt;
+        }
     }
 }

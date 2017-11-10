@@ -38,6 +38,7 @@ using DevExpress.XtraGrid.Views.Base;
 using System.Globalization;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraBars.Docking;
+using DevExpress.XtraGrid.Views.BandedGrid;
 
 namespace OTTOPro
 {
@@ -49,6 +50,7 @@ namespace OTTOPro
         private List<Control> RequiredFields = new List<Control>();
         private List<Control> RequiredPositionFields = new List<Control>();
         private List<Control> RequiredPositionFieldsforTitle = new List<Control>();
+        private List<Control> RequiredFieldsFormBlatt = new List<Control>();
         private int _ProjectID = -1;
         private bool _IsCopy = false;
         private string LongDescription = string.Empty;
@@ -306,6 +308,8 @@ namespace OTTOPro
                 tbReports.PageVisible = false;
                 cmbPositionKZ.Text = "N";
                 chkCumulated.Checked = true;
+                tbFormBlatt1.PageVisible = false;
+                tbFormBlatt.PageVisible = false;
 
                 RequiredFields.Add(txtProjectNumber);
                 RequiredFields.Add(txtMWST);
@@ -6001,12 +6005,7 @@ namespace OTTOPro
         private void txtDim1_Leave(object sender, EventArgs e)
         {
             try
-            {
-                TextEdit txtDimens = (TextEdit)sender;
-                if (txtDimens!=null)
-                {
-                    _txtDimensions = txtDimens.Name;
-                }                
+            {                            
                 string _DimType = string.Empty;
                 if (ObjBPosition == null)
                     ObjBPosition = new BPosition();
@@ -6020,19 +6019,22 @@ namespace OTTOPro
                 ObjEPosition.Dim2 = txtDim2.Text;
                 ObjEPosition.Dim3 = txtDim3.Text;
                 ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
-                if (_txtDimensions == "txtDim1")
+                if (!string.IsNullOrEmpty(_txtDimensions))
                 {
-                    _DimType = "A";
-                    ObjEPosition = ObjBPosition.GetArticleByA(ObjEPosition, _DimType);
-                }
-                if (_txtDimensions == "txtDim2")
-                {
-                    _DimType = "B";
-                    ObjEPosition = ObjBPosition.GetArticleByB(ObjEPosition, _DimType);
-                }
-                txtDim1.Text = ObjEPosition.Dim1;
-                txtDim2.Text = ObjEPosition.Dim2;
-                txtDim3.Text = ObjEPosition.Dim3;
+                    if (_txtDimensions == "txtDim1")
+                    {
+                        _DimType = "A";
+                        ObjEPosition = ObjBPosition.GetArticleByA(ObjEPosition, _DimType);
+                    }
+                    if (_txtDimensions == "txtDim2")
+                    {
+                        _DimType = "B";
+                        ObjEPosition = ObjBPosition.GetArticleByB(ObjEPosition, _DimType);
+                    }
+                    txtDim1.Text = ObjEPosition.Dim1;
+                    txtDim2.Text = ObjEPosition.Dim2;
+                    txtDim3.Text = ObjEPosition.Dim3;
+                }  
 
                 ObjEPosition = ObjBPosition.GetArticleByDimension(ObjEPosition);
                 txtMin.Text = ObjEPosition.Mins.ToString();
@@ -6056,7 +6058,10 @@ namespace OTTOPro
                 if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
                     e.Handled = true;
                 if (e.KeyChar == (char)Keys.Enter)
+                {
                     txtDim1_Leave(null, null);
+                }
+                   
             }
             catch (Exception ex)
             {
@@ -9885,6 +9890,8 @@ namespace OTTOPro
             e.Effect = DragDropEffects.None;
         }
 
+        #region Form Blatt
+
         private void nbFormBlatt_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             try
@@ -9892,38 +9899,101 @@ namespace OTTOPro
                 ObjBProject.GetProjectDetails(ObjEProject);
                 if (ObjEProject.ProjectID > 0 && ObjEProject.ActualLvs > 0)
                 {
-                    ObjTabDetails = tbFormBlatt;
+                    ObjTabDetails = tbFormBlatt1;
                     TabChange(ObjTabDetails);
+                    RequiredFieldsFormBlatt.Add(txtAmount);
+                    RequiredFieldsFormBlatt.Add(txtsurcharge_1_2);
+                    RequiredFieldsFormBlatt.Add(txtSurcharge_1_3);
                     if (ObjEFormBlatt == null)
                         ObjEFormBlatt = new EFormBlatt();
                     if (ObjBFormBlatt == null)
                         ObjBFormBlatt = new BFormBlatt();
                     ObjEFormBlatt.ProjectID = ObjEProject.ProjectID;
-                    ObjEFormBlatt = ObjBFormBlatt.Get_tbl221_1(ObjEFormBlatt);
-                    gctbl221_1.DataSource = ObjEFormBlatt.dtBlatt221_1;
-                    gvtbl221_1.BestFitColumns();
+                    //ObjEFormBlatt = ObjBFormBlatt.Get_tbl221_1(ObjEFormBlatt);
+                    //if (ObjEFormBlatt.dtBlatt221_1!=null)
+                    //{
+                    //    gctbl221_1.DataSource = ObjEFormBlatt.dtBlatt221_1;
+                    //    gvtbl221_1.BestFitColumns();
+                    //}                  
 
-                    if (ObjEFormBlatt.dtProjectDetails != null)
-                    {
-                        foreach (DataRow row in ObjEFormBlatt.dtProjectDetails.Rows)
-                        {
-                            txtProjectNr.Text = row["ProjectNumber"].ToString();
-                            txtProjectDescription.Text = row["ProjectDescription"].ToString();
-                            txtCustomerName.Text = row["CustomerName"].ToString();
-                        }
-                    }
+                    //if (ObjEFormBlatt.dtProjectDetails != null)
+                    //{
+                    //    foreach (DataRow row in ObjEFormBlatt.dtProjectDetails.Rows)
+                    //    {
+                    //        txtProjectNr.Text = row["ProjectNumber"].ToString();
+                    //        txtProjectDescription.Text = row["ProjectDescription"].ToString();
+                    //        txtCustomerName.Text = row["CustomerName"].ToString();
+                    //    }
+                    //}
 
                     ObjBFormBlatt.Get_tbl221_2(ObjEFormBlatt);
-                    gctbl_221_2.DataSource = ObjEFormBlatt.dtBlatt221_2;
-                    bgvtbl_221_2.BestFitColumns();
+                    if (ObjEFormBlatt.dtBlatt221_2 != null)
+                    {
+                        gc221_2.DataSource = ObjEFormBlatt.dtBlatt221_2;
+                        bgv221_2.BestFitColumns();
+                    }
                 }
-               
+
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
+
+        private void btnFomBlattsumbit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                decimal Value = 0;
+                if (Utility.ValidateRequiredFields(RequiredFieldsFormBlatt) == false)
+                    return;
+                DataTable table = new DataTable();
+                table = gc221_2.DataSource as DataTable;
+
+                rptFormBlatt_221_1 rpt = new rptFormBlatt_221_1(ObjEProject.ProjectID,table);
+                ReportPrintTool printTool = new ReportPrintTool(rpt);
+                rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                if (decimal.TryParse(txtAmount.Text,out Value))
+                {
+                    rpt.Parameters["Amount"].Value = Value;
+                }
+                if (decimal.TryParse(txtsurcharge_1_2.Text, out Value))
+                {
+                    rpt.Parameters["SurchargePer"].Value = Value;
+                }
+                if (decimal.TryParse(txtSurcharge_1_3.Text, out Value))
+                {
+                    rpt.Parameters["Holding"].Value = Value;
+                }        
+                
+                rpt.Parameters["Description"].Value = richtxtformBlatt_221.Text;
+                printTool.ShowRibbonPreview();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void bgv221_2_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
+        {
+            try
+            {
+                BandedGridView view = sender as BandedGridView;
+                view.UpdateTotalSummary();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+
+        #endregion
+
+
+
 
 
     }

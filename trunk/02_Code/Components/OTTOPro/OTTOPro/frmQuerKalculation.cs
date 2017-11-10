@@ -70,11 +70,11 @@ namespace OTTOPro
         {
             try
             {
-                //if (e.Button == MouseButtons.Right)
-                //{
-                //    this.contextMenuStrip1.Show(this.gvAddRemovePositions, e.Location);
-                //    contextMenuStrip1.Show(Cursor.Position);
-                //}
+                if (e.Button == MouseButtons.Right)
+                {
+                    this.contextMenuStrip1.Show(this.gvAddRemovePositions, e.Location);
+                    contextMenuStrip1.Show(Cursor.Position);
+                }
             }
             catch (Exception ex)
             {
@@ -86,7 +86,7 @@ namespace OTTOPro
         {
             try
             {
-               // gvAddRemovePositions.Rows.Add();
+                gvAddRemovePositions.Rows.Add();
             }
             catch (Exception ex)
             {
@@ -98,13 +98,13 @@ namespace OTTOPro
         {
             try
             {
-                //if (this.gvAddRemovePositions.SelectedRows.Count > 0)
-                //{
-                //    foreach (DataGridViewRow item in this.gvAddRemovePositions.SelectedRows)
-                //    {
-                //        gvAddRemovePositions.Rows.RemoveAt(item.Index);
-                //    }
-                //}
+                if (this.gvAddRemovePositions.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow item in this.gvAddRemovePositions.SelectedRows)
+                    {
+                        gvAddRemovePositions.Rows.RemoveAt(item.Index);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -118,11 +118,11 @@ namespace OTTOPro
             {
                 if (radioGroupSelection.SelectedIndex == 0)
                 {
-                   // gvAddRemovePositions.Enabled = false;
+                    gvAddRemovePositions.Enabled = false;
                 }
                 else
                 {
-                   // gvAddRemovePositions.Enabled = true;
+                    gvAddRemovePositions.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -148,56 +148,56 @@ namespace OTTOPro
                     printTool.ShowRibbonPreview();
                     this.Close();
                 }
-                //else
-                //{
-                //    if (gvAddRemovePositions.RowCount == 0)
-                //    {
-                //        if (Utility._IsGermany == true)
-                //        {
-                //            XtraMessageBox.Show("Bitte machen Sie VON / BIS Angaben.");
-                //        }
-                //        else
-                //        {
-                //            XtraMessageBox.Show("Please Add From and To values.");
-                //        }
-                //        return;
-                //    }
-                //    DataTable dtPos = new DataTable();
-                //    dtPos.Columns.Add("FromPos");
-                //    dtPos.Columns.Add("ToPos");
+                else
+                {
+                    if (gvAddRemovePositions.RowCount == 0)
+                    {
+                        if (Utility._IsGermany == true)
+                        {
+                            XtraMessageBox.Show("Bitte machen Sie VON / BIS Angaben.");
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Please Add From and To values.");
+                        }
+                        return;
+                    }
+                    DataTable dtPos = new DataTable();
+                    dtPos.Columns.Add("FromPos");
+                    dtPos.Columns.Add("ToPos");
 
-                //    string tfrom = null;
-                //    string tTo = null;
-                //    foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
-                //    {
-                //        DataRow drPos = dtPos.NewRow();
-                //        tfrom = dr.Cells[0].Value.ToString();
-                //        tTo = dr.Cells[1].Value.ToString();
-                //        string _fromParent = string.Empty;
-                //        string _ToParent = string.Empty;
-                //        if (tfrom.Contains("."))
-                //            _fromParent = tfrom.Substring(0, tfrom.IndexOf('.'));
-                //        if (tTo.Contains("."))
-                //            _ToParent = tTo.Substring(0, tTo.IndexOf('.'));
-                //        if (_fromParent != _ToParent)
-                //        {
-                //            if (Utility._IsGermany)
-                //                throw new Exception("Bitte geben Sie den gleichen Parent-Level ein..!");
-                //            else
-                //                throw new Exception("Please enter the same Parent level..!");
-                //        }
-                //        drPos["fromPos"] = tfrom.Replace(',', '.');
-                //        drPos["toPos"] = tTo.Replace(',', '.');
-                //        dtPos.Rows.Add(drPos);
-                //    }
+                    string tfrom = null;
+                    string tTo = null;
+                    foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
+                    {
+                        DataRow drPos = dtPos.NewRow();
+                        tfrom = dr.Cells[0].Value.ToString();
+                        tTo = dr.Cells[1].Value.ToString();
+                        string _fromParent = string.Empty;
+                        string _ToParent = string.Empty;
+                        if (tfrom.Contains("."))
+                            _fromParent = tfrom.Substring(0, tfrom.IndexOf('.'));
+                        if (tTo.Contains("."))
+                            _ToParent = tTo.Substring(0, tTo.IndexOf('.'));
+                        if (_fromParent != _ToParent)
+                        {
+                            if (Utility._IsGermany)
+                                throw new Exception("Bitte geben Sie den gleichen Parent-Level ein..!");
+                            else
+                                throw new Exception("Please enter the same Parent level..!");
+                        }
+                        drPos["fromPos"] = tfrom.Replace(',', '.');
+                        drPos["toPos"] = tTo.Replace(',', '.');
+                        dtPos.Rows.Add(drPos);
+                    }
 
-                //    this.Hide();
-                //    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Title");
-                //    ReportPrintTool printTool = new ReportPrintTool(rpt);
-                //    rpt.Parameters["ProjectID"].Value = ProjectID;
-                //    printTool.ShowRibbonPreview();
-                //    this.Close();
-                //}
+                    this.Hide();
+                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Title");
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    rpt.Parameters["ProjectID"].Value = ProjectID;
+                    printTool.ShowRibbonPreview();
+                    this.Close();
+                }
             }
             catch (Exception ex)
             {

@@ -417,5 +417,11 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }   
         }
+
+        private void btnFormBlattarticles_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmFormBlattarticles frm = new frmFormBlattarticles();
+            frm.ShowDialog();
+        }
     }
 }

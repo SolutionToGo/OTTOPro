@@ -286,6 +286,12 @@
     <Compile Include="frmFeature.Designer.cs">
       <DependentUpon>frmFeature.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFormBlattarticles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFormBlattarticles.Designer.cs">
+      <DependentUpon>frmFormBlattarticles.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGAEBExport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -337,7 +343,7 @@
     <Compile Include="frmQuerKalculation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmQuerKalculation.Designer.cs">
+    <Compile Include="frmQuerKalculation.designer.cs">
       <DependentUpon>frmQuerKalculation.cs</DependentUpon>
     </Compile>
     <Compile Include="frmRabattGroup.cs">
@@ -467,6 +473,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\dsFormBlatt_221_2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\dsProposalCoverPage1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -476,6 +487,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsQuerKalculation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\dsSurchargeCalculation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSurchargeCalculation.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report Design\frmProposalCoverPage1.cs">
       <SubType>Form</SubType>
@@ -500,6 +516,18 @@
     </Compile>
     <Compile Include="Report Design\rptDeliveryNotesWithoutAddress.Designer.cs">
       <DependentUpon>rptDeliveryNotesWithoutAddress.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptFormBlatt_221_1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptFormBlatt_221_1.Designer.cs">
+      <DependentUpon>rptFormBlatt_221_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptFormBlatt_223.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptFormBlatt_223.Designer.cs">
+      <DependentUpon>rptFormBlatt_223.cs</DependentUpon>
     </Compile>
     <Compile Include="Report Design\rptInvoicewithKurzText.cs">
       <SubType>Component</SubType>
@@ -625,6 +653,9 @@
     <EmbeddedResource Include="frmFeature.resx">
       <DependentUpon>frmFeature.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmFormBlattarticles.resx">
+      <DependentUpon>frmFormBlattarticles.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGAEBExport.resx">
       <DependentUpon>frmGAEBExport.cs</DependentUpon>
     </EmbeddedResource>
@@ -730,6 +761,12 @@
     <EmbeddedResource Include="Report Design\rptDeliveryNotesWithoutAddress.resx">
       <DependentUpon>rptDeliveryNotesWithoutAddress.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptFormBlatt_221_1.resx">
+      <DependentUpon>rptFormBlatt_221_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptFormBlatt_223.resx">
+      <DependentUpon>rptFormBlatt_223.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptInvoicewithKurzText.resx">
       <DependentUpon>rptInvoicewithKurzText.cs</DependentUpon>
     </EmbeddedResource>
@@ -791,6 +828,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Report Design\dsFormBlatt_221_2.xsc">
+      <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsFormBlatt_221_2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFormBlatt_221_2.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsFormBlatt_221_2.xss">
+      <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
+    </None>
     <None Include="Report Design\dsProposalCoverPage1.xsc">
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
     </None>
@@ -812,6 +860,17 @@
     </None>
     <None Include="Report Design\dsQuerKalculation.xss">
       <DependentUpon>dsQuerKalculation.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsSurchargeCalculation.xsc">
+      <DependentUpon>dsSurchargeCalculation.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsSurchargeCalculation.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSurchargeCalculation.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsSurchargeCalculation.xss">
+      <DependentUpon>dsSurchargeCalculation.xsd</DependentUpon>
     </None>
     <None Include="Resources\1470736995_User_Customers.png" />
   </ItemGroup>

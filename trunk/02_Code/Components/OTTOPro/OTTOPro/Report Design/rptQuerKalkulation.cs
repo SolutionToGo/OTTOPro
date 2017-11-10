@@ -58,6 +58,21 @@ namespace OTTOPro.Report_Design
                 this.p_Rpt_QuerCalculationTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculationTableAdapter.ClearBeforeFill = true;
                 this.p_Rpt_QuerCalculationTableAdapter.Fill(dsQuerKalculation1.P_Rpt_QuerCalculation, dtValue, _PID, _Type);
+
+                this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
+                this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.ClearBeforeFill = true;
+                this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.Fill(dsSurchargeCalculation1.P_Rpt_QuerCalculation_SurchargePosition, dtValue, _PID, _Type);
+
+                DataTable dt = new DataTable();
+                dt = dsSurchargeCalculation1.P_Rpt_QuerCalculation_SurchargePosition;                
+                if (dt != null)
+                {                    
+                    decimal _result = 0;
+                    if (decimal.TryParse(Convert.ToString(dt.Rows[0][0]), out _result))
+                        tblSurchargeresult.Text = _result.ToString("n2");
+                    else
+                        throw new Exception(Convert.ToString(dt.Rows[0][0]));
+                }
             }
             catch (Exception ex)
             {
