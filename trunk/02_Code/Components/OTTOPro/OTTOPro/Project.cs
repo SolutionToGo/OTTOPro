@@ -1526,7 +1526,7 @@ namespace OTTOPro
                 else
                 {
                     Obj = dt.Compute("SUM(" + strField + ")", "SNO >=" + ifromValue +
-                          "And SNO <=" + itoValue + "And DetailKZ = 0 AND (PositionKZ = 'N' OR PositionKZ = 'Z' OR PositionKZ = 'M' OR PositionKZ = 'P')");
+                          "And SNO <=" + itoValue + "And DetailKZ = 0 AND (PositionKZ = 'N' OR PositionKZ = 'Z' OR PositionKZ = 'M' OR PositionKZ = 'P' OR PositionKZ = 'ZZ')");
                     Sum = Obj == DBNull.Value ? 0 : Convert.ToDecimal(Obj);
                     TotalValue = Sum;
                 }
@@ -3054,7 +3054,7 @@ namespace OTTOPro
                 string MinValue = string.Empty;
 
                 if (strPositionKZ.ToLower() == "zs")
-                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z' OR PositionKZ = 'P')");
+                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z' OR PositionKZ = 'P' OR PositionKZ = 'ZZ')");
                 else if (strPositionKZ.ToLower() == "z")
                     Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
 
@@ -3082,7 +3082,7 @@ namespace OTTOPro
                 object Max_Identity = null;
 
                 if (strPositionKZ.ToLower() == "zs")
-                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z' OR PositionKZ = 'P')");
+                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z' OR PositionKZ = 'P' OR PositionKZ = 'ZZ')");
                 else if (strPositionKZ.ToLower() == "z")
                     Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
 
@@ -6182,7 +6182,7 @@ namespace OTTOPro
                             cmbMulti6LVFilter.Properties.Items.Add(dr["LVSection"]);
                     }
                     cmbMulti6LVFilter.SetEditValue("HA");
-                    cmbType.SelectedIndex = 1;
+                    cmbType.SelectedIndex = 0;
 
                     btnMulti6LoadArticles_Click(null, null);
                     gvMulti6.BestFitColumns();

@@ -199,6 +199,7 @@
             this.gvArticles.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvArticles.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvArticles.OptionsView.ShowGroupPanel = false;
+            this.gvArticles.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvArticles_PopupMenuShowing);
             this.gvArticles.DoubleClick += new System.EventHandler(this.gvArticles_DoubleClick);
             // 
             // gridColumn1

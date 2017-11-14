@@ -723,5 +723,36 @@ namespace DataAccess
             }
             return ObjESupplier;
         }
+
+        public ESupplier DeleteSupplierArticleMap(ESupplier ObjESupplier)
+        {
+            DataSet dsArticle = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_ArticleSupplierMap]";
+                    cmd.Parameters.AddWithValue("@WGWAID", ObjESupplier.WGWAID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsArticle);
+                    }
+                    if(dsArticle != null && dsArticle.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtArticle = dsArticle.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler beim Löschen der Artikle");
+                else
+                    throw new Exception("Error while Deleting Article");
+            }
+            return ObjESupplier;
+        }
     }
 }

@@ -436,6 +436,21 @@ namespace BL
             }
             return ObjESupplier;
         }
+
+        public ESupplier DeleteSupplierArticleMap(ESupplier ObjESupplier)
+        {
+            try
+            {
+                if (ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+             ObjESupplier = ObjDSupplier.DeleteSupplierArticleMap(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
     }
 }
 

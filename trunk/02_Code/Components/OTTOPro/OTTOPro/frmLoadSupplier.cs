@@ -340,7 +340,7 @@ namespace OTTOPro
             {
                 if (gvSupplier.FocusedColumn != null && gvSupplier.GetFocusedRowCellValue("SupplierID") != null)
                 {
-                    if (int.TryParse(gvSupplier.GetFocusedRowCellValue("SupplierID").ToString(), out _IDValue))
+                    if (int.TryParse(Convert.ToString(gvSupplier.GetFocusedRowCellValue("SupplierID")), out _IDValue))
                     {
                         _SupplierID = _IDValue;
                         memoEditCommentary.Text = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
@@ -657,6 +657,41 @@ namespace OTTOPro
                 {
                     frmOTTOPro.Instance.SetPictureBoxVisible(true);
                     frmOTTOPro.Instance.SetLableVisible(true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvArticles_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gcArticleDelete_ItemClick));
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void gcArticleDelete_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjBSupplier == null)
+                    ObjBSupplier = new BSupplier();
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
+                int IVlaue = 0;
+                if (int.TryParse(Convert.ToString(gvArticles.GetFocusedRowCellValue("WGWAID")), out IVlaue))
+                {
+                    ObjESupplier.WGWAID = IVlaue;
+                    ObjESupplier = ObjBSupplier.DeleteSupplierArticleMap(ObjESupplier);
+                    gvSupplier_FocusedRowChanged(null, null);
                 }
             }
             catch (Exception ex)
