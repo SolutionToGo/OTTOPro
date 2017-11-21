@@ -90,6 +90,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.btnReportSetting = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -133,9 +134,10 @@
             this.barButtonItem7,
             this.btnAddAccessories,
             this.skinRibbonGalleryBarItem2,
-            this.btnFormBlattarticles});
+            this.btnFormBlattarticles,
+            this.btnReportSetting});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 43;
+            this.ribbon.MaxItemId = 44;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -479,6 +481,7 @@
             this.rpgTextModule.ItemLinks.Add(this.btnTextModule, true);
             this.rpgTextModule.ItemLinks.Add(this.btnShortCuts, true);
             this.rpgTextModule.ItemLinks.Add(this.btnDesignReport);
+            this.rpgTextModule.ItemLinks.Add(this.btnReportSetting, true);
             this.rpgTextModule.Name = "rpgTextModule";
             this.rpgTextModule.Text = "Datenerfassung Textmodul";
             // 
@@ -583,6 +586,16 @@
             this.lblUserName.Size = new System.Drawing.Size(0, 13);
             this.lblUserName.TabIndex = 21;
             // 
+            // btnReportSetting
+            // 
+            this.btnReportSetting.Caption = "Report Setting";
+            this.btnReportSetting.CausesValidation = true;
+            this.btnReportSetting.Id = 43;
+            this.btnReportSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReportSetting.ImageOptions.Image")));
+            this.btnReportSetting.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReportSetting.ImageOptions.LargeImage")));
+            this.btnReportSetting.Name = "btnReportSetting";
+            this.btnReportSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReportSetting_ItemClick);
+            // 
             // frmOTTOPro
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -675,5 +688,6 @@
         private DevExpress.XtraBars.BarButtonItem btnAddAccessories;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem2;
         private DevExpress.XtraBars.BarButtonItem btnFormBlattarticles;
+        private DevExpress.XtraBars.BarButtonItem btnReportSetting;
     }
 }

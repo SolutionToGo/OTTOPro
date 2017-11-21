@@ -74,11 +74,11 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der daten");
+                    throw new Exception("Fehler beim Speichern der Daten");
                 }
                 else
                 {
-                    throw new Exception("Error Occured While Retreiving the data");
+                    throw new Exception("Error while saving the data");
 
                 }
             }
@@ -125,5 +125,93 @@ namespace DataAccess
             }
             return dsReportDesign;
         }
+
+        public DataSet SaveReportSetting(EReportDesign ObjEReportDesign)
+        {
+            DataSet dsReportSetting = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_ReportSetting]";
+                    cmd.Parameters.AddWithValue("@LVPosition", ObjEReportDesign.LVPosition);
+                    cmd.Parameters.AddWithValue("@Fabrikat", ObjEReportDesign.Fabrikat);
+                    cmd.Parameters.AddWithValue("@ArticleNr", ObjEReportDesign.ArticlNr);
+                    cmd.Parameters.AddWithValue("@LieferantMA", ObjEReportDesign.Lieferant);
+                    cmd.Parameters.AddWithValue("@LangText", ObjEReportDesign.LangText);
+                    cmd.Parameters.AddWithValue("@KurzText", ObjEReportDesign.KurzText);
+                    cmd.Parameters.AddWithValue("@Sender", ObjEReportDesign.Sender);
+                    cmd.Parameters.AddWithValue("@Menge", ObjEReportDesign.Menge);
+                    cmd.Parameters.AddWithValue("@GB", ObjEReportDesign.GB);
+                    cmd.Parameters.AddWithValue("@EP", ObjEReportDesign.EP);
+                    cmd.Parameters.AddWithValue("@Prices", ObjEReportDesign.Prices);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsReportSetting);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Speichern der Daten");
+                }
+                else
+                {
+                    throw new Exception("Error while saving the data");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dsReportSetting;
+        }
+
+        public DataSet GetReportSettings(EReportDesign ObjEReportDesign)
+        {
+            DataSet dsReportSetting = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ReportSetting]";
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsReportSetting);
+                    }
+                    if (dsReportSetting != null && dsReportSetting.Tables.Count > 0)
+                    {
+                        ObjEReportDesign.dtReportSettings = dsReportSetting.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der daten");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving the data");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dsReportSetting;
+        }
+
     }
 }

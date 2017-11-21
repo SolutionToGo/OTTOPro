@@ -352,6 +352,12 @@
     <Compile Include="frmRabattGroup.Designer.cs">
       <DependentUpon>frmRabattGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportSetting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportSetting.Designer.cs">
+      <DependentUpon>frmReportSetting.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmResetPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -547,6 +553,12 @@
     <Compile Include="Report Design\rptMusterLangtext.Designer.cs">
       <DependentUpon>rptMusterLangtext.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptProposalCommon.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalCommon.Designer.cs">
+      <DependentUpon>rptProposalCommon.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptMusterLangtextMontMatgetrennt.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -686,6 +698,9 @@
     <EmbeddedResource Include="frmRabattGroup.resx">
       <DependentUpon>frmRabattGroup.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportSetting.resx">
+      <DependentUpon>frmReportSetting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmResetPassword.resx">
       <DependentUpon>frmResetPassword.cs</DependentUpon>
     </EmbeddedResource>
@@ -775,6 +790,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptMusterLangtext.resx">
       <DependentUpon>rptMusterLangtext.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalCommon.resx">
+      <DependentUpon>rptProposalCommon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptMusterLangtextMontMatgetrennt.resx">
       <DependentUpon>rptMusterLangtextMontMatgetrennt.cs</DependentUpon>

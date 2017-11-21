@@ -59,5 +59,37 @@ namespace BL
             }
             return dsReportDesign;
         }
+
+        public void SaveReportSetting(EReportDesign ObjEObject)
+        {
+            try
+            {
+                if (ObjEObject != null)
+                {
+                    ObjDReportDesign.SaveReportSetting(ObjEObject);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public DataSet GetReportSettings(EReportDesign ObjEObject)
+        {
+            DataSet dsReportSetting = new DataSet();
+            try
+            {
+                if (ObjEObject != null)
+                {
+                    dsReportSetting = ObjDReportDesign.GetReportSettings(ObjEObject);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return dsReportSetting;
+        }
     }
 }

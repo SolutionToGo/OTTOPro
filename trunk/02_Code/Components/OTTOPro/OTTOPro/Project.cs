@@ -39,6 +39,7 @@ using System.Globalization;
 using DevExpress.XtraPrinting;
 using DevExpress.XtraBars.Docking;
 using DevExpress.XtraGrid.Views.BandedGrid;
+using DevExpress.XtraEditors.Repository;
 
 namespace OTTOPro
 {
@@ -2998,10 +2999,22 @@ namespace OTTOPro
             try
             {
                 DataView dvPosition = ObjEPosition.dsPositionList.Tables[0].DefaultView;
-                if(cmbPositionKZ.Text == "Z")
+                if (cmbPositionKZ.Text == "Z")
                     dvPosition.RowFilter = "Position_OZ = '" + textbox.Text + "' and (PositionKZ = 'N' OR PositionKZ = 'M')";
                 else if(cmbPositionKZ.Text == "ZS")
                     dvPosition.RowFilter = "Position_OZ = '" + textbox.Text + "' and (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z')";
+                else if (cmbPositionKZ.Text == "ZZ")
+                {
+                    if (textbox == txtSurchargeFrom)
+                    {
+                        txtSurchargeFrom.Text = textbox.Text.Replace(',', '.');
+                    }
+                    else
+                    {
+                        txtSurchargeTo.Text = textbox.Text.Replace(',', '.');
+                    }
+                }
+                    
 
                 DataTable dtTemp = dvPosition.ToTable();
                 if (dtTemp != null && dtTemp.Rows.Count < 1)
@@ -7085,18 +7098,18 @@ namespace OTTOPro
 
         private void chkSupplierLists_ItemCheck(object sender, DevExpress.XtraEditors.Controls.ItemCheckEventArgs e)
         {
-            //try
-            //{
-            //    if (chkSupplierLists.CheckedItems.Count == 9)
-            //    {
-            //        Int32 checkedItemIndex = chkSupplierLists.CheckedIndices[0];
-            //        chkSupplierLists.SetItemChecked(checkedItemIndex, false);
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
+            try
+            {
+                if (chkSupplierLists.CheckedItems.Count == 9)
+                {
+                    Int32 checkedItemIndex = chkSupplierLists.CheckedIndices[0];
+                    chkSupplierLists.SetItemChecked(checkedItemIndex, false);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void btnGeneratePDF_Click(object sender, EventArgs e)
@@ -7377,7 +7390,6 @@ namespace OTTOPro
             }
         }
 
-        CheckEdit chk = null;
         private void gvProposal_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             try
@@ -7460,21 +7472,8 @@ namespace OTTOPro
                             }
                             CalculateSupplierColumns();
                             gvSupplier.BestFitColumns();
-                            gvSupplier_FocusedRowChanged(null, null);
+                            gvSupplier_FocusedRowChanged(null, null);                          
 
-                            foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
-                            {
-                                if (dc.ColumnName.Contains("Check"))
-                                {
-                                    chk = new CheckEdit();
-                                    UpdatePosition(gvSupplier, dc.ColumnName, chk);
-                                    chk.Size = new System.Drawing.Size(18, 18);
-                                    chk.Name = dc.ColumnName;
-                                    chk.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
-                                    gcSupplier.Controls.Add(chk);
-                                }
-
-                            }
                         }
                     }
                 }
@@ -7518,7 +7517,7 @@ namespace OTTOPro
                 CheckEdit ce = sender as CheckEdit;
                 if (ce.Checked == true)
                 {
-                    _IsCheckBoxColumnClicked = false;
+                   // _IsCheckBoxColumnClicked = false;
                     for (int j = 0; j < this.gvSupplier.RowCount; j++)
                     {
                         gvSupplier.SetRowCellValue(j, gvSupplier.Columns[ce.Name], true);
@@ -7529,24 +7528,23 @@ namespace OTTOPro
                         {
                             if (((CheckEdit)cntrl).Name != ce.Name)
                             {
+                                
                                 for (int j = 0; j < this.gvSupplier.RowCount; j++)
                                 {
                                     gvSupplier.SetRowCellValue(j, gvSupplier.Columns[((CheckEdit)cntrl).Name], false);
                                 }
                             }
                         }
-                    }
+                    }                  
+                    
                 }
                 else
                 {
-                    if (_IsCheckBoxColumnClicked == false)
-                    {
                         for (int j = 0; j < this.gvSupplier.RowCount; j++)
                         {
                             gvSupplier.SetRowCellValue(j, gvSupplier.Columns[ce.Name], false);
                         }
-                    }
-                }
+                  }
                 CheckBoxEnableAndDisable(ce.Name, false);
             }
             catch (Exception ex)
@@ -7639,6 +7637,7 @@ namespace OTTOPro
                 }
                 gvSupplier.UpdateTotalSummary();
                 gvSupplier.BestFitColumns();
+                
             }
             catch (Exception ex)
             {
@@ -7646,11 +7645,10 @@ namespace OTTOPro
             }
         }
 
-        bool _IsCheckBoxColumnClicked = false;
         private void gvSupplier_CellValueChanging(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             try
-            {
+            {                
                 if (e.Column.ColumnType == typeof(bool))
                 {
                     int iIvalue = e.RowHandle;
@@ -7664,27 +7662,12 @@ namespace OTTOPro
                             if (dc.DataType == typeof(bool) && dc.ColumnName != strFieldName)
                             {
                                 ObjESupplier.dtPositions.Rows[iIvalue][dc.ColumnName] = false;
-                                _IsCheckBoxColumnClicked = false;
                                 DataRow drNew = ObjESupplier.dtStrings.NewRow();
                                 drNew["Item"] = dc.ColumnName;
                                 ObjESupplier.dtStrings.Rows.Add(drNew);
                             }
                         }
                         ObjESupplier.IsSelected = true;
-
-                        if (CheckBoolValue(strFieldName, iIvalue) == true)
-                        {
-                            foreach (Control cntrl in gcSupplier.Controls)
-                            {
-                                if ((cntrl is CheckEdit))
-                                {
-                                    if (((CheckEdit)cntrl).Name == strFieldName)
-                                    {
-                                        ((CheckEdit)cntrl).Checked = true;
-                                    }
-                                }
-                            }
-                        }
                     }
                     else
                         ObjESupplier.IsSelected = false;
@@ -7745,7 +7728,7 @@ namespace OTTOPro
                         gcExistingValues.Text = "Bestehende Angaben je LV ";
                     }
                     _IsValueChanged = true;
-                }
+                }               
             }
             catch (Exception ex)
             {
@@ -7792,7 +7775,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -9725,7 +9707,7 @@ namespace OTTOPro
             }
         }
 
-        private void btnFomBlattsumbit_Click(object sender, EventArgs e)
+        private void btnFomBlatt_221_Click(object sender, EventArgs e)
         {
             try
             {
@@ -9771,14 +9753,109 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
+        }       
 
+        private void btnFomBlatt_223_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                rptFormBlatt_223 rpt = new rptFormBlatt_223();
+                ReportPrintTool printTool = new ReportPrintTool(rpt);
+                rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                printTool.ShowRibbonPreview();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
 
         #endregion
 
+        private void ChkSelectAllSupplier_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if(ObjESupplier.dtPositions.Rows.Count > 0)
+                {
+                    if (!gvSupplier.FocusedColumn.FieldName.Contains("Check"))
+                    {
+                        return;
+                    }
+                    string _Columnname = gvSupplier.FocusedColumn.FieldName;
+                    if (ChkSelectAllSupplier.Checked == true)
+                    {
+                        foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                        {
+                            if (dc.ColumnName.Contains("Check"))
+                            {
+                                for (int j = 0; j < this.gvSupplier.RowCount; j++)
+                                {
+                                    gvSupplier.SetRowCellValue(j, dc.ColumnName, false);
+                                }
+                            }
+                        }
+                        for (int j = 0; j < this.gvSupplier.RowCount; j++)
+                        {
+                            gvSupplier.SetRowCellValue(j, _Columnname, true);
+                            int _PosID = Convert.ToInt32(gvSupplier.GetRowCellValue(j, "PositionID"));
+                            if (gvSupplier.Columns[_Columnname].ColumnType.Equals(typeof(System.Boolean)))
+                            {
+                                ObjESupplier.dtStrings = new DataTable();
+                                ObjESupplier.dtStrings.Columns.Add("Item", typeof(string));
+                                if (gvSupplier.Columns[_Columnname].ColumnType.Equals(typeof(System.Boolean)) == true)
+                                {
+                                    foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                                    {
+                                        if (dc.DataType == typeof(bool) && dc.ColumnName != _Columnname)
+                                        {
+                                            ObjESupplier.dtPositions.Rows[j][dc.ColumnName] = false;
+                                            DataRow drNew = ObjESupplier.dtStrings.NewRow();
+                                            drNew["Item"] = dc.ColumnName;
+                                            ObjESupplier.dtStrings.Rows.Add(drNew);
+                                        }
+                                    }
+                                    ObjESupplier.IsSelected = true;
+                                }                                
+                                ObjESupplier.dtPositions.AcceptChanges();
+                                ObjESupplier.PositionID = _PosID;
+                                ObjESupplier.SupplierProposalID = Convert.ToInt32(gvProposal.GetFocusedRowCellValue("SupplierProposalID"));
+                                ObjESupplier.SelectedColumn = _Columnname;
+                                ObjESupplier = ObjBSupplier.SaveSelection(ObjESupplier);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        for (int j = 0; j < this.gvSupplier.RowCount; j++)
+                        {
+                            gvSupplier.SetRowCellValue(j, _Columnname, false);
+                        }
+                    }
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+            
+        }
 
-
-
+        private void navBarItemCommonReport_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                rptProposalCommon rpt = new rptProposalCommon();
+                ReportPrintTool printTool = new ReportPrintTool(rpt);
+                rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                printTool.ShowRibbonPreview();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
 
     }
 }

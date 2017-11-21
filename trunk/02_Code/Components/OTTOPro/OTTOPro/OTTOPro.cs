@@ -424,8 +424,28 @@ namespace OTTOPro
 
         private void btnFormBlattarticles_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmFormBlattarticles frm = new frmFormBlattarticles();
-            frm.ShowDialog();
+            try
+            {
+                frmFormBlattarticles frm = new frmFormBlattarticles();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnReportSetting_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                frmReportSetting frm = new frmReportSetting();
+                frm.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
     }
 }

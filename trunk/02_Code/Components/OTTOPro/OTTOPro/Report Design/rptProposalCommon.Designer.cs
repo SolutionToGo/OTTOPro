@@ -1,6 +1,6 @@
 ﻿namespace OTTOPro.Report_Design
 {
-    partial class rptMusterLangtextMontMatgetrennt
+    partial class rptProposalCommon
     {
         /// <summary>
         /// Required designer variable.
@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptMusterLangtextMontMatgetrennt));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(rptProposalCommon));
             DevExpress.XtraReports.UI.XRSummary xrSummary1 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
-            DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.XtraReports.UI.XRSummary xrSummary2 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary3 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary4 = new DevExpress.XtraReports.UI.XRSummary();
@@ -47,6 +45,8 @@
             DevExpress.DataAccess.Sql.QueryParameter queryParameter3 = new DevExpress.DataAccess.Sql.QueryParameter();
             DevExpress.XtraReports.UI.XRSummary xrSummary10 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary11 = new DevExpress.XtraReports.UI.XRSummary();
+            DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery1 = new DevExpress.DataAccess.Sql.StoredProcQuery();
+            DevExpress.DataAccess.Sql.QueryParameter queryParameter1 = new DevExpress.DataAccess.Sql.QueryParameter();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.TopMargin = new DevExpress.XtraReports.UI.TopMarginBand();
             this.xrRichText6 = new DevExpress.XtraReports.UI.XRRichText();
@@ -79,22 +79,21 @@
             this.xrTableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.BottomMargin = new DevExpress.XtraReports.UI.BottomMarginBand();
             this.xrLabel22 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel18 = new DevExpress.XtraReports.UI.XRLabel();
-            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
+            this.xrlblPageSum = new DevExpress.XtraReports.UI.XRLabel();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
             this.DetailReport = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail1 = new DevExpress.XtraReports.UI.DetailBand();
             this.xrTable2 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow2 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell16 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
+            this.xrPositionOZ = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrMenge = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrME = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrMAVer = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrMOVer = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrEP = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrGB = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrLangText = new DevExpress.XtraReports.UI.XRRichText();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
             this.xrRichText4 = new DevExpress.XtraReports.UI.XRRichText();
             this.xrLabel27 = new DevExpress.XtraReports.UI.XRLabel();
@@ -160,11 +159,12 @@
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
             this.calculatedField2 = new DevExpress.XtraReports.UI.CalculatedField();
             this.NetTotal = new DevExpress.XtraReports.UI.CalculatedField();
+            this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrLangText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
@@ -551,7 +551,7 @@
             // 
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel22,
-            this.xrLabel18});
+            this.xrlblPageSum});
             this.BottomMargin.HeightF = 49F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
@@ -572,43 +572,29 @@
             this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrLabel22.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.xrLabel18_PrintOnPage);
             // 
-            // xrLabel18
+            // xrlblPageSum
             // 
-            this.xrLabel18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource2, "P_Rpt_PositionForProposalPrice(@ProjectID).FinalGB")});
-            this.xrLabel18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel18.ForeColor = System.Drawing.Color.Maroon;
-            this.xrLabel18.LocationFloat = new DevExpress.Utils.PointFloat(664.6407F, 0F);
-            this.xrLabel18.Name = "xrLabel18";
-            this.xrLabel18.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel18.SizeF = new System.Drawing.SizeF(112.3242F, 22.99999F);
-            this.xrLabel18.StylePriority.UseFont = false;
-            this.xrLabel18.StylePriority.UseForeColor = false;
-            this.xrLabel18.StylePriority.UseTextAlignment = false;
+            this.xrlblPageSum.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource2, "P_Rpt_PositionForProposalPriceForCommon.FinalGB")});
+            this.xrlblPageSum.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrlblPageSum.ForeColor = System.Drawing.Color.Maroon;
+            this.xrlblPageSum.LocationFloat = new DevExpress.Utils.PointFloat(664.6407F, 0F);
+            this.xrlblPageSum.Name = "xrlblPageSum";
+            this.xrlblPageSum.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrlblPageSum.SizeF = new System.Drawing.SizeF(112.3242F, 22.99999F);
+            this.xrlblPageSum.StylePriority.UseFont = false;
+            this.xrlblPageSum.StylePriority.UseForeColor = false;
+            this.xrlblPageSum.StylePriority.UseTextAlignment = false;
             xrSummary1.FormatString = "{0:n2}";
             xrSummary1.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
             xrSummary1.IgnoreNullValues = true;
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Page;
-            this.xrLabel18.Summary = xrSummary1;
-            this.xrLabel18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrLabel18.SummaryGetResult += new DevExpress.XtraReports.UI.SummaryGetResultHandler(this.xrLabel18_SummaryGetResult);
-            this.xrLabel18.SummaryReset += new System.EventHandler(this.xrLabel18_SummaryReset);
-            this.xrLabel18.SummaryRowChanged += new System.EventHandler(this.xrLabel18_SummaryRowChanged);
-            this.xrLabel18.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.xrLabel18_PrintOnPage);
-            // 
-            // sqlDataSource2
-            // 
-            this.sqlDataSource2.ConnectionName = "OTTOPro";
-            this.sqlDataSource2.Name = "sqlDataSource2";
-            storedProcQuery1.Name = "P_Rpt_PositionForProposalPrice(@ProjectID)";
-            queryParameter1.Name = "@ProjectID";
-            queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
-            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.ProjectID]", typeof(int));
-            storedProcQuery1.Parameters.Add(queryParameter1);
-            storedProcQuery1.StoredProcName = "P_Rpt_PositionForProposalPrice";
-            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
-            storedProcQuery1});
-            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            this.xrlblPageSum.Summary = xrSummary1;
+            this.xrlblPageSum.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrlblPageSum.SummaryGetResult += new DevExpress.XtraReports.UI.SummaryGetResultHandler(this.xrLabel18_SummaryGetResult);
+            this.xrlblPageSum.SummaryReset += new System.EventHandler(this.xrLabel18_SummaryReset);
+            this.xrlblPageSum.SummaryRowChanged += new System.EventHandler(this.xrLabel18_SummaryRowChanged);
+            this.xrlblPageSum.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.xrLabel18_PrintOnPage);
             // 
             // ReportHeader
             // 
@@ -617,7 +603,7 @@
             // 
             // ReportFooter
             // 
-            this.ReportFooter.HeightF = 50F;
+            this.ReportFooter.HeightF = 34.35415F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // DetailReport
@@ -626,7 +612,7 @@
             this.Detail1,
             this.GroupFooter1,
             this.GroupHeader1});
-            this.DetailReport.DataMember = "P_Rpt_PositionForProposalPrice(@ProjectID)";
+            this.DetailReport.DataMember = "P_Rpt_PositionForProposalPriceForCommon";
             this.DetailReport.DataSource = this.sqlDataSource2;
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
@@ -635,7 +621,7 @@
             // 
             this.Detail1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable2,
-            this.xrRichText1});
+            this.xrLangText});
             this.Detail1.HeightF = 49.00004F;
             this.Detail1.KeepTogether = true;
             this.Detail1.Name = "Detail1";
@@ -661,107 +647,103 @@
             // xrTableRow2
             // 
             this.xrTableRow2.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell6,
-            this.xrTableCell9,
-            this.xrTableCell10,
-            this.xrTableCell12,
-            this.xrTableCell15,
-            this.xrTableCell16,
-            this.xrTableCell8});
+            this.xrPositionOZ,
+            this.xrMenge,
+            this.xrME,
+            this.xrMAVer,
+            this.xrMOVer,
+            this.xrEP,
+            this.xrGB});
             this.xrTableRow2.Name = "xrTableRow2";
             this.xrTableRow2.Weight = 1D;
             // 
-            // xrTableCell6
+            // xrPositionOZ
             // 
-            this.xrTableCell6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).Position_OZ")});
-            this.xrTableCell6.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.StylePriority.UseFont = false;
-            this.xrTableCell6.Weight = 0.62426324782360565D;
+            this.xrPositionOZ.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.Position_OZ")});
+            this.xrPositionOZ.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrPositionOZ.Name = "xrPositionOZ";
+            this.xrPositionOZ.StylePriority.UseFont = false;
+            this.xrPositionOZ.Weight = 0.62426324782360565D;
             // 
-            // xrTableCell9
+            // xrMenge
             // 
-            this.xrTableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).Menge")});
-            this.xrTableCell9.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrTableCell9.Name = "xrTableCell9";
-            this.xrTableCell9.StylePriority.UseFont = false;
-            this.xrTableCell9.StylePriority.UseTextAlignment = false;
-            this.xrTableCell9.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell9.Weight = 0.26510181834941116D;
+            this.xrMenge.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.Menge", "{0:n2}")});
+            this.xrMenge.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrMenge.Name = "xrMenge";
+            this.xrMenge.StylePriority.UseFont = false;
+            this.xrMenge.StylePriority.UseTextAlignment = false;
+            this.xrMenge.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrMenge.Weight = 0.26510181834941116D;
             // 
-            // xrTableCell10
+            // xrME
             // 
-            this.xrTableCell10.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).ME")});
-            this.xrTableCell10.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrTableCell10.Name = "xrTableCell10";
-            this.xrTableCell10.StylePriority.UseFont = false;
-            this.xrTableCell10.StylePriority.UseTextAlignment = false;
-            this.xrTableCell10.Text = "xrTableCell6";
-            this.xrTableCell10.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrTableCell10.Weight = 0.23505070210518275D;
+            this.xrME.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.ME")});
+            this.xrME.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrME.Name = "xrME";
+            this.xrME.StylePriority.UseFont = false;
+            this.xrME.StylePriority.UseTextAlignment = false;
+            this.xrME.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.xrME.Weight = 0.23505070210518275D;
             // 
-            // xrTableCell12
+            // xrMAVer
             // 
-            this.xrTableCell12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).MA_verkaufspreis", "{0:n2}")});
-            this.xrTableCell12.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrTableCell12.Name = "xrTableCell12";
-            this.xrTableCell12.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 15, 100F);
-            this.xrTableCell12.StylePriority.UseFont = false;
-            this.xrTableCell12.StylePriority.UsePadding = false;
-            this.xrTableCell12.StylePriority.UseTextAlignment = false;
-            this.xrTableCell12.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell12.Weight = 0.90661509221160141D;
+            this.xrMAVer.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.MA_verkaufspreis", "{0:n2}")});
+            this.xrMAVer.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrMAVer.Name = "xrMAVer";
+            this.xrMAVer.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 15, 100F);
+            this.xrMAVer.StylePriority.UseFont = false;
+            this.xrMAVer.StylePriority.UsePadding = false;
+            this.xrMAVer.StylePriority.UseTextAlignment = false;
+            this.xrMAVer.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrMAVer.Weight = 0.90661509221160141D;
             // 
-            // xrTableCell15
+            // xrMOVer
             // 
-            this.xrTableCell15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).MO_verkaufspreis", "{0:n2}")});
-            this.xrTableCell15.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrTableCell15.Name = "xrTableCell15";
-            this.xrTableCell15.StylePriority.UseFont = false;
-            this.xrTableCell15.StylePriority.UseTextAlignment = false;
-            this.xrTableCell15.Text = "xrTableCell15";
-            this.xrTableCell15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell15.Weight = 0.48285702558693649D;
+            this.xrMOVer.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.MO_verkaufspreis", "{0:n2}")});
+            this.xrMOVer.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrMOVer.Name = "xrMOVer";
+            this.xrMOVer.StylePriority.UseFont = false;
+            this.xrMOVer.StylePriority.UseTextAlignment = false;
+            this.xrMOVer.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrMOVer.Weight = 0.48285702558693649D;
             // 
-            // xrTableCell16
+            // xrEP
             // 
-            this.xrTableCell16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).EP", "{0:n2}")});
-            this.xrTableCell16.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrTableCell16.Name = "xrTableCell16";
-            this.xrTableCell16.StylePriority.UseFont = false;
-            this.xrTableCell16.StylePriority.UseTextAlignment = false;
-            this.xrTableCell16.Text = "xrTableCell16";
-            this.xrTableCell16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell16.Weight = 0.59803510878648436D;
+            this.xrEP.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.EP", "{0:n2}")});
+            this.xrEP.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrEP.Name = "xrEP";
+            this.xrEP.StylePriority.UseFont = false;
+            this.xrEP.StylePriority.UseTextAlignment = false;
+            this.xrEP.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrEP.Weight = 0.59803510878648436D;
             // 
-            // xrTableCell8
+            // xrGB
             // 
-            this.xrTableCell8.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).FinalGB", "{0:n2}")});
-            this.xrTableCell8.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrTableCell8.Name = "xrTableCell8";
-            this.xrTableCell8.StylePriority.UseFont = false;
-            this.xrTableCell8.StylePriority.UseTextAlignment = false;
-            this.xrTableCell8.Text = "xrTableCell8";
-            this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrTableCell8.Weight = 0.52134807709445075D;
+            this.xrGB.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.FinalGB", "{0:n2}")});
+            this.xrGB.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrGB.Name = "xrGB";
+            this.xrGB.StylePriority.UseFont = false;
+            this.xrGB.StylePriority.UseTextAlignment = false;
+            this.xrGB.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
+            this.xrGB.Weight = 0.52134807709445075D;
             // 
-            // xrRichText1
+            // xrLangText
             // 
-            this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPrice(@ProjectID).LangText")});
-            this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(231.3682F, 26.00004F);
-            this.xrRichText1.Name = "xrRichText1";
-            this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
-            this.xrRichText1.SizeF = new System.Drawing.SizeF(267.2267F, 23F);
-            this.xrRichText1.StylePriority.UseFont = false;
+            this.xrLangText.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.LangText_1")});
+            this.xrLangText.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.xrLangText.LocationFloat = new DevExpress.Utils.PointFloat(231.3682F, 26.00004F);
+            this.xrLangText.Name = "xrLangText";
+            this.xrLangText.SerializableRtfString = resources.GetString("xrLangText.SerializableRtfString");
+            this.xrLangText.SizeF = new System.Drawing.SizeF(267.2267F, 23F);
+            this.xrLangText.StylePriority.UseFont = false;
             // 
             // GroupFooter1
             // 
@@ -781,7 +763,7 @@
             // xrRichText4
             // 
             this.xrRichText4.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPrice(@ProjectID).ParentDescription")});
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.ParentDescription")});
             this.xrRichText4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrRichText4.ForeColor = System.Drawing.Color.Black;
             this.xrRichText4.LocationFloat = new DevExpress.Utils.PointFloat(237.3681F, 27.97916F);
@@ -794,7 +776,7 @@
             // xrLabel27
             // 
             this.xrLabel27.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).Parent")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.Parent")});
             this.xrLabel27.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrLabel27.ForeColor = System.Drawing.Color.Black;
             this.xrLabel27.LocationFloat = new DevExpress.Utils.PointFloat(2.000014F, 5.416679F);
@@ -823,7 +805,7 @@
             // xrLabel26
             // 
             this.xrLabel26.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).MA_verkaufspreis")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.MA_verkaufspreis")});
             this.xrLabel26.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel26.ForeColor = System.Drawing.Color.Black;
             this.xrLabel26.LocationFloat = new DevExpress.Utils.PointFloat(246.3681F, 4.499976F);
@@ -845,7 +827,7 @@
             // xrLabel25
             // 
             this.xrLabel25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).MO_verkaufspreis")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.MO_verkaufspreis")});
             this.xrLabel25.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel25.ForeColor = System.Drawing.Color.Black;
             this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(434.7909F, 4.499976F);
@@ -867,7 +849,7 @@
             // xrLabel24
             // 
             this.xrLabel24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).EP")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.EP")});
             this.xrLabel24.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel24.ForeColor = System.Drawing.Color.Black;
             this.xrLabel24.LocationFloat = new DevExpress.Utils.PointFloat(537.9204F, 4.499976F);
@@ -889,7 +871,7 @@
             // xrLabel23
             // 
             this.xrLabel23.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).FinalGB")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.FinalGB")});
             this.xrLabel23.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLabel23.ForeColor = System.Drawing.Color.Black;
             this.xrLabel23.LocationFloat = new DevExpress.Utils.PointFloat(665.6497F, 4.499976F);
@@ -930,14 +912,13 @@
             // lblTitle
             // 
             this.lblTitle.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPrice(@ProjectID).Parent")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.Parent")});
             this.lblTitle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.lblTitle.LocationFloat = new DevExpress.Utils.PointFloat(0.5001068F, 0.8124987F);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.lblTitle.SizeF = new System.Drawing.SizeF(124.3312F, 23F);
             this.lblTitle.StylePriority.UseFont = false;
-            this.lblTitle.Text = "lblTitle";
             this.lblTitle.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.lblTitle_BeforePrint);
             // 
             // ProjectID
@@ -1297,7 +1278,7 @@
             // 
             this.xrLblMO.CanGrow = false;
             this.xrLblMO.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource2, "P_Rpt_PositionForProposalPrice(@ProjectID).MO_VER_Total")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource2, "P_Rpt_PositionForProposalPriceForCommon.MO_VER_Total")});
             this.xrLblMO.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrLblMO.LocationFloat = new DevExpress.Utils.PointFloat(664.6408F, 46.95829F);
             this.xrLblMO.Name = "xrLblMO";
@@ -1392,7 +1373,7 @@
             // 
             this.xrLblGB.CanGrow = false;
             this.xrLblGB.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource2, "P_Rpt_PositionForProposalPrice(@ProjectID).NetTotal", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource2, "P_Rpt_PositionForProposalPriceForCommon.NetTotal", "{0:n2}")});
             this.xrLblGB.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrLblGB.LocationFloat = new DevExpress.Utils.PointFloat(664.3893F, 84.60413F);
             this.xrLblGB.Name = "xrLblGB";
@@ -1419,7 +1400,7 @@
             // 
             this.xrLblMA.CanGrow = false;
             this.xrLblMA.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource2, "P_Rpt_PositionForProposalPrice(@ProjectID).MA_VER_Total")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource2, "P_Rpt_PositionForProposalPriceForCommon.MA_VER_Total")});
             this.xrLblMA.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrLblMA.LocationFloat = new DevExpress.Utils.PointFloat(664.6409F, 9.999911F);
             this.xrLblMA.Name = "xrLblMA";
@@ -1594,12 +1575,26 @@
             // 
             // NetTotal
             // 
-            this.NetTotal.DataMember = "P_Rpt_PositionForProposalPrice(@ProjectID)";
+            this.NetTotal.DataMember = "P_Rpt_PositionForProposalPriceForCommon";
             this.NetTotal.DataSource = this.sqlDataSource2;
             this.NetTotal.Expression = "Sum([MA_VER_Total]) + Sum([MO_VER_Total])";
             this.NetTotal.Name = "NetTotal";
             // 
-            // rptMusterLangtextMontMatgetrennt
+            // sqlDataSource2
+            // 
+            this.sqlDataSource2.ConnectionName = "OTTOPro";
+            this.sqlDataSource2.Name = "sqlDataSource2";
+            storedProcQuery1.Name = "P_Rpt_PositionForProposalPriceForCommon";
+            queryParameter1.Name = "@ProjectID";
+            queryParameter1.Type = typeof(DevExpress.DataAccess.Expression);
+            queryParameter1.Value = new DevExpress.DataAccess.Expression("[Parameters.ProjectID]", typeof(int));
+            storedProcQuery1.Parameters.Add(queryParameter1);
+            storedProcQuery1.StoredProcName = "P_Rpt_PositionForProposalPriceForCommon";
+            this.sqlDataSource2.Queries.AddRange(new DevExpress.DataAccess.Sql.SqlQuery[] {
+            storedProcQuery1});
+            this.sqlDataSource2.ResultSchemaSerializable = resources.GetString("sqlDataSource2.ResultSchemaSerializable");
+            // 
+            // rptProposalCommon
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail,
@@ -1616,13 +1611,13 @@
             this.NetTotal});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.sqlDataSource1,
-            this.sqlDataSource2,
-            this.sqlDataSource3});
+            this.sqlDataSource3,
+            this.sqlDataSource2});
             this.DataMember = "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID)";
             this.DataSource = this.sqlDataSource1;
             this.FormattingRuleSheet.AddRange(new DevExpress.XtraReports.UI.FormattingRule[] {
             this.formattingRule1});
-            this.Margins = new System.Drawing.Printing.Margins(27, 23, 305, 49);
+            this.Margins = new System.Drawing.Printing.Margins(26, 23, 305, 49);
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
@@ -1633,7 +1628,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrLangText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
@@ -1675,18 +1670,17 @@
         private DevExpress.XtraReports.UI.DetailBand Detail1;
         private DevExpress.XtraReports.UI.XRTable xrTable2;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow2;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell6;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell9;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell10;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell12;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell15;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell16;
+        private DevExpress.XtraReports.UI.XRTableCell xrPositionOZ;
+        private DevExpress.XtraReports.UI.XRTableCell xrMenge;
+        private DevExpress.XtraReports.UI.XRTableCell xrME;
+        private DevExpress.XtraReports.UI.XRTableCell xrMAVer;
+        private DevExpress.XtraReports.UI.XRTableCell xrMOVer;
+        private DevExpress.XtraReports.UI.XRTableCell xrEP;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell1;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell8;
+        private DevExpress.XtraReports.UI.XRTableCell xrGB;
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel18;
-        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
+        private DevExpress.XtraReports.UI.XRLabel xrlblPageSum;
         private DevExpress.XtraReports.Parameters.Parameter ProjectID;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource1;
         private DevExpress.XtraReports.UI.XRLabel xrLabel21;
@@ -1752,11 +1746,12 @@
         private DevExpress.XtraReports.UI.XRRichText xrRichText3;
         private DevExpress.XtraReports.UI.XRRichText xrRichText5;
         private DevExpress.XtraReports.UI.XRRichText xrRichText6;
-        private DevExpress.XtraReports.UI.XRRichText xrRichText1;
+        private DevExpress.XtraReports.UI.XRRichText xrLangText;
         private DevExpress.XtraReports.UI.XRLabel lblTitle;
         private DevExpress.XtraReports.UI.XRLine xrLine11;
         private DevExpress.XtraReports.UI.CalculatedField calculatedField2;
         private DevExpress.XtraReports.UI.CalculatedField NetTotal;
         private DevExpress.XtraReports.UI.XRTable xrTable1;
+        private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
     }
 }

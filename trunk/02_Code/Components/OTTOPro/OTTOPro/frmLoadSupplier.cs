@@ -667,15 +667,15 @@ namespace OTTOPro
 
         private void gvArticles_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
         {
-            try
-            {
-                if (e.HitInfo.InRow)
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gcArticleDelete_ItemClick));
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            //try
+            //{
+            //    if (e.HitInfo.InRow)
+            //        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gcArticleDelete_ItemClick));
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw;
+            //}
         }
 
         private void gcArticleDelete_ItemClick(object sender, EventArgs e)

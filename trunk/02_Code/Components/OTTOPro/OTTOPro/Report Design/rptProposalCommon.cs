@@ -6,10 +6,10 @@ using DevExpress.XtraReports.UI;
 
 namespace OTTOPro.Report_Design
 {
-    public partial class rptMusterLangtextMontMatgetrennt : DevExpress.XtraReports.UI.XtraReport
+    public partial class rptProposalCommon : DevExpress.XtraReports.UI.XtraReport
     {
 
-        public rptMusterLangtextMontMatgetrennt()
+        public rptProposalCommon()
         {
             InitializeComponent();
         }
@@ -310,7 +310,7 @@ namespace OTTOPro.Report_Design
                 if (e.PageIndex == e.PageCount - 1)
                 {
                     xrLabel22.Visible = false;
-                    xrLabel18.Visible = false;
+                    xrlblPageSum.Visible = false;
                 }
             }
             catch (Exception ex)

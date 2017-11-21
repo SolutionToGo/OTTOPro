@@ -255,7 +255,7 @@
             this.MinimizeBox = false;
             this.Name = "frmFormBlattarticles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmFormBlattarticles";
+            this.Text = " Form Blatt Articles";
             this.Load += new System.EventHandler(this.frmFormBlattarticles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
