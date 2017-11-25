@@ -410,7 +410,9 @@ namespace OTTOPro
                     BGAEB ObjBGAEB = new BGAEB();
                     EGAEB ObjEGAEB = new EGAEB();
                     ObjEGAEB.UserID = Utility.UserID;
-                    ObjEGAEB = ObjBGAEB.ProjectImport(strOutputFilepath, ObjEGAEB);
+                    string strRaster = Utility.GetRaster(strOutputFilepath);
+                    ObjEGAEB.dsLVData = Utility.CreateDatasetSchema(strFilePath, string.Empty, strRaster, ObjEGAEB);
+                    ObjEGAEB = ObjBGAEB.ProjectImport(strOutputFilepath, ObjEGAEB, strRaster);
                     frmViewProject Obj = new frmViewProject(ObjEGAEB);
                     Obj.ShowDialog();
                 }

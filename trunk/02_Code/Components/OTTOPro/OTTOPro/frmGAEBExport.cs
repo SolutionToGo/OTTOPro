@@ -113,8 +113,11 @@ namespace OTTOPro
                 {
                     if (ObjBGAEB == null)
                         ObjBGAEB = new BGAEB();
-                    XMLDoc = ObjBGAEB.Export(_ProjectID, cmbLVSection.Text, cmbFormatType.Text, _NewRaster);
-                    string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    if (ObjEGAEB == null)
+                        ObjEGAEB = new EGAEB();
+                    ObjEGAEB.ProjectNumber = txtProjectName.Text;
+                    string strOTTOFilePath = ObjEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    XMLDoc = ObjBGAEB.Export(_ProjectID, cmbLVSection.Text, cmbFormatType.Text, _NewRaster,ObjEGAEB);
                     if (!Directory.Exists(strOTTOFilePath))
                         Directory.CreateDirectory(strOTTOFilePath);
                     string strOutputFilePath = string.Empty;

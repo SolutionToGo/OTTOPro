@@ -16,10 +16,9 @@ using System.Xml.Schema;
 namespace BL
 {
     public class BGAEB
-    {
+    {   
         DGAEB ObjGAEB = new DGAEB();
-
-        public XmlDocument Export(int ProjectID, string strLVSection,string strFormat,string _Raster)
+        public XmlDocument Export(int ProjectID, string strLVSection, string strFormat, string _Raster, EGAEB ObjEGAEB)
         {
             XmlDocument xmldoc = new XmlDocument();
             try
@@ -109,6 +108,36 @@ namespace BL
                 StringBuilder strTMLdata = new StringBuilder();
                 strTMLdata.Append(dsTMLData.GetXml());
 
+                if (dsTMLPositionsData.Tables.Count > 0 && strFormat.Contains("X"))
+                {
+                    DataTable dt = new DataTable("ExtDat");
+                    dt.Columns.Add("PositionID", typeof(int));
+                    dt.Columns.Add("Parent_OZ", typeof(int));
+                    dt.Columns.Add("ExtDatName", typeof(string));
+                    dt.Columns.Add("ExtDatBeschr", typeof(string));
+                    foreach (DataRow dr in dsTMLPositionsData.Tables[0].Rows)
+                    {
+                        int IValue = 0;
+                        if (int.TryParse(Convert.ToString(dr["PositionID"]), out IValue))
+                        {
+                            dt = ExtractImages(dt, Convert.ToString(dr["Langtext"]), IValue, ObjEGAEB);
+                        }
+                    }
+                    if (dt != null && dt.Rows.Count > 0)
+                    {
+                        DataSet dsTemp = new DataSet();
+                        dsTemp.Tables.Add(dt);
+                        for (int i = 0; i < dsTMLPositionsData.Tables.Count; i++)
+                        {
+                            DataTable dtTemp = dsTMLPositionsData.Tables[i].Copy();
+                            dsTemp.Tables.Add(dtTemp);
+                        }
+                        dsTMLPositionsData = new DataSet();
+                        dsTMLPositionsData = dsTemp.Copy();
+                        dsTMLPositionsData.DataSetName = "LV";
+                    }
+                }
+
                 if(dsTMLPositionsData != null && dsTMLPositionsData.Tables.Count > 1)
                 {
                     DataColumn ParentColumn, ChildColumn; DataRelation dr;
@@ -153,6 +182,7 @@ namespace BL
                         case "bestinfo":
                         case "lvinfo":
                         case "lv":
+                        case "extdat":
                             strtype = "0";
                             break;
                         case "lvpos":
@@ -217,15 +247,12 @@ namespace BL
             return xmldoc;
         }
 
-        public int Import(int ProjectID,string strFilePath,string strLVSection)
+        public int Import(int ProjectID, DataSet dsTMLData, string Raster)
         {
 
             int iValue = 0;
             try
             {
-                string Raster = GetRaster(strFilePath);
-                EGAEB ObjEGAEB = new EGAEB();
-                DataSet dsTMLData = CreateDatasetSchema(strFilePath, strLVSection, Raster, ObjEGAEB);
                 iValue = ObjGAEB.Import(ProjectID, dsTMLData, Raster);
             }
             catch (Exception ex)
@@ -233,330 +260,6 @@ namespace BL
                 throw;
             }
             return iValue;
-        }
-
-        private DataSet CreateDatasetSchema(string strFilePath, string strLVSection, string Raster, EGAEB ObjEGAEB)
-        {
-            DataSet dsXmlData = new DataSet("Generic");
-            try
-            {
-                DataTable dtV = new DataTable("LVPos");
-                dtV.Columns.Add("Art", typeof(string));
-                dtV.Columns.Add("OZ", typeof(string));
-                dtV.Columns.Add("Menge", typeof(decimal));
-                dtV.Columns.Add("Einheit", typeof(string));
-                dtV.Columns.Add("Kurztext", typeof(string));
-                dtV.Columns.Add("Langtext", typeof(string));
-                dtV.Columns.Add("EP", typeof(decimal));
-                dtV.Columns.Add("GB", typeof(decimal));
-                dtV.Columns.Add("Nachlass", typeof(string));
-                dtV.Columns.Add("ParentOz", typeof(string));
-                dtV.Columns.Add("Title", typeof(string));
-                dtV.Columns.Add("SNO", typeof(int));
-                dtV.Columns.Add("BezugBeschr", typeof(string));
-                dtV.Columns.Add("BezugAusfNr", typeof(string));
-                dtV.Columns.Add("Bedarf", typeof(string));
-                dtV.Columns.Add("Nr", typeof(string));
-                dtV.Columns.Add("BezugOZ", typeof(string));
-                dsXmlData.Tables.Add(dtV);
-
-                XmlDocument xDoc = new XmlDocument();
-                xDoc.Load(strFilePath);
-                
-                XmlNodeList xnProjectInfo = xDoc.GetElementsByTagName("PrjInfo");
-                foreach (XmlNode xn in xnProjectInfo)
-                {
-                    XmlNode xnPDescription = xn.SelectSingleNode("Bez");
-                    if (xnPDescription != null)
-                        ObjEGAEB.ProjectDescription = xnPDescription.InnerText;
-                    else
-                        ObjEGAEB.CustomerName = string.Empty;
-                }
-
-                XmlNodeList xnAGInfo = xDoc.GetElementsByTagName("AG");
-                foreach (XmlNode xn in xnProjectInfo)
-                {
-                    XmlNode xnCustomerName = xn.SelectSingleNode("Name1");
-                    if (xnCustomerName != null)
-                        ObjEGAEB.CustomerName = xnCustomerName.InnerText;
-                    else
-                        ObjEGAEB.CustomerName = string.Empty;
-                }
-
-                XmlNodeList xnLVPos = xDoc.GetElementsByTagName("LVPos");
-                string strART = string.Empty;
-                int iSNO = 0;
-                foreach(XmlNode xnPos in xnLVPos)
-                {
-                    iSNO++;
-                    DataRow drLVPos = dtV.NewRow();
-                    XmlNode xnArt = xnPos.SelectSingleNode("Art");
-                    if (xnArt != null)
-                    {
-                        drLVPos["Art"] = strART = xnArt.InnerText;
-                    }
-                   XmlNode xnOZ = xnPos.SelectSingleNode("OZ");
-                   if (xnOZ != null)
-                   {
-                       if (!xnOZ.InnerText.Contains("Z"))
-                       {
-                           drLVPos["OZ"] = PrepareOZ(xnOZ.InnerText,Raster);
-                       }
-                       else
-                       {
-                           continue;
-                       }
-                   }
-                    XmlNode xnMenge = xnPos.SelectSingleNode("Menge");
-                    if (xnMenge != null)
-                    {
-                        decimal dValue = 0;
-                        if (decimal.TryParse(xnMenge.InnerText, out dValue))
-                            drLVPos["Menge"] = dValue;
-
-                    }
-                    XmlNode xnEinheit = xnPos.SelectSingleNode("Einheit");
-                    if (xnEinheit != null)
-                        drLVPos["Einheit"] = xnEinheit.InnerText;
-
-                    XmlNode xnBezugBeschr = xnPos.SelectSingleNode("BezugBeschr");
-                    if (xnEinheit != null)
-                        drLVPos["BezugBeschr"] = xnBezugBeschr.InnerText;
-
-                    XmlNode xnBezugAusfNr = xnPos.SelectSingleNode("BezugAusfNr");
-                    if (xnEinheit != null)
-                        drLVPos["BezugAusfNr"] = xnBezugAusfNr.InnerText;
-
-                    XmlNode xnBedarf = xnPos.SelectSingleNode("Bedarf");
-                    if (xnEinheit != null)
-                        drLVPos["Bedarf"] = xnBedarf.InnerText;
-
-                    XmlNode xnNr = xnPos.SelectSingleNode("Nr");
-                    if (xnEinheit != null)
-                        drLVPos["Nr"] = xnNr.InnerText;
-
-                    XmlNode xnBezugOZ = xnPos.SelectSingleNode("BezugOZ");
-                    if (xnEinheit != null)
-                        drLVPos["BezugOZ"] = xnBezugOZ.InnerText;
-
-                    XmlNode xnKurztext = xnPos.SelectSingleNode("Kurztext");
-                    if (xnKurztext != null)
-                    {
-                        if (IsRtfText(xnKurztext.InnerText))
-                        {
-                            drLVPos["Kurztext"] = xnKurztext.InnerText;
-                            if (strART.ToLower() == "ng")
-                                drLVPos["Title"] = GetPlaintext(xnKurztext.InnerText);
-                        }
-                        else
-                        {
-                            drLVPos["Kurztext"] = GetRTFFormat(xnKurztext.InnerText);
-                            if (strART.ToLower() == "ng")
-                                drLVPos["Title"] = xnKurztext.InnerText;
-                        }
-                    }
-                    XmlNode xnLangtext = xnPos.SelectSingleNode("Langtext");
-                    if (xnLangtext != null)
-                    {
-                        if (IsRtfText(xnLangtext.InnerText))
-                            drLVPos["Langtext"] = xnLangtext.InnerText;
-                        else
-                            drLVPos["Langtext"] = GetRTFFormat(xnLangtext.InnerText);
-                    }
-                    XmlNode xnEP = xnPos.SelectSingleNode("EP");
-                    if (xnEP != null)
-                    {
-                        decimal dValue = 0;
-                        if (decimal.TryParse(xnEP.InnerText, out dValue))
-                            drLVPos["EP"] = dValue;
-                        else
-                            drLVPos["EP"] = 0;
-                    }
-                    XmlNode xnGB = xnPos.SelectSingleNode("GB");
-                    if (xnGB != null)
-                    {
-                        decimal dValueDB = 0;
-                        if (decimal.TryParse(xnGB.InnerText, out dValueDB))
-                            drLVPos["GB"] = dValueDB;
-                        else
-                            drLVPos["GB"] = 0;
-                    }
-                    XmlNode xnNachlass = xnPos.SelectSingleNode("Nachlass");
-                    if (strLVSection != string.Empty)
-                        drLVPos["Nachlass"] = strLVSection;
-                    else if (xnNachlass != null)
-                    {
-                        string str = xnNachlass.InnerText;
-                        if (string.IsNullOrEmpty(str))
-                            drLVPos["Nachlass"] = "HA";
-                        else
-                            drLVPos["Nachlass"] = str;
-                    }
-
-                    drLVPos["SNO"] = iSNO.ToString(); ;
-                    dtV.Rows.Add(drLVPos);
-                }
-
-                foreach (DataRow dr in dsXmlData.Tables[0].Rows)
-                {
-                    string strPositionOZ = dr["OZ"].ToString();
-                    if (strPositionOZ != string.Empty)
-                    {
-                        dr["ParentOz"] = GetParentOZ(strPositionOZ);
-                    }
-                    else
-                    {
-                        string strSNO = dr["SNO"].ToString();
-                        string MaxValue = dsXmlData.Tables[0].Compute("MIN(SNO)", "SNO >'" + strSNO + "'AND OZ <> ''").ToString();
-                        if (MaxValue != string.Empty)
-                        {
-                            DataRow[] drNextPosition = dsXmlData.Tables[0].Select("SNO=" + MaxValue);
-                            dr["ParentOz"] = GetParentOZ(drNextPosition[0]["OZ"].ToString());
-                        }
-                        else
-                        {
-                            string Value = dsXmlData.Tables[0].Compute("MAX(SNO)", "SNO <'" + strSNO + "'AND OZ <> ''").ToString();
-                            DataRow[] drNextPosition = dsXmlData.Tables[0].Select("SNO=" + Value);
-                            dr["ParentOz"] = GetParentOZ(drNextPosition[0]["OZ"].ToString());
-                        }
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Beim Import der GAEB-Datei ist ein Fehler aufgetreten!");
-                }
-                else
-                {
-                    throw new Exception("Error While Importing GAEB File");
-                }
-            }
-            return dsXmlData;
-        }
-
-        private string GetParentOZ(string strPositionOZ)
-        {
-            string[] strOZ = strPositionOZ.Split('.');
-            StringBuilder strParentOZ = new StringBuilder();
-            try
-            {
-                if (strOZ != null && strOZ.Count() > 2)
-                {
-                    if (strOZ.Count() > 2)
-                    {
-                        strParentOZ.Append(strOZ[0] + ".");
-                        if (strOZ.Count() > 3)
-                        {
-                            if (!string.IsNullOrEmpty(strOZ[1].Trim()))
-                                strParentOZ.Append(strOZ[1] + ".");
-                            if (strOZ.Count() > 4)
-                            {
-                                if (!string.IsNullOrEmpty(strOZ[2].Trim()))
-                                strParentOZ.Append(strOZ[2] + ".");
-                                if (strOZ.Count() > 5 && !string.IsNullOrEmpty(strOZ[3].Trim()))
-                                {
-                                    strParentOZ.Append(strOZ[3] + ".");
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return strParentOZ.ToString();
-        }
-
-        private string GetRaster(string strFilePath)
-        {
-            StringBuilder strRaster = new StringBuilder();
-            try
-            {
-                XmlDocument xDoc = new XmlDocument();
-                xDoc.Load(strFilePath);
-                XmlNodeList xnLVInfo = xDoc.SelectNodes("/Generic/LVInfo");
-                string strNew = string.Empty;
-                foreach (XmlNode xn in xnLVInfo)
-                {
-                    XmlNode xnTyp1 = xn.SelectSingleNode("LVGliedTyp1");
-                    if (xnTyp1 != null)
-                    {
-                        XmlNode xnLng1 = xn.SelectSingleNode("LVGliedLen1");
-                        strNew = new string('9', Convert.ToInt32(xnLng1.InnerText));
-                        strRaster.Append(strNew + ".");
-                    }
-
-                    XmlNode xnTyp2 = xn.SelectSingleNode("LVGliedTyp2");
-                    if (xnTyp2 != null && xnTyp2.InnerText.ToLower() != "")
-                    {
-                        strNew = string.Empty;
-                        XmlNode xnLng2 = xn.SelectSingleNode("LVGliedLen2");
-                        if (xnTyp2.InnerText.ToLower() == "lvstufe")
-                            strNew = new string('9', Convert.ToInt32(xnLng2.InnerText));
-                        else if (xnTyp2.InnerText.ToLower() == "position")
-                            strNew = new string('1', Convert.ToInt32(xnLng2.InnerText));
-                        if (strNew != string.Empty)
-                            strRaster.Append(strNew + ".");
-                    }
-
-                    XmlNode xnTyp3 = xn.SelectSingleNode("LVGliedTyp3");
-                    if (xnTyp3 != null && xnTyp3.InnerText.ToLower() != "")
-                    {
-                        strNew = string.Empty;
-                        XmlNode xnLng3 = xn.SelectSingleNode("LVGliedLen3");
-                        if (xnTyp3.InnerText.ToLower() == "lvstufe")
-                            strNew = new string('9', Convert.ToInt32(xnLng3.InnerText));
-                        else if (xnTyp3.InnerText.ToLower() == "position")
-                            strNew = new string('1', Convert.ToInt32(xnLng3.InnerText));
-                        if (strNew != string.Empty)
-                            strRaster.Append(strNew + ".");
-                    }
-
-                    XmlNode xnTyp4 = xn.SelectSingleNode("LVGliedTyp4");
-                    if (xnTyp4 != null && xnTyp4.InnerText.ToLower() != "")
-                    {
-                        strNew = string.Empty;
-                        XmlNode xnLng4 = xn.SelectSingleNode("LVGliedLen4");
-                        if (xnTyp4.InnerText.ToLower() == "lvstufe")
-                            strNew = new string('9', Convert.ToInt32(xnLng4.InnerText));
-                        else if (xnTyp4.InnerText.ToLower() == "position")
-                            strNew = new string('1', Convert.ToInt32(xnLng4.InnerText));
-                        if (strNew != string.Empty)
-                            strRaster.Append(strNew + ".");
-                    }
-
-                    XmlNode xnTyp5 = xn.SelectSingleNode("LVGliedTyp5");
-                    if (xnTyp5 != null && xnTyp5.InnerText.ToLower() != "")
-                    {
-                        strNew = string.Empty;
-                        XmlNode xnLng5 = xn.SelectSingleNode("LVGliedLen5");
-                        if (xnTyp5.InnerText.ToLower() == "lvstufe")
-                            strNew = new string('9', Convert.ToInt32(xnLng5.InnerText));
-                        else if (xnTyp5.InnerText.ToLower() == "position")
-                            strNew = new string('1', Convert.ToInt32(xnLng5.InnerText));
-                        if (strNew != string.Empty)
-                            strRaster.Append(strNew + ".");
-                    }
-                    strRaster.Append("9");
-                }
-            }
-            catch (Exception ex)
-            {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Beim Import der GAEB-Datei ist ein Fehler aufgetreten!");
-                }
-                else
-                {
-                    throw new Exception("Error While Importing GAEB File");
-                }
-            }
-            return strRaster.ToString();
         }
 
         public DataTable Get_LVRasters()
@@ -739,12 +442,10 @@ namespace BL
             return str;
         }
 
-        public EGAEB ProjectImport(string strFilePath, EGAEB objEGAEB)
+        public EGAEB ProjectImport(string strFilePath, EGAEB objEGAEB,string Raster)
         {
             try
             {
-                string Raster = GetRaster(strFilePath);
-                objEGAEB.dsLVData = CreateDatasetSchema(strFilePath, string.Empty, Raster, objEGAEB);
                 DataRow[] TopRows = objEGAEB.dsLVData.Tables[0].Select("Art NOT IN ('NG','H')");
                 if (TopRows != null && TopRows.Count() > 0)
                 {
@@ -813,6 +514,77 @@ namespace BL
                 throw;
             }
             return objEGAEB;
+        }
+
+        private DataTable ExtractImages(DataTable dt, string strRtf, int PositionID, EGAEB ObjEGAEB)
+        {
+            try
+            {
+                int IVlaue = 0;
+                int pictTagIdx = strRtf.IndexOf("{\\pict\\");
+                while (pictTagIdx > 0)
+                {
+                    IVlaue++;
+                    int startIndex = strRtf.IndexOf(" ", pictTagIdx) + 1;
+                    int endIndex = strRtf.IndexOf("}", startIndex);
+                    string imageDataHex = strRtf.Substring(startIndex, endIndex - startIndex);
+                    byte[] imageBuffer = ToBinary(imageDataHex);
+                    string strFileName = ObjEGAEB.DirPath + ObjEGAEB.ProjectNumber + "_" + PositionID.ToString() + "_" + IVlaue.ToString() + ".jpg";
+                    File.WriteAllBytes(strFileName, imageBuffer);
+                    DataRow drTemp = dt.NewRow();
+                    drTemp["PositionID"] = IVlaue;
+                    drTemp["Parent_OZ"] = PositionID;
+                    drTemp["ExtDatName"] = strFileName;
+                    drTemp["ExtDatBeschr"] = "GAEB-XML";
+                    dt.Rows.Add(drTemp);
+                    pictTagIdx = strRtf.IndexOf("{\\pict\\", endIndex);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return dt;
+        }
+
+        public static byte[] ToBinary(string imageDataHex)
+        {
+            byte[] imageDataBinary = null;
+            try
+            {
+                if (imageDataHex == null)
+                {
+                    throw new ArgumentNullException("imageDataHex");
+                }
+
+                int hexDigits = imageDataHex.Length;
+                int dataSize = hexDigits / 2;
+                imageDataBinary = new byte[dataSize];
+
+                StringBuilder hex = new StringBuilder(2);
+
+                int dataPos = 0;
+                for (int i = 0; i < hexDigits; i++)
+                {
+                    char c = imageDataHex[i];
+                    if (char.IsWhiteSpace(c))
+                    {
+                        continue;
+                    }
+                    hex.Append(imageDataHex[i]);
+                    if (hex.Length == 2)
+                    {
+                        imageDataBinary[dataPos] = byte.Parse(hex.ToString(), System.Globalization.NumberStyles.HexNumber);
+                        dataPos++;
+                        hex.Remove(0, 2);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return imageDataBinary;
         }
     }
 }

@@ -23,6 +23,7 @@ namespace EL
         private int _UserID = 0;
         private DataSet _dsProject = null;
         private bool _IsSave = false;
+        private string _DirPath = string.Empty;
 
 
         public int ProjectID
@@ -97,6 +98,11 @@ namespace EL
         {
             get { return _IsSave; }
             set { _IsSave = value; }
+        }
+        public string DirPath
+        {
+            get { return _DirPath; }
+            set { _DirPath = value; }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using BL;
 using DevExpress.XtraEditors;
 using DevExpress.XtraSplashScreen;
+using EL;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -87,7 +88,12 @@ namespace OTTOPro
                     string strFileName = Path.GetFileNameWithoutExtension(txtImportFilePath.Text);
                     strOutputFilepath = strOTTOFilePath + strFileName + ".tml";
                     Utility.ProcesssFile(txtImportFilePath.Text, strOutputFilepath);
-                    ProjectID = ObjBGAEB.Import(ProjectID, strOutputFilepath, cmbLVSection.Text);
+
+                    EGAEB ObjEGAEB = new EGAEB();
+                    string strRaster = Utility.GetRaster(strOutputFilepath);
+                    DataSet dsTmlData = Utility.CreateDatasetSchema(strOutputFilepath, cmbLVSection.Text, strRaster, ObjEGAEB);
+
+                    ProjectID = ObjBGAEB.Import(ProjectID, dsTmlData, strRaster);
                     isbuild = true;
                     this.Close();
                 }

@@ -268,7 +268,6 @@
             this.btnImport.TabIndex = 5;
             this.btnImport.Text = "Import GAEB";
             this.btnImport.Visible = false;
-            this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
             // 
             // layoutControlGroup1
             // 
