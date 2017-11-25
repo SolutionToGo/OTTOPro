@@ -7789,29 +7789,29 @@ namespace OTTOPro
                     else
                         throw new Exception("Bitte wählen Sie die Ansicht 'Listenpreise pro Einheit'");
                 }
-                List<string> LBoolColumns = new List<string>();
-                foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
-                {
-                    if (dc.ColumnName.Contains("Check"))
-                        LBoolColumns.Add(dc.ColumnName);
-                }
-                foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
-                {
-                    bool _isContinue = false;
-                    foreach (string s in LBoolColumns)
-                    {
-                        if (Convert.ToBoolean(dr[s]))
-                            _isContinue = true;
-                    }
-                    if (!_isContinue)
-                    {
-                        if (!Utility._IsGermany)
-                            throw new Exception("Some positions are not selected to update the prices");
-                        else
-                            throw new Exception("Für die Datenübernahme muss für alle LV Positionen ein Lieferant ausgewählt sein");
-                    }
+                //List<string> LBoolColumns = new List<string>();
+                //foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                //{
+                //    if (dc.ColumnName.Contains("Check"))
+                //        LBoolColumns.Add(dc.ColumnName);
+                //}
+                //foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
+                //{
+                //    bool _isContinue = false;
+                //    foreach (string s in LBoolColumns)
+                //    {
+                //        if (Convert.ToBoolean(dr[s]))
+                //            _isContinue = true;
+                //    }
+                //    if (!_isContinue)
+                //    {
+                //        if (!Utility._IsGermany)
+                //            throw new Exception("Some positions are not selected to update the prices");
+                //        else
+                //            throw new Exception("Für die Datenübernahme muss für alle LV Positionen ein Lieferant ausgewählt sein");
+                //    }
 
-                }
+                //}
                 ObjESupplier.ProjectID = ObjEProject.ProjectID;
                 ObjESupplier.dtUpdateSupplierPrice = new DataTable();
                 ObjESupplier.dtUpdateSupplierPrice.Columns.Add("PositionID", typeof(int));
@@ -9382,6 +9382,8 @@ namespace OTTOPro
                     panelControldoc.Visible = true;
                     toggleSwitchType.Visible = true;
                     dockPanelArticles.Show();
+                    lblArticles.Text = "Artikels :" + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
+                    lblDimensions.Text = "Maße :" +txtDim1.Text+ "/" + txtDim2.Text + "/" + txtDim3.Text;
                     dockPanelArticles_Click(null,null);
                 }                
             }
