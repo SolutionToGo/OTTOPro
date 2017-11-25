@@ -3438,9 +3438,9 @@ namespace OTTOPro
                                 if (ObjBSupplier == null)
                                     ObjBSupplier = new BSupplier();
                                 ObjESupplier = ObjBSupplier.UpdateSupplierProposal(ObjESupplier);
-                                gcProposal.DataSource = ObjESupplier.dtProposal;
-                                Utility.Setfocus(gvProposal, "SupplierProposalID", ObjESupplier.SupplierProposalID);
+                                gcProposal.DataSource = ObjESupplier.dtProposal;                                
                                 gvProposal_FocusedRowChanged(null, null);
+                                Utility.Setfocus(gvProposal, "SupplierProposalID", IValue);
                             }
                         }
                     }
