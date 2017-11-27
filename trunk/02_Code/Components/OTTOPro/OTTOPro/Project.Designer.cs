@@ -127,7 +127,6 @@
             this.lccmbLVStatus = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem64 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.lblsurchargemo = new DevExpress.XtraLayout.LayoutControlItem();
-            this.lblsurchargeme = new DevExpress.XtraLayout.LayoutControlItem();
             this.lblsurchargefrom = new DevExpress.XtraLayout.LayoutControlItem();
             this.lblsurchargeto = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem44 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -145,6 +144,7 @@
             this.lblDscount = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem65 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.lblsurchargeme = new DevExpress.XtraLayout.LayoutControlItem();
             this.treeListDetailKZ = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListPosKZ = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -1222,7 +1222,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lccmbLVStatus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem64)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblsurchargemo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblsurchargeme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblsurchargefrom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblsurchargeto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem44)).BeginInit();
@@ -1240,6 +1239,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblDscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem65)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblsurchargeme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrProject)).BeginInit();
             this.ctrProject.SuspendLayout();
@@ -2623,7 +2623,7 @@
             // 
             // txtSurchargePerME
             // 
-            this.txtSurchargePerME.Location = new System.Drawing.Point(132, 401);
+            this.txtSurchargePerME.Location = new System.Drawing.Point(42, 401);
             this.txtSurchargePerME.Name = "txtSurchargePerME";
             this.txtSurchargePerME.Properties.AllowMouseWheel = false;
             this.txtSurchargePerME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2672,7 +2672,7 @@
             // 
             // txtSurchargePerMO
             // 
-            this.txtSurchargePerMO.Location = new System.Drawing.Point(42, 401);
+            this.txtSurchargePerMO.Location = new System.Drawing.Point(132, 401);
             this.txtSurchargePerMO.Name = "txtSurchargePerMO";
             this.txtSurchargePerMO.Properties.AllowMouseWheel = false;
             this.txtSurchargePerMO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2719,7 +2719,8 @@
             "sqm",
             "St",
             "Stk",
-            "ldfm"});
+            "ldfm",
+            "%"});
             this.cmbME.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbME.Size = new System.Drawing.Size(106, 24);
             this.cmbME.StyleController = this.layoutControl3;
@@ -2873,7 +2874,6 @@
             this.lccmbLVStatus,
             this.emptySpaceItem64,
             this.lblsurchargemo,
-            this.lblsurchargeme,
             this.lblsurchargefrom,
             this.lblsurchargeto,
             this.emptySpaceItem44,
@@ -2890,7 +2890,8 @@
             this.emptySpaceItem2,
             this.lblDscount,
             this.emptySpaceItem5,
-            this.emptySpaceItem65});
+            this.emptySpaceItem65,
+            this.lblsurchargeme});
             this.LCGLVDetails.Location = new System.Drawing.Point(0, 0);
             this.LCGLVDetails.Name = "Root";
             this.LCGLVDetails.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignWithChildren;
@@ -3198,7 +3199,7 @@
             this.lblsurchargemo.AppearanceItemCaption.Options.UseTextOptions = true;
             this.lblsurchargemo.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.lblsurchargemo.Control = this.txtSurchargePerMO;
-            this.lblsurchargemo.Location = new System.Drawing.Point(30, 369);
+            this.lblsurchargemo.Location = new System.Drawing.Point(120, 369);
             this.lblsurchargemo.MaxSize = new System.Drawing.Size(90, 48);
             this.lblsurchargemo.MinSize = new System.Drawing.Size(90, 48);
             this.lblsurchargemo.Name = "lblsurchargemo";
@@ -3207,25 +3208,6 @@
             this.lblsurchargemo.Text = "Sur MO %";
             this.lblsurchargemo.TextLocation = DevExpress.Utils.Locations.Top;
             this.lblsurchargemo.TextSize = new System.Drawing.Size(79, 17);
-            // 
-            // lblsurchargeme
-            // 
-            this.lblsurchargeme.AppearanceItemCaption.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblsurchargeme.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
-            this.lblsurchargeme.AppearanceItemCaption.Options.UseFont = true;
-            this.lblsurchargeme.AppearanceItemCaption.Options.UseForeColor = true;
-            this.lblsurchargeme.AppearanceItemCaption.Options.UseTextOptions = true;
-            this.lblsurchargeme.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.lblsurchargeme.Control = this.txtSurchargePerME;
-            this.lblsurchargeme.Location = new System.Drawing.Point(120, 369);
-            this.lblsurchargeme.MaxSize = new System.Drawing.Size(90, 48);
-            this.lblsurchargeme.MinSize = new System.Drawing.Size(90, 48);
-            this.lblsurchargeme.Name = "lblsurchargeme";
-            this.lblsurchargeme.Size = new System.Drawing.Size(90, 48);
-            this.lblsurchargeme.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.lblsurchargeme.Text = "Sur ME %";
-            this.lblsurchargeme.TextLocation = DevExpress.Utils.Locations.Top;
-            this.lblsurchargeme.TextSize = new System.Drawing.Size(79, 17);
             // 
             // lblsurchargefrom
             // 
@@ -3434,6 +3416,25 @@
             this.emptySpaceItem65.Name = "emptySpaceItem65";
             this.emptySpaceItem65.Size = new System.Drawing.Size(30, 48);
             this.emptySpaceItem65.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // lblsurchargeme
+            // 
+            this.lblsurchargeme.AppearanceItemCaption.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblsurchargeme.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.lblsurchargeme.AppearanceItemCaption.Options.UseFont = true;
+            this.lblsurchargeme.AppearanceItemCaption.Options.UseForeColor = true;
+            this.lblsurchargeme.AppearanceItemCaption.Options.UseTextOptions = true;
+            this.lblsurchargeme.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.lblsurchargeme.Control = this.txtSurchargePerME;
+            this.lblsurchargeme.Location = new System.Drawing.Point(30, 369);
+            this.lblsurchargeme.MaxSize = new System.Drawing.Size(90, 48);
+            this.lblsurchargeme.MinSize = new System.Drawing.Size(90, 48);
+            this.lblsurchargeme.Name = "lblsurchargeme";
+            this.lblsurchargeme.Size = new System.Drawing.Size(90, 48);
+            this.lblsurchargeme.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.lblsurchargeme.Text = "Sur MA %";
+            this.lblsurchargeme.TextLocation = DevExpress.Utils.Locations.Top;
+            this.lblsurchargeme.TextSize = new System.Drawing.Size(79, 17);
             // 
             // treeListDetailKZ
             // 
@@ -4881,7 +4882,6 @@
             this.txtHours.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtHours.Properties.Appearance.Options.UseFont = true;
             this.txtHours.Properties.Mask.EditMask = "n3";
-            this.txtHours.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtHours.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtHours.Properties.ReadOnly = true;
             this.txtHours.Size = new System.Drawing.Size(79, 24);
@@ -7128,8 +7128,7 @@
             this.ddlRounding.Properties.Items.AddRange(new object[] {
             "0",
             "1",
-            "2",
-            "3"});
+            "2"});
             this.ddlRounding.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.ddlRounding.Size = new System.Drawing.Size(90, 20);
             this.ddlRounding.StyleController = this.layoutControl24;
@@ -15982,6 +15981,7 @@
             this.txtAmount.Properties.Mask.EditMask = "n2";
             this.txtAmount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtAmount.Properties.Mask.UseMaskAsDisplayFormat = true;
+            this.txtAmount.Properties.ReadOnly = true;
             this.txtAmount.Size = new System.Drawing.Size(254, 20);
             this.txtAmount.StyleController = this.layoutControl28;
             this.txtAmount.TabIndex = 4;
@@ -16302,7 +16302,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.lccmbLVStatus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem64)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblsurchargemo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblsurchargeme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblsurchargefrom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblsurchargeto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem44)).EndInit();
@@ -16320,6 +16319,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lblDscount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem65)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblsurchargeme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ctrProject)).EndInit();
             this.ctrProject.ResumeLayout(false);

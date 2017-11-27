@@ -509,7 +509,7 @@ namespace OTTOPro
             txtInternX.Text = "1";
             txtMWST.Text = "0";
             dtpSubmitDate.DateTime = DateTime.Now;
-            ddlRounding.SelectedIndex = ddlRounding.Properties.Items.IndexOf("0");
+            ddlRounding.SelectedIndex = ddlRounding.Properties.Items.IndexOf("2");
         }
 
         /// <summary>
@@ -583,7 +583,7 @@ namespace OTTOPro
                     dtpSubmitDate.DateTime = DateTime.Now;
                     dtpProjectStartDate.DateTime = DateTime.Now;
                     dtpProjectEndDate.DateTime = DateTime.Now;
-                    ddlRounding.SelectedIndex = ddlRounding.Properties.Items.IndexOf("3");
+                    ddlRounding.SelectedIndex = ddlRounding.Properties.Items.IndexOf("2");
                     ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf("99.99.1111.9");
                 }
                 setMask();
@@ -2124,8 +2124,8 @@ namespace OTTOPro
         {
             try
             {
-                txtHours.Text = RoundValue(getDValue(txtMin.Text)
-                    / Convert.ToDecimal(60)).ToString();
+                txtHours.Text = Convert.ToString(getDValue(txtMin.Text)
+                    / Convert.ToDecimal(60));
             }
             catch (Exception ex)
             {
@@ -9701,7 +9701,7 @@ namespace OTTOPro
                         bgv221_2.BestFitColumns();
                     }
                 }
-
+                txtAmount.Text = txtInternX.Text;
             }
             catch (Exception ex)
             {

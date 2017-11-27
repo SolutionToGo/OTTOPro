@@ -71,6 +71,7 @@
             this.btnAddAccessories = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem2 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.btnFormBlattarticles = new DevExpress.XtraBars.BarButtonItem();
+            this.btnReportSetting = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -90,7 +91,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.btnReportSetting = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -418,6 +418,16 @@
             this.btnFormBlattarticles.Name = "btnFormBlattarticles";
             this.btnFormBlattarticles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFormBlattarticles_ItemClick);
             // 
+            // btnReportSetting
+            // 
+            this.btnReportSetting.Caption = "Report Setting";
+            this.btnReportSetting.CausesValidation = true;
+            this.btnReportSetting.Id = 43;
+            this.btnReportSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReportSetting.ImageOptions.Image")));
+            this.btnReportSetting.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReportSetting.ImageOptions.LargeImage")));
+            this.btnReportSetting.Name = "btnReportSetting";
+            this.btnReportSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReportSetting_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -568,7 +578,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(154, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 8.3 (10-11-2017)";
+            this.label1.Text = "Version 8.4 (25-11-2017)";
             // 
             // fdImportFile
             // 
@@ -585,16 +595,6 @@
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(0, 13);
             this.lblUserName.TabIndex = 21;
-            // 
-            // btnReportSetting
-            // 
-            this.btnReportSetting.Caption = "Report Setting";
-            this.btnReportSetting.CausesValidation = true;
-            this.btnReportSetting.Id = 43;
-            this.btnReportSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReportSetting.ImageOptions.Image")));
-            this.btnReportSetting.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnReportSetting.ImageOptions.LargeImage")));
-            this.btnReportSetting.Name = "btnReportSetting";
-            this.btnReportSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReportSetting_ItemClick);
             // 
             // frmOTTOPro
             // 
