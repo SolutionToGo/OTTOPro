@@ -232,6 +232,12 @@
     <Compile Include="frmAddDimension.Designer.cs">
       <DependentUpon>frmAddDimension.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddDiscount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddDiscount.Designer.cs">
+      <DependentUpon>frmAddDiscount.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddRaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -637,6 +643,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddDimension.resx">
       <DependentUpon>frmAddDimension.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddDiscount.resx">
+      <DependentUpon>frmAddDiscount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddRaster.resx">
       <DependentUpon>frmAddRaster.cs</DependentUpon>

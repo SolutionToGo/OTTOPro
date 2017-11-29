@@ -572,6 +572,8 @@ namespace OTTOPro
                     }
                     if (!string.IsNullOrEmpty(txtkommissionNumber.Text))
                         btnProjectSave.Enabled = false;
+                    if (ObjEProject.dtDiscount != null)
+                        gcDiscount.DataSource = ObjEProject.dtDiscount;
                 }
                 else
                 {
@@ -1657,12 +1659,12 @@ namespace OTTOPro
             dtpSubmitDate.Enabled = false;
             txtEstimatedLVs.Enabled = false;
             ddlRounding.Enabled = false;
-            btnDiscount.Enabled = false;
             txtActualLVs.Enabled = false;
             chkLockHierarchy.Enabled = false;
             txtRemarks.Enabled = false;
             txtLVSprunge.Enabled = false;
             chkCumulated.Enabled = false;
+            gcDiscount.Enabled = false;
         }
 
         private void btnSaveLVDetails_Click(object sender, EventArgs e)
@@ -3278,8 +3280,6 @@ namespace OTTOPro
                 throw;
             }
         }
-
-
 
         private void txtMulti1ME_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -8831,7 +8831,6 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-
         }
 
         private void toolStripMenuItemRemove_Click(object sender, EventArgs e)
@@ -9859,5 +9858,102 @@ namespace OTTOPro
             }
         }
 
+        #region "Discount"
+        private void gvDiscount_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add", gvAddDiscount_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Delete", gvDeleteDiscount_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void gvAddDiscount_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                miAddDiscount_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteDiscount_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if(gvDiscount.FocusedRowHandle != null)
+                {
+                    int IValue = 0;
+                    string strTemp =Convert.ToString(gvDiscount.GetFocusedRowCellValue("DiscountID"));
+                    if(int.TryParse(strTemp,out IValue))
+                    {
+                        
+                        if (ObjEProject == null)
+                            ObjEProject = new EProject();
+                        if (ObjBProject == null)
+                            ObjBProject = new BProject();
+                        ObjEProject.DiscountID = IValue;
+                        ObjEProject = ObjBProject.DeleteDiscount(ObjEProject);
+                        gvDiscount.DeleteRow(gvDiscount.FocusedRowHandle);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gcDiscount_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    this.DiscountMenuStrip.Show(this.gcDiscount, e.Location);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void miAddDiscount_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                frmAddDiscount Obj = new frmAddDiscount(ObjEProject);
+                Obj.ShowDialog();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                if (ObjEProject.IsSave)
+                {
+                    
+
+                    ObjEProject = ObjBProject.SaveDiscount(ObjEProject);
+                    gcDiscount.DataSource = ObjEProject.dtDiscount;
+                    Utility.Setfocus(gvDiscount, "DiscountID", ObjEProject.DiscountID);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+
+        }
+        #endregion
     }
 }

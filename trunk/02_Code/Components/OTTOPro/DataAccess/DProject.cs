@@ -307,5 +307,86 @@ namespace DAL
             return ObjEProject;
         }
 
+        public EProject SaveDiscount(EProject ObjEProject)
+        {
+            DataSet dsDiscount = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_Discount]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEProject.ProjectID);
+                    cmd.Parameters.AddWithValue("@FromOZ", ObjEProject.FromOZ);
+                    cmd.Parameters.AddWithValue("@ToOZ", ObjEProject.ToOZ);
+                    cmd.Parameters.AddWithValue("@Discount", ObjEProject.Discount);
+                    cmd.Parameters.AddWithValue("@UserID", ObjEProject.UserID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsDiscount);
+                    }
+                    if(dsDiscount != null && dsDiscount.Tables.Count > 0)
+                    {
+                        int IValue = 0;
+                        string str = Convert.ToString(dsDiscount.Tables[0].Rows[0][0]);
+                        if(int.TryParse(str,out IValue))
+                        {
+                            ObjEProject.DiscountID = IValue;
+                            if (dsDiscount.Tables.Count > 1)
+                                ObjEProject.dtDiscount = dsDiscount.Tables[1];
+                        }
+                        else
+                            throw new Exception(str);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Error Occured While Saving Discount");
+                else
+                    throw new Exception("Error Occured While Saving Discount");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEProject;
+        }
+
+        public EProject DeleteDiscount(EProject ObjEProject)
+        {
+            DataSet dsDiscount = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_Discunt]";
+                    cmd.Parameters.AddWithValue("@DiscountID", ObjEProject.DiscountID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsDiscount);
+                    }
+                    if (dsDiscount != null && dsDiscount.Tables.Count > 0)
+                        ObjEProject.dtDiscount = dsDiscount.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Error Occured While Deleting Discount");
+                else
+                    throw new Exception("Error Occured While Deleting Discount");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEProject;
+        }
+
     }
 }

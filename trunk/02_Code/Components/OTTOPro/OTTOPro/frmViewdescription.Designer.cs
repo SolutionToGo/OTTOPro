@@ -271,7 +271,7 @@
             this.clipboardRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.ClipboardRibbonPageGroup();
             this.fontRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.FontRibbonPageGroup();
             this.paragraphRibbonPageGroup1 = new DevExpress.XtraRichEdit.UI.ParagraphRibbonPageGroup();
-            this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController();
+            this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemFontEdit1)).BeginInit();
@@ -297,12 +297,12 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(850, 426);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(973, 547);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(772, 400);
+            this.btnCancel.Location = new System.Drawing.Point(895, 521);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -311,7 +311,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(691, 400);
+            this.btnOK.Location = new System.Drawing.Point(814, 521);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 1;
@@ -325,7 +325,7 @@
             this.txtLongdescription.Location = new System.Drawing.Point(3, 3);
             this.txtLongdescription.MenuManager = this.ribbonControl1;
             this.txtLongdescription.Name = "txtLongdescription";
-            this.txtLongdescription.Size = new System.Drawing.Size(844, 391);
+            this.txtLongdescription.Size = new System.Drawing.Size(967, 512);
             this.txtLongdescription.TabIndex = 3;
             this.txtLongdescription.TextChanged += new System.EventHandler(this.txtLongdescription_TextChanged);
             // 
@@ -570,7 +570,7 @@
             this.repositoryItemBorderLineStyle1,
             this.repositoryItemBorderLineWeight1,
             this.repositoryItemFloatingObjectOutlineWeight1});
-            this.ribbonControl1.Size = new System.Drawing.Size(850, 141);
+            this.ribbonControl1.Size = new System.Drawing.Size(973, 141);
             // 
             // undoItem1
             // 
@@ -2189,11 +2189,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 567);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(973, 688);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.ribbonControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MinimizeBox = false;
             this.Name = "frmViewdescription";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;

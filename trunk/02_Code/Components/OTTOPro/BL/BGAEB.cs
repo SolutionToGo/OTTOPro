@@ -442,7 +442,7 @@ namespace BL
             return str;
         }
 
-        public EGAEB ProjectImport(string strFilePath, EGAEB objEGAEB,string Raster)
+        public EGAEB ProjectImport(EGAEB objEGAEB)
         {
             try
             {
@@ -493,7 +493,6 @@ namespace BL
                 }
                 else
                     objEGAEB.LVSprunge = 10;
-                objEGAEB.LvRaster = Raster;
                 ObjGAEB.ProjectImport(objEGAEB);
             }
             catch (Exception ex)

@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
@@ -330,7 +331,7 @@ namespace OTTOPro
 
                 XmlDocument xDoc = new XmlDocument();
                 xDoc.Load(strFilePath);
-
+                IDataObject obj = Clipboard.GetDataObject();
                 XmlNodeList xnProjectInfo = xDoc.GetElementsByTagName("PrjInfo");
                 foreach (XmlNode xn in xnProjectInfo)
                 {
@@ -338,7 +339,7 @@ namespace OTTOPro
                     if (xnPDescription != null)
                         ObjEGAEB.ProjectDescription = xnPDescription.InnerText;
                     else
-                        ObjEGAEB.CustomerName = string.Empty;
+                        ObjEGAEB.ProjectDescription = string.Empty;
                 }
 
                 XmlNodeList xnAGInfo = xDoc.GetElementsByTagName("AG");
@@ -428,23 +429,27 @@ namespace OTTOPro
                     {
                         string strTemp = string.Empty;
                         if (IsRtfText(xnLangtext.InnerText))
-                            strTemp = xnLangtext.InnerText;
+                            strTemp = GetPlaintext(xnLangtext.InnerText);
                         else
-                            strTemp = GetRTFFormat(xnLangtext.InnerText);
+                            strTemp = xnLangtext.InnerText;
                         RichTextBox txt = new RichTextBox();
-                        txt.Rtf = strTemp;
+                        if (!string.IsNullOrEmpty(strTemp))
+                        {
+                            Clipboard.SetText(strTemp);
+                            txt.Paste();
+                            Clipboard.Clear();
+                            //Thread.Sleep(100);
+                        }
                         XmlNodeList xnlist = xnPos.SelectNodes("ExtDat/ExtDatName");
                         if (xnlist != null)
                         {
                             foreach (XmlNode xnExtdat in xnlist)
                             {
                                 string strImage = xnExtdat.InnerText;
-                                IDataObject obj = Clipboard.GetDataObject();
                                 Image img = Image.FromFile(strImage);
                                 Clipboard.SetImage(img);
                                 txt.Paste();
                                 Clipboard.Clear();
-                                Clipboard.SetDataObject(obj);
                             }
                         }
                         drLVPos["Langtext"] = txt.Rtf;
@@ -484,7 +489,7 @@ namespace OTTOPro
                     drLVPos["SNO"] = iSNO.ToString(); ;
                     dtV.Rows.Add(drLVPos);
                 }
-
+                Clipboard.SetDataObject(obj);
                 foreach (DataRow dr in dsXmlData.Tables[0].Rows)
                 {
                     string strPositionOZ = dr["OZ"].ToString();

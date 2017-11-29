@@ -80,6 +80,8 @@ namespace BL
                 DataSet dsProjectDetails = ObjDAL.GetProjectDetails(ObjEProject);
                 if (dsProjectDetails != null)
                 {
+                    if (dsProjectDetails.Tables.Count > 2)
+                        ObjEProject.dtDiscount = ObjDAL.GetProjectDetails(ObjEProject).Tables[2];
                     if (dsProjectDetails.Tables.Count > 1)
                         ObjEProject.dtLVSection = ObjDAL.GetProjectDetails(ObjEProject).Tables[1];
                     if (dsProjectDetails.Tables.Count > 0)
@@ -221,7 +223,6 @@ namespace BL
             return ObjEProject;
         }
 
-
         public EProject GetComparePrice(EProject ObjEProject, string _wg, string _wa, string _wi, string _a, string _b, string _l,string _typ, string _Type, int _PosID)
         {
             try
@@ -230,6 +231,34 @@ namespace BL
                 {
                     ObjEProject = ObjDAL.GetComparePrice(ObjEProject, _wg, _wa,_wi,_a,_b,_l,_typ, _Type,_PosID);
                 }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
+
+        public EProject SaveDiscount(EProject ObjEProject)
+        {
+            try
+            {
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                ObjEProject = ObjDAL.SaveDiscount(ObjEProject);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
+
+        public EProject DeleteDiscount(EProject ObjEProject)
+        {
+            try
+            {
+                ObjEProject = ObjDAL.DeleteDiscount(ObjEProject);
             }
             catch (Exception ex)
             {

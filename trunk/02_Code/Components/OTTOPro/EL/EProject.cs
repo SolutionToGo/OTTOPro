@@ -35,7 +35,6 @@ namespace EL
         private decimal _Discount;
         private string _Remarks;
         private bool _LockHierarcy;
-        private int _UserID = 1;
         private DateTime _ProjectStartDate;
         private DateTime _ProjectEndDate;
         private DataTable _dtProjectList = null;
@@ -43,6 +42,37 @@ namespace EL
         private bool _IsFinalInvoice = false;
         private string _Status = string.Empty;
         private string _OldRaster;
+        private string _FromOZ = string.Empty;
+        private string _ToOZ = string.Empty;
+        private bool _IsSave = false;
+        private int _UserID = -1;
+        private int _DiscountID = -1;
+        public string FromOZ
+        {
+            get { return _FromOZ; }
+            set { _FromOZ = value; }
+        }
+        public string ToOZ
+        {
+            get { return _ToOZ; }
+            set { _ToOZ = value; }
+        }
+        public bool IsSave
+        {
+            get { return _IsSave; }
+            set { _IsSave = value; }
+        }
+        public int UserID
+        {
+            get { return _UserID; }
+            set { _UserID = value; }
+        }
+        public int DiscountID
+        {
+            get { return _DiscountID; }
+            set { _DiscountID = value; }
+        }
+
 
         /// <summary>
         /// Temparary Private Variables for Project Modules
@@ -53,24 +83,25 @@ namespace EL
         private int _RoundingPrice = 3;
         private DataTable _dtLVSection;
         private bool _IsCumulated = false;
-
-        //Project Copy LVs
         private DataTable _dtProjecNumber = null;
-
+        private DataTable _dtDiscount = null;
         public DataTable dtProjecNumber
         {
             get { return _dtProjecNumber; }
             set { _dtProjecNumber = value; }
         }
-
-
-        //Compare Price
+        public DataTable dtDiscount
+        {
+            get { return _dtDiscount; }
+            set { _dtDiscount = value; }
+        }
         private DataSet _dsComaparePrice = null;
         public DataSet dsComaparePrice
         {
             get { return _dsComaparePrice; }
             set { _dsComaparePrice = value; }
         }
+
         /// <summary>
         /// Public Properties for Project Module
         /// </summary>
@@ -175,11 +206,6 @@ namespace EL
             get { return _LockHierarcy; }
             set { _LockHierarcy = value; }
         }
-        public int UserID
-        {
-            get { return _UserID;}
-            set { _UserID = value; }
-        }
         public DataTable dtProjectList
         {
             get { return _dtProjectList; }
@@ -200,7 +226,6 @@ namespace EL
             get { return _ProjectEndDate; }
             set { _ProjectEndDate = value; }
         }
-
         public string OldRaster
         {
             get { return _OldRaster; }
