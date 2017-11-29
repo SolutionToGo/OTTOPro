@@ -822,7 +822,7 @@
             // 
             this.xrTableCell31.CanGrow = false;
             this.xrTableCell31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MAMULTI", "{0:n3}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.SumMAMulti", "{0:n3}")});
             this.xrTableCell31.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell31.Name = "xrTableCell31";
             this.xrTableCell31.StylePriority.UseFont = false;
@@ -867,7 +867,7 @@
             // 
             this.xrTableCell34.CanGrow = false;
             this.xrTableCell34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MOMULTI", "{0:n3}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.SumMOMulti", "{0:n3}")});
             this.xrTableCell34.Font = new System.Drawing.Font("Arial", 8F, System.Drawing.FontStyle.Bold);
             this.xrTableCell34.Name = "xrTableCell34";
             this.xrTableCell34.StylePriority.UseFont = false;

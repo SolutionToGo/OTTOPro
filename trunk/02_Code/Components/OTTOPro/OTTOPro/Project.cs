@@ -3717,7 +3717,7 @@ namespace OTTOPro
                 }
                 if (_ISCopiedLV == true && P_value != "NG" && P_value != "Z" && P_value != "ZS")
                 {
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Paste LV Position", bbPasteLVAndDetailKZ_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Paste LV Position(Below Selected Row)", bbPasteLVAndDetailKZ_Click));
                 }
             }
             catch (Exception ex)
@@ -8341,7 +8341,7 @@ namespace OTTOPro
                 ObjEPosition.LiefrantMA = string.Empty;
                 ObjEPosition.Type = string.Empty;
                 ObjEPosition.LongDescription = string.Empty;
-                ObjEPosition.ShortDescription = string.Empty;
+                ObjEPosition.ShortDescription = txtShortDescription.Rtf;
                 ObjEPosition.Surcharge_From = string.Empty;
                 ObjEPosition.Surcharge_To = string.Empty;
                 
@@ -9128,7 +9128,7 @@ namespace OTTOPro
                 ObjEPosition.LiefrantMA = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["ShortName"]);
                 ObjEPosition.Type = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Typ"]);
                 ObjEPosition.LongDescription = string.Empty;
-                ObjEPosition.ShortDescription = string.Empty;
+                ObjEPosition.ShortDescription = txtShortDescription.Rtf;
                 ObjEPosition.Surcharge_From = string.Empty;
                 ObjEPosition.Surcharge_To = string.Empty;
                 ObjEPosition.Surcharge_Per = 0;
