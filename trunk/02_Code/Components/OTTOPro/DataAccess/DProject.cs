@@ -322,6 +322,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@ToOZ", ObjEProject.ToOZ);
                     cmd.Parameters.AddWithValue("@Discount", ObjEProject.Discount);
                     cmd.Parameters.AddWithValue("@UserID", ObjEProject.UserID);
+                    cmd.Parameters.AddWithValue("@DiscountPosID", ObjEProject.DiscountPosID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsDiscount);

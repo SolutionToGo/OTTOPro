@@ -1174,6 +1174,7 @@
             this.toolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
             this.DiscountMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.miAddDiscount = new System.Windows.Forms.ToolStripMenuItem();
+            this.SB = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurchargeTo.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl3)).BeginInit();
             this.layoutControl3.SuspendLayout();
@@ -2753,7 +2754,6 @@
             "N",
             "ZS",
             "Z",
-            "ZZ",
             "E",
             "A",
             "M",
@@ -6116,7 +6116,8 @@
             this.treeListColumn54,
             this.treeListColumn2,
             this.treeListColumn4,
-            this.clmEdit});
+            this.clmEdit,
+            this.SB});
             this.tlPositions.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this.tlPositions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPositions.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -16292,14 +16293,20 @@
             this.DiscountMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miAddDiscount});
             this.DiscountMenuStrip.Name = "DiscountMenuStrip";
-            this.DiscountMenuStrip.Size = new System.Drawing.Size(153, 48);
+            this.DiscountMenuStrip.Size = new System.Drawing.Size(97, 26);
             // 
             // miAddDiscount
             // 
             this.miAddDiscount.Name = "miAddDiscount";
-            this.miAddDiscount.Size = new System.Drawing.Size(152, 22);
+            this.miAddDiscount.Size = new System.Drawing.Size(96, 22);
             this.miAddDiscount.Text = "Add";
             this.miAddDiscount.Click += new System.EventHandler(this.miAddDiscount_Click);
+            // 
+            // SB
+            // 
+            this.SB.Caption = "SB";
+            this.SB.FieldName = "SB";
+            this.SB.Name = "SB";
             // 
             // frmProject
             // 
@@ -18276,6 +18283,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem239;
         private System.Windows.Forms.ContextMenuStrip DiscountMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem miAddDiscount;
+        private DevExpress.XtraTreeList.Columns.TreeListColumn SB;
 
 
     }

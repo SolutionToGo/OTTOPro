@@ -47,6 +47,8 @@ namespace EL
         private bool _IsSave = false;
         private int _UserID = -1;
         private int _DiscountID = -1;
+        private int _DiscountPosID = -1;
+
         public string FromOZ
         {
             get { return _FromOZ; }
@@ -71,6 +73,11 @@ namespace EL
         {
             get { return _DiscountID; }
             set { _DiscountID = value; }
+        }
+        public int DiscountPosID
+        {
+            get { return _DiscountPosID; }
+            set { _DiscountPosID = value; }
         }
 
 
@@ -282,3 +289,4 @@ namespace EL
         }
     }
 }
+

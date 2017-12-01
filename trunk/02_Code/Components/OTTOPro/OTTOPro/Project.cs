@@ -912,7 +912,7 @@ namespace OTTOPro
                     tlPositions.KeyFieldName = "PositionID";
                     tlPositions.ForceInitialize();
                     tlPositions.ExpandAll();
-                    CalculateNodes(tlPositions, "GB");                    
+                    CalculateNodes(tlPositions, "SB");                    
                 }
             }
             catch (Exception ex)
@@ -1322,6 +1322,7 @@ namespace OTTOPro
                         }
                     }
                     Node.SetValue(tlPositions.Columns[strField], iValue.ToString());
+                    Node.SetValue(tlPositions.Columns["GB"], iValue.ToString());
                 }
             }
             catch (Exception ex)
@@ -1418,7 +1419,6 @@ namespace OTTOPro
                         lblsurchargeme.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lblsurchargemo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lblDscount.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        txtDiscount.Text = "10";
                     }
                 }
                 else
@@ -1449,10 +1449,6 @@ namespace OTTOPro
 
         public void ClearingValues()
         {
-            //lblsurchargeme.Visible = false;
-            //lblsurchargemo.Visible = false;
-            //lblsurchargefrom.Visible = false;
-            //lblsurchargeto.Visible = false;
             lblsurchargefrom.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lblsurchargeto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             lblsurchargeme.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
@@ -1475,7 +1471,9 @@ namespace OTTOPro
                     string strPosition = Convert.ToString(dr["PositionKZ"]).ToLower();
                     if (strPosition == "z" || strPosition == "zs")
                     {
-                        dr[strField] = GetTotalValue(dt, dr, strField, strPosition);
+                        string Value = GetTotalValue(dt, dr, strField, strPosition);
+                        dr[strField] = Value;
+                        dr["SB"] = Value;
                     }
                 }
             }
@@ -1671,6 +1669,8 @@ namespace OTTOPro
         {
             try
             {
+                if (cmbPositionKZ.Text == "ZZ")
+                    return;
                 if (dxValidationProvider1.Validate() == false)
                 {
                     return;
@@ -3237,6 +3237,11 @@ namespace OTTOPro
         {
             try
             {
+                if (cmbPositionKZ.Text == "ZZ")
+                {
+                    tlPositions.MovePrev();
+                    return;
+                }
                 btnModify_Click(null, null);
                 if (_IsEditMode)
                 {
@@ -3260,14 +3265,17 @@ namespace OTTOPro
         {
             try
             {
+                if (cmbPositionKZ.Text == "ZZ")
+                {
+                    tlPositions.MoveNext();
+                    return;
+                }
                 btnModify_Click(null, null);
                 if (_IsEditMode)
                 {
                     if (!ObjEProject.IsFinalInvoice)
                         btnSaveLVDetails_Click(null, null);
-
                     tlPositions.MoveNext();
-
                     btnModify_Click(null, null);
                 }
                 else if (!_IsNewMode)
@@ -3387,6 +3395,8 @@ namespace OTTOPro
                 {
                     if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                     {
+                        if (cmbPositionKZ.Text == "ZZ")
+                            return false;
                         if (ObjEProject.IsFinalInvoice)
                             return false;
                         btnSaveLVDetails.PerformClick();
@@ -3697,7 +3707,7 @@ namespace OTTOPro
                 }
                 else if (P_value == "H")
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
-                else
+                else if (P_value != "ZZ")
                 {
                     if (e.Menu is TreeListNodeMenu)
                     {
@@ -9863,6 +9873,10 @@ namespace OTTOPro
         {
             try
             {
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjEProject.ProjectID <= 0)
+                    return;
                 if (e.HitInfo.InRow)
                 {
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add", gvAddDiscount_Click));
@@ -9918,6 +9932,10 @@ namespace OTTOPro
         {
             try
             {
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjEProject.ProjectID <= 0)
+                    return;
                 if (e.Button == MouseButtons.Right)
                 {
                     this.DiscountMenuStrip.Show(this.gcDiscount, e.Location);
@@ -9941,11 +9959,63 @@ namespace OTTOPro
                     ObjBProject = new BProject();
                 if (ObjEProject.IsSave)
                 {
-                    
+                    BindPositionData();
 
-                    ObjEProject = ObjBProject.SaveDiscount(ObjEProject);
-                    gcDiscount.DataSource = ObjEProject.dtDiscount;
-                    Utility.Setfocus(gvDiscount, "DiscountID", ObjEProject.DiscountID);
+                    if (ObjEPosition == null)
+                        ObjEPosition = new EPosition();
+                    ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                    ObjEPosition.PositionID = -1;
+                    ObjEPosition.Surcharge_From = Utility.PrepareOZ(ObjEProject.FromOZ,ObjEProject.LVRaster);
+                    ObjEPosition.Surcharge_To = Utility.PrepareOZ(ObjEProject.ToOZ, ObjEProject.LVRaster);
+
+                    TreeListNode FromNode = tlPositions.FindNode((node) =>
+                    {
+                        return node["Position_OZ"].ToString() == ObjEPosition.Surcharge_From;
+                    });
+                    TreeListNode ToNode = tlPositions.FindNode((node) =>
+                    {
+                        return node["Position_OZ"].ToString() == ObjEPosition.Surcharge_To;
+                    } );
+                    if (FromNode != null && ToNode != null)
+                    {
+
+                        while (ToNode.HasChildren)
+                        {
+                            ToNode = ToNode.LastNode;
+                        }
+
+                        if (ToNode.ParentNode != null)
+                        {
+                            int iValue = 0;
+                            string strTempParentOZ = Convert.ToString(ToNode.ParentNode["Position_OZ"]);
+                            string newOZ = strTempParentOZ + SuggestOZ(strTempParentOZ) + ".";
+                            if (int.TryParse(Convert.ToString(ToNode["SNO"]), out iValue))
+                                ObjEPosition.SNO = iValue;
+                            else
+                                ObjEPosition.SNO = -1;
+                            ObjEPosition.Parent_OZ = strTempParentOZ;
+                            ObjEPosition.Position_OZ = newOZ;
+                            ObjEPosition.PositionKZ = "ZZ";
+                            ObjEPosition.DetailKZ = 0;
+                            ObjEPosition.LVSection = "HA";
+                            ObjEPosition.LVStatus = "B";
+                            ObjEPosition.UserID = Utility.UserID;
+                            ObjEPosition.Discount = ObjEProject.Discount;
+                            ObjEPosition.ME = "%";
+
+                            if (ObjBPosition == null)
+                                ObjBPosition = new BPosition();
+                            int NewpositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
+                            ObjEProject.DiscountPosID = NewpositionID;
+                            ObjEProject.FromOZ = ObjEPosition.Surcharge_From;
+                            ObjEProject.ToOZ = ObjEPosition.Surcharge_To;
+                            ObjEProject = ObjBProject.SaveDiscount(ObjEProject);
+                            gcDiscount.DataSource = ObjEProject.dtDiscount;
+                            Utility.Setfocus(gvDiscount, "DiscountID", ObjEProject.DiscountID);
+                        }
+                    }
+                    else
+                        throw new Exception("From Or To OZ not exists..!!");
                 }
             }
             catch (Exception ex)
