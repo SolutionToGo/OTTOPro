@@ -718,8 +718,9 @@ namespace OTTOPro
                 ObjEPosition.Position = txtPosition.Text;
 
 
-                if (string.IsNullOrEmpty(txtShortDescription.Text))
-                {                    
+                if (string.IsNullOrEmpty(txtShortDescription.Text) || txtShortDescription.Text == "\n")
+                {
+                    txtShortDescription.Text = string.Empty;
                     if(ObjEPosition.PositionID > 0)
                     {
                         LongDescription = ObjBPosition.GetLongDescription(Convert.ToInt32(tlPositions.FocusedNode["PositionID"]));
@@ -1428,7 +1429,7 @@ namespace OTTOPro
                     lcCostDetails.Enabled = true;
                 }
 
-                if (cmbPositionKZ.Text.ToLower() == "h")
+                if (cmbPositionKZ.Text.ToLower() == "h" || cmbPositionKZ.Text.ToLower() == "vr")
                 {
                     EnableAndDisableAllControls(false);
                 }
@@ -1742,6 +1743,18 @@ namespace OTTOPro
                         ObjEPosition.Parent_OZ = "";
                     }
                 }
+
+                if (ObjEPosition.PositionKZ.ToLower() == "vr")
+                {
+                    if (tlPositions != null && tlPositions.Nodes.Count > 0 && tlPositions.FocusedNode != null && tlPositions.FocusedNode.ParentNode != null)
+                    {
+                       ObjEPosition.Parent_OZ = tlPositions.FocusedNode.ParentNode["Position_OZ"].ToString();
+                    }
+                    else
+                    {
+                        ObjEPosition.Parent_OZ = "";
+                    }
+                }       
                 int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster);               
 
                 if (Utility._IsGermany == true)

@@ -158,7 +158,7 @@ namespace BL
             {
                 StringBuilder strParentOZ = new StringBuilder();
                 StringBuilder strPositionOZ = new StringBuilder();
-                if (ObjEPosition.PositionKZ.ToLower() != "h")
+                if (ObjEPosition.PositionKZ.ToLower() != "h" && ObjEPosition.PositionKZ.ToLower() != "vr")
                 {
                     //Checking stufe existence
                     if (!string.IsNullOrEmpty(ObjEPosition.Stufe1)) //1

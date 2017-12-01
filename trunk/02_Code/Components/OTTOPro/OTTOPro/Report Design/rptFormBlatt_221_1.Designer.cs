@@ -1949,7 +1949,7 @@
             this.xrTableCell79.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell79.CanGrow = false;
             this.xrTableCell79.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_1", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_1", "{0:n8}")});
             this.xrTableCell79.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell79.Name = "xrTableCell79";
             this.xrTableCell79.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
