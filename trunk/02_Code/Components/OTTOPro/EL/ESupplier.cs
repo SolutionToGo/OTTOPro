@@ -75,6 +75,7 @@ namespace EL
         private DataTable _dtProposedPositions;
         private DataTable _dtSupplierMail;
         private bool _IsSingle = false;
+        private string _UncheckedColumn = string.Empty;
 
         public DataTable dtNewPositions
         {
@@ -437,6 +438,10 @@ namespace EL
             get { return _IsSingle; }
             set { _IsSingle = value; }
         }
-
+        public string UncheckedColumn 
+        {
+            get { return _UncheckedColumn; }
+            set { _UncheckedColumn = value; }
+        }
     }
 }

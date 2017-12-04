@@ -596,7 +596,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@PositionID", ObjESupplier.PositionID);
                     cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
                     cmd.Parameters.AddWithValue("@SelectedSupplier", ObjESupplier.SelectedColumn);
-                    cmd.Parameters.AddWithValue("@dtStrings", ObjESupplier.dtStrings);
+                    cmd.Parameters.AddWithValue("@NotSelectedSupplier", ObjESupplier.UncheckedColumn);
                     cmd.Parameters.AddWithValue("@IsSelected", ObjESupplier.IsSelected);
                     cmd.ExecuteNonQuery();
                 }

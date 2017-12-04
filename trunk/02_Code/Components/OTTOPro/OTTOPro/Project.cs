@@ -2046,7 +2046,7 @@ namespace OTTOPro
                                 && !string.IsNullOrEmpty(txtMulti4MO.Text))
                 {
                     txtValue4MO.Text =
-                        RoundValue(GetValue(
+                       RoundValue(GetValue(
                         getDValue(txtLPMO.Text) +
                         getDValue(txtValue1MO.Text) +
                         getDValue(txtValue2MO.Text) +
@@ -2106,7 +2106,7 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtSelbstkostenValueMO.Text) && !string.IsNullOrEmpty(txtVerkaufspreisMultiMO.Text))
                 {
                     decimal dValue = getDValue(txtSelbstkostenValueMO.Text);
-                    decimal TotalDValue = RoundValue(dValue + GetValue(dValue,
+                    decimal TotalDValue = (dValue + GetValue(dValue,
                         getDValue(txtVerkaufspreisMultiMO.Text)));
                     txtVerkaufspreisValueMO.Text = TotalDValue.ToString();
                 }
@@ -2157,8 +2157,7 @@ namespace OTTOPro
                     txtLPMO.Text = RoundValue(
                         getDValue(txtHours.Text) *
                         getDValue(txtFaktor.Text) *
-                        getDValue(txtStdSatz.Text)
-                        ).ToString();
+                        getDValue(txtStdSatz.Text)).ToString();
                 }
             }
             catch (Exception ex)
@@ -2211,12 +2210,11 @@ namespace OTTOPro
                                 !string.IsNullOrEmpty(txtValue4ME.Text)
                                 )
                 {
-                    decimal GrundMulti = RoundValue(
-                        getDValue(txtValue1ME.Text) +
+                    decimal GrundMulti =
+                        RoundValue(getDValue(txtValue1ME.Text) +
                         getDValue(txtValue2ME.Text) +
                         getDValue(txtValue3ME.Text) +
-                        getDValue(txtValue4ME.Text)
-                        );
+                        getDValue(txtValue4ME.Text));
                     txtGrundValueME.Text = GrundMulti.ToString();
                 }
             }
@@ -2260,12 +2258,10 @@ namespace OTTOPro
                                 !string.IsNullOrEmpty(txtValue4MO.Text)
                                 )
                 {
-                    decimal GrundMulti = RoundValue(
-                        getDValue(txtValue1MO.Text) +
+                    decimal GrundMulti = RoundValue(getDValue(txtValue1MO.Text) +
                         getDValue(txtValue2MO.Text) +
                         getDValue(txtValue3MO.Text) +
-                        getDValue(txtValue4MO.Text)
-                        );
+                        getDValue(txtValue4MO.Text));
                     txtGrundValueMO.Text = GrundMulti.ToString();
                 }
             }
@@ -2282,8 +2278,7 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtGrundMultiME.Text))
                 {
                     decimal LPMe = getDValue(txtLPMe.Text);
-                    txtEinkaufspreisME.Text = RoundValue(
-                        LPMe
+                    txtEinkaufspreisME.Text = (LPMe
                         + GetValue(LPMe, getDValue(txtGrundMultiME.Text))
                         ).ToString();
                 }
@@ -2301,8 +2296,7 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtLPMO.Text) && !string.IsNullOrEmpty(txtGrundMultiMO.Text))
                 {
                     decimal LPMe = getDValue(txtLPMO.Text);
-                    txtEinkaufspreisMO.Text = RoundValue(
-                        LPMe
+                    txtEinkaufspreisMO.Text = (LPMe
                         + GetValue(LPMe, getDValue(txtGrundMultiMO.Text))
                         ).ToString();
                 }
@@ -2729,7 +2723,7 @@ namespace OTTOPro
                 txtValue3MO.Properties.Mask.EditMask = strMask;
                 txtValue4MO.Properties.Mask.EditMask = strMask;
                 txtGrundValueME.Properties.Mask.EditMask = strMask;
-                txtGrundValueMO.Properties.Mask.EditMask = strMask; 
+                txtGrundValueMO.Properties.Mask.EditMask = strMask;
                 txtEinkaufspreisME.Properties.Mask.EditMask = strMask;
                 txtSelbstkostenValueME.Properties.Mask.EditMask = strMask;
                 txtVerkaufspreisValueME.Properties.Mask.EditMask = strMask;
@@ -5762,7 +5756,7 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
+        } 
 
         private void txtType_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -7445,6 +7439,19 @@ namespace OTTOPro
                     int iValue = 0;
                     if (int.TryParse(gvProposal.GetFocusedRowCellValue("SupplierProposalID").ToString(), out iValue))
                     {
+
+                        if (ObjESupplier.dtPositions != null)
+                        {
+                            foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                            {
+                                if (dc.DataType == typeof(bool))
+                                {
+                                    CheckEdit ch = (CheckEdit)this.Controls.Find(dc.ColumnName, true)[0];
+                                    gcSupplier.Controls.Remove(ch);
+                                }
+                            }
+                        }
+
                         gvSupplier.Columns.Clear();
                         ObjESupplier.SupplierProposalID = iValue;
                         if (radioGroup1.SelectedIndex == 0)
@@ -7495,8 +7502,24 @@ namespace OTTOPro
                             }
                             CalculateSupplierColumns();
                             gvSupplier.BestFitColumns();
-                            gvSupplier_FocusedRowChanged(null, null);                          
 
+                            foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                            {
+                                if (dc.ColumnName.Contains("Check"))
+                                {
+                                    CheckEdit chk = new CheckEdit();
+                                    UpdatePosition(gvSupplier, dc.ColumnName, chk);
+                                    chk.Size = new System.Drawing.Size(18, 18);
+                                    chk.Name = dc.ColumnName;
+                                    chk.CheckedChanged += new EventHandler(ckBox_CheckedChanged);
+                                    gcSupplier.Controls.Add(chk);
+                                    DataRow[] FindRows = ObjESupplier.dtPositions.Select(dc.ColumnName + " = 0");
+                                    if(FindRows.Count() == 0)
+                                        chk.Checked = true;
+                                }
+                            }
+
+                            gvSupplier_FocusedRowChanged(null, null);                          
                         }
                     }
                 }
@@ -7533,102 +7556,109 @@ namespace OTTOPro
             }
         }
 
+        private bool _Usertrigger = true;
         void ckBox_CheckedChanged(object sender, EventArgs e)
         {
             try
             {
-                CheckEdit ce = sender as CheckEdit;
-                if (ce.Checked == true)
+                if (_Usertrigger)
                 {
-                   // _IsCheckBoxColumnClicked = false;
-                    for (int j = 0; j < this.gvSupplier.RowCount; j++)
+                    CheckEdit ce = sender as CheckEdit;
+                    if (ce.Checked == true)
                     {
-                        gvSupplier.SetRowCellValue(j, gvSupplier.Columns[ce.Name], true);
-                    }
-                    foreach (Control cntrl in gcSupplier.Controls)
-                    {
-                        if ((cntrl is CheckEdit))
+                        int iValue = -1;
+                        foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
                         {
-                            if (((CheckEdit)cntrl).Name != ce.Name)
+                            bool _rtn = false;
+                            iValue++;
+                            if (bool.TryParse(Convert.ToString(dr[ce.Name]), out _rtn) && !_rtn)
                             {
-                                
-                                for (int j = 0; j < this.gvSupplier.RowCount; j++)
+                                int iPositonID = 0;
+                                if (int.TryParse(Convert.ToString(dr["PositionID"]), out iPositonID))
                                 {
-                                    gvSupplier.SetRowCellValue(j, gvSupplier.Columns[((CheckEdit)cntrl).Name], false);
+                                    dr[ce.Name] = true;
+                                    UpdateCheckBoxes(iValue, ce.Name, true, iPositonID);
                                 }
                             }
                         }
-                    }                  
-                    
+                    }
+                    else
+                    {
+                        int iValue = -1;
+                        foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
+                        {
+                            bool _rtn = false;
+                            iValue++;
+                            if (bool.TryParse(Convert.ToString(dr[ce.Name]), out _rtn) && _rtn)
+                            {
+                                int iPositonID = 0;
+                                if (int.TryParse(Convert.ToString(dr["PositionID"]), out iPositonID))
+                                {
+                                    dr[ce.Name] = false;
+                                    UpdateCheckBoxes(iValue, ce.Name, false, iPositonID);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void UpdateCheckBoxes(int iIvalue, string strFieldName, bool IsChecked,int iPositionID)
+        {
+            try
+            {
+                if (IsChecked)
+                {
+                    foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                    {
+                        if (dc.DataType == typeof(bool))
+                        {
+                            if (dc.ColumnName != strFieldName)
+                            {
+                                bool _rtn = false;
+                                if (bool.TryParse(Convert.ToString(ObjESupplier.dtPositions.Rows[iIvalue][dc.ColumnName]), out _rtn) && _rtn)
+                                {
+                                    _Usertrigger = false;
+                                    ObjESupplier.dtPositions.Rows[iIvalue][dc.ColumnName] = false;
+                                    gvSupplier.SetRowCellValue(iIvalue, dc.ColumnName, false);
+                                    ObjESupplier.UncheckedColumn = dc.ColumnName;
+                                    CheckEdit ch = (CheckEdit)this.Controls.Find(dc.ColumnName, true)[0];
+                                    ch.Checked = false;
+                                }
+                            }
+                            else
+                            {
+                                ObjESupplier.dtPositions.Rows[iIvalue][dc.ColumnName] = true;
+                                gvSupplier.SetRowCellValue(iIvalue, dc.ColumnName, true);
+                            }
+                                
+                        }
+                    }
+                    ObjESupplier.IsSelected = true;
                 }
                 else
                 {
-                        for (int j = 0; j < this.gvSupplier.RowCount; j++)
-                        {
-                            gvSupplier.SetRowCellValue(j, gvSupplier.Columns[ce.Name], false);
-                        }
-                  }
-                CheckBoxEnableAndDisable(ce.Name, false);
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        bool _GridCheckBoxValue = false;
-        private bool CheckBoolValue(string _Name, int _Index)
-        {
-            try
-            {
-                foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
-                {
-                    if (dc.DataType == typeof(bool) && dc.ColumnName == _Name)
-                    {
-                        _GridCheckBoxValue = Convert.ToBoolean(ObjESupplier.dtPositions.Rows[_Index][dc.ColumnName]);
-                        if (_GridCheckBoxValue == false)
-                            return false;
-                    }
+                    ObjESupplier.UncheckedColumn = string.Empty;
+                    ObjESupplier.IsSelected = false;
                 }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-            return _GridCheckBoxValue;
-        }
-
-        private void CheckBoxEnableAndDisable(string _Name, bool _ISEqual)
-        {
-            try
-            {
-                foreach (Control cntrl in gcSupplier.Controls)
-                {
-                    if ((cntrl is CheckEdit))
-                    {
-                        if (_ISEqual == true)
-                        {
-                            if (((CheckEdit)cntrl).Name == _Name)
-                            {
-                                ((CheckEdit)cntrl).Checked = false;
-                            }
-                        }
-                        else
-                        {
-                            if (((CheckEdit)cntrl).Name != _Name)
-                            {
-                                ((CheckEdit)cntrl).Checked = false;
-                            }
-                        }
-                    }
-                }
+                ObjESupplier.dtPositions.AcceptChanges();
+                gvSupplier.RefreshData();
+                ObjESupplier.PositionID = iPositionID;
+                ObjESupplier.SupplierProposalID = Convert.ToInt32(gvProposal.GetFocusedRowCellValue("SupplierProposalID"));
+                ObjESupplier.SelectedColumn = strFieldName;
+                ObjESupplier = ObjBSupplier.SaveSelection(ObjESupplier);
+                _Usertrigger = true;
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
-
 
         private void gvSupplier_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
@@ -7676,24 +7706,60 @@ namespace OTTOPro
                 {
                     int iIvalue = e.RowHandle;
                     string strFieldName = e.Column.FieldName;
-                    ObjESupplier.dtStrings = new DataTable();
-                    ObjESupplier.dtStrings.Columns.Add("Item", typeof(string));
-                    if (Convert.ToBoolean(e.Value) == true)
+                    if (Convert.ToBoolean(e.Value))
                     {
                         foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
                         {
-                            if (dc.DataType == typeof(bool) && dc.ColumnName != strFieldName)
+                            if (dc.DataType == typeof(bool))
                             {
-                                ObjESupplier.dtPositions.Rows[iIvalue][dc.ColumnName] = false;
-                                DataRow drNew = ObjESupplier.dtStrings.NewRow();
-                                drNew["Item"] = dc.ColumnName;
-                                ObjESupplier.dtStrings.Rows.Add(drNew);
+                                if (dc.ColumnName != strFieldName)
+                                {
+                                    bool _rtn = false;
+                                    if (bool.TryParse(Convert.ToString(ObjESupplier.dtPositions.Rows[iIvalue][dc.ColumnName]), out _rtn) && _rtn)
+                                    {
+                                        _Usertrigger = false;
+                                        ObjESupplier.dtPositions.Rows[iIvalue][dc.ColumnName] = false;
+                                        gvSupplier.SetRowCellValue(iIvalue, dc.ColumnName, false);
+                                        ObjESupplier.UncheckedColumn = dc.ColumnName;
+                                        CheckEdit ch = (CheckEdit)this.Controls.Find(dc.ColumnName, true)[0];
+                                        ch.Checked = false;
+                                    }
+                                }
+                                else
+                                {
+                                    ObjESupplier.dtPositions.Rows[iIvalue][dc.ColumnName] = true;
+                                    gvSupplier.SetRowCellValue(iIvalue, dc.ColumnName, true);
+                                }
                             }
                         }
+                        bool _IsCheck = false;
+                        foreach(DataRow dr in ObjESupplier.dtPositions.Rows)
+                        {
+                            if (!Convert.ToBoolean(dr[strFieldName]))
+                            {
+                                _IsCheck = false;
+                                break;
+                            }
+                            else
+                                _IsCheck = true;
+                        }
+                        if(_IsCheck)
+                        {
+                            CheckEdit ch = (CheckEdit)this.Controls.Find(strFieldName, true)[0];
+                            ch.Checked = true;
+                        }
+                        _Usertrigger = true;
                         ObjESupplier.IsSelected = true;
                     }
                     else
+                    {
+                        _Usertrigger = false;
+                        ObjESupplier.UncheckedColumn = string.Empty;
                         ObjESupplier.IsSelected = false;
+                        CheckEdit ch = (CheckEdit)this.Controls.Find(strFieldName, true)[0];
+                        ch.Checked = false;
+                        _Usertrigger = true;
+                    }
                     ObjESupplier.dtPositions.AcceptChanges();
                     ObjESupplier.PositionID = Convert.ToInt32(gvSupplier.GetFocusedRowCellValue("PositionID"));
                     ObjESupplier.SupplierProposalID = Convert.ToInt32(gvProposal.GetFocusedRowCellValue("SupplierProposalID"));
@@ -7798,6 +7864,7 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -7812,29 +7879,6 @@ namespace OTTOPro
                     else
                         throw new Exception("Bitte wählen Sie die Ansicht 'Listenpreise pro Einheit'");
                 }
-                //List<string> LBoolColumns = new List<string>();
-                //foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
-                //{
-                //    if (dc.ColumnName.Contains("Check"))
-                //        LBoolColumns.Add(dc.ColumnName);
-                //}
-                //foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
-                //{
-                //    bool _isContinue = false;
-                //    foreach (string s in LBoolColumns)
-                //    {
-                //        if (Convert.ToBoolean(dr[s]))
-                //            _isContinue = true;
-                //    }
-                //    if (!_isContinue)
-                //    {
-                //        if (!Utility._IsGermany)
-                //            throw new Exception("Some positions are not selected to update the prices");
-                //        else
-                //            throw new Exception("Für die Datenübernahme muss für alle LV Positionen ein Lieferant ausgewählt sein");
-                //    }
-
-                //}
                 ObjESupplier.ProjectID = ObjEProject.ProjectID;
                 ObjESupplier.dtUpdateSupplierPrice = new DataTable();
                 ObjESupplier.dtUpdateSupplierPrice.Columns.Add("PositionID", typeof(int));

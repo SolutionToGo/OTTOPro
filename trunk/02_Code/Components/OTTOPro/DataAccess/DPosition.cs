@@ -787,9 +787,6 @@ namespace DataAccess
             }
             return ObjEPositon;
         }
-
-
-       
     }
 }
     
