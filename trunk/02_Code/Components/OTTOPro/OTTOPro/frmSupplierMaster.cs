@@ -435,6 +435,11 @@ namespace OTTOPro
                 {
                     e.Handled = true;
                 }
+                if (e.KeyData == (Keys.Control | Keys.C) || e.KeyData == (Keys.Control | Keys.V))
+                {
+                    e.SuppressKeyPress = true;
+                    e.Handled = true;
+                }
             }
             catch (Exception ex)
             {

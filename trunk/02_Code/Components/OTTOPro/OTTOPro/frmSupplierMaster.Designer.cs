@@ -258,11 +258,11 @@
             // 
             // txtSupplierEmail
             // 
-            this.dxValidationProviderSupplierSname.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderContactName.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderAddrSName.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderSupplierEmail.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderAddrSName.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderSupplierSname.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderContactName.SetIconAlignment(this.txtSupplierEmail, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtSupplierEmail.Location = new System.Drawing.Point(139, 202);
             this.txtSupplierEmail.Name = "txtSupplierEmail";
             this.txtSupplierEmail.Properties.Mask.ShowPlaceHolders = false;
@@ -317,11 +317,11 @@
             // 
             // txtShortName
             // 
-            this.dxValidationProviderSupplierSname.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderContactName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderAddrSName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderSupplierEmail.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderAddrSName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderSupplierSname.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderContactName.SetIconAlignment(this.txtShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtShortName.Location = new System.Drawing.Point(139, 66);
             this.txtShortName.Name = "txtShortName";
             this.txtShortName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -649,11 +649,11 @@
             // 
             // txtContactName
             // 
-            this.dxValidationProviderSupplierSname.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderContactName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderAddrSName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderSupplierEmail.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderAddrSName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderSupplierSname.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderContactName.SetIconAlignment(this.txtContactName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtContactName.Location = new System.Drawing.Point(90, 36);
             this.txtContactName.Name = "txtContactName";
             this.txtContactName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -923,11 +923,11 @@
             // 
             // txtAddrShortName
             // 
-            this.dxValidationProviderSupplierSname.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderContactName.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
-            this.dxValidationProviderAddrSName.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderSupplierEmail.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderSupplierFullName.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderAddrSName.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderSupplierSname.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderContactName.SetIconAlignment(this.txtAddrShortName, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtAddrShortName.Location = new System.Drawing.Point(77, 12);
             this.txtAddrShortName.Name = "txtAddrShortName";
             this.txtAddrShortName.Properties.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;

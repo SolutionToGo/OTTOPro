@@ -29,11 +29,11 @@ namespace OTTOPro
             Requirefields.Add(txtParentWG);
             Requirefields.Add(txtParentWA);
             Requirefields.Add(txtParentA);
-            Requirefields.Add(txtParentB);
+           // Requirefields.Add(txtParentB);
             Requirefields.Add(txtChildWG);
             Requirefields.Add(txtChildWA);
             Requirefields.Add(txtChildA);
-            Requirefields.Add(txtChildB);
+           // Requirefields.Add(txtChildB);
             if (ObjEArticles == null)
                 ObjEArticles = new EArticles();
             if (ObjBArticles == null)
