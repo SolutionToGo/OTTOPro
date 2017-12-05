@@ -335,7 +335,36 @@ namespace OTTOPro.Report_Design
             }
         }
 
-       
+        private void TopMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                foreach (XRControl cont in (((TopMarginBand)sender).Controls))
+                {
+                    cont.PrintOnPage += new PrintOnPageEventHandler(cont_PrintOnPage);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        void cont_PrintOnPage(object sender, PrintOnPageEventArgs e)
+        {
+            try
+            {
+                if (e.PageIndex > 0)
+                {
+                    xrRichText5.Visible = false;
+                    xrRichText6.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
 
 //**********************
 

@@ -129,6 +129,9 @@
             this.gvTyp.OptionsCustomization.AllowFilter = false;
             this.gvTyp.OptionsCustomization.AllowSort = false;
             this.gvTyp.OptionsFilter.AllowFilterEditor = false;
+            this.gvTyp.OptionsFind.AlwaysVisible = true;
+            this.gvTyp.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
+            this.gvTyp.OptionsFind.ShowFindButton = false;
             this.gvTyp.OptionsMenu.EnableColumnMenu = false;
             this.gvTyp.OptionsMenu.EnableFooterMenu = false;
             this.gvTyp.OptionsMenu.EnableGroupPanelMenu = false;
