@@ -92,7 +92,7 @@
             // 
             // btnExport
             // 
-            this.btnExport.Image = global::OTTOPro.Properties.Resources.Export_16x16;
+            this.btnExport.ImageOptions.Image = global::OTTOPro.Properties.Resources.Export_16x16;
             this.btnExport.Location = new System.Drawing.Point(354, 110);
             this.btnExport.Name = "btnExport";
             this.btnExport.Size = new System.Drawing.Size(91, 22);
@@ -103,7 +103,7 @@
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Image = global::OTTOPro.Properties.Resources.ExportFile_16x16;
+            this.btnBrowse.ImageOptions.Image = global::OTTOPro.Properties.Resources.ExportFile_16x16;
             this.btnBrowse.Location = new System.Drawing.Point(354, 60);
             this.btnBrowse.Name = "btnBrowse";
             this.btnBrowse.Size = new System.Drawing.Size(91, 22);
@@ -119,6 +119,8 @@
             this.cmbFormatType.Properties.AllowMouseWheel = false;
             this.cmbFormatType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbFormatType.Properties.DropDownRows = 12;
+            this.cmbFormatType.Properties.PopupSizeable = true;
             this.cmbFormatType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbFormatType.Size = new System.Drawing.Size(307, 20);
             this.cmbFormatType.StyleController = this.layoutControl1;

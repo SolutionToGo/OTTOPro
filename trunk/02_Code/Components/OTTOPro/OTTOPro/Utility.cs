@@ -174,9 +174,9 @@ namespace OTTOPro
                     int OZLength = 0;
                     int RasterLength = 0;
 
-                    OZ = strPOZ[i];
+                    OZ = strPOZ[i].Trim(); ;
                     RasterLength = strPRaster[i].Length;
-                    OZLength = strPOZ[i].Length;
+                    OZLength = OZ.Trim().Length;
 
 
                     if(Count == 0)

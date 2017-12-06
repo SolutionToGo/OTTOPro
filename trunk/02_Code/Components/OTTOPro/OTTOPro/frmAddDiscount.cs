@@ -25,8 +25,8 @@ namespace OTTOPro
         {
             try
             {
-                ObjEProject.FromOZ = txtFromOZ.Text;
-                ObjEProject.ToOZ = txtToOZ.Text;
+                ObjEProject.FromOZ = txtFromOZ.Text.Replace(",",".");
+                ObjEProject.ToOZ = txtToOZ.Text.Replace(",",".");
                 decimal dValue = 0;
                 if (decimal.TryParse(txtDiscount.Text, out dValue))
                     ObjEProject.Discount = dValue;

@@ -417,7 +417,7 @@ namespace BL
 
                     OZ = strPOZ[i].Trim();
                     RasterLength = strPRaster[i].Length;
-                    OZLength = (strPOZ[i].Trim()).Length;
+                    OZLength = OZ.Length;
                     if (Count == 0)
                     {
                         if (RasterLength == 1 && OZLength > 0)
@@ -527,6 +527,15 @@ namespace BL
                     int startIndex = strRtf.IndexOf(" ", pictTagIdx) + 1;
                     int endIndex = strRtf.IndexOf("}", startIndex);
                     string imageDataHex = strRtf.Substring(startIndex, endIndex - startIndex);
+                    string strTemp = string.Empty;
+                    if (imageDataHex.Contains("http"))
+                    {
+                        strTemp = strRtf.Replace(imageDataHex + "}", "");
+                        strRtf = strTemp;
+                        startIndex = strTemp.IndexOf(" ", pictTagIdx) + 1;
+                        endIndex = strTemp.IndexOf("}", startIndex);
+                        imageDataHex = strTemp.Substring(startIndex, endIndex - startIndex);
+                    }
                     byte[] imageBuffer = ToBinary(imageDataHex);
                     string strFileName = ObjEGAEB.DirPath + ObjEGAEB.ProjectNumber + "_" + PositionID.ToString() + "_" + IVlaue.ToString() + ".jpg";
                     File.WriteAllBytes(strFileName, imageBuffer);
