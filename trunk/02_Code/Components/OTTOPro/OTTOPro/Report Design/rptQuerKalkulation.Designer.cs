@@ -948,7 +948,7 @@
             this.xrTable6,
             this.xrTable5,
             this.xrTable4});
-            this.GroupFooter1.HeightF = 69.91666F;
+            this.GroupFooter1.HeightF = 70.08333F;
             this.GroupFooter1.KeepTogether = true;
             this.GroupFooter1.Name = "GroupFooter1";
             // 

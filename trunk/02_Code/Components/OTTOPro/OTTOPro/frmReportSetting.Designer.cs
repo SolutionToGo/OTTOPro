@@ -29,26 +29,26 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.radioGroupSorting = new DevExpress.XtraEditors.RadioGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.radioGroupShowText = new DevExpress.XtraEditors.RadioGroup();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.chkSelectOptions = new DevExpress.XtraEditors.CheckedListBoxControl();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
+            this.chkSelectOptions = new DevExpress.XtraEditors.CheckedListBoxControl();
+            this.radioGroupShowText = new DevExpress.XtraEditors.RadioGroup();
+            this.radioGroupSorting = new DevExpress.XtraEditors.RadioGroup();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupSorting.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupShowText.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectOptions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroupShowText.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroupSorting.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
@@ -72,6 +72,74 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // btnCancel
+            // 
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.Location = new System.Drawing.Point(244, 484);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(81, 22);
+            this.btnCancel.StyleController = this.layoutControl1;
+            this.btnCancel.TabIndex = 8;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnSave.Location = new System.Drawing.Point(329, 484);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(73, 22);
+            this.btnSave.StyleController = this.layoutControl1;
+            this.btnSave.TabIndex = 7;
+            this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // chkSelectOptions
+            // 
+            this.chkSelectOptions.CheckOnClick = true;
+            this.chkSelectOptions.Cursor = System.Windows.Forms.Cursors.Default;
+            this.chkSelectOptions.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("sender", "Print offer without customer"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("menge", "Print positions without menge"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("GB", "Print offer without total price(GB)"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("prices", "Print offer without prices"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("EP", "Print individual prices in the text(EP)")});
+            this.chkSelectOptions.Location = new System.Drawing.Point(12, 207);
+            this.chkSelectOptions.MultiColumn = true;
+            this.chkSelectOptions.Name = "chkSelectOptions";
+            this.chkSelectOptions.Size = new System.Drawing.Size(390, 273);
+            this.chkSelectOptions.StyleController = this.layoutControl1;
+            this.chkSelectOptions.TabIndex = 6;
+            // 
+            // radioGroupShowText
+            // 
+            this.radioGroupShowText.Location = new System.Drawing.Point(12, 134);
+            this.radioGroupShowText.Name = "radioGroupShowText";
+            this.radioGroupShowText.Properties.AllowMouseWheel = false;
+            this.radioGroupShowText.Properties.Columns = 2;
+            this.radioGroupShowText.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "LangText"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "KurzText")});
+            this.radioGroupShowText.Size = new System.Drawing.Size(390, 52);
+            this.radioGroupShowText.StyleController = this.layoutControl1;
+            this.radioGroupShowText.TabIndex = 5;
+            // 
+            // radioGroupSorting
+            // 
+            this.radioGroupSorting.Location = new System.Drawing.Point(12, 29);
+            this.radioGroupSorting.Name = "radioGroupSorting";
+            this.radioGroupSorting.Properties.AllowMouseWheel = false;
+            this.radioGroupSorting.Properties.Columns = 2;
+            this.radioGroupSorting.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
+            this.radioGroupSorting.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "LV Position"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "ArtikelNr.", false),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Lieferant(MA)", false),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Fabrikat", false)});
+            this.radioGroupSorting.Size = new System.Drawing.Size(390, 84);
+            this.radioGroupSorting.StyleController = this.layoutControl1;
+            this.radioGroupSorting.TabIndex = 4;
+            // 
             // layoutControlGroup1
             // 
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -88,22 +156,6 @@
             this.layoutControlGroup1.Size = new System.Drawing.Size(414, 518);
             this.layoutControlGroup1.TextVisible = false;
             // 
-            // radioGroupSorting
-            // 
-            this.radioGroupSorting.Location = new System.Drawing.Point(12, 29);
-            this.radioGroupSorting.Name = "radioGroupSorting";
-            this.radioGroupSorting.Properties.AllowMouseWheel = false;
-            this.radioGroupSorting.Properties.Columns = 2;
-            this.radioGroupSorting.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
-            this.radioGroupSorting.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "LV Position"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "ArtikelNr."),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Lieferant(MA)"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Fabrikat")});
-            this.radioGroupSorting.Size = new System.Drawing.Size(390, 84);
-            this.radioGroupSorting.StyleController = this.layoutControl1;
-            this.radioGroupSorting.TabIndex = 4;
-            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -117,19 +169,6 @@
             this.layoutControlItem1.Text = "Sorting";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(89, 14);
-            // 
-            // radioGroupShowText
-            // 
-            this.radioGroupShowText.Location = new System.Drawing.Point(12, 134);
-            this.radioGroupShowText.Name = "radioGroupShowText";
-            this.radioGroupShowText.Properties.AllowMouseWheel = false;
-            this.radioGroupShowText.Properties.Columns = 2;
-            this.radioGroupShowText.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "LangText"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "KurzText")});
-            this.radioGroupShowText.Size = new System.Drawing.Size(390, 52);
-            this.radioGroupShowText.StyleController = this.layoutControl1;
-            this.radioGroupShowText.TabIndex = 5;
             // 
             // layoutControlItem2
             // 
@@ -145,23 +184,6 @@
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(89, 14);
             // 
-            // chkSelectOptions
-            // 
-            this.chkSelectOptions.CheckOnClick = true;
-            this.chkSelectOptions.Cursor = System.Windows.Forms.Cursors.Default;
-            this.chkSelectOptions.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("sender", "Print offer without sender"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("menge", "Print positions without menge"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("GB", "Print offer without total price(GB)"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("prices", "Print offer without prices"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("EP", "Print individual prices in the text(EP)")});
-            this.chkSelectOptions.Location = new System.Drawing.Point(12, 207);
-            this.chkSelectOptions.MultiColumn = true;
-            this.chkSelectOptions.Name = "chkSelectOptions";
-            this.chkSelectOptions.Size = new System.Drawing.Size(390, 273);
-            this.chkSelectOptions.StyleController = this.layoutControl1;
-            this.chkSelectOptions.TabIndex = 6;
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -175,17 +197,6 @@
             this.layoutControlItem3.Text = "Select Options";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(89, 14);
-            // 
-            // btnSave
-            // 
-            this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(329, 484);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(73, 22);
-            this.btnSave.StyleController = this.layoutControl1;
-            this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Save";
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // layoutControlItem4
             // 
@@ -203,17 +214,6 @@
             this.emptySpaceItem1.Name = "emptySpaceItem1";
             this.emptySpaceItem1.Size = new System.Drawing.Size(232, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(244, 484);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(81, 22);
-            this.btnCancel.StyleController = this.layoutControl1;
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // layoutControlItem5
             // 
@@ -238,12 +238,12 @@
             this.Load += new System.EventHandler(this.frmReportSetting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupSorting.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radioGroupShowText.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkSelectOptions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroupShowText.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radioGroupSorting.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();

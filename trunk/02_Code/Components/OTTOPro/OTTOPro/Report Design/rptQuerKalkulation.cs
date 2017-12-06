@@ -73,6 +73,8 @@ namespace OTTOPro.Report_Design
                     else
                         throw new Exception(Convert.ToString(dt.Rows[0][0]));
                 }
+
+
             }
             catch (Exception ex)
             {
