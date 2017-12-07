@@ -152,6 +152,14 @@
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ctrProject = new DevExpress.XtraEditors.SplitContainerControl();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarReports = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItemCommonReport = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemConsolidateBlatt = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemQuerKalkulation = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemDeliveryNote = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbFormBlatt = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbCoverSheet1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarForms = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItemProject = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemLVDetails = new DevExpress.XtraNavBar.NavBarItem();
@@ -167,13 +175,6 @@
             this.nbInvoices = new DevExpress.XtraNavBar.NavBarItem();
             this.nbCopyLVs = new DevExpress.XtraNavBar.NavBarItem();
             this.nbComparePrice = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarReports = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItemCommonReport = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemConsolidateBlatt = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemQuerKalkulation = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemDeliveryNote = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbFormBlatt = new DevExpress.XtraNavBar.NavBarItem();
             this.tcProjectDetails = new DevExpress.XtraTab.XtraTabControl();
             this.tbLVDetails = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -3526,7 +3527,8 @@
             this.navBarItemDeliveryNote,
             this.nbComparePrice,
             this.navBarItemCommonReport,
-            this.nbFormBlatt});
+            this.nbFormBlatt,
+            this.nbCoverSheet1});
             this.navBarControl1.Location = new System.Drawing.Point(0, 0);
             this.navBarControl1.Name = "navBarControl1";
             this.navBarControl1.OptionsNavPane.ExpandedWidth = 209;
@@ -3536,6 +3538,84 @@
             this.navBarControl1.Text = "navBarControl1";
             this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.NavigationPaneViewInfoRegistrator();
             this.navBarControl1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarControl1_LinkClicked);
+            // 
+            // navBarReports
+            // 
+            this.navBarReports.Caption = "Dokumente";
+            this.navBarReports.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
+            this.navBarReports.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCommonReport),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemConsolidateBlatt),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemQuerKalkulation),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemDeliveryNote),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbFormBlatt),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCoverSheet1)});
+            this.navBarReports.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarReports.LargeImage")));
+            this.navBarReports.Name = "navBarReports";
+            this.navBarReports.ItemChanged += new System.EventHandler(this.navBarReports_ItemChanged);
+            // 
+            // navBarItemCommonReport
+            // 
+            this.navBarItemCommonReport.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemCommonReport.Appearance.Options.UseFont = true;
+            this.navBarItemCommonReport.Caption = "Angebot";
+            this.navBarItemCommonReport.Name = "navBarItemCommonReport";
+            this.navBarItemCommonReport.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemCommonReport.SmallImage")));
+            this.navBarItemCommonReport.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemCommonReport_LinkClicked);
+            // 
+            // navBarItem5
+            // 
+            this.navBarItem5.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItem5.Appearance.Options.UseFont = true;
+            this.navBarItem5.Caption = "Angebot";
+            this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
+            this.navBarItem5.Name = "navBarItem5";
+            this.navBarItem5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.SmallImage")));
+            this.navBarItem5.Visible = false;
+            this.navBarItem5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem5_LinkClicked);
+            // 
+            // navBarItemConsolidateBlatt
+            // 
+            this.navBarItemConsolidateBlatt.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemConsolidateBlatt.Appearance.Options.UseFont = true;
+            this.navBarItemConsolidateBlatt.Caption = "Aufmasszusammenstellung";
+            this.navBarItemConsolidateBlatt.Name = "navBarItemConsolidateBlatt";
+            this.navBarItemConsolidateBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemConsolidateBlatt.SmallImage")));
+            this.navBarItemConsolidateBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemConsolidateBlatt_LinkClicked);
+            // 
+            // navBarItemQuerKalkulation
+            // 
+            this.navBarItemQuerKalkulation.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemQuerKalkulation.Appearance.Options.UseFont = true;
+            this.navBarItemQuerKalkulation.Caption = "QuerKalkulation";
+            this.navBarItemQuerKalkulation.Name = "navBarItemQuerKalkulation";
+            this.navBarItemQuerKalkulation.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemQuerKalkulation.SmallImage")));
+            this.navBarItemQuerKalkulation.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQuerKalkulation_LinkClicked);
+            // 
+            // navBarItemDeliveryNote
+            // 
+            this.navBarItemDeliveryNote.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemDeliveryNote.Appearance.Options.UseFont = true;
+            this.navBarItemDeliveryNote.Caption = "Aufmasse";
+            this.navBarItemDeliveryNote.Name = "navBarItemDeliveryNote";
+            this.navBarItemDeliveryNote.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDeliveryNote.SmallImage")));
+            this.navBarItemDeliveryNote.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDeliveryNote_LinkClicked);
+            // 
+            // nbFormBlatt
+            // 
+            this.nbFormBlatt.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbFormBlatt.Appearance.Options.UseFont = true;
+            this.nbFormBlatt.Caption = "Form Blatt";
+            this.nbFormBlatt.Name = "nbFormBlatt";
+            this.nbFormBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbFormBlatt.SmallImage")));
+            this.nbFormBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbFormBlatt_LinkClicked);
+            // 
+            // nbCoverSheet1
+            // 
+            this.nbCoverSheet1.Caption = "CoverSheet-1";
+            this.nbCoverSheet1.Name = "nbCoverSheet1";
+            this.nbCoverSheet1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCoverSheet1_LinkClicked);
             // 
             // navBarForms
             // 
@@ -3699,77 +3779,6 @@
             this.nbComparePrice.Name = "nbComparePrice";
             this.nbComparePrice.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbComparePrice.SmallImage")));
             this.nbComparePrice.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbComparePrice_LinkPressed);
-            // 
-            // navBarReports
-            // 
-            this.navBarReports.Caption = "Dokumente";
-            this.navBarReports.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
-            this.navBarReports.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCommonReport),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemConsolidateBlatt),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemQuerKalkulation),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemDeliveryNote),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbFormBlatt)});
-            this.navBarReports.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarReports.LargeImage")));
-            this.navBarReports.Name = "navBarReports";
-            this.navBarReports.ItemChanged += new System.EventHandler(this.navBarReports_ItemChanged);
-            // 
-            // navBarItemCommonReport
-            // 
-            this.navBarItemCommonReport.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItemCommonReport.Appearance.Options.UseFont = true;
-            this.navBarItemCommonReport.Caption = "Angebot";
-            this.navBarItemCommonReport.Name = "navBarItemCommonReport";
-            this.navBarItemCommonReport.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemCommonReport.SmallImage")));
-            this.navBarItemCommonReport.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemCommonReport_LinkClicked);
-            // 
-            // navBarItem5
-            // 
-            this.navBarItem5.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItem5.Appearance.Options.UseFont = true;
-            this.navBarItem5.Caption = "Angebot";
-            this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
-            this.navBarItem5.Name = "navBarItem5";
-            this.navBarItem5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.SmallImage")));
-            this.navBarItem5.Visible = false;
-            this.navBarItem5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem5_LinkClicked);
-            // 
-            // navBarItemConsolidateBlatt
-            // 
-            this.navBarItemConsolidateBlatt.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItemConsolidateBlatt.Appearance.Options.UseFont = true;
-            this.navBarItemConsolidateBlatt.Caption = "Aufmasszusammenstellung";
-            this.navBarItemConsolidateBlatt.Name = "navBarItemConsolidateBlatt";
-            this.navBarItemConsolidateBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemConsolidateBlatt.SmallImage")));
-            this.navBarItemConsolidateBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemConsolidateBlatt_LinkClicked);
-            // 
-            // navBarItemQuerKalkulation
-            // 
-            this.navBarItemQuerKalkulation.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItemQuerKalkulation.Appearance.Options.UseFont = true;
-            this.navBarItemQuerKalkulation.Caption = "QuerKalkulation";
-            this.navBarItemQuerKalkulation.Name = "navBarItemQuerKalkulation";
-            this.navBarItemQuerKalkulation.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemQuerKalkulation.SmallImage")));
-            this.navBarItemQuerKalkulation.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQuerKalkulation_LinkClicked);
-            // 
-            // navBarItemDeliveryNote
-            // 
-            this.navBarItemDeliveryNote.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItemDeliveryNote.Appearance.Options.UseFont = true;
-            this.navBarItemDeliveryNote.Caption = "Aufmasse";
-            this.navBarItemDeliveryNote.Name = "navBarItemDeliveryNote";
-            this.navBarItemDeliveryNote.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDeliveryNote.SmallImage")));
-            this.navBarItemDeliveryNote.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDeliveryNote_LinkClicked);
-            // 
-            // nbFormBlatt
-            // 
-            this.nbFormBlatt.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.nbFormBlatt.Appearance.Options.UseFont = true;
-            this.nbFormBlatt.Caption = "Form Blatt";
-            this.nbFormBlatt.Name = "nbFormBlatt";
-            this.nbFormBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbFormBlatt.SmallImage")));
-            this.nbFormBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbFormBlatt_LinkClicked);
             // 
             // tcProjectDetails
             // 
@@ -18265,6 +18274,7 @@
         private DevExpress.XtraTreeList.Columns.TreeListColumn SB;
         private DevExpress.XtraNavBar.NavBarItem nbFormBlatt;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem239;
+        private DevExpress.XtraNavBar.NavBarItem nbCoverSheet1;
 
 
     }

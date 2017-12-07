@@ -389,5 +389,54 @@ namespace DAL
             return ObjEProject;
         }
 
+        public void SavePath(string strPath)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_Path]";
+                    cmd.Parameters.AddWithValue("@Path", strPath);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+        }
+
+        public string GetPath()
+        {
+            string strPath = string.Empty;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_Path]";
+                    object returnObj = cmd.ExecuteScalar();
+                    if (returnObj != null)
+                        strPath = Convert.ToString(returnObj);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return strPath;
+        }
+
     }
 }

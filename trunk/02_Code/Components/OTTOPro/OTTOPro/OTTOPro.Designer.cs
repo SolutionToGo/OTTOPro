@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
-            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -72,6 +72,7 @@
             this.skinRibbonGalleryBarItem2 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.btnFormBlattarticles = new DevExpress.XtraBars.BarButtonItem();
             this.btnReportSetting = new DevExpress.XtraBars.BarButtonItem();
+            this.bbCoverSheetPath = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -91,7 +92,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             this.lblUserName = new System.Windows.Forms.Label();
-            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -137,9 +137,9 @@
             this.skinRibbonGalleryBarItem2,
             this.btnFormBlattarticles,
             this.btnReportSetting,
-            this.barButtonItem8});
+            this.bbCoverSheetPath});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 46;
+            this.ribbon.MaxItemId = 47;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -235,13 +235,13 @@
             // 
             // 
             // 
-            galleryItemGroup1.Caption = "Group1";
-            galleryItemGroup2.Caption = "Group2";
-            galleryItemGroup3.Caption = "Group3";
+            galleryItemGroup4.Caption = "Group1";
+            galleryItemGroup5.Caption = "Group2";
+            galleryItemGroup6.Caption = "Group3";
             this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1,
-            galleryItemGroup2,
-            galleryItemGroup3});
+            galleryItemGroup4,
+            galleryItemGroup5,
+            galleryItemGroup6});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -430,6 +430,13 @@
             this.btnReportSetting.Name = "btnReportSetting";
             this.btnReportSetting.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReportSetting_ItemClick);
             // 
+            // bbCoverSheetPath
+            // 
+            this.bbCoverSheetPath.Caption = "CoverSheet Path";
+            this.bbCoverSheetPath.Id = 46;
+            this.bbCoverSheetPath.Name = "bbCoverSheetPath";
+            this.bbCoverSheetPath.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbCoverSheetPath_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -479,7 +486,6 @@
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.barMdiChildrenListItemProject);
-            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
             // rpSetting
@@ -492,6 +498,7 @@
             // rpgTextModule
             // 
             this.rpgTextModule.ItemLinks.Add(this.btnTextModule, true);
+            this.rpgTextModule.ItemLinks.Add(this.bbCoverSheetPath);
             this.rpgTextModule.ItemLinks.Add(this.btnShortCuts, true);
             this.rpgTextModule.ItemLinks.Add(this.btnDesignReport);
             this.rpgTextModule.ItemLinks.Add(this.btnReportSetting, true);
@@ -518,12 +525,12 @@
             this.BarButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BarButtonItem10.ImageOptions.Image")));
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem1.Text = "Otto Pro";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Maintains Customer Information";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.BarButtonItem10.SuperTip = superToolTip1;
+            toolTipTitleItem2.Text = "Otto Pro";
+            toolTipItem2.LeftIndent = 6;
+            toolTipItem2.Text = "Maintains Customer Information";
+            superToolTip2.Items.Add(toolTipTitleItem2);
+            superToolTip2.Items.Add(toolTipItem2);
+            this.BarButtonItem10.SuperTip = superToolTip2;
             // 
             // statusStrip1
             // 
@@ -598,13 +605,6 @@
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(0, 13);
             this.lblUserName.TabIndex = 21;
-            // 
-            // barButtonItem8
-            // 
-            this.barButtonItem8.Caption = "barButtonItem8";
-            this.barButtonItem8.Id = 45;
-            this.barButtonItem8.Name = "barButtonItem8";
-            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
             // 
             // frmOTTOPro
             // 
@@ -700,5 +700,6 @@
         private DevExpress.XtraBars.BarButtonItem btnFormBlattarticles;
         private DevExpress.XtraBars.BarButtonItem btnReportSetting;
         private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.BarButtonItem bbCoverSheetPath;
     }
 }

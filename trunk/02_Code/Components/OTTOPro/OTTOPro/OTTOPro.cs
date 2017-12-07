@@ -453,12 +453,25 @@ namespace OTTOPro
             }
         }
 
-        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        private void bbCoverSheetPath_ItemClick(object sender, ItemClickEventArgs e)
         {
-            rptCoverSheet1 rpt = new rptCoverSheet1();
-            ReportPrintTool printTool = new ReportPrintTool(rpt);
-            rpt.Parameters["CustomerID"].Value = 2;
-            printTool.ShowRibbonPreview();
+            try
+            {
+                FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+                folderDlg.ShowNewFolderButton = true;
+                DialogResult result = folderDlg.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    BProject ObjBProject = null;
+                    if (ObjBProject == null)
+                        ObjBProject = new BProject();
+                    ObjBProject.SavePath(folderDlg.SelectedPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
     }
 }

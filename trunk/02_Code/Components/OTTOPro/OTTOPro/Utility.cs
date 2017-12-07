@@ -363,6 +363,8 @@ namespace OTTOPro
                     if (xnArt != null)
                     {
                         drLVPos["Art"] = strART = xnArt.InnerText;
+                        if (strART == "Z")
+                            continue;
                     }
                     XmlNode xnOZ = xnPos.SelectSingleNode("OZ");
                     if (xnOZ != null)

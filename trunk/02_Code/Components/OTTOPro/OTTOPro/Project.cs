@@ -9991,5 +9991,35 @@ namespace OTTOPro
 
         }
         #endregion
+
+        private void nbCoverSheet1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+
+                string strPath = ObjBProject.GetPath();
+                if (string.IsNullOrEmpty(strPath))
+                    throw new Exception("CoverSheet path does not exists");
+
+                string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_CoverSheet1.Docx";
+                if (!File.Exists(strFileName))
+                {
+                    rptCoverSheet1 rpt = new rptCoverSheet1();
+                    rpt.Parameters["CustomerID"].Value = ObjEProject.KundeID;
+                    rpt.ExportToDocx(strFileName);
+                }
+                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                ap.Documents.Open(strFileName);
+                ap.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

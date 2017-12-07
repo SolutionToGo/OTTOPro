@@ -266,6 +266,34 @@ namespace BL
             }
             return ObjEProject;
         }
+
+        public void SavePath(string strPath)
+        {
+            try
+            {
+                if (ObjDAL == null)
+                    ObjDAL = new DProject();
+                ObjDAL.SavePath(strPath);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public string GetPath()
+        {
+            string strPath = string.Empty;
+            try
+            {
+                strPath = ObjDAL.GetPath();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return strPath;
+        }
     }
 }
     
