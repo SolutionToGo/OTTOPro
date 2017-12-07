@@ -409,7 +409,7 @@
             this.xrTableCell3.StylePriority.UseTextAlignment = false;
             this.xrTableCell3.Text = "ME";
             this.xrTableCell3.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell3.Weight = 0.18507347149839482D;
+            this.xrTableCell3.Weight = 0.26276110746193015D;
             // 
             // xrTableCell7
             // 
@@ -422,7 +422,7 @@
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
             this.xrTableCell7.Text = "Text                 Materialpreis";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell7.Weight = 0.72420371225723845D;
+            this.xrTableCell7.Weight = 0.64651607629370311D;
             // 
             // xrTableCell1
             // 
@@ -610,13 +610,13 @@
             // xrME
             // 
             this.xrME.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.ME")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.ME", "{0:n2}")});
             this.xrME.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrME.Name = "xrME";
             this.xrME.StylePriority.UseFont = false;
             this.xrME.StylePriority.UseTextAlignment = false;
             this.xrME.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
-            this.xrME.Weight = 0.23505070210518275D;
+            this.xrME.Weight = 0.32991606690120567D;
             // 
             // xrMAVer
             // 
@@ -629,7 +629,7 @@
             this.xrMAVer.StylePriority.UsePadding = false;
             this.xrMAVer.StylePriority.UseTextAlignment = false;
             this.xrMAVer.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrMAVer.Weight = 0.90661509221160141D;
+            this.xrMAVer.Weight = 0.81174972741557849D;
             // 
             // xrMOVer
             // 
@@ -669,10 +669,10 @@
             this.xrLangText.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.LangText")});
             this.xrLangText.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrLangText.LocationFloat = new DevExpress.Utils.PointFloat(231.3682F, 26.00004F);
+            this.xrLangText.LocationFloat = new DevExpress.Utils.PointFloat(261.4161F, 26.00009F);
             this.xrLangText.Name = "xrLangText";
             this.xrLangText.SerializableRtfString = resources.GetString("xrLangText.SerializableRtfString");
-            this.xrLangText.SizeF = new System.Drawing.SizeF(267.2267F, 23F);
+            this.xrLangText.SizeF = new System.Drawing.SizeF(263.2205F, 22.99999F);
             this.xrLangText.StylePriority.UseFont = false;
             // 
             // GroupFooter1
