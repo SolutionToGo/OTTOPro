@@ -194,13 +194,15 @@ namespace OTTOPro
                     }
 
                     if (int.TryParse(cmbTextArea.SelectedValue.ToString(), out _TextAreaID))
-
+                    {
                         if (_TextAreaID > 0)
                         {
                             BindCategories();
                             richEditControlContent.Text = "";
                         }
+                    }                        
                 }
+                gcContentDetails.DataSource = null;
             }
             catch (Exception ex)
             {

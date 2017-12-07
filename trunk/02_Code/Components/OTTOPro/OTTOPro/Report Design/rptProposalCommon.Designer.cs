@@ -151,9 +151,8 @@
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell13 = new DevExpress.XtraReports.UI.XRTableCell();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
-            this.calculatedField2 = new DevExpress.XtraReports.UI.CalculatedField();
+            this.BetragTotal = new DevExpress.XtraReports.UI.CalculatedField();
             this.NetTotal = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -164,7 +163,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -552,10 +550,9 @@
             // Detail1
             // 
             this.Detail1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrRichText1,
             this.xrTable2,
             this.xrLangText});
-            this.Detail1.HeightF = 72.00005F;
+            this.Detail1.HeightF = 49.08339F;
             this.Detail1.KeepTogether = true;
             this.Detail1.Name = "Detail1";
             // 
@@ -1305,7 +1302,6 @@
             this.xrLblGB.SizeF = new System.Drawing.SizeF(112.3242F, 23F);
             this.xrLblGB.StylePriority.UseFont = false;
             this.xrLblGB.StylePriority.UseTextAlignment = false;
-            this.xrLblGB.Text = "0.00";
             this.xrLblGB.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             // 
             // xrLblTotalVat
@@ -1491,11 +1487,12 @@
             this.calculatedField1.DataMember = "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID)";
             this.calculatedField1.Name = "calculatedField1";
             // 
-            // calculatedField2
+            // BetragTotal
             // 
-            this.calculatedField2.DataMember = "P_Rpt_GetTotalSummery(@ProjectID)";
-            this.calculatedField2.DataSource = this.sqlDataSource3;
-            this.calculatedField2.Name = "calculatedField2";
+            this.BetragTotal.DataMember = "P_Rpt_GetTotalSummery(@ProjectID)";
+            this.BetragTotal.DataSource = this.sqlDataSource3;
+            this.BetragTotal.Expression = "Sum([MAPrice])  + Sum([MoPrice])";
+            this.BetragTotal.Name = "BetragTotal";
             // 
             // NetTotal
             // 
@@ -1503,17 +1500,6 @@
             this.NetTotal.DataSource = this.sqlDataSource2;
             this.NetTotal.Expression = "Sum([MA_VER_Total]) + Sum([MO_VER_Total])";
             this.NetTotal.Name = "NetTotal";
-            // 
-            // xrRichText1
-            // 
-            this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.LangText_1")});
-            this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(231.3682F, 49.00004F);
-            this.xrRichText1.Name = "xrRichText1";
-            this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
-            this.xrRichText1.SizeF = new System.Drawing.SizeF(267.2267F, 23F);
-            this.xrRichText1.StylePriority.UseFont = false;
             // 
             // rptProposalCommon
             // 
@@ -1528,7 +1514,7 @@
             this.GroupFooter3});
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.calculatedField1,
-            this.calculatedField2,
+            this.BetragTotal,
             this.NetTotal});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.sqlDataSource1,
@@ -1555,7 +1541,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1663,11 +1648,10 @@
         private DevExpress.XtraReports.UI.XRRichText xrRichText6;
         private DevExpress.XtraReports.UI.XRRichText xrLangText;
         private DevExpress.XtraReports.UI.XRLabel lblTitle;
-        private DevExpress.XtraReports.UI.CalculatedField calculatedField2;
+        private DevExpress.XtraReports.UI.CalculatedField BetragTotal;
         private DevExpress.XtraReports.UI.CalculatedField NetTotal;
         private DevExpress.XtraReports.UI.XRTable xrTable1;
         private DevExpress.DataAccess.Sql.SqlDataSource sqlDataSource2;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
-        private DevExpress.XtraReports.UI.XRRichText xrRichText1;
     }
 }

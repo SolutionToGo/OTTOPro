@@ -42,7 +42,7 @@ namespace OTTOPro.Report_Design
                 if (DetailReport1.GetCurrentColumnValue("Total") != DBNull.Value)
                 {
                     value = Convert.ToDouble(xrTableCell36.Summary.GetResult()) + Convert.ToDouble(DetailReport1.GetCurrentColumnValue("Total"));
-                    xrTableCell60.Text = value.ToString("n2");
+                    xrTableCell60.Text = (value - _Discount).ToString("n2");
                 }
             }
             catch (Exception ex)
@@ -51,6 +51,7 @@ namespace OTTOPro.Report_Design
             }
         }
 
+        double _Discount = 0;
         private void rptQuerKalkulation_DataSourceDemanded(object sender, EventArgs e)
         {
             try
@@ -74,6 +75,24 @@ namespace OTTOPro.Report_Design
                         throw new Exception(Convert.ToString(dt.Rows[0][0]));
                 }
 
+                dsDiscountCalculation ds = new dsDiscountCalculation();               
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter1.Connection.ConnectionString = SQLCon.ConnectionString();
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter1.ClearBeforeFill = true;
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter1.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtValue, _PID, _Type);
+
+                DataTable dtdiscount = new DataTable();
+                dtdiscount = ds.P_Rpt_QuerCalculation_DiscountPosition;                
+                if (dt != null)
+                {                    
+                    decimal _result = 0;
+                    if (decimal.TryParse(Convert.ToString(dtdiscount.Rows[0][0]), out _result))
+                    {
+                        tbDiscountResult.Text = _result.ToString("n2");
+                        _Discount = Convert.ToDouble(_result);
+                    }                        
+                    else
+                        throw new Exception(Convert.ToString(dt.Rows[0][0]));
+                }
 
             }
             catch (Exception ex)

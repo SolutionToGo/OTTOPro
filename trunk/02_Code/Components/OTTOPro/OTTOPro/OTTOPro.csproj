@@ -485,6 +485,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\dsDiscountCalculation.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDiscountCalculation.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\dsFormBlatt_221_2.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -855,6 +860,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Report Design\dsDiscountCalculation.xsc">
+      <DependentUpon>dsDiscountCalculation.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsDiscountCalculation.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDiscountCalculation.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsDiscountCalculation.xss">
+      <DependentUpon>dsDiscountCalculation.xsd</DependentUpon>
+    </None>
     <None Include="Report Design\dsFormBlatt_221_2.xsc">
       <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
     </None>
