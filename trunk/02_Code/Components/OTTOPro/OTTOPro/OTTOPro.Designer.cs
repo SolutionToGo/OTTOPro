@@ -91,6 +91,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -135,9 +136,10 @@
             this.btnAddAccessories,
             this.skinRibbonGalleryBarItem2,
             this.btnFormBlattarticles,
-            this.btnReportSetting});
+            this.btnReportSetting,
+            this.barButtonItem8});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 44;
+            this.ribbon.MaxItemId = 46;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -477,6 +479,7 @@
             // ribbonPageGroup4
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.barMdiChildrenListItemProject);
+            this.ribbonPageGroup4.ItemLinks.Add(this.barButtonItem8);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             // 
             // rpSetting
@@ -596,6 +599,13 @@
             this.lblUserName.Size = new System.Drawing.Size(0, 13);
             this.lblUserName.TabIndex = 21;
             // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "barButtonItem8";
+            this.barButtonItem8.Id = 45;
+            this.barButtonItem8.Name = "barButtonItem8";
+            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
+            // 
             // frmOTTOPro
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -689,5 +699,6 @@
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem2;
         private DevExpress.XtraBars.BarButtonItem btnFormBlattarticles;
         private DevExpress.XtraBars.BarButtonItem btnReportSetting;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
     }
 }

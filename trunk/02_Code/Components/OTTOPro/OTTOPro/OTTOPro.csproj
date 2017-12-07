@@ -522,6 +522,12 @@
     <Compile Include="Report Design\rptConsolidatedBlatt.Designer.cs">
       <DependentUpon>rptConsolidatedBlatt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptCoverSheet1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptCoverSheet1.Designer.cs">
+      <DependentUpon>rptCoverSheet1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptDeliveryNotes.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -783,6 +789,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptConsolidatedBlatt.resx">
       <DependentUpon>rptConsolidatedBlatt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptCoverSheet1.resx">
+      <DependentUpon>rptCoverSheet1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptDeliveryNotes.resx">
       <DependentUpon>rptDeliveryNotes.cs</DependentUpon>

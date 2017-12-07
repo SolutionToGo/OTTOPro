@@ -452,5 +452,13 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void barButtonItem8_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            rptCoverSheet1 rpt = new rptCoverSheet1();
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
+            rpt.Parameters["CustomerID"].Value = 2;
+            printTool.ShowRibbonPreview();
+        }
     }
 }
