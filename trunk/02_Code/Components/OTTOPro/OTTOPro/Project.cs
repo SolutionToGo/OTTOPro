@@ -9823,7 +9823,7 @@ namespace OTTOPro
         {
             try
             {
-                rptProposalCommon rpt = new rptProposalCommon();
+                rptProposalCommon rpt = new rptProposalCommon(ObjEProject.ProjectID);
                 ReportPrintTool printTool = new ReportPrintTool(rpt);
                 rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
                 printTool.ShowRibbonPreview();
@@ -9845,8 +9845,8 @@ namespace OTTOPro
                     return;
                 if (e.HitInfo.InRow)
                 {
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add", gvAddDiscount_Click));
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Delete", gvDeleteDiscount_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Hinzufügen", gvAddDiscount_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteDiscount_Click));
                 }
             }
             catch (Exception ex)

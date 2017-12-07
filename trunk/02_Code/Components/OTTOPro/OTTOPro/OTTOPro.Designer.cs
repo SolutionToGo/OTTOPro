@@ -413,7 +413,7 @@
             // 
             // btnFormBlattarticles
             // 
-            this.btnFormBlattarticles.Caption = "Form Blatt Articles";
+            this.btnFormBlattarticles.Caption = "Formblatt Artikel";
             this.btnFormBlattarticles.Enabled = false;
             this.btnFormBlattarticles.Id = 42;
             this.btnFormBlattarticles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFormBlattarticles.ImageOptions.Image")));
@@ -423,7 +423,7 @@
             // 
             // btnReportSetting
             // 
-            this.btnReportSetting.Caption = "Report Setting";
+            this.btnReportSetting.Caption = "Berichtseinstellungen";
             this.btnReportSetting.CausesValidation = true;
             this.btnReportSetting.Id = 43;
             this.btnReportSetting.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReportSetting.ImageOptions.Image")));

@@ -345,7 +345,7 @@ namespace DAL
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("Error Occured While Saving Discount");
+                    throw new Exception("Fehler beim Speichern des Nachlasses");
                 else
                     throw new Exception("Error Occured While Saving Discount");
             }
@@ -378,7 +378,7 @@ namespace DAL
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("Error Occured While Deleting Discount");
+                    throw new Exception("Fehler beim Löschen des Nachlasses");
                 else
                     throw new Exception("Error Occured While Deleting Discount");
             }

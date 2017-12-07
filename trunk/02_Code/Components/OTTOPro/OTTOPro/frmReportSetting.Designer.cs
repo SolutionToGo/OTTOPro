@@ -75,23 +75,23 @@
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(244, 484);
+            this.btnCancel.Location = new System.Drawing.Point(243, 484);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(81, 22);
+            this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(329, 484);
+            this.btnSave.Location = new System.Drawing.Point(327, 484);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(73, 22);
+            this.btnSave.Size = new System.Drawing.Size(75, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Speichern";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // chkSelectOptions
@@ -99,11 +99,11 @@
             this.chkSelectOptions.CheckOnClick = true;
             this.chkSelectOptions.Cursor = System.Windows.Forms.Cursors.Default;
             this.chkSelectOptions.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("sender", "Print offer without customer"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("menge", "Print positions without menge"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("GB", "Print offer without total price(GB)"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("prices", "Print offer without prices"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("EP", "Print individual prices in the text(EP)")});
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("sender", "Angebotsdruck ohne Kundenangaben"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("menge", "Angebotsdruck ohne Quantität"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("GB", "Angebotsdruck ohne Gesamtpreis "),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("prices", "Angebotsdruck ohne Preise"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("EP", "Angebotstruck mit Einzelpreisen")});
             this.chkSelectOptions.Location = new System.Drawing.Point(12, 207);
             this.chkSelectOptions.MultiColumn = true;
             this.chkSelectOptions.Name = "chkSelectOptions";
@@ -166,9 +166,9 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(394, 105);
-            this.layoutControlItem1.Text = "Sorting";
+            this.layoutControlItem1.Text = "Sortierung";
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(89, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 14);
             // 
             // layoutControlItem2
             // 
@@ -180,9 +180,9 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 105);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(394, 73);
-            this.layoutControlItem2.Text = "Show Text";
+            this.layoutControlItem2.Text = "Anzeige Text";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(89, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 14);
             // 
             // layoutControlItem3
             // 
@@ -194,16 +194,16 @@
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 178);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(394, 294);
-            this.layoutControlItem3.Text = "Select Options";
+            this.layoutControlItem3.Text = "Auswahloptionen";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(89, 14);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 14);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnSave;
-            this.layoutControlItem4.Location = new System.Drawing.Point(317, 472);
+            this.layoutControlItem4.Location = new System.Drawing.Point(315, 472);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(77, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(79, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -212,15 +212,15 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 472);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(232, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(231, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnCancel;
-            this.layoutControlItem5.Location = new System.Drawing.Point(232, 472);
+            this.layoutControlItem5.Location = new System.Drawing.Point(231, 472);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(85, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -234,7 +234,7 @@
             this.MinimizeBox = false;
             this.Name = "frmReportSetting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Report Setting";
+            this.Text = "Berichtseinstellungen";
             this.Load += new System.EventHandler(this.frmReportSetting_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

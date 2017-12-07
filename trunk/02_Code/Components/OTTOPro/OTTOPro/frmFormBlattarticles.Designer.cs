@@ -74,21 +74,22 @@
             // 
             // btnSaveFormBlattArticles
             // 
+            this.btnSaveFormBlattArticles.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveFormBlattArticles.Location = new System.Drawing.Point(649, 483);
             this.btnSaveFormBlattArticles.Name = "btnSaveFormBlattArticles";
             this.btnSaveFormBlattArticles.Size = new System.Drawing.Size(81, 22);
             this.btnSaveFormBlattArticles.StyleController = this.layoutControl1;
             this.btnSaveFormBlattArticles.TabIndex = 12;
-            this.btnSaveFormBlattArticles.Text = "Save";
+            this.btnSaveFormBlattArticles.Text = "Speichern";
             this.btnSaveFormBlattArticles.Click += new System.EventHandler(this.btnSaveFormBlattArticles_Click);
             // 
             // cmbFormBlatttypes
             // 
             this.cmbFormBlatttypes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFormBlatttypes.FormattingEnabled = true;
-            this.cmbFormBlatttypes.Location = new System.Drawing.Point(93, 12);
+            this.cmbFormBlatttypes.Location = new System.Drawing.Point(90, 12);
             this.cmbFormBlatttypes.Name = "cmbFormBlatttypes";
-            this.cmbFormBlatttypes.Size = new System.Drawing.Size(279, 21);
+            this.cmbFormBlatttypes.Size = new System.Drawing.Size(282, 21);
             this.cmbFormBlatttypes.TabIndex = 11;
             this.cmbFormBlatttypes.SelectionChangeCommitted += new System.EventHandler(this.cmbFormBlatttypes_SelectionChangeCommitted);
             // 
@@ -135,7 +136,7 @@
             // 
             // gridColumn92
             // 
-            this.gridColumn92.Caption = "Select";
+            this.gridColumn92.Caption = "Auswählen";
             this.gridColumn92.FieldName = "IsAssigned";
             this.gridColumn92.Name = "gridColumn92";
             this.gridColumn92.OptionsColumn.FixedWidth = true;
@@ -217,8 +218,8 @@
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(364, 25);
-            this.layoutControlItem2.Text = "Select Type :";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(78, 14);
+            this.layoutControlItem2.Text = "Auswählen :";
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(75, 14);
             // 
             // emptySpaceItem1
             // 
@@ -255,7 +256,7 @@
             this.MinimizeBox = false;
             this.Name = "frmFormBlattarticles";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = " Form Blatt Articles";
+            this.Text = " Formblatt Artikel";
             this.Load += new System.EventHandler(this.frmFormBlattarticles_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

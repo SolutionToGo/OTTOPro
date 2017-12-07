@@ -3,15 +3,22 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
+using DAL;
+using System.Data;
 
 namespace OTTOPro.Report_Design
 {
     public partial class rptProposalCommon : DevExpress.XtraReports.UI.XtraReport
     {
-
+        int _PID=0;
         public rptProposalCommon()
         {
             InitializeComponent();
+        }
+        public rptProposalCommon(int _ProID)
+        {
+            InitializeComponent();
+            _PID=_ProID;
         }
 
         double totalGB1 = 0;
@@ -284,9 +291,9 @@ namespace OTTOPro.Report_Design
                 {
                     if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out dValue))
                         totalvat = dValue;
-                }                
-                if (double.TryParse(xrLblGB.Text, out GValue))
-                    GBValue = GValue;
+                }
+                //if (double.TryParse(value, out GValue))
+                    GBValue = value;
                 double _result = Convert.ToDouble((GBValue * totalvat) / 100);
                 xrLblTotalVat.Text = Convert.ToDouble(_result).ToString("n2");
 
@@ -359,6 +366,57 @@ namespace OTTOPro.Report_Design
                     xrRichText5.Visible = false;
                     xrRichText6.Visible = false;
                 }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+        double _Discount = 0;
+        private void rptProposalCommon_DataSourceDemanded(object sender, EventArgs e)
+        {
+            try
+            {
+                DataTable dtPos = new DataTable();
+                dtPos.Columns.Add("FromPos");
+                dtPos.Columns.Add("ToPos");
+                dsDiscountCalculation ds = new dsDiscountCalculation();
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.ClearBeforeFill = true;
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtPos, _PID, "Complete");
+
+                DataTable dtdiscount = new DataTable();
+                dtdiscount = ds.P_Rpt_QuerCalculation_DiscountPosition;
+                if (dtdiscount != null)
+                {
+                    decimal _result = 0;
+                    if (decimal.TryParse(Convert.ToString(dtdiscount.Rows[0][0]), out _result))
+                    {
+                        tbDiscount.Text = '-' + _result.ToString("n2");
+                        _Discount = Convert.ToDouble(_result);
+                    }
+                    else
+                        throw new Exception(Convert.ToString(dtdiscount.Rows[0][0]));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+        double value = 0;
+        private void xrLblGB_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {                
+                if (DetailReport1.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                {
+                    value = Convert.ToDouble(xrLblMA.Summary.GetResult()) + Convert.ToDouble(xrLblMO.Summary.GetResult()) - _Discount;
+                    xrLblGB.Text = (value).ToString("n2");
+                }
+
+                xrTableCell13_BeforePrint(null,null);
+                
             }
             catch (Exception ex)
             {

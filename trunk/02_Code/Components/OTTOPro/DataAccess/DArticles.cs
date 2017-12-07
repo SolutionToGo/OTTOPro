@@ -456,7 +456,7 @@ namespace DataAccess
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                {
-                   throw new Exception("Error while saving the accessories");
+                   throw new Exception("Fehler beim Speichern von Zubehörangaben");
                }
                else
                {
@@ -574,7 +574,7 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("Fehler bei der Datenaktualisierung für article details");
+                   throw new Exception("Fehler beim Laden von Artikeldaten");
                else
                    throw new Exception("Error While Retrieving article details");
            }

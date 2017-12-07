@@ -112,7 +112,7 @@ namespace OTTOPro
                 ObjEFormBlatt = ObjBFormBlatt.Save_FormBlattArticles(ObjEFormBlatt, dvArticles.ToTable());
                 if (Utility._IsGermany == true)
                 {
-                    //frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Aktualisierung der Umlage");
+                    frmOTTOPro.UpdateStatus("Artikelangaben für das Formblatt erfolgreich gespeichert");
                 }
                 else
                 {

@@ -121,8 +121,8 @@
             this.radioGroupSelection.Name = "radioGroupSelection";
             this.radioGroupSelection.Properties.AllowMouseWheel = false;
             this.radioGroupSelection.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Complete Report"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Title and Subtitle")});
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Alle LV Positionen"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Titel und Untertitel")});
             this.radioGroupSelection.Size = new System.Drawing.Size(304, 52);
             this.radioGroupSelection.StyleController = this.layoutControl1;
             this.radioGroupSelection.TabIndex = 4;
@@ -211,7 +211,7 @@
             this.MinimizeBox = false;
             this.Name = "frmQuerKalculation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Select QuerKalculation";
+            this.Text = "Auswahl Querkalkulation";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gvAddRemovePositions)).EndInit();
