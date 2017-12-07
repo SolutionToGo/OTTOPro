@@ -15,6 +15,8 @@ using EL;
 using BL;
 using System.Configuration;
 using System.IO;
+using OTTOPro.Report_Design;
+using DevExpress.XtraReports.UI;
 
 namespace OTTOPro
 {

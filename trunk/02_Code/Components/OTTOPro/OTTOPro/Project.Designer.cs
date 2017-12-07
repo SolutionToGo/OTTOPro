@@ -10385,7 +10385,7 @@
             // gridColumn3
             // 
             this.gridColumn3.Caption = "X";
-            this.gridColumn3.DisplayFormat.FormatString = "n3";
+            this.gridColumn3.DisplayFormat.FormatString = "n8";
             this.gridColumn3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn3.FieldName = "XValue";
             this.gridColumn3.Name = "gridColumn3";
@@ -10401,7 +10401,7 @@
             // gridColumn4
             // 
             this.gridColumn4.Caption = "S";
-            this.gridColumn4.DisplayFormat.FormatString = "n3";
+            this.gridColumn4.DisplayFormat.FormatString = "n8";
             this.gridColumn4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn4.FieldName = "SValue";
             this.gridColumn4.Name = "gridColumn4";
@@ -10714,6 +10714,8 @@
             // gridColumn9
             // 
             this.gridColumn9.Caption = "X";
+            this.gridColumn9.DisplayFormat.FormatString = "n8";
+            this.gridColumn9.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn9.FieldName = "XValue";
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.OptionsColumn.AllowEdit = false;
@@ -10728,6 +10730,7 @@
             // gridColumn10
             // 
             this.gridColumn10.Caption = "S";
+            this.gridColumn10.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
             this.gridColumn10.FieldName = "SValue";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
