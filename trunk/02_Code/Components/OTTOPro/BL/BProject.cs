@@ -294,6 +294,22 @@ namespace BL
             }
             return strPath;
         }
+
+        public string GetDBVersion()
+        {
+            string strVersion = string.Empty;
+            try
+            {
+                if(ObjDAL == null)
+                    ObjDAL = new DProject();
+                strVersion = ObjDAL.GetDBVersion();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return strVersion;
+        }
     }
 }
     

@@ -23,6 +23,7 @@ namespace OTTOPro
     public partial class frmOTTOPro : DevExpress.XtraBars.Ribbon.RibbonForm
     {
         public static frmOTTOPro ObjOTTOPro;
+        BProject ObjBProject = null;
 
         private frmOTTOPro()
         {
@@ -147,32 +148,43 @@ namespace OTTOPro
 
         private void frmOTTOPro_Load(object sender, EventArgs e)
         {
-            if (Utility.ArticleDataAccess == "9")
-                rpgArticleMaster.Visible = false;
-
-            if(Utility.CustomerDataAccess == "9")
-                btnCustomer.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-
-            if (Utility.SupplierDataAccess == "9")
-                btnSupplier.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-
-            if (Utility.OTTODataAccess == "9")
-                btnOTTO.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            if (Utility.CustomerDataAccess == "9" && Utility.SupplierDataAccess == "9" && Utility.SupplierDataAccess == "9")
-                ribbonPageGroup5.Visible = false;
-            if (Utility.UserDataAccess == "9")
-                ribbonPageGroup2.Visible = false;
-            if(Utility.GeneralTextModuleAccess == "9" &&
-                Utility.CalculationTextModuleAccess == "9" &&
-                Utility.InvoiceTextModuleAccess == "9")
+            try
             {
-                btnTextModule.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                if (Utility.ArticleDataAccess == "9")
+                    rpgArticleMaster.Visible = false;
+
+                if (Utility.CustomerDataAccess == "9")
+                    btnCustomer.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
+                if (Utility.SupplierDataAccess == "9")
+                    btnSupplier.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+
+                if (Utility.OTTODataAccess == "9")
+                    btnOTTO.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                if (Utility.CustomerDataAccess == "9" && Utility.SupplierDataAccess == "9" && Utility.SupplierDataAccess == "9")
+                    ribbonPageGroup5.Visible = false;
+                if (Utility.UserDataAccess == "9")
+                    ribbonPageGroup2.Visible = false;
+                if (Utility.GeneralTextModuleAccess == "9" &&
+                    Utility.CalculationTextModuleAccess == "9" &&
+                    Utility.InvoiceTextModuleAccess == "9")
+                {
+                    btnTextModule.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
+                }
+                if (Utility.RoleID == 8)
+                {
+                    btnFormBlattarticles.Enabled = true;
+                }
+                lblUserName.Text = "Nutzername : " + Utility.UserName;
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                string strVersion = ObjBProject.GetDBVersion();
+                lblDBVersion.Text = "Database Version: " + strVersion;
             }
-            if(Utility.RoleID ==8)
+            catch (Exception ex)
             {
-                btnFormBlattarticles.Enabled = true;
+                
             }
-            lblUserName.Text = "Nutzername : " + Utility.UserName;
         }
 
         private void btnShortCuts_ItemClick(object sender, ItemClickEventArgs e)
@@ -462,7 +474,6 @@ namespace OTTOPro
                 DialogResult result = folderDlg.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    BProject ObjBProject = null;
                     if (ObjBProject == null)
                         ObjBProject = new BProject();
                     ObjBProject.SavePath(folderDlg.SelectedPath);

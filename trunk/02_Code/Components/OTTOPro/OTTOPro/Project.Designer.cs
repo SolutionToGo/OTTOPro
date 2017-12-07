@@ -3613,8 +3613,11 @@
             // 
             // nbCoverSheet1
             // 
+            this.nbCoverSheet1.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbCoverSheet1.Appearance.Options.UseFont = true;
             this.nbCoverSheet1.Caption = "CoverSheet-1";
             this.nbCoverSheet1.Name = "nbCoverSheet1";
+            this.nbCoverSheet1.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCoverSheet1.SmallImage")));
             this.nbCoverSheet1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCoverSheet1_LinkClicked);
             // 
             // navBarForms

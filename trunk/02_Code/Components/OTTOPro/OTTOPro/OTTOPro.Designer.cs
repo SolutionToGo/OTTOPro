@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup4 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup5 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup6 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
-            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -92,6 +92,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             this.lblUserName = new System.Windows.Forms.Label();
+            this.lblDBVersion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -235,13 +236,13 @@
             // 
             // 
             // 
-            galleryItemGroup4.Caption = "Group1";
-            galleryItemGroup5.Caption = "Group2";
-            galleryItemGroup6.Caption = "Group3";
+            galleryItemGroup1.Caption = "Group1";
+            galleryItemGroup2.Caption = "Group2";
+            galleryItemGroup3.Caption = "Group3";
             this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup4,
-            galleryItemGroup5,
-            galleryItemGroup6});
+            galleryItemGroup1,
+            galleryItemGroup2,
+            galleryItemGroup3});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -434,6 +435,8 @@
             // 
             this.bbCoverSheetPath.Caption = "CoverSheet Path";
             this.bbCoverSheetPath.Id = 46;
+            this.bbCoverSheetPath.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbCoverSheetPath.ImageOptions.Image")));
+            this.bbCoverSheetPath.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbCoverSheetPath.ImageOptions.LargeImage")));
             this.bbCoverSheetPath.Name = "bbCoverSheetPath";
             this.bbCoverSheetPath.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbCoverSheetPath_ItemClick);
             // 
@@ -525,12 +528,12 @@
             this.BarButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BarButtonItem10.ImageOptions.Image")));
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem2.Text = "Otto Pro";
-            toolTipItem2.LeftIndent = 6;
-            toolTipItem2.Text = "Maintains Customer Information";
-            superToolTip2.Items.Add(toolTipTitleItem2);
-            superToolTip2.Items.Add(toolTipItem2);
-            this.BarButtonItem10.SuperTip = superToolTip2;
+            toolTipTitleItem1.Text = "Otto Pro";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Maintains Customer Information";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            this.BarButtonItem10.SuperTip = superToolTip1;
             // 
             // statusStrip1
             // 
@@ -584,11 +587,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(1076, 123);
+            this.label1.Location = new System.Drawing.Point(1054, 126);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 17);
+            this.label1.Size = new System.Drawing.Size(176, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version 8.9 (07-12-2017)";
+            this.label1.Text = "App Version 8.9 (07-12-2017)";
             // 
             // fdImportFile
             // 
@@ -601,10 +604,24 @@
             this.lblUserName.BackColor = System.Drawing.Color.Transparent;
             this.lblUserName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblUserName.ForeColor = System.Drawing.Color.Blue;
-            this.lblUserName.Location = new System.Drawing.Point(1076, 98);
+            this.lblUserName.Location = new System.Drawing.Point(1054, 89);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(0, 13);
+            this.lblUserName.Size = new System.Drawing.Size(78, 13);
             this.lblUserName.TabIndex = 21;
+            this.lblUserName.Text = "lblUserName";
+            // 
+            // lblDBVersion
+            // 
+            this.lblDBVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblDBVersion.AutoSize = true;
+            this.lblDBVersion.BackColor = System.Drawing.Color.Transparent;
+            this.lblDBVersion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblDBVersion.ForeColor = System.Drawing.Color.Blue;
+            this.lblDBVersion.Location = new System.Drawing.Point(1054, 108);
+            this.lblDBVersion.Name = "lblDBVersion";
+            this.lblDBVersion.Size = new System.Drawing.Size(41, 13);
+            this.lblDBVersion.TabIndex = 24;
+            this.lblDBVersion.Text = "label3";
             // 
             // frmOTTOPro
             // 
@@ -617,6 +634,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 755);
+            this.Controls.Add(this.lblDBVersion);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -699,7 +717,7 @@
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem2;
         private DevExpress.XtraBars.BarButtonItem btnFormBlattarticles;
         private DevExpress.XtraBars.BarButtonItem btnReportSetting;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
         private DevExpress.XtraBars.BarButtonItem bbCoverSheetPath;
+        private System.Windows.Forms.Label lblDBVersion;
     }
 }

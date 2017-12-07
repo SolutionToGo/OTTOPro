@@ -438,5 +438,30 @@ namespace DAL
             return strPath;
         }
 
+        public string GetDBVersion()
+        {
+            string strVersion = string.Empty;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[p_Get_DBVersion]";
+                    object returnObj = cmd.ExecuteScalar();
+                    if (returnObj != null)
+                        strVersion = Convert.ToString(returnObj);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return strVersion;
+        }
     }
 }
