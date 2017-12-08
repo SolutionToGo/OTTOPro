@@ -606,9 +606,8 @@
             this.lblUserName.ForeColor = System.Drawing.Color.Blue;
             this.lblUserName.Location = new System.Drawing.Point(1054, 89);
             this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(78, 13);
+            this.lblUserName.Size = new System.Drawing.Size(0, 13);
             this.lblUserName.TabIndex = 21;
-            this.lblUserName.Text = "lblUserName";
             // 
             // lblDBVersion
             // 
@@ -619,9 +618,8 @@
             this.lblDBVersion.ForeColor = System.Drawing.Color.Blue;
             this.lblDBVersion.Location = new System.Drawing.Point(1054, 108);
             this.lblDBVersion.Name = "lblDBVersion";
-            this.lblDBVersion.Size = new System.Drawing.Size(41, 13);
+            this.lblDBVersion.Size = new System.Drawing.Size(0, 13);
             this.lblDBVersion.TabIndex = 24;
-            this.lblDBVersion.Text = "label3";
             // 
             // frmOTTOPro
             // 

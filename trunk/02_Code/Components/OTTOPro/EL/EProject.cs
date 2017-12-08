@@ -87,6 +87,7 @@ namespace EL
         private string _PlannerName;
         private string _KundeNr;
         private string _KundeName;
+        private string _KundeAddress;
         private int _RoundingPrice = 3;
         private DataTable _dtLVSection;
         private bool _IsCumulated = false;
@@ -251,6 +252,11 @@ namespace EL
         {
             get { return _KundeName; }
             set { _KundeName = value; }
+        }
+        public string KundeAddress
+        {
+            get { return _KundeAddress; }
+            set { _KundeAddress = value; }
         }
         public string PlannerName
         {

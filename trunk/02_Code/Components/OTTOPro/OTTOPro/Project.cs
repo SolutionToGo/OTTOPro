@@ -9978,6 +9978,7 @@ namespace OTTOPro
                             ObjEProject = ObjBProject.SaveDiscount(ObjEProject);
                             gcDiscount.DataSource = ObjEProject.dtDiscount;
                             Utility.Setfocus(gvDiscount, "DiscountID", ObjEProject.DiscountID);
+                            ObjEProject.IsSave = false;
                         }
                     }
                     else
@@ -10008,9 +10009,37 @@ namespace OTTOPro
                 string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_CoverSheet1.Docx";
                 if (!File.Exists(strFileName))
                 {
-                    rptCoverSheet1 rpt = new rptCoverSheet1();
-                    rpt.Parameters["CustomerID"].Value = ObjEProject.KundeID;
-                    rpt.ExportToDocx(strFileName);
+                    string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                    Object oMissing = System.Reflection.Missing.Value;
+                    Object oTemplatePath = appPath + "\\Template1.dotx";
+                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+                    Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
+                    wordDoc = wordApp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
+
+                    foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
+                    {
+                        Microsoft.Office.Interop.Word.Range rngFieldCode = myMergeField.Code;
+                        String fieldText = rngFieldCode.Text;
+                        if (fieldText.StartsWith(" MERGEFIELD"))
+                        {
+                            Int32 endMerge = fieldText.IndexOf("\\");
+                            Int32 fieldNameLength = fieldText.Length - endMerge;
+                            String fieldName = fieldText.Substring(11, endMerge - 11);
+                            fieldName = fieldName.Trim();
+                            if (fieldName == "CustName")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.KundeName);
+                            }
+                            if (fieldName == "CustAddress")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.KundeAddress);
+                            }
+                        }
+                    }
+                    wordDoc.SaveAs(strFileName);
+                    wordApp.Application.Quit();
                 }
                 Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
                 ap.Documents.Open(strFileName);
