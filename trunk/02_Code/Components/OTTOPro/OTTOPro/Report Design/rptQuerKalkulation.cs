@@ -81,8 +81,8 @@ namespace OTTOPro.Report_Design
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter1.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtValue, _PID, _Type);
 
                 DataTable dtdiscount = new DataTable();
-                dtdiscount = ds.P_Rpt_QuerCalculation_DiscountPosition;                
-                if (dt != null)
+                dtdiscount = ds.P_Rpt_QuerCalculation_DiscountPosition;
+                if (dtdiscount != null)
                 {                    
                     decimal _result = 0;
                     if (decimal.TryParse(Convert.ToString(dtdiscount.Rows[0][0]), out _result))
@@ -91,7 +91,7 @@ namespace OTTOPro.Report_Design
                         _Discount = Convert.ToDouble(_result);
                     }                        
                     else
-                        throw new Exception(Convert.ToString(dt.Rows[0][0]));
+                        throw new Exception(Convert.ToString(dtdiscount.Rows[0][0]));
                 }
 
             }

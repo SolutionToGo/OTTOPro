@@ -3699,20 +3699,20 @@ namespace OTTOPro
                         e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", bbDelete_ItemClick));
                         e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Textposition hinzufügen", bbAddTextPosition_Click));
                         e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Detail KZ hinzufügen", bbAddDetailKZ_Click));
-                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Copy LV Position", bbCopyLVAndDetailKZ_Click));
+                        e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Kopieren LV Position", bbCopyLVAndDetailKZ_Click));
                     }
                 }
                 if (_DetailKZ > 0)
                 {
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Copy Detail KZ", bbCopyDetailKZ_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Kopieren Detail KZ", bbCopyDetailKZ_Click));
                 }
                 if (_ISCopied == true && P_value != "NG" && P_value != "Z" && P_value != "ZS")
                 {
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Paste Detail KZ", bbPasteyDetailKZ_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Einfügen Detail KZ", bbPasteyDetailKZ_Click));
                 }
                 if (_ISCopiedLV == true && P_value != "NG" && P_value != "Z" && P_value != "ZS")
                 {
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Paste LV Position(Below Selected Row)", bbPasteLVAndDetailKZ_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Einfügen LV Position(Unter der ausgewählten Zeile)", bbPasteLVAndDetailKZ_Click));
                 }
             }
             catch (Exception ex)
