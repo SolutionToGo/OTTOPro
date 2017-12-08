@@ -9981,7 +9981,7 @@ namespace OTTOPro
                         }
                     }
                     else
-                        throw new Exception("From Or To OZ not exists..!!");
+                        throw new Exception("Von oder nach OZ existiert nicht..!!");
                 }
             }
             catch (Exception ex)
