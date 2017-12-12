@@ -1227,7 +1227,7 @@
             // 
             // xrLblTotalVat
             // 
-            this.xrLblTotalVat.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrLblTotalVat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrLblTotalVat.Name = "xrLblTotalVat";
             this.xrLblTotalVat.StylePriority.UseFont = false;
             this.xrLblTotalVat.StylePriority.UseTextAlignment = false;
@@ -1553,7 +1553,7 @@
             // 
             // tbDiscount
             // 
-            this.tbDiscount.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.tbDiscount.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDiscount.Name = "tbDiscount";
             this.tbDiscount.StylePriority.UseFont = false;
             this.tbDiscount.StylePriority.UseTextAlignment = false;
