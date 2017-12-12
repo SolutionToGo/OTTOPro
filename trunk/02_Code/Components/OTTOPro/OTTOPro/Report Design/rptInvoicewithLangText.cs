@@ -3,6 +3,8 @@ using System.Drawing;
 using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
+using System.Data;
+using DAL;
 
 namespace OTTOPro.Report_Design
 {
@@ -11,7 +13,7 @@ namespace OTTOPro.Report_Design
         public rptInvoicewithLangText()
         {
             InitializeComponent();
-        }
+        }       
         double totalUnits = 0;
         int i = 0;
 
@@ -54,8 +56,7 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }      
         }
-
-       
+             
        
 
     }

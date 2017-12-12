@@ -11,7 +11,7 @@ namespace OTTOPro.Report_Design
         public rptInvoicewithKurzText()
         {
             InitializeComponent();
-        }
+        }       
 
         double totalResult = 0;      
         int i = 0;

@@ -48,21 +48,21 @@ namespace OTTOPro.Report_Design
         double totalEP = 0;
         private void xrLabel24_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            e.Result = totalEP;
-            e.Handled = true;
+            //e.Result = totalEP;
+            //e.Handled = true;
         }
 
         private void xrLabel24_SummaryReset(object sender, EventArgs e)
         {
-            totalEP = 0;
+           // totalEP = 0;
         }
 
         private void xrLabel24_SummaryRowChanged(object sender, EventArgs e)
         {
             try
             {
-                if (DetailReport.GetCurrentColumnValue("EP") != DBNull.Value)
-                    totalEP += Convert.ToDouble(DetailReport.GetCurrentColumnValue("EP"));
+                //if (DetailReport.GetCurrentColumnValue("EP") != DBNull.Value)
+                //    totalEP += Convert.ToDouble(DetailReport.GetCurrentColumnValue("EP"));
             }
             catch (Exception ex)
             {
@@ -73,21 +73,21 @@ namespace OTTOPro.Report_Design
         double totalGB2 = 0;
         private void xrLabel23_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            e.Result = totalGB2;
-            e.Handled = true;
+            //e.Result = totalGB2;
+            //e.Handled = true;
         }
 
         private void xrLabel23_SummaryReset(object sender, EventArgs e)
         {
-            totalGB2 = 0;
+            //totalGB2 = 0;
         }
 
         private void xrLabel23_SummaryRowChanged(object sender, EventArgs e)
         {
             try
             {
-                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                    totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+                //if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+                //    totalGB2 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
             }
             catch (Exception ex)
             {
@@ -98,21 +98,21 @@ namespace OTTOPro.Report_Design
         double totalMAPrice = 0;
         private void xrLabel25_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            e.Result = totalMAPrice;
-            e.Handled = true;
+            //e.Result = totalMAPrice;
+            //e.Handled = true;
         }
 
         private void xrLabel25_SummaryReset(object sender, EventArgs e)
         {
-            totalMAPrice = 0;
+            //totalMAPrice = 0;
         }
 
         private void xrLabel25_SummaryRowChanged(object sender, EventArgs e)
         {
             try
             {
-                if (DetailReport.GetCurrentColumnValue("MO_verkaufspreis") != DBNull.Value)
-                    totalMAPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MO_verkaufspreis"));
+                //if (DetailReport.GetCurrentColumnValue("MO_verkaufspreis") != DBNull.Value)
+                //    totalMAPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MO_verkaufspreis"));
             }
             catch (Exception ex)
             {
@@ -123,22 +123,22 @@ namespace OTTOPro.Report_Design
         double totalMOPrice = 0;
         private void xrLabel26_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            e.Result = totalMOPrice;
+            //e.Result = totalMOPrice;
 
-            e.Handled = true;
+            //e.Handled = true;
         }
 
         private void xrLabel26_SummaryReset(object sender, EventArgs e)
         {
-            totalMOPrice = 0;
+           // totalMOPrice = 0;
         }
 
         private void xrLabel26_SummaryRowChanged(object sender, EventArgs e)
         {
             try
             {
-                if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
-                    totalMOPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
+                //if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
+                //    totalMOPrice += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
             }
             catch (Exception ex)
             {
