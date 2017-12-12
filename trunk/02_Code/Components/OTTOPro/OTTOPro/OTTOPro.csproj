@@ -271,6 +271,12 @@
     <Compile Include="frmCopyLVs.Designer.cs">
       <DependentUpon>frmCopyLVs.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCoverSheetPath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCoverSheetPath.Designer.cs">
+      <DependentUpon>frmCoverSheetPath.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCustomerMaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -675,6 +681,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCopyLVs.resx">
       <DependentUpon>frmCopyLVs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCoverSheetPath.resx">
+      <DependentUpon>frmCoverSheetPath.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCustomerMaster.resx">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>

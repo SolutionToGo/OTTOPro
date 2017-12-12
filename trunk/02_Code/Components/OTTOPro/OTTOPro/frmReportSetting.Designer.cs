@@ -75,9 +75,9 @@
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(243, 484);
+            this.btnCancel.Location = new System.Drawing.Point(321, 484);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(80, 22);
+            this.btnCancel.Size = new System.Drawing.Size(81, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Abbrechen";
@@ -86,12 +86,12 @@
             // btnSave
             // 
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(327, 484);
+            this.btnSave.Location = new System.Drawing.Point(242, 484);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 7;
-            this.btnSave.Text = "Speichern";
+            this.btnSave.Text = "Ok";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // chkSelectOptions
@@ -148,9 +148,9 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4,
             this.emptySpaceItem1,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(414, 518);
@@ -201,7 +201,7 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnSave;
-            this.layoutControlItem4.Location = new System.Drawing.Point(315, 472);
+            this.layoutControlItem4.Location = new System.Drawing.Point(230, 472);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(79, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -212,15 +212,15 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 472);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(231, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(230, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnCancel;
-            this.layoutControlItem5.Location = new System.Drawing.Point(231, 472);
+            this.layoutControlItem5.Location = new System.Drawing.Point(309, 472);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(84, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(85, 26);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 

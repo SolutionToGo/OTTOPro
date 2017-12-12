@@ -43,7 +43,6 @@ namespace OTTOPro
 
         private void btbCancel_Click(object sender, EventArgs e)
         {
-            ObjEProject.IsSave = false;
             this.Close();
         }
     }

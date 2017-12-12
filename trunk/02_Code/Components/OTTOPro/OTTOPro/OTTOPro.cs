@@ -465,24 +465,55 @@ namespace OTTOPro
             }
         }
 
+        #region "Title Blatt"
         private void bbCoverSheetPath_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
-                FolderBrowserDialog folderDlg = new FolderBrowserDialog();
-                folderDlg.ShowNewFolderButton = true;
-                DialogResult result = folderDlg.ShowDialog();
-                if (result == DialogResult.OK)
-                {
-                    if (ObjBProject == null)
-                        ObjBProject = new BProject();
-                    ObjBProject.SavePath(folderDlg.SelectedPath);
-                }
+                frmCoverSheetPath Obj = new frmCoverSheetPath();
+                Obj.ShowDialog();
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
+
+        private void bbAngebot_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+            Object oTemplatePath = appPath + "\\Angebot_Template.dotx";
+            if (File.Exists(Convert.ToString(oTemplatePath)))
+            {
+                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                ap.Documents.Open(oTemplatePath);
+                ap.Visible = true;
+            }
+        }
+
+        private void bbAufmass_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+            Object oTemplatePath = appPath + "\\Aufmass_Template.dotx";
+            if (File.Exists(Convert.ToString(oTemplatePath)))
+            {
+                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                ap.Documents.Open(oTemplatePath);
+                ap.Visible = true;
+            }
+        }
+
+        private void bbRechnung_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+            Object oTemplatePath = appPath + "\\Rechnung_Template.dotx";
+            if (File.Exists(Convert.ToString(oTemplatePath)))
+            {
+                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                ap.Documents.Open(oTemplatePath);
+                ap.Visible = true;
+            }
+        }
+        #endregion
     }
 }

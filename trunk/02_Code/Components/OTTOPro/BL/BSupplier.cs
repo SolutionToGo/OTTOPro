@@ -410,16 +410,17 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public string CheckSupplierArticle(ESupplier ObjESupplier)
+        public ESupplier CheckSupplierArticle(ESupplier ObjESupplier)
         {
             try
             {
-                return ObjDSupplier.CheckSupplierArticle(ObjESupplier);
+                ObjESupplier = ObjDSupplier.CheckSupplierArticle(ObjESupplier);
             }
             catch (Exception ex)
             {
                 throw;
             }
+            return ObjESupplier;
         }
 
         public ESupplier UpdateSupplierProposal(ESupplier ObjESupplier)

@@ -3412,28 +3412,29 @@ namespace OTTOPro
                 }
                 else if (tcProjectDetails.SelectedTabPage == tbUpdateSupplier && keyData == (Keys.F6))
                 {
-                    string strWGWA = Convert.ToString(gvProposal.GetFocusedRowCellValue("WGWA"));
-                    string[] WGWA = strWGWA.Split('-');
-                    if (WGWA != null && WGWA.Count() > 1)
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvProposal.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
                     {
-                        if (ObjESupplier == null)
-                            ObjESupplier = new ESupplier();
-                        ObjESupplier.WG = WGWA[0].Trim();
-                        ObjESupplier.WA = WGWA[1].Trim();
-                        frmSupplierList Obj = new frmSupplierList();
-                        Obj.ObjESupplier = ObjESupplier;
-                        Obj.ShowDialog();
-                        if (ObjESupplier.SupplierID > 0)
+                        ObjESupplier.SupplierProposalID = IValue;
+                        string strWGWA = Convert.ToString(gvProposal.GetFocusedRowCellValue("WGWA"));
+                        string[] WGWA = strWGWA.Split('-');
+                        if (WGWA != null && WGWA.Count() > 1)
                         {
-                            int IValue = 0;
-                            if (int.TryParse(Convert.ToString(gvProposal.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
+                            if (ObjESupplier == null)
+                                ObjESupplier = new ESupplier();
+                            ObjESupplier.WG = WGWA[0].Trim();
+                            ObjESupplier.WA = WGWA[1].Trim();
+                            frmSupplierList Obj = new frmSupplierList();
+                            Obj.ObjESupplier = ObjESupplier;
+                            Obj.ShowDialog();
+                            if (Obj._IsSave && ObjESupplier.SupplierID > 0)
                             {
-                                ObjESupplier.SupplierProposalID = IValue;
+                                Obj._IsSave = false;
                                 ObjESupplier.ProjectID = ObjEProject.ProjectID;
                                 if (ObjBSupplier == null)
                                     ObjBSupplier = new BSupplier();
                                 ObjESupplier = ObjBSupplier.UpdateSupplierProposal(ObjESupplier);
-                                gcProposal.DataSource = ObjESupplier.dtProposal;                                
+                                gcProposal.DataSource = ObjESupplier.dtProposal;
                                 gvProposal_FocusedRowChanged(null, null);
                                 Utility.Setfocus(gvProposal, "SupplierProposalID", IValue);
                             }
@@ -7899,7 +7900,7 @@ namespace OTTOPro
                 DataRow[] FindRows = ObjESupplier.dtUpdateSupplierPrice.Select("ListPrice = 0");
                 if(FindRows.Count() > 0)
                 {
-                    var Result = XtraMessageBox.Show("Do you want to transfer 0 or keep the existing cost for that LV position?", "Question..?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    var Result = XtraMessageBox.Show("Möchten Sie einen NULL-Wert als NULL in das LV übertragen oder soll stattdessen der bisherige Wert im LV beibehalten werden?", "Prüffrage..?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if(Convert.ToString(Result).ToLower() == "no")
                     {
                         DataTable dtTemp = ObjESupplier.dtUpdateSupplierPrice.Copy();
@@ -9823,10 +9824,16 @@ namespace OTTOPro
         {
             try
             {
-                rptProposalCommon rpt = new rptProposalCommon(ObjEProject.ProjectID);
-                ReportPrintTool printTool = new ReportPrintTool(rpt);
-                rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
-                printTool.ShowRibbonPreview();
+                frmReportSetting Obj = new frmReportSetting();
+                Obj.ShowDialog();
+                if (Obj._ISave)
+                {
+                    Obj._ISave = false;
+                    rptProposalCommon rpt = new rptProposalCommon(ObjEProject.ProjectID);
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                    printTool.ShowRibbonPreview();
+                }
             }
             catch (Exception ex)
             {
@@ -9993,6 +10000,8 @@ namespace OTTOPro
         }
         #endregion
 
+        #region "Title Blatt"
+
         private void nbCoverSheet1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
             try
@@ -10006,12 +10015,12 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(strPath))
                     throw new Exception("CoverSheet path does not exists");
 
-                string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_CoverSheet1.Docx";
+                string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Rechnung.Docx";
                 if (!File.Exists(strFileName))
                 {
                     string appPath = Path.GetDirectoryName(Application.ExecutablePath);
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object oTemplatePath = appPath + "\\Template1.dotx";
+                    Object oTemplatePath = appPath + "\\Rechnung_Template.dotx";
                     Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
                     wordDoc = wordApp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
@@ -10050,5 +10059,123 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void nbCoverSheet2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+
+                string strPath = ObjBProject.GetPath();
+                if (string.IsNullOrEmpty(strPath))
+                    throw new Exception("CoverSheet path does not exists");
+
+                string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Aufmass.Docx";
+                if (!File.Exists(strFileName))
+                {
+                    string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                    Object oMissing = System.Reflection.Missing.Value;
+                    Object oTemplatePath = appPath + "\\Aufmass_Template.dotx";
+                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+                    Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
+                    wordDoc = wordApp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
+
+                    foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
+                    {
+                        Microsoft.Office.Interop.Word.Range rngFieldCode = myMergeField.Code;
+                        String fieldText = rngFieldCode.Text;
+                        if (fieldText.StartsWith(" MERGEFIELD"))
+                        {
+                            Int32 endMerge = fieldText.IndexOf("\\");
+                            Int32 fieldNameLength = fieldText.Length - endMerge;
+                            String fieldName = fieldText.Substring(11, endMerge - 11);
+                            fieldName = fieldName.Trim();
+                            if (fieldName == "CustName")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.KundeName);
+                            }
+                            if (fieldName == "CustAddress")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.KundeAddress);
+                            }
+                        }
+                    }
+                    wordDoc.SaveAs(strFileName);
+                    wordApp.Application.Quit();
+                }
+                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                ap.Documents.Open(strFileName);
+                ap.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void nbCoverSheet3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+
+                string strPath = ObjBProject.GetPath();
+                if (string.IsNullOrEmpty(strPath))
+                    throw new Exception("CoverSheet path does not exists");
+
+                string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Angebot.Docx";
+                if (!File.Exists(strFileName))
+                {
+                    string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                    Object oMissing = System.Reflection.Missing.Value;
+                    Object oTemplatePath = appPath + "\\Angebot_Template.dotx";
+                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+                    Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
+                    wordDoc = wordApp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
+
+                    foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
+                    {
+                        Microsoft.Office.Interop.Word.Range rngFieldCode = myMergeField.Code;
+                        String fieldText = rngFieldCode.Text;
+                        if (fieldText.StartsWith(" MERGEFIELD"))
+                        {
+                            Int32 endMerge = fieldText.IndexOf("\\");
+                            Int32 fieldNameLength = fieldText.Length - endMerge;
+                            String fieldName = fieldText.Substring(11, endMerge - 11);
+                            fieldName = fieldName.Trim();
+                            if (fieldName == "CustName")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.KundeName);
+                            }
+                            if (fieldName == "CustAddress")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.KundeAddress);
+                            }
+                        }
+                    }
+                    wordDoc.SaveAs(strFileName);
+                    wordApp.Application.Quit();
+                }
+                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                ap.Documents.Open(strFileName);
+                ap.Visible = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        #endregion
     }
 }

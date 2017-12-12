@@ -17,6 +17,7 @@ namespace OTTOPro
     {
         public ESupplier ObjESupplier = null;
         BSupplier ObjBSupplier = null;
+        public bool _IsSave = false;
         public frmSupplierList()
         {
             InitializeComponent();
@@ -67,17 +68,22 @@ namespace OTTOPro
                 if (int.TryParse(Convert.ToString(gvSupplier.GetFocusedRowCellValue("SupplierID")), out IValue))
                 {
                     ObjESupplier.SupplierID = IValue;
-                    string str = ObjBSupplier.CheckSupplierArticle(ObjESupplier);
-                    if (!string.IsNullOrEmpty(str))
+                    ObjESupplier = ObjBSupplier.CheckSupplierArticle(ObjESupplier);
+                    if (!string.IsNullOrEmpty(ObjESupplier.strArticleExists))
                     {
-                        var _result = XtraMessageBox.Show("Article does not belongs to selected supplier. Do you want to add.?", "Confirmation..?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        var _result = XtraMessageBox.Show("Der Artikel gehört nicht zum ausgewählten Lieferant, wollen Sie es dennoch hinzufügen?", "Bestätigen..?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                         if (Convert.ToString(_result).ToLower() == "ok")
-                        {
                             ObjBSupplier.SaveArticle(ObjESupplier);
-                        }
                         else
                             return;
                     }
+                    if(!string.IsNullOrEmpty(ObjESupplier.strSupplierExists))
+                    {
+                        var _result = XtraMessageBox.Show("Für diesen Lieferanten existiert bereits ein Angebot. Wollen Sie ein weiteres Angebot hinzufügen?", "Bestätigen..?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        if (Convert.ToString(_result).ToLower() != "ok")
+                            return;
+                    }
+                    _IsSave = true;
                     this.Close();
                 }
                 else

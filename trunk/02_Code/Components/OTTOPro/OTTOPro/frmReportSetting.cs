@@ -18,6 +18,7 @@ namespace OTTOPro
     {
         EReportDesign ObjEReport = null;
         BReportDesign ObjBReport = null;
+        public bool _ISave = false;
 
         public frmReportSetting()
         {
@@ -40,6 +41,8 @@ namespace OTTOPro
                 ParseReportSettings();
                 ObjBReport.SaveReportSetting(ObjEReport);
                 frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern des drucken");
+                _ISave = true;
+                this.Close();
             }
             catch (Exception ex)
             {

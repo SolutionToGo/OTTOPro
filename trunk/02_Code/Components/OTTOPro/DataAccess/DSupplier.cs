@@ -645,9 +645,9 @@ namespace DataAccess
             return ObjESupplier;
         }
 
-        public string CheckSupplierArticle(ESupplier ObjESupplier)
+        public ESupplier CheckSupplierArticle(ESupplier ObjESupplier)
         {
-            string str = string.Empty;
+            DataSet dsCheckSupplier = new DataSet();
             try
             {
                 using (SqlCommand cmd = new SqlCommand())
@@ -655,11 +655,25 @@ namespace DataAccess
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Chk_SupplierArticle]";
+                    cmd.Parameters.AddWithValue("@SupplierPorposalID", ObjESupplier.SupplierProposalID);
                     cmd.Parameters.AddWithValue("@SupplierID", ObjESupplier.SupplierID);
                     cmd.Parameters.AddWithValue("@WG", ObjESupplier.WG);
                     cmd.Parameters.AddWithValue("@WA", ObjESupplier.WA);
-                    object ObjReturn = cmd.ExecuteScalar();
-                    str = Convert.ToString(ObjReturn);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsCheckSupplier);
+                    }
+                    if(dsCheckSupplier != null)
+                    {
+                        if (dsCheckSupplier.Tables.Count > 0 && dsCheckSupplier.Tables[0].Rows.Count > 0)
+                        {
+                            ObjESupplier.strArticleExists = Convert.ToString(dsCheckSupplier.Tables[0].Rows[0][0]);
+                            if (dsCheckSupplier.Tables.Count > 1 && dsCheckSupplier.Tables[1].Rows.Count > 0)
+                            {
+                                ObjESupplier.strSupplierExists = Convert.ToString(dsCheckSupplier.Tables[1].Rows[0][0]);
+                            }
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -670,7 +684,7 @@ namespace DataAccess
             {
                 SQLCon.Sqlconn().Close();
             }
-            return str;
+            return ObjESupplier;
         }
 
         public ESupplier UpdateSupplierProposal(ESupplier ObjESupplier)

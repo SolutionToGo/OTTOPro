@@ -57,6 +57,7 @@
             // 
             // layoutControl1
             // 
+            this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl1.Controls.Add(this.btbCancel);
             this.layoutControl1.Controls.Add(this.btnSave);
             this.layoutControl1.Controls.Add(this.txtDiscount);
@@ -123,6 +124,8 @@
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.layoutControlGroup1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {

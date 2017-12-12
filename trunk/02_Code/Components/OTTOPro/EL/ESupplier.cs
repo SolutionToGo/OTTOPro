@@ -76,6 +76,8 @@ namespace EL
         private DataTable _dtSupplierMail;
         private bool _IsSingle = false;
         private string _UncheckedColumn = string.Empty;
+        private string _strArticleExists = string.Empty;
+        private string _strSupplierExists = string.Empty;
 
         public DataTable dtNewPositions
         {
@@ -442,6 +444,16 @@ namespace EL
         {
             get { return _UncheckedColumn; }
             set { _UncheckedColumn = value; }
+        }
+        public string strArticleExists
+        {
+            get { return _strArticleExists; }
+            set { _strArticleExists = value; }
+        }
+        public string strSupplierExists
+        {
+            get { return _strSupplierExists; }
+            set { _strSupplierExists = value; }
         }
     }
 }
