@@ -193,8 +193,8 @@
             this.dsQuerKalculation1 = new OTTOPro.Report_Design.dsQuerKalculation();
             this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
-            this.dsSurchargeCalculation1 = new OTTOPro.Report_Design.dsSurchargeCalculation();
             this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter = new OTTOPro.Report_Design.dsSurchargeCalculationTableAdapters.P_Rpt_QuerCalculation_SurchargePositionTableAdapter();
+            this.dsSurchargeCalculation1 = new OTTOPro.Report_Design.dsSurchargeCalculation();
             this.MAMULTI = new DevExpress.XtraReports.UI.CalculatedField();
             this.MOMULTI = new DevExpress.XtraReports.UI.CalculatedField();
             this.GESAMTVK = new DevExpress.XtraReports.UI.CalculatedField();
@@ -1690,14 +1690,14 @@
             this.Detail2.KeepTogetherWithDetailReports = true;
             this.Detail2.Name = "Detail2";
             // 
+            // p_Rpt_QuerCalculation_SurchargePositionTableAdapter
+            // 
+            this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.ClearBeforeFill = true;
+            // 
             // dsSurchargeCalculation1
             // 
             this.dsSurchargeCalculation1.DataSetName = "dsSurchargeCalculation";
             this.dsSurchargeCalculation1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // p_Rpt_QuerCalculation_SurchargePositionTableAdapter
-            // 
-            this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.ClearBeforeFill = true;
             // 
             // MAMULTI
             // 

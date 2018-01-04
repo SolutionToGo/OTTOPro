@@ -2104,7 +2104,8 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtGrandTotalME.Text) && !string.IsNullOrEmpty(txtGrandTotalMO.Text))
                 {
                     txtFinalGB.Text =
-                        RoundValue((getDValue(txtGrandTotalME.Text) + getDValue(txtGrandTotalMO.Text)) * getDValue(txtMenge.Text)).ToString();
+                        Convert.ToString(RoundValue((getDValue(txtGrandTotalME.Text) * getDValue(txtMenge.Text)))
+                        + RoundValue(getDValue(txtGrandTotalMO.Text) * getDValue(txtMenge.Text)));
                 }
                 else
                     txtFinalGB.Text = "0";
@@ -2347,8 +2348,8 @@ namespace OTTOPro
                                )
                 {
                     decimal EP = RoundValue(
-                        getDValue(txtVerkaufspreisValueME.Text) +
-                        getDValue(txtVerkaufspreisValueMO.Text)
+                        getDValue(txtVerkaufspreisValueME.Text)) +
+                       RoundValue(getDValue(txtVerkaufspreisValueMO.Text)
                         );
                     txtEP.Text = EP.ToString();
                 }
