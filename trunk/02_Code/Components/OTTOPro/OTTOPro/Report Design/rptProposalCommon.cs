@@ -22,29 +22,15 @@ namespace OTTOPro.Report_Design
         }
 
         double totalGB1 = 0;
-        private void xrLabel18_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        private void xrlblPageSum_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            e.Result = totalGB1;
+            e.Result = _xrGBVlaue;
             e.Handled = true;
         }
-        private void xrLabel18_SummaryReset(object sender, EventArgs e)
+        private void xrlblPageSum_SummaryReset(object sender, EventArgs e)
         {
            // totalGB1 = 0;
         }
-        private void xrLabel18_SummaryRowChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (DetailReport.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                    totalGB1 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-        
-
         double totalMOPrice1 = 0;
         private void xrLabel27_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
@@ -106,7 +92,7 @@ namespace OTTOPro.Report_Design
             }
         }
 
-        private void xrLabel18_PrintOnPage(object sender, PrintOnPageEventArgs e)
+        private void xrlblPageSum_PrintOnPage(object sender, PrintOnPageEventArgs e)
         {
             try
             {
@@ -219,6 +205,27 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }
         }
+
+        double _xrGBVlaue = 0;
+        private void xrGB_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Double dValue = 0;
+            try
+            {
+                if (double.TryParse(xrGB.Text, out dValue))
+                {
+                    if (dValue > 0)
+                    {
+                        _xrGBVlaue += dValue;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }      
+      
 
 //**********************
 

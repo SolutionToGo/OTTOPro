@@ -220,10 +220,10 @@
             this.xrRichText6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID).CustomerStreet")});
             this.xrRichText6.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrRichText6.LocationFloat = new DevExpress.Utils.PointFloat(3.000014F, 51.95842F);
+            this.xrRichText6.LocationFloat = new DevExpress.Utils.PointFloat(23.00002F, 57.95841F);
             this.xrRichText6.Name = "xrRichText6";
             this.xrRichText6.SerializableRtfString = resources.GetString("xrRichText6.SerializableRtfString");
-            this.xrRichText6.SizeF = new System.Drawing.SizeF(347.6282F, 49.35409F);
+            this.xrRichText6.SizeF = new System.Drawing.SizeF(347.6282F, 43.3541F);
             this.xrRichText6.StylePriority.UseFont = false;
             // 
             // xrRichText5
@@ -231,7 +231,7 @@
             this.xrRichText5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_ProjectAndCustomerAndOTTODetails(@ProjectID).CustomerFullName")});
             this.xrRichText5.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.xrRichText5.LocationFloat = new DevExpress.Utils.PointFloat(3.999996F, 19.9584F);
+            this.xrRichText5.LocationFloat = new DevExpress.Utils.PointFloat(24F, 25.9584F);
             this.xrRichText5.Name = "xrRichText5";
             this.xrRichText5.SerializableRtfString = resources.GetString("xrRichText5.SerializableRtfString");
             this.xrRichText5.SizeF = new System.Drawing.SizeF(345.6282F, 32.00002F);
@@ -432,7 +432,7 @@
             this.xrTableCell7.StylePriority.UseFont = false;
             this.xrTableCell7.StylePriority.UseForeColor = false;
             this.xrTableCell7.StylePriority.UseTextAlignment = false;
-            this.xrTableCell7.Text = "Text                 Materialpreis";
+            this.xrTableCell7.Text = "Materialpreis";
             this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             this.xrTableCell7.Weight = 0.64651607629370311D;
             // 
@@ -498,7 +498,7 @@
             this.xrLabel22.StylePriority.UseTextAlignment = false;
             this.xrLabel22.Text = "Übertrag:";
             this.xrLabel22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrLabel22.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.xrLabel18_PrintOnPage);
+            this.xrLabel22.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.xrlblPageSum_PrintOnPage);
             // 
             // xrlblPageSum
             // 
@@ -519,10 +519,9 @@
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Page;
             this.xrlblPageSum.Summary = xrSummary1;
             this.xrlblPageSum.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
-            this.xrlblPageSum.SummaryGetResult += new DevExpress.XtraReports.UI.SummaryGetResultHandler(this.xrLabel18_SummaryGetResult);
-            this.xrlblPageSum.SummaryReset += new System.EventHandler(this.xrLabel18_SummaryReset);
-            this.xrlblPageSum.SummaryRowChanged += new System.EventHandler(this.xrLabel18_SummaryRowChanged);
-            this.xrlblPageSum.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.xrLabel18_PrintOnPage);
+            this.xrlblPageSum.SummaryGetResult += new DevExpress.XtraReports.UI.SummaryGetResultHandler(this.xrlblPageSum_SummaryGetResult);
+            this.xrlblPageSum.SummaryReset += new System.EventHandler(this.xrlblPageSum_SummaryReset);
+            this.xrlblPageSum.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.xrlblPageSum_PrintOnPage);
             // 
             // sqlDataSource2
             // 
@@ -675,6 +674,7 @@
             this.xrGB.StylePriority.UseTextAlignment = false;
             this.xrGB.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrGB.Weight = 0.52134807709445075D;
+            this.xrGB.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrGB_BeforePrint);
             // 
             // xrLangText
             // 
