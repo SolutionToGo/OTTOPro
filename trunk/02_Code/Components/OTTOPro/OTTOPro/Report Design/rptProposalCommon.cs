@@ -101,6 +101,7 @@ namespace OTTOPro.Report_Design
                     xrLabel22.Visible = false;
                     xrlblPageSum.Visible = false;
                 }
+               
             }
             catch (Exception ex)
             {
@@ -218,13 +219,41 @@ namespace OTTOPro.Report_Design
                     {
                         _xrGBVlaue += dValue;
                     }
-                }
+                }                
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
-        }      
+        }
+        //double _xrGBVlaue = 0;
+        private void xrlblPageSum_SummaryRowChanged(object sender, EventArgs e)
+        {
+            //if (DetailReport1.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+            //{
+            //    totalGB1 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("FinalGB"));
+            //}
+
+            //Double dValue = 0;
+            //try
+            //{
+            //    if (double.TryParse(xrGB.Text, out dValue))
+            //    {
+            //        if (dValue > 0)
+            //        {
+            //            _xrGBVlaue += dValue;
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
+        }
+
+
+     
+             
       
 
 //**********************
