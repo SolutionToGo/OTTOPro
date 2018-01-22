@@ -147,6 +147,8 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@GB", ObjEReportDesign.GB);
                     cmd.Parameters.AddWithValue("@EP", ObjEReportDesign.EP);
                     cmd.Parameters.AddWithValue("@Prices", ObjEReportDesign.Prices);
+                    cmd.Parameters.AddWithValue("@MAMO", ObjEReportDesign.MAMO);
+
 
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {

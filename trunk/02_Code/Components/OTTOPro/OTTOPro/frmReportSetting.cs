@@ -19,6 +19,7 @@ namespace OTTOPro
         EReportDesign ObjEReport = null;
         BReportDesign ObjBReport = null;
         public bool _ISave = false;
+        public bool _ISMAMOChecked= false;
 
         public frmReportSetting()
         {
@@ -123,6 +124,11 @@ namespace OTTOPro
                     {
                         ObjEReport.EP = true;
                     }
+                    if (_value == "MAMO")
+                    {
+                        ObjEReport.MAMO = true;
+                        _ISMAMOChecked = true;
+                    }
                 }                
             }
             catch (Exception ex)
@@ -217,6 +223,13 @@ namespace OTTOPro
                         if (_values == true)
                         {
                             chkSelectOptions.SetItemChecked(3, true);
+                        }
+                    }
+                    if (bool.TryParse(row["MAMO"].ToString(), out _values))
+                    {
+                        if (_values == true)
+                        {
+                            chkSelectOptions.SetItemChecked(5, true);                           
                         }
                     }
                 }

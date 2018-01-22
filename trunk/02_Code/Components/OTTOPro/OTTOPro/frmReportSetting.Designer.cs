@@ -103,7 +103,8 @@
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("menge", "Angebotsdruck ohne Quantität"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("GB", "Angebotsdruck ohne Gesamtpreis "),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("prices", "Angebotsdruck ohne Preise"),
-            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("EP", "Angebotstruck ohne Einzelpreisen")});
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("EP", "Angebotstruck ohne Einzelpreisen"),
+            new DevExpress.XtraEditors.Controls.CheckedListBoxItem("MAMO", "Angebotsdruck ohne Material-/Montagpreis")});
             this.chkSelectOptions.Location = new System.Drawing.Point(12, 207);
             this.chkSelectOptions.MultiColumn = true;
             this.chkSelectOptions.Name = "chkSelectOptions";

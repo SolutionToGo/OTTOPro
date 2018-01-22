@@ -28,6 +28,7 @@ namespace EL
        // private bool _SeparatePrice;
         private bool _LangText;
         private bool _KurzText;
+        private bool _MAMO;
 
         private DataSet _dsReportDesign;
         public DataSet dsReportDesign
@@ -113,6 +114,11 @@ namespace EL
         {
             get { return _KurzText; }
             set { _KurzText = value; }
+        }
+        public bool MAMO
+        {
+            get { return _MAMO; }
+            set { _MAMO = value; }
         }
 
         public DataTable dtReportSettings
