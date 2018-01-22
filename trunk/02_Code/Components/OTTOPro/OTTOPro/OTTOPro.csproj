@@ -621,6 +621,12 @@
     <Compile Include="Report Design\rptProposalCoverPage1.Designer.cs">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptProposalwithoutMAMO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalwithoutMAMO.Designer.cs">
+      <DependentUpon>rptProposalwithoutMAMO.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptProposalwithoutprice.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -852,6 +858,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalCoverPage1.resx">
       <DependentUpon>rptProposalCoverPage1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalwithoutMAMO.resx">
+      <DependentUpon>rptProposalwithoutMAMO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalwithoutprice.resx">
       <DependentUpon>rptProposalwithoutprice.cs</DependentUpon>

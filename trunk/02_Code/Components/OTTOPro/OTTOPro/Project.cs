@@ -9866,10 +9866,20 @@ namespace OTTOPro
                 if (Obj._ISave)
                 {
                     Obj._ISave = false;
-                    rptProposalCommon rpt = new rptProposalCommon(ObjEProject.ProjectID);
-                    ReportPrintTool printTool = new ReportPrintTool(rpt);
-                    rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
-                    printTool.ShowRibbonPreview();
+                    if (Obj._ISMAMOChecked)
+                    {
+                        rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(ObjEProject.ProjectID);
+                        ReportPrintTool printTool = new ReportPrintTool(rptMA);
+                        rptMA.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                    else
+                    {
+                        rptProposalCommon rpt = new rptProposalCommon(ObjEProject.ProjectID);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
                 }
             }
             catch (Exception ex)
