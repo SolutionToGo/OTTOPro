@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup13 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup14 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup15 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
+            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
-            DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-            DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -73,6 +73,10 @@
             this.btnFormBlattarticles = new DevExpress.XtraBars.BarButtonItem();
             this.btnReportSetting = new DevExpress.XtraBars.BarButtonItem();
             this.bbCoverSheetPath = new DevExpress.XtraBars.BarButtonItem();
+            this.bbTitleBlattEdit = new DevExpress.XtraBars.BarSubItem();
+            this.bbAngebot = new DevExpress.XtraBars.BarButtonItem();
+            this.bbAufmass = new DevExpress.XtraBars.BarButtonItem();
+            this.bbRechnung = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -94,10 +98,6 @@
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblDBVersion = new System.Windows.Forms.Label();
-            this.bbTitleBlattEdit = new DevExpress.XtraBars.BarSubItem();
-            this.bbAngebot = new DevExpress.XtraBars.BarButtonItem();
-            this.bbAufmass = new DevExpress.XtraBars.BarButtonItem();
-            this.bbRechnung = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -245,13 +245,13 @@
             // 
             // 
             // 
-            galleryItemGroup13.Caption = "Group1";
-            galleryItemGroup14.Caption = "Group2";
-            galleryItemGroup15.Caption = "Group3";
+            galleryItemGroup1.Caption = "Group1";
+            galleryItemGroup2.Caption = "Group2";
+            galleryItemGroup3.Caption = "Group3";
             this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup13,
-            galleryItemGroup14,
-            galleryItemGroup15});
+            galleryItemGroup1,
+            galleryItemGroup2,
+            galleryItemGroup3});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -449,6 +449,39 @@
             this.bbCoverSheetPath.Name = "bbCoverSheetPath";
             this.bbCoverSheetPath.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbCoverSheetPath_ItemClick);
             // 
+            // bbTitleBlattEdit
+            // 
+            this.bbTitleBlattEdit.Caption = "Titelblatt bearbeiten";
+            this.bbTitleBlattEdit.Id = 50;
+            this.bbTitleBlattEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbTitleBlattEdit.ImageOptions.Image")));
+            this.bbTitleBlattEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbTitleBlattEdit.ImageOptions.LargeImage")));
+            this.bbTitleBlattEdit.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbAngebot),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbAufmass),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbRechnung)});
+            this.bbTitleBlattEdit.Name = "bbTitleBlattEdit";
+            // 
+            // bbAngebot
+            // 
+            this.bbAngebot.Caption = "Angebot";
+            this.bbAngebot.Id = 51;
+            this.bbAngebot.Name = "bbAngebot";
+            this.bbAngebot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbAngebot_ItemClick);
+            // 
+            // bbAufmass
+            // 
+            this.bbAufmass.Caption = "Aufmass";
+            this.bbAufmass.Id = 52;
+            this.bbAufmass.Name = "bbAufmass";
+            this.bbAufmass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbAufmass_ItemClick);
+            // 
+            // bbRechnung
+            // 
+            this.bbRechnung.Caption = "Rechnung";
+            this.bbRechnung.Id = 53;
+            this.bbRechnung.Name = "bbRechnung";
+            this.bbRechnung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbRechnung_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -544,12 +577,12 @@
             this.BarButtonItem10.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("BarButtonItem10.ImageOptions.Image")));
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            toolTipTitleItem5.Text = "Otto Pro";
-            toolTipItem5.LeftIndent = 6;
-            toolTipItem5.Text = "Maintains Customer Information";
-            superToolTip5.Items.Add(toolTipTitleItem5);
-            superToolTip5.Items.Add(toolTipItem5);
-            this.BarButtonItem10.SuperTip = superToolTip5;
+            toolTipTitleItem1.Text = "Otto Pro";
+            toolTipItem1.LeftIndent = 6;
+            toolTipItem1.Text = "Maintains Customer Information";
+            superToolTip1.Items.Add(toolTipTitleItem1);
+            superToolTip1.Items.Add(toolTipItem1);
+            this.BarButtonItem10.SuperTip = superToolTip1;
             // 
             // statusStrip1
             // 
@@ -607,7 +640,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "App Version 8.9 (07-12-2017)";
+            this.label1.Text = "App Version 9.1 (21-01-2018)";
             // 
             // fdImportFile
             // 
@@ -636,39 +669,6 @@
             this.lblDBVersion.Name = "lblDBVersion";
             this.lblDBVersion.Size = new System.Drawing.Size(0, 13);
             this.lblDBVersion.TabIndex = 24;
-            // 
-            // bbTitleBlattEdit
-            // 
-            this.bbTitleBlattEdit.Caption = "Titelblatt bearbeiten";
-            this.bbTitleBlattEdit.Id = 50;
-            this.bbTitleBlattEdit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("bbTitleBlattEdit.ImageOptions.Image")));
-            this.bbTitleBlattEdit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("bbTitleBlattEdit.ImageOptions.LargeImage")));
-            this.bbTitleBlattEdit.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbAngebot),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbAufmass),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbRechnung)});
-            this.bbTitleBlattEdit.Name = "bbTitleBlattEdit";
-            // 
-            // bbAngebot
-            // 
-            this.bbAngebot.Caption = "Angebot";
-            this.bbAngebot.Id = 51;
-            this.bbAngebot.Name = "bbAngebot";
-            this.bbAngebot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbAngebot_ItemClick);
-            // 
-            // bbAufmass
-            // 
-            this.bbAufmass.Caption = "Aufmass";
-            this.bbAufmass.Id = 52;
-            this.bbAufmass.Name = "bbAufmass";
-            this.bbAufmass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbAufmass_ItemClick);
-            // 
-            // bbRechnung
-            // 
-            this.bbRechnung.Caption = "Rechnung";
-            this.bbRechnung.Id = 53;
-            this.bbRechnung.Name = "bbRechnung";
-            this.bbRechnung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbRechnung_ItemClick);
             // 
             // frmOTTOPro
             // 

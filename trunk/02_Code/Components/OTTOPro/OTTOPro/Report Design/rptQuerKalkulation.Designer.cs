@@ -133,7 +133,7 @@
             this.xrTableCell23 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell24 = new DevExpress.XtraReports.UI.XRTableCell();
             this.GroupFooter1 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrTable7 = new DevExpress.XtraReports.UI.XRTable();
+            this.tblDiscount = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow7 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell48 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell62 = new DevExpress.XtraReports.UI.XRTableCell();
@@ -205,7 +205,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
@@ -891,7 +891,7 @@
             // GroupFooter1
             // 
             this.GroupFooter1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable7,
+            this.tblDiscount,
             this.xrTable6,
             this.xrTable5,
             this.xrTable4});
@@ -899,25 +899,25 @@
             this.GroupFooter1.KeepTogether = true;
             this.GroupFooter1.Name = "GroupFooter1";
             // 
-            // xrTable7
+            // tblDiscount
             // 
-            this.xrTable7.BackColor = System.Drawing.Color.Gray;
-            this.xrTable7.BorderColor = System.Drawing.Color.Black;
-            this.xrTable7.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            this.tblDiscount.BackColor = System.Drawing.Color.Gray;
+            this.tblDiscount.BorderColor = System.Drawing.Color.Black;
+            this.tblDiscount.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(1F, 45.95833F);
-            this.xrTable7.Name = "xrTable7";
-            this.xrTable7.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
-            this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.tblDiscount.LocationFloat = new DevExpress.Utils.PointFloat(1F, 45.95833F);
+            this.tblDiscount.Name = "tblDiscount";
+            this.tblDiscount.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
+            this.tblDiscount.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow7});
-            this.xrTable7.SizeF = new System.Drawing.SizeF(1074F, 23.5F);
-            this.xrTable7.StylePriority.UseBackColor = false;
-            this.xrTable7.StylePriority.UseBorderColor = false;
-            this.xrTable7.StylePriority.UseBorders = false;
-            this.xrTable7.StylePriority.UsePadding = false;
-            this.xrTable7.StylePriority.UseTextAlignment = false;
-            this.xrTable7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.tblDiscount.SizeF = new System.Drawing.SizeF(1074F, 23.5F);
+            this.tblDiscount.StylePriority.UseBackColor = false;
+            this.tblDiscount.StylePriority.UseBorderColor = false;
+            this.tblDiscount.StylePriority.UseBorders = false;
+            this.tblDiscount.StylePriority.UsePadding = false;
+            this.tblDiscount.StylePriority.UseTextAlignment = false;
+            this.tblDiscount.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // xrTableRow7
             // 
@@ -1786,7 +1786,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tblDiscount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
@@ -1908,7 +1908,7 @@
         private dsQuerKalculationTableAdapters.P_Rpt_QuerCalculationTableAdapter p_Rpt_QuerCalculationTableAdapter1;
         private dsSurchargeCalculationTableAdapters.P_Rpt_QuerCalculation_SurchargePositionTableAdapter p_Rpt_QuerCalculation_SurchargePositionTableAdapter;
         private dsSurchargeCalculation dsSurchargeCalculation1;
-        private DevExpress.XtraReports.UI.XRTable xrTable7;
+        private DevExpress.XtraReports.UI.XRTable tblDiscount;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow7;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell48;
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell62;

@@ -32,6 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
+            this.cmbLVSection = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.gvAddRemovePositions = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,11 +43,13 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.cmbLVSectionFilter = new DevExpress.XtraLayout.LayoutControlItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItemRemove = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLVSection.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAddRemovePositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroupSelection.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -54,12 +57,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLVSectionFilter)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutControl1
             // 
             this.layoutControl1.AllowCustomization = false;
+            this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl1.Controls.Add(this.cmbLVSection);
             this.layoutControl1.Controls.Add(this.simpleButton1);
             this.layoutControl1.Controls.Add(this.gvAddRemovePositions);
             this.layoutControl1.Controls.Add(this.radioGroupSelection);
@@ -71,6 +77,17 @@
             this.layoutControl1.Size = new System.Drawing.Size(328, 349);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
+            // 
+            // cmbLVSection
+            // 
+            this.cmbLVSection.Enabled = false;
+            this.cmbLVSection.Location = new System.Drawing.Point(61, 83);
+            this.cmbLVSection.Name = "cmbLVSection";
+            this.cmbLVSection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbLVSection.Size = new System.Drawing.Size(255, 20);
+            this.cmbLVSection.StyleController = this.layoutControl1;
+            this.cmbLVSection.TabIndex = 54;
             // 
             // simpleButton1
             // 
@@ -92,9 +109,9 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.gvAddRemovePositions.Enabled = false;
-            this.gvAddRemovePositions.Location = new System.Drawing.Point(12, 68);
+            this.gvAddRemovePositions.Location = new System.Drawing.Point(12, 107);
             this.gvAddRemovePositions.Name = "gvAddRemovePositions";
-            this.gvAddRemovePositions.Size = new System.Drawing.Size(304, 243);
+            this.gvAddRemovePositions.Size = new System.Drawing.Size(304, 204);
             this.gvAddRemovePositions.TabIndex = 51;
             this.gvAddRemovePositions.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.gvAddRemovePositions_EditingControlShowing);
             this.gvAddRemovePositions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gvAddRemovePositions_MouseClick);
@@ -122,8 +139,9 @@
             this.radioGroupSelection.Properties.AllowMouseWheel = false;
             this.radioGroupSelection.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Alle LV Positionen"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Titel und Untertitel")});
-            this.radioGroupSelection.Size = new System.Drawing.Size(304, 52);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Titel und Untertitel"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "LV Sektions")});
+            this.radioGroupSelection.Size = new System.Drawing.Size(304, 67);
             this.radioGroupSelection.StyleController = this.layoutControl1;
             this.radioGroupSelection.TabIndex = 4;
             this.radioGroupSelection.SelectedIndexChanged += new System.EventHandler(this.radioGroupSelection_SelectedIndexChanged);
@@ -136,7 +154,8 @@
             this.layoutControlItem1,
             this.layoutControlItem2,
             this.emptySpaceItem1,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.cmbLVSectionFilter});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(328, 349);
@@ -147,16 +166,16 @@
             this.layoutControlItem1.Control = this.radioGroupSelection;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(308, 56);
+            this.layoutControlItem1.Size = new System.Drawing.Size(308, 71);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.gvAddRemovePositions;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 56);
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 95);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(308, 247);
+            this.layoutControlItem2.Size = new System.Drawing.Size(308, 208);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -176,6 +195,17 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(85, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // cmbLVSectionFilter
+            // 
+            this.cmbLVSectionFilter.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.cmbLVSectionFilter.AppearanceItemCaption.Options.UseForeColor = true;
+            this.cmbLVSectionFilter.Control = this.cmbLVSection;
+            this.cmbLVSectionFilter.Location = new System.Drawing.Point(0, 71);
+            this.cmbLVSectionFilter.Name = "cmbLVSectionFilter";
+            this.cmbLVSectionFilter.Size = new System.Drawing.Size(308, 24);
+            this.cmbLVSectionFilter.Text = "LVSection";
+            this.cmbLVSectionFilter.TextSize = new System.Drawing.Size(46, 13);
             // 
             // contextMenuStrip1
             // 
@@ -212,8 +242,10 @@
             this.Name = "frmQuerKalculation";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Auswahl Querkalkulation";
+            this.Load += new System.EventHandler(this.frmQuerKalculation_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLVSection.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAddRemovePositions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radioGroupSelection.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
@@ -221,6 +253,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbLVSectionFilter)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -242,5 +275,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAdd;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRemove;
+        private DevExpress.XtraEditors.CheckedComboBoxEdit cmbLVSection;
+        private DevExpress.XtraLayout.LayoutControlItem cmbLVSectionFilter;
     }
 }

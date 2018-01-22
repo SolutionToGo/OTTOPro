@@ -10,12 +10,14 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using OTTOPro.Report_Design;
 using DevExpress.XtraReports.UI;
+using BL;
 
 namespace OTTOPro
 {
     public partial class frmQuerKalculation : DevExpress.XtraEditors.XtraForm
     {
         int ProjectID = 0;
+        BGAEB objBGAEB = null;
         public frmQuerKalculation()
         {
             InitializeComponent();
@@ -119,10 +121,17 @@ namespace OTTOPro
                 if (radioGroupSelection.SelectedIndex == 0)
                 {
                     gvAddRemovePositions.Enabled = false;
+                    cmbLVSection.Enabled = false;
                 }
-                else
+                else if (radioGroupSelection.SelectedIndex == 1)
                 {
                     gvAddRemovePositions.Enabled = true;
+                    cmbLVSection.Enabled = false;
+                }
+                else if (radioGroupSelection.SelectedIndex == 2)
+                {
+                    gvAddRemovePositions.Enabled = false;
+                    cmbLVSection.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -135,20 +144,19 @@ namespace OTTOPro
         {
             try
             {
+                DataTable dtPos = new DataTable();
+                dtPos.Columns.Add("FromPos");
+                dtPos.Columns.Add("ToPos");
                 if (radioGroupSelection.SelectedIndex == 0)
                 {
-                    DataTable dtPos = new DataTable();
-                    dtPos.Columns.Add("FromPos");
-                    dtPos.Columns.Add("ToPos");
-
                     this.Hide();
-                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Complete");
+                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Complete",cmbLVSection.Text);
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
                     rpt.Parameters["ProjectID"].Value = ProjectID;
                     printTool.ShowRibbonPreview();
                     this.Close();
                 }
-                else
+                else if (radioGroupSelection.SelectedIndex == 1)
                 {
                     if (gvAddRemovePositions.RowCount == 0)
                     {
@@ -162,10 +170,6 @@ namespace OTTOPro
                         }
                         return;
                     }
-                    DataTable dtPos = new DataTable();
-                    dtPos.Columns.Add("FromPos");
-                    dtPos.Columns.Add("ToPos");
-
                     string tfrom = null;
                     string tTo = null;
                     foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
@@ -192,7 +196,16 @@ namespace OTTOPro
                     }
 
                     this.Hide();
-                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Title");
+                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Title", cmbLVSection.Text);
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    rpt.Parameters["ProjectID"].Value = ProjectID;
+                    printTool.ShowRibbonPreview();
+                    this.Close();
+                }
+                else if (radioGroupSelection.SelectedIndex == 2)
+                {
+                    this.Hide();
+                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "LVSection", cmbLVSection.Text);
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
                     rpt.Parameters["ProjectID"].Value = ProjectID;
                     printTool.ShowRibbonPreview();
@@ -205,6 +218,24 @@ namespace OTTOPro
             }
         }
 
-
+        private void frmQuerKalculation_Load(object sender, EventArgs e)
+        {
+            if (objBGAEB == null)
+                objBGAEB = new BGAEB();
+            DataTable dtLVSection = new DataTable();
+            cmbLVSection.Properties.Items.Clear();
+            dtLVSection = objBGAEB.GetLVSection(ProjectID);
+            foreach (DataRow dr in dtLVSection.Rows)
+            {
+                if (Utility.LVSectionEditAccess == "7")
+                {
+                    if (Convert.ToString(dr["LVSection"]).ToLower() == "ha")
+                        cmbLVSection.Properties.Items.Add(dr["LVSection"]);
+                }
+                else
+                    cmbLVSection.Properties.Items.Add(dr["LVSection"]);
+            }
+            cmbLVSection.SetEditValue("HA");
+        }
     }
 }

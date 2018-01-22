@@ -463,5 +463,65 @@ namespace DAL
             }
             return strVersion;
         }
+
+        public void DeleteProject(int ProjectID)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_Project]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    object returnObj = cmd.ExecuteScalar();
+                    string strReturn = Convert.ToString(returnObj);
+                    if (!string.IsNullOrEmpty(strReturn))
+                        throw new Exception("Error While Deleting Project");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public EProject CopyProject(EProject ObjEProject)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_CopyProject]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEProject.ProjectID);
+                    cmd.Parameters.AddWithValue("@ProjectNumber", ObjEProject.ProjectNumber);
+                    cmd.Parameters.AddWithValue("@UserId", ObjEProject.UserID);
+                    object returnObj = cmd.ExecuteScalar();
+                    string strReturn = Convert.ToString(returnObj);
+                    int Ivalue = 0;
+                    if (int.TryParse(strReturn, out Ivalue))
+                        ObjEProject.ProjectID = Ivalue;
+                    else
+                    {
+                        if (returnObj.ToString().Contains("ProjectNumber"))
+                        {
+                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                throw new Exception("Diese Projektnummer existiert bereits");
+                            else
+                                throw new Exception("Project Nr Already Exists");
+                        }
+                        else
+                            throw new Exception("Error While Copying Project");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
     }
 }
