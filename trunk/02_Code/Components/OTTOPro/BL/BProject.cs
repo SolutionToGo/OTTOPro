@@ -311,6 +311,35 @@ namespace BL
             }
             return strVersion;
         }
+
+        public void DeleteProject(int ProjectID)
+        {
+            try
+            {
+                if (ObjDAL == null)
+                    ObjDAL = new DProject();
+                ObjDAL.DeleteProject(ProjectID);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public EProject CopyProject(EProject ObjEProject)
+        {
+            try
+            {
+                if (ObjDAL == null)
+                    ObjDAL = new DProject();
+                ObjEProject = ObjDAL.CopyProject(ObjEProject);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
     }
 }
     

@@ -16,17 +16,19 @@ namespace OTTOPro.Report_Design
         DataTable dtValue;
         int _PID = 0;
         string _Type = string.Empty;
+        string _LVSection = string.Empty;
 
         public rptQuerKalkulation()
         {
             InitializeComponent();
         }
-        public rptQuerKalkulation(int _id, DataTable dt, string type)
+        public rptQuerKalkulation(int _id, DataTable dt, string type,string LVSection)
         {
             InitializeComponent();
             _PID = _id;
             dtValue = dt;
             _Type = type;
+            _LVSection = LVSection;
         }
 
 
@@ -58,11 +60,11 @@ namespace OTTOPro.Report_Design
             {
                 this.p_Rpt_QuerCalculationTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculationTableAdapter.ClearBeforeFill = true;
-                this.p_Rpt_QuerCalculationTableAdapter.Fill(dsQuerKalculation1.P_Rpt_QuerCalculation, dtValue, _PID, _Type);
+                this.p_Rpt_QuerCalculationTableAdapter.Fill(dsQuerKalculation1.P_Rpt_QuerCalculation, dtValue, _PID, _Type,_LVSection);
 
                 this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.ClearBeforeFill = true;
-                this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.Fill(dsSurchargeCalculation1.P_Rpt_QuerCalculation_SurchargePosition, dtValue, _PID, _Type);
+                this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.Fill(dsSurchargeCalculation1.P_Rpt_QuerCalculation_SurchargePosition, dtValue, _PID, _Type, _LVSection);
 
                 DataTable dt = new DataTable();
                 dt = dsSurchargeCalculation1.P_Rpt_QuerCalculation_SurchargePosition;                
@@ -70,15 +72,18 @@ namespace OTTOPro.Report_Design
                 {                    
                     decimal _result = 0;
                     if (decimal.TryParse(Convert.ToString(dt.Rows[0][0]), out _result))
-                        tblSurchargeresult.Text = _result.ToString("n2");
-                    else
-                        throw new Exception(Convert.ToString(dt.Rows[0][0]));
+                    {
+                        if (_result == 0)
+                            tblSurchargeresult.Text = string.Empty;
+                        else
+                            tblSurchargeresult.Text = _result.ToString("n2");
+                    }
                 }
 
                 dsDiscountCalculation ds = new dsDiscountCalculation();               
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter1.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter1.ClearBeforeFill = true;
-                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter1.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtValue, _PID, _Type);
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter1.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtValue, _PID, _Type, _LVSection);
 
                 DataTable dtdiscount = new DataTable();
                 dtdiscount = ds.P_Rpt_QuerCalculation_DiscountPosition;
@@ -87,11 +92,17 @@ namespace OTTOPro.Report_Design
                     decimal _result = 0;
                     if (decimal.TryParse(Convert.ToString(dtdiscount.Rows[0][0]), out _result))
                     {
-                        tbDiscountResult.Text = _result.ToString("n2");
-                        _Discount = Convert.ToDouble(_result);
-                    }                        
-                    else
-                        throw new Exception(Convert.ToString(dtdiscount.Rows[0][0]));
+                        if (_result > 0)
+                        {
+                            tbDiscountResult.Text = _result.ToString("n2");
+                            _Discount = Convert.ToDouble(_result);
+                        }
+                        else
+                        {
+                            tbDiscountResult.Text = string.Empty;
+                            _Discount = 0;
+                        }
+                    }
                 }
 
             }

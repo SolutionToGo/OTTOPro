@@ -126,5 +126,76 @@ namespace OTTOPro
         {
             LoadProject(false);
         }
+
+        private void dgProjectSearch_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Delete", gvDeleteProject_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Copy", gvCopyProject_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteProject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgProjectSearch.GetFocusedRowCellValue("ProjectID") != null)
+                {
+                    int IValue = 0;
+                    if(int.TryParse(Convert.ToString(dgProjectSearch.GetFocusedRowCellValue("ProjectID")),out IValue))
+                    {
+                         if(ObjBProject == null)
+                             ObjBProject = new BProject();
+                        ObjBProject.DeleteProject(IValue);
+                        dgProjectSearch.DeleteSelectedRows();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvCopyProject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgProjectSearch.GetFocusedRowCellValue("ProjectID") != null)
+                {
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(dgProjectSearch.GetFocusedRowCellValue("ProjectID")), out IValue))
+                    {
+                        frmCopyProject Obj = new frmCopyProject();
+                        Obj.ShowDialog();
+                        if (!string.IsNullOrEmpty(Obj._NewProjectNumber))
+                        {
+                            if (ObjBProject == null)
+                                ObjBProject = new BProject();
+                            if (ObjEProject == null)
+                                ObjEProject = new EProject();
+                            ObjEProject.ProjectID = IValue;
+                            ObjEProject.UserID = Utility.UserID;
+                            ObjEProject.ProjectNumber = Obj._NewProjectNumber;
+                            ObjEProject = ObjBProject.CopyProject(ObjEProject);
+                            BindData();
+                            Utility.Setfocus(dgProjectSearch, "ProjectID", ObjEProject.ProjectID);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

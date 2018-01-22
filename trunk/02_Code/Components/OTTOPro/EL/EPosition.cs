@@ -36,6 +36,7 @@ namespace EL
         private string _ME = string.Empty;
         private string _Fabricate = string.Empty;
         private string _LiefrantMA = string.Empty;
+        private int _SupplierID = 0;
         private string _Type = string.Empty;
         private string _LVStatus = string.Empty;
         private int _ProposalNo = 0;
@@ -250,6 +251,11 @@ namespace EL
         {
             get { return _LiefrantMA; }
             set { _LiefrantMA = value; }
+        }
+        public int SupplierID
+        {
+            get { return _SupplierID; }
+            set { _SupplierID = value; }
         }
         public string Type
         {

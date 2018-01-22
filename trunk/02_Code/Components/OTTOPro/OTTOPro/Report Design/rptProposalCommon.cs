@@ -166,7 +166,7 @@ namespace OTTOPro.Report_Design
                 dsDiscountCalculation ds = new dsDiscountCalculation();
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.ClearBeforeFill = true;
-                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtPos, _PID, "Complete");
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtPos, _PID, "Complete","");
 
                 DataTable dtdiscount = new DataTable();
                 dtdiscount = ds.P_Rpt_QuerCalculation_DiscountPosition;
@@ -175,11 +175,20 @@ namespace OTTOPro.Report_Design
                     decimal _result = 0;
                     if (decimal.TryParse(Convert.ToString(dtdiscount.Rows[0][0]), out _result))
                     {
-                        tbDiscount.Text = '-' + _result.ToString("n2");
-                        _Discount = Convert.ToDouble(_result);
+                        if (_result != 0)
+                        {
+                            tbDiscount.Text = '-' + _result.ToString("n2");
+                            _Discount = Convert.ToDouble(_result);
+                        }
+                        else
+                        {
+                            tbDiscount.Text = string.Empty;
+                            _Discount = 0;
+                            lblDiscount.Visible = false;
+                            lblDiscountEuro.Visible = false;
+                        }
+
                     }
-                    else
-                        throw new Exception(Convert.ToString(dtdiscount.Rows[0][0]));
                 }
             }
             catch (Exception ex)
@@ -250,13 +259,6 @@ namespace OTTOPro.Report_Design
             //    Utility.ShowError(ex);
             //}
         }
-
-
-     
-             
-      
-
-//**********************
 
     }
 }
