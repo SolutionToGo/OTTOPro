@@ -9862,7 +9862,7 @@ namespace OTTOPro
         {
             try
             {
-                frmReportSetting Obj = new frmReportSetting();
+                frmReportSetting Obj = new frmReportSetting(ObjEProject.ProjectID);
                 Obj.ShowDialog();               
             }
             catch (Exception ex)
