@@ -26,7 +26,7 @@ namespace OTTOPro
             try
             {
                 if (string.IsNullOrEmpty(txtProjectNumber.Text.Trim()))
-                    throw new Exception("Please Enter Valid Project Number");
+                    throw new Exception("Bitte geben Sie eine gültige Projektnummer ein");
                 _IsSave = true;
                 this.Close();
             }

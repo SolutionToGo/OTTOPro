@@ -121,8 +121,8 @@
             this.InvoiceID = new DevExpress.XtraReports.Parameters.Parameter();
             this.sqlDataSource4 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.GroupFooter4 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrLabel15 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel16 = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDiscount = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblDiscountEuro = new DevExpress.XtraReports.UI.XRLabel();
             this.xrTable4 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow4 = new DevExpress.XtraReports.UI.XRTableRow();
             this.tbDiscount = new DevExpress.XtraReports.UI.XRTableCell();
@@ -1087,8 +1087,8 @@
             // GroupFooter4
             // 
             this.GroupFooter4.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrLabel15,
-            this.xrLabel16,
+            this.lblDiscount,
+            this.lblDiscountEuro,
             this.xrTable4,
             this.xrLabel2,
             this.xrLabel12,
@@ -1105,29 +1105,29 @@
             this.GroupFooter4.HeightF = 154.5833F;
             this.GroupFooter4.Name = "GroupFooter4";
             // 
-            // xrLabel15
+            // lblDiscount
             // 
-            this.xrLabel15.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel15.LocationFloat = new DevExpress.Utils.PointFloat(3.621826F, 89.70832F);
-            this.xrLabel15.Name = "xrLabel15";
-            this.xrLabel15.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel15.SizeF = new System.Drawing.SizeF(248.5833F, 22.99999F);
-            this.xrLabel15.StylePriority.UseFont = false;
-            this.xrLabel15.StylePriority.UseTextAlignment = false;
-            this.xrLabel15.Text = "NACHLASS  NETTO";
-            this.xrLabel15.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
+            this.lblDiscount.Font = new System.Drawing.Font("Times New Roman", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblDiscount.LocationFloat = new DevExpress.Utils.PointFloat(3.621826F, 89.70832F);
+            this.lblDiscount.Name = "lblDiscount";
+            this.lblDiscount.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDiscount.SizeF = new System.Drawing.SizeF(248.5833F, 22.99999F);
+            this.lblDiscount.StylePriority.UseFont = false;
+            this.lblDiscount.StylePriority.UseTextAlignment = false;
+            this.lblDiscount.Text = "NACHLASS  NETTO";
+            this.lblDiscount.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
-            // xrLabel16
+            // lblDiscountEuro
             // 
-            this.xrLabel16.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel16.LocationFloat = new DevExpress.Utils.PointFloat(324.5236F, 89.70832F);
-            this.xrLabel16.Name = "xrLabel16";
-            this.xrLabel16.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel16.SizeF = new System.Drawing.SizeF(91.87399F, 22.99999F);
-            this.xrLabel16.StylePriority.UseFont = false;
-            this.xrLabel16.StylePriority.UseTextAlignment = false;
-            this.xrLabel16.Text = "in EURO";
-            this.xrLabel16.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
+            this.lblDiscountEuro.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.lblDiscountEuro.LocationFloat = new DevExpress.Utils.PointFloat(324.5236F, 89.70832F);
+            this.lblDiscountEuro.Name = "lblDiscountEuro";
+            this.lblDiscountEuro.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblDiscountEuro.SizeF = new System.Drawing.SizeF(91.87399F, 22.99999F);
+            this.lblDiscountEuro.StylePriority.UseFont = false;
+            this.lblDiscountEuro.StylePriority.UseTextAlignment = false;
+            this.lblDiscountEuro.Text = "in EURO";
+            this.lblDiscountEuro.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             // 
             // xrTable4
             // 
@@ -1158,6 +1158,8 @@
             this.tbDiscount.StylePriority.UseTextAlignment = false;
             this.tbDiscount.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.tbDiscount.Weight = 1D;
+            this.tbDiscount.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.tbDiscount_BeforePrint);
+            this.tbDiscount.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.tbDiscount_PrintOnPage);
             // 
             // xrLabel2
             // 
@@ -1415,8 +1417,8 @@
         private DevExpress.XtraReports.UI.XRRichText xrRichText5;
         private DevExpress.XtraReports.UI.XRRichText xrRichText2;
         private DevExpress.XtraReports.UI.XRPictureBox xrPictureBox1;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel15;
-        private DevExpress.XtraReports.UI.XRLabel xrLabel16;
+        private DevExpress.XtraReports.UI.XRLabel lblDiscount;
+        private DevExpress.XtraReports.UI.XRLabel lblDiscountEuro;
         private DevExpress.XtraReports.UI.XRTable xrTable4;
         private DevExpress.XtraReports.UI.XRTableRow xrTableRow4;
         private DevExpress.XtraReports.UI.XRTableCell tbDiscount;

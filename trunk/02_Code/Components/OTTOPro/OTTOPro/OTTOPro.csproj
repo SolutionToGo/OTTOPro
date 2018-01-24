@@ -510,6 +510,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\dsProposalCommon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProposalCommon.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\dsProposalCommonTotalSummery.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProposalCommonTotalSummery.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\dsProposalCoverPage1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -920,6 +930,28 @@
     </None>
     <None Include="Report Design\dsFormBlatt_221_2.xss">
       <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalCommon.xsc">
+      <DependentUpon>dsProposalCommon.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalCommon.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProposalCommon.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsProposalCommon.xss">
+      <DependentUpon>dsProposalCommon.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalCommonTotalSummery.xsc">
+      <DependentUpon>dsProposalCommonTotalSummery.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalCommonTotalSummery.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProposalCommonTotalSummery.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsProposalCommonTotalSummery.xss">
+      <DependentUpon>dsProposalCommonTotalSummery.xsd</DependentUpon>
     </None>
     <None Include="Report Design\dsProposalCoverPage1.xsc">
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>

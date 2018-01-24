@@ -70,7 +70,7 @@
             this.btnCancel.Size = new System.Drawing.Size(73, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
@@ -87,10 +87,10 @@
             // 
             // txtProjectNumber
             // 
-            this.txtProjectNumber.Location = new System.Drawing.Point(89, 12);
+            this.txtProjectNumber.Location = new System.Drawing.Point(87, 12);
             this.txtProjectNumber.Name = "txtProjectNumber";
             this.txtProjectNumber.Properties.MaxLength = 8;
-            this.txtProjectNumber.Size = new System.Drawing.Size(141, 20);
+            this.txtProjectNumber.Size = new System.Drawing.Size(143, 20);
             this.txtProjectNumber.StyleController = this.layoutControl1;
             this.txtProjectNumber.TabIndex = 4;
             // 
@@ -116,8 +116,8 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(222, 24);
-            this.layoutControlItem1.Text = "Project Number";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(74, 13);
+            this.layoutControlItem1.Text = "Projektnummer";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(72, 13);
             // 
             // emptySpaceItem1
             // 
@@ -156,7 +156,7 @@
             this.Name = "frmCopyProject";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New Project Number";
+            this.Text = "Neue Projektnummer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCopyProject_FormClosing);
             this.Load += new System.EventHandler(this.frmCopyProject_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

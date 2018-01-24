@@ -179,7 +179,7 @@ namespace OTTOPro
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
                 string strVersion = ObjBProject.GetDBVersion();
-                lblDBVersion.Text = "Database Version: " + strVersion;
+                lblDBVersion.Text = "Version Datenbank: " + strVersion;
             }
             catch (Exception ex)
             {

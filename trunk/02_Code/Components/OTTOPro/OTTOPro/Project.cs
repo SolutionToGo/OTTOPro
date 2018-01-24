@@ -9863,25 +9863,7 @@ namespace OTTOPro
             try
             {
                 frmReportSetting Obj = new frmReportSetting();
-                Obj.ShowDialog();
-                if (Obj._ISave)
-                {
-                    Obj._ISave = false;
-                    if (Obj._ISMAMOChecked)
-                    {
-                        rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(ObjEProject.ProjectID);
-                        ReportPrintTool printTool = new ReportPrintTool(rptMA);
-                        rptMA.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
-                        printTool.ShowRibbonPreview();
-                    }
-                    else
-                    {
-                        rptProposalCommon rpt = new rptProposalCommon(ObjEProject.ProjectID);
-                        ReportPrintTool printTool = new ReportPrintTool(rpt);
-                        rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
-                        printTool.ShowRibbonPreview();
-                    }
-                }
+                Obj.ShowDialog();               
             }
             catch (Exception ex)
             {

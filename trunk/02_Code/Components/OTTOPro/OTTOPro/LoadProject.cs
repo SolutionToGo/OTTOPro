@@ -133,8 +133,8 @@ namespace OTTOPro
             {
                 if (e.HitInfo.InRow)
                 {
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Delete", gvDeleteProject_Click));
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Copy", gvCopyProject_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteProject_Click));
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Kopieren", gvCopyProject_Click));
                 }
             }
             catch (Exception ex)

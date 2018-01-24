@@ -526,7 +526,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.btnUserData, true);
             this.ribbonPageGroup2.ItemLinks.Add(this.btnFeature, true);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "User Management ";
+            this.ribbonPageGroup2.Text = "Benutzerverwaltung";
             // 
             // ribbonPageGroup4
             // 
@@ -616,7 +616,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1230, 19);
             this.label2.TabIndex = 12;
-            this.label2.Text = "Powered by www.softwaretogo.de \r\n";
+            this.label2.Text = "power by www.softwaretogo.de \r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // pictureBox1
@@ -640,7 +640,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(176, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "App Version 9.1 (21-01-2018)";
+            this.label1.Text = "Version Software 9.1 (21-01-2018)";
             // 
             // fdImportFile
             // 

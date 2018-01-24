@@ -56,6 +56,33 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }      
         }
+
+        private void tbDiscount_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            tbDiscount_PrintOnPage(null,null);
+        }
+
+        private void tbDiscount_PrintOnPage(object sender, PrintOnPageEventArgs e)
+        {
+            Double dValue = 0;
+            try
+            {
+                if (DetailReport.GetCurrentColumnValue("Discount") != DBNull.Value)
+                {
+                    dValue = Convert.ToDouble(DetailReport.GetCurrentColumnValue("Discount"));
+                }
+                if (dValue <= 0)
+                {
+                    tbDiscount.Visible = false;
+                    lblDiscount.Visible = false;
+                    lblDiscountEuro.Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
              
        
 

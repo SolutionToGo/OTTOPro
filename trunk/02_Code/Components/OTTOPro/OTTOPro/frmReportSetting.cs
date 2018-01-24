@@ -11,6 +11,8 @@ using DevExpress.XtraEditors;
 using EL;
 using BL;
 using DevExpress.XtraEditors.Controls;
+using OTTOPro.Report_Design;
+using DevExpress.XtraReports.UI;
 
 namespace OTTOPro
 {
@@ -20,10 +22,18 @@ namespace OTTOPro
         BReportDesign ObjBReport = null;
         public bool _ISave = false;
         public bool _ISMAMOChecked= false;
+        BGAEB objBGAEB = null;
+        int _ProjectID = 0;
+
 
         public frmReportSetting()
         {
             InitializeComponent();
+        }
+        public frmReportSetting(int _ProjID)
+        {
+            InitializeComponent();
+            _ProjectID = _ProjID;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -40,10 +50,105 @@ namespace OTTOPro
                 if (ObjEReport == null)
                     ObjEReport = new EReportDesign();
                 ParseReportSettings();
-                ObjBReport.SaveReportSetting(ObjEReport);
-                frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern des drucken");
-                _ISave = true;
-                this.Close();
+                ObjBReport.SaveReportSetting(ObjEReport);  
+
+                DataTable dtPos = new DataTable();
+                dtPos.Columns.Add("FromPos");
+                dtPos.Columns.Add("ToPos");
+                if (radioGroupSelection.SelectedIndex == 0)
+                {
+                    this.Hide();
+                    if (_ISMAMOChecked)
+                    {
+                        rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Complete", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rptMA);
+                        rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                    else
+                    {
+                        rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Complete", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = _ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                    this.Close();
+                }
+                else if (radioGroupSelection.SelectedIndex == 1)
+                {
+                    if (gvAddRemovePositions.RowCount == 0)
+                    {
+                        if (Utility._IsGermany == true)
+                        {
+                            XtraMessageBox.Show("Bitte machen Sie VON / BIS Angaben.");
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Please Add From and To values.");
+                        }
+                        return;
+                    }
+                    string tfrom = null;
+                    string tTo = null;
+                    foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
+                    {
+                        DataRow drPos = dtPos.NewRow();
+                        tfrom = dr.Cells[0].Value.ToString();
+                        tTo = dr.Cells[1].Value.ToString();
+                        string _fromParent = string.Empty;
+                        string _ToParent = string.Empty;
+                        if (tfrom.Contains("."))
+                            _fromParent = tfrom.Substring(0, tfrom.IndexOf('.'));
+                        if (tTo.Contains("."))
+                            _ToParent = tTo.Substring(0, tTo.IndexOf('.'));
+                        if (_fromParent != _ToParent)
+                        {
+                            if (Utility._IsGermany)
+                                throw new Exception("Bitte geben Sie den gleichen Parent-Level ein..!");
+                            else
+                                throw new Exception("Please enter the same Parent level..!");
+                        }
+                        drPos["fromPos"] = tfrom.Replace(',', '.');
+                        drPos["toPos"] = tTo.Replace(',', '.');
+                        dtPos.Rows.Add(drPos);
+                    }
+
+                    this.Hide();
+                    if (_ISMAMOChecked)
+                    {
+                        rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Title", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rptMA);
+                        rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                    else
+                    {
+                        rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Title", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = _ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                    this.Close();
+                }
+                else if (radioGroupSelection.SelectedIndex == 2)
+                {
+                    this.Hide();
+                    if (_ISMAMOChecked)
+                    {
+                        rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "LVSection", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rptMA);
+                        rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                    else
+                    {
+                        rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "LVSection", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = _ProjectID;
+                        printTool.ShowRibbonPreview();
+                    }
+                    this.Close();
+                }                             
             }
             catch (Exception ex)
             {
@@ -64,6 +169,33 @@ namespace OTTOPro
                 {
                     BindData();
                 }
+                FillLVSection();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+        private void FillLVSection()
+        {
+            try
+            {
+                if (objBGAEB == null)
+                    objBGAEB = new BGAEB();
+                DataTable dtLVSection = new DataTable();
+                cmbLVSection.Properties.Items.Clear();
+                dtLVSection = objBGAEB.GetLVSection(_ProjectID);
+                foreach (DataRow dr in dtLVSection.Rows)
+                {
+                    if (Utility.LVSectionEditAccess == "7")
+                    {
+                        if (Convert.ToString(dr["LVSection"]).ToLower() == "ha")
+                            cmbLVSection.Properties.Items.Add(dr["LVSection"]);
+                    }
+                    else
+                        cmbLVSection.Properties.Items.Add(dr["LVSection"]);
+                }
+                cmbLVSection.SetEditValue("HA");
             }
             catch (Exception ex)
             {
@@ -237,6 +369,78 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 throw;
+            }
+        }
+
+        private void radioGroupSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (radioGroupSelection.SelectedIndex == 0)
+                {
+                    gvAddRemovePositions.Enabled = false;
+                    cmbLVSection.Properties.ReadOnly = true;
+                }
+                else if (radioGroupSelection.SelectedIndex == 1)
+                {
+                    gvAddRemovePositions.Enabled = true;
+                    cmbLVSection.Properties.ReadOnly = true;
+                }
+                else if (radioGroupSelection.SelectedIndex == 2)
+                {
+                    gvAddRemovePositions.Enabled = false;
+                    cmbLVSection.Properties.ReadOnly = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvAddRemovePositions_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    this.contextMenuStrip1.Show(this.gvAddRemovePositions, e.Location);
+                    contextMenuStrip1.Show(Cursor.Position);
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void ToolStripMenuItemAdd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                gvAddRemovePositions.Rows.Add();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void ToolStripMenuItemRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (this.gvAddRemovePositions.SelectedRows.Count > 0)
+                {
+                    foreach (DataGridViewRow item in this.gvAddRemovePositions.SelectedRows)
+                    {
+                        gvAddRemovePositions.Rows.RemoveAt(item.Index);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
             }
         }
 

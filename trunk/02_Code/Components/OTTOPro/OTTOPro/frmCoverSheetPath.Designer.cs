@@ -61,22 +61,22 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(422, 12);
+            this.btnCancel.Location = new System.Drawing.Point(412, 12);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(51, 22);
+            this.btnCancel.Size = new System.Drawing.Size(61, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 6;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(363, 12);
+            this.btnBrowse.Location = new System.Drawing.Point(358, 12);
             this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(55, 22);
+            this.btnBrowse.Size = new System.Drawing.Size(50, 22);
             this.btnBrowse.StyleController = this.layoutControl1;
             this.btnBrowse.TabIndex = 5;
-            this.btnBrowse.Text = "Browse";
+            this.btnBrowse.Text = "Browsen";
             this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // txtCoverSheetPath
@@ -84,7 +84,7 @@
             this.txtCoverSheetPath.Location = new System.Drawing.Point(12, 12);
             this.txtCoverSheetPath.Name = "txtCoverSheetPath";
             this.txtCoverSheetPath.ReadOnly = true;
-            this.txtCoverSheetPath.Size = new System.Drawing.Size(347, 20);
+            this.txtCoverSheetPath.Size = new System.Drawing.Size(342, 20);
             this.txtCoverSheetPath.TabIndex = 4;
             // 
             // layoutControlGroup1
@@ -107,7 +107,7 @@
             this.layoutControlItem1.Control = this.txtCoverSheetPath;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(351, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(346, 26);
             this.layoutControlItem1.Text = "Cover Sheet Path";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
@@ -115,18 +115,18 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnBrowse;
-            this.layoutControlItem2.Location = new System.Drawing.Point(351, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(346, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(59, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(54, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(410, 0);
+            this.layoutControlItem3.Location = new System.Drawing.Point(400, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(55, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(65, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -142,7 +142,7 @@
             this.Name = "frmCoverSheetPath";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Cover Sheet Path";
+            this.Text = "Ordnerpfad zum Titelblatt";
             this.Load += new System.EventHandler(this.frmCoverSheetPath_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);

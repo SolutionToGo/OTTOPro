@@ -11,14 +11,20 @@ namespace OTTOPro.Report_Design
     public partial class rptProposalwithoutMAMO : DevExpress.XtraReports.UI.XtraReport
     {
         int _PID=0;
+        DataTable dtValue;
+        string _Type = string.Empty;
+        string _LVSection = string.Empty;
         public rptProposalwithoutMAMO()
         {
             InitializeComponent();
         }
-        public rptProposalwithoutMAMO(int _ProID)
+        public rptProposalwithoutMAMO(int _ProID, DataTable dt, string type, string LVSection)
         {
             InitializeComponent();
             _PID=_ProID;
+            dtValue = dt;
+            _Type = type;
+            _LVSection = LVSection;
         }
 
         double totalGB1 = 0;
@@ -160,13 +166,21 @@ namespace OTTOPro.Report_Design
         {
             try
             {
-                DataTable dtPos = new DataTable();
-                dtPos.Columns.Add("FromPos");
-                dtPos.Columns.Add("ToPos");
+               
                 dsDiscountCalculation ds = new dsDiscountCalculation();
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.ClearBeforeFill = true;
-                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtPos, _PID, "Complete","");
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtValue, _PID, _Type, "");
+
+                dsProposalCommon _dsCommon = new dsProposalCommon();
+                this.p_Rpt_PositionForProposalPriceForCommonTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
+                this.p_Rpt_PositionForProposalPriceForCommonTableAdapter.ClearBeforeFill = true;
+                this.p_Rpt_PositionForProposalPriceForCommonTableAdapter.Fill(_dsCommon.P_Rpt_PositionForProposalPriceForCommon, dtValue, _PID, _Type, _LVSection);
+
+                dsProposalCommonTotalSummery _dsTotalSum = new dsProposalCommonTotalSummery();
+                this.p_Rpt_GetTotalSummeryTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
+                this.p_Rpt_GetTotalSummeryTableAdapter.ClearBeforeFill = true;
+                this.p_Rpt_GetTotalSummeryTableAdapter.Fill(_dsTotalSum.P_Rpt_GetTotalSummery, dtValue, _PID, _Type, _LVSection);
 
                 DataTable dtdiscount = new DataTable();
                 dtdiscount = ds.P_Rpt_QuerCalculation_DiscountPosition;
