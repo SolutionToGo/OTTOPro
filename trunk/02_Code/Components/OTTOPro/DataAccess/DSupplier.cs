@@ -375,9 +375,9 @@ namespace DataAccess
                 if (ex.Message.Contains("Cannot"))
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        throw new Exception("Cannot send proposal more than 8 suppliers");
+                        throw new Exception("Cannot send proposal to more than 8 suppliers");
                     else
-                        throw new Exception("Cannot send proposal more than 8 suppliers");
+                        throw new Exception("Cannot send proposal to more than 8 suppliers");
                 }
                 else
                 {
@@ -719,9 +719,9 @@ namespace DataAccess
                 if (ex.Message.Contains("Cannot"))
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        throw new Exception("Cannot send proposal more than 8 suppliers");
+                        throw new Exception("Cannot send proposal to more than 8 suppliers");
                     else
-                        throw new Exception("Cannot send proposal more than 8 suppliers");
+                        throw new Exception("Cannot send proposal to more than 8 suppliers");
                 }
                 else
                 {

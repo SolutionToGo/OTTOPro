@@ -60,6 +60,7 @@ namespace OTTOPro
         public int iSNO = -1;
         public bool _IsAddhoc = false;
         public int iRasterCount = 0;
+        bool _ISChange = true;
 
         private string _DocuwareLink1;
         private string _DocuwareLink2;
@@ -854,8 +855,7 @@ namespace OTTOPro
                 if (decimal.TryParse(txtStdSatz.Text, out dValue))
                     ObjEPosition.StdSatz = dValue;
 
-                if (!string.IsNullOrEmpty(txtPreisText.Text))
-                    ObjEPosition.PreisText = txtPreisText.Text;
+                ObjEPosition.PreisText = txtPreisText.Text;
 
                 ObjEPosition.EinkaufspreisLockMA = Convert.ToBoolean(chkEinkaufspreisME.CheckState);
                 ObjEPosition.EinkaufspreisLockMO = Convert.ToBoolean(chkEinkaufspreisMO.CheckState);
@@ -946,7 +946,7 @@ namespace OTTOPro
         {
             try
             {
-                if (!_IsNewMode && tlPositions.FocusedNode != null && tlPositions.FocusedNode["PositionID"] != null)
+                if (!_IsNewMode && tlPositions.FocusedNode != null && tlPositions.FocusedNode["PositionID"] != null && _ISChange)
                 {
                     if (!ObjEProject.IsFinalInvoice)
                     {
@@ -1132,7 +1132,7 @@ namespace OTTOPro
                     dtpValidityDate.Value = tlPositions.FocusedNode["validitydate"] == DBNull.Value ? DateTime.Now : Convert.ToDateTime(tlPositions.FocusedNode["validitydate"]);
                     txtMa.Text = tlPositions.FocusedNode["MA"] == DBNull.Value ? "" : tlPositions.FocusedNode["MA"].ToString();
                     txtMo.Text = tlPositions.FocusedNode["MO"] == DBNull.Value ? "" : tlPositions.FocusedNode["MO"].ToString();
-                    txtMin.Text = tlPositions.FocusedNode["minutes"] == DBNull.Value ? "" : tlPositions.FocusedNode["minutes"].ToString();
+                    txtMin.Text = tlPositions.FocusedNode["MINUTES"] == DBNull.Value ? "" : tlPositions.FocusedNode["MINUTES"].ToString();
                     txtFaktor.Text = tlPositions.FocusedNode["Faktor"] == DBNull.Value ? "" : tlPositions.FocusedNode["Faktor"].ToString();
                     txtLPMe.Text = tlPositions.FocusedNode["MA_listprice"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MA_listprice"].ToString();
                     txtLPMO.Text = tlPositions.FocusedNode["MO_listprice"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MO_listprice"].ToString();
@@ -1745,8 +1745,9 @@ namespace OTTOPro
                 {
                     frmOTTOPro.UpdateStatus("'" + ObjEPosition.Position_OZ + "'" + " OZ Saved Successfully");
                 }
-
+                _ISChange = false;
                 BindPositionData();
+                _ISChange = true;
                 SetFocus(NewPositionID, tlPositions);
                 if (chkCreateNew.Checked == true)
                 {
@@ -10062,6 +10063,9 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(strPath))
                     throw new Exception("CoverSheet path does not exists");
 
+                if (!Directory.Exists(strPath))
+                    throw new Exception("Invalid Coversheet Path");
+
                 string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Rechnung.Docx";
                 if (!File.Exists(strFileName))
                 {
@@ -10120,6 +10124,9 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(strPath))
                     throw new Exception("CoverSheet path does not exists");
 
+                if (!Directory.Exists(strPath))
+                    throw new Exception("Invalid Coversheet Path");
+
                 string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Aufmass.Docx";
                 if (!File.Exists(strFileName))
                 {
@@ -10177,6 +10184,8 @@ namespace OTTOPro
                 string strPath = ObjBProject.GetPath();
                 if (string.IsNullOrEmpty(strPath))
                     throw new Exception("CoverSheet path does not exists");
+                if (!Directory.Exists(strPath))
+                    throw new Exception("Invalid Coversheet Path");
 
                 string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Angebot.Docx";
                 if (!File.Exists(strFileName))
@@ -10232,6 +10241,7 @@ namespace OTTOPro
                 if (e.KeyData == Keys.Tab)
                 {
                     FillDimension();
+                    txtDim1.Focus();
                 }
             }
             catch (Exception ex)

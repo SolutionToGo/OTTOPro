@@ -82,7 +82,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (ex.Message.Contains("UNIQUE"))
-                    throw new Exception("Diese BLATT Nummer wurde bereits vergeben, bitte machen Sie eine neue Angabe. ");
+                    throw new Exception("Diese BLATT Nummer wurde bereits vergeben, bitte machen Sie eine neue Angabe.");
                 else if 
                     (ex.Message.Contains("Valid"))
                     throw new Exception("Bitte machen Sie gültige Mengenangaben für alle Positionen");
