@@ -140,6 +140,9 @@
             this.formattingRule1 = new DevExpress.XtraReports.UI.FormattingRule();
             this.dsDiscountCalculation1 = new OTTOPro.Report_Design.dsDiscountCalculation();
             this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter = new OTTOPro.Report_Design.dsDiscountCalculationTableAdapters.P_Rpt_QuerCalculation_DiscountPositionTableAdapter();
+            this.xrTable7 = new DevExpress.XtraReports.UI.XRTable();
+            this.xrTableRow7 = new DevExpress.XtraReports.UI.XRTableRow();
+            this.xrPositionkz = new DevExpress.XtraReports.UI.XRTableCell();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -156,6 +159,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDiscountCalculation1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -475,7 +479,6 @@
             this.xrlblPageSum.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrlblPageSum.SummaryGetResult += new DevExpress.XtraReports.UI.SummaryGetResultHandler(this.xrlblPageSum_SummaryGetResult);
             this.xrlblPageSum.SummaryReset += new System.EventHandler(this.xrlblPageSum_SummaryReset);
-            this.xrlblPageSum.SummaryRowChanged += new System.EventHandler(this.xrlblPageSum_SummaryRowChanged);
             this.xrlblPageSum.PrintOnPage += new DevExpress.XtraReports.UI.PrintOnPageEventHandler(this.xrlblPageSum_PrintOnPage);
             // 
             // ReportHeader
@@ -503,9 +506,10 @@
             // Detail1
             // 
             this.Detail1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
+            this.xrTable7,
             this.xrTable2,
             this.xrLangText});
-            this.Detail1.HeightF = 48.45839F;
+            this.Detail1.HeightF = 50.45842F;
             this.Detail1.Name = "Detail1";
             // 
             // xrTable2
@@ -1297,6 +1301,30 @@
             // 
             this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.ClearBeforeFill = true;
             // 
+            // xrTable7
+            // 
+            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(105.9583F, 31.58336F);
+            this.xrTable7.Name = "xrTable7";
+            this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
+            this.xrTableRow7});
+            this.xrTable7.SizeF = new System.Drawing.SizeF(53.12846F, 15.87505F);
+            // 
+            // xrTableRow7
+            // 
+            this.xrTableRow7.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
+            this.xrPositionkz});
+            this.xrTableRow7.Name = "xrTableRow7";
+            this.xrTableRow7.Weight = 1D;
+            // 
+            // xrPositionkz
+            // 
+            this.xrPositionkz.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.PositionKZ")});
+            this.xrPositionkz.Name = "xrPositionkz";
+            this.xrPositionkz.Text = "xrPositionkz";
+            this.xrPositionkz.Visible = false;
+            this.xrPositionkz.Weight = 1D;
+            // 
             // rptProposalwithoutMAMO
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -1346,6 +1374,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsDiscountCalculation1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -1453,5 +1482,8 @@
         private dsProposalCommonTotalSummeryTableAdapters.P_Rpt_GetTotalSummeryTableAdapter p_Rpt_GetTotalSummeryTableAdapter;
         private dsProposalCommonTotalSummery dsProposalCommonTotalSummery1;
         private DevExpress.XtraReports.UI.XRRichText xrRichText1;
+        private DevExpress.XtraReports.UI.XRTable xrTable7;
+        private DevExpress.XtraReports.UI.XRTableRow xrTableRow7;
+        private DevExpress.XtraReports.UI.XRTableCell xrPositionkz;
     }
 }
