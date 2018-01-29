@@ -708,6 +708,7 @@ namespace OTTOPro
         public static string CalculationTextModuleAccessEdit = string.Empty;
         public static string InvoiceTextModuleAccess = string.Empty;
         public static string InvoiceTextModuleAccessEdit = string.Empty;
+        public static bool Isclose = false;
     }
 
 }

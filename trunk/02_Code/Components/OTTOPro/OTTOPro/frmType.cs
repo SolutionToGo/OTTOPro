@@ -141,33 +141,5 @@ namespace OTTOPro
         {
             this.Close();
         }
-
-        private void gvTyp_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            //try
-            //{
-            //    if (!_IsNew)
-            //    {
-            //        int _IDValue = -1;
-            //        if (gvTyp.FocusedColumn != null && gvTyp.GetFocusedRowCellValue("TypID") != null)
-            //        {
-            //            if (int.TryParse(gvTyp.GetFocusedRowCellValue("TypID").ToString(), out _IDValue))
-            //            {
-            //                if (ObjEArticle == null)
-            //                    ObjEArticle = new EArticles();
-            //                txtTyp.Text = gvTyp.GetFocusedRowCellValue("Typ") == DBNull.Value ? "" : gvTyp.GetFocusedRowCellValue("Typ").ToString();
-            //                cmbWGWA.SelectedValue = gvTyp.GetFocusedRowCellValue("WGID") == DBNull.Value ? "" : gvTyp.GetFocusedRowCellValue("WGID");
-            //                cmbWI.SelectedValue = gvTyp.GetFocusedRowCellValue("WIID") == DBNull.Value ? "" : gvTyp.GetFocusedRowCellValue("WIID");
-            //                cmbSupplier.SelectedValue = gvTyp.GetFocusedRowCellValue("SupplierID") == DBNull.Value ? "" : gvTyp.GetFocusedRowCellValue("SupplierID");
-            //            }
-            //        }
-            //    }
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
-        }
-
     }
 } 

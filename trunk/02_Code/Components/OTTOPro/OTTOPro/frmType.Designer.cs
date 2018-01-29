@@ -136,7 +136,6 @@
             this.gvTyp.OptionsMenu.EnableFooterMenu = false;
             this.gvTyp.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvTyp.OptionsView.ShowGroupPanel = false;
-            this.gvTyp.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvTyp_FocusedRowChanged);
             // 
             // gridColumn1
             // 

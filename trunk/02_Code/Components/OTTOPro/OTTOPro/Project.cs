@@ -602,33 +602,40 @@ namespace OTTOPro
             BaseTabHeaderViewInfo headerInfo = (tcProjectDetails as IXtraTab).ViewInfo.HeaderInfo;
             try
             {
-                if (headerInfo.VisiblePages.Count >= 1)
+                if (!Utility.Isclose)
                 {
-                    var dlgresult = "";
-                    if (Utility._IsGermany == true)
+                    if (headerInfo.VisiblePages.Count >= 1)
                     {
-                        dlgresult = XtraMessageBox.Show("möchten sie diese seite wirklich schließen.?", " bestätigung …!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
-                    }
-                    else
-                    {
-                        dlgresult = XtraMessageBox.Show("Are you sure you want to close the page.?", "confirmation..!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
+                        var dlgresult = "";
+                        if (Utility._IsGermany == true)
+                        {
+                            dlgresult = XtraMessageBox.Show("möchten sie diese seite wirklich schließen.?", " bestätigung …!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
+                        }
+                        else
+                        {
+                            dlgresult = XtraMessageBox.Show("Are you sure you want to close the page.?", "confirmation..!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
 
+                        }
+                        if (dlgresult.ToString().ToLower() == "cancel")
+                        {
+                            e.Cancel = true;
+                        }
+                        btnCancel_Click(null, null);
                     }
-                    if (dlgresult.ToString().ToLower() == "cancel")
+                    if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
                     {
-                        e.Cancel = true;
+                        frmOTTOPro.Instance.SetPictureBoxVisible(true);
+                        frmOTTOPro.Instance.SetLableVisible(true);
                     }
-                    btnCancel_Click(null, null);
+                }
+                else
+                {
+                    Utility.Isclose = false;
                 }
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-            if (frmOTTOPro.Instance.MdiChildren.Count() == 1)
-            {
-                frmOTTOPro.Instance.SetPictureBoxVisible(true);
-                frmOTTOPro.Instance.SetLableVisible(true);
             }
         }
 

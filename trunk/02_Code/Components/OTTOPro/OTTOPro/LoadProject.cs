@@ -152,10 +152,20 @@ namespace OTTOPro
                     int IValue = 0;
                     if(int.TryParse(Convert.ToString(dgProjectSearch.GetFocusedRowCellValue("ProjectID")),out IValue))
                     {
+                        string _PrNr = dgProjectSearch.GetFocusedDataRow()["ProjectNumber"].ToString();
                          if(ObjBProject == null)
                              ObjBProject = new BProject();
                         ObjBProject.DeleteProject(IValue);
                         dgProjectSearch.DeleteSelectedRows();
+                        foreach (Form form in Application.OpenForms)
+                        {
+                            if (form.Text == _PrNr)
+                            {
+                                Utility.Isclose = true;
+                                form.Close();
+                                break;
+                            }
+                        }
                     }
                 }
             }

@@ -62,11 +62,7 @@ namespace OTTOPro
             get { return barMdiChildrenListItemProject; }
             set { barMdiChildrenListItemProject = value; }
         }
-        //void InitSkinGallery()
-        //{
-        //    DevExpress.XtraBars.Helpers.SkinHelper.InitSkinGallery(skinRibbonGalleryBarItem1, true);
-        //}
-       
+
         private void btnNewProject_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
