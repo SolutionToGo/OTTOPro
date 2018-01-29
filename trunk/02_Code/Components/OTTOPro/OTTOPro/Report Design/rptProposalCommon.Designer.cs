@@ -163,19 +163,19 @@
             this.xrTableRow10 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell12 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell15 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrRichText7 = new DevExpress.XtraReports.UI.XRRichText();
             this.xrTable9 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow9 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell9 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell10 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrRichText3 = new DevExpress.XtraReports.UI.XRRichText();
             this.xrTable8 = new DevExpress.XtraReports.UI.XRTable();
             this.xrTableRow8 = new DevExpress.XtraReports.UI.XRTableRow();
             this.xrTableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell8 = new DevExpress.XtraReports.UI.XRTableCell();
+            this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
             this.p_Rpt_PositionForProposalPriceForCommonTableAdapter = new OTTOPro.Report_Design.dsProposalCommonTableAdapters.P_Rpt_PositionForProposalPriceForCommonTableAdapter();
             this.NetTotal = new DevExpress.XtraReports.UI.CalculatedField();
-            this.xrRichText1 = new DevExpress.XtraReports.UI.XRRichText();
-            this.xrRichText3 = new DevExpress.XtraReports.UI.XRRichText();
-            this.xrRichText7 = new DevExpress.XtraReports.UI.XRRichText();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
@@ -193,11 +193,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -1581,7 +1581,7 @@
             this.xrTable10.Name = "xrTable10";
             this.xrTable10.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow10});
-            this.xrTable10.SizeF = new System.Drawing.SizeF(520.0531F, 25F);
+            this.xrTable10.SizeF = new System.Drawing.SizeF(677.2747F, 25F);
             this.xrTable10.StylePriority.UseFont = false;
             // 
             // xrTableRow10
@@ -1597,7 +1597,7 @@
             this.xrTableCell12.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.Title1")});
             this.xrTableCell12.Name = "xrTableCell12";
-            this.xrTableCell12.Weight = 0.823397899706703D;
+            this.xrTableCell12.Weight = 1.4883828995540123D;
             // 
             // xrTableCell15
             // 
@@ -1606,7 +1606,20 @@
             this.xrTableCell15.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrTableCell15.Name = "xrTableCell15";
             this.xrTableCell15.StylePriority.UseFont = false;
-            this.xrTableCell15.Weight = 2.0109142254248846D;
+            this.xrTableCell15.Weight = 2.2027939180043354D;
+            // 
+            // xrRichText7
+            // 
+            this.xrRichText7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.Title1Desc")});
+            this.xrRichText7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrRichText7.ForeColor = System.Drawing.Color.Black;
+            this.xrRichText7.LocationFloat = new DevExpress.Utils.PointFloat(0F, 1.999982F);
+            this.xrRichText7.Name = "xrRichText7";
+            this.xrRichText7.SerializableRtfString = resources.GetString("xrRichText7.SerializableRtfString");
+            this.xrRichText7.SizeF = new System.Drawing.SizeF(404.1791F, 23F);
+            this.xrRichText7.StylePriority.UseFont = false;
+            this.xrRichText7.StylePriority.UseForeColor = false;
             // 
             // xrTable9
             // 
@@ -1615,7 +1628,7 @@
             this.xrTable9.Name = "xrTable9";
             this.xrTable9.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow9});
-            this.xrTable9.SizeF = new System.Drawing.SizeF(519.9697F, 25F);
+            this.xrTable9.SizeF = new System.Drawing.SizeF(676.1914F, 25F);
             this.xrTable9.StylePriority.UseFont = false;
             // 
             // xrTableRow9
@@ -1631,7 +1644,7 @@
             this.xrTableCell9.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.Title2")});
             this.xrTableCell9.Name = "xrTableCell9";
-            this.xrTableCell9.Weight = 0.817947939006676D;
+            this.xrTableCell9.Weight = 1.487928903498781D;
             // 
             // xrTableCell10
             // 
@@ -1640,7 +1653,20 @@
             this.xrTableCell10.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell10.Name = "xrTableCell10";
             this.xrTableCell10.StylePriority.UseFont = false;
-            this.xrTableCell10.Weight = 2.0159097110260853D;
+            this.xrTableCell10.Weight = 2.1973437029587095D;
+            // 
+            // xrRichText3
+            // 
+            this.xrRichText3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.Title2Desc")});
+            this.xrRichText3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrRichText3.ForeColor = System.Drawing.Color.Black;
+            this.xrRichText3.LocationFloat = new DevExpress.Utils.PointFloat(0.9999911F, 0F);
+            this.xrRichText3.Name = "xrRichText3";
+            this.xrRichText3.SerializableRtfString = resources.GetString("xrRichText3.SerializableRtfString");
+            this.xrRichText3.SizeF = new System.Drawing.SizeF(402.1791F, 23F);
+            this.xrRichText3.StylePriority.UseFont = false;
+            this.xrRichText3.StylePriority.UseForeColor = false;
             // 
             // xrTable8
             // 
@@ -1649,7 +1675,7 @@
             this.xrTable8.Name = "xrTable8";
             this.xrTable8.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow8});
-            this.xrTable8.SizeF = new System.Drawing.SizeF(519.0529F, 25F);
+            this.xrTable8.SizeF = new System.Drawing.SizeF(675.2745F, 25F);
             this.xrTable8.StylePriority.UseFont = false;
             // 
             // xrTableRow8
@@ -1667,7 +1693,7 @@
             this.xrTableCell6.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.Title3")});
             this.xrTableCell6.Name = "xrTableCell6";
-            this.xrTableCell6.Weight = 0.817947939006676D;
+            this.xrTableCell6.Weight = 1.4774820441162615D;
             // 
             // xrTableCell8
             // 
@@ -1676,7 +1702,20 @@
             this.xrTableCell8.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell8.Name = "xrTableCell8";
             this.xrTableCell8.StylePriority.UseFont = false;
-            this.xrTableCell8.Weight = 2.0109130611698749D;
+            this.xrTableCell8.Weight = 2.2027933549849044D;
+            // 
+            // xrRichText1
+            // 
+            this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
+            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.Title3Desc")});
+            this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
+            this.xrRichText1.ForeColor = System.Drawing.Color.Black;
+            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(3.083134F, 0F);
+            this.xrRichText1.Name = "xrRichText1";
+            this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
+            this.xrRichText1.SizeF = new System.Drawing.SizeF(401.096F, 23F);
+            this.xrRichText1.StylePriority.UseFont = false;
+            this.xrRichText1.StylePriority.UseForeColor = false;
             // 
             // p_Rpt_PositionForProposalPriceForCommonTableAdapter
             // 
@@ -1688,45 +1727,6 @@
             this.NetTotal.DataSource = this.dsProposalCommon1;
             this.NetTotal.Expression = "Sum([MA_VER_Total]) + Sum([MO_VER_Total])";
             this.NetTotal.Name = "NetTotal";
-            // 
-            // xrRichText1
-            // 
-            this.xrRichText1.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.Title3Desc")});
-            this.xrRichText1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrRichText1.ForeColor = System.Drawing.Color.Black;
-            this.xrRichText1.LocationFloat = new DevExpress.Utils.PointFloat(3.083356F, 0F);
-            this.xrRichText1.Name = "xrRichText1";
-            this.xrRichText1.SerializableRtfString = resources.GetString("xrRichText1.SerializableRtfString");
-            this.xrRichText1.SizeF = new System.Drawing.SizeF(365.8885F, 23F);
-            this.xrRichText1.StylePriority.UseFont = false;
-            this.xrRichText1.StylePriority.UseForeColor = false;
-            // 
-            // xrRichText3
-            // 
-            this.xrRichText3.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.Title2Desc")});
-            this.xrRichText3.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrRichText3.ForeColor = System.Drawing.Color.Black;
-            this.xrRichText3.LocationFloat = new DevExpress.Utils.PointFloat(3.916836F, 0F);
-            this.xrRichText3.Name = "xrRichText3";
-            this.xrRichText3.SerializableRtfString = resources.GetString("xrRichText3.SerializableRtfString");
-            this.xrRichText3.SizeF = new System.Drawing.SizeF(364.972F, 23F);
-            this.xrRichText3.StylePriority.UseFont = false;
-            this.xrRichText3.StylePriority.UseForeColor = false;
-            // 
-            // xrRichText7
-            // 
-            this.xrRichText7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.Title1Desc")});
-            this.xrRichText7.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrRichText7.ForeColor = System.Drawing.Color.Black;
-            this.xrRichText7.LocationFloat = new DevExpress.Utils.PointFloat(3.000164F, 0F);
-            this.xrRichText7.Name = "xrRichText7";
-            this.xrRichText7.SerializableRtfString = resources.GetString("xrRichText7.SerializableRtfString");
-            this.xrRichText7.SizeF = new System.Drawing.SizeF(365.972F, 23F);
-            this.xrRichText7.StylePriority.UseFont = false;
-            this.xrRichText7.StylePriority.UseForeColor = false;
             // 
             // rptProposalCommon
             // 
@@ -1778,11 +1778,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrRichText1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrRichText7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
