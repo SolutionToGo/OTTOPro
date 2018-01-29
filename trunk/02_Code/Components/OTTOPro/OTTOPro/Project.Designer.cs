@@ -29,19 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule compareAgainstControlValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.CompareAgainstControlValidationRule();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProject));
-            DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule treeListFormatRule5 = new DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression2 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
-            DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule treeListFormatRule6 = new DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue4 = new DevExpress.XtraEditors.FormatConditionRuleValue();
-            DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule treeListFormatRule7 = new DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue5 = new DevExpress.XtraEditors.FormatConditionRuleValue();
-            DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule treeListFormatRule8 = new DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule();
-            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue6 = new DevExpress.XtraEditors.FormatConditionRuleValue();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode2 = new DevExpress.XtraGrid.GridLevelNode();
+            DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule treeListFormatRule81 = new DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleExpression formatConditionRuleExpression21 = new DevExpress.XtraEditors.FormatConditionRuleExpression();
+            DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule treeListFormatRule82 = new DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue61 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule treeListFormatRule83 = new DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue62 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule treeListFormatRule84 = new DevExpress.XtraTreeList.StyleFormatConditions.TreeListFormatRule();
+            DevExpress.XtraEditors.FormatConditionRuleValue formatConditionRuleValue63 = new DevExpress.XtraEditors.FormatConditionRuleValue();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             this.txtSurchargeTo = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl3 = new DevExpress.XtraLayout.LayoutControl();
             this.txtDiscount = new DevExpress.XtraEditors.TextEdit();
@@ -2034,6 +2034,7 @@
             this.layoutControl3.Name = "layoutControl3";
             this.layoutControl3.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(881, 355, 250, 350);
             this.layoutControl3.OptionsFocus.EnableAutoTabOrder = false;
+            this.layoutControl3.OptionsFocus.MoveFocusRightToLeft = true;
             this.layoutControl3.OptionsView.ControlDefaultMaxSizeCalcMode = DevExpress.XtraLayout.ControlMaxSizeCalcMode.UseControlMaximumSizeIfNotZero;
             this.layoutControl3.Root = this.LCGLVDetails;
             this.layoutControl3.Size = new System.Drawing.Size(474, 447);
@@ -2492,7 +2493,8 @@
             this.txtLiefrantMA.Properties.AllowMouseWheel = false;
             this.txtLiefrantMA.Size = new System.Drawing.Size(98, 20);
             this.txtLiefrantMA.StyleController = this.layoutControl3;
-            this.txtLiefrantMA.TabIndex = 11;
+            this.txtLiefrantMA.TabIndex = 57;
+            this.txtLiefrantMA.TabStop = false;
             // 
             // btnAddLVSection
             // 
@@ -2512,7 +2514,8 @@
             this.cmbLVSection.Location = new System.Drawing.Point(94, 326);
             this.cmbLVSection.Name = "cmbLVSection";
             this.cmbLVSection.Size = new System.Drawing.Size(98, 21);
-            this.cmbLVSection.TabIndex = 13;
+            this.cmbLVSection.TabIndex = 58;
+            this.cmbLVSection.TabStop = false;
             this.cmbLVSection.Tag = "LV -Section";
             this.cmbLVSection.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cmbLVSection_KeyPress);
             // 
@@ -2530,7 +2533,8 @@
             this.cmbLVStatus.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbLVStatus.Size = new System.Drawing.Size(133, 20);
             this.cmbLVStatus.StyleController = this.layoutControl3;
-            this.cmbLVStatus.TabIndex = 14;
+            this.cmbLVStatus.TabIndex = 56;
+            this.cmbLVStatus.TabStop = false;
             this.cmbLVStatus.Tag = "LV-Status";
             // 
             // btnLongDescription
@@ -2543,7 +2547,7 @@
             this.btnLongDescription.Name = "btnLongDescription";
             this.btnLongDescription.Size = new System.Drawing.Size(133, 22);
             this.btnLongDescription.StyleController = this.layoutControl3;
-            this.btnLongDescription.TabIndex = 0;
+            this.btnLongDescription.TabIndex = 15;
             this.btnLongDescription.TabStop = false;
             this.btnLongDescription.Text = "Bearbeiten";
             this.btnLongDescription.Click += new System.EventHandler(this.btnLongDescription_Click);
@@ -2559,7 +2563,7 @@
             this.txtWI.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtWI.Size = new System.Drawing.Size(58, 24);
             this.txtWI.StyleController = this.layoutControl3;
-            this.txtWI.TabIndex = 8;
+            this.txtWI.TabIndex = 9;
             this.txtWI.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtWI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
             // 
@@ -2574,7 +2578,7 @@
             this.txtWA.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtWA.Size = new System.Drawing.Size(61, 24);
             this.txtWA.StyleController = this.layoutControl3;
-            this.txtWA.TabIndex = 7;
+            this.txtWA.TabIndex = 8;
             this.txtWA.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtWA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
             // 
@@ -2589,7 +2593,7 @@
             this.txtWG.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtWG.Size = new System.Drawing.Size(53, 24);
             this.txtWG.StyleController = this.layoutControl3;
-            this.txtWG.TabIndex = 6;
+            this.txtWG.TabIndex = 7;
             this.txtWG.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtWG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWI_KeyPress);
             // 
@@ -2602,7 +2606,7 @@
             this.txtType.Properties.Appearance.Options.UseFont = true;
             this.txtType.Size = new System.Drawing.Size(76, 24);
             this.txtType.StyleController = this.layoutControl3;
-            this.txtType.TabIndex = 9;
+            this.txtType.TabIndex = 10;
             this.txtType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtType_KeyPress);
             this.txtType.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.txtType_PreviewKeyDown);
             // 
@@ -2615,7 +2619,8 @@
             this.txtFabrikate.Properties.Appearance.Options.UseFont = true;
             this.txtFabrikate.Size = new System.Drawing.Size(98, 24);
             this.txtFabrikate.StyleController = this.layoutControl3;
-            this.txtFabrikate.TabIndex = 10;
+            this.txtFabrikate.TabIndex = 55;
+            this.txtFabrikate.TabStop = false;
             // 
             // txtDetailKZ
             // 
@@ -2629,7 +2634,8 @@
             this.txtDetailKZ.Properties.ReadOnly = true;
             this.txtDetailKZ.Size = new System.Drawing.Size(50, 24);
             this.txtDetailKZ.StyleController = this.layoutControl3;
-            this.txtDetailKZ.TabIndex = 12;
+            this.txtDetailKZ.TabIndex = 0;
+            this.txtDetailKZ.TabStop = false;
             // 
             // txtSurchargePerME
             // 
@@ -2657,8 +2663,7 @@
             this.txtMenge.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMenge.Size = new System.Drawing.Size(84, 24);
             this.txtMenge.StyleController = this.layoutControl3;
-            this.txtMenge.TabIndex = 0;
-            this.txtMenge.TabStop = false;
+            this.txtMenge.TabIndex = 6;
             this.txtMenge.TextChanged += new System.EventHandler(this.txtMenge_TextChanged);
             this.txtMenge.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             // 
@@ -2673,10 +2678,10 @@
             this.txtSurchargeFrom.StyleController = this.layoutControl3;
             this.txtSurchargeFrom.TabIndex = 52;
             this.txtSurchargeFrom.Tag = "From OZ";
-            compareAgainstControlValidationRule2.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
-            compareAgainstControlValidationRule2.Control = this.txtSurchargeTo;
-            compareAgainstControlValidationRule2.ErrorText = "From OZ should not be Greater than To OZ";
-            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule2);
+            compareAgainstControlValidationRule1.CompareControlOperator = DevExpress.XtraEditors.DXErrorProvider.CompareControlOperator.LessOrEqual;
+            compareAgainstControlValidationRule1.Control = this.txtSurchargeTo;
+            compareAgainstControlValidationRule1.ErrorText = "From OZ should not be Greater than To OZ";
+            this.dxValidationProvider1.SetValidationRule(this.txtSurchargeFrom, compareAgainstControlValidationRule1);
             this.txtSurchargeFrom.Leave += new System.EventHandler(this.txtSurchargeFrom_Leave);
             this.txtSurchargeFrom.Validating += new System.ComponentModel.CancelEventHandler(this.txtSurchargeFrom_Validating);
             // 
@@ -2734,7 +2739,7 @@
             this.cmbME.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
             this.cmbME.Size = new System.Drawing.Size(106, 24);
             this.cmbME.StyleController = this.layoutControl3;
-            this.cmbME.TabIndex = 0;
+            this.cmbME.TabIndex = 13;
             this.cmbME.TabStop = false;
             // 
             // cmbPositionKZ
@@ -2828,7 +2833,8 @@
             this.txtShortDescription.MaxLength = 80;
             this.txtShortDescription.Name = "txtShortDescription";
             this.txtShortDescription.Size = new System.Drawing.Size(368, 26);
-            this.txtShortDescription.TabIndex = 15;
+            this.txtShortDescription.TabIndex = 59;
+            this.txtShortDescription.TabStop = false;
             this.txtShortDescription.Text = "";
             // 
             // txtLVPosition
@@ -3699,7 +3705,6 @@
             // navBarReports
             // 
             this.navBarReports.Caption = "Dokumente";
-            this.navBarReports.Expanded = true;
             this.navBarReports.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
             this.navBarReports.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
             new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCommonReport),
@@ -4510,7 +4515,7 @@
             this.txtDim3.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtDim3.Size = new System.Drawing.Size(79, 24);
             this.txtDim3.StyleController = this.layoutControl6;
-            this.txtDim3.TabIndex = 17;
+            this.txtDim3.TabIndex = 13;
             this.txtDim3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtDim3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim3.Leave += new System.EventHandler(this.txtDim1_Leave);
@@ -4717,7 +4722,7 @@
             this.txtDim2.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtDim2.Size = new System.Drawing.Size(79, 24);
             this.txtDim2.StyleController = this.layoutControl6;
-            this.txtDim2.TabIndex = 16;
+            this.txtDim2.TabIndex = 12;
             this.txtDim2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtDim2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim2.Leave += new System.EventHandler(this.txtDim1_Leave);
@@ -4851,7 +4856,7 @@
             this.txtDim1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.txtDim1.Size = new System.Drawing.Size(79, 24);
             this.txtDim1.StyleController = this.layoutControl6;
-            this.txtDim1.TabIndex = 15;
+            this.txtDim1.TabIndex = 11;
             this.txtDim1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtWG_KeyDown);
             this.txtDim1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDim1_KeyPress);
             this.txtDim1.Leave += new System.EventHandler(this.txtDim1_Leave);
@@ -4905,7 +4910,7 @@
             this.txtFaktor.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtFaktor.Size = new System.Drawing.Size(79, 24);
             this.txtFaktor.StyleController = this.layoutControl6;
-            this.txtFaktor.TabIndex = 19;
+            this.txtFaktor.TabIndex = 14;
             this.txtFaktor.Tag = "Faktor";
             this.txtFaktor.TextChanged += new System.EventHandler(this.txtStdSatz_TextChanged);
             this.txtFaktor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4939,7 +4944,7 @@
             this.txtMin.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMin.Size = new System.Drawing.Size(79, 24);
             this.txtMin.StyleController = this.layoutControl6;
-            this.txtMin.TabIndex = 18;
+            this.txtMin.TabIndex = 13;
             this.txtMin.Tag = "Minutes";
             this.txtMin.TextChanged += new System.EventHandler(this.txtMin_TextChanged);
             this.txtMin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -6145,48 +6150,48 @@
             this.tlPositions.Cursor = System.Windows.Forms.Cursors.SizeWE;
             this.tlPositions.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tlPositions.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            treeListFormatRule5.ApplyToRow = true;
-            treeListFormatRule5.Column = this.treeListDetailKZ;
-            treeListFormatRule5.Name = "Format0";
-            formatConditionRuleExpression2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(107)))), ((int)(((byte)(75)))));
-            formatConditionRuleExpression2.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            formatConditionRuleExpression2.Appearance.Options.UseBackColor = true;
-            formatConditionRuleExpression2.Appearance.Options.UseFont = true;
-            formatConditionRuleExpression2.Expression = "[DetailKZ] > 0";
-            treeListFormatRule5.Rule = formatConditionRuleExpression2;
-            treeListFormatRule6.ApplyToRow = true;
-            treeListFormatRule6.Column = this.treeListPosKZ;
-            treeListFormatRule6.Name = "Format1";
-            formatConditionRuleValue4.Appearance.BackColor = System.Drawing.Color.YellowGreen;
-            formatConditionRuleValue4.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            formatConditionRuleValue4.Appearance.Options.UseBackColor = true;
-            formatConditionRuleValue4.Appearance.Options.UseFont = true;
-            formatConditionRuleValue4.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
-            formatConditionRuleValue4.Value1 = "Z";
-            treeListFormatRule6.Rule = formatConditionRuleValue4;
-            treeListFormatRule7.ApplyToRow = true;
-            treeListFormatRule7.Column = this.treeListPosKZ;
-            treeListFormatRule7.Name = "Format2";
-            formatConditionRuleValue5.Appearance.BackColor = System.Drawing.Color.Orange;
-            formatConditionRuleValue5.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            formatConditionRuleValue5.Appearance.Options.UseBackColor = true;
-            formatConditionRuleValue5.Appearance.Options.UseFont = true;
-            formatConditionRuleValue5.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
-            formatConditionRuleValue5.Value1 = "ZS";
-            treeListFormatRule7.Rule = formatConditionRuleValue5;
-            treeListFormatRule8.ApplyToRow = true;
-            treeListFormatRule8.Column = this.treeListPosKZ;
-            treeListFormatRule8.Name = "Format3";
-            formatConditionRuleValue6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(140)))), ((int)(((byte)(54)))));
-            formatConditionRuleValue6.Appearance.Options.UseBackColor = true;
-            formatConditionRuleValue6.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
-            formatConditionRuleValue6.Expression = "[PositionKZ] = \'ZZ\'";
-            formatConditionRuleValue6.Value1 = "ZZ";
-            treeListFormatRule8.Rule = formatConditionRuleValue6;
-            this.tlPositions.FormatRules.Add(treeListFormatRule5);
-            this.tlPositions.FormatRules.Add(treeListFormatRule6);
-            this.tlPositions.FormatRules.Add(treeListFormatRule7);
-            this.tlPositions.FormatRules.Add(treeListFormatRule8);
+            treeListFormatRule81.ApplyToRow = true;
+            treeListFormatRule81.Column = this.treeListDetailKZ;
+            treeListFormatRule81.Name = "Format0";
+            formatConditionRuleExpression21.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(132)))), ((int)(((byte)(107)))), ((int)(((byte)(75)))));
+            formatConditionRuleExpression21.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            formatConditionRuleExpression21.Appearance.Options.UseBackColor = true;
+            formatConditionRuleExpression21.Appearance.Options.UseFont = true;
+            formatConditionRuleExpression21.Expression = "[DetailKZ] > 0";
+            treeListFormatRule81.Rule = formatConditionRuleExpression21;
+            treeListFormatRule82.ApplyToRow = true;
+            treeListFormatRule82.Column = this.treeListPosKZ;
+            treeListFormatRule82.Name = "Format1";
+            formatConditionRuleValue61.Appearance.BackColor = System.Drawing.Color.YellowGreen;
+            formatConditionRuleValue61.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            formatConditionRuleValue61.Appearance.Options.UseBackColor = true;
+            formatConditionRuleValue61.Appearance.Options.UseFont = true;
+            formatConditionRuleValue61.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
+            formatConditionRuleValue61.Value1 = "Z";
+            treeListFormatRule82.Rule = formatConditionRuleValue61;
+            treeListFormatRule83.ApplyToRow = true;
+            treeListFormatRule83.Column = this.treeListPosKZ;
+            treeListFormatRule83.Name = "Format2";
+            formatConditionRuleValue62.Appearance.BackColor = System.Drawing.Color.Orange;
+            formatConditionRuleValue62.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            formatConditionRuleValue62.Appearance.Options.UseBackColor = true;
+            formatConditionRuleValue62.Appearance.Options.UseFont = true;
+            formatConditionRuleValue62.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
+            formatConditionRuleValue62.Value1 = "ZS";
+            treeListFormatRule83.Rule = formatConditionRuleValue62;
+            treeListFormatRule84.ApplyToRow = true;
+            treeListFormatRule84.Column = this.treeListPosKZ;
+            treeListFormatRule84.Name = "Format3";
+            formatConditionRuleValue63.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(162)))), ((int)(((byte)(140)))), ((int)(((byte)(54)))));
+            formatConditionRuleValue63.Appearance.Options.UseBackColor = true;
+            formatConditionRuleValue63.Condition = DevExpress.XtraEditors.FormatCondition.Equal;
+            formatConditionRuleValue63.Expression = "[PositionKZ] = \'ZZ\'";
+            formatConditionRuleValue63.Value1 = "ZZ";
+            treeListFormatRule84.Rule = formatConditionRuleValue63;
+            this.tlPositions.FormatRules.Add(treeListFormatRule81);
+            this.tlPositions.FormatRules.Add(treeListFormatRule82);
+            this.tlPositions.FormatRules.Add(treeListFormatRule83);
+            this.tlPositions.FormatRules.Add(treeListFormatRule84);
             this.tlPositions.Location = new System.Drawing.Point(0, 0);
             this.tlPositions.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
             this.tlPositions.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -8681,17 +8686,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -11500,9 +11505,9 @@
             // gcPositions
             // 
             this.gcPositions.AllowDrop = true;
-            gridLevelNode2.RelationName = "Level1";
+            gridLevelNode1.RelationName = "Level1";
             this.gcPositions.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode2});
+            gridLevelNode1});
             this.gcPositions.Location = new System.Drawing.Point(768, 128);
             this.gcPositions.MainView = this.gvPositions;
             this.gcPositions.Name = "gcPositions";

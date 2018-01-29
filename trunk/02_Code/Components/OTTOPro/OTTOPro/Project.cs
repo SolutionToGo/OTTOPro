@@ -10223,7 +10223,7 @@ namespace OTTOPro
                 if (e.KeyData == Keys.Tab)
                 {
                     FillDimension();
-                    txtDim1.Focus();
+                   // txtDim1.Focus();
                 }
             }
             catch (Exception ex)

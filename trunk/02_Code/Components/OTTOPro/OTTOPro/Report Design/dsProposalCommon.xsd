@@ -90,7 +90,13 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="EP" msprop:Generator_ColumnVarNameInTable="columnEP" msprop:Generator_ColumnPropNameInRow="EP" msprop:Generator_ColumnPropNameInTable="EPColumn" msprop:Generator_UserColumnName="EP" type="xs:decimal" minOccurs="0" />
+              <xs:element name="EP" msprop:Generator_ColumnVarNameInTable="columnEP" msprop:Generator_ColumnPropNameInRow="EP" msprop:Generator_ColumnPropNameInTable="EPColumn" msprop:Generator_UserColumnName="EP" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name="FinalGB" msprop:Generator_ColumnVarNameInTable="columnFinalGB" msprop:Generator_ColumnPropNameInRow="FinalGB" msprop:Generator_ColumnPropNameInTable="FinalGBColumn" msprop:Generator_UserColumnName="FinalGB" type="xs:decimal" minOccurs="0" />
               <xs:element name="Parent_OZ" msprop:Generator_ColumnVarNameInTable="columnParent_OZ" msprop:Generator_ColumnPropNameInRow="Parent_OZ" msprop:Generator_ColumnPropNameInTable="Parent_OZColumn" msprop:Generator_UserColumnName="Parent_OZ" type="xs:int" minOccurs="0" />
               <xs:element name="Menge" msprop:Generator_ColumnVarNameInTable="columnMenge" msprop:Generator_ColumnPropNameInRow="Menge" msprop:Generator_ColumnPropNameInTable="MengeColumn" msprop:Generator_UserColumnName="Menge" type="xs:decimal" minOccurs="0" />
