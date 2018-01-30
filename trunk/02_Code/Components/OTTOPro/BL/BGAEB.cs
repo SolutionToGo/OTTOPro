@@ -27,6 +27,7 @@ namespace BL
                 DataSet dsTMLPositionsData = null;
                 dsTMLData = ObjGAEB.Export(ProjectID, _Raster);
                 dsTMLPositionsData = ObjGAEB.GetPositionsDataForTML(ProjectID, strLVSection, _Raster);
+                
                 dsTMLData.DataSetName = "Generic";
                 dsTMLData.Tables[0].TableName = "DateiInfo";
                 dsTMLData.Tables[1].TableName = "AG";
@@ -105,9 +106,12 @@ namespace BL
                         }
                     }
                 }
+
+                dsTMLPositionsData.Tables[0].TableName = "ZuschlTMenge";
+
                 StringBuilder strTMLdata = new StringBuilder();
                 strTMLdata.Append(dsTMLData.GetXml());
-
+                bool _IsBind = false;
                 if (dsTMLPositionsData.Tables.Count > 0 && strFormat.Contains("X"))
                 {
                     DataTable dt = new DataTable("ExtDat");
@@ -115,7 +119,7 @@ namespace BL
                     dt.Columns.Add("Parent_OZ", typeof(int));
                     dt.Columns.Add("ExtDatName", typeof(string));
                     dt.Columns.Add("ExtDatBeschr", typeof(string));
-                    foreach (DataRow dr in dsTMLPositionsData.Tables[0].Rows)
+                    foreach (DataRow dr in dsTMLPositionsData.Tables[1].Rows)
                     {
                         int IValue = 0;
                         if (int.TryParse(Convert.ToString(dr["PositionID"]), out IValue))
@@ -125,6 +129,7 @@ namespace BL
                     }
                     if (dt != null && dt.Rows.Count > 0)
                     {
+                        _IsBind = true;
                         DataSet dsTemp = new DataSet();
                         dsTemp.Tables.Add(dt);
                         for (int i = 0; i < dsTMLPositionsData.Tables.Count; i++)
@@ -138,10 +143,15 @@ namespace BL
                     }
                 }
 
+
                 if(dsTMLPositionsData != null && dsTMLPositionsData.Tables.Count > 1)
                 {
+                    int iValue = 0;
+                    if (_IsBind)
+                        iValue = 1;
+
                     DataColumn ParentColumn, ChildColumn; DataRelation dr;
-                    for (int i = dsTMLPositionsData.Tables.Count - 1; i > 0; i--)
+                    for (int i = dsTMLPositionsData.Tables.Count - 1; i > iValue; i--)
                     {
                         ParentColumn = dsTMLPositionsData.Tables[i].Columns["PositionID"];
                         ChildColumn = dsTMLPositionsData.Tables[i - 1].Columns["Parent_OZ"];
@@ -150,6 +160,17 @@ namespace BL
                         dsTMLPositionsData.Relations.Add(dr);
                     }
                 }
+
+                if(_IsBind)
+                {
+                    DataColumn ParentColumn, ChildColumn; DataRelation dr;
+                    ParentColumn = dsTMLPositionsData.Tables[2].Columns["PositionID"];
+                    ChildColumn = dsTMLPositionsData.Tables[0].Columns["Parent_OZ"];
+                    dr = new DataRelation("RelationDisc", ParentColumn, ChildColumn);
+                    dr.Nested = true;
+                    dsTMLPositionsData.Relations.Add(dr);
+                }
+
                 StringBuilder strTMLPosData = new StringBuilder();
                 strTMLPosData.Append(dsTMLPositionsData.GetXml());
                 strTMLPosData.Replace("LVPos1", "LVPos");
@@ -183,6 +204,7 @@ namespace BL
                         case "lvinfo":
                         case "lv":
                         case "extdat":
+                        case "zuschltmenge":
                             strtype = "0";
                             break;
                         case "lvpos":
