@@ -46,7 +46,7 @@ namespace DataAccess
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                             {
-                                throw new Exception("Der Nutzername existiert bereits.!");
+                                throw new Exception("Der Nutzername existiert bereits!");
                             }
                             else
                             {
@@ -288,7 +288,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler bei der Zuordnung einer Berechnung zu einer Rolle");
+                    throw new Exception("Fehler bei der Zuordnung einer Berechtigung zu einer Rolle");
                 }
                 else
                 {

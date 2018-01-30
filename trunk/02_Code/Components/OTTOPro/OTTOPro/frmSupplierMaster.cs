@@ -117,17 +117,17 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(txtFullName.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Vollständiger Name");
+                    throw new Exception("Bitte eingeben: Vollständiger Name");
                 }
                 if (string.IsNullOrEmpty(txtShortName.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Kurz Name");
+                    throw new Exception("Bitte eingeben: Kurz Name");
                 }   
                 if (string.IsNullOrEmpty(txtSupplierEmail.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Email");
+                    throw new Exception("Bitte eingeben: Email");
                 }   
                     if (_ObjEsupplier == null)
                         _ObjEsupplier = new ESupplier();
@@ -149,7 +149,7 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(txtContactName.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Name");
+                    throw new Exception("Bitte eingeben: Name");
                 }                   
 
                 bool isvalidName = dxValidationProviderContactName.Validate(txtContactName);
@@ -182,7 +182,7 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(txtAddrShortName.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Name");
+                    throw new Exception("Bitte eingeben: Name");
                 }                   
 
                 bool isvalidName = dxValidationProviderAddrSName.Validate(txtAddrShortName);
@@ -423,7 +423,7 @@ namespace OTTOPro
 
         private void txtSupplierEmail_InvalidValue(object sender, DevExpress.XtraEditors.Controls.InvalidValueExceptionEventArgs e)
         {
-            e.ErrorText = "ungültig mail";
+            e.ErrorText = "Ungültige Email-Adresse";
         }
 
         private void txtAddrStreetNo_KeyDown(object sender, KeyEventArgs e)

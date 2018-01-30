@@ -151,7 +151,7 @@ namespace OTTOPro
                     Setfocus(gvContact, "ContactPersonID", ObjESupplier.ContactPersonID);
                     if (Utility._IsGermany == true)
                     {
-                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Lieferanten-kontakt");
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Lieferanten-Kontaktdaten");
                     }
                     else
                     {

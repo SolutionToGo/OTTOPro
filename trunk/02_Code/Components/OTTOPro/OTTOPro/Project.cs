@@ -609,7 +609,7 @@ namespace OTTOPro
                         var dlgresult = "";
                         if (Utility._IsGermany == true)
                         {
-                            dlgresult = XtraMessageBox.Show("möchten sie diese seite wirklich schließen.?", " bestätigung …!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
+                            dlgresult = XtraMessageBox.Show("Möchten Sie diese Seite wirklich schließen.?", " Bestätigung …!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning).ToString();
                         }
                         else
                         {
@@ -1605,7 +1605,7 @@ namespace OTTOPro
                     if (Utility._IsGermany == true)
                     {
                         this.Text = ObjEProject.ProjectNumber;
-                        frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + " Die Projektangabe wurden erfolgreich gespeichert");
+                        frmOTTOPro.UpdateStatus("'" + ObjEProject.ProjectNumber + "'" + "Die Projektangaben wurden erfolgreich gespeichert");
                     }
                     else
                     {
@@ -1702,7 +1702,7 @@ namespace OTTOPro
                         if (string.IsNullOrEmpty(txtSurchargeFrom.Text))
                             if (Utility._IsGermany == true)
                             {
-                                throw new Exception("Diese Position kann nicht angelegt werden ohne Angabe fÃ¼r das VON und ZU.");
+                                throw new Exception("Diese Position kann nicht angelegt werden ohne folgende Angaben: VON und ZU.");
                             }
                             else
                             {
@@ -3648,7 +3648,7 @@ namespace OTTOPro
                     {
                         if (Utility._IsGermany == true)
                         {
-                            strConfirmation = XtraMessageBox.Show("Wollen Sie die LV Position " + Pos + " wirklich löschen.?", "Bestätigung!", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
+                            strConfirmation = XtraMessageBox.Show("Wollen Sie die LV Position" + Pos + "wirklich löschen?", "Bestätigung!", MessageBoxButtons.YesNo, MessageBoxIcon.Question).ToString();
                         }
                         else
                         {
@@ -5385,7 +5385,7 @@ namespace OTTOPro
                 ObjEMulti = ObjBMulti.UpdateMulti5(ObjEMulti);
                 if (Utility._IsGermany == true)
                 {
-                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen:Speichern der Selbstkosten");
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Selbstkosten");
                 }
                 else
                 {
@@ -10050,10 +10050,10 @@ namespace OTTOPro
 
                 string strPath = ObjBProject.GetPath();
                 if (string.IsNullOrEmpty(strPath))
-                    throw new Exception("CoverSheet path does not exists");
+                    throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
 
                 if (!Directory.Exists(strPath))
-                    throw new Exception("Invalid Coversheet Path");
+                    throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
 
                 string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Rechnung.Docx";
                 if (!File.Exists(strFileName))
@@ -10111,10 +10111,10 @@ namespace OTTOPro
 
                 string strPath = ObjBProject.GetPath();
                 if (string.IsNullOrEmpty(strPath))
-                    throw new Exception("CoverSheet path does not exists");
+                    throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
 
                 if (!Directory.Exists(strPath))
-                    throw new Exception("Invalid Coversheet Path");
+                    throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
 
                 string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Aufmass.Docx";
                 if (!File.Exists(strFileName))
@@ -10172,9 +10172,9 @@ namespace OTTOPro
 
                 string strPath = ObjBProject.GetPath();
                 if (string.IsNullOrEmpty(strPath))
-                    throw new Exception("CoverSheet path does not exists");
+                    throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
                 if (!Directory.Exists(strPath))
-                    throw new Exception("Invalid Coversheet Path");
+                    throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
 
                 string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Angebot.Docx";
                 if (!File.Exists(strFileName))

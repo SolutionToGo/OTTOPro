@@ -14,7 +14,7 @@ Public Class GKSRVApp
             If InitFiles(ImportFile, OutputFile, ProductFile, ClientFile, LicenseKey) = False Then Exit Function
 
             If InitDLL() = False Then
-                MsgBox("Es ist ein Fehler bei der dll-Initialisierung aufgetreten", vbCritical + vbOKOnly)
+                MsgBox("Es ist ein Fehler bei der Initialisierung der Bibliothek aufgetreten", vbCritical + vbOKOnly)
                 Exit Function
             End If
 

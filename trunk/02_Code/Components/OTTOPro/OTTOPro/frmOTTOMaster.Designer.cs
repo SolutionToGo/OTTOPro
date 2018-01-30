@@ -585,7 +585,7 @@
             this.txtShortName.StyleController = this.layoutControl2;
             this.txtShortName.TabIndex = 1;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Bitte eingeben Kurz Name";
+            conditionValidationRule1.ErrorText = "Bitte eingeben: Kurzname";
             this.dxValidationProviderShortName.SetValidationRule(this.txtShortName, conditionValidationRule1);
             // 
             // txtFullName
@@ -601,7 +601,7 @@
             this.txtFullName.StyleController = this.layoutControl2;
             this.txtFullName.TabIndex = 0;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Bitte eingeben Vollständiger Name";
+            conditionValidationRule2.ErrorText = "Bitte eingeben: Vollständiger Name";
             this.dxValidationProviderFullName.SetValidationRule(this.txtFullName, conditionValidationRule2);
             // 
             // layoutControlGroup2
@@ -800,7 +800,7 @@
             this.txtContactPerson.StyleController = this.layoutControl3;
             this.txtContactPerson.TabIndex = 4;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Bitte eingeben Name";
+            conditionValidationRule3.ErrorText = "Bitte eingeben: Name";
             this.dxValidationProviderContName.SetValidationRule(this.txtContactPerson, conditionValidationRule3);
             // 
             // layoutControlGroup3

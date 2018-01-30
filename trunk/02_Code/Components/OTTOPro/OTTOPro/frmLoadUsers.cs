@@ -276,7 +276,7 @@ namespace OTTOPro
                     ObjEUserInfo = ObjBUserInfo.ResetPassword(ObjEUserInfo);
                     if (Utility._IsGermany == true)
                     {
-                        Utility.ShowSucces("Rücksetzen des Passwortes erfolgt");
+                        Utility.ShowSucces("Vorgang abgeschlossen: Rücksetzen des Passwortes");
                     }
                     else
                     {

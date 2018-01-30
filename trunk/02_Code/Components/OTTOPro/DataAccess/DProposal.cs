@@ -109,7 +109,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der daten");
+                    throw new Exception("Fehler beim Laden der Daten");
                 }
                 else
                 {
@@ -145,7 +145,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der daten");
+                    throw new Exception("Fehler beim Laden der Daten");
                 }
                 else
                 {

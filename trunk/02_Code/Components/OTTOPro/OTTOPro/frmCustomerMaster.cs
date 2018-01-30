@@ -146,12 +146,12 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(txtCustFullName.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Vollständiger Name");
+                    throw new Exception("Bitte eingeben: Vollständiger Name");
                 }
                 if (string.IsNullOrEmpty(txtCustShortName.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Kurz Name");
+                    throw new Exception("Bitte eingeben: Kurzname");
                 }
                // ValidatControls();
                 //if (_isValidate==true)
@@ -182,7 +182,7 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(txtContactName.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Name");
+                    throw new Exception("Bitte eingeben: Name");
                 }  
                 bool isvalidName = dxValidationProviderContactName.Validate(txtContactName);
                 if (!isvalidName)
@@ -219,7 +219,7 @@ namespace OTTOPro
                 if (string.IsNullOrEmpty(txtAddShortName.Text.Trim()))
                 {
                     _isValidate = false;
-                    throw new Exception("Bitte eingeben Name");
+                    throw new Exception("Bitte eingeben: Name");
                 }     
 
                 bool isvalidName = dxValidationProviderAddShortName.Validate(txtAddShortName);

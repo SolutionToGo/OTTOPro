@@ -85,7 +85,7 @@ namespace OTTOPro
                 {
                     if (Utility._IsGermany == true)
                     {
-                        throw new Exception("Bitte wählen Sie OTTO Detailinformationen");
+                        throw new Exception("Bitte wählen Sie die Otto Detaildaten");
                     }
                     else
                     {

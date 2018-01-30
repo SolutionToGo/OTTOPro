@@ -113,14 +113,14 @@ namespace DataAccess
                             if (ObjReturn.ToString().Contains("already"))
                             {
                                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                                    throw new Exception("Die Position ist bereits im ausgewählten Projekt vorhanden!.");
+                                    throw new Exception("Die Position ist bereits im ausgewählten Projekt vorhanden!");
                                 else
                                     throw new Exception("Position is already exists under selected project.");
                             }
                             if (ObjReturn.ToString().Contains("titles"))
                             {
                                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                                    throw new Exception("Die Position ist bereits im ausgewählten Projekt vorhanden!.");
+                                    throw new Exception("Die Position ist bereits im ausgewählten Projekt vorhanden!");
                                 else
                                     throw new Exception("Selected positions titles are not matching");
                             }
@@ -190,7 +190,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der Sections");
+                    throw new Exception("Fehler beim Laden der LV Sektion");
                 }
                 else
                 {

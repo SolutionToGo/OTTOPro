@@ -33,7 +33,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("Fehler beim Laden der Positions");
+                    throw new Exception("Fehler beim Laden der LV Position");
                 else
                     throw new Exception("Error While Retrieving the Positions");
             }
@@ -82,7 +82,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (ex.Message.Contains("UNIQUE"))
-                    throw new Exception("Diese BLATT Nummer wurde bereits vergeben, bitte machen Sie eine neue Angabe.");
+                    throw new Exception("Diese BLATT Nummer wurde bereits vergeben. Bitte machen Sie eine neue Angabe.");
                 else if 
                     (ex.Message.Contains("Valid"))
                     throw new Exception("Bitte machen Sie gültige Mengenangaben für alle Positionen");
@@ -219,7 +219,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("Fehler beim Laden der Positions");
+                    throw new Exception("Fehler beim Laden der LV Position");
                 else
                     throw new Exception("Error While Retrieving the Positions");
             }

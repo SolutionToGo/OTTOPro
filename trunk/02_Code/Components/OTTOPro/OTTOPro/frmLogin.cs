@@ -106,7 +106,7 @@ namespace OTTOPro
                    }
                 }
                 else
-                throw new Exception("No Features Assigned For Selected User");
+                    throw new Exception("Für den ausgewählten Nutzer wurden keine Berechtigungsangaben vorgenommen");
                     
                 this.Hide();
                 frmOTTOPro.Instance.ShowDialog();

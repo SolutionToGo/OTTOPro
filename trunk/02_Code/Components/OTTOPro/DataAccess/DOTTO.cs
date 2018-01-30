@@ -81,7 +81,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der Daten zu OTTO");
+                    throw new Exception("Fehler beim Laden der daten zu OTTO");
                 }
                 else
                 {

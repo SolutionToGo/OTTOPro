@@ -67,14 +67,14 @@ namespace DAL
                         else if (returnObj.ToString().Contains("ComissionNumber"))
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                                throw new Exception("Kommission Nummer existiert bereits");
+                                throw new Exception("Die eingegebene Kommissions-Nummer existiert bereits");
                             else
                                 throw new Exception("ComissionNumber Already Exists");
                         }
                         else if (returnObj.ToString().Contains("RasterError"))
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                                throw new Exception("Operation not Possible with Old Raster");
+                                throw new Exception("Diese Funktion ist nicht möglich mit dem alten Raster");
                             else
                                 throw new Exception("Operation not Possible with Old Raster");
                         }
@@ -477,7 +477,7 @@ namespace DAL
                     object returnObj = cmd.ExecuteScalar();
                     string strReturn = Convert.ToString(returnObj);
                     if (!string.IsNullOrEmpty(strReturn))
-                        throw new Exception("Error While Deleting Project");
+                        throw new Exception("Fehler beim Löschen des Projektes");
                 }
             }
             catch (Exception ex)
@@ -513,7 +513,7 @@ namespace DAL
                                 throw new Exception("Project Nr Already Exists");
                         }
                         else
-                            throw new Exception("Error While Copying Project");
+                            throw new Exception("Fehler beim Kopieren des Projektes");
                     }
                 }
             }

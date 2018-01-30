@@ -124,7 +124,7 @@ namespace OTTOPro
                 ObjEArticle = ObjBArticle.SaveTyp(ObjEArticle);
                 iValue = ObjEArticle.TypID;
                 BindTypeData();
-                frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern des Typ");
+                frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern von TYP");
                 Utility.Setfocus(gvTyp, "TypID", iValue);
                 txtTyp.Text = string.Empty;
                 ObjEArticle.TypID = -1;

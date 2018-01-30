@@ -193,7 +193,7 @@ namespace DataAccess
                        {
                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                            {
-                               throw new Exception("Dieser daten existiert bereits");
+                               throw new Exception("Dieser Datensatz existiert bereits.");
                            }
                            else
                            {
@@ -281,7 +281,7 @@ namespace DataAccess
                        {
                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                            {
-                               throw new Exception("Diese Typ existiert bereits");
+                               throw new Exception("Dieser TYP existiert bereits.");
                            }
                            else
                            {
@@ -497,7 +497,7 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("Fehler bei der Datenaktualisierung für Accessories");
+                   throw new Exception("Fehler bei der Datenaktualisierung für Zubehör");
                else
                    throw new Exception("Error While Retrieving the Accessories");
            }
@@ -535,7 +535,7 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("Fehler bei der Datenaktualisierung für Accessories");
+                   throw new Exception("Fehler bei der Datenaktualisierung für Zubehör");
                else
                    throw new Exception("Error While Retrieving the Accessories");
            }
@@ -742,7 +742,7 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("Fehler bei der Datenaktualisierung für datum");
+                   throw new Exception("Fehler bei der Datenaktualisierung für Datum");
                else
                    throw new Exception("Error While Retrieving ValidityDate");
            }
@@ -774,7 +774,7 @@ namespace DataAccess
            catch (Exception ex)
            {
                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("Fehler bei der Datenaktualisierung für datum");
+                   throw new Exception("Fehler bei der Datenaktualisierung für Datum");
                else
                    throw new Exception("Error While Retrieving ValidityDate");
            }
@@ -845,7 +845,7 @@ namespace DataAccess
                        {
                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                            {
-                               throw new Exception("Diese Typ existiert bereits");
+                               throw new Exception("Dieser TYP existiert bereits.");
                            }
                            else
                            {

@@ -71,7 +71,7 @@ namespace OTTOPro
                     ObjESupplier = ObjBSupplier.CheckSupplierArticle(ObjESupplier);
                     if (!string.IsNullOrEmpty(ObjESupplier.strArticleExists))
                     {
-                        var _result = XtraMessageBox.Show("Der Artikel gehört nicht zum ausgewählten Lieferant, wollen Sie es dennoch hinzufügen?", "Bestätigen..?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        var _result = XtraMessageBox.Show("Der Artikel gehört nicht zum ausgewählten Lieferant, wollen Sie ihn dennoch hinzufügen?", "Bestätigen..?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                         if (Convert.ToString(_result).ToLower() == "ok")
                             ObjBSupplier.SaveArticle(ObjESupplier);
                         else
@@ -79,7 +79,7 @@ namespace OTTOPro
                     }
                     if(!string.IsNullOrEmpty(ObjESupplier.strSupplierExists))
                     {
-                        var _result = XtraMessageBox.Show("Für diesen Lieferanten existiert bereits ein Angebot. Wollen Sie ein weiteres Angebot hinzufügen?", "Bestätigen..?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                        var _result = XtraMessageBox.Show("Für diesen Lieferanten existiert bereits ein Preisangebot. Wollen Sie ein weiteres Preisangebot hinzufügen?", "Bestätigen..?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                         if (Convert.ToString(_result).ToLower() != "ok")
                             return;
                     }
@@ -87,7 +87,7 @@ namespace OTTOPro
                     this.Close();
                 }
                 else
-                    throw new Exception("Please select the supplier to be added");
+                    throw new Exception("Bitte wählen Sie den Lieferanten, der hinzugefügt werden soll");
             }
             catch (Exception ex)
             {

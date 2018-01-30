@@ -274,7 +274,7 @@ namespace OTTOPro
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Datenimport langtext");
+                    throw new Exception("Fehler beim Datenimport des Langtext");
                 }
                 else
                 {
@@ -295,7 +295,7 @@ namespace OTTOPro
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Datenimport langtext");
+                    throw new Exception("Fehler beim Datenimport des Langtext");
                 }
                 else
                 {

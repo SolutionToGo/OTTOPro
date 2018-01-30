@@ -186,7 +186,7 @@ namespace OTTOPro
                 }
                 else
                 {
-                    throw new Exception("Bitte geben Sie einen zulässig Wert an für WG");
+                    throw new Exception("Bitte geben Sie einen zulässigen Wert an für WG");
                 }
                 
             }
@@ -202,7 +202,7 @@ namespace OTTOPro
                 }
                 else
                 {
-                    throw new Exception("Bitte geben Sie einen zulässig Wert an für WA");
+                    throw new Exception("Bitte geben Sie einen zulässigen Wert an für WA");
                 }
             }
                 
@@ -426,7 +426,7 @@ namespace OTTOPro
                 if (gvDimensions.RowCount == 0)
                     return;
                 if (_IsSaveDimension)
-                    throw new Exception("Bitte Speichern der Maße");
+                    throw new Exception("Bitte speichern Sie die Maße");
                 frmSaveDimension Obj = new frmSaveDimension("Dimension","");
                 Obj.ObjEArticle = ObjEArticle;
                 Obj.ObjBArticle = ObjBArticle;

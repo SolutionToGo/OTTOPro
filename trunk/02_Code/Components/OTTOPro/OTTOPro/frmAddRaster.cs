@@ -127,7 +127,7 @@ namespace OTTOPro
                     if (Utility._IsGermany == true)
                     {
                         _isValidate = false;
-                        throw new Exception("Geben Sie den gültigen Wert ein");
+                        throw new Exception("Bitte machen Sie gültige Angaben");
                     }
                     else
                     {

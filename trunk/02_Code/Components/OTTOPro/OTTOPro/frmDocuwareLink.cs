@@ -186,7 +186,7 @@ namespace OTTOPro
             {
                 if (txtLink1.Text == "")
                 {
-                    MessageBox.Show("There is no file");
+                    MessageBox.Show("Es konnte keine Datei gefunden werden");
                     return;
                 }
                 else
@@ -196,7 +196,7 @@ namespace OTTOPro
             }
             catch (Exception)
             {
-                MessageBox.Show("Can not find specified file");
+                MessageBox.Show("Die angegebene Datei konnte nicht gefunden werden");
                 return;
             }
         }
@@ -207,7 +207,7 @@ namespace OTTOPro
             {
                 if (txtLink2.Text == "")
                 {
-                    MessageBox.Show("There is no file");
+                    MessageBox.Show("Es konnte keine Datei gefunden werden");
                     return;
                 }
                 else
@@ -217,7 +217,7 @@ namespace OTTOPro
             }
             catch (Exception)
             {
-                MessageBox.Show("Can not find specified file");
+                MessageBox.Show("Die angegebene Datei konnte nicht gefunden werden");
                 return;
             }
         }
@@ -228,7 +228,7 @@ namespace OTTOPro
             {
                 if (txtLink3.Text == "")
                 {
-                    MessageBox.Show("There is no file");
+                    MessageBox.Show("Es konnte keine Datei gefunden werden");
                     return;
                 }
                 else
@@ -238,7 +238,7 @@ namespace OTTOPro
             }
             catch (Exception)
             {
-                MessageBox.Show("Can not find specified file");
+                MessageBox.Show("Die angegebene Datei konnte nicht gefunden werden");
                 return;
             }
         }

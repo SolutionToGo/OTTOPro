@@ -479,7 +479,7 @@
             this.txtCustShortName.StyleController = this.layoutControl2;
             this.txtCustShortName.TabIndex = 1;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Bitte eingeben Kurz Name";
+            conditionValidationRule1.ErrorText = "Bitte eingeben: Kurzname";
             this.dxValidationProviderCustShortName.SetValidationRule(this.txtCustShortName, conditionValidationRule1);
             this.txtCustShortName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustShortName_KeyPress);
             // 
@@ -712,7 +712,7 @@
             this.txtContactName.StyleController = this.layoutControl3;
             this.txtContactName.TabIndex = 5;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Bitte eingeben Name";
+            conditionValidationRule2.ErrorText = "Bitte eingeben: Name";
             this.dxValidationProviderContactName.SetValidationRule(this.txtContactName, conditionValidationRule2);
             // 
             // layoutControlGroup3
@@ -897,7 +897,7 @@
             this.txtAddShortName.StyleController = this.layoutControl4;
             this.txtAddShortName.TabIndex = 4;
             conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Bitte eingeben Name";
+            conditionValidationRule3.ErrorText = "Bitte eingeben: Name";
             this.dxValidationProviderAddShortName.SetValidationRule(this.txtAddShortName, conditionValidationRule3);
             // 
             // layoutControlGroup4

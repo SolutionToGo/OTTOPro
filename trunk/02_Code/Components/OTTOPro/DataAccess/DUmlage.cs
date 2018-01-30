@@ -100,7 +100,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der umlage");
+                    throw new Exception("Fehler beim Laden der Umlage");
                 }
                 else
                 {

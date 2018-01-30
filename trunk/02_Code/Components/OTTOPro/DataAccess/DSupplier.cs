@@ -286,7 +286,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der daten");
+                    throw new Exception("Fehler beim Laden der Daten");
                 }
                 else
                 {
@@ -322,7 +322,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der daten");
+                    throw new Exception("Fehler beim Laden der Daten");
                 }
                 else
                 {
@@ -375,14 +375,14 @@ namespace DataAccess
                 if (ex.Message.Contains("Cannot"))
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        throw new Exception("Cannot send proposal to more than 8 suppliers");
+                        throw new Exception("Die Preisanfrage ist auf 8 Lieferanten begrenzt");
                     else
                         throw new Exception("Cannot send proposal to more than 8 suppliers");
                 }
                 else
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        throw new Exception("Fehler beim Laden der daten");
+                        throw new Exception("Fehler beim Laden der Daten");
                     else
                         throw new Exception("Error occured while saving suplier proposal");
                 }
@@ -419,7 +419,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der daten");
+                    throw new Exception("Fehler beim Laden der Daten");
                 }
                 else
                 {
@@ -458,7 +458,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Laden der Positions");
+                    throw new Exception("Fehler beim Laden der LV Position");
                 }
                 else
                 {
@@ -636,7 +636,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Fehler beim Laden der daten");
+                throw new Exception("Fehler beim Laden der Daten");
             }
             finally
             {
@@ -678,7 +678,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                throw new Exception("Fehler beim Laden der daten");
+                throw new Exception("Fehler beim Laden der Daten");
             }
             finally
             {
@@ -719,14 +719,14 @@ namespace DataAccess
                 if (ex.Message.Contains("Cannot"))
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        throw new Exception("Cannot send proposal to more than 8 suppliers");
+                        throw new Exception("Die Preisanfrage ist auf 8 Lieferanten begrenzt");
                     else
                         throw new Exception("Cannot send proposal to more than 8 suppliers");
                 }
                 else
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        throw new Exception("Fehler beim Laden der daten");
+                        throw new Exception("Fehler beim Laden der Daten");
                     else
                         throw new Exception("Error Occured While Retreiving records");
                 }
@@ -762,7 +762,7 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("Fehler beim Löschen der Artikle");
+                    throw new Exception("Fehler beim Löschen des Artikels");
                 else
                     throw new Exception("Error while Deleting Article");
             }

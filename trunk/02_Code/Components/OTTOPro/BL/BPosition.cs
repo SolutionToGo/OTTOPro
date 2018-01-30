@@ -241,7 +241,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw new Exception("Error while preparing OZ");
+                throw new Exception("Fehler bei der Erstellung der Ordnungskennzahlen (OZ)");
             }
         }
 
