@@ -251,6 +251,24 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }
         }
+
+        private void xrRichText1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                XRRichText richText = (XRRichText)sender;
+                using (DevExpress.XtraRichEdit.RichEditDocumentServer docServer = new DevExpress.XtraRichEdit.RichEditDocumentServer())
+                {
+                    docServer.RtfText = richText.Rtf;
+                    docServer.Document.DefaultCharacterProperties.Bold = true;
+                    richText.Rtf = docServer.RtfText;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
             
              
       

@@ -781,7 +781,7 @@
             // xrLabel43
             // 
             this.xrLabel43.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel43.ForeColor = System.Drawing.Color.Maroon;
+            this.xrLabel43.ForeColor = System.Drawing.Color.Black;
             this.xrLabel43.LocationFloat = new DevExpress.Utils.PointFloat(512.2336F, 0F);
             this.xrLabel43.Name = "xrLabel43";
             this.xrLabel43.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -797,7 +797,7 @@
             this.xrLabel42.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", this.sqlDataSource3, "P_Rpt_InvoiceDetails(@InvoiceID).FinalGB")});
             this.xrLabel42.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel42.ForeColor = System.Drawing.Color.Maroon;
+            this.xrLabel42.ForeColor = System.Drawing.Color.Black;
             this.xrLabel42.LocationFloat = new DevExpress.Utils.PointFloat(582.2324F, 0F);
             this.xrLabel42.Name = "xrLabel42";
             this.xrLabel42.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -862,7 +862,7 @@
             this.xrLabel25.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_InvoiceDetails(@InvoiceID).FinalGB")});
             this.xrLabel25.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
-            this.xrLabel25.ForeColor = System.Drawing.Color.Maroon;
+            this.xrLabel25.ForeColor = System.Drawing.Color.Black;
             this.xrLabel25.LocationFloat = new DevExpress.Utils.PointFloat(584.0577F, 7.499949F);
             this.xrLabel25.Name = "xrLabel25";
             this.xrLabel25.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
@@ -891,7 +891,7 @@
             // 
             // xrLine1
             // 
-            this.xrLine1.ForeColor = System.Drawing.Color.Maroon;
+            this.xrLine1.ForeColor = System.Drawing.Color.Black;
             this.xrLine1.LocationFloat = new DevExpress.Utils.PointFloat(0.3270944F, 36.04164F);
             this.xrLine1.Name = "xrLine1";
             this.xrLine1.SizeF = new System.Drawing.SizeF(715.673F, 5.08334F);
@@ -899,7 +899,7 @@
             // 
             // xrLine2
             // 
-            this.xrLine2.ForeColor = System.Drawing.Color.Maroon;
+            this.xrLine2.ForeColor = System.Drawing.Color.Black;
             this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0.3270944F, 2.416611F);
             this.xrLine2.Name = "xrLine2";
             this.xrLine2.SizeF = new System.Drawing.SizeF(715.6729F, 5.083338F);

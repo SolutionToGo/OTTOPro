@@ -5,6 +5,8 @@ using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using DAL;
 using System.Data;
+using DevExpress.XtraRichEdit;
+using DevExpress.XtraRichEdit.API.Native;
 
 namespace OTTOPro.Report_Design
 {
@@ -251,7 +253,27 @@ namespace OTTOPro.Report_Design
             {
                 Utility.ShowError(ex);
             }
-        }        
+        }
+
+        private void xrRichText4_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                XRRichText richText = (XRRichText)sender;
+                using (DevExpress.XtraRichEdit.RichEditDocumentServer docServer = new DevExpress.XtraRichEdit.RichEditDocumentServer())
+                {
+                    docServer.RtfText = richText.Rtf;
+                    docServer.Document.DefaultCharacterProperties.Bold = true;
+                    richText.Rtf = docServer.RtfText;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        
 
     }
 }
