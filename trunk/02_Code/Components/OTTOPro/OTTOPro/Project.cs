@@ -582,7 +582,7 @@ namespace OTTOPro
                     txtLVSprunge.Text = "10";
                     txtInternS.Text = "1";
                     txtInternX.Text = "1";
-                    txtMWST.Text = "1";
+                    txtMWST.Text = "19";
                     dtpSubmitDate.DateTime = DateTime.Now;
                     dtpProjectStartDate.DateTime = DateTime.Now;
                     dtpProjectEndDate.DateTime = DateTime.Now;
@@ -7145,7 +7145,7 @@ namespace OTTOPro
         private void btnSendEmail_Click(object sender, EventArgs e)
         {
             StringBuilder strArr = new StringBuilder();
-            string delimiter = "";
+            string delimiter = "";            
             try
             {
                 Type officeType = Type.GetTypeFromProgID("Outlook.Application");
@@ -7168,34 +7168,24 @@ namespace OTTOPro
                     {
                         rpt.ExportToPdf(saveFileDialog1.FileName);
                         _pdfpath = saveFileDialog1.FileName;
-                    }
-
-                    Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-                    Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+                    }                    
 
                     ObjBSupplier.GetSupplierMail(ObjESupplier, _ProposalID, ObjEProject.ProjectID);
                     if (ObjESupplier.dtSupplierMail.Rows.Count > 0)
                     {
                         foreach (DataRow dr in ObjESupplier.dtSupplierMail.Rows)
                         {
+                            Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                            Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
-                            if (!string.IsNullOrEmpty(Convert.ToString(dr["Suppliermail"]).Trim()))
-                            {
-                                strArr.Append(delimiter);
-                                strArr.Append(dr["Suppliermail"]);
-                                delimiter = ";";
-                            }
-                        }
-                        if (strArr.ToString().Contains('@'))
-                        {
                             mailItem.Subject = "Preisanfrage";
-                            mailItem.BCC = strArr.ToString();
+                            mailItem.BCC = dr["Suppliermail"].ToString();//strArr.ToString();
                             mailItem.Body = "Bitte stellen Sie uns für beigefügte Anfrage Ihr Preisangebot zur Verfügung";
 
                             mailItem.Attachments.Add(_pdfpath);
                             mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
                             mailItem.Display(false);
-                        }
+                       }
                     }
                 }
 

@@ -1145,7 +1145,7 @@
             this.bandedGridColumn24 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn25 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
             this.bandedGridColumn26 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-            this.repositoryItemTextEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.rpText = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.txtSurcharge_1_3 = new DevExpress.XtraEditors.TextEdit();
             this.txtsurcharge_1_2 = new DevExpress.XtraEditors.TextEdit();
             this.txtAmount = new DevExpress.XtraEditors.TextEdit();
@@ -1952,7 +1952,7 @@
             this.layoutControl28.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gc221_2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgv221_2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpText)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurcharge_1_3.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsurcharge_1_2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).BeginInit();
@@ -15861,7 +15861,7 @@
             this.gc221_2.MenuManager = this.barManager1;
             this.gc221_2.Name = "gc221_2";
             this.gc221_2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemTextEdit8});
+            this.rpText});
             this.gc221_2.Size = new System.Drawing.Size(672, 162);
             this.gc221_2.TabIndex = 8;
             this.gc221_2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -15983,6 +15983,7 @@
             // 
             this.bandedGridColumn22.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn22.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bandedGridColumn22.ColumnEdit = this.rpText;
             this.bandedGridColumn22.FieldName = "Lohn";
             this.bandedGridColumn22.Name = "bandedGridColumn22";
             this.bandedGridColumn22.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -15994,6 +15995,7 @@
             // 
             this.bandedGridColumn23.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn23.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bandedGridColumn23.ColumnEdit = this.rpText;
             this.bandedGridColumn23.FieldName = "Stoffksten";
             this.bandedGridColumn23.Name = "bandedGridColumn23";
             this.bandedGridColumn23.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -16005,6 +16007,7 @@
             // 
             this.bandedGridColumn24.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn24.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bandedGridColumn24.ColumnEdit = this.rpText;
             this.bandedGridColumn24.FieldName = "Geratekpsten";
             this.bandedGridColumn24.Name = "bandedGridColumn24";
             this.bandedGridColumn24.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -16016,6 +16019,7 @@
             // 
             this.bandedGridColumn25.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn25.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bandedGridColumn25.ColumnEdit = this.rpText;
             this.bandedGridColumn25.FieldName = "SonstigeKosten";
             this.bandedGridColumn25.Name = "bandedGridColumn25";
             this.bandedGridColumn25.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -16027,6 +16031,7 @@
             // 
             this.bandedGridColumn26.AppearanceHeader.Options.UseTextOptions = true;
             this.bandedGridColumn26.AppearanceHeader.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+            this.bandedGridColumn26.ColumnEdit = this.rpText;
             this.bandedGridColumn26.FieldName = "Nachunternehmerleistungen";
             this.bandedGridColumn26.Name = "bandedGridColumn26";
             this.bandedGridColumn26.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
@@ -16034,15 +16039,15 @@
             this.bandedGridColumn26.Visible = true;
             this.bandedGridColumn26.Width = 72;
             // 
-            // repositoryItemTextEdit8
+            // rpText
             // 
-            this.repositoryItemTextEdit8.AutoHeight = false;
-            this.repositoryItemTextEdit8.Mask.EditMask = "n2";
-            this.repositoryItemTextEdit8.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.repositoryItemTextEdit8.Mask.ShowPlaceHolders = false;
-            this.repositoryItemTextEdit8.Mask.UseMaskAsDisplayFormat = true;
-            this.repositoryItemTextEdit8.MaxLength = 8;
-            this.repositoryItemTextEdit8.Name = "repositoryItemTextEdit8";
+            this.rpText.AutoHeight = false;
+            this.rpText.Mask.EditMask = "n2";
+            this.rpText.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpText.Mask.ShowPlaceHolders = false;
+            this.rpText.Mask.UseMaskAsDisplayFormat = true;
+            this.rpText.MaxLength = 8;
+            this.rpText.Name = "rpText";
             // 
             // txtSurcharge_1_3
             // 
@@ -17134,7 +17139,7 @@
             this.layoutControl28.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gc221_2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bgv221_2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTextEdit8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpText)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSurcharge_1_3.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtsurcharge_1_2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtAmount.Properties)).EndInit();
@@ -18263,7 +18268,7 @@
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn24;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn25;
         private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn bandedGridColumn26;
-        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit8;
+        private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit rpText;
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup36;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem247;
         private DevExpress.XtraEditors.TextEdit txtDiscount;
