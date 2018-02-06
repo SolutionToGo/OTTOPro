@@ -108,5 +108,20 @@ namespace BL
                 throw;
             }
         }
+
+        public void DeleteTextModuleAreas(EProposal ObjEProposal,int ID)
+        {
+            try
+            {
+                if (ObjEProposal != null)
+                {
+                    ObjEProposal.dsTextModuleAreas = ObjDProposal.DeleteTextModuleAreas(ObjEProposal,ID);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

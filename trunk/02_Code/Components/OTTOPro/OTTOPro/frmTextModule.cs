@@ -95,7 +95,11 @@ namespace OTTOPro
             {
                 if (cmbCategory.Text == "")
                 {
-                    throw new Exception("Please select Category");
+                    throw new Exception("Bitte wähle Kategorie");
+                }
+                if (string.IsNullOrEmpty(richEditControlContent.Text))
+                {
+                    throw new Exception("Bitte wähle Inhalt");
                 }
                 if (ObjEProposal == null)
                     ObjEProposal = new EProposal();
@@ -225,6 +229,8 @@ namespace OTTOPro
 
                         if (_CategoryID > 0)
                         {
+                            ObjEProposal = new EProposal();
+                            ObjEProposal.TextID = -1;
                             gcContentDetails.DataSource = null;
                             richEditControlContent.Text = "";
                             ObjBProposal.GetTextModuleAreas(ObjEProposal);
@@ -401,5 +407,47 @@ namespace OTTOPro
         }
 
         #endregion
+
+        private void gvContentDetails_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteContent_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteContent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvContentDetails.FocusedRowHandle != null)
+                {
+                        int IVlaue = 0;
+                        if (int.TryParse(Convert.ToString(gvContentDetails.GetFocusedRowCellValue("TextID")), out IVlaue))
+                        {
+                            if (ObjEProposal == null)
+                                ObjEProposal = new EProposal();
+                            ObjBProposal = new BProposal();
+                            ObjBProposal.DeleteTextModuleAreas(ObjEProposal,IVlaue);
+                            cmbCategory_SelectionChangeCommitted(null,null);
+
+                            gvContentDetails.FocusedRowHandle = IVlaue;
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+
     }
 }

@@ -159,5 +159,38 @@ namespace DataAccess
             }
             return dsCategory;
         }
+
+        public DataSet DeleteTextModuleAreas(EProposal ObjEProposal,int ID)
+        {
+            DataSet dsTextModuleAreas = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_TextModule]";
+                    cmd.Parameters.AddWithValue("@TextID", ID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Löschen der Daten");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While deleting the data");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dsTextModuleAreas;
+        }
     }
 }

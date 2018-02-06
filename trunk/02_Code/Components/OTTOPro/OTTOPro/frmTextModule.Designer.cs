@@ -204,6 +204,7 @@
             this.gvContentDetails.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvContentDetails.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvContentDetails.OptionsView.ShowGroupPanel = false;
+            this.gvContentDetails.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvContentDetails_PopupMenuShowing);
             this.gvContentDetails.DoubleClick += new System.EventHandler(this.gvContentDetails_DoubleClick);
             // 
             // gridColumn1
