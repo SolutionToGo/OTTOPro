@@ -109,7 +109,6 @@ namespace EL
         private DataTable _dtCopyOldLVs;
 
         private DataTable _dtDimensions;
-
         public DataTable dtCopyNewLVs
         {
             get { return _dtCopyNewLVs; }

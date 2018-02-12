@@ -636,11 +636,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(1054, 126);
+            this.label1.Location = new System.Drawing.Point(1024, 126);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(176, 17);
+            this.label1.Size = new System.Drawing.Size(206, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.3 (21-01-2018)";
+            this.label1.Text = "Version Software 9.5 (07-02-2018)";
             // 
             // fdImportFile
             // 

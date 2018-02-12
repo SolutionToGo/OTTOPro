@@ -48,6 +48,7 @@ namespace EL
         private int _UserID = -1;
         private int _DiscountID = -1;
         private int _DiscountPosID = -1;
+        private DataTable _dtDiscountList;
 
         public string FromOZ
         {
@@ -292,6 +293,11 @@ namespace EL
         {
             get { return _Status; }
             set { _Status = value; }
+        }
+        public DataTable dtDiscountList
+        {
+            get { return _dtDiscountList; }
+            set { _dtDiscountList = value; }
         }
     }
 }

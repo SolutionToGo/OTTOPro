@@ -323,6 +323,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@Discount", ObjEProject.Discount);
                     cmd.Parameters.AddWithValue("@UserID", ObjEProject.UserID);
                     cmd.Parameters.AddWithValue("@DiscountPosID", ObjEProject.DiscountPosID);
+                    cmd.Parameters.AddWithValue("@dtDiscountList", ObjEProject.dtDiscountList);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsDiscount);
@@ -344,10 +345,15 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    throw new Exception("Fehler beim Speichern des Nachlasses");
+                if (ex.Message.Contains("already"))
+                    throw new Exception(ex.Message);
                 else
-                    throw new Exception("Error Occured While Saving Discount");
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Speichern des Nachlasses");
+                    else
+                        throw new Exception("Error Occured While Saving Discount");
+                }
             }
             finally
             {

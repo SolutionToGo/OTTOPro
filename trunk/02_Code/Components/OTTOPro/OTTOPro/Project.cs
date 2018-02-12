@@ -2111,12 +2111,16 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(txtGrandTotalME.Text) && !string.IsNullOrEmpty(txtGrandTotalMO.Text))
                 {
+                    CalculateEP();
                     txtFinalGB.Text =
                         Convert.ToString(RoundValue((getDValue(txtGrandTotalME.Text) * getDValue(txtMenge.Text)))
                         + RoundValue(getDValue(txtGrandTotalMO.Text) * getDValue(txtMenge.Text)));
                 }
                 else
+                {
+                    txtEP.Text = "0";
                     txtFinalGB.Text = "0";
+                }
             }
             catch (Exception ex)
             {
@@ -2349,16 +2353,12 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtValue1ME.Text) &&
-                               !string.IsNullOrEmpty(txtValue2ME.Text) &&
-                               !string.IsNullOrEmpty(txtValue3ME.Text) &&
-                               !string.IsNullOrEmpty(txtValue4ME.Text)
+                if (!string.IsNullOrEmpty(txtGrundMultiME.Text) &&
+                               !string.IsNullOrEmpty(txtGrundMultiMO.Text)
                                )
                 {
-                    decimal EP = RoundValue(
-                        getDValue(txtVerkaufspreisValueME.Text)) +
-                       RoundValue(getDValue(txtVerkaufspreisValueMO.Text)
-                        );
+                    decimal EP = getDValue(txtGrandTotalME.Text) +
+                       getDValue(txtGrandTotalMO.Text);
                     txtEP.Text = EP.ToString();
                 }
             }
@@ -3187,7 +3187,6 @@ namespace OTTOPro
                 {
                     txtGrandTotalME.Text =
                         RoundValue(getDValue(txtVerkaufspreisValueME.Text)).ToString();
-                    CalculateEP();
                 }
                 else
                 {
@@ -3208,7 +3207,6 @@ namespace OTTOPro
                 {
                     txtGrandTotalMO.Text =
                         RoundValue(getDValue(txtVerkaufspreisValueMO.Text)).ToString();
-                    CalculateEP();
                 }
                 else
                 {
@@ -6999,11 +6997,21 @@ namespace OTTOPro
                         else
                             LVSection.Append("'" + strLVSection[i].Trim() + "',");
                     }
+                    IList<string> listName = new List<string>();
 
                     dvWGWA.RowFilter = "LVSection IN (" + LVSection.ToString() + ")";
-                    cmbWGWA.DataSource = dvWGWA;
+                    DataTable _dt = new DataTable();
+                    _dt = dvWGWA.ToTable();
+
+                    foreach (DataRow dr in _dt.Rows)
+                    {
+                        listName.Add(dr["WGWA"].ToString());
+                    }
+                    listName = listName.Distinct().ToList();
+
                     cmbWGWA.DisplayMember = "WGWA";
                     cmbWGWA.ValueMember = "WGWA";
+                    cmbWGWA.DataSource = listName;
                     cmbWGWA.SelectedIndex = -1;
                 }
             }
@@ -9947,6 +9955,7 @@ namespace OTTOPro
             }
         }
 
+        TreeListNode tlTemp = null;
         private void miAddDiscount_Click(object sender, EventArgs e)
         {
             try
@@ -9955,65 +9964,78 @@ namespace OTTOPro
                     ObjEProject = new EProject();
                 frmAddDiscount Obj = new frmAddDiscount(ObjEProject);
                 Obj.ShowDialog();
-                if (ObjBProject == null)
-                    ObjBProject = new BProject();
                 if (ObjEProject.IsSave)
                 {
+                    tlTemp = new TreeListNode();
+                    ObjEProject.IsSave = false;
+                    if (ObjBProject == null)
+                        ObjBProject = new BProject();
                     BindPositionData();
-
-                    if (ObjEPosition == null)
-                        ObjEPosition = new EPosition();
-                    ObjEPosition.ProjectID = ObjEProject.ProjectID;
-                    ObjEPosition.PositionID = -1;
-                    ObjEPosition.Surcharge_From = Utility.PrepareOZ(ObjEProject.FromOZ, ObjEProject.LVRaster);
-                    ObjEPosition.Surcharge_To = Utility.PrepareOZ(ObjEProject.ToOZ, ObjEProject.LVRaster);
+                    ObjEProject.FromOZ = Utility.PrepareOZ(ObjEProject.FromOZ, ObjEProject.LVRaster);
+                    ObjEProject.ToOZ = Utility.PrepareOZ(ObjEProject.ToOZ, ObjEProject.LVRaster);
+                    ObjEProject.UserID = Utility.UserID;
 
                     TreeListNode FromNode = tlPositions.FindNode((node) =>
                     {
-                        return node["Position_OZ"].ToString() == ObjEPosition.Surcharge_From;
+                        return node["Position_OZ"].ToString() == ObjEProject.FromOZ;
                     });
                     TreeListNode ToNode = tlPositions.FindNode((node) =>
                     {
-                        return node["Position_OZ"].ToString() == ObjEPosition.Surcharge_To;
+                        return node["Position_OZ"].ToString() == ObjEProject.ToOZ;
                     });
                     if (FromNode != null && ToNode != null)
                     {
-
-                        while (ToNode.HasChildren)
+                        if (FromNode.ParentNode == ToNode.ParentNode)
                         {
-                            ToNode = ToNode.LastNode;
-                        }
+                            ObjEProject.dtDiscountList = new DataTable();
+                            ObjEProject.dtDiscountList.Columns.Add("SNO", typeof(int));
+                            ObjEProject.dtDiscountList.Columns.Add("Surcharge_From", typeof(string));
+                            ObjEProject.dtDiscountList.Columns.Add("Surcharge_To", typeof(string));
+                            ObjEProject.dtDiscountList.Columns.Add("Parent_OZ", typeof(int));
+                            ObjEProject.dtDiscountList.Columns.Add("Position_OZ", typeof(string));
+                            ObjEProject.dtDiscountList.Columns.Add("PositionKZ", typeof(string));
+                            ObjEProject.dtDiscountList.Columns.Add("DetailKZ", typeof(int));
+                            ObjEProject.dtDiscountList.Columns.Add("LVSection", typeof(string));
+                            ObjEProject.dtDiscountList.Columns.Add("LVStatus", typeof(string));
+                            ObjEProject.dtDiscountList.Columns.Add("UserID", typeof(int));
+                            ObjEProject.dtDiscountList.Columns.Add("Discount", typeof(decimal));
+                            ObjEProject.dtDiscountList.Columns.Add("ME", typeof(string));
 
-                        if (ToNode.ParentNode != null)
-                        {
-                            int iValue = 0;
-                            string strTempParentOZ = Convert.ToString(ToNode.ParentNode["Position_OZ"]);
-                            string newOZ = strTempParentOZ + SuggestOZ(strTempParentOZ) + ".";
-                            if (int.TryParse(Convert.ToString(ToNode["SNO"]), out iValue))
-                                ObjEPosition.SNO = iValue;
+                            if (FromNode.ParentNode == null)
+                            {
+                                int FromNodeIndex = tlPositions.GetNodeIndex(FromNode);
+                                int ToNodeIndex = tlPositions.GetNodeIndex(ToNode);
+                                foreach (TreeListNode node in tlPositions.Nodes)
+                                {
+                                    int CurrentIndex = tlPositions.GetNodeIndex(node);
+                                    if (node != null && CurrentIndex >= FromNodeIndex && CurrentIndex <= ToNodeIndex)
+                                    {
+                                        ObjEProject = CollectTitlesForDiscount(node, ObjEProject);
+                                    }
+                                }
+                            }
                             else
-                                ObjEPosition.SNO = -1;
-                            ObjEPosition.Parent_OZ = strTempParentOZ;
-                            ObjEPosition.Position_OZ = newOZ;
-                            ObjEPosition.PositionKZ = "ZZ";
-                            ObjEPosition.DetailKZ = 0;
-                            ObjEPosition.LVSection = "HA";
-                            ObjEPosition.LVStatus = "B";
-                            ObjEPosition.UserID = Utility.UserID;
-                            ObjEPosition.Discount = ObjEProject.Discount;
-                            ObjEPosition.ME = "%";
-
-                            if (ObjBPosition == null)
-                                ObjBPosition = new BPosition();
-                            int NewpositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
-                            ObjEProject.DiscountPosID = NewpositionID;
-                            ObjEProject.FromOZ = ObjEPosition.Surcharge_From;
-                            ObjEProject.ToOZ = ObjEPosition.Surcharge_To;
-                            ObjEProject = ObjBProject.SaveDiscount(ObjEProject);
-                            gcDiscount.DataSource = ObjEProject.dtDiscount;
-                            Utility.Setfocus(gvDiscount, "DiscountID", ObjEProject.DiscountID);
-                            ObjEProject.IsSave = false;
+                            {
+                                int FromNodeIndex = tlPositions.GetNodeIndex(FromNode);
+                                int ToNodeIndex = tlPositions.GetNodeIndex(ToNode);
+                                foreach (TreeListNode node in FromNode.ParentNode.Nodes)
+                                {
+                                    int CurrentIndex = tlPositions.GetNodeIndex(node);
+                                    if (node != null && CurrentIndex >= FromNodeIndex && CurrentIndex <= ToNodeIndex)
+                                    {
+                                        ObjEProject = CollectTitlesForDiscount(node, ObjEProject);
+                                    }
+                                }
+                            }
+                            if (ObjEProject.dtDiscountList.Rows.Count > 0)
+                            {
+                                ObjEProject = ObjBProject.SaveDiscount(ObjEProject);
+                                gcDiscount.DataSource = ObjEProject.dtDiscount;
+                                Utility.Setfocus(gvDiscount, "DiscountID", ObjEProject.DiscountID);
+                            }
                         }
+                        else
+                            throw new Exception("Cannot Add Discount for Given From and To Titles");
                     }
                     else
                         throw new Exception("Von oder nach OZ existiert nicht..!!");
@@ -10023,7 +10045,61 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
+        }
 
+        private EProject CollectTitlesForDiscount(TreeListNode node, EProject ObjEProject)
+        {
+            try
+            {
+                if (node.HasChildren)
+                {
+                    foreach (TreeListNode tn in node.Nodes)
+                        ObjEProject = CollectTitlesForDiscount(tn, ObjEProject);
+                }
+                else
+                {
+                    TreeListNode ParentNode = node.ParentNode;
+                    if (tlTemp != ParentNode)
+                    {
+                        tlTemp = node.ParentNode;
+                        TreeListNode ToNode = ParentNode.LastNode;
+                        if (ToNode.ParentNode != null)
+                        {
+                            int iValue = 0;
+                            int ParentID = 0;
+                            string strTempParentOZ = Convert.ToString(ParentNode["Position_OZ"]);
+                            string newOZ = strTempParentOZ + SuggestOZ(strTempParentOZ) + ".";
+
+                            DataRow drnew = ObjEProject.dtDiscountList.NewRow();
+
+                            if (int.TryParse(Convert.ToString(node["Parent_OZ"]), out ParentID))
+                                drnew["Parent_OZ"] = ParentID;
+
+                            if (int.TryParse(Convert.ToString(ToNode["SNO"]), out iValue))
+                                drnew["SNO"] = iValue;
+                            else
+                                drnew["SNO"] = -1;
+
+                            drnew["Surcharge_From"] = strTempParentOZ;
+                            drnew["Surcharge_To"] = strTempParentOZ;
+                            drnew["Position_OZ"] = Utility.PrepareOZ(newOZ, ObjEProject.LVRaster);
+                            drnew["PositionKZ"] = "ZZ";
+                            drnew["DetailKZ"] = 0;
+                            drnew["LVSection"] = "HA";
+                            drnew["LVStatus"] = "B";
+                            drnew["UserID"] = Utility.UserID;
+                            drnew["Discount"] = ObjEProject.Discount;
+                            drnew["ME"] = "%";
+                            ObjEProject.dtDiscountList.Rows.Add(drnew);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
         }
         #endregion
 
