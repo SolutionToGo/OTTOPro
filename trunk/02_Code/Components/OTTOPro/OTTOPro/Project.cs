@@ -8955,6 +8955,8 @@ namespace OTTOPro
                             _ProposalID = _PrID;
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Spezifikationsdokument für Lieferantenanfrage generieren", btnGeneratePDF_Click));
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Email für Lieferantenanfrage generieren", btnSendEmail_Click));
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Export", btnSupplierProposalExport_Click));
+                            e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Import", btnSupplierProposalImport_Click));
                         }
                     }
                 }
