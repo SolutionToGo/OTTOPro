@@ -343,7 +343,15 @@ namespace DataAccess
                         if (int.TryParse(Convert.ToString(ObjReturn), out iValue))
                             ObjEGAEB.SupplierProposalID = iValue;
                         else
-                            throw new Exception(Convert.ToString(ObjReturn));
+                        {
+                            if (Convert.ToString(ObjReturn).Contains("Raster"))
+                                throw new Exception("Das ausgewählte Datei-Raster ist mit dem ausgewählten Projekt-Raster nicht kompatibel.");
+                            else
+                            {
+                                string strTemp = Convert.ToString(ObjReturn).Replace(",", "\n");
+                                throw new Exception(strTemp);
+                            }
+                        }
                     }
             }
             catch (Exception ex)
