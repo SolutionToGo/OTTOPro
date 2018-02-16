@@ -10573,6 +10573,126 @@ namespace OTTOPro
             }
         }
 
-        
+        private void btnSupplierProposalExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XmlDocument XMLDoc = null;
+                if (objBGAEB == null)
+                    objBGAEB = new BGAEB();
+                if (objEGAEB == null)
+                    objEGAEB = new EGAEB();
+                objEGAEB.ProjectID = ObjEProject.ProjectID;
+                objEGAEB.ProjectNumber = ObjEProject.ProjectNumber;
+                frmGAEBFormat Obj = new frmGAEBFormat(objEGAEB);
+                Obj.ShowDialog();
+                if (!string.IsNullOrEmpty(objEGAEB.FileFormat) && !string.IsNullOrEmpty(objEGAEB.FileNAme) && objEGAEB.IsSave)
+                {
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Exportieren...");
+                    objEGAEB.IsSave = false;
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
+                    {
+                        string strOTTOFilePath = objEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                        XMLDoc = objBGAEB.ExportSupplierproposal(IValue, _ProjectID, objEGAEB.FileFormat, ObjEProject.LVRaster, objEGAEB);
+                        if (!Directory.Exists(strOTTOFilePath))
+                            Directory.CreateDirectory(strOTTOFilePath);
+                        string strOutputFilePath = string.Empty;
+                        strOutputFilePath = objEGAEB.OutputPath + "\\" + objEGAEB.FileNAme + "." + objEGAEB.FileFormat;
+                        string strInputFilePath = strOTTOFilePath + objEGAEB.FileNAme + ".tml";
+                        XMLDoc.Save(strInputFilePath);
+                        Utility.ProcesssFile(strInputFilePath, strOutputFilePath);
+                        SplashScreenManager.CloseForm(false);
+                        if (File.Exists(strOutputFilePath))
+                            Process.Start("explorer.exe", "/select, \"" + strOutputFilePath + "\"");
+                    }
+                    else
+                        SplashScreenManager.CloseForm(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnSupplierProposalImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strFilePath = string.Empty;
+                OpenFileDialog dlg = new OpenFileDialog();
+
+                dlg.InitialDirectory = @"C:\";
+                dlg.Title = "Dateiauswahl für GAEB Import";
+
+                dlg.CheckFileExists = true;
+                dlg.CheckPathExists = true;
+
+                dlg.Filter = "GAEB Files(*.D84;*.P84;*.X84) | *.D84;*.P84;*.X84";
+                dlg.RestoreDirectory = true;
+
+                dlg.ReadOnlyChecked = true;
+                dlg.ShowReadOnly = true;
+                if (dlg.ShowDialog() == DialogResult.OK)
+                    strFilePath = dlg.FileName;
+                if (!string.IsNullOrEmpty(strFilePath))
+                {
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
+                    string strOutputFilepath = string.Empty;
+                    string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    if (!Directory.Exists(strOTTOFilePath))
+                        Directory.CreateDirectory(strOTTOFilePath);
+                    string strFileName = Path.GetFileNameWithoutExtension(strFilePath);
+                    strOutputFilepath = strOTTOFilePath + strFileName + ".tml";
+                    Utility.ProcesssFile(strFilePath, strOutputFilepath);
+                    SplashScreenManager.CloseForm(false);
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
+                    {
+                        if (objBGAEB == null)
+                            objBGAEB = new BGAEB();
+                        if (objEGAEB == null)
+                            objEGAEB = new EGAEB();
+                        objEGAEB.Supplier = Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("Supplier"));
+                        frmSelectsupplier Obj = new frmSelectsupplier(objEGAEB);
+                        Obj.ShowDialog();
+                        if (objEGAEB.IsSave)
+                        {
+                            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                            SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
+                            objEGAEB.IsSave = false;
+                            objEGAEB.UserID = Utility.UserID;
+                            string strRaster = Utility.GetRaster(strOutputFilepath);
+                            objEGAEB.dsLVData = Utility.CreateDatasetSchema(strOutputFilepath, string.Empty, strRaster, objEGAEB);
+                            objEGAEB.LvRaster = strRaster;
+                            objEGAEB.ProjectID = ObjEProject.ProjectID;
+                            objEGAEB.SupplierProposalID = IValue;
+                            DataTable dtTemp = objEGAEB.dsLVData.Tables[0].Copy();
+                            foreach (DataColumn dc in dtTemp.Columns)
+                            {
+                                if (dc.ColumnName != "OZ")
+                                {
+                                    if (dc.ColumnName != "EP")
+                                    {
+                                        objEGAEB.dsLVData.Tables[0].Columns.Remove(dc.ColumnName);
+                                    }
+                                }
+                            }
+                            objEGAEB = objBGAEB.SupplierProposalImport(objEGAEB);
+                            SplashScreenManager.CloseForm(false);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

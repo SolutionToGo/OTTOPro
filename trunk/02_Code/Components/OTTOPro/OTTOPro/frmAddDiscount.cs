@@ -25,8 +25,22 @@ namespace OTTOPro
         {
             try
             {
-                ObjEProject.FromOZ = txtFromOZ.Text.Replace(",",".");
-                ObjEProject.ToOZ = txtToOZ.Text.Replace(",",".");
+                if (txtFromOZ.Text.Length > 0)
+                {
+                    char cLastCharacter = txtFromOZ.Text[txtFromOZ.Text.Length - 1];
+                    if (cLastCharacter == '.')
+                        ObjEProject.FromOZ = txtFromOZ.Text.Replace(",", ".");
+                    else
+                        ObjEProject.FromOZ = txtFromOZ.Text.Replace(",", ".") + ".";
+                }
+                if (txtToOZ.Text.Length > 0)
+                {
+                    char cLastCharacter = txtToOZ.Text[txtFromOZ.Text.Length - 1];
+                    if (cLastCharacter == '.')
+                        ObjEProject.ToOZ = txtToOZ.Text.Replace(",", ".");
+                    else
+                        ObjEProject.ToOZ = txtToOZ.Text.Replace(",", ".") + ".";
+                }
                 decimal dValue = 0;
                 if (decimal.TryParse(txtDiscount.Text, out dValue))
                     ObjEProject.Discount = dValue;

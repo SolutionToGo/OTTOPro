@@ -24,6 +24,12 @@ namespace EL
         private DataSet _dsProject = null;
         private bool _IsSave = false;
         private string _DirPath = string.Empty;
+        private string _FileNAme = string.Empty;
+        private string _FileFormat = string.Empty;
+        private string _OutputPath = string.Empty;
+        private int _SupplierProposalID = -1;
+        private string _SupplierName = string.Empty;
+        private string _Supplier = string.Empty;
 
 
         public int ProjectID
@@ -36,13 +42,11 @@ namespace EL
             get { return _XMLDoc; }
             set { _XMLDoc = value; }
         }
-
         public string OldRaster
         {
             get { return _OldRaster; }
             set { _OldRaster = value; }
         }
-
         public string NewRaster
         {
             get { return _NewRaster; }
@@ -103,6 +107,36 @@ namespace EL
         {
             get { return _DirPath; }
             set { _DirPath = value; }
+        }
+        public string FileNAme
+        {
+            get { return _FileNAme; }
+            set { _FileNAme = value; }
+        }
+        public string FileFormat
+        {
+            get { return _FileFormat; }
+            set { _FileFormat = value; }
+        }
+        public string OutputPath
+        {
+            get { return _OutputPath; }
+            set { _OutputPath = value; }
+        }
+        public int SupplierProposalID
+        {
+            get { return _SupplierProposalID; }
+            set { _SupplierProposalID = value; }
+        }
+        public string SupplierName
+        {
+            get { return _SupplierName; }
+            set { _SupplierName = value; }
+        }
+        public string Supplier
+        {
+            get { return _Supplier; }
+            set { _Supplier = value; }
         }
     }
 }

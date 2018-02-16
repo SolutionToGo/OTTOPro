@@ -319,6 +319,12 @@
     <Compile Include="frmGAEBExport.Designer.cs">
       <DependentUpon>frmGAEBExport.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGAEBFormat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGAEBFormat.Designer.cs">
+      <DependentUpon>frmGAEBFormat.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGAEBImport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -420,6 +426,12 @@
     </Compile>
     <Compile Include="frmSelectRaster.Designer.cs">
       <DependentUpon>frmSelectRaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectsupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSelectsupplier.Designer.cs">
+      <DependentUpon>frmSelectsupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSelectTextModuleDetails.cs">
       <SubType>Form</SubType>
@@ -728,6 +740,9 @@
     <EmbeddedResource Include="frmGAEBExport.resx">
       <DependentUpon>frmGAEBExport.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmGAEBFormat.resx">
+      <DependentUpon>frmGAEBFormat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGAEBImport.resx">
       <DependentUpon>frmGAEBImport.cs</DependentUpon>
     </EmbeddedResource>
@@ -778,6 +793,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectRaster.resx">
       <DependentUpon>frmSelectRaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectsupplier.resx">
+      <DependentUpon>frmSelectsupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSelectTextModuleDetails.resx">
       <DependentUpon>frmSelectTextModuleDetails.cs</DependentUpon>

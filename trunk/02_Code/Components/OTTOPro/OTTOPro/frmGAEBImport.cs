@@ -57,7 +57,7 @@ namespace OTTOPro
                 dlg.CheckFileExists = true;
                 dlg.CheckPathExists = true;
 
-                dlg.Filter = "All files (*.*)|*.*";
+                dlg.Filter = "GAEB Files(*.D81;*.D83;*.D86;*.P81;*.P83;*.P86;*.X81;*.X83;*.X86) | *.D81;*.D83;*.D86;*.P81;*.P83;*.P86;*.X81;*.X83;*.X86";
                 dlg.RestoreDirectory = true;
 
                 dlg.ReadOnlyChecked = true;

@@ -286,5 +286,71 @@ namespace DataAccess
             }
             return iValue;
         }
+
+        public DataSet GetSupplierProposalExport(int SupplierProposalID)
+        {
+            DataSet dsTMLData = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[p_Get_SupplierProposalExport]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", SupplierProposalID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsTMLData, "TMLData");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("RasterError"))
+                    throw new Exception("Betrieb nicht möglich mit altem Raster");
+                else
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Laden der Positionsliste");
+                    else
+                        throw new Exception("Error Occured While Retreiving Position List");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dsTMLData;
+        }
+
+        public EGAEB SupplierProposalImport(EGAEB ObjEGAEB)
+        {
+            int iValue = 0;
+            try
+            {
+                if (ObjEGAEB.dsLVData != null && ObjEGAEB.dsLVData.Tables.Count > 0)
+                    using (SqlCommand cmd = new SqlCommand())
+                    {
+                        cmd.Connection = SQLCon.Sqlconn();
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.CommandText = "[P_Ins_SupplierProposalImport]";
+                        cmd.Parameters.AddWithValue("@ProjectID", ObjEGAEB.ProjectID);
+                        cmd.Parameters.AddWithValue("@SupplierProposalID", ObjEGAEB.SupplierProposalID);
+                        cmd.Parameters.AddWithValue("@SupplierName", ObjEGAEB.SupplierName);
+                        cmd.Parameters.AddWithValue("@dtImport", ObjEGAEB.dsLVData.Tables[0]);
+                        cmd.Parameters.AddWithValue("@LVRaster", ObjEGAEB.LvRaster);
+                        object ObjReturn = cmd.ExecuteScalar();
+                        if (int.TryParse(Convert.ToString(ObjReturn), out iValue))
+                            ObjEGAEB.SupplierProposalID = iValue;
+                        else
+                            throw new Exception(Convert.ToString(ObjReturn));
+                    }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEGAEB;
+        }
     }
 }
