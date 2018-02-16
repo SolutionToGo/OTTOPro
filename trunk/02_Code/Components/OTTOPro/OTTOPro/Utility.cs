@@ -174,10 +174,10 @@ namespace OTTOPro
                     int OZLength = 0;
                     int RasterLength = 0;
 
-                    OZ = strPOZ[i].Trim(); ;
+                    OZ = strPOZ[i].Trim();
                     RasterLength = strPRaster[i].Length;
+                    
                     OZLength = OZ.Trim().Length;
-
 
                     if(Count == 0)
                     {
@@ -188,11 +188,18 @@ namespace OTTOPro
                        else if (OZLength > 0)
                        {
                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
-                       }
+                       }                                  
                     }
                     else
                     {
-                        str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
+                        if (OZ=="")
+                        {
+                            str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
+                        }
+                        else
+                        {
+                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
+                        }
                     }
                 }
             }

@@ -61,7 +61,7 @@ namespace OTTOPro.Report_Design
                 this.p_Rpt_QuerCalculationTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculationTableAdapter.ClearBeforeFill = true;
                 this.p_Rpt_QuerCalculationTableAdapter.Fill(dsQuerKalculation1.P_Rpt_QuerCalculation, dtValue, _PID, _Type,_LVSection);
-
+               
                 this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.ClearBeforeFill = true;
                 this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter.Fill(dsSurchargeCalculation1.P_Rpt_QuerCalculation_SurchargePosition, dtValue, _PID, _Type, _LVSection);

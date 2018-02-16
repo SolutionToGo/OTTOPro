@@ -189,8 +189,9 @@
             this.xrTableCell35 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell36 = new DevExpress.XtraReports.UI.XRTableCell();
             this.xrTableCell37 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.p_Rpt_QuerCalculationTableAdapter1 = new OTTOPro.Report_Design.dsQuerKalculationTableAdapters.P_Rpt_QuerCalculationTableAdapter();
+            this.p_Rpt_QuerCalculationTableAdapter = new OTTOPro.Report_Design.dsQuerKalculationTableAdapters.P_Rpt_QuerCalculationTableAdapter();
             this.dsQuerKalculation1 = new OTTOPro.Report_Design.dsQuerKalculation();
+            this.p_Rpt_QuerCalculationTableAdapter1 = new OTTOPro.Report_Design.dsQuerKalculationTableAdapters.P_Rpt_QuerCalculationTableAdapter();
             this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
             this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter = new OTTOPro.Report_Design.dsSurchargeCalculationTableAdapters.P_Rpt_QuerCalculation_SurchargePositionTableAdapter();
@@ -201,7 +202,6 @@
             this.ANTEIL = new DevExpress.XtraReports.UI.CalculatedField();
             this.SumMAMulti = new DevExpress.XtraReports.UI.CalculatedField();
             this.SumMOMulti = new DevExpress.XtraReports.UI.CalculatedField();
-            this.p_Rpt_QuerCalculationTableAdapter = new OTTOPro.Report_Design.dsQuerKalculationTableAdapters.P_Rpt_QuerCalculationTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
@@ -678,7 +678,7 @@
             this.DetailReport.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail1,
             this.GroupFooter1});
-            this.DetailReport.DataAdapter = this.p_Rpt_QuerCalculationTableAdapter1;
+            this.DetailReport.DataAdapter = this.p_Rpt_QuerCalculationTableAdapter;
             this.DetailReport.DataMember = "P_Rpt_QuerCalculation";
             this.DetailReport.DataSource = this.dsQuerKalculation1;
             this.DetailReport.Level = 0;
@@ -1663,14 +1663,18 @@
             this.xrTableCell37.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.xrTableCell37.Weight = 0.23495416170974687D;
             // 
-            // p_Rpt_QuerCalculationTableAdapter1
+            // p_Rpt_QuerCalculationTableAdapter
             // 
-            this.p_Rpt_QuerCalculationTableAdapter1.ClearBeforeFill = true;
+            this.p_Rpt_QuerCalculationTableAdapter.ClearBeforeFill = true;
             // 
             // dsQuerKalculation1
             // 
             this.dsQuerKalculation1.DataSetName = "dsQuerKalculation";
             this.dsQuerKalculation1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // p_Rpt_QuerCalculationTableAdapter1
+            // 
+            this.p_Rpt_QuerCalculationTableAdapter1.ClearBeforeFill = true;
             // 
             // DetailReport1
             // 
@@ -1740,10 +1744,6 @@
             this.SumMOMulti.DataSource = this.dsQuerKalculation1;
             this.SumMOMulti.Expression = "Sum([MO_VK] / Sum([MO_EK]))";
             this.SumMOMulti.Name = "SumMOMulti";
-            // 
-            // p_Rpt_QuerCalculationTableAdapter
-            // 
-            this.p_Rpt_QuerCalculationTableAdapter.ClearBeforeFill = true;
             // 
             // rptQuerKalkulation
             // 

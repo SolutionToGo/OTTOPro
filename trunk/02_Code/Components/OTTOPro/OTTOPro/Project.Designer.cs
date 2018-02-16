@@ -151,6 +151,16 @@
             this.repositoryItemButtonEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
             this.ctrProject = new DevExpress.XtraEditors.SplitContainerControl();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarReports = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItemCommonReport = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemConsolidateBlatt = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemQuerKalkulation = new DevExpress.XtraNavBar.NavBarItem();
+            this.navBarItemDeliveryNote = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbFormBlatt = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbCoverSheet3 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbCoverSheet2 = new DevExpress.XtraNavBar.NavBarItem();
+            this.nbCoverSheet1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarForms = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItemProject = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItemLVDetails = new DevExpress.XtraNavBar.NavBarItem();
@@ -166,16 +176,6 @@
             this.nbInvoices = new DevExpress.XtraNavBar.NavBarItem();
             this.nbCopyLVs = new DevExpress.XtraNavBar.NavBarItem();
             this.nbComparePrice = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarReports = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItemCommonReport = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItem5 = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemConsolidateBlatt = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemQuerKalkulation = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarItemDeliveryNote = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbFormBlatt = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbCoverSheet3 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbCoverSheet2 = new DevExpress.XtraNavBar.NavBarItem();
-            this.nbCoverSheet1 = new DevExpress.XtraNavBar.NavBarItem();
             this.tcProjectDetails = new DevExpress.XtraTab.XtraTabControl();
             this.tbLVDetails = new DevExpress.XtraTab.XtraTabPage();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -3539,6 +3539,107 @@
             this.navBarControl1.View = new DevExpress.XtraNavBar.ViewInfo.NavigationPaneViewInfoRegistrator();
             this.navBarControl1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarControl1_LinkClicked);
             // 
+            // navBarReports
+            // 
+            this.navBarReports.Caption = "Dokumente";
+            this.navBarReports.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
+            this.navBarReports.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCommonReport),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemConsolidateBlatt),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemQuerKalkulation),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemDeliveryNote),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbFormBlatt),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCoverSheet3),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCoverSheet2),
+            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCoverSheet1)});
+            this.navBarReports.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarReports.LargeImage")));
+            this.navBarReports.Name = "navBarReports";
+            this.navBarReports.ItemChanged += new System.EventHandler(this.navBarReports_ItemChanged);
+            // 
+            // navBarItemCommonReport
+            // 
+            this.navBarItemCommonReport.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemCommonReport.Appearance.Options.UseFont = true;
+            this.navBarItemCommonReport.Caption = "Angebot";
+            this.navBarItemCommonReport.Name = "navBarItemCommonReport";
+            this.navBarItemCommonReport.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemCommonReport.SmallImage")));
+            this.navBarItemCommonReport.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemCommonReport_LinkClicked);
+            // 
+            // navBarItem5
+            // 
+            this.navBarItem5.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItem5.Appearance.Options.UseFont = true;
+            this.navBarItem5.Caption = "Angebot";
+            this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
+            this.navBarItem5.Name = "navBarItem5";
+            this.navBarItem5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.SmallImage")));
+            this.navBarItem5.Visible = false;
+            this.navBarItem5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem5_LinkClicked);
+            // 
+            // navBarItemConsolidateBlatt
+            // 
+            this.navBarItemConsolidateBlatt.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemConsolidateBlatt.Appearance.Options.UseFont = true;
+            this.navBarItemConsolidateBlatt.Caption = "Aufmasszusammenstellung";
+            this.navBarItemConsolidateBlatt.Name = "navBarItemConsolidateBlatt";
+            this.navBarItemConsolidateBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemConsolidateBlatt.SmallImage")));
+            this.navBarItemConsolidateBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemConsolidateBlatt_LinkClicked);
+            // 
+            // navBarItemQuerKalkulation
+            // 
+            this.navBarItemQuerKalkulation.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemQuerKalkulation.Appearance.Options.UseFont = true;
+            this.navBarItemQuerKalkulation.Caption = "QuerKalkulation";
+            this.navBarItemQuerKalkulation.Name = "navBarItemQuerKalkulation";
+            this.navBarItemQuerKalkulation.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemQuerKalkulation.SmallImage")));
+            this.navBarItemQuerKalkulation.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQuerKalkulation_LinkClicked);
+            // 
+            // navBarItemDeliveryNote
+            // 
+            this.navBarItemDeliveryNote.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.navBarItemDeliveryNote.Appearance.Options.UseFont = true;
+            this.navBarItemDeliveryNote.Caption = "Aufmasse";
+            this.navBarItemDeliveryNote.Name = "navBarItemDeliveryNote";
+            this.navBarItemDeliveryNote.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDeliveryNote.SmallImage")));
+            this.navBarItemDeliveryNote.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDeliveryNote_LinkClicked);
+            // 
+            // nbFormBlatt
+            // 
+            this.nbFormBlatt.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbFormBlatt.Appearance.Options.UseFont = true;
+            this.nbFormBlatt.Caption = "Formblatt";
+            this.nbFormBlatt.Name = "nbFormBlatt";
+            this.nbFormBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbFormBlatt.SmallImage")));
+            this.nbFormBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbFormBlatt_LinkClicked);
+            // 
+            // nbCoverSheet3
+            // 
+            this.nbCoverSheet3.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbCoverSheet3.Appearance.Options.UseFont = true;
+            this.nbCoverSheet3.Caption = "Titelblatt (Angebot)";
+            this.nbCoverSheet3.Name = "nbCoverSheet3";
+            this.nbCoverSheet3.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCoverSheet3.SmallImage")));
+            this.nbCoverSheet3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCoverSheet3_LinkClicked);
+            // 
+            // nbCoverSheet2
+            // 
+            this.nbCoverSheet2.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbCoverSheet2.Appearance.Options.UseFont = true;
+            this.nbCoverSheet2.Caption = "Titelblatt (Aufmass)";
+            this.nbCoverSheet2.Name = "nbCoverSheet2";
+            this.nbCoverSheet2.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCoverSheet2.SmallImage")));
+            this.nbCoverSheet2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCoverSheet2_LinkClicked);
+            // 
+            // nbCoverSheet1
+            // 
+            this.nbCoverSheet1.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.nbCoverSheet1.Appearance.Options.UseFont = true;
+            this.nbCoverSheet1.Caption = "Titelblatt (Rechnung)";
+            this.nbCoverSheet1.Name = "nbCoverSheet1";
+            this.nbCoverSheet1.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCoverSheet1.SmallImage")));
+            this.nbCoverSheet1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCoverSheet1_LinkClicked);
+            // 
             // navBarForms
             // 
             this.navBarForms.Caption = "Funktionsmodul";
@@ -3701,107 +3802,6 @@
             this.nbComparePrice.Name = "nbComparePrice";
             this.nbComparePrice.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbComparePrice.SmallImage")));
             this.nbComparePrice.LinkPressed += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbComparePrice_LinkPressed);
-            // 
-            // navBarReports
-            // 
-            this.navBarReports.Caption = "Dokumente";
-            this.navBarReports.GroupStyle = DevExpress.XtraNavBar.NavBarGroupStyle.SmallIconsText;
-            this.navBarReports.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemCommonReport),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem5),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemConsolidateBlatt),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemQuerKalkulation),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItemDeliveryNote),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbFormBlatt),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCoverSheet3),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCoverSheet2),
-            new DevExpress.XtraNavBar.NavBarItemLink(this.nbCoverSheet1)});
-            this.navBarReports.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarReports.LargeImage")));
-            this.navBarReports.Name = "navBarReports";
-            this.navBarReports.ItemChanged += new System.EventHandler(this.navBarReports_ItemChanged);
-            // 
-            // navBarItemCommonReport
-            // 
-            this.navBarItemCommonReport.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItemCommonReport.Appearance.Options.UseFont = true;
-            this.navBarItemCommonReport.Caption = "Angebot";
-            this.navBarItemCommonReport.Name = "navBarItemCommonReport";
-            this.navBarItemCommonReport.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemCommonReport.SmallImage")));
-            this.navBarItemCommonReport.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemCommonReport_LinkClicked);
-            // 
-            // navBarItem5
-            // 
-            this.navBarItem5.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItem5.Appearance.Options.UseFont = true;
-            this.navBarItem5.Caption = "Angebot";
-            this.navBarItem5.LargeImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.LargeImage")));
-            this.navBarItem5.Name = "navBarItem5";
-            this.navBarItem5.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItem5.SmallImage")));
-            this.navBarItem5.Visible = false;
-            this.navBarItem5.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem5_LinkClicked);
-            // 
-            // navBarItemConsolidateBlatt
-            // 
-            this.navBarItemConsolidateBlatt.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItemConsolidateBlatt.Appearance.Options.UseFont = true;
-            this.navBarItemConsolidateBlatt.Caption = "Aufmasszusammenstellung";
-            this.navBarItemConsolidateBlatt.Name = "navBarItemConsolidateBlatt";
-            this.navBarItemConsolidateBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemConsolidateBlatt.SmallImage")));
-            this.navBarItemConsolidateBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemConsolidateBlatt_LinkClicked);
-            // 
-            // navBarItemQuerKalkulation
-            // 
-            this.navBarItemQuerKalkulation.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItemQuerKalkulation.Appearance.Options.UseFont = true;
-            this.navBarItemQuerKalkulation.Caption = "QuerKalkulation";
-            this.navBarItemQuerKalkulation.Name = "navBarItemQuerKalkulation";
-            this.navBarItemQuerKalkulation.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemQuerKalkulation.SmallImage")));
-            this.navBarItemQuerKalkulation.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemQuerKalkulation_LinkClicked);
-            // 
-            // navBarItemDeliveryNote
-            // 
-            this.navBarItemDeliveryNote.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.navBarItemDeliveryNote.Appearance.Options.UseFont = true;
-            this.navBarItemDeliveryNote.Caption = "Aufmasse";
-            this.navBarItemDeliveryNote.Name = "navBarItemDeliveryNote";
-            this.navBarItemDeliveryNote.SmallImage = ((System.Drawing.Image)(resources.GetObject("navBarItemDeliveryNote.SmallImage")));
-            this.navBarItemDeliveryNote.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItemDeliveryNote_LinkClicked);
-            // 
-            // nbFormBlatt
-            // 
-            this.nbFormBlatt.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.nbFormBlatt.Appearance.Options.UseFont = true;
-            this.nbFormBlatt.Caption = "Formblatt";
-            this.nbFormBlatt.Name = "nbFormBlatt";
-            this.nbFormBlatt.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbFormBlatt.SmallImage")));
-            this.nbFormBlatt.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbFormBlatt_LinkClicked);
-            // 
-            // nbCoverSheet3
-            // 
-            this.nbCoverSheet3.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.nbCoverSheet3.Appearance.Options.UseFont = true;
-            this.nbCoverSheet3.Caption = "Titelblatt (Angebot)";
-            this.nbCoverSheet3.Name = "nbCoverSheet3";
-            this.nbCoverSheet3.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCoverSheet3.SmallImage")));
-            this.nbCoverSheet3.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCoverSheet3_LinkClicked);
-            // 
-            // nbCoverSheet2
-            // 
-            this.nbCoverSheet2.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.nbCoverSheet2.Appearance.Options.UseFont = true;
-            this.nbCoverSheet2.Caption = "Titelblatt (Aufmass)";
-            this.nbCoverSheet2.Name = "nbCoverSheet2";
-            this.nbCoverSheet2.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCoverSheet2.SmallImage")));
-            this.nbCoverSheet2.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCoverSheet2_LinkClicked);
-            // 
-            // nbCoverSheet1
-            // 
-            this.nbCoverSheet1.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.nbCoverSheet1.Appearance.Options.UseFont = true;
-            this.nbCoverSheet1.Caption = "Titelblatt (Rechnung)";
-            this.nbCoverSheet1.Name = "nbCoverSheet1";
-            this.nbCoverSheet1.SmallImage = ((System.Drawing.Image)(resources.GetObject("nbCoverSheet1.SmallImage")));
-            this.nbCoverSheet1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.nbCoverSheet1_LinkClicked);
             // 
             // tcProjectDetails
             // 
@@ -3983,7 +3983,7 @@
             // 
             // btnAddAccessories
             // 
-            this.btnAddAccessories.Location = new System.Drawing.Point(12, 95);
+            this.btnAddAccessories.Location = new System.Drawing.Point(12, 104);
             this.btnAddAccessories.Name = "btnAddAccessories";
             this.btnAddAccessories.Size = new System.Drawing.Size(245, 22);
             this.btnAddAccessories.StyleController = this.layoutControl6;
@@ -4001,7 +4001,7 @@
             this.labelControl2.Appearance.Options.UseTextOptions = true;
             this.labelControl2.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl2.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl2.Location = new System.Drawing.Point(662, 3);
+            this.labelControl2.Location = new System.Drawing.Point(662, 12);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(210, 16);
             this.labelControl2.StyleController = this.layoutControl6;
@@ -4017,7 +4017,7 @@
             this.labelControl1.Appearance.Options.UseTextOptions = true;
             this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-            this.labelControl1.Location = new System.Drawing.Point(279, 3);
+            this.labelControl1.Location = new System.Drawing.Point(279, 12);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(307, 16);
             this.labelControl1.StyleController = this.layoutControl6;
@@ -4029,7 +4029,7 @@
             this.dtpValidityDate.CustomFormat = "MMMM yyyy";
             this.dtpValidityDate.Enabled = false;
             this.dtpValidityDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpValidityDate.Location = new System.Drawing.Point(12, 23);
+            this.dtpValidityDate.Location = new System.Drawing.Point(12, 32);
             this.dtpValidityDate.Name = "dtpValidityDate";
             this.dtpValidityDate.Size = new System.Drawing.Size(245, 21);
             this.dtpValidityDate.TabIndex = 0;
@@ -4038,7 +4038,7 @@
             // txtEP
             // 
             this.txtEP.Enabled = false;
-            this.txtEP.Location = new System.Drawing.Point(362, 355);
+            this.txtEP.Location = new System.Drawing.Point(362, 364);
             this.txtEP.MenuManager = this.barManager1;
             this.txtEP.Name = "txtEP";
             this.txtEP.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
@@ -4053,7 +4053,7 @@
             // 
             // btnDocuwareLink
             // 
-            this.btnDocuwareLink.Location = new System.Drawing.Point(12, 291);
+            this.btnDocuwareLink.Location = new System.Drawing.Point(12, 300);
             this.btnDocuwareLink.Name = "btnDocuwareLink";
             this.btnDocuwareLink.Size = new System.Drawing.Size(245, 22);
             this.btnDocuwareLink.StyleController = this.layoutControl6;
@@ -4063,7 +4063,7 @@
             // 
             // txtPreisText
             // 
-            this.txtPreisText.Location = new System.Drawing.Point(12, 257);
+            this.txtPreisText.Location = new System.Drawing.Point(12, 266);
             this.txtPreisText.MenuManager = this.barManager1;
             this.txtPreisText.Name = "txtPreisText";
             this.txtPreisText.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4076,7 +4076,7 @@
             // 
             // txtLPMO
             // 
-            this.txtLPMO.Location = new System.Drawing.Point(662, 23);
+            this.txtLPMO.Location = new System.Drawing.Point(662, 32);
             this.txtLPMO.Name = "txtLPMO";
             this.txtLPMO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLPMO.Properties.Appearance.Options.UseFont = true;
@@ -4091,7 +4091,7 @@
             // 
             // txtLPMe
             // 
-            this.txtLPMe.Location = new System.Drawing.Point(361, 23);
+            this.txtLPMe.Location = new System.Drawing.Point(361, 32);
             this.txtLPMe.Name = "txtLPMe";
             this.txtLPMe.Properties.AllowMouseWheel = false;
             this.txtLPMe.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4108,7 +4108,7 @@
             // 
             // txtValue4MO
             // 
-            this.txtValue4MO.Location = new System.Drawing.Point(773, 145);
+            this.txtValue4MO.Location = new System.Drawing.Point(773, 154);
             this.txtValue4MO.Name = "txtValue4MO";
             this.txtValue4MO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue4MO.Properties.Appearance.Options.UseFont = true;
@@ -4125,7 +4125,7 @@
             // 
             // txtGrundValueMO
             // 
-            this.txtGrundValueMO.Location = new System.Drawing.Point(773, 173);
+            this.txtGrundValueMO.Location = new System.Drawing.Point(773, 182);
             this.txtGrundValueMO.Name = "txtGrundValueMO";
             this.txtGrundValueMO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGrundValueMO.Properties.Appearance.Options.UseFont = true;
@@ -4141,7 +4141,7 @@
             // 
             // txtGrundMultiMO
             // 
-            this.txtGrundMultiMO.Location = new System.Drawing.Point(662, 173);
+            this.txtGrundMultiMO.Location = new System.Drawing.Point(662, 182);
             this.txtGrundMultiMO.Name = "txtGrundMultiMO";
             this.txtGrundMultiMO.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtGrundMultiMO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4159,7 +4159,7 @@
             // 
             // txtGrundMultiME
             // 
-            this.txtGrundMultiME.Location = new System.Drawing.Point(361, 173);
+            this.txtGrundMultiME.Location = new System.Drawing.Point(361, 182);
             this.txtGrundMultiME.Name = "txtGrundMultiME";
             this.txtGrundMultiME.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtGrundMultiME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4177,7 +4177,7 @@
             // 
             // txtGrundValueME
             // 
-            this.txtGrundValueME.Location = new System.Drawing.Point(484, 173);
+            this.txtGrundValueME.Location = new System.Drawing.Point(484, 182);
             this.txtGrundValueME.Name = "txtGrundValueME";
             this.txtGrundValueME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtGrundValueME.Properties.Appearance.Options.UseFont = true;
@@ -4193,7 +4193,7 @@
             // 
             // txtValue3MO
             // 
-            this.txtValue3MO.Location = new System.Drawing.Point(773, 117);
+            this.txtValue3MO.Location = new System.Drawing.Point(773, 126);
             this.txtValue3MO.Name = "txtValue3MO";
             this.txtValue3MO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue3MO.Properties.Appearance.Options.UseFont = true;
@@ -4210,7 +4210,7 @@
             // 
             // txtValue2MO
             // 
-            this.txtValue2MO.Location = new System.Drawing.Point(773, 89);
+            this.txtValue2MO.Location = new System.Drawing.Point(773, 98);
             this.txtValue2MO.Name = "txtValue2MO";
             this.txtValue2MO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue2MO.Properties.Appearance.Options.UseFont = true;
@@ -4229,7 +4229,7 @@
             // txtFinalGB
             // 
             this.txtFinalGB.Enabled = false;
-            this.txtFinalGB.Location = new System.Drawing.Point(662, 355);
+            this.txtFinalGB.Location = new System.Drawing.Point(662, 364);
             this.txtFinalGB.Name = "txtFinalGB";
             this.txtFinalGB.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtFinalGB.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4247,7 +4247,7 @@
             // txtGrandTotalMO
             // 
             this.txtGrandTotalMO.Enabled = false;
-            this.txtGrandTotalMO.Location = new System.Drawing.Point(662, 305);
+            this.txtGrandTotalMO.Location = new System.Drawing.Point(662, 314);
             this.txtGrandTotalMO.Name = "txtGrandTotalMO";
             this.txtGrandTotalMO.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtGrandTotalMO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4266,7 +4266,7 @@
             // txtGrandTotalME
             // 
             this.txtGrandTotalME.Enabled = false;
-            this.txtGrandTotalME.Location = new System.Drawing.Point(361, 305);
+            this.txtGrandTotalME.Location = new System.Drawing.Point(361, 314);
             this.txtGrandTotalME.Name = "txtGrandTotalME";
             this.txtGrandTotalME.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
             this.txtGrandTotalME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4284,7 +4284,7 @@
             // 
             // txtValue1MO
             // 
-            this.txtValue1MO.Location = new System.Drawing.Point(773, 61);
+            this.txtValue1MO.Location = new System.Drawing.Point(773, 70);
             this.txtValue1MO.Name = "txtValue1MO";
             this.txtValue1MO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue1MO.Properties.Appearance.Options.UseFont = true;
@@ -4302,7 +4302,7 @@
             // 
             // txtMulti1MO
             // 
-            this.txtMulti1MO.Location = new System.Drawing.Point(662, 61);
+            this.txtMulti1MO.Location = new System.Drawing.Point(662, 70);
             this.txtMulti1MO.Name = "txtMulti1MO";
             this.txtMulti1MO.Properties.AllowMouseWheel = false;
             this.txtMulti1MO.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4323,7 +4323,7 @@
             // 
             // txtMulti2MO
             // 
-            this.txtMulti2MO.Location = new System.Drawing.Point(662, 89);
+            this.txtMulti2MO.Location = new System.Drawing.Point(662, 98);
             this.txtMulti2MO.Name = "txtMulti2MO";
             this.txtMulti2MO.Properties.AllowMouseWheel = false;
             this.txtMulti2MO.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4344,7 +4344,7 @@
             // 
             // chkVerkaufspreisMO
             // 
-            this.chkVerkaufspreisMO.Location = new System.Drawing.Point(876, 267);
+            this.chkVerkaufspreisMO.Location = new System.Drawing.Point(876, 276);
             this.chkVerkaufspreisMO.MenuManager = this.barManager1;
             this.chkVerkaufspreisMO.Name = "chkVerkaufspreisMO";
             this.chkVerkaufspreisMO.Properties.Caption = "";
@@ -4356,7 +4356,7 @@
             // 
             // chkVerkaufspreisME
             // 
-            this.chkVerkaufspreisME.Location = new System.Drawing.Point(587, 265);
+            this.chkVerkaufspreisME.Location = new System.Drawing.Point(587, 274);
             this.chkVerkaufspreisME.MenuManager = this.barManager1;
             this.chkVerkaufspreisME.Name = "chkVerkaufspreisME";
             this.chkVerkaufspreisME.Properties.Caption = "";
@@ -4368,7 +4368,7 @@
             // 
             // txtVerkaufspreisValueMO
             // 
-            this.txtVerkaufspreisValueMO.Location = new System.Drawing.Point(773, 267);
+            this.txtVerkaufspreisValueMO.Location = new System.Drawing.Point(773, 276);
             this.txtVerkaufspreisValueMO.Name = "txtVerkaufspreisValueMO";
             this.txtVerkaufspreisValueMO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVerkaufspreisValueMO.Properties.Appearance.Options.UseFont = true;
@@ -4385,7 +4385,7 @@
             // 
             // txtMulti3MO
             // 
-            this.txtMulti3MO.Location = new System.Drawing.Point(662, 117);
+            this.txtMulti3MO.Location = new System.Drawing.Point(662, 126);
             this.txtMulti3MO.Name = "txtMulti3MO";
             this.txtMulti3MO.Properties.AllowMouseWheel = false;
             this.txtMulti3MO.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4406,7 +4406,7 @@
             // 
             // txtVerkaufspreisMultiMO
             // 
-            this.txtVerkaufspreisMultiMO.Location = new System.Drawing.Point(662, 267);
+            this.txtVerkaufspreisMultiMO.Location = new System.Drawing.Point(662, 276);
             this.txtVerkaufspreisMultiMO.Name = "txtVerkaufspreisMultiMO";
             this.txtVerkaufspreisMultiMO.Properties.AllowMouseWheel = false;
             this.txtVerkaufspreisMultiMO.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4426,7 +4426,7 @@
             // 
             // txtMulti4MO
             // 
-            this.txtMulti4MO.Location = new System.Drawing.Point(662, 145);
+            this.txtMulti4MO.Location = new System.Drawing.Point(662, 154);
             this.txtMulti4MO.Name = "txtMulti4MO";
             this.txtMulti4MO.Properties.AllowMouseWheel = false;
             this.txtMulti4MO.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4446,7 +4446,7 @@
             // 
             // txtVerkaufspreisValueME
             // 
-            this.txtVerkaufspreisValueME.Location = new System.Drawing.Point(484, 267);
+            this.txtVerkaufspreisValueME.Location = new System.Drawing.Point(484, 276);
             this.txtVerkaufspreisValueME.Name = "txtVerkaufspreisValueME";
             this.txtVerkaufspreisValueME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVerkaufspreisValueME.Properties.Appearance.Options.UseFont = true;
@@ -4464,7 +4464,7 @@
             // txtMulti1ME
             // 
             this.txtMulti1ME.CausesValidation = false;
-            this.txtMulti1ME.Location = new System.Drawing.Point(361, 61);
+            this.txtMulti1ME.Location = new System.Drawing.Point(361, 70);
             this.txtMulti1ME.Name = "txtMulti1ME";
             this.txtMulti1ME.Properties.AllowMouseWheel = false;
             this.txtMulti1ME.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4485,7 +4485,7 @@
             // 
             // txtValue1ME
             // 
-            this.txtValue1ME.Location = new System.Drawing.Point(484, 61);
+            this.txtValue1ME.Location = new System.Drawing.Point(484, 70);
             this.txtValue1ME.Name = "txtValue1ME";
             this.txtValue1ME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue1ME.Properties.Appearance.Options.UseFont = true;
@@ -4506,7 +4506,7 @@
             // 
             // txtDim3
             // 
-            this.txtDim3.Location = new System.Drawing.Point(178, 67);
+            this.txtDim3.Location = new System.Drawing.Point(178, 76);
             this.txtDim3.Name = "txtDim3";
             this.txtDim3.Properties.AllowMouseWheel = false;
             this.txtDim3.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4522,7 +4522,7 @@
             // 
             // txtVerkaufspreisMultiME
             // 
-            this.txtVerkaufspreisMultiME.Location = new System.Drawing.Point(361, 267);
+            this.txtVerkaufspreisMultiME.Location = new System.Drawing.Point(361, 276);
             this.txtVerkaufspreisMultiME.Name = "txtVerkaufspreisMultiME";
             this.txtVerkaufspreisMultiME.Properties.AllowMouseWheel = false;
             this.txtVerkaufspreisMultiME.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4542,7 +4542,7 @@
             // 
             // txtValue2ME
             // 
-            this.txtValue2ME.Location = new System.Drawing.Point(484, 89);
+            this.txtValue2ME.Location = new System.Drawing.Point(484, 98);
             this.txtValue2ME.Name = "txtValue2ME";
             this.txtValue2ME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue2ME.Properties.Appearance.Options.UseFont = true;
@@ -4560,7 +4560,7 @@
             // 
             // txtMo
             // 
-            this.txtMo.Location = new System.Drawing.Point(95, 199);
+            this.txtMo.Location = new System.Drawing.Point(95, 208);
             this.txtMo.Name = "txtMo";
             this.txtMo.Properties.AllowMouseWheel = false;
             this.txtMo.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4578,7 +4578,7 @@
             // 
             // chkSelbstkostenMO
             // 
-            this.chkSelbstkostenMO.Location = new System.Drawing.Point(876, 239);
+            this.chkSelbstkostenMO.Location = new System.Drawing.Point(876, 248);
             this.chkSelbstkostenMO.MenuManager = this.barManager1;
             this.chkSelbstkostenMO.Name = "chkSelbstkostenMO";
             this.chkSelbstkostenMO.Properties.Caption = "";
@@ -4591,7 +4591,7 @@
             // chkSelbstkostenME
             // 
             this.chkSelbstkostenME.AllowDrop = true;
-            this.chkSelbstkostenME.Location = new System.Drawing.Point(591, 241);
+            this.chkSelbstkostenME.Location = new System.Drawing.Point(591, 250);
             this.chkSelbstkostenME.MenuManager = this.barManager1;
             this.chkSelbstkostenME.Name = "chkSelbstkostenME";
             this.chkSelbstkostenME.Properties.Caption = "";
@@ -4603,7 +4603,7 @@
             // 
             // txtSelbstkostenValueMO
             // 
-            this.txtSelbstkostenValueMO.Location = new System.Drawing.Point(773, 239);
+            this.txtSelbstkostenValueMO.Location = new System.Drawing.Point(773, 248);
             this.txtSelbstkostenValueMO.Name = "txtSelbstkostenValueMO";
             this.txtSelbstkostenValueMO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSelbstkostenValueMO.Properties.Appearance.Options.UseFont = true;
@@ -4620,7 +4620,7 @@
             // 
             // txtValue3ME
             // 
-            this.txtValue3ME.Location = new System.Drawing.Point(484, 117);
+            this.txtValue3ME.Location = new System.Drawing.Point(484, 126);
             this.txtValue3ME.Name = "txtValue3ME";
             this.txtValue3ME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue3ME.Properties.Appearance.Options.UseFont = true;
@@ -4638,7 +4638,7 @@
             // 
             // txtSelbstkostenMultiMO
             // 
-            this.txtSelbstkostenMultiMO.Location = new System.Drawing.Point(662, 239);
+            this.txtSelbstkostenMultiMO.Location = new System.Drawing.Point(662, 248);
             this.txtSelbstkostenMultiMO.Name = "txtSelbstkostenMultiMO";
             this.txtSelbstkostenMultiMO.Properties.AllowMouseWheel = false;
             this.txtSelbstkostenMultiMO.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4658,7 +4658,7 @@
             // 
             // txtMulti2ME
             // 
-            this.txtMulti2ME.Location = new System.Drawing.Point(361, 89);
+            this.txtMulti2ME.Location = new System.Drawing.Point(361, 98);
             this.txtMulti2ME.Name = "txtMulti2ME";
             this.txtMulti2ME.Properties.AllowMouseWheel = false;
             this.txtMulti2ME.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4679,7 +4679,7 @@
             // 
             // txtSelbstkostenValueME
             // 
-            this.txtSelbstkostenValueME.Location = new System.Drawing.Point(484, 239);
+            this.txtSelbstkostenValueME.Location = new System.Drawing.Point(484, 248);
             this.txtSelbstkostenValueME.Name = "txtSelbstkostenValueME";
             this.txtSelbstkostenValueME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSelbstkostenValueME.Properties.Appearance.Options.UseFont = true;
@@ -4696,7 +4696,7 @@
             // 
             // txtValue4ME
             // 
-            this.txtValue4ME.Location = new System.Drawing.Point(484, 145);
+            this.txtValue4ME.Location = new System.Drawing.Point(484, 154);
             this.txtValue4ME.Name = "txtValue4ME";
             this.txtValue4ME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtValue4ME.Properties.Appearance.Options.UseFont = true;
@@ -4713,7 +4713,7 @@
             // 
             // txtDim2
             // 
-            this.txtDim2.Location = new System.Drawing.Point(95, 67);
+            this.txtDim2.Location = new System.Drawing.Point(95, 76);
             this.txtDim2.Name = "txtDim2";
             this.txtDim2.Properties.AllowMouseWheel = false;
             this.txtDim2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4729,7 +4729,7 @@
             // 
             // txtSelbstkostenMultiME
             // 
-            this.txtSelbstkostenMultiME.Location = new System.Drawing.Point(361, 239);
+            this.txtSelbstkostenMultiME.Location = new System.Drawing.Point(361, 248);
             this.txtSelbstkostenMultiME.Name = "txtSelbstkostenMultiME";
             this.txtSelbstkostenMultiME.Properties.AllowMouseWheel = false;
             this.txtSelbstkostenMultiME.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4749,7 +4749,7 @@
             // 
             // txtMa
             // 
-            this.txtMa.Location = new System.Drawing.Point(12, 199);
+            this.txtMa.Location = new System.Drawing.Point(12, 208);
             this.txtMa.Name = "txtMa";
             this.txtMa.Properties.AllowMouseWheel = false;
             this.txtMa.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4767,7 +4767,7 @@
             // 
             // txtMulti3ME
             // 
-            this.txtMulti3ME.Location = new System.Drawing.Point(361, 117);
+            this.txtMulti3ME.Location = new System.Drawing.Point(361, 126);
             this.txtMulti3ME.Name = "txtMulti3ME";
             this.txtMulti3ME.Properties.AllowMouseWheel = false;
             this.txtMulti3ME.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4789,7 +4789,7 @@
             // txtStdSatz
             // 
             this.txtStdSatz.Enabled = false;
-            this.txtStdSatz.Location = new System.Drawing.Point(178, 199);
+            this.txtStdSatz.Location = new System.Drawing.Point(178, 208);
             this.txtStdSatz.Name = "txtStdSatz";
             this.txtStdSatz.Properties.AllowMouseWheel = false;
             this.txtStdSatz.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4806,7 +4806,7 @@
             // 
             // chkEinkaufspreisMO
             // 
-            this.chkEinkaufspreisMO.Location = new System.Drawing.Point(876, 211);
+            this.chkEinkaufspreisMO.Location = new System.Drawing.Point(876, 220);
             this.chkEinkaufspreisMO.MenuManager = this.barManager1;
             this.chkEinkaufspreisMO.Name = "chkEinkaufspreisMO";
             this.chkEinkaufspreisMO.Properties.Caption = "";
@@ -4818,7 +4818,7 @@
             // 
             // chkEinkaufspreisME
             // 
-            this.chkEinkaufspreisME.Location = new System.Drawing.Point(590, 211);
+            this.chkEinkaufspreisME.Location = new System.Drawing.Point(590, 220);
             this.chkEinkaufspreisME.MenuManager = this.barManager1;
             this.chkEinkaufspreisME.Name = "chkEinkaufspreisME";
             this.chkEinkaufspreisME.Properties.Caption = "";
@@ -4831,7 +4831,7 @@
             // txtEinkaufspreisMO
             // 
             this.txtEinkaufspreisMO.Enabled = false;
-            this.txtEinkaufspreisMO.Location = new System.Drawing.Point(662, 211);
+            this.txtEinkaufspreisMO.Location = new System.Drawing.Point(662, 220);
             this.txtEinkaufspreisMO.Name = "txtEinkaufspreisMO";
             this.txtEinkaufspreisMO.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEinkaufspreisMO.Properties.Appearance.Options.UseFont = true;
@@ -4847,7 +4847,7 @@
             // 
             // txtDim1
             // 
-            this.txtDim1.Location = new System.Drawing.Point(12, 67);
+            this.txtDim1.Location = new System.Drawing.Point(12, 76);
             this.txtDim1.Name = "txtDim1";
             this.txtDim1.Properties.AllowMouseWheel = false;
             this.txtDim1.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4863,7 +4863,7 @@
             // 
             // txtMulti4ME
             // 
-            this.txtMulti4ME.Location = new System.Drawing.Point(361, 145);
+            this.txtMulti4ME.Location = new System.Drawing.Point(361, 154);
             this.txtMulti4ME.Name = "txtMulti4ME";
             this.txtMulti4ME.Properties.AllowMouseWheel = false;
             this.txtMulti4ME.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(247)))));
@@ -4884,7 +4884,7 @@
             // txtEinkaufspreisME
             // 
             this.txtEinkaufspreisME.Enabled = false;
-            this.txtEinkaufspreisME.Location = new System.Drawing.Point(361, 211);
+            this.txtEinkaufspreisME.Location = new System.Drawing.Point(361, 220);
             this.txtEinkaufspreisME.Name = "txtEinkaufspreisME";
             this.txtEinkaufspreisME.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEinkaufspreisME.Properties.Appearance.Options.UseFont = true;
@@ -4900,7 +4900,7 @@
             // 
             // txtFaktor
             // 
-            this.txtFaktor.Location = new System.Drawing.Point(178, 141);
+            this.txtFaktor.Location = new System.Drawing.Point(178, 150);
             this.txtFaktor.Name = "txtFaktor";
             this.txtFaktor.Properties.AllowMouseWheel = false;
             this.txtFaktor.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4918,7 +4918,7 @@
             // txtHours
             // 
             this.txtHours.Enabled = false;
-            this.txtHours.Location = new System.Drawing.Point(95, 141);
+            this.txtHours.Location = new System.Drawing.Point(95, 150);
             this.txtHours.Name = "txtHours";
             this.txtHours.Properties.AllowMouseWheel = false;
             this.txtHours.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4934,7 +4934,7 @@
             // 
             // txtMin
             // 
-            this.txtMin.Location = new System.Drawing.Point(12, 141);
+            this.txtMin.Location = new System.Drawing.Point(12, 150);
             this.txtMin.Name = "txtMin";
             this.txtMin.Properties.AllowMouseWheel = false;
             this.txtMin.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -5033,7 +5033,7 @@
             this.layoutControlItem75,
             this.emptySpaceItem31,
             this.layoutControlItem185});
-            this.layoutControlGroup6.Location = new System.Drawing.Point(0, -9);
+            this.layoutControlGroup6.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup6.Name = "Root";
             this.layoutControlGroup6.Size = new System.Drawing.Size(919, 452);
             // 
