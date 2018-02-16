@@ -40,6 +40,7 @@ using DevExpress.XtraPrinting;
 using DevExpress.XtraBars.Docking;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraEditors.Repository;
+using System.Xml;
 
 namespace OTTOPro
 {
