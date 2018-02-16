@@ -39,7 +39,7 @@ namespace OTTOPro
             try
             {
                 if (string.IsNullOrEmpty(txtFileName.Text))
-                    throw new Exception("Filename Cannot be Empty");
+                    throw new Exception("Dateiname Kann nicht leer sein");
                 ObjEGAEB.IsSave = true;
                 ObjEGAEB.FileNAme = txtFileName.Text;
                 ObjEGAEB.OutputPath = txtFilePath.Text;
