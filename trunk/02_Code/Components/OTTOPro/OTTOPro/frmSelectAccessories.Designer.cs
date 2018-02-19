@@ -270,6 +270,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSelectAccessories";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zubehör auswählen";
             this.Load += new System.EventHandler(this.frmSelectAccessories_Load);

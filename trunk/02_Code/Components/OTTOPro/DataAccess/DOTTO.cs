@@ -134,6 +134,25 @@ namespace DataAccess
             return ContactID;
         }
 
+        public void ImportCustomerData(DataTable dt)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[p_upd_customerdata]";
+                    cmd.Parameters.AddWithValue("@dtCusotmerData", dt);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 
 //***************

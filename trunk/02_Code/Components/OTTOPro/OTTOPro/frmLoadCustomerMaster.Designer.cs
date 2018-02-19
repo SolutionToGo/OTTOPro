@@ -1109,6 +1109,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmLoadCustomerMaster";
+            this.ShowInTaskbar = false;
             this.Text = "Stammdaten Kunden";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLoadCustomerMaster_FormClosing);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using EL;
 using System.Xml;
 using DataAccess;
+using System.Data;
 
 namespace BL
 {
@@ -125,6 +126,18 @@ namespace BL
             }
         }
 
+
+        public void ImportCustomerData(DataTable dt)
+        {
+            try
+            {
+                ObjDOTTO.ImportCustomerData(dt);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 //************
 }

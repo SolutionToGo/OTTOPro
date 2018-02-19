@@ -17,6 +17,7 @@ using System.Configuration;
 using System.IO;
 using OTTOPro.Report_Design;
 using DevExpress.XtraReports.UI;
+using System.Data.OleDb;
 
 namespace OTTOPro
 {
@@ -416,7 +417,6 @@ namespace OTTOPro
                     string strFileName = Path.GetFileNameWithoutExtension(strFilePath);
                     strOutputFilepath = strOTTOFilePath + strFileName + ".tml";
                     Utility.ProcesssFile(strFilePath, strOutputFilepath);
-                    SplashScreenManager.CloseForm(false);
                     BGAEB ObjBGAEB = new BGAEB();
                     EGAEB ObjEGAEB = new EGAEB();
                     ObjEGAEB.UserID = Utility.UserID;
@@ -424,6 +424,7 @@ namespace OTTOPro
                     ObjEGAEB.dsLVData = Utility.CreateDatasetSchema(strOutputFilepath, string.Empty, strRaster, ObjEGAEB);
                     ObjEGAEB.LvRaster = strRaster;
                     ObjEGAEB = ObjBGAEB.ProjectImport(ObjEGAEB);
+                    SplashScreenManager.CloseForm(false);
                     frmViewProject Obj = new frmViewProject(ObjEGAEB);
                     Obj.ShowDialog();
                 }
@@ -511,5 +512,76 @@ namespace OTTOPro
             }
         }
         #endregion
+
+        public DataTable ReadExcel(string fileName, string fileExt)
+        {
+            string conn = string.Empty;
+            DataTable dtexcel = new DataTable();
+            if (fileExt.CompareTo(".xls") == 0)
+                conn = @"provider=Microsoft.Jet.OLEDB.4.0;Data Source=" + fileName + ";Extended Properties='Excel 8.0;HRD=Yes;IMEX=1';"; //for below excel 2007  
+            else
+                conn = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=" + fileName + ";Extended Properties='Excel 12.0;HDR=NO';"; //for above excel 2007  
+            using (OleDbConnection con = new OleDbConnection(conn))
+            {
+                try
+                {
+                    OleDbDataAdapter oleAdpt = new OleDbDataAdapter("select * from [Sheet1$]", con); //here we read data from sheet1  
+                    oleAdpt.Fill(dtexcel); //fill excel data into dataTable  
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }
+            return dtexcel;
+        }
+        
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strFilePath = string.Empty;
+                OpenFileDialog dlg = new OpenFileDialog();
+
+                dlg.InitialDirectory = @"C:\";
+                dlg.Title = "Dateiauswahl für Data File Import";
+
+                dlg.CheckFileExists = true;
+                dlg.CheckPathExists = true;
+
+                dlg.Filter = "All files (*.*)|*.*";
+                dlg.RestoreDirectory = true;
+
+                dlg.ReadOnlyChecked = true;
+                dlg.ShowReadOnly = true;
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    strFilePath = dlg.FileName;
+                    string fileExt = Path.GetExtension(strFilePath);
+                    if (fileExt.CompareTo(".xls") == 0 || fileExt.CompareTo(".xlsx") == 0)
+                    {
+                        DataTable dtExcel = new DataTable();
+                        dtExcel = ReadExcel(strFilePath, fileExt); //read excel file  
+                        
+                        foreach(DataRow dr in dtExcel.Rows)
+                        {
+                            string str = Convert.ToString(dr["F2"]);
+                            if(str.Substring(0,1) == "\n")
+                                str = str.Substring(1);
+                            if (str.Contains("\r"))
+                                str = str.Replace("\r", "");
+                            dr["F2"] = str;
+                        }
+                        DataTable dt = dtExcel.Copy();
+                        BOTTO ObjBOTTO = new BOTTO();
+                        ObjBOTTO.ImportCustomerData(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

@@ -226,6 +226,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSelectCustomer";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kunden";
             this.Load += new System.EventHandler(this.frmSelectCustomer_Load);

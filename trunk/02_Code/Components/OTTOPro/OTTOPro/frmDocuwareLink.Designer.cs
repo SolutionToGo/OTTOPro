@@ -204,7 +204,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Image = global::OTTOPro.Properties.Resources.Save_16x16;
+            this.btnOK.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnOK.Location = new System.Drawing.Point(98, 3);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 22);
@@ -214,7 +214,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(179, 3);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(85, 22);
@@ -224,7 +224,7 @@
             // 
             // btnOpenLink1
             // 
-            this.btnOpenLink1.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
+            this.btnOpenLink1.ImageOptions.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
             this.btnOpenLink1.Location = new System.Drawing.Point(479, 33);
             this.btnOpenLink1.Name = "btnOpenLink1";
             this.btnOpenLink1.Size = new System.Drawing.Size(62, 23);
@@ -234,7 +234,7 @@
             // 
             // btnOpenLink2
             // 
-            this.btnOpenLink2.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
+            this.btnOpenLink2.ImageOptions.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
             this.btnOpenLink2.Location = new System.Drawing.Point(479, 62);
             this.btnOpenLink2.Name = "btnOpenLink2";
             this.btnOpenLink2.Size = new System.Drawing.Size(62, 23);
@@ -244,7 +244,7 @@
             // 
             // btnOpenLink3
             // 
-            this.btnOpenLink3.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
+            this.btnOpenLink3.ImageOptions.Image = global::OTTOPro.Properties.Resources.Open2_16x16;
             this.btnOpenLink3.Location = new System.Drawing.Point(479, 91);
             this.btnOpenLink3.Name = "btnOpenLink3";
             this.btnOpenLink3.Size = new System.Drawing.Size(62, 23);
@@ -267,6 +267,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmDocuwareLink";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Docuware Link";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmDocuwareLink_FormClosing);

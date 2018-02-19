@@ -1540,6 +1540,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmArticlesData";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artikelstammdaten ";
             this.Load += new System.EventHandler(this.frmArticlesData_Load);

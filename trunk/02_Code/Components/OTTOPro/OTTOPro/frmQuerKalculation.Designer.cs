@@ -240,6 +240,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmQuerKalculation";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Auswahl Querkalkulation";
             this.Load += new System.EventHandler(this.frmQuerKalculation_Load);

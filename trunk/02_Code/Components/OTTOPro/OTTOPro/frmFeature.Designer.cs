@@ -269,6 +269,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFeature";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Berechtigung";
             this.Load += new System.EventHandler(this.frmFeature_Load);

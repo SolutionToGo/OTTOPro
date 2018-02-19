@@ -981,6 +981,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmLoadSupplier";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lieferant Stammdaten";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

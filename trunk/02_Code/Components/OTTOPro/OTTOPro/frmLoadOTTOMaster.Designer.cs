@@ -791,6 +791,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
             this.Name = "frmLoadOTTOMaster";
+            this.ShowInTaskbar = false;
             this.Text = "OTTO Firmendaten";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLoadOTTOMaster_FormClosing);

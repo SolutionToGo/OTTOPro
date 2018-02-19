@@ -112,8 +112,8 @@
             // 
             // txtWA
             // 
-            this.dxValidationProviderWG.SetIconAlignment(this.txtWA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderWA.SetIconAlignment(this.txtWA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderWG.SetIconAlignment(this.txtWA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtWA.Location = new System.Drawing.Point(113, 36);
             this.txtWA.Name = "txtWA";
             this.txtWA.Size = new System.Drawing.Size(215, 20);
@@ -126,8 +126,8 @@
             // 
             // txtWG
             // 
-            this.dxValidationProviderWG.SetIconAlignment(this.txtWG, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.dxValidationProviderWA.SetIconAlignment(this.txtWG, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
+            this.dxValidationProviderWG.SetIconAlignment(this.txtWG, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtWG.Location = new System.Drawing.Point(113, 12);
             this.txtWG.Name = "txtWG";
             this.txtWG.Size = new System.Drawing.Size(215, 20);
@@ -236,6 +236,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSaveArticle";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artikel speichern";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmSaveArticle_FormClosing);

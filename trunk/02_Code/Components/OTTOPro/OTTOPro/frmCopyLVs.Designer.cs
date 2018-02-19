@@ -63,7 +63,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.Location = new System.Drawing.Point(222, 131);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(79, 22);
@@ -75,7 +75,7 @@
             // btnOk
             // 
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOk.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
+            this.btnOk.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
             this.btnOk.Location = new System.Drawing.Point(142, 131);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(76, 22);
@@ -164,6 +164,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmCopyLVs";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Copy To";
             this.Load += new System.EventHandler(this.frmCopyLVs_Load);

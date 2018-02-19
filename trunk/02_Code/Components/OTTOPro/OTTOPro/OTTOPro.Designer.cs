@@ -98,6 +98,7 @@
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblDBVersion = new System.Windows.Forms.Label();
+            this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -640,7 +641,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(206, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.7 (16-02-2018)";
+            this.label1.Text = "Version Software 9.8 (19-02-2018)";
             // 
             // fdImportFile
             // 
@@ -670,6 +671,16 @@
             this.lblDBVersion.Size = new System.Drawing.Size(0, 13);
             this.lblDBVersion.TabIndex = 24;
             // 
+            // simpleButton1
+            // 
+            this.simpleButton1.Location = new System.Drawing.Point(1106, 629);
+            this.simpleButton1.Name = "simpleButton1";
+            this.simpleButton1.Size = new System.Drawing.Size(75, 23);
+            this.simpleButton1.TabIndex = 27;
+            this.simpleButton1.Text = "simpleButton1";
+            this.simpleButton1.Visible = false;
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
+            // 
             // frmOTTOPro
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -681,6 +692,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1230, 755);
+            this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.lblDBVersion);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.label1);
@@ -771,5 +783,6 @@
         private DevExpress.XtraBars.BarButtonItem bbAngebot;
         private DevExpress.XtraBars.BarButtonItem bbAufmass;
         private DevExpress.XtraBars.BarButtonItem bbRechnung;
+        private DevExpress.XtraEditors.SimpleButton simpleButton1;
     }
 }

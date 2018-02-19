@@ -2814,16 +2814,16 @@ namespace OTTOPro
             {
                 StringBuilder strParentOZ = new StringBuilder();
                 //Checking stufe existence
-                if (!string.IsNullOrEmpty(txtStufe1Short.Text)) //1
+                if (!string.IsNullOrEmpty(txtStufe1Short.Text.Trim())) //1
                 {
                     strParentOZ.Append(txtStufe1Short.Text + ".");//1
-                    if (!string.IsNullOrEmpty(txtStufe2Short.Text))//1
+                    if (!string.IsNullOrEmpty(txtStufe2Short.Text.Trim()))//1
                     {
                         strParentOZ.Append(txtStufe2Short.Text + ".");//1.1
-                        if (!string.IsNullOrEmpty(txtStufe3Short.Text))//1
+                        if (!string.IsNullOrEmpty(txtStufe3Short.Text.Trim()))//1
                         {
                             strParentOZ.Append(txtStufe3Short.Text + ".");//1.1.1
-                            if (!string.IsNullOrEmpty(txtStufe4Short.Text))//1
+                            if (!string.IsNullOrEmpty(txtStufe4Short.Text.Trim()))//1
                                 strParentOZ.Append(txtStufe4Short.Text + ".");//1.1.1.1
                         }
                     }
@@ -2843,29 +2843,6 @@ namespace OTTOPro
             {
                 if (ObjEPosition.dsPositionList != null)
                 {                    
-                    if (strParent.Contains(" "))
-                    {
-                        string str = string.Empty;
-                        int Count = -1;
-                        int i = -1;
-                        string[] _value = strParent.Split('.');
-                        string OZ = string.Empty;                        
-                        Count = _value.Count();
-                        while (Count > 0)
-                        {
-                            i = i + 1;
-                            Count = Count - 1;
-                            OZ = _value[i].Trim();
-                            if (OZ!="")
-                            {
-                                str = str + OZ + ".";
-                            }
-                        }
-                        if (str.Length > 0)
-                        {
-                            strParent = str;
-                        }
-                    }                    
                     DataTable dt = ObjEPosition.dsPositionList.Tables[0];
                     DataRow[] tPosition_Id = dt.Select("Position_OZ='" + strParent + "'");
                     if (tPosition_Id != null && tPosition_Id.Count() > 0)
@@ -3079,29 +3056,6 @@ namespace OTTOPro
             string strFromOZ = string.Empty;
             try
             {
-                if (strParentOZ.Contains(" "))
-                {
-                    string str = string.Empty;
-                    int Count = -1;
-                    int i = -1;
-                    string[] _value = strParentOZ.Split('.');
-                    string OZ = string.Empty;
-                    Count = _value.Count();
-                    while (Count > 0)
-                    {
-                        i = i + 1;
-                        Count = Count - 1;
-                        OZ = _value[i].Trim();
-                        if (OZ != "")
-                        {
-                            str = str + OZ + ".";
-                        }
-                    }
-                    if (str.Length > 0)
-                    {
-                        strParentOZ = str;
-                    }
-                }
                 DataTable dt = new DataTable();
                 dt = ObjEPosition.dsPositionList.Tables[0].Copy();
                 DataRow[] tPosition_Id = dt.Select("Position_OZ='" + strParentOZ + "'");
@@ -3131,29 +3085,6 @@ namespace OTTOPro
             string strToOZ = string.Empty;
             try
             {
-                if (strParentOZ.Contains(" "))
-                {
-                    string str = string.Empty;
-                    int Count = -1;
-                    int i = -1;
-                    string[] _value = strParentOZ.Split('.');
-                    string OZ = string.Empty;
-                    Count = _value.Count();
-                    while (Count > 0)
-                    {
-                        i = i + 1;
-                        Count = Count - 1;
-                        OZ = _value[i].Trim();                        
-                        if (OZ != "")
-                        {
-                            str = str + OZ + ".";
-                        }
-                    }
-                    if (str.Length > 0)
-                    {
-                        strParentOZ = str;
-                    }
-                }
                 DataTable dt = new DataTable();
                 dt = ObjEPosition.dsPositionList.Tables[0];
                 DataRow[] tPosition_Id = dt.Select("Position_OZ='" + strParentOZ + "'");
@@ -3784,11 +3715,11 @@ namespace OTTOPro
                 {
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Kopieren Detail KZ", bbCopyDetailKZ_Click));
                 }
-                if (_ISCopied == true && P_value != "NG" && P_value != "Z" && P_value != "ZS")
+                if (_ISCopied == true && P_value != "NG" && P_value != "Z" && P_value != "ZS" && P_value != "H")
                 {
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Einfügen Detail KZ", bbPasteyDetailKZ_Click));
                 }
-                if (_ISCopiedLV == true && P_value != "NG" && P_value != "Z" && P_value != "ZS")
+                if (_ISCopiedLV == true && P_value != "NG" && P_value != "Z" && P_value != "ZS" && P_value != "H")
                 {
                     e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Einfügen LV Position(Unter der ausgewählten Zeile)", bbPasteLVAndDetailKZ_Click));
                 }
@@ -3962,8 +3893,20 @@ namespace OTTOPro
                     IIndex = 2;
                     if (INodeIndex != null)
                     {
-                        if (Nodetofocus.ParentNode.Nodes.Count > INodeIndex + 1)
-                            strnextLV = Convert.ToString(Nodetofocus.ParentNode.Nodes[INodeIndex + 1]["Position_OZ"]);
+                        bool _Continue = true;
+                        int IValue = 0;
+                        while (_Continue)
+                        {
+                            IValue++;
+                            if (Nodetofocus.ParentNode.Nodes.Count > INodeIndex + IValue)
+                            {
+                                strnextLV = Convert.ToString(Nodetofocus.ParentNode.Nodes[INodeIndex + IValue]["Position_OZ"]);
+                                if (!string.IsNullOrEmpty(strnextLV))
+                                    _Continue = false;
+                            }
+                            else
+                                _Continue = false;
+                        }
                     }
                     string _Suggested_OZ = SuggestOZForCopy(strPositionsOZ, strnextLV, IIndex);
 
@@ -8332,6 +8275,8 @@ namespace OTTOPro
                 int I_index = 0;
                 string ParentOZ = string.Empty;
                 string Position_OZ = string.Empty;
+                if (_PosKZ.ToLower() == "h")
+                    return;
                 if (_PosKZ == "NG")
                 {
                     if (rgDropMode.SelectedIndex == 2)
@@ -8418,8 +8363,6 @@ namespace OTTOPro
                         string strNewOz = ParentOZ + _Suggested_OZ;
                         Position_OZ = strNewOz;
                     }  
-
-                  //  Position_OZ = ParentOZ + _Suggested_OZ;
                 }
                 else
                 {
@@ -8432,8 +8375,20 @@ namespace OTTOPro
                         int INodeIndex = tlNewProject.GetNodeIndex(node);
                         if (INodeIndex != null)
                         {
-                            if (node.ParentNode.Nodes.Count > INodeIndex + 1)
-                                strnextLV = Convert.ToString(node.ParentNode.Nodes[INodeIndex + 1]["Position_OZ"]);
+                            bool _Continue = true;
+                            int IValue = 0;
+                            while (_Continue)
+                            {
+                                IValue++;
+                                if (node.ParentNode.Nodes.Count > INodeIndex + IValue)
+                                {
+                                    strnextLV = Convert.ToString(node.ParentNode.Nodes[INodeIndex + IValue]["Position_OZ"]);
+                                    if (!string.IsNullOrEmpty(strnextLV))
+                                        _Continue = false;
+                                }
+                                else
+                                    _Continue = false;
+                            }
                         }
                         string strNo = Convert.ToString(node["SNO"]);
                         if (!int.TryParse(strNo, out I_index))
@@ -8493,7 +8448,6 @@ namespace OTTOPro
                         string strNewOz = ParentOZ + _Suggested_OZ;
                         Position_OZ = strNewOz;
                     }
-                   // Position_OZ = ParentOZ + _Suggested_OZ;
                 }
                 string strLongDescription = ObjBPosition.GetLongDescription(IPositionID);
 
@@ -9551,7 +9505,8 @@ namespace OTTOPro
                 string PositionOZ = string.Empty;
                 string strnextLV = string.Empty;
                 int IIndex = 0;
-
+                if (TargetPositionKZ == "H")
+                    return;
                 if (TargetPositionKZ == "NG")
                 {
                     string[] _Raster = ObjEProject.LVRaster.Split('.');
@@ -9584,8 +9539,21 @@ namespace OTTOPro
                     int INodeIndex = tlPositions.GetNodeIndex(Tnode);
                     if (INodeIndex != null)
                     {
-                        if (Tnode.ParentNode.Nodes.Count > INodeIndex + 1)
-                            strnextLV = Convert.ToString(Tnode.ParentNode.Nodes[INodeIndex + 1]["Position_OZ"]);
+                        bool _Continue = true;
+                        int iValue = 0;
+                        while (_Continue)
+                        {
+                            iValue++;
+                            if (Tnode.ParentNode.Nodes.Count > INodeIndex + iValue)
+                            {
+                                strnextLV = Convert.ToString(Tnode.ParentNode.Nodes[INodeIndex + iValue]["Position_OZ"]);
+                                if (!string.IsNullOrEmpty(strnextLV))
+                                    _Continue = false;
+                                    
+                            }
+                            else
+                                _Continue = false;
+                        }
                     }
                 }
 
@@ -9647,12 +9615,9 @@ namespace OTTOPro
                     ObjEPosition.Position_OZ = strNewOz;
                 } 
 
-                //string strNewOz = ParentOZ + _Suggested_OZ;
-
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
                 ObjEPosition.PositionID = IPositionID;
 
-                //ObjEPosition.Position_OZ = strNewOz;
                 int IParnetValue = 0;
                 if (int.TryParse(ParentID, out IParnetValue))
                     ObjEPosition.ParentID = IParnetValue;
@@ -10587,6 +10552,7 @@ namespace OTTOPro
                     objEGAEB = new EGAEB();
                 objEGAEB.ProjectID = ObjEProject.ProjectID;
                 objEGAEB.ProjectNumber = ObjEProject.ProjectNumber;
+                objEGAEB.LvRaster = ObjEProject.LVRaster;
                 frmGAEBFormat Obj = new frmGAEBFormat(objEGAEB);
                 Obj.ShowDialog();
                 if (!string.IsNullOrEmpty(objEGAEB.FileFormat) && !string.IsNullOrEmpty(objEGAEB.FileNAme) && objEGAEB.IsSave)
@@ -10598,7 +10564,7 @@ namespace OTTOPro
                     if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
                     {
                         string strOTTOFilePath = objEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
-                        XMLDoc = objBGAEB.ExportSupplierproposal(IValue, _ProjectID, objEGAEB.FileFormat, ObjEProject.LVRaster, objEGAEB);
+                        XMLDoc = objBGAEB.ExportSupplierproposal(IValue, ObjEProject.ProjectID, objEGAEB.FileFormat, ObjEProject.LVRaster, objEGAEB);
                         if (!Directory.Exists(strOTTOFilePath))
                             Directory.CreateDirectory(strOTTOFilePath);
                         string strOutputFilePath = string.Empty;

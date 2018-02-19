@@ -65,9 +65,23 @@ namespace OTTOPro
 
         private void frmGAEBFormat_Load(object sender, EventArgs e)
         {
-            txtProjectNumber.Text = ObjEGAEB.ProjectNumber;
-            txtFileName.Text = ObjEGAEB.ProjectNumber;
-            txtFilePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            try
+            {
+                int IValue = 0;
+                IValue = ObjEGAEB.LvRaster.Replace(".",string.Empty).Length;
+                if (IValue > 9)
+                {
+                    rgGAEBVersion.Properties.Items[0].Enabled = false;
+                    rgGAEBVersion.SelectedIndex = 1;
+                }
+                txtProjectNumber.Text = ObjEGAEB.ProjectNumber;
+                txtFileName.Text = ObjEGAEB.ProjectNumber;
+                txtFilePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            }
+            catch (Exception ex)
+            {
+                
+            }
         }
     }
 }

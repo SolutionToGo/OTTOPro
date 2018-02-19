@@ -29,30 +29,30 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.btnOk = new DevExpress.XtraEditors.SimpleButton();
+            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddSupplier = new DevExpress.XtraEditors.SimpleButton();
             this.gcSupplier = new DevExpress.XtraGrid.GridControl();
             this.gvSupplier = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnAddSupplier = new DevExpress.XtraEditors.SimpleButton();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSupplier)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -70,20 +70,36 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
-            // layoutControlGroup1
+            // btnOk
             // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
-            this.layoutControlItem3,
-            this.layoutControlItem4,
-            this.emptySpaceItem2,
-            this.layoutControlItem2});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(488, 567);
-            this.layoutControlGroup1.TextVisible = false;
+            this.btnOk.Location = new System.Drawing.Point(306, 533);
+            this.btnOk.Name = "btnOk";
+            this.btnOk.Size = new System.Drawing.Size(76, 22);
+            this.btnOk.StyleController = this.layoutControl1;
+            this.btnOk.TabIndex = 11;
+            this.btnOk.Text = "Ok";
+            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(386, 533);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(90, 22);
+            this.btnCancel.StyleController = this.layoutControl1;
+            this.btnCancel.TabIndex = 10;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnAddSupplier
+            // 
+            this.btnAddSupplier.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
+            this.btnAddSupplier.Location = new System.Drawing.Point(220, 533);
+            this.btnAddSupplier.Name = "btnAddSupplier";
+            this.btnAddSupplier.Size = new System.Drawing.Size(82, 22);
+            this.btnAddSupplier.StyleController = this.layoutControl1;
+            this.btnAddSupplier.TabIndex = 9;
+            this.btnAddSupplier.Text = "Hinzufügen";
+            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
             // 
             // gcSupplier
             // 
@@ -157,6 +173,23 @@
             this.gridColumn9.VisibleIndex = 1;
             this.gridColumn9.Width = 133;
             // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseBackColor = true;
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem3,
+            this.layoutControlItem4,
+            this.emptySpaceItem2,
+            this.layoutControlItem2});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(488, 567);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.gcSupplier;
@@ -166,36 +199,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // btnAddSupplier
-            // 
-            this.btnAddSupplier.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
-            this.btnAddSupplier.Location = new System.Drawing.Point(220, 533);
-            this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(82, 22);
-            this.btnAddSupplier.StyleController = this.layoutControl1;
-            this.btnAddSupplier.TabIndex = 9;
-            this.btnAddSupplier.Text = "Hinzufügen";
-            this.btnAddSupplier.Click += new System.EventHandler(this.btnAddSupplier_Click);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.btnAddSupplier;
-            this.layoutControlItem2.Location = new System.Drawing.Point(208, 521);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(86, 26);
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem2.TextVisible = false;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(386, 533);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 22);
-            this.btnCancel.StyleController = this.layoutControl1;
-            this.btnCancel.TabIndex = 10;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
@@ -204,16 +207,6 @@
             this.layoutControlItem3.Size = new System.Drawing.Size(94, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
-            // 
-            // btnOk
-            // 
-            this.btnOk.Location = new System.Drawing.Point(306, 533);
-            this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(76, 22);
-            this.btnOk.StyleController = this.layoutControl1;
-            this.btnOk.TabIndex = 11;
-            this.btnOk.Text = "Ok";
-            this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
             // layoutControlItem4
             // 
@@ -232,6 +225,15 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(208, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.btnAddSupplier;
+            this.layoutControlItem2.Location = new System.Drawing.Point(208, 521);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Size = new System.Drawing.Size(86, 26);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem2.TextVisible = false;
+            // 
             // frmSupplierList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,14 +251,14 @@
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmSupplierList_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcSupplier)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvSupplier)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }

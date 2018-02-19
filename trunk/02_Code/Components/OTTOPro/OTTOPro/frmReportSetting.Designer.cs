@@ -407,6 +407,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmReportSetting";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Berichtseinstellungen";
             this.Load += new System.EventHandler(this.frmReportSetting_Load);
