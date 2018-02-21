@@ -117,7 +117,7 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                   // throw new Exception("Fehler beim Laden der Zugangsinformationen");
+                    throw new Exception("Ein Fehler ist aufgetreten beim Laden des Formulars (Kostentypen)");
                 }
                 else
                 {
@@ -157,11 +157,12 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    // throw new Exception("Fehler beim Laden der Zugangsinformationen");
+
+                    throw new Exception("Ein Fehler ist aufgetreten beim Laden des Formulars (Artikel)");
                 }
                 else
                 {
-                    throw new Exception("Error Occured While Retreiving FormBlatt Types");
+                    throw new Exception("Error Occured While Retreiving FormBlatt Articles");
 
                 }
             }
@@ -194,11 +195,11 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    // throw new Exception("Fehler beim Laden der Zugangsinformationen");
+                    throw new Exception("Ein Fehler ist aufgetreten beim Speichern des Formulars");
                 }
                 else
                 {
-                    throw new Exception("Error Occured While Saving FormBlatt Types");
+                    throw new Exception("Error Occured While Saving Titles Articles");
 
                 }
             }

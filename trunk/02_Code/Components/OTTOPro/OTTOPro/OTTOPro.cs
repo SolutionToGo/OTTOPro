@@ -478,39 +478,93 @@ namespace OTTOPro
 
         private void bbAngebot_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-            Object oTemplatePath = appPath + "\\Angebot_Template.dotx";
-            if (File.Exists(Convert.ToString(oTemplatePath)))
+            try
             {
-                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
-                ap.Documents.Open(oTemplatePath);
-                ap.Visible = true;
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+                string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                Object oTemplatePath = appPath + "\\Angebot_Template.dotx";
+                if (File.Exists(Convert.ToString(oTemplatePath)))
+                {
+                    if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
+                    {
+                        Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                        ap.Documents.Open(oTemplatePath);
+                        ap.Visible = true;
+                        ap.Activate();
+                    }
+                    else
+                        throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
+                }
+                SplashScreenManager.CloseForm(false);
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
             }
         }
 
         private void bbAufmass_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-            Object oTemplatePath = appPath + "\\Aufmass_Template.dotx";
-            if (File.Exists(Convert.ToString(oTemplatePath)))
+            try
             {
-                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
-                ap.Documents.Open(oTemplatePath);
-                ap.Visible = true;
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+                string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                Object oTemplatePath = appPath + "\\Aufmass_Template.dotx";
+                if (File.Exists(Convert.ToString(oTemplatePath)))
+                {
+                    if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
+                    {
+                        Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                        ap.Documents.Open(oTemplatePath);
+                        ap.Visible = true;
+                        ap.Activate();
+                    }
+                    else
+                        throw new Exception("Bitte schließen Sie die Aufmass-Dokumente aller Projekte");
+
+                }
+                SplashScreenManager.CloseForm(false);
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
             }
         }
 
         private void bbRechnung_ItemClick(object sender, ItemClickEventArgs e)
         {
-            string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-            Object oTemplatePath = appPath + "\\Rechnung_Template.dotx";
-            if (File.Exists(Convert.ToString(oTemplatePath)))
+            try
             {
-                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
-                ap.Documents.Open(oTemplatePath);
-                ap.Visible = true;
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+                string appPath = Path.GetDirectoryName(Application.ExecutablePath);
+                Object oTemplatePath = appPath + "\\Rechnung_Template.dotx";
+                if (File.Exists(Convert.ToString(oTemplatePath)))
+                {
+                    if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
+                    {
+                        Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                        ap.Documents.Open(oTemplatePath);
+                        ap.Visible = true;
+                        ap.Activate();
+                    }
+                    else
+                        throw new Exception("Bitte schließen Sie die Rechnung-Dokumente aller Projekte");
+
+                }
+                SplashScreenManager.CloseForm(false);
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
             }
         }
+
         #endregion
 
         public DataTable ReadExcel(string fileName, string fileExt)

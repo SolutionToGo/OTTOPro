@@ -41,6 +41,7 @@ using DevExpress.XtraBars.Docking;
 using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraEditors.Repository;
 using System.Xml;
+using System.Threading;
 
 namespace OTTOPro
 {
@@ -8271,24 +8272,21 @@ namespace OTTOPro
                     e.Effect = DragDropEffects.None;
                     return;
                 }
-                string _PosKZ = node["PositionKZ"].ToString();
+                string _PosKZ = Convert.ToString(node["PositionKZ"]);
+                string strOZ = Convert.ToString(node["Position_OZ"]);
                 int I_index = 0;
                 string ParentOZ = string.Empty;
                 string Position_OZ = string.Empty;
-                if (_PosKZ.ToLower() == "h")
+                if (string.IsNullOrEmpty(strOZ))
                     return;
                 if (_PosKZ == "NG")
                 {
                     if (rgDropMode.SelectedIndex == 2)
                     {
                         if (!Utility._IsGermany)
-                        {
                             throw new Exception("Please select different copy mode");
-                        }
                         else
-                        {
                             throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
-                        }
                     }
 
                     string[] _Raster = ObjEProject.LVRaster.Split('.');
@@ -8309,6 +8307,8 @@ namespace OTTOPro
                         {
                             strNO = Convert.ToString(node.FirstNode["SNO"]);
                             strSelectedOZ = Convert.ToString(node.FirstNode["Position_OZ"]);
+                            if (string.IsNullOrEmpty(strSelectedOZ))
+                                return;
                         }
                         int iTemp = 0;
                         if (!int.TryParse(strNO, out iTemp))
@@ -8322,6 +8322,8 @@ namespace OTTOPro
                         {
                             strNO = Convert.ToString(node.LastNode["SNO"]);
                             strSelectedOZ = Convert.ToString(node.LastNode["Position_OZ"]);
+                            if (string.IsNullOrEmpty(strSelectedOZ))
+                                return;
                         }
                         if (!int.TryParse(strNO, out I_index))
                             I_index = 0;
@@ -8398,6 +8400,8 @@ namespace OTTOPro
                     {
                         string strNO = Convert.ToString(node.ParentNode.LastNode["SNO"]);
                         strSelectedOZ = Convert.ToString(node.ParentNode.LastNode["Position_OZ"]);
+                        if (string.IsNullOrEmpty(strSelectedOZ))
+                            return;
                         if (!int.TryParse(strNO, out I_index))
                             I_index = 0;
                     }
@@ -8405,6 +8409,8 @@ namespace OTTOPro
                     {
                         string strNO = Convert.ToString(node.ParentNode.FirstNode["SNO"]);
                         strSelectedOZ = Convert.ToString(node.ParentNode.FirstNode["Position_OZ"]);
+                        if (string.IsNullOrEmpty(strSelectedOZ))
+                            return;
                         int iTemp = 0;
                         if (!int.TryParse(strNO, out iTemp))
                             I_index = 0;
@@ -9499,13 +9505,14 @@ namespace OTTOPro
                     return;
 
                 string TargetPositionKZ = Convert.ToString(Tnode["PositionKZ"]);
+                string strOZ = Convert.ToString(Tnode["Position_OZ"]);
                 string SNO = string.Empty;
                 string ParentID = string.Empty;
                 string ParentOZ = string.Empty;
                 string PositionOZ = string.Empty;
                 string strnextLV = string.Empty;
                 int IIndex = 0;
-                if (TargetPositionKZ == "H")
+                if (string.IsNullOrEmpty(strOZ))
                     return;
                 if (TargetPositionKZ == "NG")
                 {
@@ -9699,7 +9706,7 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
+        }   
 
         private void BindCoaprePrice(string _type)
         {
@@ -10293,6 +10300,8 @@ namespace OTTOPro
         {
             try
             {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -10339,13 +10348,22 @@ namespace OTTOPro
                     }
                     wordDoc.SaveAs(strFileName);
                     wordApp.Application.Quit();
+                    Thread.Sleep(1000);
                 }
-                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
-                ap.Documents.Open(strFileName);
-                ap.Visible = true;
+                if (!Utility.fileIsOpen(strFileName))
+                {
+                    Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                    ap.Documents.Open(strFileName);
+                    ap.Visible = true;
+                    ap.Activate();
+                    SplashScreenManager.CloseForm(false);
+                }
+                else
+                    throw new Exception("Das Angebotsdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
         }
@@ -10354,6 +10372,8 @@ namespace OTTOPro
         {
             try
             {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -10400,13 +10420,22 @@ namespace OTTOPro
                     }
                     wordDoc.SaveAs(strFileName);
                     wordApp.Application.Quit();
+                    Thread.Sleep(1000);
                 }
-                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
-                ap.Documents.Open(strFileName);
-                ap.Visible = true;
+                if (!Utility.fileIsOpen(strFileName))
+                {
+                    Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                    ap.Documents.Open(strFileName);
+                    ap.Visible = true;
+                    ap.Activate();
+                    SplashScreenManager.CloseForm(false);
+                }
+                else
+                    throw new Exception("Das Aufmassdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
         }
@@ -10415,6 +10444,8 @@ namespace OTTOPro
         {
             try
             {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -10460,13 +10491,22 @@ namespace OTTOPro
                     }
                     wordDoc.SaveAs(strFileName);
                     wordApp.Application.Quit();
+                    Thread.Sleep(1000);
                 }
-                Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
-                ap.Documents.Open(strFileName);
-                ap.Visible = true;
+                if (!Utility.fileIsOpen(strFileName))
+                {
+                    Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                    ap.Documents.Open(strFileName);
+                    ap.Visible = true;
+                    ap.Activate();
+                    SplashScreenManager.CloseForm(false);
+                }
+                else
+                    throw new Exception("Das Angebotdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
         }
@@ -10663,5 +10703,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
     }
 }

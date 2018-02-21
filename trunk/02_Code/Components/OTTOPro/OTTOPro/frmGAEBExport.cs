@@ -56,7 +56,7 @@ namespace OTTOPro
                     {
                         cmbFormatType.Properties.Items.Add(p);
                     }
-                    cmbFormatType.SelectedIndex = cmbFormatType.Properties.Items.IndexOf("P83");
+                    cmbFormatType.SelectedIndex = cmbFormatType.Properties.Items.IndexOf("P86");
                 }
                 else
                 {
@@ -64,7 +64,7 @@ namespace OTTOPro
                     {
                         cmbFormatType.Properties.Items.Add(d);
                     }
-                    cmbFormatType.SelectedIndex = cmbFormatType.Properties.Items.IndexOf("D83");
+                    cmbFormatType.SelectedIndex = cmbFormatType.Properties.Items.IndexOf("D86");
                 }
                 txtFilePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
                 if (ObjBGAEB == null)
