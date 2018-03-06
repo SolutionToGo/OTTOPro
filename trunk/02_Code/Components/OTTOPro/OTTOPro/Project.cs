@@ -297,6 +297,7 @@ namespace OTTOPro
             try
             {
                 splitContainerControl1.CollapsePanel = SplitCollapsePanel.Panel1;
+                splitContainerControl2.CollapsePanel = SplitCollapsePanel.Panel1;
 
                 tbLVDetails.PageVisible = false;
                 tbBulkProcess.PageVisible = false;
@@ -876,6 +877,7 @@ namespace OTTOPro
                 ObjEPosition.Dim1 = txtDim1.Text;
                 ObjEPosition.Dim2 = txtDim2.Text;
                 ObjEPosition.Dim3 = txtDim3.Text;
+                ObjEPosition.Dim = txtDim.Text;
 
                 ObjEPosition.DocuwareLink1 = _DocuwareLink1;
                 ObjEPosition.DocuwareLink2 = _DocuwareLink2;
@@ -915,7 +917,7 @@ namespace OTTOPro
                 if (ObjEPosition.dsPositionList != null)
                 {
                     CalculatePositions(ObjEPosition.dsPositionList.Tables[0], "GB");
-                    xtraTabPageHierachical.Controls.Add(tlPositions);
+                   // xtraTabPageHierachical.Controls.Add(tlPositions);
                     tlPositions.DataSource = ObjEPosition.dsPositionList;
                     tlPositions.DataMember = "Positions";
                     tlPositions.ParentFieldName = "Parent_OZ";
@@ -937,7 +939,6 @@ namespace OTTOPro
             {
                 if (ObjEPosition.dsPositionList != null)
                 {
-                    xtraTabPageTabular.Controls.Add(tlPositions);
                     tlPositions.DataMember = "Positions";
                     tlPositions.ParentFieldName = "Positions";
                     tlPositions.ForceInitialize();
@@ -964,15 +965,15 @@ namespace OTTOPro
                         {
                             if (Utility.LVSectionEditAccess == "9" || Utility.LVSectionEditAccess == "7")
                             {
-                                layoutControl3.Enabled = false;
-                                layoutControl6.Enabled = false;
+                                LCGLVDetails.Enabled = false;
+                                lcCostDetails.Enabled = false;
                                 tlPositions.OptionsBehavior.Editable = false;
                                 btnSaveLVDetails.Enabled = false;
                             }
                             else
                             {
-                                layoutControl3.Enabled = true;
-                                layoutControl6.Enabled = true;
+                                LCGLVDetails.Enabled = true;
+                                lcCostDetails.Enabled = true;
                                 tlPositions.OptionsBehavior.Editable = true;
                                 btnSaveLVDetails.Enabled = true;
                             }
@@ -981,22 +982,22 @@ namespace OTTOPro
                         {
                             if (Utility.LVDetailsAccess == "8")
                             {
-                                layoutControl3.Enabled = true;
+                                LCGLVDetails.Enabled = true;
                                 btnNew.Enabled = true;
                                 chkCreateNew.Enabled = true;
                             }
                             else
                             {
-                                layoutControl3.Enabled = false;
+                                LCGLVDetails.Enabled = false;
                             }
                             if (Utility.CalcAccess == "8")
                             {
-                                layoutControl6.Enabled = true;
+                                lcCostDetails.Enabled = true;
                                 tlPositions.OptionsBehavior.Editable = true;
                             }
                             else
                             {
-                                layoutControl6.Enabled = false;
+                                lcCostDetails.Enabled = false;
                             }
                             btnSaveLVDetails.Enabled = true;
                             btnCancel.Enabled = true;
@@ -1006,9 +1007,9 @@ namespace OTTOPro
                         if (bool.TryParse(strHaveDetailKZ, out HaveDetailKZ))
                         {
                             if (HaveDetailKZ)
-                                layoutControlGroup7.Enabled = false;
+                                layoutControlGroup6.Enabled = false;
                             else
-                                layoutControlGroup7.Enabled = true;
+                                layoutControlGroup6.Enabled = true;
                         }
                     }
                     LongDescription = string.Empty;
@@ -1068,7 +1069,7 @@ namespace OTTOPro
                                 txtStufe3Short.Text = string.Empty;
                                 txtStufe4Short.Text = string.Empty;
                             }
-                            txtPosition.Text = Titles[TitleCount] + "." + Titles[TitleCount + 1];
+                         txtPosition.Text = Titles[TitleCount] + "." + Titles[TitleCount + 1];
                         }
                         else if (TitleCount <= Raster.Count() - 1)
                         {
@@ -1110,18 +1111,18 @@ namespace OTTOPro
                             }
                             txtPosition.Text = Titles[TitleCount];
                         }
-                        txtLVPosition.Text = strPositionOZ;
+                        txtLVPositionCD.Text = txtLVPosition.Text = strPositionOZ;
                     }
 
-                    txtWG.Text = tlPositions.FocusedNode["WG"] == DBNull.Value ? "" : tlPositions.FocusedNode["WG"].ToString();
-                    txtWI.Text = tlPositions.FocusedNode["WI"] == DBNull.Value ? "" : tlPositions.FocusedNode["WI"].ToString();
-                    txtWA.Text = tlPositions.FocusedNode["WA"] == DBNull.Value ? "" : tlPositions.FocusedNode["WA"].ToString();
-                    txtType.Text = tlPositions.FocusedNode["Type"] == DBNull.Value ? "" : tlPositions.FocusedNode["Type"].ToString();
+                    txtWG.Text = txtWGCD.Text = tlPositions.FocusedNode["WG"] == DBNull.Value ? "" : tlPositions.FocusedNode["WG"].ToString();
+                    txtWI.Text = txtWICD.Text= tlPositions.FocusedNode["WI"] == DBNull.Value ? "" : tlPositions.FocusedNode["WI"].ToString();
+                    txtWA.Text = txtWACD.Text = tlPositions.FocusedNode["WA"] == DBNull.Value ? "" : tlPositions.FocusedNode["WA"].ToString();
+                    txtType.Text = txtTypeCD.Text= tlPositions.FocusedNode["Type"] == DBNull.Value ? "" : tlPositions.FocusedNode["Type"].ToString();
                     txtFabrikate.Text = tlPositions.FocusedNode["Fabricate"] == DBNull.Value ? "" : tlPositions.FocusedNode["Fabricate"].ToString();
                     txtLiefrantMA.Text = tlPositions.FocusedNode["LiefrantMA"] == DBNull.Value ? "" : tlPositions.FocusedNode["LiefrantMA"].ToString();
-                    txtMenge.Text = tlPositions.FocusedNode["Menge"] == DBNull.Value ? "0" : tlPositions.FocusedNode["Menge"].ToString();
-                    cmbPositionKZ.Text = tlPositions.FocusedNode["PositionKZ"] == DBNull.Value ? "" : tlPositions.FocusedNode["PositionKZ"].ToString();
-                    txtDetailKZ.Text = tlPositions.FocusedNode["DetailKZ"] == DBNull.Value ? "" : tlPositions.FocusedNode["DetailKZ"].ToString();
+                    txtMenge.Text = txtMengeCD.Text = tlPositions.FocusedNode["Menge"] == DBNull.Value ? "0" : tlPositions.FocusedNode["Menge"].ToString();
+                    cmbPositionKZ.Text = cmbPositionKZCD.Text = tlPositions.FocusedNode["PositionKZ"] == DBNull.Value ? "" : tlPositions.FocusedNode["PositionKZ"].ToString();
+                    txtDetailKZ.Text = txtDetailKZCD.Text = tlPositions.FocusedNode["DetailKZ"] == DBNull.Value ? "" : tlPositions.FocusedNode["DetailKZ"].ToString();
                     int _DetailKZ = 0;
                     if (int.TryParse(txtDetailKZ.Text, out _DetailKZ))
                     {
@@ -1130,7 +1131,7 @@ namespace OTTOPro
                         else
                             btnAddAccessories.Enabled = true;
                     }
-                    txtShortDescription.Rtf = tlPositions.FocusedNode["ShortDescription"] == DBNull.Value ? "" : tlPositions.FocusedNode["ShortDescription"].ToString();
+                    txtShortDescription.Rtf = txtShortDescriptionCD.Rtf = tlPositions.FocusedNode["ShortDescription"] == DBNull.Value ? "" : tlPositions.FocusedNode["ShortDescription"].ToString();
                     cmbME.Text = tlPositions.FocusedNode["ME"] == DBNull.Value ? "" : tlPositions.FocusedNode["ME"].ToString();
                     cmbLVSection.Text = tlPositions.FocusedNode["LVSection"] == DBNull.Value ? "" : tlPositions.FocusedNode["LVSection"].ToString();
                     cmbLVStatus.Text = tlPositions.FocusedNode["LVStatus"] == DBNull.Value ? "" : tlPositions.FocusedNode["LVStatus"].ToString();
@@ -1174,6 +1175,7 @@ namespace OTTOPro
                     txtDim1.Text = tlPositions.FocusedNode["A"] == DBNull.Value ? "" : tlPositions.FocusedNode["A"].ToString();
                     txtDim2.Text = tlPositions.FocusedNode["B"] == DBNull.Value ? "" : tlPositions.FocusedNode["B"].ToString();
                     txtDim3.Text = tlPositions.FocusedNode["L"] == DBNull.Value ? "" : tlPositions.FocusedNode["L"].ToString();
+                    txtDim.Text = tlPositions.FocusedNode["dim"] == DBNull.Value ? "" : tlPositions.FocusedNode["dim"].ToString();
                     _DocuwareLink1 = tlPositions.FocusedNode["DocuwareLink1"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink1"].ToString();
                     _DocuwareLink2 = tlPositions.FocusedNode["DocuwareLink2"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink2"].ToString();
                     _DocuwareLink3 = tlPositions.FocusedNode["DocuwareLink3"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink3"].ToString();
@@ -1449,8 +1451,8 @@ namespace OTTOPro
                 if (cmbPositionKZ.Text == "P")
                 {
                     cmbME.Text = "psch";
-                }
-            }
+                }                
+            }             
             catch (Exception ex)
             {
                 throw;
@@ -1770,7 +1772,7 @@ namespace OTTOPro
 
                     Color _Color = Color.FromArgb(0, 158, 224);
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                    LCGLVDetails.Root.AppearanceGroup.BackColor = _Color;
                 }
                 txtStufe1Short_TextChanged(null, null);
                 txtStufe2Short_TextChanged(null, null);
@@ -2186,7 +2188,7 @@ namespace OTTOPro
                         getDValue(txtMulti2ME.Text) *
                         getDValue(txtMulti3ME.Text) *
                         getDValue(txtMulti4ME.Text), 3);
-                    txtGrundMultiME.Text = GrundMulti.ToString();
+                   txtGrundMultiME1.Text= txtGrundMultiME.Text = GrundMulti.ToString();
                 }
             }
             catch (Exception ex)
@@ -2234,7 +2236,7 @@ namespace OTTOPro
                         getDValue(txtMulti2MO.Text) *
                         getDValue(txtMulti3MO.Text) *
                         getDValue(txtMulti4MO.Text), 3);
-                    txtGrundMultiMO.Text = GrundMulti.ToString();
+                   txtGrundMultiMO1.Text= txtGrundMultiMO.Text = GrundMulti.ToString();
                 }
             }
             catch (Exception ex)
@@ -2419,20 +2421,20 @@ namespace OTTOPro
                 {
                     Color _Color = Color.FromArgb(255, 135, 0);
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                    LCGLVDetails.Root.AppearanceGroup.BackColor = _Color;
                     btnAddAccessories.Enabled = true;
                 }
                 if (Utility.LVSectionEditAccess == "7")
                 {
                     if (Utility.LVDetailsAccess != "7")
                     {
-                        layoutControl3.Enabled = true;
+                        LCGLVDetails.Enabled = true;
                         btnNew.Enabled = true;
                         chkCreateNew.Enabled = true;
                     }
                     if (Utility.CalcAccess != "7")
                     {
-                        layoutControl6.Enabled = true;
+                        lcCostDetails.Enabled = true;
                         tlPositions.OptionsBehavior.Editable = true;
                     }
                     btnSaveLVDetails.Enabled = true;
@@ -2479,13 +2481,16 @@ namespace OTTOPro
                     _DocuwareLink2 = string.Empty;
                     _DocuwareLink3 = string.Empty;
                     txtShortDescription.Text = "";
+                    txtShortDescriptionCD.Text = "";
                     txtPreisText.Text = "";
                     txtFabrikate.Text = "";
                     txtLiefrantMA.Text = "";
                     txtType.Text = "";
+                    txtTypeCD.Text = "";
                     cmbME.Text = "";
                     cmbPositionKZ.Text = "N";
                     txtMenge.Text = "1";
+                    txtMengeCD.Text = "1";
                     txtLVPosition.Text = string.Empty;
                     FormatLVFields();
                     btnLongDescription.Enabled = true;
@@ -2516,13 +2521,16 @@ namespace OTTOPro
                     _DocuwareLink2 = string.Empty;
                     _DocuwareLink3 = string.Empty;
                     txtShortDescription.Text = "";
+                    txtShortDescriptionCD.Text = "";
                     txtPreisText.Text = "";
                     txtFabrikate.Text = "";
                     txtLiefrantMA.Text = "";
                     txtType.Text = "";
+                    txtTypeCD.Text = "";
                     cmbME.Text = "";
                     cmbPositionKZ.Text = "H";
                     txtMenge.Text = "";
+                    txtMengeCD.Text = "";
                     txtLVPosition.Text = string.Empty;
                     txtStufe1Short.Text = "";
                     txtStufe2Short.Text = "";
@@ -2575,13 +2583,16 @@ namespace OTTOPro
                     _DocuwareLink2 = string.Empty;
                     _DocuwareLink3 = string.Empty;
                     txtShortDescription.Text = "";
+                    txtShortDescriptionCD.Text = "";
                     txtPreisText.Text = "";
                     txtFabrikate.Text = "";
                     txtLiefrantMA.Text = "";
                     txtType.Text = "";
+                    txtTypeCD.Text = "";
                     cmbME.Text = "";
                     cmbPositionKZ.Text = "N";
                     txtMenge.Text = "1";
+                    txtMengeCD.Text = "1";
                     txtLVPosition.Text = string.Empty;
                     FormatLVFields();
                     btnLongDescription.Enabled = true;
@@ -2607,9 +2618,13 @@ namespace OTTOPro
                 txtWG.Text = string.Empty;
                 txtWA.Text = string.Empty;
                 txtWI.Text = string.Empty;
+                txtWGCD.Text = string.Empty;
+                txtWACD.Text = string.Empty;
+                txtWICD.Text = string.Empty;
                 txtDim1.Text = string.Empty;
                 txtDim2.Text = string.Empty;
                 txtDim3.Text = string.Empty;
+                txtDim.Text = string.Empty;
                 txtMin.Text = "0";
                 txtLPMe.Text = "0";
                 txtDetailKZ.Text = "0";
@@ -2945,7 +2960,7 @@ namespace OTTOPro
                     tlPositions.OptionsBehavior.ReadOnly = false;
                     Color _Color = Color.FromArgb(0, 158, 224);
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
-                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                    LCGLVDetails.Root.AppearanceGroup.BackColor = _Color;
                 }
             }
             catch (Exception ex)
@@ -3049,7 +3064,6 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-
         }
 
         private string FromOZ(string strParentOZ, string strPositionKZ)
@@ -3224,7 +3238,7 @@ namespace OTTOPro
 
         private void txtMenge_TextChanged(object sender, EventArgs e)
         {
-            txtGrandTotalME_TextChanged(null, null);
+            txtGrandTotalME_TextChanged(null, null);            
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
@@ -3559,7 +3573,7 @@ namespace OTTOPro
                 {
                     tlPositions.OptionsBehavior.ReadOnly = true;
                     Color _Color = Color.FromArgb(255, 183, 0);
-                    LCGLVDetails.AppearanceGroup.BackColor = _Color;
+                    LCGLVDetails.Root.AppearanceGroup.BackColor = _Color;
                     tlPositions.Appearance.HeaderPanel.BackColor = _Color;
                     btnAddAccessories.Enabled = true;
                 }
@@ -5741,7 +5755,7 @@ namespace OTTOPro
                     ObjBPosition = new BPosition();
                 if (ObjEPosition == null)
                     ObjEPosition = new EPosition();
-                ObjEPosition.Type = txtType.Text;
+               txtTypeCD.Text= ObjEPosition.Type = txtType.Text;
                 ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                 ObjEPosition = ObjBPosition.GetArticleByTyp(ObjEPosition);
                 if (ObjEPosition.dtDimensions != null && ObjEPosition.dtDimensions.Rows.Count > 0)
@@ -5770,9 +5784,9 @@ namespace OTTOPro
                     ObjEPosition.LPMA = 0;
                     ObjEPosition.Mins = 0;
                 }
-                txtWG.Text = ObjEPosition.WG;
-                txtWA.Text = ObjEPosition.WA;
-                txtWI.Text = ObjEPosition.WI;
+               txtWGCD.Text = ObjEPosition.WG;
+               txtWACD.Text = ObjEPosition.WA;
+               txtWICD.Text = ObjEPosition.WI;
                 txtFabrikate.Text = ObjEPosition.Fabricate;
                 txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
                 cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
@@ -5791,12 +5805,6 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
-
-        private void txtType_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)Keys.Enter)
-                txtType_Leave(null, null);
         }
 
         private void txtWI_Leave(object sender, EventArgs e)
@@ -5831,7 +5839,7 @@ namespace OTTOPro
                         ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[0]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["Minuten"]);
                     }
                 }
-                txtType.Text = ObjEPosition.Type;
+               txtTypeCD.Text= txtType.Text = ObjEPosition.Type;
                 txtFabrikate.Text = ObjEPosition.Fabricate;
                 txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
                 cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
@@ -5992,7 +6000,7 @@ namespace OTTOPro
                 }
                 if (Utility.LVDetailsAccess != "8")
                 {
-                    layoutControl3.Enabled = false;
+                    LCGLVDetails.Enabled = false;
                     btnNew.Enabled = false;
                     chkCreateNew.Enabled = false;
                     btnSaveLVDetails.Enabled = false;
@@ -6001,7 +6009,7 @@ namespace OTTOPro
                 }
                 if (Utility.CalcAccess != "8")
                 {
-                    layoutControl6.Enabled = false;
+                    lcCostDetails.Enabled = false;
                     LVCalculationColumnReadOnly(true);
                     btnSaveLVDetails.Enabled = false;
                     btnCancel.Enabled = false;
@@ -6029,7 +6037,7 @@ namespace OTTOPro
                         cmbLVSection.DisplayMember = "LVSectionName";
                         cmbLVSection.ValueMember = "LVSectionID";
 
-                        layoutControl3.Enabled = true;
+                        LCGLVDetails.Enabled = true;
                         btnNew.Enabled = true;
                         chkCreateNew.Enabled = true;
                         btnSaveLVDetails.Enabled = true;
@@ -10513,20 +10521,6 @@ namespace OTTOPro
 
         #endregion
 
-        private void txtType_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            try
-            {
-                if (e.KeyData == Keys.Tab)
-                {
-                    FillDimension();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
 
         private void FillDimension()
         {
@@ -10702,6 +10696,67 @@ namespace OTTOPro
                 SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
+        }
+
+        private void txtType_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                txtType_Leave(null, null);
+        }
+
+        private void txtType_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.Tab)
+                {
+                    FillDimension();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }       
+
+        private void txtDetailKZCD_TextChanged(object sender, EventArgs e)
+        {
+            txtDetailKZ.Text = txtDetailKZCD.Text;
+        }
+
+        private void txtWGCD_TextChanged(object sender, EventArgs e)
+        {
+            txtWG.Text = txtWGCD.Text;
+        }
+
+        private void txtWACD_TextChanged(object sender, EventArgs e)
+        {
+            txtWA.Text = txtWACD.Text;
+        }
+
+        private void txtWICD_TextChanged(object sender, EventArgs e)
+        {
+            txtWI.Text = txtWICD.Text;
+        }
+
+        private void txtTypeCD_TextChanged(object sender, EventArgs e)
+        {
+            txtType.Text = txtTypeCD.Text;
+        }
+
+        private void txtShortDescriptionCD_TextChanged(object sender, EventArgs e)
+        {
+            txtShortDescription.Rtf = txtShortDescriptionCD.Rtf;
+        }
+
+        private void txtMengeCD_EditValueChanged(object sender, EventArgs e)
+        {
+            txtMenge.Text = txtMengeCD.Text;
+        }
+
+        private void cmbPositionKZCD_TextChanged(object sender, EventArgs e)
+        {
+            cmbPositionKZ.Text = cmbPositionKZCD.Text;
         }
 
     }

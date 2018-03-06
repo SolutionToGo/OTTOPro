@@ -103,6 +103,7 @@ namespace EL
         private int _B = 0;
         private int _L = 0;
         private decimal _Discount = 0;
+        private string _Dim = string.Empty;
 
         //Copy of LVs
         private DataTable _dtCopyNewLVs;
@@ -593,6 +594,12 @@ namespace EL
         {
             get { return _Discount; }
             set { _Discount = value; }
+        }
+
+        public string Dim
+        {
+            get { return _Dim; }
+            set { _Dim = value; }
         }
     }
 }
