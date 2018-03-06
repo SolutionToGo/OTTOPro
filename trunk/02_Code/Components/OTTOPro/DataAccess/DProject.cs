@@ -54,6 +54,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@ProjectStartDate", ObjEProject.ProjectStartDate);
                     cmd.Parameters.AddWithValue("@ProjectEndDate", ObjEProject.ProjectEndDate);
                     cmd.Parameters.AddWithValue("@IsCummulated", ObjEProject.IsCumulated);
+                    cmd.Parameters.AddWithValue("@ISRasterChange", ObjEProject.IsRasterChange);
                     object returnObj = cmd.ExecuteScalar();
                     if (returnObj != null)
                     {
@@ -86,6 +87,7 @@ namespace DAL
                                 throw new Exception("Error Occured While Saving the Project Details");
                         }
                     }
+                    ObjEProject.IsRasterChange = false;
                 }
             }
             catch (Exception ex)
@@ -324,6 +326,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@UserID", ObjEProject.UserID);
                     cmd.Parameters.AddWithValue("@DiscountPosID", ObjEProject.DiscountPosID);
                     cmd.Parameters.AddWithValue("@dtDiscountList", ObjEProject.dtDiscountList);
+                    cmd.Parameters.AddWithValue("@ShortDescription", ObjEProject.ShortDescription);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsDiscount);
@@ -528,6 +531,62 @@ namespace DAL
                 throw;
             }
             return ObjEProject;
+        }
+
+        public EProject GetCockpitData(EProject ObjEProject)
+        {
+            try
+            {
+                ObjEProject.dtCockpitData = new DataTable();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_CockpitData]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEProject.ProjectID);
+                    cmd.Parameters.AddWithValue("@dtCockpitData", ObjEProject.dtTemplateData);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ObjEProject.dtCockpitData);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
+
+        public string InssertCockpitData(EProject ObjEProject)
+        {
+            string strError = string.Empty;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.CockpitConnection();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_InsertOTTOProData]";
+                    cmd.Parameters.Add("@dtData", ObjEProject.dtCockpitData);
+                    cmd.Parameters.Add("@ProjectNumber", ObjEProject.ProjectNumber);
+                    cmd.Parameters.Add("@ProjectDescription", ObjEProject.ProjectDescription);
+                    cmd.Parameters.Add("@ProjectStartDate", ObjEProject.ProjectStartDate);
+                    cmd.Parameters.Add("@ProjectEndDate", ObjEProject.ProjectEndDate);
+                    cmd.Parameters.Add("@UserName", ObjEProject.UserName);
+                    object returnObj = cmd.ExecuteScalar();
+                    strError = Convert.ToString(returnObj);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return strError;
         }
     }
 }

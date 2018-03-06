@@ -25,6 +25,12 @@ namespace OTTOPro
         {
             try
             {
+                if (string.IsNullOrEmpty(txtFromOZ.Text))
+                    throw new Exception("From OZ Cannot be Empty");
+                if (string.IsNullOrEmpty(txtToOZ.Text))
+                    throw new Exception("To OZ Cannot be Empty");
+                if (string.IsNullOrEmpty(txtShortdescription.Text))
+                    throw new Exception("Kurz Text Cannot be Empty");
                 if (txtFromOZ.Text.Length > 0)
                 {
                     char cLastCharacter = txtFromOZ.Text[txtFromOZ.Text.Length - 1];
@@ -46,6 +52,7 @@ namespace OTTOPro
                     ObjEProject.Discount = dValue;
                 else
                     ObjEProject.Discount = dValue;
+                ObjEProject.ShortDescription = txtShortdescription.Rtf;
                 ObjEProject.IsSave = true;
                 this.Close();
             }

@@ -8314,9 +8314,21 @@ namespace OTTOPro
                         if (node.FirstNode != null)
                         {
                             strNO = Convert.ToString(node.FirstNode["SNO"]);
-                            strSelectedOZ = Convert.ToString(node.FirstNode["Position_OZ"]);
-                            if (string.IsNullOrEmpty(strSelectedOZ))
-                                return;
+                            int INodeIndex = 0;
+                            bool _Continue = true;
+                            int IValue = -1;
+                            while (_Continue)
+                            {
+                                IValue++;
+                                if (node.Nodes.Count > INodeIndex + IValue)
+                                {
+                                    strSelectedOZ = Convert.ToString(node.Nodes[INodeIndex + IValue]["Position_OZ"]);
+                                    if (!string.IsNullOrEmpty(strSelectedOZ))
+                                        _Continue = false;
+                                }
+                                else
+                                    _Continue = false;
+                            }
                         }
                         int iTemp = 0;
                         if (!int.TryParse(strNO, out iTemp))
@@ -8416,9 +8428,21 @@ namespace OTTOPro
                     else
                     {
                         string strNO = Convert.ToString(node.ParentNode.FirstNode["SNO"]);
-                        strSelectedOZ = Convert.ToString(node.ParentNode.FirstNode["Position_OZ"]);
-                        if (string.IsNullOrEmpty(strSelectedOZ))
-                            return;
+                        int INodeIndex = 0;
+                        bool _Continue = true;
+                        int IValue = -1;
+                        while (_Continue)
+                        {
+                            IValue++;
+                            if (node.ParentNode.Nodes.Count > INodeIndex + IValue)
+                            {
+                                strSelectedOZ = Convert.ToString(node.ParentNode.Nodes[INodeIndex + IValue]["Position_OZ"]);
+                                if (!string.IsNullOrEmpty(strSelectedOZ))
+                                    _Continue = false;
+                            }
+                            else
+                                _Continue = false;
+                        }
                         int iTemp = 0;
                         if (!int.TryParse(strNO, out iTemp))
                             I_index = 0;
@@ -9463,11 +9487,14 @@ namespace OTTOPro
                         frm.ShowDialog();
                         if (frm.DialogResult == DialogResult.OK)
                         {
+                            if (ObjEProject == null)
+                                ObjEProject = new EProject();
+                            ObjEProject.IsRasterChange = true;
                             ddlRaster.Text = frm.NewRaster;
                         }
                     }
                 }
-                chkLockHierarchy.Checked = true;
+                chkLockHierarchy.Checked = true;	
             }
             catch (Exception ex)
             {
@@ -10209,6 +10236,7 @@ namespace OTTOPro
                                     int CurrentIndex = tlPositions.GetNodeIndex(node);
                                     if (node != null && CurrentIndex >= FromNodeIndex && CurrentIndex <= ToNodeIndex)
                                     {
+                                        tlTemp = null;
                                         ObjEProject = CollectTitlesForDiscount(node, ObjEProject);
                                     }
                                 }
@@ -10222,6 +10250,7 @@ namespace OTTOPro
                                     int CurrentIndex = tlPositions.GetNodeIndex(node);
                                     if (node != null && CurrentIndex >= FromNodeIndex && CurrentIndex <= ToNodeIndex)
                                     {
+                                        tlTemp = null;
                                         ObjEProject = CollectTitlesForDiscount(node, ObjEProject);
                                     }
                                 }
@@ -10759,5 +10788,63 @@ namespace OTTOPro
             cmbPositionKZ.Text = cmbPositionKZCD.Text;
         }
 
+        private void btnTransfer_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strFilePath = string.Empty;
+                OpenFileDialog dlg = new OpenFileDialog();
+
+                dlg.InitialDirectory = @"C:\";
+                dlg.Title = "Dateiauswahl für Data File Import";
+
+                dlg.CheckFileExists = true;
+                dlg.CheckPathExists = true;
+
+                dlg.Filter = "All files (*.*)|*.*";
+                dlg.RestoreDirectory = true;
+
+                dlg.ReadOnlyChecked = true;
+                dlg.ShowReadOnly = true;
+                if (dlg.ShowDialog() == DialogResult.OK)
+                {
+                    strFilePath = dlg.FileName;
+                    string fileExt = Path.GetExtension(strFilePath);
+                    if (fileExt.CompareTo(".xls") == 0 || fileExt.CompareTo(".xlsx") == 0)
+                    {
+                        DataTable dtExcel = new DataTable();
+                        dtExcel = Utility.ReadExcel(strFilePath, fileExt); //read excel file  
+                        dtExcel.Rows.RemoveAt(0);
+                        dtExcel.Columns.RemoveAt(0);
+                        dtExcel.Columns[0].ColumnName = "WG";
+                        dtExcel.Columns[1].ColumnName = "WI";
+                        dtExcel.Columns[2].ColumnName = "KG";
+                        if (ObjEProject == null)
+                            ObjEProject = new EProject();
+                        if (ObjBProject == null)
+                            ObjBProject = new BProject();
+                        ObjEProject.dtTemplateData = new DataTable();
+                        ObjEProject.dtTemplateData = dtExcel.Copy();
+                        ObjEProject.UserName = Utility.UserName;
+                        ObjEProject = ObjBProject.GetCockpitData(ObjEProject);
+                        DataTable dtTemp = ObjEProject.dtCockpitData.Copy();
+                        foreach (DataColumn dc in dtTemp.Columns)
+                        {
+                            if (dc.ColumnName.ToLower() != "kg" && dc.ColumnName.ToLower() != "value")
+                                ObjEProject.dtCockpitData.Columns.Remove(dc.ColumnName);
+                        }
+                        if (ObjBProject == null)
+                            ObjBProject = new BProject();
+                        string strTemp = ObjBProject.InssertCockpitData(ObjEProject);
+                        if (!string.IsNullOrEmpty(strTemp))
+                            throw new Exception(strTemp);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

@@ -244,8 +244,8 @@ namespace BL
         {
             try
             {
-                if (ObjEProject == null)
-                    ObjEProject = new EProject();
+                if (ObjDAL == null)
+                    ObjDAL = new DProject();
                 ObjEProject = ObjDAL.SaveDiscount(ObjEProject);
             }
             catch (Exception ex)
@@ -339,6 +339,33 @@ namespace BL
                 throw;
             }
             return ObjEProject;
+        }
+
+        public EProject GetCockpitData(EProject ObjEProject)
+        {
+            try
+            {
+                ObjEProject = ObjDAL.GetCockpitData(ObjEProject);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEProject;
+        }
+
+        public string InssertCockpitData(EProject ObjEProject)
+        {
+            string str = string.Empty;
+            try
+            {
+                str = ObjDAL.InssertCockpitData(ObjEProject);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return str;
         }
     }
 }

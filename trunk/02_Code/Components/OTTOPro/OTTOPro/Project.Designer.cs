@@ -455,6 +455,7 @@
             this.txtRemarks = new System.Windows.Forms.RichTextBox();
             this.groupControl8 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl24 = new DevExpress.XtraLayout.LayoutControl();
+            this.btnTransfer = new DevExpress.XtraEditors.SimpleButton();
             this.chkLockHierarchy = new DevExpress.XtraEditors.CheckEdit();
             this.chkCumulated = new DevExpress.XtraEditors.CheckEdit();
             this.txtActualLVs = new DevExpress.XtraEditors.TextEdit();
@@ -466,6 +467,7 @@
             this.layoutControlItem227 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem228 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem226 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem225 = new DevExpress.XtraLayout.LayoutControlItem();
             this.btnProjectSave = new DevExpress.XtraEditors.SimpleButton();
             this.groupControl6 = new DevExpress.XtraEditors.GroupControl();
             this.layoutControl22 = new DevExpress.XtraLayout.LayoutControl();
@@ -1531,6 +1533,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem227)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem228)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem226)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem225)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).BeginInit();
             this.groupControl6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl22)).BeginInit();
@@ -2128,7 +2131,7 @@
             this.LCGLVDetails.OptionsView.ControlDefaultMaxSizeCalcMode = DevExpress.XtraLayout.ControlMaxSizeCalcMode.UseControlMaximumSizeIfNotZero;
             this.LCGLVDetails.OptionsView.ShareLookAndFeelWithChildren = false;
             this.LCGLVDetails.Root = this.layoutControlGroup4;
-            this.LCGLVDetails.Size = new System.Drawing.Size(1514, 328);
+            this.LCGLVDetails.Size = new System.Drawing.Size(1514, 352);
             this.LCGLVDetails.TabIndex = 37;
             this.LCGLVDetails.Text = "layoutControl3";
             // 
@@ -2863,7 +2866,7 @@
             this.layoutControlGroup4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup4.Name = "Root";
             this.layoutControlGroup4.OptionsItemText.TextAlignMode = DevExpress.XtraLayout.TextAlignModeGroup.AlignWithChildren;
-            this.layoutControlGroup4.Size = new System.Drawing.Size(1497, 346);
+            this.layoutControlGroup4.Size = new System.Drawing.Size(1514, 352);
             this.layoutControlGroup4.TextVisible = false;
             // 
             // layoutControlGroup1
@@ -2909,7 +2912,7 @@
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 5;
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1497, 346);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1514, 352);
             this.layoutControlGroup1.Text = "LV Detailsicht";
             // 
             // lciStufe1Short
@@ -3326,7 +3329,7 @@
             this.emptySpaceItem8.MaxSize = new System.Drawing.Size(523, 308);
             this.emptySpaceItem8.MinSize = new System.Drawing.Size(523, 308);
             this.emptySpaceItem8.Name = "emptySpaceItem8";
-            this.emptySpaceItem8.Size = new System.Drawing.Size(523, 308);
+            this.emptySpaceItem8.Size = new System.Drawing.Size(540, 308);
             this.emptySpaceItem8.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.emptySpaceItem8.TextSize = new System.Drawing.Size(0, 0);
             // 
@@ -3390,7 +3393,7 @@
             this.emptySpaceItem27.AllowHotTrack = false;
             this.emptySpaceItem27.Location = new System.Drawing.Point(0, 308);
             this.emptySpaceItem27.Name = "emptySpaceItem27";
-            this.emptySpaceItem27.Size = new System.Drawing.Size(1489, 10);
+            this.emptySpaceItem27.Size = new System.Drawing.Size(1506, 16);
             this.emptySpaceItem27.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem33
@@ -3492,7 +3495,7 @@
             this.lcCostDetails.OptionsFocus.EnableAutoTabOrder = false;
             this.lcCostDetails.OptionsView.ShareLookAndFeelWithChildren = false;
             this.lcCostDetails.Root = this.layoutControlGroup6;
-            this.lcCostDetails.Size = new System.Drawing.Size(1514, 162);
+            this.lcCostDetails.Size = new System.Drawing.Size(1514, 138);
             this.lcCostDetails.TabIndex = 39;
             this.lcCostDetails.Text = "layoutControl6";
             // 
@@ -6815,7 +6818,7 @@
             this.splitContainerControl2.Panel2.Controls.Add(this.lcCostDetails);
             this.splitContainerControl2.Panel2.Text = "Panel2";
             this.splitContainerControl2.Size = new System.Drawing.Size(1518, 503);
-            this.splitContainerControl2.SplitterPosition = 332;
+            this.splitContainerControl2.SplitterPosition = 356;
             this.splitContainerControl2.TabIndex = 40;
             this.splitContainerControl2.Text = "splitContainerControl2";
             // 
@@ -7939,6 +7942,7 @@
             this.layoutControl24.Appearance.DisabledLayoutItem.ForeColor = System.Drawing.Color.White;
             this.layoutControl24.Appearance.DisabledLayoutItem.Options.UseForeColor = true;
             this.layoutControl24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControl24.Controls.Add(this.btnTransfer);
             this.layoutControl24.Controls.Add(this.chkLockHierarchy);
             this.layoutControl24.Controls.Add(this.chkCumulated);
             this.layoutControl24.Controls.Add(this.txtActualLVs);
@@ -7952,6 +7956,16 @@
             this.layoutControl24.Size = new System.Drawing.Size(503, 102);
             this.layoutControl24.TabIndex = 0;
             this.layoutControl24.Text = "layoutControl24";
+            // 
+            // btnTransfer
+            // 
+            this.btnTransfer.Location = new System.Drawing.Point(254, 58);
+            this.btnTransfer.Name = "btnTransfer";
+            this.btnTransfer.Size = new System.Drawing.Size(237, 22);
+            this.btnTransfer.StyleController = this.layoutControl24;
+            this.btnTransfer.TabIndex = 302;
+            this.btnTransfer.Text = "Transfer Data to Cockpit";
+            this.btnTransfer.Click += new System.EventHandler(this.btnTransfer_Click);
             // 
             // chkLockHierarchy
             // 
@@ -8033,7 +8047,8 @@
             this.layoutControlItem223,
             this.layoutControlItem227,
             this.layoutControlItem228,
-            this.layoutControlItem226});
+            this.layoutControlItem226,
+            this.layoutControlItem225});
             this.layoutControlGroup32.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup32.Name = "Root";
             this.layoutControlGroup32.Size = new System.Drawing.Size(503, 102);
@@ -8079,7 +8094,7 @@
             this.layoutControlItem228.Control = this.chkCumulated;
             this.layoutControlItem228.Location = new System.Drawing.Point(242, 23);
             this.layoutControlItem228.Name = "layoutControlItem228";
-            this.layoutControlItem228.Size = new System.Drawing.Size(241, 59);
+            this.layoutControlItem228.Size = new System.Drawing.Size(241, 23);
             this.layoutControlItem228.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem228.TextVisible = false;
             // 
@@ -8095,6 +8110,15 @@
             this.layoutControlItem226.Size = new System.Drawing.Size(242, 24);
             this.layoutControlItem226.Text = "Anzahl LVs (IST)";
             this.layoutControlItem226.TextSize = new System.Drawing.Size(163, 13);
+            // 
+            // layoutControlItem225
+            // 
+            this.layoutControlItem225.Control = this.btnTransfer;
+            this.layoutControlItem225.Location = new System.Drawing.Point(242, 46);
+            this.layoutControlItem225.Name = "layoutControlItem225";
+            this.layoutControlItem225.Size = new System.Drawing.Size(241, 36);
+            this.layoutControlItem225.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem225.TextVisible = false;
             // 
             // btnProjectSave
             // 
@@ -17455,6 +17479,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem227)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem228)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem226)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem225)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl6)).EndInit();
             this.groupControl6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl22)).EndInit();
@@ -19139,6 +19164,8 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem90;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem44;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem97;
+        private DevExpress.XtraEditors.SimpleButton btnTransfer;
+        private DevExpress.XtraLayout.LayoutControlItem layoutControlItem225;
 
 
     }

@@ -49,6 +49,12 @@ namespace EL
         private int _DiscountID = -1;
         private int _DiscountPosID = -1;
         private DataTable _dtDiscountList;
+        private string _ShortDescription = string.Empty;
+        private bool _IsRasterChange = false;
+        private string _UserName = string.Empty;
+
+        private DataTable _dtCockpitData;
+        private DataTable _dtTemplateData;
 
         public string FromOZ
         {
@@ -298,6 +304,31 @@ namespace EL
         {
             get { return _dtDiscountList; }
             set { _dtDiscountList = value; }
+        }
+        public string ShortDescription
+        {
+            get { return _ShortDescription; }
+            set { _ShortDescription = value; }
+        }
+        public bool IsRasterChange
+        {
+            get { return _IsRasterChange; }
+            set { _IsRasterChange = value; }
+        }
+        public DataTable dtCockpitData
+        {
+            get { return _dtCockpitData; }
+            set { _dtCockpitData = value; }
+        }
+        public DataTable dtTemplateData
+        {
+            get { return _dtTemplateData; }
+            set { _dtTemplateData = value; }
+        }
+        public string UserName
+        {
+            get { return _UserName; }
+            set { _UserName = value; }
         }
     }
 }
