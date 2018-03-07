@@ -25,7 +25,6 @@ namespace OTTOPro
     {
         public static frmOTTOPro ObjOTTOPro;
         BProject ObjBProject = null;
-        EProject ObjEProject = null;
 
         private frmOTTOPro()
         {

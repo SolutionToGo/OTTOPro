@@ -10808,6 +10808,8 @@ namespace OTTOPro
                 dlg.ShowReadOnly = true;
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Transfering Data...");
                     strFilePath = dlg.FileName;
                     string fileExt = Path.GetExtension(strFilePath);
                     if (fileExt.CompareTo(".xls") == 0 || fileExt.CompareTo(".xlsx") == 0)
@@ -10827,22 +10829,18 @@ namespace OTTOPro
                         ObjEProject.dtTemplateData = dtExcel.Copy();
                         ObjEProject.UserName = Utility.UserName;
                         ObjEProject = ObjBProject.GetCockpitData(ObjEProject);
-                        DataTable dtTemp = ObjEProject.dtCockpitData.Copy();
-                        foreach (DataColumn dc in dtTemp.Columns)
-                        {
-                            if (dc.ColumnName.ToLower() != "kg" && dc.ColumnName.ToLower() != "value")
-                                ObjEProject.dtCockpitData.Columns.Remove(dc.ColumnName);
-                        }
                         if (ObjBProject == null)
                             ObjBProject = new BProject();
                         string strTemp = ObjBProject.InssertCockpitData(ObjEProject);
                         if (!string.IsNullOrEmpty(strTemp))
                             throw new Exception(strTemp);
+                        SplashScreenManager.CloseForm(false);
                     }
                 }
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
         }
