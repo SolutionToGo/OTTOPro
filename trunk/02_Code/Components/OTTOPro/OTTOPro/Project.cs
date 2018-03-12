@@ -676,6 +676,7 @@ namespace OTTOPro
                         lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        splitContainerControl2.SplitterPosition = 280;
                     }
                     else if (Count < 5)
                     {
@@ -689,6 +690,7 @@ namespace OTTOPro
                         lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        splitContainerControl2.SplitterPosition = 310;
                     }
                     else
                     {
@@ -1390,11 +1392,11 @@ namespace OTTOPro
                     FormatFieldsForSum();
                     if (cmbPositionKZ.Text.ToLower() == "zs")
                     {
-                        lblsurchargefrom.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        lblsurchargeto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        lblsurchargeme.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                        lblsurchargemo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                        lblDscount.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                        txtSurchargePerME.Enabled = false;
+                        txtSurchargePerMO.Enabled = false;
+                        txtDiscount.Enabled = false;
+                        txtSurchargeFrom.Enabled = true;
+                        txtSurchargeTo.Enabled = true;
                         if (_IsNewMode)
                         {
                             string strParentOZ = PrepareOZ();
@@ -1407,11 +1409,11 @@ namespace OTTOPro
                     {
                         if (tlPositions.FocusedNode != null)
                         {
-                            lblsurchargefrom.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                            lblsurchargeto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                            lblsurchargeme.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                            lblsurchargemo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                            lblDscount.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+                            txtSurchargePerME.Enabled = true;
+                            txtSurchargePerMO.Enabled = true;
+                            txtDiscount.Enabled = false;
+                            txtSurchargeFrom.Enabled = true;
+                            txtSurchargeTo.Enabled = true;
                             txtPosition.Enabled = true;
                             if (_IsNewMode)
                             {
@@ -1426,11 +1428,11 @@ namespace OTTOPro
                     }
                     else if (cmbPositionKZ.Text.ToLower() == "zz")
                     {
-                        lblsurchargefrom.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        lblsurchargeto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                        lblsurchargeme.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                        lblsurchargemo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                        lblDscount.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+                        txtSurchargePerME.Enabled = false;
+                        txtSurchargePerMO.Enabled = false;
+                        txtDiscount.Enabled = true;
+                        txtSurchargeFrom.Enabled = true;
+                        txtSurchargeTo.Enabled = true;
                     }
                 }
                 else
@@ -1461,11 +1463,11 @@ namespace OTTOPro
 
         public void ClearingValues()
         {
-            lblsurchargefrom.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            lblsurchargeto.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            lblsurchargeme.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            lblsurchargemo.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            lblDscount.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
+            txtSurchargePerME.Enabled=false;
+            txtSurchargePerMO.Enabled = false;
+            txtDiscount.Enabled = false;
+            txtSurchargeFrom.Enabled = false;
+            txtSurchargeTo.Enabled = false;
 
             txtSurchargePerME.Text = "";
             txtSurchargePerMO.Text = "";
@@ -2492,6 +2494,7 @@ namespace OTTOPro
                     txtMenge.Text = "1";
                     txtMengeCD.Text = "1";
                     txtLVPosition.Text = string.Empty;
+                    txtLVPositionCD.Text = string.Empty;
                     FormatLVFields();
                     btnLongDescription.Enabled = true;
                     tlPositions.OptionsBehavior.ReadOnly = true;
@@ -2532,6 +2535,7 @@ namespace OTTOPro
                     txtMenge.Text = "";
                     txtMengeCD.Text = "";
                     txtLVPosition.Text = string.Empty;
+                    txtLVPositionCD.Text = string.Empty;
                     txtStufe1Short.Text = "";
                     txtStufe2Short.Text = "";
                     txtStufe3Short.Text = "";
@@ -2594,6 +2598,7 @@ namespace OTTOPro
                     txtMenge.Text = "1";
                     txtMengeCD.Text = "1";
                     txtLVPosition.Text = string.Empty;
+                    txtLVPositionCD.Text = string.Empty;
                     FormatLVFields();
                     btnLongDescription.Enabled = true;
                     tlPositions.OptionsBehavior.ReadOnly = true;
