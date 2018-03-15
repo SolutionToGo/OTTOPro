@@ -647,6 +647,7 @@ namespace OTTOPro
         {
             try
             {
+                splitContainerControl1.SplitterPosition = 540;
                 if (!string.IsNullOrEmpty(ObjEProject.LVRaster))
                 {
                     string[] Levels = ObjEProject.LVRaster.Split('.');
@@ -807,7 +808,7 @@ namespace OTTOPro
                 if (decimal.TryParse(txtLPMe.Text, out dValue))
                     ObjEPosition.LPMA = dValue;
 
-                if (decimal.TryParse(txtLPMO.Text, out dValue))
+                if (decimal.TryParse(Convert.ToString(txtLPMO.EditValue), out dValue))
                     ObjEPosition.LPMO = dValue;
 
                 if (decimal.TryParse(txtMulti1ME.Text, out dValue))
@@ -834,34 +835,34 @@ namespace OTTOPro
                 if (decimal.TryParse(txtMulti4MO.Text, out dValue))
                     ObjEPosition.Multi4MO = dValue;
 
-                if (decimal.TryParse(txtEinkaufspreisME.Text, out dValue))
+                if (decimal.TryParse(Convert.ToString(txtEinkaufspreisME.EditValue), out dValue))
                     ObjEPosition.EinkaufspreisMA = dValue;
 
-                if (decimal.TryParse(txtEinkaufspreisMO.Text, out dValue))
+                if (decimal.TryParse(Convert.ToString(txtEinkaufspreisMO.EditValue), out dValue))
                     ObjEPosition.EinkaufspreisMO = dValue;
 
                 if (decimal.TryParse(txtSelbstkostenMultiME.Text, out dValue))
                     ObjEPosition.SelbstkostenMultiMA = dValue;
 
-                if (decimal.TryParse(txtSelbstkostenValueME.Text, out dValue))
+                if (decimal.TryParse(Convert.ToString(txtSelbstkostenValueME.EditValue), out dValue))
                     ObjEPosition.SelbstkostenValueMA = dValue;
 
                 if (decimal.TryParse(txtSelbstkostenMultiMO.Text, out dValue))
                     ObjEPosition.SelbstkostenMultiMO = dValue;
 
-                if (decimal.TryParse(txtSelbstkostenValueMO.Text, out dValue))
+                if (decimal.TryParse(Convert.ToString(txtSelbstkostenValueMO.EditValue), out dValue))
                     ObjEPosition.SelbstkostenValueMO = dValue;
 
                 if (decimal.TryParse(txtVerkaufspreisMultiME.Text, out dValue))
                     ObjEPosition.VerkaufspreisMultiMA = dValue;
 
-                if (decimal.TryParse(txtVerkaufspreisValueME.Text, out dValue))
+                if (decimal.TryParse(Convert.ToString(txtVerkaufspreisValueME.EditValue), out dValue))
                     ObjEPosition.VerkaufspreisValueMA = dValue;
 
                 if (decimal.TryParse(txtVerkaufspreisMultiMO.Text, out dValue))
                     ObjEPosition.VerkaufspreisMultiMO = dValue;
 
-                if (decimal.TryParse(txtVerkaufspreisValueMO.Text, out dValue))
+                if (decimal.TryParse(Convert.ToString(txtVerkaufspreisValueMO.EditValue), out dValue))
                     ObjEPosition.VerkaufspreisValueMO = dValue;
 
                 if (decimal.TryParse(txtStdSatz.Text, out dValue))
@@ -1845,10 +1846,10 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtValue1ME.Text) && !string.IsNullOrEmpty(txtMulti2ME.Text))
+                if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) && !string.IsNullOrEmpty(txtMulti2ME.Text))
                 {
                     txtValue2ME.Text = Math.Round(GetValue(getDValue(txtLPMe.Text) +
-                        getDValue(txtValue1ME.Text),
+                        getDValue(Convert.ToString(txtValue1ME.EditValue)),
                         getDValue(txtMulti2ME.Text)), 8).ToString();
                 }
                 CalculateGrundMultiME();
@@ -1865,14 +1866,14 @@ namespace OTTOPro
             try
             {
                 if (!string.IsNullOrEmpty(txtLPMe.Text) &&
-                                !string.IsNullOrEmpty(txtValue1ME.Text) &&
-                                !string.IsNullOrEmpty(txtValue2ME.Text) &&
+                                !string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) &&
+                                !string.IsNullOrEmpty(Convert.ToString(txtValue2ME.EditValue)) &&
                                 !string.IsNullOrEmpty(txtMulti3ME.Text))
                 {
                     txtValue3ME.Text = Math.Round(
                         GetValue(getDValue(txtLPMe.Text)
-                        + getDValue(txtValue1ME.Text)
-                        + getDValue(txtValue2ME.Text)
+                        + getDValue(Convert.ToString(txtValue1ME.EditValue))
+                        + getDValue(Convert.ToString(txtValue2ME.EditValue))
                         , getDValue(txtMulti3ME.Text)), 8).ToString();
                 }
                 CalculateGrundMultiME();
@@ -1889,15 +1890,15 @@ namespace OTTOPro
             try
             {
                 if (!string.IsNullOrEmpty(txtLPMe.Text) &&
-                !string.IsNullOrEmpty(txtValue1ME.Text) &&
-                !string.IsNullOrEmpty(txtValue2ME.Text) &&
-                !string.IsNullOrEmpty(txtValue3ME.Text))
+                !string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) &&
+                !string.IsNullOrEmpty(Convert.ToString(txtValue2ME.EditValue)) &&
+                !string.IsNullOrEmpty(Convert.ToString(txtValue3ME.EditValue)))
                 {
                     txtValue4ME.Text = Math.Round(GetValue(
                         getDValue(txtLPMe.Text) +
-                        getDValue(txtValue1ME.Text) +
-                        getDValue(txtValue2ME.Text) +
-                        getDValue(txtValue3ME.Text),
+                        getDValue(Convert.ToString(txtValue1ME.EditValue)) +
+                        getDValue(Convert.ToString(txtValue2ME.EditValue)) +
+                        getDValue(Convert.ToString(txtValue3ME.EditValue)),
                         getDValue(txtMulti4ME.Text)), 8).ToString();
                 }
                 CalculateGrundMultiME();
@@ -1931,9 +1932,9 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtEinkaufspreisME.Text) && !string.IsNullOrEmpty(txtSelbstkostenMultiME.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtEinkaufspreisME.EditValue)) && !string.IsNullOrEmpty(txtSelbstkostenMultiME.Text))
                 {
-                    decimal dValue = getDValue(txtEinkaufspreisME.Text);
+                    decimal dValue = getDValue(Convert.ToString(txtEinkaufspreisME.EditValue));
                     txtSelbstkostenValueME.Text =
                         Math.Round(dValue + GetValue(dValue,
                         getDValue(txtSelbstkostenMultiME.Text)), 8).ToString();
@@ -1949,9 +1950,9 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtSelbstkostenValueME.Text) && !string.IsNullOrEmpty(txtVerkaufspreisMultiME.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtSelbstkostenValueME.EditValue)) && !string.IsNullOrEmpty(txtVerkaufspreisMultiME.Text))
                 {
-                    decimal dValue = getDValue(txtSelbstkostenValueME.Text);
+                    decimal dValue = getDValue(Convert.ToString(txtSelbstkostenValueME.EditValue));
                     decimal TotalDValue = Math.Round(dValue + GetValue(dValue,
                         getDValue(txtVerkaufspreisMultiME.Text)), 8);
                     txtVerkaufspreisValueME.Text = TotalDValue.ToString();
@@ -1967,10 +1968,10 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMO.Text) && !string.IsNullOrEmpty(txtMulti1MO.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) && !string.IsNullOrEmpty(txtMulti1MO.Text))
                 {
-                    txtValue1MO.Text = Math.Round(GetValue(getDValue(txtLPMO.Text),
-                        getDValue(txtMulti1MO.Text)), 8).ToString();
+                    txtValue1MO.Text = Math.Round(GetValue(getDValue(Convert.ToString(txtLPMO.EditValue)),
+                        getDValue(txtMulti1MO.Text)),8).ToString();
                 }
                 CalculateGrundMultiMO();
                 CalculateEinkuafpreisMO();
@@ -1985,12 +1986,12 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMO.Text) && !string.IsNullOrEmpty(txtValue1MO.Text) && !string.IsNullOrEmpty(txtMulti2MO.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) && !string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue)) && !string.IsNullOrEmpty(txtMulti2MO.Text))
                 {
                     txtValue2MO.Text =
                         Math.Round(GetValue(
-                        getDValue(txtLPMO.Text) +
-                        getDValue(txtValue1MO.Text),
+                        getDValue(Convert.ToString(txtLPMO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue1MO.EditValue)),
                         getDValue(txtMulti2MO.Text)
                         ), 8).ToString();
                 }
@@ -2007,16 +2008,16 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMO.Text)
-                                && !string.IsNullOrEmpty(txtValue1MO.Text)
-                                && !string.IsNullOrEmpty(txtValue2MO.Text)
+                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue))
+                                && !string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue))
+                                && !string.IsNullOrEmpty(Convert.ToString(txtValue2MO.EditValue))
                                 && !string.IsNullOrEmpty(txtMulti3MO.Text))
                 {
                     txtValue3MO.Text =
                         Math.Round(GetValue(
-                        getDValue(txtLPMO.Text) +
-                        getDValue(txtValue1MO.Text) +
-                        getDValue(txtValue2MO.Text),
+                        getDValue(Convert.ToString(txtLPMO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue1MO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue2MO.EditValue)),
                         getDValue(txtMulti3MO.Text)
                         ), 8).ToString();
                 }
@@ -2033,18 +2034,18 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMO.Text)
-                                && !string.IsNullOrEmpty(txtValue1MO.Text)
-                                && !string.IsNullOrEmpty(txtValue2MO.Text)
-                                && !string.IsNullOrEmpty(txtValue3MO.Text)
+                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue))
+                                && !string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue))
+                                && !string.IsNullOrEmpty(Convert.ToString(txtValue2MO.EditValue))
+                                && !string.IsNullOrEmpty(Convert.ToString(txtValue3MO.EditValue))
                                 && !string.IsNullOrEmpty(txtMulti4MO.Text))
                 {
                     txtValue4MO.Text =
                        Math.Round(GetValue(
-                        getDValue(txtLPMO.Text) +
-                        getDValue(txtValue1MO.Text) +
-                        getDValue(txtValue2MO.Text) +
-                        getDValue(txtValue3MO.Text),
+                        getDValue(Convert.ToString(txtLPMO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue1MO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue2MO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue3MO.EditValue)),
                         getDValue(txtMulti4MO.Text)
                         ), 8).ToString();
                 }
@@ -2079,9 +2080,9 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtEinkaufspreisMO.Text) && !string.IsNullOrEmpty(txtSelbstkostenMultiMO.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtEinkaufspreisMO.EditValue)) && !string.IsNullOrEmpty(txtSelbstkostenMultiMO.Text))
                 {
-                    decimal dValue = getDValue(txtEinkaufspreisMO.Text);
+                    decimal dValue = getDValue(Convert.ToString(txtEinkaufspreisMO.EditValue));
                     txtSelbstkostenValueMO.Text =
                         Math.Round(dValue + GetValue(dValue,
                         getDValue(txtSelbstkostenMultiMO.Text)), 8).ToString();
@@ -2097,9 +2098,9 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtSelbstkostenValueMO.Text) && !string.IsNullOrEmpty(txtVerkaufspreisMultiMO.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtSelbstkostenValueMO.EditValue)) && !string.IsNullOrEmpty(txtVerkaufspreisMultiMO.Text))
                 {
-                    decimal dValue = getDValue(txtSelbstkostenValueMO.Text);
+                    decimal dValue = getDValue(Convert.ToString(txtSelbstkostenValueMO.EditValue));
                     decimal TotalDValue = Math.Round(dValue + GetValue(dValue,
                         getDValue(txtVerkaufspreisMultiMO.Text)), 8);
                     txtVerkaufspreisValueMO.Text = TotalDValue.ToString();
@@ -2151,10 +2152,10 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtHours.Text) && !string.IsNullOrEmpty(txtFaktor.Text) && !string.IsNullOrEmpty(txtStdSatz.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtHours.EditValue)) && !string.IsNullOrEmpty(txtFaktor.Text) && !string.IsNullOrEmpty(txtStdSatz.Text))
                 {
                     txtLPMO.Text = Math.Round(
-                        getDValue(txtHours.Text) *
+                        getDValue(Convert.ToString(txtHours.EditValue)) *
                         getDValue(txtFaktor.Text) *
                         getDValue(txtStdSatz.Text), 8).ToString();
                 }
@@ -2203,17 +2204,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtValue1ME.Text) &&
-                                !string.IsNullOrEmpty(txtValue2ME.Text) &&
-                                !string.IsNullOrEmpty(txtValue3ME.Text) &&
-                                !string.IsNullOrEmpty(txtValue4ME.Text)
+                if (!string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) &&
+                                !string.IsNullOrEmpty(Convert.ToString(txtValue2ME.EditValue)) &&
+                                !string.IsNullOrEmpty(Convert.ToString(txtValue3ME.EditValue)) &&
+                                !string.IsNullOrEmpty(Convert.ToString(txtValue4ME.EditValue))
                                 )
                 {
                     decimal GrundMulti =
-                        Math.Round(getDValue(txtValue1ME.Text) +
-                        getDValue(txtValue2ME.Text) +
-                        getDValue(txtValue3ME.Text) +
-                        getDValue(txtValue4ME.Text), 8);
+                        Math.Round(getDValue(Convert.ToString(txtValue1ME.EditValue)) +
+                        getDValue(Convert.ToString(txtValue2ME.EditValue)) +
+                        getDValue(Convert.ToString(txtValue3ME.EditValue)) +
+                        getDValue(Convert.ToString(txtValue4ME.EditValue)), 8);
                     txtGrundValueME.Text = GrundMulti.ToString();
                 }
             }
@@ -2251,16 +2252,16 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtValue1MO.Text) &&
-                                !string.IsNullOrEmpty(txtValue2MO.Text) &&
-                                !string.IsNullOrEmpty(txtValue3MO.Text) &&
-                                !string.IsNullOrEmpty(txtValue4MO.Text)
+                if (!string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue)) &&
+                                !string.IsNullOrEmpty(Convert.ToString(txtValue2MO.EditValue)) &&
+                                !string.IsNullOrEmpty(Convert.ToString(txtValue3MO.EditValue)) &&
+                                !string.IsNullOrEmpty(Convert.ToString(txtValue4MO.EditValue))
                                 )
                 {
-                    decimal GrundMulti = Math.Round(getDValue(txtValue1MO.Text) +
-                        getDValue(txtValue2MO.Text) +
-                        getDValue(txtValue3MO.Text) +
-                        getDValue(txtValue4MO.Text), 8);
+                    decimal GrundMulti = Math.Round(getDValue(Convert.ToString(txtValue1MO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue2MO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue3MO.EditValue)) +
+                        getDValue(Convert.ToString(txtValue4MO.EditValue)), 8);
                     txtGrundValueMO.Text = GrundMulti.ToString();
                 }
             }
@@ -2278,7 +2279,7 @@ namespace OTTOPro
                 {
                     decimal LPMe = getDValue(txtLPMe.Text);
                     txtEinkaufspreisME.Text = Math.Round(LPMe
-                        + GetValue(LPMe, getDValue(txtGrundMultiME.Text)), 8).ToString();
+                        + GetValue(LPMe, getDValue(Convert.ToString(txtGrundMultiME.EditValue))), 8).ToString();
                 }
             }
             catch (Exception ex)
@@ -2291,11 +2292,11 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMO.Text) && !string.IsNullOrEmpty(txtGrundMultiMO.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) && !string.IsNullOrEmpty(txtGrundMultiMO.Text))
                 {
-                    decimal LPMe = getDValue(txtLPMO.Text);
+                    decimal LPMe = getDValue(Convert.ToString(txtLPMO.EditValue));
                     txtEinkaufspreisMO.Text = Math.Round(LPMe
-                        + GetValue(LPMe, getDValue(txtGrundMultiMO.Text)), 8).ToString();
+                        + GetValue(LPMe, getDValue(Convert.ToString(txtGrundMultiMO.EditValue))), 8).ToString();
                 }
             }
             catch (Exception ex)
@@ -3204,10 +3205,10 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtMenge.Text) && !string.IsNullOrEmpty(txtVerkaufspreisValueME.Text))
+                if (!string.IsNullOrEmpty(txtMenge.Text) && !string.IsNullOrEmpty(Convert.ToString(txtVerkaufspreisValueME.EditValue)))
                 {
                     txtGrandTotalME.Text =
-                        RoundValue(getDValue(txtVerkaufspreisValueME.Text)).ToString();
+                        RoundValue(getDValue(Convert.ToString(txtVerkaufspreisValueME.EditValue))).ToString();
                 }
                 else
                 {
@@ -3224,10 +3225,10 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtMenge.Text) && !string.IsNullOrEmpty(txtVerkaufspreisValueMO.Text))
+                if (!string.IsNullOrEmpty(txtMenge.Text) && !string.IsNullOrEmpty(Convert.ToString(txtVerkaufspreisValueMO.EditValue)))
                 {
                     txtGrandTotalMO.Text =
-                        RoundValue(getDValue(txtVerkaufspreisValueMO.Text)).ToString();
+                        RoundValue(getDValue(Convert.ToString(txtVerkaufspreisValueMO.EditValue))).ToString();
                 }
                 else
                 {
@@ -10849,5 +10850,38 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+
+        private void txtValue1MO_Properties_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                TextEdit textBox = (TextEdit)sender;
+                textBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+                textBox.Properties.Mask.EditMask = "N8";
+                textBox.Properties.Mask.UseMaskAsDisplayFormat = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtValue1MO_Properties_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                TextEdit textBox = (TextEdit)sender;
+                textBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+                textBox.Properties.Mask.EditMask = "N2";
+                textBox.Properties.Mask.UseMaskAsDisplayFormat = true;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+       
     }
 }
