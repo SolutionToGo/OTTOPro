@@ -511,6 +511,7 @@ namespace DataAccess
                         ObjEPositon.WI = ds.Tables[0].Rows[0]["WI"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["WI"].ToString();
                         ObjEPositon.Fabricate = ds.Tables[0].Rows[0]["Fabrikate"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Fabrikate"].ToString();
                         ObjEPositon.ME = ds.Tables[0].Rows[0]["Menegenheit"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Menegenheit"].ToString();
+                        ObjEPositon.Dim = ds.Tables[0].Rows[0]["Masseinheit"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Masseinheit"].ToString();
                         ObjEPositon.Faktor = ds.Tables[0].Rows[0]["Factor"] == DBNull.Value ? 1 : Convert.ToDecimal(ds.Tables[0].Rows[0]["Factor"]);
                         ObjEPositon.LiefrantMA = ds.Tables[0].Rows[0]["FullName"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["FullName"].ToString();
                         ObjEPositon.Multi1MA = ds.Tables[0].Rows[0]["Multi1"] == DBNull.Value ? 1 : Convert.ToDecimal(ds.Tables[0].Rows[0]["Multi1"]);
@@ -539,6 +540,7 @@ namespace DataAccess
                         ObjEPositon.Dim1 = "";
                         ObjEPositon.Dim2 = "";
                         ObjEPositon.Dim3 = "";
+                        ObjEPositon.Dim = "";
                     }
                 }
             }
@@ -572,6 +574,7 @@ namespace DataAccess
                         ObjEPositon.Type = ds.Tables[0].Rows[0]["Typ"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Typ"].ToString();
                         ObjEPositon.Fabricate = ds.Tables[0].Rows[0]["Fabrikate"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Fabrikate"].ToString();
                         ObjEPositon.ME = ds.Tables[0].Rows[0]["Menegenheit"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Menegenheit"].ToString();
+                        ObjEPositon.Dim = ds.Tables[0].Rows[0]["Masseinheit"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Masseinheit"].ToString();
                         ObjEPositon.LiefrantMA = ds.Tables[0].Rows[0]["FullName"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["FullName"].ToString();
                         ObjEPositon.Multi1MA = ds.Tables[0].Rows[0]["Multi1"] == DBNull.Value ? 1 : Convert.ToDecimal(ds.Tables[0].Rows[0]["Multi1"]);
                         ObjEPositon.Multi2MA = ds.Tables[0].Rows[0]["Multi2"] == DBNull.Value ? 1 : Convert.ToDecimal(ds.Tables[0].Rows[0]["Multi2"]);
@@ -599,6 +602,7 @@ namespace DataAccess
                         ObjEPositon.Multi2MA = 1;
                         ObjEPositon.Multi3MA = 1;
                         ObjEPositon.Multi4MA = 1;
+                        ObjEPositon.Dim = string.Empty;
                     }
                 }
             }

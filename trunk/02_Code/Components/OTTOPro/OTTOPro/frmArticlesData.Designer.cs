@@ -1147,7 +1147,7 @@
             this.layoutControlItem7.Location = new System.Drawing.Point(308, 99);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(285, 24);
-            this.layoutControlItem7.Text = "Dimension ";
+            this.layoutControlItem7.Text = "Masseinheit ";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(97, 17);
             // 
             // layoutControlItem13
@@ -1302,7 +1302,7 @@
             this.layoutControlItem14.Location = new System.Drawing.Point(308, 151);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(285, 24);
-            this.layoutControlItem14.Text = "Masseinheit ";
+            this.layoutControlItem14.Text = "Dimension ";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(97, 17);
             // 
             // layoutControlItem6

@@ -1135,7 +1135,7 @@ namespace OTTOPro
                             btnAddAccessories.Enabled = true;
                     }
                     txtShortDescription.Rtf = txtShortDescriptionCD.Rtf = tlPositions.FocusedNode["ShortDescription"] == DBNull.Value ? "" : tlPositions.FocusedNode["ShortDescription"].ToString();
-                    cmbME.Text = tlPositions.FocusedNode["ME"] == DBNull.Value ? "" : tlPositions.FocusedNode["ME"].ToString();
+                    cmbCDME.Text = cmbME.Text = tlPositions.FocusedNode["ME"] == DBNull.Value ? "" : tlPositions.FocusedNode["ME"].ToString();
                     cmbLVSection.Text = tlPositions.FocusedNode["LVSection"] == DBNull.Value ? "" : tlPositions.FocusedNode["LVSection"].ToString();
                     cmbLVStatus.Text = tlPositions.FocusedNode["LVStatus"] == DBNull.Value ? "" : tlPositions.FocusedNode["LVStatus"].ToString();
                     txtSurchargeFrom.Text = tlPositions.FocusedNode["surchargefrom"] == DBNull.Value ? "" : tlPositions.FocusedNode["surchargefrom"].ToString();
@@ -1453,7 +1453,7 @@ namespace OTTOPro
                 }
                 if (cmbPositionKZ.Text == "P")
                 {
-                    cmbME.Text = "psch";
+                    cmbCDME.Text = "psch";
                 }                
             }             
             catch (Exception ex)
@@ -2490,7 +2490,7 @@ namespace OTTOPro
                     txtLiefrantMA.Text = "";
                     txtType.Text = "";
                     txtTypeCD.Text = "";
-                    cmbME.Text = "";
+                    cmbCDME.Text = "";
                     cmbPositionKZ.Text = "N";
                     txtMenge.Text = "1";
                     txtMengeCD.Text = "1";
@@ -2531,7 +2531,7 @@ namespace OTTOPro
                     txtLiefrantMA.Text = "";
                     txtType.Text = "";
                     txtTypeCD.Text = "";
-                    cmbME.Text = "";
+                    cmbCDME.Text = "";
                     cmbPositionKZ.Text = "H";
                     txtMenge.Text = "";
                     txtMengeCD.Text = "";
@@ -2594,7 +2594,7 @@ namespace OTTOPro
                     txtLiefrantMA.Text = "";
                     txtType.Text = "";
                     txtTypeCD.Text = "";
-                    cmbME.Text = "";
+                    cmbCDME.Text = "";
                     cmbPositionKZ.Text = "N";
                     txtMenge.Text = "1";
                     txtMengeCD.Text = "1";
@@ -2803,7 +2803,7 @@ namespace OTTOPro
             txtLiefrantMA.Enabled = false;
             txtType.Enabled = false;
             txtDetailKZ.Enabled = false;
-            cmbME.Enabled = false;
+            cmbCDME.Enabled = false;
             txtWG.Text = string.Empty;
             txtWA.Text = string.Empty;
             txtWI.Text = string.Empty;
@@ -2813,7 +2813,7 @@ namespace OTTOPro
             txtType.Text = string.Empty;
             txtDetailKZ.Text = "0";
             cmbLVSection.Text = string.Empty;
-            cmbME.Text = string.Empty;
+            cmbCDME.Text = string.Empty;
         }
 
         private void FormatFieldsForNormal()
@@ -2827,7 +2827,7 @@ namespace OTTOPro
             txtLiefrantMA.Enabled = true;
             txtType.Enabled = true;
             txtDetailKZ.Enabled = true;
-            cmbME.Enabled = true;
+            cmbCDME.Enabled = true;
         }
 
         private string PrepareOZ()
@@ -5616,7 +5616,7 @@ namespace OTTOPro
             txtWG.Enabled = result;
             txtWA.Enabled = result;
             txtWI.Enabled = result;
-            cmbME.Enabled = result;
+            cmbCDME.Enabled = result;
             txtMenge.Enabled = result;
             txtFabrikate.Enabled = result;
             txtLiefrantMA.Enabled = result;
@@ -5787,6 +5787,7 @@ namespace OTTOPro
                     ObjEPosition.Dim1 = "";
                     ObjEPosition.Dim2 = "";
                     ObjEPosition.Dim3 = "";
+                    ObjEPosition.Dim = "";
                     ObjEPosition.LPMA = 0;
                     ObjEPosition.Mins = 0;
                 }
@@ -5795,7 +5796,7 @@ namespace OTTOPro
                txtWICD.Text = ObjEPosition.WI;
                 txtFabrikate.Text = ObjEPosition.Fabricate;
                 txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
-                cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
+                cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
                 txtDim1.Text = ObjEPosition.Dim1;
                 txtDim2.Text = ObjEPosition.Dim2;
                 txtDim3.Text = ObjEPosition.Dim3;
@@ -5806,6 +5807,7 @@ namespace OTTOPro
                 txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
                 txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
                 txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
+                txtDim.Text = ObjEPosition.Dim;
             }
             catch (Exception ex)
             {
@@ -5848,7 +5850,7 @@ namespace OTTOPro
                txtTypeCD.Text= txtType.Text = ObjEPosition.Type;
                 txtFabrikate.Text = ObjEPosition.Fabricate;
                 txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
-                cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
+                cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
                 txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
                 txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
                 txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
@@ -5859,6 +5861,7 @@ namespace OTTOPro
                 txtDim3.Text = ObjEPosition.Dim3;
                 txtMin.Text = ObjEPosition.Mins.ToString();
                 txtLPMe.Text = ObjEPosition.LPMA.ToString();
+                txtDim.Text = ObjEPosition.Dim;
             }
             catch (Exception ex)
             {
@@ -10591,7 +10594,7 @@ namespace OTTOPro
                     txtWI.Text = ObjEPosition.WI;
                     txtFabrikate.Text = ObjEPosition.Fabricate;
                     txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
-                    cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(ObjEPosition.ME);
+                    cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
                     txtDim1.Text = ObjEPosition.Dim1;
                     txtDim2.Text = ObjEPosition.Dim2;
                     txtDim3.Text = ObjEPosition.Dim3;
@@ -10881,6 +10884,36 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+
+        private void gvMulti5_CustomRowCellEditForEditing(object sender, CustomRowCellEditEventArgs e)
+        {
+            try
+            {
+                var gv = sender as GridView;
+                var _XField = gv.GetRowCellValue(e.RowHandle, gv.Columns["XValue"]);
+                gv.SetRowCellValue(e.RowHandle, "XValue", string.Format("{0:N8}", _XField));
+
+                var _SField = gv.GetRowCellValue(e.RowHandle, gv.Columns["SValue"]);
+                gv.SetRowCellValue(e.RowHandle, "SValue", string.Format("{0:N8}", _SField));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void cmbME_TextChanged(object sender, EventArgs e)
+        {
+            cmbME.Text = cmbCDME.Text;
+        }
+
+       
+
+       
+
+       
+                
 
        
     }
