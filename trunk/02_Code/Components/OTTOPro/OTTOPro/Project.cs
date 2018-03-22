@@ -754,6 +754,9 @@ namespace OTTOPro
                         }
                     }
                 }
+                txtShortDescription.Font = new System.Drawing.Font("Tahoma",9);
+                txtShortDescriptionCD.Font = new System.Drawing.Font("Tahoma", 9);
+
                 ObjEPosition.ShortDescription = txtShortDescription.Rtf;
 
                 if (txtPosition.Text == string.Empty)
@@ -1134,6 +1137,7 @@ namespace OTTOPro
                         else
                             btnAddAccessories.Enabled = true;
                     }
+
                     txtShortDescription.Rtf = txtShortDescriptionCD.Rtf = tlPositions.FocusedNode["ShortDescription"] == DBNull.Value ? "" : tlPositions.FocusedNode["ShortDescription"].ToString();
                     cmbCDME.Text = cmbME.Text = tlPositions.FocusedNode["ME"] == DBNull.Value ? "" : tlPositions.FocusedNode["ME"].ToString();
                     cmbLVSection.Text = tlPositions.FocusedNode["LVSection"] == DBNull.Value ? "" : tlPositions.FocusedNode["LVSection"].ToString();
@@ -10818,7 +10822,7 @@ namespace OTTOPro
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                    SplashScreenManager.Default.SetWaitFormDescription("Transfering Data...");
+                    SplashScreenManager.Default.SetWaitFormDescription("Datentransfer läuft … ");
                     strFilePath = dlg.FileName;
                     string fileExt = Path.GetExtension(strFilePath);
                     if (fileExt.CompareTo(".xls") == 0 || fileExt.CompareTo(".xlsx") == 0)
@@ -10853,7 +10857,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
 
         private void txtValue1MO_Properties_Enter(object sender, EventArgs e)
         {
