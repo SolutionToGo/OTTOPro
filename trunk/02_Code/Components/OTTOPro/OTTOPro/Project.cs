@@ -647,7 +647,10 @@ namespace OTTOPro
         {
             try
             {
+
+                //splitContainerControl2.PanelVisibility = SplitPanelVisibility.Panel1;             
                 splitContainerControl1.SplitterPosition = 540;
+
                 if (!string.IsNullOrEmpty(ObjEProject.LVRaster))
                 {
                     string[] Levels = ObjEProject.LVRaster.Split('.');
@@ -678,6 +681,12 @@ namespace OTTOPro
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         splitContainerControl2.SplitterPosition = 280;
+
+                        //if (splitContainerControl2.Panel1.Visible == true)
+                        //{
+                        //    splitContainerControl1.SplitterPosition = 300;
+                        //}
+                        
                     }
                     else if (Count < 5)
                     {
@@ -692,6 +701,11 @@ namespace OTTOPro
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         splitContainerControl2.SplitterPosition = 310;
+
+                        //if (splitContainerControl2.Panel1.Visible == true)
+                        //{
+                        //    splitContainerControl1.SplitterPosition = 320;
+                        //}
                     }
                     else
                     {
@@ -706,6 +720,11 @@ namespace OTTOPro
                         lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
+
+                        //if (splitContainerControl2.Panel1.Visible == true)
+                        //{
+                        //    splitContainerControl1.SplitterPosition = 350;
+                        //}
                     }
                 }
             }
@@ -9971,6 +9990,8 @@ namespace OTTOPro
                         toggleSwitchType.Visible = true;
                         dockPanelArticles.Show();
                         dockPanelArticles_Click(null, null);
+                        lblArticles.Text = "Artikels :" + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
+                        lblDimensions.Text = "Maße :" + txtDim1.Text + "/" + txtDim2.Text + "/" + txtDim3.Text;
                     }
                 }
             }
@@ -10909,6 +10930,22 @@ namespace OTTOPro
         private void cmbME_TextChanged(object sender, EventArgs e)
         {
             cmbME.Text = cmbCDME.Text;
+        }
+
+        private void txtShortDescription_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                RichTextBox txt = (RichTextBox)sender;
+                if (e.KeyCode == Keys.Enter && txt.Lines.Length >= 2)
+                {
+                    e.Handled = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
        

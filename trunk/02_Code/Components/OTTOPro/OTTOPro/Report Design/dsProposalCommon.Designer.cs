@@ -635,7 +635,7 @@ namespace OTTOPro.Report_Design {
                         string Position_OZ, 
                         string PositionKZ, 
                         string LVSection, 
-                        string EP, 
+                        decimal EP, 
                         decimal FinalGB, 
                         int Parent_OZ, 
                         decimal Menge, 
@@ -753,7 +753,7 @@ namespace OTTOPro.Report_Design {
                 base.Columns.Add(this.columnPositionKZ);
                 this.columnLVSection = new global::System.Data.DataColumn("LVSection", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLVSection);
-                this.columnEP = new global::System.Data.DataColumn("EP", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnEP = new global::System.Data.DataColumn("EP", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEP);
                 this.columnFinalGB = new global::System.Data.DataColumn("FinalGB", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFinalGB);
@@ -802,7 +802,6 @@ namespace OTTOPro.Report_Design {
                 this.columnPosition_OZ.MaxLength = 100;
                 this.columnPositionKZ.MaxLength = 10;
                 this.columnLVSection.MaxLength = 10;
-                this.columnEP.MaxLength = 50;
                 this.columnME.MaxLength = 50;
                 this.columnLangText.MaxLength = 2147483647;
                 this.columnParent.MaxLength = 100;
@@ -1041,10 +1040,10 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string EP {
+            public decimal EP {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_PositionForProposalPriceForCommon.EPColumn]));
+                        return ((decimal)(this[this.tableP_Rpt_PositionForProposalPriceForCommon.EPColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'EP\' in table \'P_Rpt_PositionForProposalPriceForCommon\' is D" +
