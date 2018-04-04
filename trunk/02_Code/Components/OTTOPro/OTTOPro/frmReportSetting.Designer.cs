@@ -53,7 +53,6 @@
             this.layoutControlItem8 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ToolStripMenuItemAdd = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,7 +76,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -113,9 +111,9 @@
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2});
             this.gvAddRemovePositions.Enabled = false;
-            this.gvAddRemovePositions.Location = new System.Drawing.Point(366, 132);
+            this.gvAddRemovePositions.Location = new System.Drawing.Point(366, 115);
             this.gvAddRemovePositions.Name = "gvAddRemovePositions";
-            this.gvAddRemovePositions.Size = new System.Drawing.Size(350, 348);
+            this.gvAddRemovePositions.Size = new System.Drawing.Size(350, 365);
             this.gvAddRemovePositions.TabIndex = 56;
             this.gvAddRemovePositions.MouseClick += new System.Windows.Forms.MouseEventHandler(this.gvAddRemovePositions_MouseClick);
             // 
@@ -193,10 +191,10 @@
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("prices", "Angebotsdruck ohne Preise"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("EP", "Angebotstruck ohne Einzelpreisen"),
             new DevExpress.XtraEditors.Controls.CheckedListBoxItem("MAMO", "Angebotsdruck ohne Material/Montagpreis")});
-            this.chkSelectOptions.Location = new System.Drawing.Point(12, 149);
+            this.chkSelectOptions.Location = new System.Drawing.Point(12, 168);
             this.chkSelectOptions.MultiColumn = true;
             this.chkSelectOptions.Name = "chkSelectOptions";
-            this.chkSelectOptions.Size = new System.Drawing.Size(350, 331);
+            this.chkSelectOptions.Size = new System.Drawing.Size(350, 312);
             this.chkSelectOptions.StyleController = this.layoutControl1;
             this.chkSelectOptions.TabIndex = 6;
             // 
@@ -208,8 +206,9 @@
             this.radioGroupShowText.Properties.Columns = 2;
             this.radioGroupShowText.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "LangText"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "KurzText")});
-            this.radioGroupShowText.Size = new System.Drawing.Size(350, 38);
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "KurzText"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "KurzText && LangText")});
+            this.radioGroupShowText.Size = new System.Drawing.Size(350, 57);
             this.radioGroupShowText.StyleController = this.layoutControl1;
             this.radioGroupShowText.TabIndex = 5;
             // 
@@ -244,7 +243,6 @@
             this.layoutControlItem8,
             this.layoutControlItem5,
             this.layoutControlItem4,
-            this.emptySpaceItem3,
             this.emptySpaceItem4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
@@ -274,7 +272,7 @@
             this.layoutControlItem2.Control = this.radioGroupShowText;
             this.layoutControlItem2.Location = new System.Drawing.Point(0, 61);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(354, 59);
+            this.layoutControlItem2.Size = new System.Drawing.Size(354, 78);
             this.layoutControlItem2.Text = "Anzeige Text";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 14);
@@ -286,9 +284,9 @@
             this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem3.Control = this.chkSelectOptions;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 120);
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 139);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(354, 352);
+            this.layoutControlItem3.Size = new System.Drawing.Size(354, 333);
             this.layoutControlItem3.Text = "Auswahloptionen";
             this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem3.TextSize = new System.Drawing.Size(108, 14);
@@ -334,9 +332,9 @@
             // layoutControlItem8
             // 
             this.layoutControlItem8.Control = this.gvAddRemovePositions;
-            this.layoutControlItem8.Location = new System.Drawing.Point(354, 120);
+            this.layoutControlItem8.Location = new System.Drawing.Point(354, 103);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(354, 352);
+            this.layoutControlItem8.Size = new System.Drawing.Size(354, 369);
             this.layoutControlItem8.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem8.TextVisible = false;
             // 
@@ -357,14 +355,6 @@
             this.layoutControlItem4.Size = new System.Drawing.Size(78, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
-            // 
-            // emptySpaceItem3
-            // 
-            this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(354, 103);
-            this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(354, 17);
-            this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
             // 
@@ -430,7 +420,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -464,7 +453,6 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemAdd;
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItemRemove;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
     }
 }

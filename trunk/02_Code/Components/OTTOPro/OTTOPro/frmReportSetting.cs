@@ -231,6 +231,10 @@ namespace OTTOPro
                 {
                     ObjEReport.KurzText = true;
                 }
+                if (radioGroupShowText.SelectedIndex == 2)
+                {
+                    ObjEReport.KurzAnLangText = true;
+                }
 
                 foreach (CheckedListBoxItem i in chkSelectOptions.CheckedItems)
                 {
@@ -319,6 +323,13 @@ namespace OTTOPro
                         if (_values == true)
                         {
                             radioGroupShowText.SelectedIndex = 1;
+                        }
+                    }
+                    if (bool.TryParse(row["KurzAndLangText"].ToString(), out _values))
+                    {
+                        if (_values == true)
+                        {
+                            radioGroupShowText.SelectedIndex = 2;
                         }
                     }
                     //Selection Option

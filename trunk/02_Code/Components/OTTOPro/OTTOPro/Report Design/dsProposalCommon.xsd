@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="P_Rpt_PositionForProposalPriceForCommonTableAdapter" GeneratorDataComponentClassName="P_Rpt_PositionForProposalPriceForCommonTableAdapter" Name="P_Rpt_PositionForProposalPriceForCommon" UserDataComponentName="P_Rpt_PositionForProposalPriceForCommonTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="OTTOPro (Settings)" DbObjectName="OTTOPro_Dev.dbo.P_Rpt_PositionForProposalPriceForCommon" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="OTTOPro (Settings)" DbObjectName="OTTOPro_Dev.dbo.P_Rpt_PositionForProposalPriceForCommon" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.P_Rpt_PositionForProposalPriceForCommon</CommandText>
@@ -30,7 +30,6 @@
               <Mapping SourceColumn="Position_OZ" DataSetColumn="Position_OZ" />
               <Mapping SourceColumn="PositionKZ" DataSetColumn="PositionKZ" />
               <Mapping SourceColumn="LVSection" DataSetColumn="LVSection" />
-              <Mapping SourceColumn="EP" DataSetColumn="EP" />
               <Mapping SourceColumn="FinalGB" DataSetColumn="FinalGB" />
               <Mapping SourceColumn="Parent_OZ" DataSetColumn="Parent_OZ" />
               <Mapping SourceColumn="Menge" DataSetColumn="Menge" />
@@ -53,6 +52,8 @@
               <Mapping SourceColumn="Title1Desc" DataSetColumn="Title1Desc" />
               <Mapping SourceColumn="Title2Desc" DataSetColumn="Title2Desc" />
               <Mapping SourceColumn="Title3Desc" DataSetColumn="Title3Desc" />
+              <Mapping SourceColumn="EP" DataSetColumn="EP1" />
+              <Mapping SourceColumn="KurzText" DataSetColumn="KurzText" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -64,7 +65,7 @@
   <xs:element name="dsProposalCommon" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsProposalCommon" msprop:Generator_UserDSName="dsProposalCommon">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_TableClassName="P_Rpt_PositionForProposalPriceForCommonDataTable" msprop:Generator_TableVarName="tableP_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowChangedName="P_Rpt_PositionForProposalPriceForCommonRowChanged" msprop:Generator_TablePropName="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowDeletingName="P_Rpt_PositionForProposalPriceForCommonRowDeleting" msprop:Generator_RowChangingName="P_Rpt_PositionForProposalPriceForCommonRowChanging" msprop:Generator_RowEvHandlerName="P_Rpt_PositionForProposalPriceForCommonRowChangeEventHandler" msprop:Generator_RowDeletedName="P_Rpt_PositionForProposalPriceForCommonRowDeleted" msprop:Generator_RowClassName="P_Rpt_PositionForProposalPriceForCommonRow" msprop:Generator_UserTableName="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowEvArgName="P_Rpt_PositionForProposalPriceForCommonRowChangeEvent">
+        <xs:element name="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_TableClassName="P_Rpt_PositionForProposalPriceForCommonDataTable" msprop:Generator_TableVarName="tableP_Rpt_PositionForProposalPriceForCommon" msprop:Generator_TablePropName="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowDeletingName="P_Rpt_PositionForProposalPriceForCommonRowDeleting" msprop:Generator_RowChangingName="P_Rpt_PositionForProposalPriceForCommonRowChanging" msprop:Generator_RowEvHandlerName="P_Rpt_PositionForProposalPriceForCommonRowChangeEventHandler" msprop:Generator_RowDeletedName="P_Rpt_PositionForProposalPriceForCommonRowDeleted" msprop:Generator_UserTableName="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowChangedName="P_Rpt_PositionForProposalPriceForCommonRowChanged" msprop:Generator_RowEvArgName="P_Rpt_PositionForProposalPriceForCommonRowChangeEvent" msprop:Generator_RowClassName="P_Rpt_PositionForProposalPriceForCommonRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PositionID" msprop:Generator_ColumnVarNameInTable="columnPositionID" msprop:Generator_ColumnPropNameInRow="PositionID" msprop:Generator_ColumnPropNameInTable="PositionIDColumn" msprop:Generator_UserColumnName="PositionID" type="xs:int" minOccurs="0" />
@@ -173,6 +174,20 @@
                 </xs:simpleType>
               </xs:element>
               <xs:element name="Title3Desc" msprop:Generator_ColumnVarNameInTable="columnTitle3Desc" msprop:Generator_ColumnPropNameInRow="Title3Desc" msprop:Generator_ColumnPropNameInTable="Title3DescColumn" msprop:Generator_UserColumnName="Title3Desc" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EP1" msdata:Caption="EP" msprop:Generator_ColumnVarNameInTable="columnEP1" msprop:Generator_ColumnPropNameInRow="EP1" msprop:Generator_ColumnPropNameInTable="EP1Column" msprop:Generator_UserColumnName="EP1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KurzText" msprop:Generator_ColumnVarNameInTable="columnKurzText" msprop:Generator_ColumnPropNameInRow="KurzText" msprop:Generator_ColumnPropNameInTable="KurzTextColumn" msprop:Generator_UserColumnName="KurzText" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />

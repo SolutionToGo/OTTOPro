@@ -29,6 +29,7 @@ namespace EL
         private bool _LangText;
         private bool _KurzText;
         private bool _MAMO;
+        private bool _KurzAndLangText;
 
         private DataSet _dsReportDesign;
         public DataSet dsReportDesign
@@ -125,6 +126,11 @@ namespace EL
         {
             get { return _dtReportSettings; }
             set { _dtReportSettings = value; }
+        }
+        public bool KurzAnLangText
+        {
+            get { return _KurzAndLangText; }
+            set { _KurzAndLangText = value; }
         }
     }
 }
