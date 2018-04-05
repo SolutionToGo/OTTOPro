@@ -335,8 +335,6 @@ namespace OTTOPro.Report_Design {
             
             private global::System.Data.DataColumn columnTitle3Desc;
             
-            private global::System.Data.DataColumn columnEP1;
-            
             private global::System.Data.DataColumn columnKurzText;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -598,14 +596,6 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn EP1Column {
-                get {
-                    return this.columnEP1;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn KurzTextColumn {
                 get {
                     return this.columnKurzText;
@@ -678,7 +668,6 @@ namespace OTTOPro.Report_Design {
                         string Title1Desc, 
                         string Title2Desc, 
                         string Title3Desc, 
-                        string EP1, 
                         string KurzText) {
                 P_Rpt_PositionForProposalPriceForCommonRow rowP_Rpt_PositionForProposalPriceForCommonRow = ((P_Rpt_PositionForProposalPriceForCommonRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -710,7 +699,6 @@ namespace OTTOPro.Report_Design {
                         Title1Desc,
                         Title2Desc,
                         Title3Desc,
-                        EP1,
                         KurzText};
                 rowP_Rpt_PositionForProposalPriceForCommonRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowP_Rpt_PositionForProposalPriceForCommonRow);
@@ -762,7 +750,6 @@ namespace OTTOPro.Report_Design {
                 this.columnTitle1Desc = base.Columns["Title1Desc"];
                 this.columnTitle2Desc = base.Columns["Title2Desc"];
                 this.columnTitle3Desc = base.Columns["Title3Desc"];
-                this.columnEP1 = base.Columns["EP1"];
                 this.columnKurzText = base.Columns["KurzText"];
             }
             
@@ -825,8 +812,6 @@ namespace OTTOPro.Report_Design {
                 base.Columns.Add(this.columnTitle2Desc);
                 this.columnTitle3Desc = new global::System.Data.DataColumn("Title3Desc", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTitle3Desc);
-                this.columnEP1 = new global::System.Data.DataColumn("EP1", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEP1);
                 this.columnKurzText = new global::System.Data.DataColumn("KurzText", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnKurzText);
                 this.columnPosition_OZ.MaxLength = 100;
@@ -843,8 +828,6 @@ namespace OTTOPro.Report_Design {
                 this.columnTitle1Desc.MaxLength = 2147483647;
                 this.columnTitle2Desc.MaxLength = 2147483647;
                 this.columnTitle3Desc.MaxLength = 2147483647;
-                this.columnEP1.Caption = "EP";
-                this.columnEP1.MaxLength = 50;
                 this.columnKurzText.MaxLength = 2147483647;
             }
             
@@ -1464,23 +1447,6 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string EP1 {
-                get {
-                    try {
-                        return ((string)(this[this.tableP_Rpt_PositionForProposalPriceForCommon.EP1Column]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'EP1\' in table \'P_Rpt_PositionForProposalPriceForCommon\' is " +
-                                "DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableP_Rpt_PositionForProposalPriceForCommon.EP1Column] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string KurzText {
                 get {
                     try {
@@ -1834,18 +1800,6 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsEP1Null() {
-                return this.IsNull(this.tableP_Rpt_PositionForProposalPriceForCommon.EP1Column);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetEP1Null() {
-                this[this.tableP_Rpt_PositionForProposalPriceForCommon.EP1Column] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsKurzTextNull() {
                 return this.IsNull(this.tableP_Rpt_PositionForProposalPriceForCommon.KurzTextColumn);
             }
@@ -2043,7 +1997,6 @@ namespace OTTOPro.Report_Design.dsProposalCommonTableAdapters {
             tableMapping.ColumnMappings.Add("Title1Desc", "Title1Desc");
             tableMapping.ColumnMappings.Add("Title2Desc", "Title2Desc");
             tableMapping.ColumnMappings.Add("Title3Desc", "Title3Desc");
-            tableMapping.ColumnMappings.Add("EP", "EP1");
             tableMapping.ColumnMappings.Add("KurzText", "KurzText");
             this._adapter.TableMappings.Add(tableMapping);
         }
