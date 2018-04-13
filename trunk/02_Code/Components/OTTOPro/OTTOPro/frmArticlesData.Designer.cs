@@ -262,9 +262,11 @@
             // 
             // btnValidityDate
             // 
-            this.btnValidityDate.Location = new System.Drawing.Point(483, 341);
+            this.btnValidityDate.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnValidityDate.Appearance.Options.UseFont = true;
+            this.btnValidityDate.Location = new System.Drawing.Point(464, 341);
             this.btnValidityDate.Name = "btnValidityDate";
-            this.btnValidityDate.Size = new System.Drawing.Size(88, 22);
+            this.btnValidityDate.Size = new System.Drawing.Size(107, 22);
             this.btnValidityDate.StyleController = this.layoutControl1;
             this.btnValidityDate.TabIndex = 36;
             this.btnValidityDate.Text = "Gültigkeitsdatum";
@@ -386,7 +388,7 @@
             this.lblArticle.ForeColor = System.Drawing.Color.White;
             this.lblArticle.Location = new System.Drawing.Point(12, 341);
             this.lblArticle.Name = "lblArticle";
-            this.lblArticle.Size = new System.Drawing.Size(467, 22);
+            this.lblArticle.Size = new System.Drawing.Size(448, 22);
             this.lblArticle.TabIndex = 26;
             this.lblArticle.Text = "Artikelübersicht zu ";
             // 
@@ -1444,7 +1446,7 @@
             this.layoutControlItem26.Control = this.lblArticle;
             this.layoutControlItem26.Location = new System.Drawing.Point(0, 329);
             this.layoutControlItem26.Name = "layoutControlItem26";
-            this.layoutControlItem26.Size = new System.Drawing.Size(471, 26);
+            this.layoutControlItem26.Size = new System.Drawing.Size(452, 26);
             this.layoutControlItem26.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem26.TextVisible = false;
             // 
@@ -1523,9 +1525,9 @@
             // layoutControlItem34
             // 
             this.layoutControlItem34.Control = this.btnValidityDate;
-            this.layoutControlItem34.Location = new System.Drawing.Point(471, 329);
+            this.layoutControlItem34.Location = new System.Drawing.Point(452, 329);
             this.layoutControlItem34.Name = "layoutControlItem34";
-            this.layoutControlItem34.Size = new System.Drawing.Size(92, 26);
+            this.layoutControlItem34.Size = new System.Drawing.Size(111, 26);
             this.layoutControlItem34.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem34.TextVisible = false;
             // 

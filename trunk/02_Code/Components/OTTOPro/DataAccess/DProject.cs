@@ -398,7 +398,7 @@ namespace DAL
             return ObjEProject;
         }
 
-        public void SavePath(string strPath)
+        public void SavePath(string strPath,string TemplatePath)
         {
             try
             {
@@ -408,6 +408,7 @@ namespace DAL
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Ins_Path]";
                     cmd.Parameters.AddWithValue("@Path", strPath);
+                    cmd.Parameters.AddWithValue("@TempaltePath", TemplatePath);
                     cmd.ExecuteNonQuery();
                 }
             }
@@ -421,9 +422,9 @@ namespace DAL
             }
         }
 
-        public string GetPath()
+        public EProject GetPath(EProject ObjEProject)
         {
-            string strPath = string.Empty;
+            DataSet dsPath = new DataSet();
             try
             {
                 using (SqlCommand cmd = new SqlCommand())
@@ -431,9 +432,16 @@ namespace DAL
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_Path]";
-                    object returnObj = cmd.ExecuteScalar();
-                    if (returnObj != null)
-                        strPath = Convert.ToString(returnObj);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsPath);
+                    }
+                    if(dsPath != null && dsPath.Tables.Count > 0 && dsPath.Tables[0].Rows.Count > 0)
+                    {
+                        ObjEProject.CoverSheetPath = Convert.ToString(dsPath.Tables[0].Rows[0][0]);
+                        if(dsPath.Tables.Count > 1 && dsPath.Tables[1].Rows.Count > 0)
+                            ObjEProject.TemplatePath = Convert.ToString(dsPath.Tables[1].Rows[0][0]);
+                    }
                 }
             }
             catch (Exception ex)
@@ -444,7 +452,7 @@ namespace DAL
             {
                 SQLCon.Sqlconn().Close();
             }
-            return strPath;
+            return ObjEProject;
         }
 
         public string GetDBVersion()

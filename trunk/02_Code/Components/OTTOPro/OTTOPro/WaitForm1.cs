@@ -14,7 +14,8 @@ namespace OTTOPro
         public WaitForm1()
         {
             InitializeComponent();
-            this.progressPanel1.AutoHeight = true;
+            BackColor = Color.Fuchsia;
+            TransparencyKey = BackColor;
         }
 
         #region Overrides

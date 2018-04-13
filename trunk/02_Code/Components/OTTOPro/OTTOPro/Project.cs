@@ -99,8 +99,9 @@ namespace OTTOPro
         DataTable _dtSupplier = null;
 
         private int _ProposalID = 0;
-        string _WGforSupplier = null;
-        string _WAforSupplier = null;
+        string _WGforSupplier = string.Empty;
+        string _WAforSupplier = string.Empty;
+        string _LVSection = string.Empty;
         string _pdfpath = null;
         DataTable _dtSuppliermail = new DataTable();
 
@@ -774,7 +775,7 @@ namespace OTTOPro
                     }
                 }
                 txtShortDescription.Font = new System.Drawing.Font("Tahoma",9);
-                txtShortDescriptionCD.Font = new System.Drawing.Font("Tahoma", 9);
+                txtShortDescriptionCD.Font = new System.Drawing.Font("Tahoma",9);
 
                 ObjEPosition.ShortDescription = txtShortDescription.Rtf;
 
@@ -1238,11 +1239,13 @@ namespace OTTOPro
                             {
                                 txtPosition.Enabled = false;
                                 btnLongDescription.Enabled = false;
+                                btnLangtext1.Enabled = false;
                             }
                             else
                             {
                                 txtPosition.Enabled = true;
                                 btnLongDescription.Enabled = true;
+                                btnLangtext1.Enabled = true;
                             }
                         }
                     }
@@ -2521,6 +2524,7 @@ namespace OTTOPro
                     txtLVPositionCD.Text = string.Empty;
                     FormatLVFields();
                     btnLongDescription.Enabled = true;
+                    btnLangtext1.Enabled = true;
                     tlPositions.OptionsBehavior.ReadOnly = true;
                     LongDescription = string.Empty;
                     cmbPositionKZ.Enabled = true;
@@ -2567,6 +2571,7 @@ namespace OTTOPro
                     txtPosition.Text = "";
                     FormatLVFields();
                     btnLongDescription.Enabled = true;
+                    btnLangtext1.Enabled = true;
                     tlPositions.OptionsBehavior.ReadOnly = true;
                     LongDescription = string.Empty;
                     cmbPositionKZ.Enabled = true;
@@ -2625,6 +2630,7 @@ namespace OTTOPro
                     txtLVPositionCD.Text = string.Empty;
                     FormatLVFields();
                     btnLongDescription.Enabled = true;
+                    btnLangtext1.Enabled = true;
                     tlPositions.OptionsBehavior.ReadOnly = true;
                     LongDescription = string.Empty;
                     cmbPositionKZ.Enabled = true;
@@ -2808,6 +2814,23 @@ namespace OTTOPro
                 if (e.KeyCode == Keys.Escape)
                 {
                     btnCancel_Click(null, null);
+                }
+                else if (e.KeyCode == Keys.F5)
+                {
+                    if (splitContainerControl2.PanelVisibility == SplitPanelVisibility.Both)
+                    {
+                        if (splitContainerControl2.SplitterPosition == 0)
+                        {
+                            splitContainerControl2.SplitterPosition = 320;
+                            splitContainerControl1.SplitterPosition = 320;
+                        }
+                        else if (splitContainerControl2.SplitterPosition > 0)
+                        {
+                            splitContainerControl2.SplitterPosition = 0;
+                            splitContainerControl1.SplitterPosition = 550;
+                        }
+
+                    }
                 }
             }
             catch (Exception ex)
@@ -3925,11 +3948,25 @@ namespace OTTOPro
                 int IIndex = 0;
                 DateTime dt = DateTime.Now;
                 ObjEPosition.PositionKZ = dr["PositionKZ"] == DBNull.Value ? "" : dr["PositionKZ"].ToString();
-                ObjEPosition.Position_OZ = strPositionsOZ;
+                if (iDetailKZ > 0)
+                    ObjEPosition.DetailKZ = iDetailKZ;
+                else
+                {
+                    if (int.TryParse(Convert.ToString(dr["DetailKZ"]), out iValue))
+                        ObjEPosition.DetailKZ = iValue;
+                    else
+                        ObjEPosition.DetailKZ = 0;
+                }
+                
+                if (ObjEPosition.DetailKZ == 0)
+                    ObjEPosition.Position_OZ = strPositionsOZ;
+                if(isDetailKZ)
+                    ObjEPosition.Position_OZ = strPositionsOZ;
+
                 ObjEPosition.Parent_OZ = strParetntOZ;
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
                 ObjEPosition.PositionID = -1;
-                if (!isDetailKZ)
+                if (!isDetailKZ && ObjEPosition.DetailKZ == 0)
                 {
                     TreeListNode Nodetofocus = null;
                     Nodetofocus = this.tlPositions.FindNodeByKeyID(tlPositions.FocusedNode["PositionID"]);
@@ -3954,10 +3991,17 @@ namespace OTTOPro
                     }
                     string _Suggested_OZ = SuggestOZForCopy(strPositionsOZ, strnextLV, IIndex);
 
+                    frmNewOZ Obj = new frmNewOZ();
+                    Obj.strNewOZ = _Suggested_OZ;
+                    Obj.ShowDialog();
+                    if (!Obj.IsSave)
+                        return;
+                    _Suggested_OZ = Obj.strNewOZ;
+
                     string str = string.Empty;
                     string strRaster = ObjEProject.LVRaster;
                     string[] strPOZ = strPositionsOZ.Split('.');
-                    string[] strPRaster = strRaster.Split('.');                   
+                    string[] strPRaster = strRaster.Split('.');
                     int Count = -1;
                     int i = -1;
                     Count = strPOZ.Count();
@@ -3976,10 +4020,10 @@ namespace OTTOPro
                             if (OZ == "")
                             {
                                 str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
-                            }    
-                        }                                            
+                            }
+                        }
                     }
-                    if(str.Length > 0)
+                    if (str.Length > 0)
                     {
                         string strBlankNewOz = strParetntOZ + str + _Suggested_OZ;
                         ObjEPosition.Position_OZ = strBlankNewOz;
@@ -3988,19 +4032,9 @@ namespace OTTOPro
                     {
                         string strNewOz = strParetntOZ + _Suggested_OZ;
                         ObjEPosition.Position_OZ = strNewOz;
-                    }                    
-                   
-                }
-                if (iDetailKZ > 0)
-                    ObjEPosition.DetailKZ = iDetailKZ;
-                else
-                {
-                    if (int.TryParse(Convert.ToString(dr["DetailKZ"]), out iValue))
-                        ObjEPosition.DetailKZ = iValue;
-                    else
-                        ObjEPosition.DetailKZ = 0;
-                }
+                    }
 
+                }
                 if (cmbLVSection.Text == string.Empty)
                     ObjEPosition.LVSection = "HA";
                 else
@@ -6030,30 +6064,46 @@ namespace OTTOPro
                     cmbLVSection.Enabled = false;
                     btnAddLVSection.Enabled = false;
                 }
-                if (Utility.LVDetailsAccess != "8")
+                //LV Details Access
+                if (Utility.LVDetailsAccess == "9")
                 {
-                    LCGLVDetails.Enabled = false;
+                    splitContainerControl2.PanelVisibility = SplitPanelVisibility.Panel2;
                     btnNew.Enabled = false;
                     chkCreateNew.Enabled = false;
-                    btnSaveLVDetails.Enabled = false;
-                    btnCancel.Enabled = false;
                     LVDetailsColumnReadOnly(true);
                 }
-                if (Utility.CalcAccess != "8")
+                else if (Utility.LVDetailsAccess == "7")
                 {
-                    lcCostDetails.Enabled = false;
-                    LVCalculationColumnReadOnly(true);
-                    btnSaveLVDetails.Enabled = false;
-                    btnCancel.Enabled = false;
+                    splitContainerControl2.Panel1.Enabled = false;
+                    btnNew.Enabled = false;
+                    chkCreateNew.Enabled = false;
+                    LVDetailsColumnReadOnly(true);
                 }
-                if (Utility.LVDetailsAccess == "8")
+                else if (Utility.LVDetailsAccess == "8")
                 {
+                    splitContainerControl2.Panel1.Enabled = true;
+                    btnNew.Enabled = true;
+                    chkCreateNew.Enabled = true;
                     LVDetailsColumnReadOnly(false);
                 }
-                if (Utility.CalcAccess == "8")
+
+                //Cost Details Access
+                if (Utility.CalcAccess == "9")
                 {
-                    LVCalculationColumnReadOnly(false);
+                    splitContainerControl2.PanelVisibility = SplitPanelVisibility.Panel1;
+                    LVCalculationColumnReadOnly(true);
                 }
+                else if (Utility.CalcAccess == "7")
+                {
+                    splitContainerControl2.Panel2.Enabled = false;
+                    LVCalculationColumnReadOnly(true);   
+                }
+                else if (Utility.CalcAccess == "8")
+                {
+                    splitContainerControl2.Panel2.Enabled = true;
+                    LVCalculationColumnReadOnly(false);   
+                }
+
                 if (Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7")
                 {
                     btnAddLVSection.Enabled = false;
@@ -6063,20 +6113,30 @@ namespace OTTOPro
                 {
                     if (Utility.LVDetailsAccess != "8" && !string.IsNullOrEmpty(ObjEProject.CommissionNumber))
                     {
+                        splitContainerControl2.PanelVisibility = SplitPanelVisibility.Panel1;
+                        splitContainerControl2.Panel1.Enabled = true;
                         DataView dvLVSection = ObjEProject.dtLVSection.DefaultView;
                         dvLVSection.RowFilter = "LVSectionName <> 'HA'";
                         cmbLVSection.DataSource = ObjEProject.dtLVSection;
                         cmbLVSection.DisplayMember = "LVSectionName";
                         cmbLVSection.ValueMember = "LVSectionID";
-
-                        LCGLVDetails.Enabled = true;
                         btnNew.Enabled = true;
                         chkCreateNew.Enabled = true;
-                        btnSaveLVDetails.Enabled = true;
-                        btnCancel.Enabled = true;
                         LVDetailsColumnReadOnly(true);
                     }
                 }
+
+                if (Utility.LVDetailsAccess == "9" && Utility.CalcAccess == "9" && (Utility.LVsectionAddAccess != "8" || string.IsNullOrEmpty(ObjEProject.CommissionNumber)))
+                    splitContainerControl1.PanelVisibility = SplitPanelVisibility.Panel2;
+                else
+                {
+                    //if(splitContainerControl1.PanelVisibility == SplitPanelVisibility.Panel2)
+                        
+                }
+
+                
+
+
                 if (ObjEProject.IsFinalInvoice)
                 {
                     btnNew.Enabled = false;
@@ -6464,19 +6524,7 @@ namespace OTTOPro
                     ObjTabDetails = tbSupplierProposal;
                     TabChange(ObjTabDetails);
                     FillLVSection();
-                    GetWGWA();
-
                     ObjESupplier.ProjectID = ObjEProject.ProjectID;
-                    ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
-                    if (Utility.LVSectionEditAccess == "9")
-                    {
-                        DataView dv = ObjESupplier.dtProposal.DefaultView;
-                        dv.RowFilter = "LVSection = 'HA'";
-                        gcProposedSupplier.DataSource = dv;
-                    }
-                    else
-                        gcProposedSupplier.DataSource = ObjESupplier.dtProposal;
-
                     gcDeletedDetails.DataSource = null;
                     gcProposedDetails.DataSource = null;
                     if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
@@ -7068,64 +7116,22 @@ namespace OTTOPro
             }
         }
 
-        public void GetWGWA()
-        {
-            try
-            {
-                if (ObjESupplier.Article != null)
-                {
-                    cmbWGWA.DataSource = null;
-                    DataView dvWGWA = ObjESupplier.Article.Tables[1].DefaultView;
-                    string[] strLVSection = cmbLVSectionProposal.Text.Split(',');
-                    StringBuilder LVSection = new StringBuilder();
-
-                    for (int i = 0; i < strLVSection.Count(); i++)
-                    {
-                        if (i == strLVSection.Count() - 1)
-                            LVSection.Append("'" + strLVSection[i].Trim() + "'");
-                        else
-                            LVSection.Append("'" + strLVSection[i].Trim() + "',");
-                    }
-                    IList<string> listName = new List<string>();
-
-                    dvWGWA.RowFilter = "LVSection IN (" + LVSection.ToString() + ")";
-                    DataTable _dt = new DataTable();
-                    _dt = dvWGWA.ToTable();
-
-                    foreach (DataRow dr in _dt.Rows)
-                    {
-                        listName.Add(dr["WGWA"].ToString());
-                    }
-                    listName = listName.Distinct().ToList();
-
-                    cmbWGWA.DisplayMember = "WGWA";
-                    cmbWGWA.ValueMember = "WGWA";
-                    cmbWGWA.DataSource = listName;
-                    cmbWGWA.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        public void GetLVDetailsAndSupplier()
+        public void GetLVDetailsAndSupplier(string WGWA, string LVSection)
         {
             try
             {
                 string[] strArr = null;
-                char[] splitchar = { '-' };
-                strArr = cmbWGWA.SelectedValue.ToString().Split(splitchar);
-                for (int count = 0; count <= strArr.Length - 1; count++)
-                {
-                    _WGforSupplier = strArr[0];
-                    _WAforSupplier = strArr[1];
-                }
+                strArr = WGWA.Split('-');
+                if (_WGforSupplier == strArr[0] && _WAforSupplier == strArr[1] && _LVSection == LVSection)
+                    return;
+
+                _WGforSupplier = strArr[0];
+                _WAforSupplier = strArr[1];
+                _LVSection = LVSection;
 
                 if (_WGforSupplier != null && _WAforSupplier != null)
                 {
-                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionProposal.Text, _WGforSupplier, _WAforSupplier);
+                    ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, LVSection, _WGforSupplier, _WAforSupplier);
                     if (ObjESupplier.dsSupplier != null)
                     {
                         gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;
@@ -7190,7 +7196,7 @@ namespace OTTOPro
         {
             try
             {
-                GetLVDetailsAndSupplier();
+                //GetLVDetailsAndSupplier();
             }
             catch (Exception ex)
             {
@@ -7242,7 +7248,6 @@ namespace OTTOPro
         private void btnSendEmail_Click(object sender, EventArgs e)
         {
             StringBuilder strArr = new StringBuilder();
-            string delimiter = "";            
             try
             {
                 Type officeType = Type.GetTypeFromProgID("Outlook.Application");
@@ -7283,6 +7288,7 @@ namespace OTTOPro
                             mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
                             mailItem.Display(false);
                        }
+                        UpdateProposalDate();
                     }
                 }
 
@@ -7420,13 +7426,88 @@ namespace OTTOPro
                     else if (Utility.CalcAccess != "7")
                         btnSaveSupplierProposal.Enabled = true;
                 }
-                GetWGWA();
+
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
+                if (ObjBSupplier == null)
+                    ObjBSupplier = new BSupplier();
+                ObjESupplier.ProjectID = ObjEProject.ProjectID;
+                ObjESupplier.LVSection = cmbLVSectionProposal.Text;
+                ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
+                gcProposedSupplier.DataSource = ObjESupplier.dtProposal;
                 gcLVDetailsforSupplier.DataSource = null;
                 chkSupplierLists.DataSource = null;
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
+            }
+        }
+
+        private void gvProposedSupplier_RowClick(object sender, RowClickEventArgs e)
+        {
+            try
+            {
+                if (gvProposedSupplier.GetFocusedRowCellValue("WGWA") != null && gvProposedSupplier.GetFocusedRowCellValue("LVSection") != null)
+                {
+                    GetLVDetailsAndSupplier(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("WGWA")),
+                        Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("LVSection")));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void cmbLVSectionProposal_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Utility.LVSectionEditAccess == "7")
+                {
+                    if (cmbLVSectionProposal.Text.ToLower() != "ha")
+                        btnSaveSupplierProposal.Enabled = false;
+                    else if (Utility.CalcAccess != "7")
+                        btnSaveSupplierProposal.Enabled = true;
+                }
+
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
+                if (ObjBSupplier == null)
+                    ObjBSupplier = new BSupplier();
+                ObjESupplier.ProjectID = ObjEProject.ProjectID;
+                ObjESupplier.LVSection = cmbLVSectionProposal.Text;
+                ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
+                gcProposedSupplier.DataSource = ObjESupplier.dtProposal;
+                gcLVDetailsforSupplier.DataSource = null;
+                chkSupplierLists.DataSource = null;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void UpdateProposalDate()
+        {
+            try
+            {
+                int IValue = 0;
+                if (gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID") != null && int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")),out IValue))
+                {
+                    if (ObjESupplier == null)
+                        ObjESupplier = new ESupplier();
+                    if (ObjBSupplier == null)
+                        ObjBSupplier = new BSupplier();
+                    ObjESupplier.SupplierProposalID = IValue;
+                    ObjESupplier = ObjBSupplier.UpdateProposalDate(ObjESupplier);
+                    cmbLVSectionProposal_SelectedValueChanged(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
 
@@ -7443,7 +7524,6 @@ namespace OTTOPro
                     ObjTabDetails = tbUpdateSupplier;
                     TabChange(ObjTabDetails);
                     FillProposalNumbers();
-                    cmbWGWA.SelectedIndex = -1;
                     gvProposal_FocusedRowChanged(null, null);
                     gcDeletedDetails.DataSource = null;
                     gcProposedDetails.DataSource = null;
@@ -7466,6 +7546,7 @@ namespace OTTOPro
             try
             {
                 ObjESupplier.ProjectID = ObjEProject.ProjectID;
+                ObjESupplier.LVSection = string.Empty;
                 ObjESupplier = ObjBSupplier.GetProposalNumber(ObjESupplier);
                 if (Utility.LVSectionEditAccess == "9")
                 {
@@ -8066,8 +8147,9 @@ namespace OTTOPro
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
                     if (!chkUpdateAll.Checked)
                         ObjESupplier.IsSingle = true;
+                    else
+                        ObjESupplier.IsSingle = false;
                     ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
-
                     if (chkUpdateAll.Checked)
                     {
                         gvProposal_FocusedRowChanged(null, null);
@@ -8482,6 +8564,13 @@ namespace OTTOPro
                             I_index = iTemp - 1;
                     }
                     string _Suggested_OZ = SuggestOZForCopy(strSelectedOZ, strnextLV, rgDropMode.SelectedIndex);
+
+                    frmNewOZ Obj = new frmNewOZ();
+                    Obj.strNewOZ = _Suggested_OZ;
+                    Obj.ShowDialog();
+                    if (!Obj.IsSave)
+                        return;
+                    _Suggested_OZ = Obj.strNewOZ;
 
                     string str = string.Empty;
                     string strRaster = ObjEProject.LVRaster;
@@ -8911,6 +9000,10 @@ namespace OTTOPro
                         throw new Exception("Bitte wählen Sie mindestens einen Lieferanten aus");
                 }
 
+                string strLVSection = string.Empty;
+                if (gvProposedSupplier.GetFocusedRowCellValue("WGWA") != null)
+                    strLVSection = Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("LVSection"));
+
                 DataTable _dtPosition = ObjESupplier.dtNewPositions.Copy();
                 DataTable _dtDeletedPositions = ObjESupplier.dtDeletedPositions.Copy();
 
@@ -8932,9 +9025,9 @@ namespace OTTOPro
                     dr["SupplierID"] = row["id"];
                     _dtSupplier.Rows.Add(dr);
                 }
-                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionProposal.Text, _WGforSupplier, _WAforSupplier, _dtPosition, _dtSupplier, _dtDeletedPositions);
+                _ProposalID = ObjBSupplier.SaveSupplierProposal(ObjESupplier, ObjEProject.ProjectID, strLVSection, _WGforSupplier, _WAforSupplier, _dtPosition, _dtSupplier, _dtDeletedPositions);
 
-                ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, cmbLVSectionProposal.Text, _WGforSupplier, _WAforSupplier);
+                ObjESupplier = ObjBSupplier.GetWGWAForProposal(ObjESupplier, ObjEProject.ProjectID, strLVSection, _WGforSupplier, _WAforSupplier);
                 if (ObjESupplier.dsSupplier != null)
                 {
                     gcLVDetailsforSupplier.DataSource = ObjESupplier.dtNewPositions;
@@ -8974,7 +9067,7 @@ namespace OTTOPro
                 {
                     if (gvProposedSupplier.FocusedColumn != null && gvProposedSupplier.GetFocusedRowCellValue("ProposalID") != null)
                     {
-                        if (int.TryParse(gvProposedSupplier.GetFocusedRowCellValue("ProposalID").ToString(), out _PrID))
+                        if (int.TryParse(gvProposedSupplier.GetFocusedRowCellValue("ProposalID").ToString(), out _PrID) && _PrID > 0)
                         {
                             _ProposalID = _PrID;
                             e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Spezifikationsdokument für Lieferantenanfrage generieren", btnGeneratePDF_Click));
@@ -9653,6 +9746,12 @@ namespace OTTOPro
                 }
                 string _Suggested_OZ = SuggestOZForCopy(PositionOZ, strnextLV, IIndex);
 
+                frmNewOZ Obj = new frmNewOZ();
+                Obj.strNewOZ = _Suggested_OZ;
+                Obj.ShowDialog();
+                if (!Obj.IsSave)
+                    return;
+                _Suggested_OZ = Obj.strNewOZ;
                 string str = string.Empty;
                 string strRaster = ObjEProject.LVRaster;
                 string[] strPOZ = strPositionOZ.Split('.');
@@ -10378,22 +10477,25 @@ namespace OTTOPro
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
 
-                string strPath = ObjBProject.GetPath();
-                if (string.IsNullOrEmpty(strPath))
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                if (string.IsNullOrEmpty(ObjEProject.CoverSheetPath))
                     throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
 
-                if (!Directory.Exists(strPath))
+                if (!Directory.Exists(ObjEProject.CoverSheetPath))
                     throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
 
-                string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Rechnung.Docx";
+                string strFileName = ObjEProject.CoverSheetPath + "\\" + ObjEProject.ProjectNumber + "_Rechnung.Docx";
                 if (!File.Exists(strFileName))
                 {
-                    string appPath = Path.GetDirectoryName(Application.ExecutablePath);
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object oTemplatePath = appPath + "\\Rechnung_Template.dotx";
+                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Rechnung_Template.dotx";
+                    Object oTemplatePath = ObjEProject.TemplatePath + "\\Rechnung_Template.dotx";
+
+                    System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
+
                     Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
-                    wordDoc = wordApp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
+                    wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
 
                     foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
                     {
@@ -10414,6 +10516,26 @@ namespace OTTOPro
                             {
                                 myMergeField.Select();
                                 wordApp.Selection.TypeText(ObjEProject.KundeAddress);
+                            }
+                            if (fieldName == "ProjectNr")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.ProjectNumber);
+                            }
+                            if (fieldName == "KommissionNr")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.CommissionNumber);
+                            }
+                            if (fieldName == "Bauvorhaben")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.ProjectDescription);
+                            }
+                            if (fieldName == "Planner")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.PlannerName);
                             }
                         }
                     }
@@ -10450,22 +10572,25 @@ namespace OTTOPro
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
 
-                string strPath = ObjBProject.GetPath();
-                if (string.IsNullOrEmpty(strPath))
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                if (string.IsNullOrEmpty(ObjEProject.CoverSheetPath))
                     throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
 
-                if (!Directory.Exists(strPath))
+                if (!Directory.Exists(ObjEProject.CoverSheetPath))
                     throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
 
-                string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Aufmass.Docx";
+                string strFileName = ObjEProject.CoverSheetPath + "\\" + ObjEProject.ProjectNumber + "_Aufmass.Docx";
                 if (!File.Exists(strFileName))
                 {
-                    string appPath = Path.GetDirectoryName(Application.ExecutablePath);
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object oTemplatePath = appPath + "\\Aufmass_Template.dotx";
+                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Aufmass_Template.dotx";
+                    Object oTemplatePath = ObjEProject.TemplatePath + "\\Aufmass_Template.dotx";
+
+                    System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
+
                     Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
-                    wordDoc = wordApp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
+                    wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
 
                     foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
                     {
@@ -10486,6 +10611,26 @@ namespace OTTOPro
                             {
                                 myMergeField.Select();
                                 wordApp.Selection.TypeText(ObjEProject.KundeAddress);
+                            }
+                            if (fieldName == "ProjectNr")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.ProjectNumber);
+                            }
+                            if (fieldName == "KommissionNr")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.CommissionNumber);
+                            }
+                            if (fieldName == "Bauvorhaben")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.ProjectDescription);
+                            }
+                            if (fieldName == "Planner")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.PlannerName);
                             }
                         }
                     }
@@ -10522,21 +10667,24 @@ namespace OTTOPro
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
 
-                string strPath = ObjBProject.GetPath();
-                if (string.IsNullOrEmpty(strPath))
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                if (string.IsNullOrEmpty(ObjEProject.CoverSheetPath))
                     throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
-                if (!Directory.Exists(strPath))
+                if (!Directory.Exists(ObjEProject.CoverSheetPath))
                     throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
 
-                string strFileName = strPath + "\\" + ObjEProject.ProjectNumber + "_Angebot.Docx";
+                string strFileName = ObjEProject.CoverSheetPath + "\\" + ObjEProject.ProjectNumber + "_Angebot.Docx";
                 if (!File.Exists(strFileName))
                 {
-                    string appPath = Path.GetDirectoryName(Application.ExecutablePath);
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object oTemplatePath = appPath + "\\Angebot_Template.dotx";
+                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Angebot_Template.dotx";
+                    Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot_Template.dotx";
+
+                    System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
+
                     Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
-                    wordDoc = wordApp.Documents.Add(ref oTemplatePath, ref oMissing, ref oMissing, ref oMissing);
+                    wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
 
                     foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
                     {
@@ -10557,6 +10705,26 @@ namespace OTTOPro
                             {
                                 myMergeField.Select();
                                 wordApp.Selection.TypeText(ObjEProject.KundeAddress);
+                            }
+                            if (fieldName == "ProjectNr")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.ProjectNumber);
+                            }
+                            if (fieldName == "KommissionNr")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.CommissionNumber);
+                            }
+                            if (fieldName == "Bauvorhaben")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.ProjectDescription);
+                            }
+                            if (fieldName == "Planner")
+                            {
+                                myMergeField.Select();
+                                wordApp.Selection.TypeText(ObjEProject.PlannerName);
                             }
                         }
                     }
@@ -10909,7 +11077,6 @@ namespace OTTOPro
             }
         }
 
-
         private void gvMulti5_CustomRowCellEditForEditing(object sender, CustomRowCellEditEventArgs e)
         {
             try
@@ -10948,13 +11115,35 @@ namespace OTTOPro
             }
         }
 
-       
+        private void chkUpdateAll_CheckedChanged(object sender, EventArgs e)
+        {
+            _IsSave = true;
+        }
 
-       
-
-       
-                
-
-       
+        private void btnLangtext1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tlPositions.FocusedNode != null)
+                {
+                    frmViewdescription Obj = new frmViewdescription(_IsNewMode);
+                    if (LongDescription == string.Empty && !_IsNewMode)
+                        Obj.LongDescription = ObjBPosition.GetLongDescription(Convert.ToInt32(tlPositions.FocusedNode["PositionID"]));
+                    else
+                        Obj.LongDescription = LongDescription;
+                    Obj.ShowDialog();
+                    LongDescription = Obj.LongDescription;
+                    if (ObjEPosition.PositionID > 0 && Obj._IsSave)
+                    {
+                        ObjBPosition.UpdateLongDescription(ObjEPosition.PositionID, LongDescription);
+                        LongDescription = string.Empty;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

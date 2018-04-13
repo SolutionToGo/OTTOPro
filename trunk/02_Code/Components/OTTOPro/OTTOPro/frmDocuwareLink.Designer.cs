@@ -131,7 +131,6 @@
             this.txtLink1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLink1.Location = new System.Drawing.Point(125, 33);
             this.txtLink1.Name = "txtLink1";
-            this.txtLink1.Properties.ReadOnly = true;
             this.txtLink1.Size = new System.Drawing.Size(267, 20);
             this.txtLink1.TabIndex = 1;
             this.txtLink1.TextChanged += new System.EventHandler(this.textEdit1_TextChanged);
@@ -141,7 +140,6 @@
             this.txtLink2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLink2.Location = new System.Drawing.Point(125, 62);
             this.txtLink2.Name = "txtLink2";
-            this.txtLink2.Properties.ReadOnly = true;
             this.txtLink2.Size = new System.Drawing.Size(267, 20);
             this.txtLink2.TabIndex = 1;
             this.txtLink2.TextChanged += new System.EventHandler(this.textEdit2_TextChanged);
@@ -151,7 +149,6 @@
             this.txtLink3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtLink3.Location = new System.Drawing.Point(125, 91);
             this.txtLink3.Name = "txtLink3";
-            this.txtLink3.Properties.ReadOnly = true;
             this.txtLink3.Size = new System.Drawing.Size(267, 20);
             this.txtLink3.TabIndex = 1;
             this.txtLink3.TextChanged += new System.EventHandler(this.textEdit3_TextChanged);

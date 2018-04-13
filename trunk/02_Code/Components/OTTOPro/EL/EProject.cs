@@ -52,6 +52,8 @@ namespace EL
         private string _ShortDescription = string.Empty;
         private bool _IsRasterChange = false;
         private string _UserName = string.Empty;
+        private string _CoverSheetPath = string.Empty;
+        private string _TemplatePath = string.Empty;
 
         private DataTable _dtCockpitData;
         private DataTable _dtTemplateData;
@@ -329,6 +331,16 @@ namespace EL
         {
             get { return _UserName; }
             set { _UserName = value; }
+        }
+        public string CoverSheetPath
+        {
+            get { return _CoverSheetPath; }
+            set { _CoverSheetPath = value; }
+        }
+        public string TemplatePath
+        {
+            get { return _TemplatePath; }
+            set { _TemplatePath = value; }
         }
     }
 }

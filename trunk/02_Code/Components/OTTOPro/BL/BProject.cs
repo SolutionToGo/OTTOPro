@@ -268,13 +268,13 @@ namespace BL
             return ObjEProject;
         }
 
-        public void SavePath(string strPath)
+        public void SavePath(string strPath,string TemplatePath)
         {
             try
             {
                 if (ObjDAL == null)
                     ObjDAL = new DProject();
-                ObjDAL.SavePath(strPath);
+                ObjDAL.SavePath(strPath, TemplatePath);
             }
             catch (Exception ex)
             {
@@ -282,18 +282,17 @@ namespace BL
             }
         }
 
-        public string GetPath()
+        public EProject GetPath(EProject ObjEProject)
         {
-            string strPath = string.Empty;
             try
             {
-                strPath = ObjDAL.GetPath();
+                ObjEProject = ObjDAL.GetPath(ObjEProject);
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return strPath;
+            return ObjEProject;
         }
 
         public string GetDBVersion()

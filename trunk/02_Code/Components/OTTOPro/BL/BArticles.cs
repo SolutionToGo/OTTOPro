@@ -369,21 +369,6 @@ namespace BL
             return ObjEArticle;
         }
 
-        public EArticles GetTypForArticle(EArticles ObjEArticle)
-        {
-            try
-            {
-                if(ObjDArticles == null)
-                    ObjDArticles = new DArticles();
-                ObjEArticle = ObjDArticles.GetTypForArticle(ObjEArticle);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return ObjEArticle;
-        }
-
         public EArticles GetArticleBytyp(EArticles ObjEArticle)
         {
             try

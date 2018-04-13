@@ -25,6 +25,7 @@ namespace OTTOPro
     {
         public static frmOTTOPro ObjOTTOPro;
         BProject ObjBProject = null;
+        EProject ObjEProject = null;
 
         private frmOTTOPro()
         {
@@ -482,8 +483,13 @@ namespace OTTOPro
             {
                 SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
                 SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
-                string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-                Object oTemplatePath = appPath + "\\Angebot_Template.dotx";
+
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if(ObjBProject == null)
+                    ObjBProject = new BProject();
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot_Template.dotx";
                 if (File.Exists(Convert.ToString(oTemplatePath)))
                 {
                     if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
@@ -511,8 +517,13 @@ namespace OTTOPro
             {
                 SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
                 SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
-                string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-                Object oTemplatePath = appPath + "\\Aufmass_Template.dotx";
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\Aufmass_Template.dotx";
                 if (File.Exists(Convert.ToString(oTemplatePath)))
                 {
                     if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
@@ -541,8 +552,12 @@ namespace OTTOPro
             {
                 SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
                 SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
-                string appPath = Path.GetDirectoryName(Application.ExecutablePath);
-                Object oTemplatePath = appPath + "\\Rechnung_Template.dotx";
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\Rechnung_Template.dotx";
                 if (File.Exists(Convert.ToString(oTemplatePath)))
                 {
                     if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))

@@ -585,41 +585,6 @@ namespace DataAccess
            return ObjEArticle;
        }
 
-       public EArticles GetTypForArticle(EArticles ObjEArticle)
-       {
-           DataSet dsTyp = new DataSet();
-           try
-           {
-               using (SqlCommand cmd = new SqlCommand())
-               {
-                   cmd.Connection = SQLCon.Sqlconn();
-                   cmd.CommandType = CommandType.StoredProcedure;
-                   cmd.CommandText = "[P_Get_TypForMApping]";
-                   cmd.Parameters.AddWithValue("@WG", ObjEArticle.ChildWG);
-                   cmd.Parameters.AddWithValue("@WA", ObjEArticle.ChildWA);
-                   cmd.Parameters.AddWithValue("@WI", ObjEArticle.ChildWI);
-                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                   {
-                       da.Fill(dsTyp);
-                   }
-                   if (dsTyp != null && dsTyp.Tables.Count > 0)
-                       ObjEArticle.dtTyp = dsTyp.Tables[0];
-               }
-           }
-           catch (Exception ex)
-           {
-               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
-               else
-                   throw new Exception("Error While Retrieving Typ");
-           }
-           finally
-           {
-               SQLCon.Sqlconn().Close();
-           }
-           return ObjEArticle;
-       }
-
        public EArticles GetArticleBytyp(EArticles ObjEArticle)
        {
            DataSet dsAccessories = new DataSet();
@@ -630,13 +595,17 @@ namespace DataAccess
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Get_ArticleByType_Mapping]";
-                   cmd.Parameters.Add("@TypID", ObjEArticle.TypID);
+                   cmd.Parameters.Add("@Typ", ObjEArticle.Typ);
                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                    {
                        da.Fill(dsAccessories);
                    }
                    if (dsAccessories != null && dsAccessories.Tables.Count > 0)
+                   {
                        ObjEArticle.dtArticleDetails = dsAccessories.Tables[0];
+                       if (dsAccessories.Tables.Count > 1)
+                           ObjEArticle.dtDimenstions = dsAccessories.Tables[1];
+                   }
                }
            }
            catch (Exception ex)

@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BL;
+using EL;
 
 namespace OTTOPro
 {
     public partial class frmCoverSheetPath : DevExpress.XtraEditors.XtraForm
     {
         BProject ObjBProject = null;
+        EProject ObjEProject = null;
         public frmCoverSheetPath()
         {
             InitializeComponent();
@@ -26,7 +28,11 @@ namespace OTTOPro
             {
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
-                txtCoverSheetPath.Text = ObjBProject.GetPath();
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                txtCoverSheetPath.Text = ObjEProject.CoverSheetPath;
+                txtTemplatePath.Text = ObjEProject.TemplatePath;
             }
             catch (Exception ex)
             {
@@ -42,12 +48,7 @@ namespace OTTOPro
                 folderDlg.ShowNewFolderButton = true;
                 DialogResult result = folderDlg.ShowDialog();
                 if (result == DialogResult.OK)
-                {
-                    if (ObjBProject == null)
-                        ObjBProject = new BProject();
                     txtCoverSheetPath.Text = folderDlg.SelectedPath;
-                    ObjBProject.SavePath(folderDlg.SelectedPath);
-                }
             }
             catch (Exception ex)
             {
@@ -58,6 +59,33 @@ namespace OTTOPro
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnTemplateBrowse_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog folderDlg = new FolderBrowserDialog();
+            folderDlg.ShowNewFolderButton = true;
+            DialogResult result = folderDlg.ShowDialog();
+            if (result == DialogResult.OK)
+                txtTemplatePath.Text = folderDlg.SelectedPath;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtCoverSheetPath.Text.Trim()))
+                    throw new Exception("Please Select Valid Cover Sheet Path");
+                if (string.IsNullOrEmpty(txtTemplatePath.Text.Trim()))
+                    throw new Exception("Please Select Valid Template Sheet Path");
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                ObjBProject.SavePath(txtCoverSheetPath.Text, txtTemplatePath.Text);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
     }
 }

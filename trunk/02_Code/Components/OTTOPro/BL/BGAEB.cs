@@ -560,6 +560,14 @@ namespace BL
                         endIndex = strTemp.IndexOf("}", startIndex);
                         imageDataHex = strTemp.Substring(startIndex, endIndex - startIndex);
                     }
+                    if (imageDataHex.Contains("data"))
+                    {
+                        strTemp = strRtf.Replace(imageDataHex + "}", "");
+                        strRtf = strTemp;
+                        startIndex = strTemp.IndexOf(" ", pictTagIdx) + 1;
+                        endIndex = strTemp.IndexOf("}", startIndex);
+                        imageDataHex = strTemp.Substring(startIndex, endIndex - startIndex);
+                    }
                     byte[] imageBuffer = ToBinary(imageDataHex);
                     string strFileName = ObjEGAEB.DirPath + ObjEGAEB.ProjectNumber + "_" + PositionID.ToString() + "_" + IVlaue.ToString() + ".jpg";
                     File.WriteAllBytes(strFileName, imageBuffer);

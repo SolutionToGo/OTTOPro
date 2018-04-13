@@ -65,6 +65,7 @@ namespace EL
         private DataTable _dtPositions;
         private int _SupplierProposalID;
         private DataTable _dtUpdateSupplierPrice;
+        private string _LVSection;
 
         //To hold delete position
         private int _DeletePositionID = -1;
@@ -454,6 +455,11 @@ namespace EL
         {
             get { return _strSupplierExists; }
             set { _strSupplierExists = value; }
+        }
+        public string LVSection
+        {
+            get { return _LVSection; }
+            set { _LVSection = value; }
         }
     }
 }

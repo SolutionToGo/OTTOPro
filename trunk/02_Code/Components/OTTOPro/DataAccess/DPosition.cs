@@ -413,14 +413,14 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Typ") || ex.Message.Contains("Article"))
+                if (ex.Message.Contains("Typ") || ex.Message.Contains("Artikel"))
                     throw;
                 else
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                         throw new Exception("Fehler beim Laden der Positionsliste");
                     else
-                        throw new Exception("Error Occured While Retreiving Position OZ List");
+                        throw new Exception("Error While updating the Action B");
                 }
             }
             finally

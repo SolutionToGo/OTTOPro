@@ -361,6 +361,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewOZ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewOZ.Designer.cs">
+      <DependentUpon>frmNewOZ.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmOTTOMaster.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -760,6 +766,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNewOZ.resx">
+      <DependentUpon>frmNewOZ.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmOTTOMaster.resx">
       <DependentUpon>frmOTTOMaster.cs</DependentUpon>

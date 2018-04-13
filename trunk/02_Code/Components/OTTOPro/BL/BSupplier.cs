@@ -125,11 +125,11 @@ namespace BL
             {
                 if (ObjEsupplier != null)
                 {
-                    ObjEsupplier.dsSupplier = ObjDSupplier.GetWGWaforProposal(_Pid, _LvSection,wg,wa);
-                    if (ObjEsupplier.dsSupplier != null && ObjEsupplier.dsSupplier.Tables.Count >0)
+                    ObjEsupplier.dsSupplier = ObjDSupplier.GetWGWaforProposal(_Pid, _LvSection, wg, wa);
+                    if (ObjEsupplier.dsSupplier != null && ObjEsupplier.dsSupplier.Tables.Count > 0)
                     {
                         ObjEsupplier.dtNewPositions = ObjEsupplier.dsSupplier.Tables[0];
-                        if(ObjEsupplier.dsSupplier.Tables.Count >1)
+                        if (ObjEsupplier.dsSupplier.Tables.Count > 1)
                         {
                             ObjEsupplier.dtDeletedPositions = ObjEsupplier.dsSupplier.Tables[1];
                             if (ObjEsupplier.dsSupplier.Tables.Count > 2)
@@ -137,7 +137,7 @@ namespace BL
                                 ObjEsupplier.dtProposedPositions = ObjEsupplier.dsSupplier.Tables[2];
                             }
                         }
-                        
+
                     }
                 }
             }
@@ -204,7 +204,7 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public ESupplier GetProposalPostions(ESupplier ObjESupplier,bool _IsCalculate = true)
+        public ESupplier GetProposalPostions(ESupplier ObjESupplier, bool _IsCalculate = true)
         {
             try
             {
@@ -219,11 +219,11 @@ namespace BL
                         dc.DataType = System.Type.GetType("System.Boolean");
                         dc.Caption = "";
                     }
-                    else if(dtTemp.Columns[dc.ColumnName + "Check"] != null)
+                    else if (dtTemp.Columns[dc.ColumnName + "Check"] != null)
                     {
                         dc.DataType = System.Type.GetType("System.Decimal");
                     }
-                    else if(dc.ColumnName.Contains("Multi"))
+                    else if (dc.ColumnName.Contains("Multi"))
                     {
                         dc.DataType = System.Type.GetType("System.Decimal");
                     }
@@ -236,7 +236,7 @@ namespace BL
                 ChangeCultureInfo(ObjESupplier.dtPositions);
                 ObjESupplier.dtPositions = dtTemp.Copy();
                 if (_IsCalculate)
-                ObjESupplier = CalculateCheapestValues(ObjESupplier);
+                    ObjESupplier = CalculateCheapestValues(ObjESupplier);
             }
             catch (Exception ex)
             {
@@ -288,13 +288,13 @@ namespace BL
         {
             try
             {
-                if(ViewMode == 0)
+                if (ViewMode == 0)
                 {
                     ObjESupplier = GetProposalPostions(ObjESupplier);
                 }
                 else
                 {
-                    ObjESupplier = GetProposalPostions(ObjESupplier,false);
+                    ObjESupplier = GetProposalPostions(ObjESupplier, false);
                     List<string> TableColumnNAmes = new List<string>();
                     foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
                     {
@@ -332,7 +332,7 @@ namespace BL
                                     if (decimal.TryParse(strMulti4, out dMulti4))
                                         DValue = DValue * dMulti4;
                                 }
-                                if(ViewMode ==2 || ViewMode ==3)
+                                if (ViewMode == 2 || ViewMode == 3)
                                 {
                                     decimal dMenge = 0;
                                     string strMenge = drTemp["Menge"] == DBNull.Value ? "" : drTemp["Menge"].ToString();
@@ -340,7 +340,7 @@ namespace BL
                                         DValue = DValue * dMenge;
                                 }
                             }
-                            drTemp[s] = Math.Round(DValue,3);
+                            drTemp[s] = Math.Round(DValue, 3);
                         }
                     }
                     ObjESupplier = CalculateCheapestValues(ObjESupplier);
@@ -427,7 +427,7 @@ namespace BL
         {
             try
             {
-                if(ObjDSupplier == null)
+                if (ObjDSupplier == null)
                     ObjDSupplier = new DSupplier();
                 ObjESupplier = ObjDSupplier.UpdateSupplierProposal(ObjESupplier);
             }
@@ -444,7 +444,22 @@ namespace BL
             {
                 if (ObjDSupplier == null)
                     ObjDSupplier = new DSupplier();
-             ObjESupplier = ObjDSupplier.DeleteSupplierArticleMap(ObjESupplier);
+                ObjESupplier = ObjDSupplier.DeleteSupplierArticleMap(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier UpdateProposalDate(ESupplier ObjESupplier)
+        {
+            try
+            {
+                if (ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+                ObjESupplier = ObjDSupplier.UpdateProposalDate(ObjESupplier);
             }
             catch (Exception ex)
             {

@@ -405,6 +405,7 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_SupplierProposal]";
                     cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.AddWithValue("@LVSsection", ObjESupplier.LVSection);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsWGWA);
@@ -768,5 +769,30 @@ namespace DataAccess
             }
             return ObjESupplier;
         }
+
+        public ESupplier UpdateProposalDate(ESupplier ObjESupplier)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_SupplierproposalDate]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    cmd.ExecuteScalar();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+        
     }
 }

@@ -617,7 +617,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(1230, 19);
             this.label2.TabIndex = 12;
-            this.label2.Text = "power by www.softwaretogo.de \r\n";
+            this.label2.Text = "Powered by www.softwaretogo.de \r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
             // pictureBox1
@@ -641,7 +641,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.1.0 (07-03-2018)";
+            this.label1.Text = "Version Software 9.1.3 (22-03-2018)";
             // 
             // fdImportFile
             // 

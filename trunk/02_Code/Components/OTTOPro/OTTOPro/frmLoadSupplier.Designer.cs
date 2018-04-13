@@ -642,6 +642,8 @@
             this.gvSupplier.OptionsCustomization.AllowSort = false;
             this.gvSupplier.OptionsFilter.AllowFilterEditor = false;
             this.gvSupplier.OptionsFind.AlwaysVisible = true;
+            this.gvSupplier.OptionsFind.FindFilterColumns = "ShortName";
+            this.gvSupplier.OptionsFind.FindMode = DevExpress.XtraEditors.FindMode.Always;
             this.gvSupplier.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
             this.gvSupplier.OptionsFind.ShowFindButton = false;
             this.gvSupplier.OptionsMenu.EnableColumnMenu = false;

@@ -329,35 +329,6 @@ namespace OTTOPro
         }
 
         /// <summary>
-        /// binding the data for contact and address based on supplier
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void gvSupplier_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
-        {
-            int _IDValue = -1;
-            try
-            {
-                if (gvSupplier.FocusedColumn != null && gvSupplier.GetFocusedRowCellValue("SupplierID") != null)
-                {
-                    if (int.TryParse(Convert.ToString(gvSupplier.GetFocusedRowCellValue("SupplierID")), out _IDValue))
-                    {
-                        _SupplierID = _IDValue;
-                        memoEditCommentary.Text = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
-                        memoEditPaymentConditions.Text = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
-                        BindContactData(_IDValue);
-                        BindAddressData(_IDValue);
-                        BindArticleData(_IDValue);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        /// <summary>
         /// form load for binding all the data
         /// </summary>
         /// <param name="sender"></param>
@@ -480,8 +451,16 @@ namespace OTTOPro
                 {
                     DataView dvArticle = ObjESupplier.dtArticle.DefaultView;
                     dvArticle.RowFilter = "SupplierID = '" + SuplierID + "'";
-                    gcArticles.DataSource = dvArticle;
-                    gvArticles.BestFitColumns();
+                    DataTable dtTemp = dvArticle.ToTable();
+                    if (dtTemp.Rows.Count > 0)
+                    {
+                        gcArticles.DataSource = dvArticle;
+                        gvArticles.BestFitColumns();
+                    }
+                    else
+                    {
+                        gcArticles.DataSource = null;
+                    }
                 }
             }
             catch (Exception ex)
@@ -699,5 +678,30 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void gvSupplier_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            int _IDValue = -1;
+            try
+            {
+                if (gvSupplier.FocusedColumn != null && gvSupplier.GetFocusedRowCellValue("SupplierID") != null)
+                {
+                    if (int.TryParse(Convert.ToString(gvSupplier.GetFocusedRowCellValue("SupplierID")), out _IDValue))
+                    {
+                        _SupplierID = _IDValue;
+                        memoEditCommentary.Text = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
+                        memoEditPaymentConditions.Text = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
+                        BindContactData(_IDValue);
+                        BindAddressData(_IDValue);
+                        BindArticleData(_IDValue);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
     }
 }
