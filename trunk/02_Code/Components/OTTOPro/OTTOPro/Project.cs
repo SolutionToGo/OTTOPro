@@ -1215,10 +1215,10 @@ namespace OTTOPro
                     _DocuwareLink1 = tlPositions.FocusedNode["DocuwareLink1"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink1"].ToString();
                     _DocuwareLink2 = tlPositions.FocusedNode["DocuwareLink2"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink2"].ToString();
                     _DocuwareLink3 = tlPositions.FocusedNode["DocuwareLink3"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink3"].ToString();
-                    txtGrandTotalME.Text = tlPositions.FocusedNode["GrandTotalME"] == DBNull.Value ? "0" : tlPositions.FocusedNode["GrandTotalME"].ToString();
-                    txtGrandTotalMO.Text = tlPositions.FocusedNode["GrandTotalMO"] == DBNull.Value ? "0" : tlPositions.FocusedNode["GrandTotalMO"].ToString();
-                    txtFinalGB.Text = tlPositions.FocusedNode["GB"] == DBNull.Value ? "0" : tlPositions.FocusedNode["GB"].ToString();
-                    txtEP.Text = tlPositions.FocusedNode["EP"] == DBNull.Value ? "0" : tlPositions.FocusedNode["EP"].ToString();
+                    txtGrandTotalME.Text = tlPositions.FocusedNode["GrandTotalME"] == DBNull.Value ? "0" : RoundValue(Convert.ToDecimal(tlPositions.FocusedNode["GrandTotalME"])).ToString();
+                    txtGrandTotalMO.Text = tlPositions.FocusedNode["GrandTotalMO"] == DBNull.Value ? "0" : RoundValue(Convert.ToDecimal(tlPositions.FocusedNode["GrandTotalMO"])).ToString();
+                    txtFinalGB.Text = tlPositions.FocusedNode["GB"] == DBNull.Value ? "0" : RoundValue(Convert.ToDecimal(tlPositions.FocusedNode["GB"])).ToString();
+                    txtEP.Text = tlPositions.FocusedNode["EP"] == DBNull.Value ? "0" : RoundValue(Convert.ToDecimal(tlPositions.FocusedNode["EP"])).ToString();
                     txtDiscount.Text = tlPositions.FocusedNode["Discount"] == DBNull.Value ? "0" : tlPositions.FocusedNode["Discount"].ToString();
 
 
@@ -4406,6 +4406,11 @@ namespace OTTOPro
                     string tTo = null;
                     foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
                     {
+                        if (dr.Cells[0].Value == null)
+                        {
+                            throw new Exception("Bitte machen Sie VON Angaben.");
+                        }
+
                         DataRow drPos = dtPos.NewRow();
                         tfrom = dr.Cells[0].Value.ToString();
                         tTo = dr.Cells[1].Value.ToString();
@@ -5432,49 +5437,49 @@ namespace OTTOPro
                         isFound_Verkf = true;
                     }
                 }
-                tlPositions.Columns["MA_Multi1"].VisibleIndex = 8;
-                tlPositions.Columns["MA_multi2"].VisibleIndex = 9;
-                tlPositions.Columns["MA_multi3"].VisibleIndex = 10;
-                tlPositions.Columns["MA_multi4"].VisibleIndex = 11;
+                tlPositions.Columns["MA_Multi1"].VisibleIndex = 11;
+                tlPositions.Columns["MA_multi2"].VisibleIndex = 12;
+                tlPositions.Columns["MA_multi3"].VisibleIndex = 13;
+                tlPositions.Columns["MA_multi4"].VisibleIndex = 14;
                 tlPositions.Columns["MA_Multi1"].Visible = isFound_MA;
                 tlPositions.Columns["MA_multi2"].Visible = isFound_MA;
                 tlPositions.Columns["MA_multi3"].Visible = isFound_MA;
                 tlPositions.Columns["MA_multi4"].Visible = isFound_MA;
 
-                tlPositions.Columns["MO_multi1"].VisibleIndex = 12;
-                tlPositions.Columns["MO_multi2"].VisibleIndex = 13;
-                tlPositions.Columns["MO_multi3"].VisibleIndex = 14;
-                tlPositions.Columns["MO_multi4"].VisibleIndex = 15;
+                tlPositions.Columns["MO_multi1"].VisibleIndex = 15;
+                tlPositions.Columns["MO_multi2"].VisibleIndex = 16;
+                tlPositions.Columns["MO_multi3"].VisibleIndex = 17;
+                tlPositions.Columns["MO_multi4"].VisibleIndex = 18;
                 tlPositions.Columns["MO_multi1"].Visible = isFound_MO;
                 tlPositions.Columns["MO_multi2"].Visible = isFound_MO;
                 tlPositions.Columns["MO_multi3"].Visible = isFound_MO;
                 tlPositions.Columns["MO_multi4"].Visible = isFound_MO;
 
-                tlPositions.Columns["MA_einkaufspreis"].VisibleIndex = 16;
-                tlPositions.Columns["MO_Einkaufspreis"].VisibleIndex = 17;
+                tlPositions.Columns["MA_einkaufspreis"].VisibleIndex = 19;
+                tlPositions.Columns["MO_Einkaufspreis"].VisibleIndex = 20;
                 tlPositions.Columns["MA_einkaufspreis"].Visible = isFound_Einfr;
                 tlPositions.Columns["MO_Einkaufspreis"].Visible = isFound_Einfr;
 
-                tlPositions.Columns["MA_selbstkostenMulti"].VisibleIndex = 18;
-                tlPositions.Columns["MA_selbstkosten"].VisibleIndex = 19;
-                tlPositions.Columns["MO_selbstkostenMulti"].VisibleIndex = 20;
-                tlPositions.Columns["MO_selbstkosten"].VisibleIndex = 21;
+                tlPositions.Columns["MA_selbstkostenMulti"].VisibleIndex = 21;
+                tlPositions.Columns["MA_selbstkosten"].VisibleIndex = 22;
+                tlPositions.Columns["MO_selbstkostenMulti"].VisibleIndex = 23;
+                tlPositions.Columns["MO_selbstkosten"].VisibleIndex = 24;
                 tlPositions.Columns["MA_selbstkostenMulti"].Visible = isFound_Seleb;
                 tlPositions.Columns["MO_selbstkostenMulti"].Visible = isFound_Seleb;
                 tlPositions.Columns["MA_selbstkosten"].Visible = isFound_Seleb;
                 tlPositions.Columns["MO_selbstkosten"].Visible = isFound_Seleb;
 
-                tlPositions.Columns["MA_verkaufspreis_Multi"].VisibleIndex = 22;
-                tlPositions.Columns["MA_verkaufspreis"].VisibleIndex = 23;
-                tlPositions.Columns["MO_verkaufspreisMulti"].VisibleIndex = 24;
-                tlPositions.Columns["MO_verkaufspreis"].VisibleIndex = 25;
+                tlPositions.Columns["MA_verkaufspreis_Multi"].VisibleIndex = 25;
+                tlPositions.Columns["MA_verkaufspreis"].VisibleIndex = 26;
+                tlPositions.Columns["MO_verkaufspreisMulti"].VisibleIndex = 27;
+                tlPositions.Columns["MO_verkaufspreis"].VisibleIndex = 28;
                 tlPositions.Columns["MA_verkaufspreis_Multi"].Visible = isFound_Verkf;
                 tlPositions.Columns["MO_verkaufspreisMulti"].Visible = isFound_Verkf;
                 tlPositions.Columns["MA_verkaufspreis"].Visible = isFound_Verkf;
                 tlPositions.Columns["MO_verkaufspreis"].Visible = isFound_Verkf;
 
-                tlPositions.Columns["EP"].VisibleIndex = 26;
-                tlPositions.Columns["GB"].VisibleIndex = 27;
+                tlPositions.Columns["EP"].VisibleIndex = 29;
+                tlPositions.Columns["GB"].VisibleIndex = 30;
                 tlPositions.BestFitColumns();
             }
             catch (Exception ex)

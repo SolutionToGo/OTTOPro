@@ -370,14 +370,14 @@
             this.treeListColumn1 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn5 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.rpiKtext = new DevExpress.XtraEditors.Repository.RepositoryItemRichTextEdit();
-            this.treeListColumn141 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
+            this.rpMenge = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.ME = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn64 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.rpArticles = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.treeListColumn63 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn62 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.ME = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.treeListColumn3 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
-            this.rpMenge = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
+            this.treeListColumn141 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn46 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn50 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
             this.treeListColumn30 = new DevExpress.XtraTreeList.Columns.TreeListColumn();
@@ -1475,8 +1475,8 @@
             this.layoutControl4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tlPositions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiKtext)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpArticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpMenge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpArticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiMulti1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSelectGridviewOptions.Properties)).BeginInit();
@@ -3922,7 +3922,7 @@
             this.txtLPMe.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtLPMe.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtLPMe.Size = new System.Drawing.Size(126, 24);
-            this.txtLPMe.TabIndex = 17;
+            this.txtLPMe.TabIndex = 18;
             this.txtLPMe.Tag = "Einzelpreise MA";
             this.txtLPMe.TextChanged += new System.EventHandler(this.txtLPMe_TextChanged);
             this.txtLPMe.Enter += new System.EventHandler(this.txtValue1MO_Properties_Enter);
@@ -4011,7 +4011,7 @@
             this.txtStdSatz.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtStdSatz.Properties.ReadOnly = true;
             this.txtStdSatz.Size = new System.Drawing.Size(64, 24);
-            this.txtStdSatz.TabIndex = 16;
+            this.txtStdSatz.TabIndex = 17;
             this.txtStdSatz.Tag = "Std.Satz";
             this.txtStdSatz.TextChanged += new System.EventHandler(this.txtStdSatz_TextChanged);
             // 
@@ -4164,7 +4164,7 @@
             this.txtMulti1MO.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMulti1MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti1MO.Size = new System.Drawing.Size(70, 24);
-            this.txtMulti1MO.TabIndex = 27;
+            this.txtMulti1MO.TabIndex = 28;
             this.txtMulti1MO.Tag = "Multi 1 MO";
             this.txtMulti1MO.TextChanged += new System.EventHandler(this.txtLPMO_TextChanged);
             this.txtMulti1MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4184,7 +4184,7 @@
             this.txtMulti2MO.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMulti2MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti2MO.Size = new System.Drawing.Size(74, 24);
-            this.txtMulti2MO.TabIndex = 28;
+            this.txtMulti2MO.TabIndex = 29;
             this.txtMulti2MO.Tag = "Multi 2 MO";
             this.txtMulti2MO.TextChanged += new System.EventHandler(this.txtValue1MO_TextChanged);
             this.txtMulti2MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4211,6 +4211,7 @@
             this.chkVerkaufspreisME.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.chkVerkaufspreisME.Size = new System.Drawing.Size(29, 19);
             this.chkVerkaufspreisME.TabIndex = 15;
+            this.chkVerkaufspreisME.TabStop = false;
             this.chkVerkaufspreisME.CheckedChanged += new System.EventHandler(this.chkVerkaufspreisME_CheckedChanged);
             // 
             // txtVerkaufspreisValueMO
@@ -4244,7 +4245,7 @@
             this.txtMulti3MO.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMulti3MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti3MO.Size = new System.Drawing.Size(71, 24);
-            this.txtMulti3MO.TabIndex = 29;
+            this.txtMulti3MO.TabIndex = 30;
             this.txtMulti3MO.Tag = "Multi 3 MO";
             this.txtMulti3MO.TextChanged += new System.EventHandler(this.txtValue2MO_TextChanged);
             this.txtMulti3MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4264,7 +4265,7 @@
             this.txtVerkaufspreisMultiMO.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtVerkaufspreisMultiMO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtVerkaufspreisMultiMO.Size = new System.Drawing.Size(115, 24);
-            this.txtVerkaufspreisMultiMO.TabIndex = 22;
+            this.txtVerkaufspreisMultiMO.TabIndex = 23;
             this.txtVerkaufspreisMultiMO.TextChanged += new System.EventHandler(this.txtSelbstkostenValueMO_TextChanged);
             this.txtVerkaufspreisMultiMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtVerkaufspreisMultiMO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4283,7 +4284,7 @@
             this.txtMulti4MO.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMulti4MO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti4MO.Size = new System.Drawing.Size(81, 24);
-            this.txtMulti4MO.TabIndex = 30;
+            this.txtMulti4MO.TabIndex = 31;
             this.txtMulti4MO.TextChanged += new System.EventHandler(this.txtValue3MO_TextChanged);
             this.txtMulti4MO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtMulti4MO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4321,7 +4322,7 @@
             this.txtMulti1ME.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMulti1ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti1ME.Size = new System.Drawing.Size(70, 24);
-            this.txtMulti1ME.TabIndex = 23;
+            this.txtMulti1ME.TabIndex = 24;
             this.txtMulti1ME.Tag = "Multi 1 MA";
             this.txtMulti1ME.TextChanged += new System.EventHandler(this.txtLPMe_TextChanged);
             this.txtMulti1ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4375,7 +4376,7 @@
             this.txtVerkaufspreisMultiME.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtVerkaufspreisMultiME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtVerkaufspreisMultiME.Size = new System.Drawing.Size(117, 24);
-            this.txtVerkaufspreisMultiME.TabIndex = 20;
+            this.txtVerkaufspreisMultiME.TabIndex = 21;
             this.txtVerkaufspreisMultiME.TextChanged += new System.EventHandler(this.txtSelbstkostenValueME_TextChanged);
             this.txtVerkaufspreisMultiME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtVerkaufspreisMultiME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4437,6 +4438,7 @@
             this.chkSelbstkostenME.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.chkSelbstkostenME.Size = new System.Drawing.Size(13, 19);
             this.chkSelbstkostenME.TabIndex = 14;
+            this.chkSelbstkostenME.TabStop = false;
             this.chkSelbstkostenME.CheckedChanged += new System.EventHandler(this.chkSelbstkostenME_CheckedChanged);
             // 
             // txtSelbstkostenValueMO
@@ -4489,7 +4491,7 @@
             this.txtSelbstkostenMultiMO.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSelbstkostenMultiMO.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSelbstkostenMultiMO.Size = new System.Drawing.Size(104, 24);
-            this.txtSelbstkostenMultiMO.TabIndex = 21;
+            this.txtSelbstkostenMultiMO.TabIndex = 22;
             this.txtSelbstkostenMultiMO.TextChanged += new System.EventHandler(this.txtEinkaufspreisMO_TextChanged);
             this.txtSelbstkostenMultiMO.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtSelbstkostenMultiMO.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4508,7 +4510,7 @@
             this.txtMulti2ME.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMulti2ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti2ME.Size = new System.Drawing.Size(74, 24);
-            this.txtMulti2ME.TabIndex = 24;
+            this.txtMulti2ME.TabIndex = 25;
             this.txtMulti2ME.Tag = "Multi 2 MA";
             this.txtMulti2ME.TextChanged += new System.EventHandler(this.txtValue1ME_TextChanged);
             this.txtMulti2ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4579,7 +4581,7 @@
             this.txtSelbstkostenMultiME.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtSelbstkostenMultiME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtSelbstkostenMultiME.Size = new System.Drawing.Size(104, 24);
-            this.txtSelbstkostenMultiME.TabIndex = 19;
+            this.txtSelbstkostenMultiME.TabIndex = 20;
             this.txtSelbstkostenMultiME.TextChanged += new System.EventHandler(this.txtEinkaufspreisME_TextChanged);
             this.txtSelbstkostenMultiME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtSelbstkostenMultiME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4614,7 +4616,7 @@
             this.txtMulti3ME.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMulti3ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti3ME.Size = new System.Drawing.Size(71, 24);
-            this.txtMulti3ME.TabIndex = 25;
+            this.txtMulti3ME.TabIndex = 26;
             this.txtMulti3ME.Tag = "Multi 3 MA";
             this.txtMulti3ME.TextChanged += new System.EventHandler(this.txtValue2ME_TextChanged);
             this.txtMulti3ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4688,7 +4690,7 @@
             this.txtMulti4ME.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMulti4ME.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMulti4ME.Size = new System.Drawing.Size(81, 24);
-            this.txtMulti4ME.TabIndex = 26;
+            this.txtMulti4ME.TabIndex = 27;
             this.txtMulti4ME.TextChanged += new System.EventHandler(this.txtValue3ME_TextChanged);
             this.txtMulti4ME.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
             this.txtMulti4ME.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMulti1ME_KeyPress);
@@ -4707,7 +4709,7 @@
             this.txtEinkaufspreisME.Properties.Enter += new System.EventHandler(this.txtValue1MO_Properties_Enter);
             this.txtEinkaufspreisME.Properties.Leave += new System.EventHandler(this.txtValue1MO_Properties_Leave);
             this.txtEinkaufspreisME.Size = new System.Drawing.Size(115, 24);
-            this.txtEinkaufspreisME.TabIndex = 18;
+            this.txtEinkaufspreisME.TabIndex = 19;
             this.txtEinkaufspreisME.TextChanged += new System.EventHandler(this.txtEinkaufspreisME_TextChanged);
             // 
             // txtFaktor
@@ -4721,7 +4723,7 @@
             this.txtFaktor.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtFaktor.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtFaktor.Size = new System.Drawing.Size(65, 24);
-            this.txtFaktor.TabIndex = 15;
+            this.txtFaktor.TabIndex = 16;
             this.txtFaktor.Tag = "Faktor";
             this.txtFaktor.TextChanged += new System.EventHandler(this.txtStdSatz_TextChanged);
             this.txtFaktor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -4756,8 +4758,7 @@
             this.txtMin.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
             this.txtMin.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtMin.Size = new System.Drawing.Size(62, 24);
-            this.txtMin.TabIndex = 13;
-            this.txtMin.TabStop = false;
+            this.txtMin.TabIndex = 15;
             this.txtMin.Tag = "Minutes";
             this.txtMin.TextChanged += new System.EventHandler(this.txtMin_TextChanged);
             this.txtMin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtLPMe_KeyDown);
@@ -6858,12 +6859,12 @@
             this.treeListDetailKZ,
             this.treeListPosKZ,
             this.treeListColumn5,
-            this.treeListColumn141,
+            this.treeListColumn3,
+            this.ME,
             this.treeListColumn64,
             this.treeListColumn63,
             this.treeListColumn62,
-            this.ME,
-            this.treeListColumn3,
+            this.treeListColumn141,
             this.treeListColumn46,
             this.treeListColumn50,
             this.treeListColumn30,
@@ -7023,18 +7024,46 @@
             this.rpiKtext.OptionsBehavior.ShowPopupMenu = DevExpress.XtraRichEdit.DocumentCapability.Enabled;
             this.rpiKtext.ShowCaretInReadOnly = false;
             // 
-            // treeListColumn141
+            // treeListColumn3
             // 
-            this.treeListColumn141.Caption = "LV Sektion";
-            this.treeListColumn141.FieldName = "LVSection";
-            this.treeListColumn141.Name = "treeListColumn141";
-            this.treeListColumn141.OptionsColumn.AllowSize = false;
-            this.treeListColumn141.OptionsColumn.AllowSort = false;
-            this.treeListColumn141.OptionsColumn.FixedWidth = true;
-            this.treeListColumn141.OptionsColumn.ReadOnly = true;
-            this.treeListColumn141.Visible = true;
-            this.treeListColumn141.VisibleIndex = 5;
-            this.treeListColumn141.Width = 70;
+            this.treeListColumn3.AllNodesSummary = true;
+            this.treeListColumn3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.treeListColumn3.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.treeListColumn3.AppearanceHeader.Options.UseFont = true;
+            this.treeListColumn3.Caption = "Menge";
+            this.treeListColumn3.ColumnEdit = this.rpMenge;
+            this.treeListColumn3.FieldName = "Menge";
+            this.treeListColumn3.Name = "treeListColumn3";
+            this.treeListColumn3.OptionsColumn.AllowSort = false;
+            this.treeListColumn3.OptionsColumn.FixedWidth = true;
+            this.treeListColumn3.RowFooterSummary = DevExpress.XtraTreeList.SummaryItemType.Sum;
+            this.treeListColumn3.RowFooterSummaryStrFormat = "subtotal: {0:c0}";
+            this.treeListColumn3.SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Sum;
+            this.treeListColumn3.SummaryFooterStrFormat = "Total: {0:c0}";
+            this.treeListColumn3.Visible = true;
+            this.treeListColumn3.VisibleIndex = 5;
+            this.treeListColumn3.Width = 70;
+            // 
+            // rpMenge
+            // 
+            this.rpMenge.AllowMouseWheel = false;
+            this.rpMenge.AutoHeight = false;
+            this.rpMenge.Mask.EditMask = "n3";
+            this.rpMenge.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.rpMenge.Mask.ShowPlaceHolders = false;
+            this.rpMenge.Mask.UseMaskAsDisplayFormat = true;
+            this.rpMenge.Name = "rpMenge";
+            // 
+            // ME
+            // 
+            this.ME.Caption = "ME";
+            this.ME.FieldName = "ME";
+            this.ME.Name = "ME";
+            this.ME.OptionsColumn.AllowSort = false;
+            this.ME.OptionsColumn.ReadOnly = true;
+            this.ME.Visible = true;
+            this.ME.VisibleIndex = 6;
+            this.ME.Width = 62;
             // 
             // treeListColumn64
             // 
@@ -7045,7 +7074,7 @@
             this.treeListColumn64.OptionsColumn.AllowSort = false;
             this.treeListColumn64.OptionsColumn.FixedWidth = true;
             this.treeListColumn64.Visible = true;
-            this.treeListColumn64.VisibleIndex = 6;
+            this.treeListColumn64.VisibleIndex = 7;
             this.treeListColumn64.Width = 50;
             // 
             // rpArticles
@@ -7065,7 +7094,7 @@
             this.treeListColumn63.OptionsColumn.AllowSort = false;
             this.treeListColumn63.OptionsColumn.FixedWidth = true;
             this.treeListColumn63.Visible = true;
-            this.treeListColumn63.VisibleIndex = 7;
+            this.treeListColumn63.VisibleIndex = 8;
             this.treeListColumn63.Width = 50;
             // 
             // treeListColumn62
@@ -7077,47 +7106,21 @@
             this.treeListColumn62.OptionsColumn.AllowSort = false;
             this.treeListColumn62.OptionsColumn.FixedWidth = true;
             this.treeListColumn62.Visible = true;
-            this.treeListColumn62.VisibleIndex = 8;
+            this.treeListColumn62.VisibleIndex = 9;
             this.treeListColumn62.Width = 50;
             // 
-            // ME
+            // treeListColumn141
             // 
-            this.ME.Caption = "ME";
-            this.ME.FieldName = "ME";
-            this.ME.Name = "ME";
-            this.ME.OptionsColumn.AllowSort = false;
-            this.ME.OptionsColumn.ReadOnly = true;
-            this.ME.Width = 62;
-            // 
-            // treeListColumn3
-            // 
-            this.treeListColumn3.AllNodesSummary = true;
-            this.treeListColumn3.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.treeListColumn3.AppearanceHeader.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.treeListColumn3.AppearanceHeader.Options.UseFont = true;
-            this.treeListColumn3.Caption = "Menge";
-            this.treeListColumn3.ColumnEdit = this.rpMenge;
-            this.treeListColumn3.FieldName = "Menge";
-            this.treeListColumn3.Name = "treeListColumn3";
-            this.treeListColumn3.OptionsColumn.AllowSort = false;
-            this.treeListColumn3.OptionsColumn.FixedWidth = true;
-            this.treeListColumn3.RowFooterSummary = DevExpress.XtraTreeList.SummaryItemType.Sum;
-            this.treeListColumn3.RowFooterSummaryStrFormat = "subtotal: {0:c0}";
-            this.treeListColumn3.SummaryFooter = DevExpress.XtraTreeList.SummaryItemType.Sum;
-            this.treeListColumn3.SummaryFooterStrFormat = "Total: {0:c0}";
-            this.treeListColumn3.Visible = true;
-            this.treeListColumn3.VisibleIndex = 9;
-            this.treeListColumn3.Width = 70;
-            // 
-            // rpMenge
-            // 
-            this.rpMenge.AllowMouseWheel = false;
-            this.rpMenge.AutoHeight = false;
-            this.rpMenge.Mask.EditMask = "n3";
-            this.rpMenge.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-            this.rpMenge.Mask.ShowPlaceHolders = false;
-            this.rpMenge.Mask.UseMaskAsDisplayFormat = true;
-            this.rpMenge.Name = "rpMenge";
+            this.treeListColumn141.Caption = "LV Sektion";
+            this.treeListColumn141.FieldName = "LVSection";
+            this.treeListColumn141.Name = "treeListColumn141";
+            this.treeListColumn141.OptionsColumn.AllowSize = false;
+            this.treeListColumn141.OptionsColumn.AllowSort = false;
+            this.treeListColumn141.OptionsColumn.FixedWidth = true;
+            this.treeListColumn141.OptionsColumn.ReadOnly = true;
+            this.treeListColumn141.Visible = true;
+            this.treeListColumn141.VisibleIndex = 10;
+            this.treeListColumn141.Width = 70;
             // 
             // treeListColumn46
             // 
@@ -7335,7 +7338,7 @@
             this.treeListColumn2.OptionsColumn.AllowSort = false;
             this.treeListColumn2.OptionsColumn.ReadOnly = true;
             this.treeListColumn2.Visible = true;
-            this.treeListColumn2.VisibleIndex = 10;
+            this.treeListColumn2.VisibleIndex = 11;
             this.treeListColumn2.Width = 105;
             // 
             // treeListColumn4
@@ -7346,7 +7349,7 @@
             this.treeListColumn4.OptionsColumn.AllowSort = false;
             this.treeListColumn4.OptionsColumn.ReadOnly = true;
             this.treeListColumn4.Visible = true;
-            this.treeListColumn4.VisibleIndex = 11;
+            this.treeListColumn4.VisibleIndex = 12;
             this.treeListColumn4.Width = 105;
             // 
             // clmEdit
@@ -17371,8 +17374,8 @@
             this.layoutControl4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.tlPositions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiKtext)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.rpArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpMenge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rpArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpiMulti1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbSelectGridviewOptions.Properties)).EndInit();
