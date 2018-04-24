@@ -209,5 +209,31 @@ namespace DataAccess
             }
             return ObjEFormBlatt;
         }
+
+        public EFormBlatt GetFormBlattMapping(EFormBlatt ObjEFormBlatt)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_FormBlattMapping]";
+                    cmd.Parameters.Add("@ProjectID", ObjEFormBlatt.ProjectID);
+                    Object ObjReturn = cmd.ExecuteScalar();
+                    if (!string.IsNullOrEmpty(Convert.ToString(ObjReturn)))
+                        throw new Exception("Please Assign Articles to 'Nachunternehmerleistungen/Stoffkosten'");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEFormBlatt;
+        }
     }
 }

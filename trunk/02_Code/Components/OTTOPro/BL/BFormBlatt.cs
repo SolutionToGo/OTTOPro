@@ -77,5 +77,18 @@ namespace BL
             }
             return ObjEFormBlatt;
         }
+
+        public EFormBlatt GetFormBlattMapping(EFormBlatt ObjEFormBlatt)
+        {
+            try
+            {
+                ObjEFormBlatt = ObjDFormBlatt.GetFormBlattMapping(ObjEFormBlatt);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEFormBlatt;
+        }
     }
 }

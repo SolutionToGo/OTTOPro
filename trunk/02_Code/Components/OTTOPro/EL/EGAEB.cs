@@ -30,8 +30,9 @@ namespace EL
         private int _SupplierProposalID = -1;
         private string _SupplierName = string.Empty;
         private string _Supplier = string.Empty;
+        private bool _IsMail = false;
 
-
+        
         public int ProjectID
         {
             get { return _ProjectID; }
@@ -137,6 +138,11 @@ namespace EL
         {
             get { return _Supplier; }
             set { _Supplier = value; }
+        }
+        public bool IsMail
+        {
+            get { return _IsMail; }
+            set { _IsMail = value; }
         }
     }
 }

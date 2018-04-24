@@ -14,6 +14,7 @@ using BL;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Base;
 
 namespace OTTOPro
 {
@@ -52,26 +53,26 @@ namespace OTTOPro
         private void btnAddArticles_Click(object sender, EventArgs e)
         {
             try
-            {                
-                    ObjESupplier = new ESupplier();
-                    ObjESupplier.WGWAID = -1;
-                    ObjESupplier.SupplierID = _SupplierID;
-                    frmSaveArticle frm = new frmSaveArticle();
-                    frm.ObjEsupplier = ObjESupplier;
-                    frm.ShowDialog();
-                    if (frm.DialogResult == DialogResult.OK)
+            {
+                ObjESupplier = new ESupplier();
+                ObjESupplier.WGWAID = -1;
+                ObjESupplier.SupplierID = _SupplierID;
+                frmSaveArticle frm = new frmSaveArticle();
+                frm.ObjEsupplier = ObjESupplier;
+                frm.ShowDialog();
+                if (frm.DialogResult == DialogResult.OK)
+                {
+                    BindArticleData(_SupplierID);
+                    Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
+                    if (Utility._IsGermany == true)
                     {
-                        BindArticleData(_SupplierID);
-                        Setfocus(gvArticles, "WGWAID", ObjESupplier.WGWAID);
-                        if (Utility._IsGermany == true)
-                        {
-                            frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern des Artikels");
-                        }
-                        else
-                        {
-                            frmOTTOPro.UpdateStatus("Article saved successfully");
-                        }
+                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern des Artikels");
                     }
+                    else
+                    {
+                        frmOTTOPro.UpdateStatus("Article saved successfully");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -670,7 +671,7 @@ namespace OTTOPro
                 {
                     ObjESupplier.WGWAID = IVlaue;
                     ObjESupplier = ObjBSupplier.DeleteSupplierArticleMap(ObjESupplier);
-                    gvSupplier_FocusedRowChanged(null, null);
+                    gvSupplier_RowClick(null, null);
                 }
             }
             catch (Exception ex)
@@ -679,7 +680,34 @@ namespace OTTOPro
             }
         }
 
-        private void gvSupplier_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void gvSupplier_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Add Artikel", gvAddArticle_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvAddArticle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                btnAddArticles_Click(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvSupplier_RowClick(object sender, RowClickEventArgs e)
         {
             int _IDValue = -1;
             try
@@ -691,6 +719,7 @@ namespace OTTOPro
                         _SupplierID = _IDValue;
                         memoEditCommentary.Text = gvSupplier.GetFocusedRowCellValue("Commentary") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("Commentary").ToString();
                         memoEditPaymentConditions.Text = gvSupplier.GetFocusedRowCellValue("PaymentCondition") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("PaymentCondition").ToString();
+                        label4.Text =  "Artikel - " + (gvSupplier.GetFocusedRowCellValue("FullName") == DBNull.Value ? "" : gvSupplier.GetFocusedRowCellValue("FullName").ToString());
                         BindContactData(_IDValue);
                         BindAddressData(_IDValue);
                         BindArticleData(_IDValue);
@@ -702,6 +731,5 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-
     }
 }

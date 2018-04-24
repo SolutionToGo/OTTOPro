@@ -348,7 +348,9 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("already"))
+                if (ex.Message.Contains("valid"))
+                    throw new Exception(ex.Message);
+                else if (ex.Message.Contains("already"))
                     throw new Exception(ex.Message);
                 else
                 {

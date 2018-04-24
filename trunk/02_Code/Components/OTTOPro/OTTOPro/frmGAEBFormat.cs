@@ -74,9 +74,21 @@ namespace OTTOPro
                     rgGAEBVersion.Properties.Items[0].Enabled = false;
                     rgGAEBVersion.SelectedIndex = 1;
                 }
-                txtProjectNumber.Text = ObjEGAEB.ProjectNumber;
-                txtFileName.Text = ObjEGAEB.ProjectNumber;
-                txtFilePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                if (!ObjEGAEB.IsMail)
+                {
+                    txtProjectNumber.Text = ObjEGAEB.ProjectNumber;
+                    txtFileName.Text = ObjEGAEB.ProjectNumber;
+                    txtFilePath.Text = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                }
+                else
+                {
+                    txtProjectNumber.Text = ObjEGAEB.ProjectNumber;
+                    txtFileName.Text = ObjEGAEB.FileNAme;
+                    txtFilePath.Text = ObjEGAEB.OutputPath;
+                    btnBrowse.Enabled = false;
+                    txtFilePath.Properties.ReadOnly = true;
+                    txtFileName.Properties.ReadOnly = true;
+                }
             }
             catch (Exception ex)
             {

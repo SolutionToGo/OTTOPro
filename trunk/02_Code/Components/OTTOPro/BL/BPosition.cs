@@ -53,7 +53,7 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "surchargePercentageMO", ObjEPosition.surchargePercentage_MO.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserID", ObjEPosition.UserID.ToString());
 
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEPosition.ValidityDate.ToString("MM/dd/yyyy"));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEPosition.ValidityDate.ToString("yyyy-MM-dd"));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "KalkMenge", ObjEPosition.KalkMenge.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "MECost", ObjEPosition.MECost.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "MA", ObjEPosition.MA.ToString());

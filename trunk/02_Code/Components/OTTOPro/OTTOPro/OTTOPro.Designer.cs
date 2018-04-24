@@ -599,6 +599,7 @@
             // 
             this.tsStatus.BackColor = System.Drawing.Color.Transparent;
             this.tsStatus.Font = new System.Drawing.Font("Times New Roman", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tsStatus.ForeColor = System.Drawing.Color.Green;
             this.tsStatus.Name = "tsStatus";
             this.tsStatus.Size = new System.Drawing.Size(0, 17);
             // 
@@ -641,7 +642,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.1.3 (22-03-2018)";
+            this.label1.Text = "Version Software 9.1.4 (22-03-2018)";
             // 
             // fdImportFile
             // 

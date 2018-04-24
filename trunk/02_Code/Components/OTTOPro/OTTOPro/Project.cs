@@ -1095,7 +1095,7 @@ namespace OTTOPro
                                 txtStufe3Short.Text = string.Empty;
                                 txtStufe4Short.Text = string.Empty;
                             }
-                         txtPosition.Text = Titles[TitleCount] + "." + Titles[TitleCount + 1];
+                            txtPosition.Text = Titles[TitleCount] + "." + Titles[TitleCount + 1];
                         }
                         else if (TitleCount <= Raster.Count() - 1)
                         {
@@ -1138,6 +1138,15 @@ namespace OTTOPro
                             txtPosition.Text = Titles[TitleCount];
                         }
                         txtLVPositionCD.Text = txtLVPosition.Text = strPositionOZ;
+                    }
+                    else
+                    {
+                        txtLVPositionCD.Text = txtLVPosition.Text = string.Empty;
+                        txtStufe1Short.Text = string.Empty;
+                        txtStufe2Short.Text = string.Empty;
+                        txtStufe3Short.Text = string.Empty;
+                        txtStufe4Short.Text = string.Empty;
+                        txtPosition.Text = string.Empty;
                     }
 
                     txtWG.Text = txtWGCD.Text = tlPositions.FocusedNode["WG"] == DBNull.Value ? "" : tlPositions.FocusedNode["WG"].ToString();
@@ -3510,7 +3519,7 @@ namespace OTTOPro
                                     ObjBSupplier = new BSupplier();
                                 ObjESupplier = ObjBSupplier.UpdateSupplierProposal(ObjESupplier);
                                 gcProposal.DataSource = ObjESupplier.dtProposal;
-                                gvProposal_FocusedRowChanged(null, null);
+                                gvProposal_RowClick(null, null);
                                 Utility.Setfocus(gvProposal, "SupplierProposalID", IValue);
                             }
                         }
@@ -7258,43 +7267,103 @@ namespace OTTOPro
                 }
                 else
                 {
-                    Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
-                    ReportPrintTool printTool = new ReportPrintTool(rpt);
-                    rpt.Parameters["ProposalID"].Value = _ProposalID;
-                    rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Exportieren...");
+                    string strWGWA = string.Empty;
+                    string strLVSection = string.Empty;
 
-                    saveFileDialog1.FileName = ObjEProject.ProjectNumber;
+                    if (gvProposedSupplier.GetFocusedRowCellValue("WGWA") != null)
+                        strWGWA = Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("WGWA"));
 
-                    saveFileDialog1.Filter = "PDF Files|*.pdf";
-                    if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                    if (gvProposedSupplier.GetFocusedRowCellValue("LVSection") != null)
+                        strLVSection = Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("LVSection"));
+
+                    string strFileName = "Proposal_" + ObjEProject.ProjectNumber + "_" + strWGWA + "_" + strLVSection + ".pdf";
+                    string appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\SupplierProposal_pdf";
+                    string appPathGAEB = Path.GetDirectoryName(Application.ExecutablePath) + "\\SupplierProposal_GAEB";
+
+                    string _GAEBPath = string.Empty;
+
+                    if (!Directory.Exists(appPath))
+                        Directory.CreateDirectory(appPath);
+                    if (!Directory.Exists(appPathGAEB))
+                        Directory.CreateDirectory(appPathGAEB);
+
+                    //GAEB Generation
+                    XmlDocument XMLDoc = null;
+                    if (objBGAEB == null)
+                        objBGAEB = new BGAEB();
+                    if (objEGAEB == null)
+                        objEGAEB = new EGAEB();
+                    objEGAEB.ProjectID = ObjEProject.ProjectID;
+                    objEGAEB.ProjectNumber = ObjEProject.ProjectNumber;
+                    objEGAEB.LvRaster = ObjEProject.LVRaster;
+                    objEGAEB.IsMail = true;
+                    objEGAEB.FileNAme = "Proposal_" + ObjEProject.ProjectNumber + "_" + strWGWA + "_" + strLVSection;
+                    objEGAEB.OutputPath = appPathGAEB;
+                    SplashScreenManager.CloseForm(false);
+                    frmGAEBFormat Obj = new frmGAEBFormat(objEGAEB);
+                    Obj.ShowDialog();
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Exportieren...");
+                    if (!string.IsNullOrEmpty(objEGAEB.FileFormat) && !string.IsNullOrEmpty(objEGAEB.FileNAme) && objEGAEB.IsSave)
                     {
-                        rpt.ExportToPdf(saveFileDialog1.FileName);
-                        _pdfpath = saveFileDialog1.FileName;
-                    }                    
-
-                    ObjBSupplier.GetSupplierMail(ObjESupplier, _ProposalID, ObjEProject.ProjectID);
-                    if (ObjESupplier.dtSupplierMail.Rows.Count > 0)
-                    {
-                        foreach (DataRow dr in ObjESupplier.dtSupplierMail.Rows)
+                        objEGAEB.IsMail = false;
+                        objEGAEB.IsSave = false;
+                        int IValue = 0;
+                        if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
                         {
-                            Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
-                            Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
+                            string strOTTOFilePath = objEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                            XMLDoc = objBGAEB.ExportSupplierproposal(IValue, ObjEProject.ProjectID, objEGAEB.FileFormat, ObjEProject.LVRaster, objEGAEB);
+                            if (!Directory.Exists(strOTTOFilePath))
+                                Directory.CreateDirectory(strOTTOFilePath);
+                            string strOutputFilePath = string.Empty;
+                            strOutputFilePath = _GAEBPath = objEGAEB.OutputPath + "\\" + objEGAEB.FileNAme + "." + objEGAEB.FileFormat;
+                            string strInputFilePath = strOTTOFilePath + objEGAEB.FileNAme + ".tml";
+                            XMLDoc.Save(strInputFilePath);
+                            Utility.ProcesssFile(strInputFilePath, strOutputFilePath);
+                        }
+                        SplashScreenManager.Default.SetWaitFormDescription("Generating Pdf...");
+                        //PDF Save
+                        Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProposalID"].Value = _ProposalID;
+                        rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                        _pdfpath = appPath + "\\" + strFileName;
+                        rpt.ExportToPdf(_pdfpath);
+                        SplashScreenManager.CloseForm(false);
+                        //Sending Mail
+                        ObjBSupplier.GetSupplierMail(ObjESupplier, _ProposalID, ObjEProject.ProjectID);
+                        if (ObjESupplier.dtSupplierMail.Rows.Count > 0)
+                        {
+                            foreach (DataRow dr in ObjESupplier.dtSupplierMail.Rows)
+                            {
+                                Microsoft.Office.Interop.Outlook.Application app = new Microsoft.Office.Interop.Outlook.Application();
+                                Microsoft.Office.Interop.Outlook.MailItem mailItem = app.CreateItem(Microsoft.Office.Interop.Outlook.OlItemType.olMailItem);
 
-                            mailItem.Subject = "Preisanfrage";
-                            mailItem.BCC = dr["Suppliermail"].ToString();//strArr.ToString();
-                            mailItem.Body = "Bitte stellen Sie uns für beigefügte Anfrage Ihr Preisangebot zur Verfügung";
+                                mailItem.Subject = "Preisanfrage";
+                                mailItem.BCC = dr["Suppliermail"].ToString();//strArr.ToString();
+                                mailItem.Body = "Bitte stellen Sie uns für beigefügte Anfrage Ihr Preisangebot zur Verfügung";
 
-                            mailItem.Attachments.Add(_pdfpath);
-                            mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
-                            mailItem.Display(false);
-                       }
-                        UpdateProposalDate();
+                                mailItem.Attachments.Add(_pdfpath);
+                                mailItem.Attachments.Add(_GAEBPath);
+                                mailItem.Importance = Microsoft.Office.Interop.Outlook.OlImportance.olImportanceHigh;
+                                mailItem.Display(false);
+                            }
+                            UpdateProposalDate();
+                        }
+                    }
+                    else
+                    {
+                        objEGAEB.IsMail = false;
+                        objEGAEB.IsSave = false;
                     }
                 }
 
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
         }
@@ -7511,6 +7580,129 @@ namespace OTTOPro
             }
         }
 
+        private void btnSupplierProposalExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                XmlDocument XMLDoc = null;
+                if (objBGAEB == null)
+                    objBGAEB = new BGAEB();
+                if (objEGAEB == null)
+                    objEGAEB = new EGAEB();
+                objEGAEB.ProjectID = ObjEProject.ProjectID;
+                objEGAEB.ProjectNumber = ObjEProject.ProjectNumber;
+                objEGAEB.LvRaster = ObjEProject.LVRaster;
+                frmGAEBFormat Obj = new frmGAEBFormat(objEGAEB);
+                Obj.ShowDialog();
+                if (!string.IsNullOrEmpty(objEGAEB.FileFormat) && !string.IsNullOrEmpty(objEGAEB.FileNAme) && objEGAEB.IsSave)
+                {
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Exportieren...");
+                    objEGAEB.IsSave = false;
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
+                    {
+                        string strOTTOFilePath = objEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                        XMLDoc = objBGAEB.ExportSupplierproposal(IValue, ObjEProject.ProjectID, objEGAEB.FileFormat, ObjEProject.LVRaster, objEGAEB);
+                        if (!Directory.Exists(strOTTOFilePath))
+                            Directory.CreateDirectory(strOTTOFilePath);
+                        string strOutputFilePath = string.Empty;
+                        strOutputFilePath = objEGAEB.OutputPath + "\\" + objEGAEB.FileNAme + "." + objEGAEB.FileFormat;
+                        string strInputFilePath = strOTTOFilePath + objEGAEB.FileNAme + ".tml";
+                        XMLDoc.Save(strInputFilePath);
+                        Utility.ProcesssFile(strInputFilePath, strOutputFilePath);
+                        SplashScreenManager.CloseForm(false);
+                        if (File.Exists(strOutputFilePath))
+                            Process.Start("explorer.exe", "/select, \"" + strOutputFilePath + "\"");
+                    }
+                    else
+                        SplashScreenManager.CloseForm(false);
+                }
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnSupplierProposalImport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strFilePath = string.Empty;
+                OpenFileDialog dlg = new OpenFileDialog();
+
+                dlg.InitialDirectory = @"C:\";
+                dlg.Title = "Dateiauswahl für GAEB Import";
+
+                dlg.CheckFileExists = true;
+                dlg.CheckPathExists = true;
+
+                dlg.Filter = "GAEB Files(*.D84;*.P84;*.X84) | *.D84;*.P84;*.X84";
+                dlg.RestoreDirectory = true;
+
+                dlg.ReadOnlyChecked = true;
+                dlg.ShowReadOnly = true;
+                if (dlg.ShowDialog() == DialogResult.OK)
+                    strFilePath = dlg.FileName;
+                if (!string.IsNullOrEmpty(strFilePath))
+                {
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
+                    string strOutputFilepath = string.Empty;
+                    string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    if (!Directory.Exists(strOTTOFilePath))
+                        Directory.CreateDirectory(strOTTOFilePath);
+                    string strFileName = Path.GetFileNameWithoutExtension(strFilePath);
+                    strOutputFilepath = strOTTOFilePath + strFileName + ".tml";
+                    Utility.ProcesssFile(strFilePath, strOutputFilepath);
+                    SplashScreenManager.CloseForm(false);
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
+                    {
+                        if (objBGAEB == null)
+                            objBGAEB = new BGAEB();
+                        if (objEGAEB == null)
+                            objEGAEB = new EGAEB();
+                        objEGAEB.Supplier = Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("Supplier"));
+                        frmSelectsupplier Obj = new frmSelectsupplier(objEGAEB);
+                        Obj.ShowDialog();
+                        if (objEGAEB.IsSave)
+                        {
+                            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                            SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
+                            objEGAEB.IsSave = false;
+                            objEGAEB.UserID = Utility.UserID;
+                            string strRaster = Utility.GetRaster(strOutputFilepath);
+                            objEGAEB.dsLVData = Utility.CreateDatasetSchema(strOutputFilepath, string.Empty, strRaster, objEGAEB);
+                            objEGAEB.LvRaster = strRaster;
+                            objEGAEB.ProjectID = ObjEProject.ProjectID;
+                            objEGAEB.SupplierProposalID = IValue;
+                            DataTable dtTemp = objEGAEB.dsLVData.Tables[0].Copy();
+                            foreach (DataColumn dc in dtTemp.Columns)
+                            {
+                                if (dc.ColumnName != "OZ")
+                                {
+                                    if (dc.ColumnName != "EP")
+                                    {
+                                        objEGAEB.dsLVData.Tables[0].Columns.Remove(dc.ColumnName);
+                                    }
+                                }
+                            }
+                            objEGAEB = objBGAEB.SupplierProposalImport(objEGAEB);
+                            SplashScreenManager.CloseForm(false);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
+            }
+        }
+
         #endregion
 
         #region Update Supplier
@@ -7524,7 +7716,6 @@ namespace OTTOPro
                     ObjTabDetails = tbUpdateSupplier;
                     TabChange(ObjTabDetails);
                     FillProposalNumbers();
-                    gvProposal_FocusedRowChanged(null, null);
                     gcDeletedDetails.DataSource = null;
                     gcProposedDetails.DataSource = null;
                     if (Utility.CalcAccess == "7" || ObjEProject.IsFinalInvoice)
@@ -7563,7 +7754,7 @@ namespace OTTOPro
             }
         }
 
-        private void gvProposal_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        private void gvProposal_RowClick(object sender, RowClickEventArgs e)
         {
             try
             {
@@ -8089,7 +8280,6 @@ namespace OTTOPro
                 }
                 ObjESupplier = ObjBSupplier.UpdateSupplierPrice(ObjESupplier);
                 frmOTTOPro.UpdateStatus("Preisübersicht für Lieferanten wurde erfolgreich aktualisiert");
-                gvProposal_FocusedRowChanged(null, null);
             }
             catch (Exception ex)
             {
@@ -8152,7 +8342,7 @@ namespace OTTOPro
                     ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
                     if (chkUpdateAll.Checked)
                     {
-                        gvProposal_FocusedRowChanged(null, null);
+                        gvProposal_RowClick(null, null);
                         gvSupplier.FocusedRowHandle = iRowIndex;
                         gvSupplier.FocusedColumn = gvSupplier.Columns[strSupliercolumnName];
                         ObjESupplier.IsSingle = false;
@@ -9498,7 +9688,6 @@ namespace OTTOPro
                 else
                     ObjEPosition.Menge = 1;
 
-
                 ObjEArticles.WG = ObjEPosition.WG;
                 ObjEArticles.WA = ObjEPosition.WA;
                 ObjEArticles.WI = ObjEPosition.WI;
@@ -9514,7 +9703,7 @@ namespace OTTOPro
                 ObjEPosition.LiefrantMA = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["ShortName"]);
                 ObjEPosition.Type = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Typ"]);
                 ObjEPosition.LongDescription = string.Empty;
-                ObjEPosition.ShortDescription = txtShortDescription.Rtf;
+                ObjEPosition.ShortDescription = Utility.GetRTFFormat(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["ArticleDescription"]));
                 ObjEPosition.Surcharge_From = string.Empty;
                 ObjEPosition.Surcharge_To = string.Empty;
                 ObjEPosition.Surcharge_Per = 0;
@@ -10160,6 +10349,12 @@ namespace OTTOPro
         {
             try
             {
+                if (ObjEFormBlatt == null)
+                    ObjEFormBlatt = new EFormBlatt();
+                if (ObjBFormBlatt == null)
+                    ObjBFormBlatt = new BFormBlatt();
+                ObjEFormBlatt.ProjectID = ObjEProject.ProjectID;
+                ObjEFormBlatt = ObjBFormBlatt.GetFormBlattMapping(ObjEFormBlatt);
                 decimal Value = 0;
                 if (Utility.ValidateRequiredFields(RequiredFieldsFormBlatt) == false)
                     return;
@@ -10208,6 +10403,13 @@ namespace OTTOPro
         {
             try
             {
+                if (ObjEFormBlatt == null)
+                    ObjEFormBlatt = new EFormBlatt();
+                if (ObjBFormBlatt == null)
+                    ObjBFormBlatt = new BFormBlatt();
+                ObjEFormBlatt.ProjectID = ObjEProject.ProjectID;
+                ObjEFormBlatt = ObjBFormBlatt.GetFormBlattMapping(ObjEFormBlatt);
+
                 rptFormBlatt_223 rpt = new rptFormBlatt_223();
                 ReportPrintTool printTool = new ReportPrintTool(rpt);
                 rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
@@ -10325,6 +10527,8 @@ namespace OTTOPro
                 Obj.ShowDialog();
                 if (ObjEProject.IsSave)
                 {
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Adding Discount....");
                     tlTemp = new TreeListNode();
                     ObjEProject.IsSave = false;
                     if (ObjBProject == null)
@@ -10400,10 +10604,12 @@ namespace OTTOPro
                     }
                     else
                         throw new Exception("Von oder nach OZ existiert nicht..!!");
+                    SplashScreenManager.CloseForm(false);
                 }
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
         }
@@ -10803,129 +11009,6 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 throw;
-            }
-        }
-
-        private void btnSupplierProposalExport_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                XmlDocument XMLDoc = null;
-                if (objBGAEB == null)
-                    objBGAEB = new BGAEB();
-                if (objEGAEB == null)
-                    objEGAEB = new EGAEB();
-                objEGAEB.ProjectID = ObjEProject.ProjectID;
-                objEGAEB.ProjectNumber = ObjEProject.ProjectNumber;
-                objEGAEB.LvRaster = ObjEProject.LVRaster;
-                frmGAEBFormat Obj = new frmGAEBFormat(objEGAEB);
-                Obj.ShowDialog();
-                if (!string.IsNullOrEmpty(objEGAEB.FileFormat) && !string.IsNullOrEmpty(objEGAEB.FileNAme) && objEGAEB.IsSave)
-                {
-                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                    SplashScreenManager.Default.SetWaitFormDescription("Exportieren...");
-                    objEGAEB.IsSave = false;
-                    int IValue = 0;
-                    if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
-                    {
-                        string strOTTOFilePath = objEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
-                        XMLDoc = objBGAEB.ExportSupplierproposal(IValue, ObjEProject.ProjectID, objEGAEB.FileFormat, ObjEProject.LVRaster, objEGAEB);
-                        if (!Directory.Exists(strOTTOFilePath))
-                            Directory.CreateDirectory(strOTTOFilePath);
-                        string strOutputFilePath = string.Empty;
-                        strOutputFilePath = objEGAEB.OutputPath + "\\" + objEGAEB.FileNAme + "." + objEGAEB.FileFormat;
-                        string strInputFilePath = strOTTOFilePath + objEGAEB.FileNAme + ".tml";
-                        XMLDoc.Save(strInputFilePath);
-                        Utility.ProcesssFile(strInputFilePath, strOutputFilePath);
-                        SplashScreenManager.CloseForm(false);
-                        if (File.Exists(strOutputFilePath))
-                            Process.Start("explorer.exe", "/select, \"" + strOutputFilePath + "\"");
-                    }
-                    else
-                        SplashScreenManager.CloseForm(false);
-                }
-            }
-            catch (Exception ex)
-            {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void btnSupplierProposalImport_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                string strFilePath = string.Empty;
-                OpenFileDialog dlg = new OpenFileDialog();
-
-                dlg.InitialDirectory = @"C:\";
-                dlg.Title = "Dateiauswahl für GAEB Import";
-
-                dlg.CheckFileExists = true;
-                dlg.CheckPathExists = true;
-
-                dlg.Filter = "GAEB Files(*.D84;*.P84;*.X84) | *.D84;*.P84;*.X84";
-                dlg.RestoreDirectory = true;
-
-                dlg.ReadOnlyChecked = true;
-                dlg.ShowReadOnly = true;
-                if (dlg.ShowDialog() == DialogResult.OK)
-                    strFilePath = dlg.FileName;
-                if (!string.IsNullOrEmpty(strFilePath))
-                {
-                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                    SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
-                    string strOutputFilepath = string.Empty;
-                    string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
-                    if (!Directory.Exists(strOTTOFilePath))
-                        Directory.CreateDirectory(strOTTOFilePath);
-                    string strFileName = Path.GetFileNameWithoutExtension(strFilePath);
-                    strOutputFilepath = strOTTOFilePath + strFileName + ".tml";
-                    Utility.ProcesssFile(strFilePath, strOutputFilepath);
-                    SplashScreenManager.CloseForm(false);
-                    int IValue = 0;
-                    if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
-                    {
-                        if (objBGAEB == null)
-                            objBGAEB = new BGAEB();
-                        if (objEGAEB == null)
-                            objEGAEB = new EGAEB();
-                        objEGAEB.Supplier = Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("Supplier"));
-                        frmSelectsupplier Obj = new frmSelectsupplier(objEGAEB);
-                        Obj.ShowDialog();
-                        if (objEGAEB.IsSave)
-                        {
-                            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                            SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
-                            objEGAEB.IsSave = false;
-                            objEGAEB.UserID = Utility.UserID;
-                            string strRaster = Utility.GetRaster(strOutputFilepath);
-                            objEGAEB.dsLVData = Utility.CreateDatasetSchema(strOutputFilepath, string.Empty, strRaster, objEGAEB);
-                            objEGAEB.LvRaster = strRaster;
-                            objEGAEB.ProjectID = ObjEProject.ProjectID;
-                            objEGAEB.SupplierProposalID = IValue;
-                            DataTable dtTemp = objEGAEB.dsLVData.Tables[0].Copy();
-                            foreach (DataColumn dc in dtTemp.Columns)
-                            {
-                                if (dc.ColumnName != "OZ")
-                                {
-                                    if (dc.ColumnName != "EP")
-                                    {
-                                        objEGAEB.dsLVData.Tables[0].Columns.Remove(dc.ColumnName);
-                                    }
-                                }
-                            }
-                            objEGAEB = objBGAEB.SupplierProposalImport(objEGAEB);
-                            SplashScreenManager.CloseForm(false);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
             }
         }
 
