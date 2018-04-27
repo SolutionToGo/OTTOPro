@@ -2371,7 +2371,7 @@
             this.BgvComparePrice.GridControl = this.gcComparePrice;
             this.BgvComparePrice.GroupCount = 1;
             this.BgvComparePrice.Name = "BgvComparePrice";
-            this.BgvComparePrice.OptionsBehavior.ReadOnly = true;
+            this.BgvComparePrice.OptionsBehavior.Editable = false;
             this.BgvComparePrice.OptionsView.ShowGroupPanel = false;
             this.BgvComparePrice.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.bandedGridColumn12, DevExpress.Data.ColumnSortOrder.Ascending)});
@@ -11136,6 +11136,7 @@
             this.gvMulti5.OptionsCustomization.AllowFilter = false;
             this.gvMulti5.OptionsCustomization.AllowSort = false;
             this.gvMulti5.OptionsFilter.AllowFilterEditor = false;
+            this.gvMulti5.OptionsFind.FindDelay = 500;
             this.gvMulti5.OptionsMenu.EnableColumnMenu = false;
             this.gvMulti5.OptionsMenu.EnableFooterMenu = false;
             this.gvMulti5.OptionsMenu.EnableGroupPanelMenu = false;
@@ -12515,8 +12516,6 @@
             this.gridColumn32.Caption = "BLATT erstellt von";
             this.gridColumn32.FieldName = "CreatedBy";
             this.gridColumn32.Name = "gridColumn32";
-            this.gridColumn32.Visible = true;
-            this.gridColumn32.VisibleIndex = 6;
             // 
             // gridColumn33
             // 
@@ -12526,7 +12525,7 @@
             this.gridColumn33.FieldName = "CreatedDate";
             this.gridColumn33.Name = "gridColumn33";
             this.gridColumn33.Visible = true;
-            this.gridColumn33.VisibleIndex = 7;
+            this.gridColumn33.VisibleIndex = 6;
             // 
             // gcDelivery
             // 
@@ -12917,8 +12916,6 @@
             this.gridColumn37.Caption = "Rechnung von ";
             this.gridColumn37.FieldName = "CreatedBy";
             this.gridColumn37.Name = "gridColumn37";
-            this.gridColumn37.Visible = true;
-            this.gridColumn37.VisibleIndex = 7;
             // 
             // gridColumn38
             // 
@@ -12928,7 +12925,7 @@
             this.gridColumn38.FieldName = "CreatedDate";
             this.gridColumn38.Name = "gridColumn38";
             this.gridColumn38.Visible = true;
-            this.gridColumn38.VisibleIndex = 8;
+            this.gridColumn38.VisibleIndex = 7;
             // 
             // gridColumn39
             // 

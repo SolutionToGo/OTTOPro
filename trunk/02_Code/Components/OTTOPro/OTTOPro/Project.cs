@@ -2824,21 +2824,23 @@ namespace OTTOPro
                 {
                     btnCancel_Click(null, null);
                 }
-                else if (e.KeyCode == Keys.F5)
+                else if (e.KeyCode == Keys.F6)
                 {
-                    if (splitContainerControl2.PanelVisibility == SplitPanelVisibility.Both)
+                    if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                     {
-                        if (splitContainerControl2.SplitterPosition == 0)
+                        if (splitContainerControl2.PanelVisibility == SplitPanelVisibility.Both)
                         {
-                            splitContainerControl2.SplitterPosition = 320;
-                            splitContainerControl1.SplitterPosition = 320;
+                            if (splitContainerControl2.SplitterPosition == 0)
+                            {
+                                splitContainerControl2.SplitterPosition = 320;
+                                splitContainerControl1.SplitterPosition = 320;
+                            }
+                            else if (splitContainerControl2.SplitterPosition > 0)
+                            {
+                                splitContainerControl2.SplitterPosition = 0;
+                                splitContainerControl1.SplitterPosition = 550;
+                            }
                         }
-                        else if (splitContainerControl2.SplitterPosition > 0)
-                        {
-                            splitContainerControl2.SplitterPosition = 0;
-                            splitContainerControl1.SplitterPosition = 550;
-                        }
-
                     }
                 }
             }
@@ -9759,7 +9761,7 @@ namespace OTTOPro
                 ObjEPosition.Multi2MO = 1;
                 ObjEPosition.Multi3MO = 1;
                 ObjEPosition.Multi4MO = 1;
-                ObjEPosition.EinkaufspreisMA = RoundValue((ObjEPosition.LPMA) * (ObjEPosition.Multi1MA * ObjEPosition.Multi1MA * ObjEPosition.Multi1MA * ObjEPosition.Multi1MA));
+                ObjEPosition.EinkaufspreisMA = Math.Round(((ObjEPosition.LPMA) * (ObjEPosition.Multi1MA * ObjEPosition.Multi2MA * ObjEPosition.Multi3MA * ObjEPosition.Multi4MA)),8);
                 ObjEPosition.EinkaufspreisMO = ObjEPosition.LPMO;
                 ObjEPosition.SelbstkostenMultiMA = 1;
                 ObjEPosition.SelbstkostenValueMA = ObjEPosition.EinkaufspreisMA;
@@ -10635,7 +10637,43 @@ namespace OTTOPro
                             int iValue = 0;
                             int ParentID = 0;
                             string strTempParentOZ = Convert.ToString(ParentNode["Position_OZ"]);
-                            string newOZ = strTempParentOZ + SuggestOZ(strTempParentOZ) + ".";
+
+                            string newOZ = string.Empty;
+                            string str = string.Empty;
+                            string strRaster = ObjEProject.LVRaster;
+                            string[] strPOZ = Convert.ToString(ToNode["Position_OZ"]).Split('.');
+                            string[] strPRaster = strRaster.Split('.');
+                            int Count = -1;
+                            int i = -1;
+                            Count = strPOZ.Count();
+                            while (Count > 0)
+                            {
+                                i = i + 1;
+                                Count = Count - 1;
+                                int OZLength = 0;
+                                int RasterLength = 0;
+                                string OZ = string.Empty;
+                                OZ = strPOZ[i].Trim();
+                                RasterLength = strPRaster[i].Length;
+                                OZLength = OZ.Trim().Length;
+                                if (Count > 0)
+                                {
+                                    if (OZ == "")
+                                    {
+                                        str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
+                                    }
+                                }
+                            }
+                            if (str.Length > 0)
+                            {
+                                string strBlankNewOz = strTempParentOZ + str + SuggestOZ(strTempParentOZ) + ".";
+                                newOZ = strBlankNewOz;
+                            }
+                            else
+                            {
+                                string strNewOz = strTempParentOZ + SuggestOZ(strTempParentOZ) + ".";
+                                newOZ = strNewOz;
+                            }
 
                             DataRow drnew = ObjEProject.dtDiscountList.NewRow();
 

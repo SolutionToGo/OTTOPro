@@ -237,8 +237,17 @@ namespace BL
                             strtype = "20";
                             break;
                         case "menge":
+                            strtype = "12";
+                            if (Thread.CurrentThread.CurrentCulture.Name == "de-DE")
+                           {
+                               string strValue = node.InnerText.Replace(".", ",");
+                               node.InnerText = strValue;
+                           }
+                            break;
                         case "ep":
                         case "gb":
+                            if (strFormat.Contains("81"))
+                                node.InnerText = "0";
                             strtype = "12";
                             if (Thread.CurrentThread.CurrentCulture.Name == "de-DE")
                            {
