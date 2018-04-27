@@ -175,6 +175,7 @@
             // 
             this.memoEditCommentary.Location = new System.Drawing.Point(12, 480);
             this.memoEditCommentary.Name = "memoEditCommentary";
+            this.memoEditCommentary.ReadOnly = true;
             this.memoEditCommentary.Size = new System.Drawing.Size(695, 213);
             this.memoEditCommentary.TabIndex = 20;
             this.memoEditCommentary.Text = "";

@@ -5056,6 +5056,18 @@ namespace OTTOPro
                     }
                 }
 
+                if (txtNachtragsnummer.Text == "NT" || txtNachtragsnummer.Text == "NTM")
+                {
+                    if (Utility._IsGermany == true)
+                    {
+                        throw new Exception("Positionen mit NT oder NTM kÃ¶nnen nicht gespeichert werden");
+                    }
+                    else
+                    {
+                        throw new Exception("Cannot Save Positions With NT Or NTM");
+                    }
+                }
+
                 ObjBPosition.UpdateBulkProcess_ActionB(ObjEPosition, ObjEProject.ProjectID, tType, txtPositionMenge.Text,
                     txtMaterialKz.Text, txtMontageKZ.Text,
                     txtPreisErstaztext.Text, txtFabrikat.Text, txtTyp.Text, txtBulkLieferantMA.Text, txtArtikelnummerWG.Text,

@@ -413,7 +413,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
-                if (ex.Message.Contains("Typ") || ex.Message.Contains("Artikel"))
+                if (ex.Message.Contains("Typ") || ex.Message.Contains("Artikel") || ex.Message.Contains("LV Section"))
                     throw;
                 else
                 {

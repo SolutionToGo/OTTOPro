@@ -775,7 +775,7 @@
             this.xrTableCell43.StylePriority.UsePadding = false;
             this.xrTableCell43.StylePriority.UseTextAlignment = false;
             this.xrTableCell43.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell43.Weight = 1.5728658075052906D;
+            this.xrTableCell43.Weight = 1.388547869750054D;
             // 
             // xrTableCell44
             // 
@@ -791,7 +791,7 @@
             this.xrTableCell44.StylePriority.UseTextAlignment = false;
             this.xrTableCell44.Text = "Zuschläge in % auf\r\n";
             this.xrTableCell44.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell44.Weight = 3.1973011577852573D;
+            this.xrTableCell44.Weight = 3.3816190955404943D;
             // 
             // xrTableCell45
             // 
@@ -851,7 +851,7 @@
             this.xrTableCell48.StylePriority.UsePadding = false;
             this.xrTableCell48.StylePriority.UseTextAlignment = false;
             this.xrTableCell48.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
-            this.xrTableCell48.Weight = 3.6395970078401039D;
+            this.xrTableCell48.Weight = 3.2109229287942056D;
             // 
             // xrTableCell66
             // 
@@ -868,7 +868,7 @@
             this.xrTableCell66.StylePriority.UseTextAlignment = false;
             this.xrTableCell66.Text = "Lohn";
             this.xrTableCell66.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell66.Weight = 0.84597415731378756D;
+            this.xrTableCell66.Weight = 0.88432218740678437D;
             // 
             // xrTableCell67
             // 
@@ -884,9 +884,9 @@
             this.xrTableCell67.StylePriority.UseFont = false;
             this.xrTableCell67.StylePriority.UsePadding = false;
             this.xrTableCell67.StylePriority.UseTextAlignment = false;
-            this.xrTableCell67.Text = "Stoffksten";
+            this.xrTableCell67.Text = "Stoffkosten";
             this.xrTableCell67.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell67.Weight = 1.5265037419911764D;
+            this.xrTableCell67.Weight = 1.9168297909440781D;
             // 
             // xrTableCell73
             // 
@@ -902,7 +902,7 @@
             this.xrTableCell73.StylePriority.UseFont = false;
             this.xrTableCell73.StylePriority.UsePadding = false;
             this.xrTableCell73.StylePriority.UseTextAlignment = false;
-            this.xrTableCell73.Text = "Gerätekpsten\r\n";
+            this.xrTableCell73.Text = "Gerätekosten\r\n";
             this.xrTableCell73.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             this.xrTableCell73.Weight = 1.8475666424417243D;
             // 
@@ -1619,7 +1619,7 @@
             this.xrTableCell49.StylePriority.UseFont = false;
             this.xrTableCell49.StylePriority.UseTextAlignment = false;
             this.xrTableCell49.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell49.Weight = 2.0595945519076162D;
+            this.xrTableCell49.Weight = 1.8180978002645738D;
             // 
             // xrTableCell53
             // 
@@ -1628,7 +1628,7 @@
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.StylePriority.UseTextAlignment = false;
             this.xrTableCell53.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell53.Weight = 0.47872400774085272D;
+            this.xrTableCell53.Weight = 0.50066277545280946D;
             // 
             // xrTableCell52
             // 
@@ -1637,7 +1637,7 @@
             this.xrTableCell52.Name = "xrTableCell52";
             this.xrTableCell52.StylePriority.UseTextAlignment = false;
             this.xrTableCell52.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell52.Weight = 0.863825640503973D;
+            this.xrTableCell52.Weight = 1.0833836244350585D;
             // 
             // xrTableCell54
             // 
@@ -1725,7 +1725,7 @@
             this.xrTableCell56.StylePriority.UseTextAlignment = false;
             this.xrTableCell56.Text = "Gesamitzuschläge\r\n";
             this.xrTableCell56.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
-            this.xrTableCell56.Weight = 2.0595945519076162D;
+            this.xrTableCell56.Weight = 1.81809784258734D;
             // 
             // xrTableCell57
             // 
@@ -1737,7 +1737,7 @@
             xrSummary1.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
             this.xrTableCell57.Summary = xrSummary1;
             this.xrTableCell57.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell57.Weight = 0.47872400774085272D;
+            this.xrTableCell57.Weight = 0.50066324100323856D;
             // 
             // xrTableCell58
             // 
@@ -1749,7 +1749,7 @@
             xrSummary2.Running = DevExpress.XtraReports.UI.SummaryRunning.Report;
             this.xrTableCell58.Summary = xrSummary2;
             this.xrTableCell58.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            this.xrTableCell58.Weight = 0.863825640503973D;
+            this.xrTableCell58.Weight = 1.0833831165618633D;
             // 
             // xrTableCell59
             // 
@@ -2764,7 +2764,7 @@
             this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel4.SizeF = new System.Drawing.SizeF(631.2341F, 23F);
             this.xrLabel4.StylePriority.UseFont = false;
-            this.xrLabel4.Text = "eventuelle Erläuterungen des Bieters:\t\t\t\r\n";
+            this.xrLabel4.Text = "Eventuelle Erläuterungen des Bieters :\r\n\t\t\t\r\n";
             // 
             // xrPanel1
             // 
