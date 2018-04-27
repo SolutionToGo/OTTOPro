@@ -272,6 +272,7 @@
             // 
             this.memoEditCommentary.Location = new System.Drawing.Point(12, 664);
             this.memoEditCommentary.Name = "memoEditCommentary";
+            this.memoEditCommentary.ReadOnly = true;
             this.memoEditCommentary.Size = new System.Drawing.Size(834, 62);
             this.memoEditCommentary.TabIndex = 22;
             this.memoEditCommentary.Text = "";
@@ -280,6 +281,7 @@
             // 
             this.memoEditPaymentConditions.Location = new System.Drawing.Point(12, 554);
             this.memoEditPaymentConditions.Name = "memoEditPaymentConditions";
+            this.memoEditPaymentConditions.ReadOnly = true;
             this.memoEditPaymentConditions.Size = new System.Drawing.Size(834, 57);
             this.memoEditPaymentConditions.TabIndex = 21;
             this.memoEditPaymentConditions.Text = "";
