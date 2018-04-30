@@ -349,9 +349,9 @@ namespace DAL
             catch (Exception ex)
             {
                 if (ex.Message.Contains("valid"))
-                    throw new Exception(ex.Message);
+                    throw new Exception("Bitte geben Sie einen gültigen Titel oder Untertitel ein");
                 else if (ex.Message.Contains("already"))
-                    throw new Exception(ex.Message);
+                    throw new Exception("Für einige ausgewählte Titel/Untertitel wurde bereits ein Nachlass zugewiesen.");
                 else
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")

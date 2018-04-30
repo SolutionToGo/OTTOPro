@@ -171,23 +171,24 @@
             // 
             this.labelControl2.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl2.Appearance.Options.UseForeColor = true;
-            this.labelControl2.Location = new System.Drawing.Point(583, 520);
+            this.labelControl2.Location = new System.Drawing.Point(443, 520);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(195, 13);
+            this.labelControl2.Size = new System.Drawing.Size(269, 13);
             this.labelControl2.StyleController = this.layoutControl1;
             this.labelControl2.TabIndex = 25;
-            this.labelControl2.Text = "Right Click on Supplier to Assign Artickels";
+            this.labelControl2.Text = "Mit rechtem Mausklick können Sie Stammartikel zuweisen";
             // 
             // labelControl1
             // 
             this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
             this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(583, 503);
+            this.labelControl1.Location = new System.Drawing.Point(443, 503);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(263, 13);
+            this.labelControl1.Size = new System.Drawing.Size(403, 13);
             this.labelControl1.StyleController = this.layoutControl1;
             this.labelControl1.TabIndex = 24;
-            this.labelControl1.Text = "Click on Supplier to View Artickels,Contact and Address";
+            this.labelControl1.Text = "Bitte klicken Sie auf einen Lieferanten für die Anzeige von Artikeln und Kontaktd" +
+    "aten";
             // 
             // gcArticles
             // 
@@ -977,18 +978,18 @@
             // layoutControlItem15
             // 
             this.layoutControlItem15.Control = this.labelControl1;
-            this.layoutControlItem15.Location = new System.Drawing.Point(571, 491);
+            this.layoutControlItem15.Location = new System.Drawing.Point(431, 491);
             this.layoutControlItem15.Name = "layoutControlItem15";
-            this.layoutControlItem15.Size = new System.Drawing.Size(267, 17);
+            this.layoutControlItem15.Size = new System.Drawing.Size(407, 17);
             this.layoutControlItem15.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem15.TextVisible = false;
             // 
             // layoutControlItem16
             // 
             this.layoutControlItem16.Control = this.labelControl2;
-            this.layoutControlItem16.Location = new System.Drawing.Point(571, 508);
+            this.layoutControlItem16.Location = new System.Drawing.Point(431, 508);
             this.layoutControlItem16.Name = "layoutControlItem16";
-            this.layoutControlItem16.Size = new System.Drawing.Size(267, 17);
+            this.layoutControlItem16.Size = new System.Drawing.Size(407, 17);
             this.layoutControlItem16.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem16.TextVisible = false;
             // 
@@ -997,7 +998,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 491);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(571, 34);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(431, 34);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // gridColumn4

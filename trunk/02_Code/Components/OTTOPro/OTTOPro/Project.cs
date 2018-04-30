@@ -10547,7 +10547,7 @@ namespace OTTOPro
                 if (ObjEProject.IsSave)
                 {
                     SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                    SplashScreenManager.Default.SetWaitFormDescription("Adding Discount....");
+                    SplashScreenManager.Default.SetWaitFormDescription("Nachlass wird kalkuliert ... ");
                     tlTemp = new TreeListNode();
                     ObjEProject.IsSave = false;
                     if (ObjBProject == null)

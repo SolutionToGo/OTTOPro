@@ -222,7 +222,7 @@ namespace DataAccess
                     cmd.Parameters.Add("@ProjectID", ObjEFormBlatt.ProjectID);
                     Object ObjReturn = cmd.ExecuteScalar();
                     if (!string.IsNullOrEmpty(Convert.ToString(ObjReturn)))
-                        throw new Exception("Please Assign Articles to 'Nachunternehmerleistungen/Stoffkosten'");
+                        throw new Exception("Bitte weisen Sie dem Kostentyp 'Nachunternehmerleistungen/Stoffkosten' Warengruppen-/arten zu");
                 }
             }
             catch (Exception ex)
