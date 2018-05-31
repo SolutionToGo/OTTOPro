@@ -547,6 +547,7 @@ namespace DAL
         {
             try
             {
+                DataSet dsCockpitData = new DataSet();
                 ObjEProject.dtCockpitData = new DataTable();
                 using (SqlCommand cmd = new SqlCommand())
                 {
@@ -557,7 +558,23 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@dtCockpitData", ObjEProject.dtTemplateData);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        da.Fill(ObjEProject.dtCockpitData);
+                        da.Fill(dsCockpitData);
+                    }
+                    if(dsCockpitData != null && dsCockpitData.Tables.Count > 0)
+                    {
+                        ObjEProject.dtCockpitData = dsCockpitData.Tables[0];
+                        if (dsCockpitData.Tables.Count > 1 && dsCockpitData.Tables[1].Rows.Count > 0)
+                        {
+                            decimal DValue = 0;
+                            if (decimal.TryParse(Convert.ToString(dsCockpitData.Tables[1].Rows[0]["SValue"]), out DValue))
+                                ObjEProject.SValue = DValue;
+                            if (decimal.TryParse(Convert.ToString(dsCockpitData.Tables[1].Rows[0]["XValue"]), out DValue))
+                                ObjEProject.XValue = DValue;
+                            if (decimal.TryParse(Convert.ToString(dsCockpitData.Tables[1].Rows[0]["UmlageCost"]), out DValue))
+                                ObjEProject.UmlageCost = DValue;
+                            if (decimal.TryParse(Convert.ToString(dsCockpitData.Tables[1].Rows[0]["RevenueTotal"]), out DValue))
+                                ObjEProject.RevenueTotal = DValue;
+                        }
                     }
                 }
             }
@@ -580,6 +597,10 @@ namespace DAL
                     cmd.CommandText = "[P_Ins_InsertOTTOProData]";
                     cmd.Parameters.Add("@dtData", ObjEProject.dtCockpitData);
                     cmd.Parameters.Add("@ProjectNumber", ObjEProject.ProjectNumber);
+                    cmd.Parameters.Add("@SValue", ObjEProject.SValue);
+                    cmd.Parameters.Add("@XValue", ObjEProject.XValue);
+                    cmd.Parameters.Add("@UmlageCost", ObjEProject.UmlageCost);
+                    cmd.Parameters.Add("@RevenueTotal", ObjEProject.RevenueTotal);
                     cmd.Parameters.Add("@ProjectDescription", ObjEProject.ProjectDescription);
                     cmd.Parameters.Add("@ProjectStartDate", ObjEProject.ProjectStartDate);
                     cmd.Parameters.Add("@ProjectEndDate", ObjEProject.ProjectEndDate);

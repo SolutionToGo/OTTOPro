@@ -118,9 +118,9 @@ namespace OTTOPro
             }
         }
 
-        private void frmLogin_KeyDown(object sender, KeyEventArgs e)
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyData == Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter)
                 btnLogin_Click(null, null);
         }
     }

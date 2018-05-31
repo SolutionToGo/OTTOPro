@@ -74,6 +74,7 @@ namespace OTTOPro
         private int SNO = 1;
         private bool _IsValueChanged = true;
         private bool _IsSave = false;
+        private bool _IsChanged = false;
 
 
         /// <summary>
@@ -648,10 +649,6 @@ namespace OTTOPro
         {
             try
             {
-
-                //splitContainerControl2.PanelVisibility = SplitPanelVisibility.Panel1;             
-                splitContainerControl1.SplitterPosition = 540;
-
                 if (!string.IsNullOrEmpty(ObjEProject.LVRaster))
                 {
                     string[] Levels = ObjEProject.LVRaster.Split('.');
@@ -681,13 +678,6 @@ namespace OTTOPro
                         lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                        splitContainerControl2.SplitterPosition = 280;
-
-                        //if (splitContainerControl2.Panel1.Visible == true)
-                        //{
-                        //    splitContainerControl1.SplitterPosition = 300;
-                        //}
-                        
                     }
                     else if (Count < 5)
                     {
@@ -701,12 +691,6 @@ namespace OTTOPro
                         lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                        splitContainerControl2.SplitterPosition = 310;
-
-                        //if (splitContainerControl2.Panel1.Visible == true)
-                        //{
-                        //    splitContainerControl1.SplitterPosition = 320;
-                        //}
                     }
                     else
                     {
@@ -721,11 +705,6 @@ namespace OTTOPro
                         lciStufe3Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe4Short.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
                         lciStufe4Title.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-
-                        //if (splitContainerControl2.Panel1.Visible == true)
-                        //{
-                        //    splitContainerControl1.SplitterPosition = 350;
-                        //}
                     }
                 }
             }
@@ -1166,7 +1145,7 @@ namespace OTTOPro
                         else
                             btnAddAccessories.Enabled = true;
                     }
-
+                    decimal DValue = 0;
                     txtShortDescription.Rtf = txtShortDescriptionCD.Rtf = tlPositions.FocusedNode["ShortDescription"] == DBNull.Value ? "" : tlPositions.FocusedNode["ShortDescription"].ToString();
                     cmbCDME.Text = cmbME.Text = tlPositions.FocusedNode["ME"] == DBNull.Value ? "" : tlPositions.FocusedNode["ME"].ToString();
                     cmbLVSection.Text = tlPositions.FocusedNode["LVSection"] == DBNull.Value ? "" : tlPositions.FocusedNode["LVSection"].ToString();
@@ -1180,26 +1159,74 @@ namespace OTTOPro
                     txtMo.Text = tlPositions.FocusedNode["MO"] == DBNull.Value ? "" : tlPositions.FocusedNode["MO"].ToString();
                     txtMin.Text = tlPositions.FocusedNode["MINUTES"] == DBNull.Value ? "" : tlPositions.FocusedNode["MINUTES"].ToString();
                     txtFaktor.Text = tlPositions.FocusedNode["Faktor"] == DBNull.Value ? "" : tlPositions.FocusedNode["Faktor"].ToString();
-                    txtLPMe.Text = tlPositions.FocusedNode["MA_listprice"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MA_listprice"].ToString();
-                    txtLPMO.Text = tlPositions.FocusedNode["MO_listprice"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MO_listprice"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_listprice"]),out DValue))
+                    {
+                        Position.MA_ListPrice = DValue;
+                        txtLPMe.Text = Math.Round(DValue,2).ToString("F2");
+                    }
+                    else
+                    { txtLPMe.Text = "0"; }
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_listprice"]), out DValue))
+                    {
+                        Position.MO_ListPrice = DValue;
+                        txtLPMO.Text = Math.Round(DValue, 2).ToString("F2");
+                    }
+                    else
+                    { txtLPMO.Text = "0"; }
                     txtMulti1ME.Text = tlPositions.FocusedNode["MA_Multi1"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_Multi1"].ToString();
                     txtMulti2ME.Text = tlPositions.FocusedNode["MA_multi2"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_multi2"].ToString();
                     txtMulti3ME.Text = tlPositions.FocusedNode["MA_multi3"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_multi3"].ToString();
                     txtMulti4ME.Text = tlPositions.FocusedNode["MA_multi4"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_multi4"].ToString();
-                    txtEinkaufspreisME.Text = tlPositions.FocusedNode["MA_einkaufspreis"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MA_einkaufspreis"].ToString();
-                    txtSelbstkostenValueME.Text = tlPositions.FocusedNode["MA_selbstkosten"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MA_selbstkosten"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_einkaufspreis"]), out DValue))
+                    {
+                        Position.MA_EP = DValue;
+                        txtEinkaufspreisME.Text = Math.Round(DValue, 2).ToString("F2");
+                    }
+                    else
+                    { txtEinkaufspreisME.Text = "0"; }
                     txtSelbstkostenMultiME.Text = tlPositions.FocusedNode["MA_selbstkostenMulti"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_selbstkostenMulti"].ToString();
-                    txtVerkaufspreisValueME.Text = tlPositions.FocusedNode["MA_verkaufspreis"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MA_verkaufspreis"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_selbstkosten"]), out DValue))
+                    {
+                        Position.MA_SK = DValue;
+                        txtSelbstkostenValueME.Text = Math.Round(DValue, 2).ToString("F2");
+                    }
+                    else
+                    { txtSelbstkostenValueME.Text = "0"; }
                     txtVerkaufspreisMultiME.Text = tlPositions.FocusedNode["MA_verkaufspreis_Multi"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_verkaufspreis_Multi"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_verkaufspreis"]), out DValue))
+                    {
+                        Position.MA_VK = DValue;
+                        txtVerkaufspreisValueME.Text = Math.Round(DValue, 2).ToString("F2");
+                    }
+                    else
+                    { txtVerkaufspreisValueME.Text = "0"; }
                     txtMulti1MO.Text = tlPositions.FocusedNode["MO_multi1"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_multi1"].ToString();
                     txtMulti2MO.Text = tlPositions.FocusedNode["MO_multi2"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_multi2"].ToString();
                     txtMulti3MO.Text = tlPositions.FocusedNode["MO_multi3"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_multi3"].ToString();
                     txtMulti4MO.Text = tlPositions.FocusedNode["MO_multi4"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_multi4"].ToString();
-                    txtEinkaufspreisMO.Text = tlPositions.FocusedNode["MO_Einkaufspreis"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MO_Einkaufspreis"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_Einkaufspreis"]), out DValue))
+                    {
+                        Position.MO_EP = DValue;
+                        txtEinkaufspreisMO.Text = Math.Round(DValue, 2).ToString("F2");
+                    }
+                    else
+                    { txtEinkaufspreisMO.Text = "0"; }
                     txtSelbstkostenMultiMO.Text = tlPositions.FocusedNode["MO_selbstkostenMulti"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_selbstkostenMulti"].ToString();
-                    txtSelbstkostenValueMO.Text = tlPositions.FocusedNode["MO_selbstkosten"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MO_selbstkosten"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_selbstkosten"]), out DValue))
+                    {
+                        Position.MO_SK = DValue;
+                        txtSelbstkostenValueMO.Text = Math.Round(DValue, 2).ToString("F2");
+                    }
+                    else
+                    { txtSelbstkostenValueMO.Text = "0"; }
                     txtVerkaufspreisMultiMO.Text = tlPositions.FocusedNode["MO_verkaufspreisMulti"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_verkaufspreisMulti"].ToString();
-                    txtVerkaufspreisValueMO.Text = tlPositions.FocusedNode["MO_verkaufspreis"] == DBNull.Value ? "0" : tlPositions.FocusedNode["MO_verkaufspreis"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_verkaufspreis"]), out DValue))
+                    {
+                        Position.MO_VK = DValue;
+                        txtVerkaufspreisValueMO.Text = Math.Round(DValue, 2).ToString("F2");
+                    }
+                    else
+                    { txtVerkaufspreisValueMO.Text = "0"; }
                     txtStdSatz.Text = tlPositions.FocusedNode["std_satz"] == DBNull.Value ? "0" : tlPositions.FocusedNode["std_satz"].ToString();
                     txtPreisText.Text = tlPositions.FocusedNode["PreisText"] == DBNull.Value ? "" : tlPositions.FocusedNode["PreisText"].ToString();
                     chkEinkaufspreisME.EditValue = tlPositions.FocusedNode["MA_einkaufspreis_lck"] == DBNull.Value ? true : Convert.ToBoolean(tlPositions.FocusedNode["MA_einkaufspreis_lck"]);
@@ -1862,11 +1889,31 @@ namespace OTTOPro
         {
             try
             {
-
                 if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtMulti1ME.Text))
                 {
-                    txtValue1ME.Text = Math.Round(GetValue(getDValue(txtLPMe.Text),
-                        getDValue(txtMulti1ME.Text)), 8).ToString();
+                    Position.MA_ListPrice = getDValue(txtLPMe.Text);
+                    Position.MA_Multi1 = Math.Round(GetValue(getDValue(txtLPMe.Text),
+                        getDValue(txtMulti1ME.Text)), 8);
+                    txtValue1ME.Text = Math.Round(Position.MA_Multi1,2).ToString("F2");
+                }
+                CalculateGrundMultiME();
+                CalculateEinkuafpreisME();
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtMulti1ME_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtMulti1ME.Text))
+                {
+                    Position.MA_Multi1 = Math.Round(GetValue(Position.MA_ListPrice,
+                        getDValue(txtMulti1ME.Text)), 8);
+                    txtValue1ME.Text = Math.Round(Position.MA_Multi1, 2).ToString("F2");
                 }
                 CalculateGrundMultiME();
                 CalculateEinkuafpreisME();
@@ -1883,9 +1930,10 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) && !string.IsNullOrEmpty(txtMulti2ME.Text))
                 {
-                    txtValue2ME.Text = Math.Round(GetValue(getDValue(txtLPMe.Text) +
-                        getDValue(Convert.ToString(txtValue1ME.EditValue)),
-                        getDValue(txtMulti2ME.Text)), 8).ToString();
+                    Position.MA_Multi2 = Math.Round(GetValue(Position.MA_ListPrice +
+                        Position.MA_Multi1,
+                        getDValue(txtMulti2ME.Text)), 8);
+                    txtValue2ME.Text = Math.Round(Position.MA_Multi2, 2).ToString();
                 }
                 CalculateGrundMultiME();
                 CalculateGrundValueME();
@@ -1905,11 +1953,12 @@ namespace OTTOPro
                                 !string.IsNullOrEmpty(Convert.ToString(txtValue2ME.EditValue)) &&
                                 !string.IsNullOrEmpty(txtMulti3ME.Text))
                 {
-                    txtValue3ME.Text = Math.Round(
-                        GetValue(getDValue(txtLPMe.Text)
-                        + getDValue(Convert.ToString(txtValue1ME.EditValue))
-                        + getDValue(Convert.ToString(txtValue2ME.EditValue))
-                        , getDValue(txtMulti3ME.Text)), 8).ToString();
+                    Position.MA_Multi3 = Math.Round(
+                        GetValue(Position.MA_ListPrice
+                        + Position.MA_Multi1
+                        + Position.MA_Multi2
+                        , getDValue(txtMulti3ME.Text)), 8);
+                    txtValue3ME.Text = Math.Round(Position.MA_Multi3, 2).ToString();
                 }
                 CalculateGrundMultiME();
                 CalculateGrundValueME();
@@ -1929,12 +1978,13 @@ namespace OTTOPro
                 !string.IsNullOrEmpty(Convert.ToString(txtValue2ME.EditValue)) &&
                 !string.IsNullOrEmpty(Convert.ToString(txtValue3ME.EditValue)))
                 {
-                    txtValue4ME.Text = Math.Round(GetValue(
-                        getDValue(txtLPMe.Text) +
-                        getDValue(Convert.ToString(txtValue1ME.EditValue)) +
-                        getDValue(Convert.ToString(txtValue2ME.EditValue)) +
-                        getDValue(Convert.ToString(txtValue3ME.EditValue)),
-                        getDValue(txtMulti4ME.Text)), 8).ToString();
+                    Position.MA_Multi4 = Math.Round(GetValue(
+                        Position.MA_ListPrice +
+                        Position.MA_Multi1 +
+                        Position.MA_Multi2 +
+                        Position.MA_Multi3,
+                        getDValue(txtMulti4ME.Text)), 8);
+                    txtValue4ME.Text = Math.Round(Position.MA_Multi4, 2).ToString();
                 }
                 CalculateGrundMultiME();
                 CalculateGrundValueME();
@@ -1958,21 +2008,16 @@ namespace OTTOPro
             }
         }
 
-        private void txtValue5ME_TextChanged(object sender, EventArgs e)
-        {
-            CalculateGrundValueME();
-        }
-
         private void txtEinkaufspreisME_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtEinkaufspreisME.EditValue)) && !string.IsNullOrEmpty(txtSelbstkostenMultiME.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtEinkaufspreisME.EditValue))
+                    && !string.IsNullOrEmpty(txtSelbstkostenMultiME.Text))
                 {
-                    decimal dValue = getDValue(Convert.ToString(txtEinkaufspreisME.EditValue));
-                    txtSelbstkostenValueME.Text =
-                        Math.Round(dValue + GetValue(dValue,
-                        getDValue(txtSelbstkostenMultiME.Text)), 8).ToString();
+                    Position.MA_SK = Math.Round(Position.MA_EP + GetValue(Position.MA_EP,
+                        getDValue(txtSelbstkostenMultiME.Text)), 8);
+                    txtSelbstkostenValueME.Text = Math.Round(Position.MA_SK, 2).ToString();
                 }
             }
             catch (Exception ex)
@@ -1987,10 +2032,9 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(Convert.ToString(txtSelbstkostenValueME.EditValue)) && !string.IsNullOrEmpty(txtVerkaufspreisMultiME.Text))
                 {
-                    decimal dValue = getDValue(Convert.ToString(txtSelbstkostenValueME.EditValue));
-                    decimal TotalDValue = Math.Round(dValue + GetValue(dValue,
+                    Position.MA_VK = Math.Round(Position.MA_SK + GetValue(Position.MA_SK,
                         getDValue(txtVerkaufspreisMultiME.Text)), 8);
-                    txtVerkaufspreisValueME.Text = TotalDValue.ToString();
+                    txtVerkaufspreisValueME.Text = Math.Round(Position.MA_VK,2).ToString("F2");
                 }
             }
             catch (Exception ex)
@@ -2005,8 +2049,9 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) && !string.IsNullOrEmpty(txtMulti1MO.Text))
                 {
-                    txtValue1MO.Text = Math.Round(GetValue(getDValue(Convert.ToString(txtLPMO.EditValue)),
-                        getDValue(txtMulti1MO.Text)),8).ToString();
+                    Position.MO_Multi1 = Math.Round(GetValue(Position.MO_ListPrice,
+                        getDValue(txtMulti1MO.Text)), 8);
+                    txtValue1MO.Text = Math.Round(Position.MO_Multi1,2).ToString();
                 }
                 CalculateGrundMultiMO();
                 CalculateEinkuafpreisMO();
@@ -2021,14 +2066,16 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) && !string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue)) && !string.IsNullOrEmpty(txtMulti2MO.Text))
+                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) 
+                    && !string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue)) 
+                    && !string.IsNullOrEmpty(txtMulti2MO.Text))
                 {
-                    txtValue2MO.Text =
-                        Math.Round(GetValue(
-                        getDValue(Convert.ToString(txtLPMO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue1MO.EditValue)),
+                    Position.MO_Multi2 = Math.Round(GetValue(
+                        Position.MO_ListPrice +
+                        Position.MO_Multi1,
                         getDValue(txtMulti2MO.Text)
-                        ), 8).ToString();
+                        ), 8);
+                    txtValue2MO.Text = Math.Round(Position.MO_Multi2, 2).ToString();
                 }
                 CalculateGrundMultiMO();
                 CalculateGrundValueMO();
@@ -2048,13 +2095,14 @@ namespace OTTOPro
                                 && !string.IsNullOrEmpty(Convert.ToString(txtValue2MO.EditValue))
                                 && !string.IsNullOrEmpty(txtMulti3MO.Text))
                 {
-                    txtValue3MO.Text =
-                        Math.Round(GetValue(
-                        getDValue(Convert.ToString(txtLPMO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue1MO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue2MO.EditValue)),
+                    Position.MO_Multi3 = Math.Round(GetValue(
+                        Position.MO_ListPrice +
+                        Position.MO_Multi1 +
+                        Position.MO_Multi2,
                         getDValue(txtMulti3MO.Text)
-                        ), 8).ToString();
+                        ), 8);
+                    txtValue3MO.Text =
+                        Math.Round(Position.MO_Multi3, 2).ToString();
                 }
                 CalculateGrundMultiMO();
                 CalculateGrundValueMO();
@@ -2075,14 +2123,15 @@ namespace OTTOPro
                                 && !string.IsNullOrEmpty(Convert.ToString(txtValue3MO.EditValue))
                                 && !string.IsNullOrEmpty(txtMulti4MO.Text))
                 {
-                    txtValue4MO.Text =
-                       Math.Round(GetValue(
-                        getDValue(Convert.ToString(txtLPMO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue1MO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue2MO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue3MO.EditValue)),
+                    Position.MO_Multi4 = Math.Round(GetValue(
+                        Position.MO_ListPrice +
+                        Position.MO_Multi1 +
+                        Position.MO_Multi2 +
+                        Position.MO_Multi3,
                         getDValue(txtMulti4MO.Text)
-                        ), 8).ToString();
+                        ), 8);
+                    txtValue4MO.Text =
+                       Math.Round(Position.MO_Multi4, 2).ToString();
                 }
                 CalculateGrundMultiMO();
                 CalculateGrundValueMO();
@@ -2117,10 +2166,10 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(Convert.ToString(txtEinkaufspreisMO.EditValue)) && !string.IsNullOrEmpty(txtSelbstkostenMultiMO.Text))
                 {
-                    decimal dValue = getDValue(Convert.ToString(txtEinkaufspreisMO.EditValue));
+                    Position.MO_SK = Math.Round(Position.MO_EP + GetValue(Position.MO_EP,
+                        getDValue(txtSelbstkostenMultiMO.Text)), 8);
                     txtSelbstkostenValueMO.Text =
-                        Math.Round(dValue + GetValue(dValue,
-                        getDValue(txtSelbstkostenMultiMO.Text)), 8).ToString();
+                        Math.Round(Position.MO_SK, 2).ToString();
                 }
             }
             catch (Exception ex)
@@ -2135,10 +2184,9 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(Convert.ToString(txtSelbstkostenValueMO.EditValue)) && !string.IsNullOrEmpty(txtVerkaufspreisMultiMO.Text))
                 {
-                    decimal dValue = getDValue(Convert.ToString(txtSelbstkostenValueMO.EditValue));
-                    decimal TotalDValue = Math.Round(dValue + GetValue(dValue,
+                    Position.MO_VK = Math.Round(Position.MO_SK + GetValue(Position.MO_SK,
                         getDValue(txtVerkaufspreisMultiMO.Text)), 8);
-                    txtVerkaufspreisValueMO.Text = TotalDValue.ToString();
+                    txtVerkaufspreisValueMO.Text = Math.Round(Position.MO_VK,2).ToString();
                 }
             }
             catch (Exception ex)
@@ -2189,10 +2237,11 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(Convert.ToString(txtHours.EditValue)) && !string.IsNullOrEmpty(txtFaktor.Text) && !string.IsNullOrEmpty(txtStdSatz.Text))
                 {
-                    txtLPMO.Text = Math.Round(
+                    Position.MO_ListPrice = Math.Round(
                         getDValue(Convert.ToString(txtHours.EditValue)) *
                         getDValue(txtFaktor.Text) *
-                        getDValue(txtStdSatz.Text), 8).ToString();
+                        getDValue(txtStdSatz.Text), 8);
+                    txtLPMO.Text = Math.Round(Position.MO_ListPrice, 2).ToString();
                 }
             }
             catch (Exception ex)
@@ -2245,12 +2294,11 @@ namespace OTTOPro
                                 !string.IsNullOrEmpty(Convert.ToString(txtValue4ME.EditValue))
                                 )
                 {
-                    decimal GrundMulti =
-                        Math.Round(getDValue(Convert.ToString(txtValue1ME.EditValue)) +
-                        getDValue(Convert.ToString(txtValue2ME.EditValue)) +
-                        getDValue(Convert.ToString(txtValue3ME.EditValue)) +
-                        getDValue(Convert.ToString(txtValue4ME.EditValue)), 8);
-                    txtGrundValueME.Text = GrundMulti.ToString();
+                    Position.MA_GrundMulti = Math.Round(Position.MA_Multi1 +
+                        Position.MA_Multi2 +
+                        Position.MA_Multi3 +
+                        Position.MA_Multi4, 8);
+                    txtGrundValueME.Text = Math.Round(Position.MA_GrundMulti,2).ToString("F2");
                 }
             }
             catch (Exception ex)
@@ -2293,11 +2341,12 @@ namespace OTTOPro
                                 !string.IsNullOrEmpty(Convert.ToString(txtValue4MO.EditValue))
                                 )
                 {
-                    decimal GrundMulti = Math.Round(getDValue(Convert.ToString(txtValue1MO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue2MO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue3MO.EditValue)) +
-                        getDValue(Convert.ToString(txtValue4MO.EditValue)), 8);
-                    txtGrundValueMO.Text = GrundMulti.ToString();
+                    Position.MO_GrundMulti = Math.Round(
+                        Position.MO_Multi1 +
+                        Position.MO_Multi2 +
+                        Position.MO_Multi3 +
+                        Position.MO_Multi4, 8);
+                    txtGrundValueMO.Text = Math.Round(Position.MO_GrundMulti,2).ToString();
                 }
             }
             catch (Exception ex)
@@ -2312,9 +2361,9 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtGrundMultiME.Text))
                 {
-                    decimal LPMe = getDValue(txtLPMe.Text);
-                    txtEinkaufspreisME.Text = Math.Round(LPMe
-                        + GetValue(LPMe, getDValue(Convert.ToString(txtGrundMultiME.EditValue))), 8).ToString();
+                    Position.MA_EP = Math.Round(Position.MA_ListPrice
+                        + GetValue(Position.MA_ListPrice, getDValue(Convert.ToString(txtGrundMultiME.EditValue))), 8);
+                    txtEinkaufspreisME.Text = Math.Round(Position.MA_EP,2).ToString();
                 }
             }
             catch (Exception ex)
@@ -2329,9 +2378,10 @@ namespace OTTOPro
             {
                 if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) && !string.IsNullOrEmpty(txtGrundMultiMO.Text))
                 {
-                    decimal LPMe = getDValue(Convert.ToString(txtLPMO.EditValue));
-                    txtEinkaufspreisMO.Text = Math.Round(LPMe
-                        + GetValue(LPMe, getDValue(Convert.ToString(txtGrundMultiMO.EditValue))), 8).ToString();
+                    Position.MO_EP = Math.Round(Position.MO_ListPrice
+                        + GetValue(Position.MO_ListPrice,
+                        getDValue(Convert.ToString(txtGrundMultiMO.EditValue))), 8);
+                    txtEinkaufspreisMO.Text = Math.Round(Position.MO_EP, 2).ToString();
                 }
             }
             catch (Exception ex)
@@ -2362,7 +2412,7 @@ namespace OTTOPro
             {
                 if (!decimal.TryParse(strValue, out dValue))
                 {
-                    //throw new Exception("Invalid Value Entered in");
+
                 }
             }
             catch (Exception ex)
@@ -2395,8 +2445,8 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtGrundMultiME.Text) &&
-                               !string.IsNullOrEmpty(txtGrundMultiMO.Text)
+                if (!string.IsNullOrEmpty(txtGrandTotalME.Text) &&
+                               !string.IsNullOrEmpty(txtGrandTotalMO.Text)
                                )
                 {
                     decimal EP = getDValue(txtGrandTotalME.Text) +
@@ -2832,13 +2882,13 @@ namespace OTTOPro
                         {
                             if (splitContainerControl2.SplitterPosition == 0)
                             {
-                                splitContainerControl2.SplitterPosition = 320;
-                                splitContainerControl1.SplitterPosition = 320;
+                                splitContainerControl2.SplitterPosition = 350;
+                                splitContainerControl1.SplitterPosition = 350;
                             }
                             else if (splitContainerControl2.SplitterPosition > 0)
                             {
                                 splitContainerControl2.SplitterPosition = 0;
-                                splitContainerControl1.SplitterPosition = 550;
+                                splitContainerControl1.SplitterPosition = 560;
                             }
                         }
                     }
@@ -3931,6 +3981,8 @@ namespace OTTOPro
                                 if (ObjEPosition == null)
                                     ObjEPosition = new EPosition();
                                 ParseLVAndDetailKZCopyLV(dr, strPositionOZ, strParentOZ, iSNOValue, string.Empty, false);
+                                if(string.IsNullOrEmpty(ObjEPosition.Position_OZ))
+                                    return;
                                 NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
                                 if (iSNOValue != -1)
                                     iSNOValue++;
@@ -4006,7 +4058,10 @@ namespace OTTOPro
                     Obj.strNewOZ = _Suggested_OZ;
                     Obj.ShowDialog();
                     if (!Obj.IsSave)
+                    {
+                        ObjEPosition.Position_OZ = string.Empty;
                         return;
+                    }
                     _Suggested_OZ = Obj.strNewOZ;
 
                     string str = string.Empty;
@@ -6159,12 +6214,7 @@ namespace OTTOPro
                 else
                 {
                     //if(splitContainerControl1.PanelVisibility == SplitPanelVisibility.Panel2)
-                        
                 }
-
-                
-
-
                 if (ObjEProject.IsFinalInvoice)
                 {
                     btnNew.Enabled = false;
@@ -6173,6 +6223,11 @@ namespace OTTOPro
                     chkCreateNew.Enabled = false;
                     tlPositions.OptionsBehavior.Editable = false;
                 }
+
+                if (splitContainerControl2.PanelVisibility == SplitPanelVisibility.Panel1)
+                    splitContainerControl1.SplitterPosition = 350;
+                else if (splitContainerControl2.PanelVisibility == SplitPanelVisibility.Panel2)
+                    splitContainerControl1.SplitterPosition = 560;
 
                 SetRoundingPriceforColumn();
             }
@@ -8502,6 +8557,7 @@ namespace OTTOPro
                         ObjTabDetails = tbCopyLVs;
                         TabChange(ObjTabDetails);
                         FillProjectNumber();
+                        rgDropMode.SelectedIndex = 2;
                     }
                     else
                     {
@@ -11185,36 +11241,6 @@ namespace OTTOPro
             }
         }
 
-        private void txtValue1MO_Properties_Enter(object sender, EventArgs e)
-        {
-            try
-            {
-                TextEdit textBox = (TextEdit)sender;
-                textBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-                textBox.Properties.Mask.EditMask = "N8";
-                textBox.Properties.Mask.UseMaskAsDisplayFormat = true;
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void txtValue1MO_Properties_Leave(object sender, EventArgs e)
-        {
-            try
-            {
-                TextEdit textBox = (TextEdit)sender;
-                textBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-                textBox.Properties.Mask.EditMask = "N2";
-                textBox.Properties.Mask.UseMaskAsDisplayFormat = true;
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void gvMulti5_CustomRowCellEditForEditing(object sender, CustomRowCellEditEventArgs e)
         {
             try
@@ -11277,6 +11303,175 @@ namespace OTTOPro
                         LongDescription = string.Empty;
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtVerkaufspreisValueME_MouseEnter(object sender, EventArgs e)
+        {
+            try
+            {
+                TextEdit textedit = (TextEdit)sender;
+                ShowTooltip(textedit);   
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void ShowTooltip(TextEdit textedit)
+        {
+            try
+            {
+                string formattedMessage = "Press 'Enter' to see the updated Verkaufspreis Multi";
+                Point toolTipLocation = textedit.PointToScreen(new Point(0, textedit.Height));
+                toolTipController1.ShowHint(formattedMessage, ToolTipLocation.Fixed, toolTipLocation);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void txtVerkaufspreisValueME_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    decimal SelbValue = 0;
+                    decimal VerkValue = 0;
+                    if (decimal.TryParse(txtSelbstkostenValueME.Text, out SelbValue)
+                        && decimal.TryParse(txtVerkaufspreisValueME.Text, out VerkValue))
+                    {
+                        Position.MA_VK = VerkValue;
+                        decimal VerkMulti = 0;
+                        VerkMulti = Math.Round(Position.MA_VK / Position.MA_SK, 3);
+                        txtVerkaufspreisMultiME.EditValue = VerkMulti;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtVerkaufspreisValueMO_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            try
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    decimal SelbValue = 0;
+                    decimal VerkValue = 0;
+                    if (decimal.TryParse(txtSelbstkostenValueMO.Text, out SelbValue)
+                        && decimal.TryParse(txtVerkaufspreisValueMO.Text, out VerkValue))
+                    {
+                        Position.MO_VK = VerkValue;
+                        decimal VerkMulti = 0;
+                        VerkMulti = Math.Round(Position.MO_VK / Position.MO_SK, 3);
+                        txtVerkaufspreisMultiMO.EditValue = VerkMulti;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtValue1MO_Properties_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                TextEdit textBox = (TextEdit)sender;
+                textBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+                textBox.Properties.Mask.EditMask = "N8";
+                textBox.Properties.Mask.UseMaskAsDisplayFormat = true;
+                if (textBox == txtLPMe)
+                    textBox.EditValue = Position.MA_ListPrice;
+                else if (textBox == txtValue1ME)
+                    textBox.EditValue = Position.MA_Multi1;
+                else if (textBox == txtValue2ME)
+                    textBox.EditValue = Position.MA_Multi2;
+                else if (textBox == txtValue3ME)
+                    textBox.EditValue = Position.MA_Multi3;
+                else if (textBox == txtValue4ME)
+                    textBox.EditValue = Position.MA_Multi4;
+                else if (textBox == txtEinkaufspreisME)
+                    textBox.EditValue = Position.MA_EP;
+                else if (textBox == txtSelbstkostenValueME)
+                    textBox.EditValue = Position.MA_SK;
+                else if (textBox == txtVerkaufspreisValueME)
+                    textBox.EditValue = Position.MA_VK;
+                else if (textBox == txtLPMO)
+                    textBox.EditValue = Position.MO_ListPrice;
+                else if (textBox == txtValue1MO)
+                    textBox.EditValue = Position.MO_Multi1;
+                else if (textBox == txtValue2MO)
+                    textBox.EditValue = Position.MO_Multi2;
+                else if (textBox == txtValue3MO)
+                    textBox.EditValue = Position.MO_Multi3;
+                else if (textBox == txtValue4MO)
+                    textBox.EditValue = Position.MO_Multi4;
+                else if (textBox == txtEinkaufspreisMO)
+                    textBox.EditValue = Position.MO_EP;
+                else if (textBox == txtSelbstkostenValueMO)
+                    textBox.EditValue = Position.MO_SK;
+                else if (textBox == txtVerkaufspreisValueMO)
+                    textBox.EditValue = Position.MO_VK;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtValue1MO_Properties_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                TextEdit textBox = (TextEdit)sender;
+                textBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+                textBox.Properties.Mask.EditMask = "N2";
+                textBox.Properties.Mask.UseMaskAsDisplayFormat = true;
+                if (textBox == txtLPMe)
+                    textBox.EditValue = Math.Round(Position.MA_ListPrice,2);
+                else if (textBox == txtValue1ME)
+                    textBox.EditValue = Math.Round(Position.MA_Multi1,2);
+                else if (textBox == txtValue2ME)
+                    textBox.EditValue = Math.Round(Position.MA_Multi2,2);
+                else if (textBox == txtValue3ME)
+                    textBox.EditValue = Math.Round(Position.MA_Multi3,2);
+                else if (textBox == txtValue4ME)
+                    textBox.EditValue = Math.Round(Position.MA_Multi4,2);
+                else if (textBox == txtEinkaufspreisME)
+                    textBox.EditValue = Math.Round(Position.MA_EP,2);
+                else if (textBox == txtSelbstkostenValueME)
+                    textBox.EditValue = Math.Round(Position.MA_SK,2);
+                else if (textBox == txtVerkaufspreisValueME)
+                    textBox.EditValue = Math.Round(Position.MA_VK,2);
+                else if (textBox == txtLPMO)
+                    textBox.EditValue = Math.Round(Position.MO_ListPrice,2);
+                else if (textBox == txtValue1MO)
+                    textBox.EditValue = Math.Round(Position.MO_Multi1,2);
+                else if (textBox == txtValue2MO)
+                    textBox.EditValue = Math.Round(Position.MO_Multi2,2);
+                else if (textBox == txtValue3MO)
+                    textBox.EditValue = Math.Round(Position.MO_Multi3,2);
+                else if (textBox == txtValue4MO)
+                    textBox.EditValue = Math.Round(Position.MO_Multi4,2);
+                else if (textBox == txtEinkaufspreisMO)
+                    textBox.EditValue = Math.Round(Position.MO_EP,2);
+                else if (textBox == txtSelbstkostenValueMO)
+                    textBox.EditValue = Math.Round(Position.MO_SK,2);
+                else if (textBox == txtVerkaufspreisValueMO)
+                    textBox.EditValue = Math.Round(Position.MO_VK,2);
             }
             catch (Exception ex)
             {

@@ -2,14 +2,15 @@
 <xs:schema id="dsProposalCommon" targetNamespace="http://tempuri.org/dsProposalCommon.xsd" xmlns:mstns="http://tempuri.org/dsProposalCommon.xsd" xmlns="http://tempuri.org/dsProposalCommon.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOPro" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOPro (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOPro" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="P_Rpt_PositionForProposalPriceForCommonTableAdapter" GeneratorDataComponentClassName="P_Rpt_PositionForProposalPriceForCommonTableAdapter" Name="P_Rpt_PositionForProposalPriceForCommon" UserDataComponentName="P_Rpt_PositionForProposalPriceForCommonTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="OTTOPro (Settings)" DbObjectName="OTTOPro_Dev.dbo.P_Rpt_PositionForProposalPriceForCommon" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="OTTOConnectionString (Settings)" DbObjectName="OTTO.dbo.P_Rpt_PositionForProposalPriceForCommon" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.P_Rpt_PositionForProposalPriceForCommon</CommandText>
@@ -53,6 +54,8 @@
               <Mapping SourceColumn="Title2Desc" DataSetColumn="Title2Desc" />
               <Mapping SourceColumn="Title3Desc" DataSetColumn="Title3Desc" />
               <Mapping SourceColumn="KurzText" DataSetColumn="KurzText" />
+              <Mapping SourceColumn="EP" DataSetColumn="EP" />
+              <Mapping SourceColumn="PreisText" DataSetColumn="PreisText" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -183,6 +186,13 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="PreisText" msprop:Generator_ColumnVarNameInTable="columnPreisText" msprop:Generator_ColumnPropNameInRow="PreisText" msprop:Generator_ColumnPropNameInTable="PreisTextColumn" msprop:Generator_UserColumnName="PreisText" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

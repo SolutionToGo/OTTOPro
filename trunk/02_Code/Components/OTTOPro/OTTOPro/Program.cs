@@ -1,4 +1,5 @@
-﻿using BL; 
+﻿using BL;
+using DevExpress.LookAndFeel;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -37,7 +38,7 @@ namespace OTTOPro
                 // Note: The following properties are supported in the .NET Framework 4.5+ 
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
-
+                UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 

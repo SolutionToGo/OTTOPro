@@ -58,6 +58,11 @@ namespace EL
         private DataTable _dtCockpitData;
         private DataTable _dtTemplateData;
 
+        private decimal _SValue = 0;
+        private decimal _XValue = 0;
+        private decimal _UmlageCost = 0;
+        private decimal _RevenueTotal = 0;
+
         public string FromOZ
         {
             get { return _FromOZ; }
@@ -341,6 +346,27 @@ namespace EL
         {
             get { return _TemplatePath; }
             set { _TemplatePath = value; }
+        }
+
+        public decimal SValue
+        {
+            get { return _SValue; }
+            set { _SValue = value; }
+        }
+        public decimal XValue
+        {
+            get { return _XValue; }
+            set { _XValue = value; }
+        }
+        public decimal UmlageCost
+        {
+            get { return _UmlageCost; }
+            set { _UmlageCost = value; }
+        }
+        public decimal RevenueTotal
+        {
+            get { return _RevenueTotal; }
+            set { _RevenueTotal = value; }
         }
     }
 }

@@ -505,6 +505,7 @@
     <Compile Include="OTTOPro.Designer.cs">
       <DependentUpon>OTTOPro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Position.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs">
       <SubType>Form</SubType>

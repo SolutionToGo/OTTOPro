@@ -642,7 +642,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.1.5 (27-04-2018)";
+            this.label1.Text = "Version Software 9.1.6 (30-05-2018)";
             // 
             // fdImportFile
             // 
