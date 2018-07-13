@@ -19,8 +19,8 @@ namespace OTTOPro
         public string strName = string.Empty;
         private string _NewLVSection = string.Empty;
         private bool _IsSave = false;
-        private bool _ISUpdated = false;
         private bool _isFirstTime = true;
+        private bool _ISUpdated = false;
         private string _FormType;
         bool _isValidate = false;
 

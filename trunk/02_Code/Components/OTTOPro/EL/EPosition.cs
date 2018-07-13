@@ -601,5 +601,7 @@ namespace EL
             get { return _Dim; }
             set { _Dim = value; }
         }
+
+        public DataTable dtArticle { get; set; }
     }
 }

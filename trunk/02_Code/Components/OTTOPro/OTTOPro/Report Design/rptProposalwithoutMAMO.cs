@@ -27,7 +27,6 @@ namespace OTTOPro.Report_Design
             _LVSection = LVSection;
         }
 
-        double totalGB1 = 0;
         private void xrlblPageSum_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
             e.Result = _xrGBVlaue;
@@ -269,13 +268,5 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }
         }
-
-        
-            
-             
-      
-
-//**********************
-
     }
 }

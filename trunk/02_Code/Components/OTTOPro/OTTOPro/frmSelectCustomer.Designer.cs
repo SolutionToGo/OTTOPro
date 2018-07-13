@@ -122,13 +122,7 @@
             this.gvCustomer.Name = "gvCustomer";
             this.gvCustomer.OptionsBehavior.Editable = false;
             this.gvCustomer.OptionsBehavior.ReadOnly = true;
-            this.gvCustomer.OptionsFilter.AllowFilterEditor = false;
-            this.gvCustomer.OptionsFind.AlwaysVisible = true;
             this.gvCustomer.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
-            this.gvCustomer.OptionsFind.ShowFindButton = false;
-            this.gvCustomer.OptionsMenu.EnableColumnMenu = false;
-            this.gvCustomer.OptionsMenu.EnableFooterMenu = false;
-            this.gvCustomer.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvCustomer.OptionsView.ShowGroupPanel = false;
             this.gvCustomer.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvCustomer_FocusedRowChanged);
             // 

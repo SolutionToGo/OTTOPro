@@ -14,11 +14,10 @@ namespace BL
     {
         DOTTO ObjDOTTO = new DOTTO();
 
-        public int SaveOTTODetails(EOTTO ObjEOTTO)
+        public EOTTO SaveOTTODetails(EOTTO ObjEOTTO)
         {
             try
             {
-                int OTTOID = -1;
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/OTTO";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "OttoID", ObjEOTTO.OTTOID.ToString());
@@ -53,50 +52,32 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SeatofCompany", ObjEOTTO.SeatofCompany);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ManagingDirector", ObjEOTTO.ManagingDirector);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Complementary", ObjEOTTO.Complementary);
-
-                OTTOID = ObjDOTTO.SaveOTTODetails(Xdoc);
-                if (OTTOID < 0)
-                {
-                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    {
-                        throw new Exception("Fehler beim Speichern von Daten zu OTTO");
-                    }
-                    else
-                    {
-                        throw new Exception("Failed to Save OTTO Details");
-                    }
-                }
-                return OTTOID;
+                ObjEOTTO = ObjDOTTO.SaveOTTODetails(Xdoc, ObjEOTTO);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex){throw;}
+            return ObjEOTTO;
         }
 
-        public void GetOTTODetails(EOTTO ObjEOTTO)
+        public EOTTO GetOTTODetails(EOTTO ObjEOTTO)
         {
             try
             {
                 if (ObjEOTTO != null)
                 {
-                    ObjEOTTO.dsOTTO = ObjDOTTO.GetOTTODetails();
+                    ObjEOTTO = ObjDOTTO.GetOTTODetails(ObjEOTTO);
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex){throw;}
+            return ObjEOTTO;
         }
 
-        public int SaveOTTOContactDetails(EOTTO ObjEOTTO)
+        public EOTTO SaveOTTOContactDetails(EOTTO ObjEOTTO)
         {
             try
             {
-                int ContactID = -1;
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/OTTOContact";
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "OttoID", ObjEOTTO.Cont_OttoID.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "OttoID", ObjEOTTO.OTTOID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ContactID", ObjEOTTO.ContactID.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ContactPerson", ObjEOTTO.ContactPerson);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Telephone", ObjEOTTO.Cont_Telephone);
@@ -104,28 +85,11 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjEOTTO.EmailID);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TaxNo", ObjEOTTO.TaxNo);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DefaultContact", ObjEOTTO.DefaultContact.ToString());
-
-
-                ContactID = ObjDOTTO.SaveOTTOContactDetails(Xdoc);
-                if (ContactID < 0)
-                {
-                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    {
-                        throw new Exception("Fehler beim Speichern der OTTO Kontaktdaten");
-                    }
-                    else
-                    {
-                        throw new Exception("Failed to Save OTTO Contact");
-                    }
-                }
-                return ContactID;
+                ObjEOTTO = ObjDOTTO.SaveOTTOContactDetails(Xdoc, ObjEOTTO);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex){throw;}
+            return ObjEOTTO;
         }
-
 
         public void ImportCustomerData(DataTable dt)
         {
@@ -139,5 +103,4 @@ namespace BL
             }
         }
     }
-//************
 }

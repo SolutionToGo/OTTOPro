@@ -14,7 +14,7 @@ namespace DataAccess
 {
     public class DSupplier
     {
-        public ESupplier SaveSupplierDetails(XmlDocument XmlDoc,ESupplier ObjESupplier)
+        public ESupplier SaveSupplierDetails(XmlDocument XmlDoc, ESupplier ObjESupplier)
         {
             int SupplierID = -1;
             DataSet ds = new DataSet();
@@ -46,27 +46,17 @@ namespace DataAccess
                         else if (str.ToString().Contains("duplicate"))
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
                                 throw new Exception("Dieser Kurzname ist bereits vergeben");
-                            }
                             else
-                            {
                                 throw new Exception("ShortName is already exists.!");
-                            }
                         }
                         else
                             throw new Exception(str);
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
+            catch (Exception ex) { throw; }
+            finally { SQLCon.Sqlconn().Close(); }
             return ObjESupplier;
         }
 
@@ -89,14 +79,9 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
                     throw new Exception("Fehler beim Laden des Kunden");
-                }
                 else
-                {
                     throw new Exception("Error Occured While Retreiving Customer");
-
-                }
             }
             finally
             {
@@ -261,7 +246,6 @@ namespace DataAccess
             return ObjESupplier;
         }
 
-        //SUPPLIER PROPOSAL
         public DataSet GetWGWaforProposal(int _Pid, string _LvSection, string wg, string wa)
         {
             DataSet dsWGWA = new DataSet();

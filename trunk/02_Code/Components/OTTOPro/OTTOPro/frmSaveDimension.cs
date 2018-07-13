@@ -21,6 +21,7 @@ namespace OTTOPro
         string _Formtype = string.Empty;
         string _ValidDate = string.Empty;
         int _Wiid = 0;
+        bool Iscopy = false;
 
         public frmSaveDimension()
         {
@@ -48,14 +49,21 @@ namespace OTTOPro
             {
                 if(_Formtype=="Dimension")
                 {
+                    if (ObjEArticle == null)
+                        ObjEArticle = new EArticles();
+                    ObjEArticle.IsCopy = true;
                     lblArticle.Text = strArticle;
                     dateEditGultigkeit.DateTime = DateTime.Now;
                     BindDimensions(ObjEArticle.WIID);
                     dateEditGultigkeit.ReadOnly = false;
                     dateEditGultigkeit.Properties.MinValue = DateTime.Now;
+                    gvDimensions.BestFitColumns();
                 }
-                if(_Formtype=="ValidityDate")
+                else if(_Formtype=="ValidityDate")
                 {
+                    if (ObjEArticle == null)
+                        ObjEArticle = new EArticles();
+                    ObjEArticle.IsCopy = false;
                     DateTime _date= Convert.ToDateTime(_ValidDate);
                     if (DateTime.TryParse(_ValidDate, out _date))
                     {
@@ -63,11 +71,8 @@ namespace OTTOPro
                     }
                     BindDimensionsValidityDate(_Wiid, _date);
                     dateEditGultigkeit.ReadOnly = true;
-                      
-                    layoutControlItem4.Visibility=DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                    layoutControlItem3.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
                     lblArticle.Text = strArticle;
-                    gvDimensions.OptionsBehavior.Editable = false;
+                    gvDimensions.BestFitColumns();
                 }
                 
             }
@@ -84,6 +89,7 @@ namespace OTTOPro
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
                 ObjEArticle.ValidityDate = dateEditGultigkeit.DateTime;
+                ObjEArticle.dtDim = ((DataView)gvDimensions.DataSource).ToTable();
                 ObjEArticle = ObjBArticle.SaveDimensionCopy(ObjEArticle);
                 MessageBox.Show("Maße / Artikeldaten mit neuem Gültigkeitsdatum wurden gespeichert : " + string.Format("{0:y}", dateEditGultigkeit.DateTime));
                 this.Close();
@@ -105,7 +111,7 @@ namespace OTTOPro
             {
                 DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
                 dvDimensions.RowFilter = "WIID = '" + WIID + "'";
-                gcDimensions.DataSource = dvDimensions;
+                gcDimensions.DataSource = dvDimensions.ToTable();
                 gvDimensions.BestFitColumns();
             }
             catch (Exception ex)

@@ -31,17 +31,17 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.gcAddTyp = new DevExpress.XtraGrid.GridControl();
             this.gvAddTyp = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.repositoryItemDateEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcAddTyp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAddTyp)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -59,12 +59,12 @@
             // 
             // gcAddTyp
             // 
-            this.gcAddTyp.Location = new System.Drawing.Point(12, 12);
+            this.gcAddTyp.Location = new System.Drawing.Point(3, 3);
             this.gcAddTyp.MainView = this.gvAddTyp;
             this.gcAddTyp.Name = "gcAddTyp";
             this.gcAddTyp.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemDateEdit1});
-            this.gcAddTyp.Size = new System.Drawing.Size(488, 283);
+            this.gcAddTyp.Size = new System.Drawing.Size(506, 301);
             this.gcAddTyp.TabIndex = 4;
             this.gcAddTyp.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvAddTyp});
@@ -73,6 +73,8 @@
             // 
             this.gvAddTyp.Appearance.Empty.BackColor = System.Drawing.Color.Silver;
             this.gvAddTyp.Appearance.Empty.Options.UseBackColor = true;
+            this.gvAddTyp.Appearance.FocusedCell.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.gvAddTyp.Appearance.FocusedCell.Options.UseBackColor = true;
             this.gvAddTyp.Appearance.FocusedRow.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.gvAddTyp.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvAddTyp.Appearance.HeaderPanel.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -98,26 +100,6 @@
             this.gvAddTyp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.gvAddTyp_KeyPress);
             this.gvAddTyp.DoubleClick += new System.EventHandler(this.gvAddTyp_DoubleClick);
             // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(512, 307);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.gcAddTyp;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(492, 287);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
-            // 
             // repositoryItemDateEdit1
             // 
             this.repositoryItemDateEdit1.AutoHeight = false;
@@ -131,6 +113,27 @@
             this.repositoryItemDateEdit1.EditFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
             this.repositoryItemDateEdit1.Mask.EditMask = "y";
             this.repositoryItemDateEdit1.Name = "repositoryItemDateEdit1";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "Root";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(512, 307);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.gcAddTyp;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(510, 305);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
             // 
             // frmAddType
             // 
@@ -151,10 +154,10 @@
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcAddTyp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvAddTyp)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemDateEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

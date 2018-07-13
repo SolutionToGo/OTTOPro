@@ -1146,7 +1146,7 @@
             this.xrTableCell8.StylePriority.UseFont = false;
             this.xrTableCell8.StylePriority.UsePadding = false;
             this.xrTableCell8.StylePriority.UseTextAlignment = false;
-            this.xrTableCell8.Text = "Lohnzusatzkosten\r\nSozialkosten, Soziallöhne und lohnbezogene Kosten, aks Zuschlag" +
+            this.xrTableCell8.Text = "Lohnzusatzkosten\r\nSozialkosten, Soziallöhne und lohnbezogene Kosten, als Zuschlag" +
     " auf ML";
             this.xrTableCell8.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell8.Weight = 3.8000537746106131D;
@@ -1224,7 +1224,7 @@
             this.xrTableCell18.StylePriority.UseFont = false;
             this.xrTableCell18.StylePriority.UsePadding = false;
             this.xrTableCell18.StylePriority.UseTextAlignment = false;
-            this.xrTableCell18.Text = "Lohnnebenkosten\r\nAustösungen, Fahrgeler, als Zuschalg auf ML";
+            this.xrTableCell18.Text = "Lohnnebenkosten\r\nAuslösungen, Fahrgelder, als Zuschlag auf ML";
             this.xrTableCell18.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell18.Weight = 3.8000537746106131D;
             // 
@@ -1372,7 +1372,7 @@
             this.xrTableCell22.StylePriority.UseFont = false;
             this.xrTableCell22.StylePriority.UsePadding = false;
             this.xrTableCell22.StylePriority.UseTextAlignment = false;
-            this.xrTableCell22.Text = "Zuschlag auf Kalkulationslohn\r\n(aus Zeile 2.4, Splate 1)";
+            this.xrTableCell22.Text = "Zuschlag auf Kalkulationslohn\r\n(aus Zeile 2.4, Spalte 1)";
             this.xrTableCell22.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell22.Weight = 3.8000537746106131D;
             // 
@@ -1723,7 +1723,7 @@
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.StylePriority.UseFont = false;
             this.xrTableCell56.StylePriority.UseTextAlignment = false;
-            this.xrTableCell56.Text = "Gesamitzuschläge\r\n";
+            this.xrTableCell56.Text = "Gesamtzuschläge";
             this.xrTableCell56.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell56.Weight = 1.81809784258734D;
             // 
@@ -1874,7 +1874,7 @@
             this.xrTableCell74.StylePriority.UseFont = false;
             this.xrTableCell74.StylePriority.UsePadding = false;
             this.xrTableCell74.StylePriority.UseTextAlignment = false;
-            this.xrTableCell74.Text = "Eigene Lohnkosten\t\r\nverrechnungslohb(1.6) * Gesamtstunden\t\t\t\r\n\r\n\t\t\t\t\r\n";
+            this.xrTableCell74.Text = "Eigene Lohnkosten\t\r\nVerrechnungslohn (1.6) * Gesamtstunden\t\t\t\r\n\r\n\t\t\t\t\r\n";
             this.xrTableCell74.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell74.Weight = 3.889589585018471D;
             // 
@@ -1962,7 +1962,7 @@
             this.xrTableCell80.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell80.CanGrow = false;
             this.xrTableCell80.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Total", "{0:n8}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Total", "{0:n2}")});
             this.xrTableCell80.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell80.Multiline = true;
             this.xrTableCell80.Name = "xrTableCell80";
@@ -1979,7 +1979,7 @@
             this.xrTableCell79.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell79.CanGrow = false;
             this.xrTableCell79.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_1", "{0:n8}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.TotalHours", "{0:n2}")});
             this.xrTableCell79.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell79.Name = "xrTableCell79";
             this.xrTableCell79.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
@@ -1995,7 +1995,7 @@
             this.xrTableCell82.Borders = ((DevExpress.XtraPrinting.BorderSide)((DevExpress.XtraPrinting.BorderSide.Right | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell82.CanGrow = false;
             this.xrTableCell82.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.ResultEigen", "{0:n2}")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_1", "{0:n2}")});
             this.xrTableCell82.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell82.Name = "xrTableCell82";
             this.xrTableCell82.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
@@ -2099,7 +2099,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell90.CanGrow = false;
             this.xrTableCell90.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_2")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_2", "{0:n2}")});
             this.xrTableCell90.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell90.Multiline = true;
             this.xrTableCell90.Name = "xrTableCell90";
@@ -2153,7 +2153,7 @@
             this.xrTableCell89.StylePriority.UseFont = false;
             this.xrTableCell89.StylePriority.UsePadding = false;
             this.xrTableCell89.StylePriority.UseTextAlignment = false;
-            this.xrTableCell89.Text = "Gerätekosten\r\n(einschließlich Kosten für Energic und Betriebsstoffe)\t\t\r\n\t\t\r\n";
+            this.xrTableCell89.Text = "Gerätekosten\r\n(einschließlich Kosten für Energie und Betriebsstoffe)\t\t\r\n\t\t\r\n";
             this.xrTableCell89.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell89.Weight = 4.09524496335162D;
             // 
@@ -2200,7 +2200,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell93.CanGrow = false;
             this.xrTableCell93.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_3")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_3", "{0:n2}")});
             this.xrTableCell93.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell93.Name = "xrTableCell93";
             this.xrTableCell93.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
@@ -2300,7 +2300,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell98.CanGrow = false;
             this.xrTableCell98.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_4")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_4", "{0:n2}")});
             this.xrTableCell98.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell98.Name = "xrTableCell98";
             this.xrTableCell98.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
@@ -2400,7 +2400,7 @@
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTableCell103.CanGrow = false;
             this.xrTableCell103.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_5")});
+            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_Get_FormBlatt_221_2_3.Result_3_5", "{0:n2}")});
             this.xrTableCell103.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrTableCell103.Name = "xrTableCell103";
             this.xrTableCell103.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 10, 0, 0, 100F);
@@ -2553,7 +2553,7 @@
             this.xrTableCell70.StylePriority.UseFont = false;
             this.xrTableCell70.StylePriority.UsePadding = false;
             this.xrTableCell70.StylePriority.UseTextAlignment = false;
-            this.xrTableCell70.Text = "EinZelkosten der Teilleistungen = unmittelbare Herstellungksosten\t\r\n€";
+            this.xrTableCell70.Text = "Einzelkosten der Teilleistungen = unmittelbare Herstellungskosten\t\r\n€";
             this.xrTableCell70.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopCenter;
             this.xrTableCell70.Weight = 1.5668699633539744D;
             // 
@@ -2711,8 +2711,8 @@
             // 
             this.FinalResult.DataMember = "P_Rpt_Get_FormBlatt_221_2_3";
             this.FinalResult.DataSource = this.sqlDataSource1;
-            this.FinalResult.Expression = "Sum([ResultEigen]) + Sum([Result_3_2]) + Sum([Result_3_3]) + Sum([Result_3_4]) + " +
-    "Sum([Result_3_5])";
+            this.FinalResult.Expression = "Sum([Result_3_1]) + Sum([Result_3_2]) + Sum([Result_3_3]) + Sum([Result_3_4]) + S" +
+    "um([Result_3_5])";
             this.FinalResult.Name = "FinalResult";
             // 
             // ReportHeader
@@ -2752,7 +2752,7 @@
             this.xrLabel11.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel11.SizeF = new System.Drawing.SizeF(633F, 24.5002F);
             this.xrLabel11.StylePriority.UseFont = false;
-            this.xrLabel11.Text = "Auf Veriangen sind für diese Leistumgen die Angaben zur Kalkulation der(s) Nachun" +
+            this.xrLabel11.Text = "Auf Verlangen sind für diese Leistumgen die Angaben zur Kalkulation der(s) Nachun" +
     "ternehmer(s) dem Auftraggeber vorzulegen.";
             // 
             // xrLabel4

@@ -71,9 +71,10 @@
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(388, 408);
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancel.Location = new System.Drawing.Point(306, 408);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(87, 22);
+            this.btnCancel.Size = new System.Drawing.Size(82, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Abbrechen";
@@ -82,9 +83,10 @@
             // btnOk
             // 
             this.btnOk.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOk.Location = new System.Drawing.Point(306, 408);
+            this.btnOk.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnOk.Location = new System.Drawing.Point(392, 408);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(78, 22);
+            this.btnOk.Size = new System.Drawing.Size(83, 22);
             this.btnOk.StyleController = this.layoutControl1;
             this.btnOk.TabIndex = 5;
             this.btnOk.Text = "OK";
@@ -102,6 +104,8 @@
             // 
             // gvDimensions
             // 
+            this.gvDimensions.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.gvDimensions.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvDimensions.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -153,9 +157,9 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.layoutControlItem2,
             this.layoutControlItem3,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(487, 442);
@@ -173,18 +177,18 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnOk;
-            this.layoutControlItem2.Location = new System.Drawing.Point(294, 396);
+            this.layoutControlItem2.Location = new System.Drawing.Point(380, 396);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(82, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(87, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(376, 396);
+            this.layoutControlItem3.Location = new System.Drawing.Point(294, 396);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(91, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(86, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 

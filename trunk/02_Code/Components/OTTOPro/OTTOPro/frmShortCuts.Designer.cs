@@ -39,6 +39,7 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
@@ -48,6 +49,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -68,11 +70,11 @@
             // label4
             // 
             this.label4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(77, 60);
+            this.label4.Location = new System.Drawing.Point(83, 76);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(222, 20);
+            this.label4.Size = new System.Drawing.Size(216, 20);
             this.label4.TabIndex = 7;
             this.label4.Text = "Abbrechen -     Esc";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -80,11 +82,11 @@
             // label2
             // 
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(77, 36);
+            this.label2.Location = new System.Drawing.Point(83, 52);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(222, 20);
+            this.label2.Size = new System.Drawing.Size(216, 20);
             this.label2.TabIndex = 5;
             this.label2.Text = "Neu -              Alt + N";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -92,11 +94,11 @@
             // label1
             // 
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(77, 12);
+            this.label1.Location = new System.Drawing.Point(83, 28);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(222, 20);
+            this.label1.Size = new System.Drawing.Size(216, 20);
             this.label1.TabIndex = 4;
             this.label1.Text = "Speichern -       F9";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -113,7 +115,8 @@
             this.emptySpaceItem3,
             this.layoutControlItem2,
             this.emptySpaceItem1,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.emptySpaceItem4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(334, 126);
@@ -122,53 +125,61 @@
             // layoutControlItem1
             // 
             this.layoutControlItem1.Control = this.label1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(65, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(71, 16);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(226, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(220, 24);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 16);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(65, 106);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(71, 90);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(291, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(291, 16);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(23, 106);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(23, 90);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.label2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(65, 24);
+            this.layoutControlItem2.Location = new System.Drawing.Point(71, 40);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(226, 24);
+            this.layoutControlItem2.Size = new System.Drawing.Size(220, 24);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(65, 72);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(71, 88);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(226, 34);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(220, 18);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.label4;
-            this.layoutControlItem4.Location = new System.Drawing.Point(65, 48);
+            this.layoutControlItem4.Location = new System.Drawing.Point(71, 64);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(226, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(220, 24);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
+            // 
+            // emptySpaceItem4
+            // 
+            this.emptySpaceItem4.AllowHotTrack = false;
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 0);
+            this.emptySpaceItem4.Name = "emptySpaceItem4";
+            this.emptySpaceItem4.Size = new System.Drawing.Size(314, 16);
+            this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // frmShortCuts
             // 
@@ -192,6 +203,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -209,5 +221,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem4;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
     }
 }

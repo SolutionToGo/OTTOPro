@@ -254,14 +254,7 @@ namespace EL
             set { _OldRaster = value; }
         }
 
-        /// <summary>
-        /// Temporary Properties for Project Modiles
-        /// </summary>
-        public string KundeNr
-        {
-            get { return _KundeNr; }
-            set { _KundeNr = value; }
-        }
+        public int KundeNr{get;set;}
         public string KundeName
         {
             get { return _KundeName; }

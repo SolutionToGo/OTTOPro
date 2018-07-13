@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.cmbLVSection = new DevExpress.XtraEditors.CheckedComboBoxEdit();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
@@ -81,11 +81,11 @@
             // cmbLVSection
             // 
             this.cmbLVSection.Enabled = false;
-            this.cmbLVSection.Location = new System.Drawing.Point(61, 83);
+            this.cmbLVSection.Location = new System.Drawing.Point(76, 83);
             this.cmbLVSection.Name = "cmbLVSection";
             this.cmbLVSection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbLVSection.Size = new System.Drawing.Size(255, 20);
+            this.cmbLVSection.Size = new System.Drawing.Size(240, 20);
             this.cmbLVSection.StyleController = this.layoutControl1;
             this.cmbLVSection.TabIndex = 54;
             // 
@@ -118,17 +118,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -137,6 +137,12 @@
             this.radioGroupSelection.Location = new System.Drawing.Point(12, 12);
             this.radioGroupSelection.Name = "radioGroupSelection";
             this.radioGroupSelection.Properties.AllowMouseWheel = false;
+            this.radioGroupSelection.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.radioGroupSelection.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.radioGroupSelection.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.radioGroupSelection.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroupSelection.Properties.Appearance.Options.UseFont = true;
+            this.radioGroupSelection.Properties.Appearance.Options.UseForeColor = true;
             this.radioGroupSelection.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Alle LV Positionen"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Titel und Untertitel"),
@@ -198,14 +204,16 @@
             // 
             // cmbLVSectionFilter
             // 
+            this.cmbLVSectionFilter.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.cmbLVSectionFilter.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
+            this.cmbLVSectionFilter.AppearanceItemCaption.Options.UseFont = true;
             this.cmbLVSectionFilter.AppearanceItemCaption.Options.UseForeColor = true;
             this.cmbLVSectionFilter.Control = this.cmbLVSection;
             this.cmbLVSectionFilter.Location = new System.Drawing.Point(0, 71);
             this.cmbLVSectionFilter.Name = "cmbLVSectionFilter";
             this.cmbLVSectionFilter.Size = new System.Drawing.Size(308, 24);
             this.cmbLVSectionFilter.Text = "LVSection";
-            this.cmbLVSectionFilter.TextSize = new System.Drawing.Size(46, 13);
+            this.cmbLVSectionFilter.TextSize = new System.Drawing.Size(61, 14);
             // 
             // contextMenuStrip1
             // 

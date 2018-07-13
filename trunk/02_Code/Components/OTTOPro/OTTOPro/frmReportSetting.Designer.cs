@@ -149,6 +149,12 @@
             this.radioGroupSelection.Location = new System.Drawing.Point(366, 26);
             this.radioGroupSelection.Name = "radioGroupSelection";
             this.radioGroupSelection.Properties.AllowMouseWheel = false;
+            this.radioGroupSelection.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.radioGroupSelection.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.radioGroupSelection.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.radioGroupSelection.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroupSelection.Properties.Appearance.Options.UseFont = true;
+            this.radioGroupSelection.Properties.Appearance.Options.UseForeColor = true;
             this.radioGroupSelection.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Alle LV Positionen"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "Titel und Untertitel"),
@@ -160,8 +166,10 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(636, 484);
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancel.Location = new System.Drawing.Point(558, 484);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -172,7 +180,8 @@
             // btnSave
             // 
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(558, 484);
+            this.btnSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSave.Location = new System.Drawing.Point(642, 484);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(74, 22);
             this.btnSave.StyleController = this.layoutControl1;
@@ -182,6 +191,12 @@
             // 
             // chkSelectOptions
             // 
+            this.chkSelectOptions.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.chkSelectOptions.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.chkSelectOptions.Appearance.ForeColor = System.Drawing.Color.White;
+            this.chkSelectOptions.Appearance.Options.UseBackColor = true;
+            this.chkSelectOptions.Appearance.Options.UseFont = true;
+            this.chkSelectOptions.Appearance.Options.UseForeColor = true;
             this.chkSelectOptions.CheckOnClick = true;
             this.chkSelectOptions.Cursor = System.Windows.Forms.Cursors.Default;
             this.chkSelectOptions.Items.AddRange(new DevExpress.XtraEditors.Controls.CheckedListBoxItem[] {
@@ -203,6 +218,12 @@
             this.radioGroupShowText.Location = new System.Drawing.Point(12, 90);
             this.radioGroupShowText.Name = "radioGroupShowText";
             this.radioGroupShowText.Properties.AllowMouseWheel = false;
+            this.radioGroupShowText.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.radioGroupShowText.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.radioGroupShowText.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.radioGroupShowText.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroupShowText.Properties.Appearance.Options.UseFont = true;
+            this.radioGroupShowText.Properties.Appearance.Options.UseForeColor = true;
             this.radioGroupShowText.Properties.Columns = 2;
             this.radioGroupShowText.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(null, "LangText"),
@@ -217,6 +238,12 @@
             this.radioGroupSorting.Location = new System.Drawing.Point(12, 29);
             this.radioGroupSorting.Name = "radioGroupSorting";
             this.radioGroupSorting.Properties.AllowMouseWheel = false;
+            this.radioGroupSorting.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.radioGroupSorting.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.radioGroupSorting.Properties.Appearance.ForeColor = System.Drawing.Color.White;
+            this.radioGroupSorting.Properties.Appearance.Options.UseBackColor = true;
+            this.radioGroupSorting.Properties.Appearance.Options.UseFont = true;
+            this.radioGroupSorting.Properties.Appearance.Options.UseForeColor = true;
             this.radioGroupSorting.Properties.Columns = 2;
             this.radioGroupSorting.Properties.GlyphAlignment = DevExpress.Utils.HorzAlignment.Default;
             this.radioGroupSorting.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
@@ -242,8 +269,8 @@
             this.layoutControlItem7,
             this.layoutControlItem8,
             this.layoutControlItem5,
-            this.layoutControlItem4,
-            this.emptySpaceItem4});
+            this.emptySpaceItem4,
+            this.layoutControlItem4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(728, 518);
@@ -318,7 +345,7 @@
             // 
             // layoutControlItem7
             // 
-            this.layoutControlItem7.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem7.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem7.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem7.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem7.AppearanceItemCaption.Options.UseForeColor = true;
@@ -326,7 +353,7 @@
             this.layoutControlItem7.Location = new System.Drawing.Point(354, 79);
             this.layoutControlItem7.Name = "layoutControlItem7";
             this.layoutControlItem7.Size = new System.Drawing.Size(354, 24);
-            this.layoutControlItem7.Text = "LVSection";
+            this.layoutControlItem7.Text = "LVSektion";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(108, 14);
             // 
             // layoutControlItem8
@@ -341,7 +368,7 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnCancel;
-            this.layoutControlItem5.Location = new System.Drawing.Point(624, 472);
+            this.layoutControlItem5.Location = new System.Drawing.Point(546, 472);
             this.layoutControlItem5.Name = "layoutControlItem5";
             this.layoutControlItem5.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
@@ -350,7 +377,7 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnSave;
-            this.layoutControlItem4.Location = new System.Drawing.Point(546, 472);
+            this.layoutControlItem4.Location = new System.Drawing.Point(630, 472);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(78, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -390,8 +417,10 @@
             // 
             // frmReportSetting
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(728, 518);
             this.Controls.Add(this.layoutControl1);
             this.MaximizeBox = false;

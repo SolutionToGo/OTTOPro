@@ -506,6 +506,7 @@ namespace DataAccess
                     }
                     if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
+                        ObjEPositon.dtArticle = ds.Tables[0];
                         ObjEPositon.WG = ds.Tables[0].Rows[0]["WG"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["WG"].ToString();
                         ObjEPositon.WA = ds.Tables[0].Rows[0]["WA"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["WA"].ToString();
                         ObjEPositon.WI = ds.Tables[0].Rows[0]["WI"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["WI"].ToString();
@@ -521,33 +522,9 @@ namespace DataAccess
                         if (ds.Tables.Count > 1)
                             ObjEPositon.dtDimensions = ds.Tables[1];
                     }
-                    else
-                    {
-                        ObjEPositon.dtDimensions = null;
-                        ObjEPositon.WG = string.Empty;
-                        ObjEPositon.WA = string.Empty;
-                        ObjEPositon.WI = string.Empty;
-                        ObjEPositon.Fabricate = string.Empty;
-                        ObjEPositon.ME = string.Empty;
-                        ObjEPositon.Faktor = 1;
-                        ObjEPositon.LiefrantMA = string.Empty;
-                        ObjEPositon.Multi1MA = 1;
-                        ObjEPositon.Multi2MA = 1;
-                        ObjEPositon.Multi3MA = 1;
-                        ObjEPositon.Multi4MA = 1;
-                        ObjEPositon.LPMA = 0;
-                        ObjEPositon.Mins = 0;
-                        ObjEPositon.Dim1 = "";
-                        ObjEPositon.Dim2 = "";
-                        ObjEPositon.Dim3 = "";
-                        ObjEPositon.Dim = "";
-                    }
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex){throw;}
             return ObjEPositon;
         }
 
@@ -571,6 +548,7 @@ namespace DataAccess
                     }
                     if (ds != null &&  ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
+                        ObjEPositon.dtArticle = ds.Tables[0];
                         ObjEPositon.Type = ds.Tables[0].Rows[0]["Typ"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Typ"].ToString();
                         ObjEPositon.Fabricate = ds.Tables[0].Rows[0]["Fabrikate"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Fabrikate"].ToString();
                         ObjEPositon.ME = ds.Tables[0].Rows[0]["Menegenheit"] == DBNull.Value ? "" : ds.Tables[0].Rows[0]["Menegenheit"].ToString();
@@ -584,25 +562,6 @@ namespace DataAccess
 
                         if (ds.Tables.Count > 1)
                             ObjEPositon.dtDimensions = ds.Tables[1];
-                    }
-                    else
-                    {
-                        ObjEPositon.dtDimensions = null;
-                        ObjEPositon.Type = string.Empty;
-                        ObjEPositon.Fabricate = string.Empty;
-                        ObjEPositon.ME = string.Empty;
-                        ObjEPositon.Dim1 = string.Empty;
-                        ObjEPositon.Dim2 = string.Empty;
-                        ObjEPositon.Dim3 = string.Empty;
-                        ObjEPositon.LPMA = 0;
-                        ObjEPositon.Mins = 0;
-                        ObjEPositon.Faktor = 1;
-                        ObjEPositon.LiefrantMA = string.Empty;
-                        ObjEPositon.Multi1MA = 1;
-                        ObjEPositon.Multi2MA = 1;
-                        ObjEPositon.Multi3MA = 1;
-                        ObjEPositon.Multi4MA = 1;
-                        ObjEPositon.Dim = string.Empty;
                     }
                 }
             }
@@ -636,15 +595,10 @@ namespace DataAccess
                     }
                     if (dt != null && dt.Rows.Count > 0)
                     {
+                        ObjEPositon.dtDimensions = dt.Copy();
                         ObjEPositon.LPMA = dt.Rows[0]["ListPrice"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["ListPrice"]);
                         ObjEPositon.Mins = dt.Rows[0]["Minuten"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Minuten"]);
                         ObjEPositon.Faktor = dt.Rows[0]["Factor"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Factor"]);
-                    }
-                    else
-                    {
-                        ObjEPositon.LPMA = 0;
-                        ObjEPositon.Mins = 0;
-                        ObjEPositon.Faktor = 1;
                     }
                 }
             }

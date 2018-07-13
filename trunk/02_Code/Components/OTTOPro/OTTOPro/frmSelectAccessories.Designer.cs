@@ -79,7 +79,8 @@
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(633, 381);
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancel.Location = new System.Drawing.Point(557, 381);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -90,7 +91,8 @@
             // btnOK
             // 
             this.btnOK.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOK.Location = new System.Drawing.Point(557, 381);
+            this.btnOK.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnOK.Location = new System.Drawing.Point(641, 381);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(72, 22);
             this.btnOK.StyleController = this.layoutControl1;
@@ -113,6 +115,12 @@
             // 
             // gvArticles
             // 
+            this.gvArticles.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.gvArticles.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvArticles.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.gvArticles.Appearance.FocusedRow.Options.UseBackColor = true;
+            this.gvArticles.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.gvArticles.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvArticles.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn1,
             this.gridColumn2,
@@ -217,9 +225,9 @@
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
-            this.layoutControlItem2,
             this.layoutControlItem3,
-            this.emptySpaceItem1});
+            this.emptySpaceItem1,
+            this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(725, 415);
@@ -237,7 +245,7 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnOK;
-            this.layoutControlItem2.Location = new System.Drawing.Point(545, 369);
+            this.layoutControlItem2.Location = new System.Drawing.Point(629, 369);
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(76, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
@@ -246,7 +254,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(621, 369);
+            this.layoutControlItem3.Location = new System.Drawing.Point(545, 369);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(84, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);

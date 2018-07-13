@@ -18,8 +18,8 @@ namespace OTTOPro
     {
         EArticles ObjEArticle = null;
         BArticles ObjBArticle = null;
-        bool _IsNew = false;
         List<Control> ReqFields = new List<Control>();
+
         public frmType()
         {
             InitializeComponent();
@@ -38,16 +38,19 @@ namespace OTTOPro
                     ObjBArticle = new BArticles();
                 ObjEArticle = ObjBArticle.GetTyp(ObjEArticle);
 
-                cmbWGWA.DataSource = ObjEArticle.dtWG;
-                cmbWGWA.ValueMember = "WGID";
-                cmbWGWA.DisplayMember = "WGWADesc";
+                ObjEArticle.dtWG.TableName = "WG";
+                cmbWGWA.Properties.DataSource = ObjEArticle.dtWG;
+                cmbWGWA.Properties.ValueMember = "WGID";
+                cmbWGWA.Properties.DisplayMember = "WGWADesc";
                 
-                if (cmbWGWA.SelectedValue != null)
-                    BindWIData(cmbWGWA.SelectedValue);
+                cmbWI.Properties.DataSource = ObjEArticle.dtWI;
+                cmbWI.Properties.ValueMember = "WIID";
+                cmbWI.Properties.DisplayMember = "WI";
+                cmbWI.CascadingOwner = cmbWGWA;
 
-                cmbSupplier.DataSource = ObjEArticle.dtSupplier;
-                cmbSupplier.ValueMember = "SupplierID";
-                cmbSupplier.DisplayMember = "FullName";
+                cmbSupplier.Properties.DataSource = ObjEArticle.dtSupplier;
+                cmbSupplier.Properties.ValueMember = "SupplierID";
+                cmbSupplier.Properties.DisplayMember = "FullName";
 
                 ReqFields.Add(txtTyp);
                 ReqFields.Add(cmbWGWA);
@@ -59,26 +62,6 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        private void BindWIData(Object WGID)
-        {
-            try
-            {
-                int iValue = 0;
-                if (WGID != null && int.TryParse(WGID.ToString(), out iValue))
-                {
-                    DataView dvWI = ObjEArticle.dtWI.DefaultView;
-                    dvWI.RowFilter = "WGID = '" + iValue + "'";
-                    cmbWI.DataSource = dvWI;
-                    cmbWI.ValueMember = "WIID";
-                    cmbWI.DisplayMember = "WIDesc";
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -94,33 +77,22 @@ namespace OTTOPro
             }
         }
 
-        private void cmbWGWA_SelectedValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (cmbWGWA.SelectedValue != null)
-                    BindWIData(cmbWGWA.SelectedValue);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Utility.ValidateRequiredFields(ReqFields) == false)
+                if (!dxValidationProvider1.Validate())
                     return;
                 int iValue = 0;
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
-                if(ObjEArticle == null)
+                if (ObjEArticle == null)
                     ObjEArticle = new EArticles();
                 ObjEArticle.Typ = txtTyp.Text;
-                ObjEArticle.WIID = Convert.ToInt32(cmbWI.SelectedValue);
-                ObjEArticle.SupplierID = Convert.ToInt32(cmbSupplier.SelectedValue);
+                if (cmbWI.EditValue != null)
+                    ObjEArticle.WIID = Convert.ToInt32(cmbWI.EditValue);
+                if (cmbSupplier.EditValue != null)
+                    ObjEArticle.SupplierID = Convert.ToInt32(cmbSupplier.EditValue);
                 ObjEArticle = ObjBArticle.SaveTyp(ObjEArticle);
                 iValue = ObjEArticle.TypID;
                 BindTypeData();
@@ -129,7 +101,6 @@ namespace OTTOPro
                 txtTyp.Text = string.Empty;
                 ObjEArticle.TypID = -1;
                 txtTyp.Focus();
-                
             }
             catch (Exception ex)
             {

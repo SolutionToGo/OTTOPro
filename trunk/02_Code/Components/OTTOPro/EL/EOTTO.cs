@@ -265,6 +265,7 @@ namespace EL
             set { _DefaultContact = value; }
         }
 
-        //************
+        public DataTable dtOTTO { get; set; }
+        public DataTable dtContact { get; set; }
     }
 }

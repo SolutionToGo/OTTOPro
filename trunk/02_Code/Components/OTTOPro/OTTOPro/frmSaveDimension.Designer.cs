@@ -102,14 +102,14 @@
             // lblArticle
             // 
             this.lblArticle.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.lblArticle.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblArticle.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblArticle.Appearance.ForeColor = System.Drawing.Color.White;
             this.lblArticle.Appearance.Options.UseBackColor = true;
             this.lblArticle.Appearance.Options.UseFont = true;
             this.lblArticle.Appearance.Options.UseForeColor = true;
             this.lblArticle.Location = new System.Drawing.Point(12, 12);
             this.lblArticle.Name = "lblArticle";
-            this.lblArticle.Size = new System.Drawing.Size(104, 14);
+            this.lblArticle.Size = new System.Drawing.Size(119, 14);
             this.lblArticle.StyleController = this.layoutControl1;
             this.lblArticle.TabIndex = 11;
             this.lblArticle.Text = "Artikelübersicht zu ";
@@ -119,7 +119,7 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(800, 430);
+            this.btnSave.Location = new System.Drawing.Point(893, 430);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(84, 22);
             this.btnSave.StyleController = this.layoutControl1;
@@ -131,8 +131,9 @@
             // 
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCancel.Appearance.Options.UseFont = true;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(888, 430);
+            this.btnCancel.Location = new System.Drawing.Point(800, 430);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(89, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -159,6 +160,10 @@
             // gvDimensions
             // 
             this.gvDimensions.ActiveFilterEnabled = false;
+            this.gvDimensions.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.gvDimensions.Appearance.FocusedCell.Options.UseBackColor = true;
+            this.gvDimensions.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.gvDimensions.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvDimensions.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Style3D;
             this.gvDimensions.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.gridColumn8,
@@ -175,10 +180,6 @@
             this.gridColumn19});
             this.gvDimensions.GridControl = this.gcDimensions;
             this.gvDimensions.Name = "gvDimensions";
-            this.gvDimensions.OptionsCustomization.AllowColumnMoving = false;
-            this.gvDimensions.OptionsCustomization.AllowColumnResizing = false;
-            this.gvDimensions.OptionsCustomization.AllowGroup = false;
-            this.gvDimensions.OptionsCustomization.AllowSort = false;
             this.gvDimensions.OptionsView.ShowGroupPanel = false;
             // 
             // gridColumn8
@@ -388,7 +389,7 @@
             // dateEditGultigkeit
             // 
             this.dateEditGultigkeit.EditValue = null;
-            this.dateEditGultigkeit.Location = new System.Drawing.Point(218, 12);
+            this.dateEditGultigkeit.Location = new System.Drawing.Point(246, 12);
             this.dateEditGultigkeit.Name = "dateEditGultigkeit";
             this.dateEditGultigkeit.Properties.AllowDropDownWhenReadOnly = DevExpress.Utils.DefaultBoolean.False;
             this.dateEditGultigkeit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -405,7 +406,7 @@
             this.dateEditGultigkeit.Properties.VistaCalendarInitialViewStyle = DevExpress.XtraEditors.VistaCalendarInitialViewStyle.YearView;
             this.dateEditGultigkeit.Properties.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
             this.dateEditGultigkeit.Properties.VistaDisplayMode = DevExpress.Utils.DefaultBoolean.True;
-            this.dateEditGultigkeit.Size = new System.Drawing.Size(210, 20);
+            this.dateEditGultigkeit.Size = new System.Drawing.Size(192, 20);
             this.dateEditGultigkeit.StyleController = this.layoutControl1;
             this.dateEditGultigkeit.TabIndex = 4;
             // 
@@ -420,9 +421,9 @@
             this.emptySpaceItem1,
             this.emptySpaceItem2,
             this.layoutControlItem3,
-            this.layoutControlItem4,
             this.layoutControlItem5,
-            this.layoutControlItem1});
+            this.layoutControlItem1,
+            this.layoutControlItem4});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(989, 464);
@@ -448,15 +449,15 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(420, 0);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(430, 0);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(549, 24);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(539, 24);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(876, 418);
+            this.layoutControlItem3.Location = new System.Drawing.Point(788, 418);
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(93, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
@@ -465,7 +466,7 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnSave;
-            this.layoutControlItem4.Location = new System.Drawing.Point(788, 418);
+            this.layoutControlItem4.Location = new System.Drawing.Point(881, 418);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(88, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -476,29 +477,31 @@
             this.layoutControlItem5.Control = this.lblArticle;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(108, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(123, 24);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
             // layoutControlItem1
             // 
             this.layoutControlItem1.AppearanceItemCaption.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem1.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem1.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem1.AppearanceItemCaption.Options.UseBackColor = true;
             this.layoutControlItem1.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem1.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem1.Control = this.dateEditGultigkeit;
-            this.layoutControlItem1.Location = new System.Drawing.Point(108, 0);
+            this.layoutControlItem1.Location = new System.Drawing.Point(123, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(312, 24);
+            this.layoutControlItem1.Size = new System.Drawing.Size(307, 24);
             this.layoutControlItem1.Text = "Gültigkeit Datum ";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(95, 14);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 14);
             // 
             // frmSaveDimension
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(989, 464);
             this.Controls.Add(this.layoutControl1);
             this.MaximizeBox = false;

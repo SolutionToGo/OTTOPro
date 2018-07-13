@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSupplierList));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnOk = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -72,9 +73,11 @@
             // 
             // btnOk
             // 
-            this.btnOk.Location = new System.Drawing.Point(306, 533);
+            this.btnOk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.ImageOptions.Image")));
+            this.btnOk.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
+            this.btnOk.Location = new System.Drawing.Point(397, 533);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(76, 22);
+            this.btnOk.Size = new System.Drawing.Size(79, 22);
             this.btnOk.StyleController = this.layoutControl1;
             this.btnOk.TabIndex = 11;
             this.btnOk.Text = "Ok";
@@ -82,9 +85,11 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(386, 533);
+            this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
+            this.btnCancel.Location = new System.Drawing.Point(220, 533);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(90, 22);
+            this.btnCancel.Size = new System.Drawing.Size(84, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
@@ -93,9 +98,10 @@
             // btnAddSupplier
             // 
             this.btnAddSupplier.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
-            this.btnAddSupplier.Location = new System.Drawing.Point(220, 533);
+            this.btnAddSupplier.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
+            this.btnAddSupplier.Location = new System.Drawing.Point(308, 533);
             this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(82, 22);
+            this.btnAddSupplier.Size = new System.Drawing.Size(85, 22);
             this.btnAddSupplier.StyleController = this.layoutControl1;
             this.btnAddSupplier.TabIndex = 9;
             this.btnAddSupplier.Text = "Hinzufügen";
@@ -129,16 +135,7 @@
             this.gvSupplier.GridControl = this.gcSupplier;
             this.gvSupplier.Name = "gvSupplier";
             this.gvSupplier.OptionsBehavior.Editable = false;
-            this.gvSupplier.OptionsCustomization.AllowColumnMoving = false;
-            this.gvSupplier.OptionsCustomization.AllowFilter = false;
-            this.gvSupplier.OptionsCustomization.AllowSort = false;
-            this.gvSupplier.OptionsFilter.AllowFilterEditor = false;
-            this.gvSupplier.OptionsFind.AlwaysVisible = true;
             this.gvSupplier.OptionsFind.FindNullPrompt = "Suchtext eingeben...";
-            this.gvSupplier.OptionsFind.ShowFindButton = false;
-            this.gvSupplier.OptionsMenu.EnableColumnMenu = false;
-            this.gvSupplier.OptionsMenu.EnableFooterMenu = false;
-            this.gvSupplier.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvSupplier.OptionsSelection.EnableAppearanceFocusedCell = false;
             this.gvSupplier.OptionsView.RowAutoHeight = true;
             this.gvSupplier.OptionsView.ShowGroupPanel = false;
@@ -182,8 +179,8 @@
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
             this.layoutControlItem1,
             this.layoutControlItem3,
-            this.layoutControlItem4,
             this.emptySpaceItem2,
+            this.layoutControlItem4,
             this.layoutControlItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
@@ -202,18 +199,18 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(374, 521);
+            this.layoutControlItem3.Location = new System.Drawing.Point(208, 521);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(94, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(88, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnOk;
-            this.layoutControlItem4.Location = new System.Drawing.Point(294, 521);
+            this.layoutControlItem4.Location = new System.Drawing.Point(385, 521);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(80, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(83, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -228,9 +225,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnAddSupplier;
-            this.layoutControlItem2.Location = new System.Drawing.Point(208, 521);
+            this.layoutControlItem2.Location = new System.Drawing.Point(296, 521);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(86, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(89, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 

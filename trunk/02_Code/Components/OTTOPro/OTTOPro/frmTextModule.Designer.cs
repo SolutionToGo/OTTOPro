@@ -145,7 +145,8 @@
             // btnSave
             // 
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(586, 700);
+            this.btnSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnSave.Location = new System.Drawing.Point(670, 700);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(83, 22);
             this.btnSave.StyleController = this.layoutControl1;
@@ -156,7 +157,8 @@
             // btnCancel
             // 
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(673, 700);
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancel.Location = new System.Drawing.Point(586, 700);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -267,13 +269,13 @@
             this.emptySpaceItem1,
             this.emptySpaceItem3,
             this.layoutControlItem6,
-            this.layoutControlItem7,
             this.emptySpaceItem4,
             this.layoutControlItem3,
             this.layoutControlItem4,
             this.layoutControlItem8,
             this.layoutControlItem2,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem7});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(765, 734);
@@ -306,7 +308,7 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnCancel;
-            this.layoutControlItem6.Location = new System.Drawing.Point(661, 688);
+            this.layoutControlItem6.Location = new System.Drawing.Point(574, 688);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -318,7 +320,7 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnSave;
-            this.layoutControlItem7.Location = new System.Drawing.Point(574, 688);
+            this.layoutControlItem7.Location = new System.Drawing.Point(658, 688);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(87, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";

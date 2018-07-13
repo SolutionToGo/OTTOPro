@@ -73,7 +73,6 @@
             // 
             // layoutControl1
             // 
-            this.layoutControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.layoutControl1.Controls.Add(this.btnCancel);
             this.layoutControl1.Controls.Add(this.btnOk);
             this.layoutControl1.Controls.Add(this.btnBrowse);
@@ -163,6 +162,8 @@
             // 
             // layoutControlGroup1
             // 
+            this.layoutControlGroup1.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.layoutControlGroup1.AppearanceGroup.Options.UseBackColor = true;
             this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.layoutControlGroup1.GroupBordersVisible = false;
             this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
@@ -236,6 +237,8 @@
             // 
             // tabbedControlGroup2
             // 
+            this.tabbedControlGroup2.AppearanceGroup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
+            this.tabbedControlGroup2.AppearanceGroup.Options.UseBackColor = true;
             this.tabbedControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.tabbedControlGroup2.Name = "tabbedControlGroup2";
             this.tabbedControlGroup2.SelectedTabPage = this.layoutControlGroup3;

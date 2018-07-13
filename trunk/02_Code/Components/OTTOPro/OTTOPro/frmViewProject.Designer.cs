@@ -118,10 +118,10 @@
             // 
             // txtLAngtext
             // 
-            this.txtLAngtext.Location = new System.Drawing.Point(12, 568);
+            this.txtLAngtext.Location = new System.Drawing.Point(12, 569);
             this.txtLAngtext.Name = "txtLAngtext";
             this.txtLAngtext.ReadOnly = true;
-            this.txtLAngtext.Size = new System.Drawing.Size(694, 205);
+            this.txtLAngtext.Size = new System.Drawing.Size(644, 204);
             this.txtLAngtext.TabIndex = 6;
             this.txtLAngtext.Text = "";
             // 
@@ -130,9 +130,9 @@
             this.groupControl2.AppearanceCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.groupControl2.AppearanceCaption.Options.UseFont = true;
             this.groupControl2.Controls.Add(this.layoutControl2);
-            this.groupControl2.Location = new System.Drawing.Point(710, 554);
+            this.groupControl2.Location = new System.Drawing.Point(660, 554);
             this.groupControl2.Name = "groupControl2";
-            this.groupControl2.Size = new System.Drawing.Size(438, 219);
+            this.groupControl2.Size = new System.Drawing.Size(488, 219);
             this.groupControl2.TabIndex = 5;
             this.groupControl2.Text = "Projekteigenschaften";
             // 
@@ -151,7 +151,7 @@
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1292, 446, 450, 400);
             this.layoutControl2.Root = this.layoutControlGroup2;
-            this.layoutControl2.Size = new System.Drawing.Size(434, 196);
+            this.layoutControl2.Size = new System.Drawing.Size(484, 196);
             this.layoutControl2.TabIndex = 0;
             this.layoutControl2.Text = "layoutControl2";
             // 
@@ -160,9 +160,9 @@
             this.btnCancel.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(333, 132);
+            this.btnCancel.Location = new System.Drawing.Point(270, 132);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(89, 22);
+            this.btnCancel.Size = new System.Drawing.Size(99, 22);
             this.btnCancel.StyleController = this.layoutControl2;
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Abbrechen";
@@ -173,9 +173,9 @@
             this.btnSave.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSave.Appearance.Options.UseFont = true;
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(242, 132);
+            this.btnSave.Location = new System.Drawing.Point(373, 132);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(87, 22);
+            this.btnSave.Size = new System.Drawing.Size(99, 22);
             this.btnSave.StyleController = this.layoutControl2;
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Speichern";
@@ -183,44 +183,44 @@
             // 
             // txtLVRaster
             // 
-            this.txtLVRaster.Location = new System.Drawing.Point(105, 60);
+            this.txtLVRaster.Location = new System.Drawing.Point(110, 60);
             this.txtLVRaster.Name = "txtLVRaster";
             this.txtLVRaster.Properties.ReadOnly = true;
-            this.txtLVRaster.Size = new System.Drawing.Size(317, 20);
+            this.txtLVRaster.Size = new System.Drawing.Size(362, 20);
             this.txtLVRaster.StyleController = this.layoutControl2;
             this.txtLVRaster.TabIndex = 8;
             // 
             // txtLVSprunge
             // 
-            this.txtLVSprunge.Location = new System.Drawing.Point(105, 84);
+            this.txtLVSprunge.Location = new System.Drawing.Point(110, 84);
             this.txtLVSprunge.Name = "txtLVSprunge";
             this.txtLVSprunge.Properties.ReadOnly = true;
-            this.txtLVSprunge.Size = new System.Drawing.Size(317, 20);
+            this.txtLVSprunge.Size = new System.Drawing.Size(362, 20);
             this.txtLVSprunge.StyleController = this.layoutControl2;
             this.txtLVSprunge.TabIndex = 7;
             // 
             // txtProjectNumber
             // 
-            this.txtProjectNumber.Location = new System.Drawing.Point(105, 12);
+            this.txtProjectNumber.Location = new System.Drawing.Point(110, 12);
             this.txtProjectNumber.Name = "txtProjectNumber";
-            this.txtProjectNumber.Size = new System.Drawing.Size(317, 20);
+            this.txtProjectNumber.Size = new System.Drawing.Size(362, 20);
             this.txtProjectNumber.StyleController = this.layoutControl2;
             this.txtProjectNumber.TabIndex = 6;
             // 
             // txtKundeName
             // 
-            this.txtKundeName.Location = new System.Drawing.Point(105, 108);
+            this.txtKundeName.Location = new System.Drawing.Point(110, 108);
             this.txtKundeName.Name = "txtKundeName";
             this.txtKundeName.Properties.ReadOnly = true;
-            this.txtKundeName.Size = new System.Drawing.Size(317, 20);
+            this.txtKundeName.Size = new System.Drawing.Size(362, 20);
             this.txtKundeName.StyleController = this.layoutControl2;
             this.txtKundeName.TabIndex = 5;
             // 
             // txtProjectDescription
             // 
-            this.txtProjectDescription.Location = new System.Drawing.Point(105, 36);
+            this.txtProjectDescription.Location = new System.Drawing.Point(110, 36);
             this.txtProjectDescription.Name = "txtProjectDescription";
-            this.txtProjectDescription.Size = new System.Drawing.Size(317, 20);
+            this.txtProjectDescription.Size = new System.Drawing.Size(362, 20);
             this.txtProjectDescription.StyleController = this.layoutControl2;
             this.txtProjectDescription.TabIndex = 4;
             // 
@@ -234,95 +234,95 @@
             this.layoutControlItem6,
             this.layoutControlItem7,
             this.layoutControlItem3,
-            this.layoutControlItem10,
             this.layoutControlItem11,
             this.emptySpaceItem1,
-            this.emptySpaceItem2});
+            this.emptySpaceItem2,
+            this.layoutControlItem10});
             this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
-            this.layoutControlGroup2.Size = new System.Drawing.Size(434, 196);
+            this.layoutControlGroup2.Size = new System.Drawing.Size(484, 196);
             this.layoutControlGroup2.TextVisible = false;
             // 
             // layoutControlItem4
             // 
-            this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem4.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.layoutControlItem4.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem4.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem4.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem4.Control = this.txtKundeName;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 96);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem4.Size = new System.Drawing.Size(464, 24);
             this.layoutControlItem4.Text = "Kunde Name";
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(95, 14);
             // 
             // layoutControlItem5
             // 
-            this.layoutControlItem5.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem5.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.layoutControlItem5.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem5.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem5.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem5.Control = this.txtProjectNumber;
             this.layoutControlItem5.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem5.Size = new System.Drawing.Size(464, 24);
             this.layoutControlItem5.Text = "Projektnummer";
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(95, 14);
             // 
             // layoutControlItem6
             // 
-            this.layoutControlItem6.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem6.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.layoutControlItem6.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem6.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem6.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem6.Control = this.txtLVSprunge;
             this.layoutControlItem6.Location = new System.Drawing.Point(0, 72);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem6.Size = new System.Drawing.Size(464, 24);
             this.layoutControlItem6.Text = "LV Sprunge";
-            this.layoutControlItem6.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem6.TextSize = new System.Drawing.Size(95, 14);
             // 
             // layoutControlItem7
             // 
-            this.layoutControlItem7.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem7.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.layoutControlItem7.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem7.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem7.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem7.Control = this.txtLVRaster;
             this.layoutControlItem7.Location = new System.Drawing.Point(0, 48);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem7.Size = new System.Drawing.Size(464, 24);
             this.layoutControlItem7.Text = "LV Raster";
-            this.layoutControlItem7.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem7.TextSize = new System.Drawing.Size(95, 14);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem3.Control = this.txtProjectDescription;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(414, 24);
+            this.layoutControlItem3.Size = new System.Drawing.Size(464, 24);
             this.layoutControlItem3.Text = "Bauvorhaben ";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(90, 13);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(95, 14);
             // 
             // layoutControlItem10
             // 
             this.layoutControlItem10.Control = this.btnSave;
-            this.layoutControlItem10.Location = new System.Drawing.Point(230, 120);
+            this.layoutControlItem10.Location = new System.Drawing.Point(361, 120);
             this.layoutControlItem10.Name = "layoutControlItem10";
-            this.layoutControlItem10.Size = new System.Drawing.Size(91, 26);
+            this.layoutControlItem10.Size = new System.Drawing.Size(103, 26);
             this.layoutControlItem10.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem10.TextVisible = false;
             // 
             // layoutControlItem11
             // 
             this.layoutControlItem11.Control = this.btnCancel;
-            this.layoutControlItem11.Location = new System.Drawing.Point(321, 120);
+            this.layoutControlItem11.Location = new System.Drawing.Point(258, 120);
             this.layoutControlItem11.Name = "layoutControlItem11";
-            this.layoutControlItem11.Size = new System.Drawing.Size(93, 26);
+            this.layoutControlItem11.Size = new System.Drawing.Size(103, 26);
             this.layoutControlItem11.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem11.TextVisible = false;
             // 
@@ -331,7 +331,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(0, 146);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(414, 30);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(464, 30);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
@@ -339,7 +339,7 @@
             this.emptySpaceItem2.AllowHotTrack = false;
             this.emptySpaceItem2.Location = new System.Drawing.Point(0, 120);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(230, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(258, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // groupControl1
@@ -355,6 +355,8 @@
             // 
             // tlLVDetails
             // 
+            this.tlLVDetails.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.tlLVDetails.Appearance.HeaderPanel.Options.UseFont = true;
             this.tlLVDetails.Columns.AddRange(new DevExpress.XtraTreeList.Columns.TreeListColumn[] {
             this.treeListColumn1,
             this.treeListColumn2,
@@ -486,32 +488,32 @@
             // simpleSeparator1
             // 
             this.simpleSeparator1.AllowHotTrack = false;
-            this.simpleSeparator1.Location = new System.Drawing.Point(698, 540);
+            this.simpleSeparator1.Location = new System.Drawing.Point(648, 540);
             this.simpleSeparator1.Name = "simpleSeparator1";
-            this.simpleSeparator1.Size = new System.Drawing.Size(442, 2);
+            this.simpleSeparator1.Size = new System.Drawing.Size(492, 2);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.groupControl2;
-            this.layoutControlItem2.Location = new System.Drawing.Point(698, 542);
+            this.layoutControlItem2.Location = new System.Drawing.Point(648, 542);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(442, 223);
+            this.layoutControlItem2.Size = new System.Drawing.Size(492, 223);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
             // layoutControlItem8
             // 
-            this.layoutControlItem8.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.layoutControlItem8.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.layoutControlItem8.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem8.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem8.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem8.Control = this.txtLAngtext;
             this.layoutControlItem8.Location = new System.Drawing.Point(0, 540);
             this.layoutControlItem8.Name = "layoutControlItem8";
-            this.layoutControlItem8.Size = new System.Drawing.Size(698, 225);
+            this.layoutControlItem8.Size = new System.Drawing.Size(648, 225);
             this.layoutControlItem8.Text = "Lang Text";
             this.layoutControlItem8.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem8.TextSize = new System.Drawing.Size(56, 13);
+            this.layoutControlItem8.TextSize = new System.Drawing.Size(61, 14);
             // 
             // layoutControlItem1
             // 

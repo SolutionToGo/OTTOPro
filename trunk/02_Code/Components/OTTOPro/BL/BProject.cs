@@ -112,7 +112,8 @@ namespace BL
 
                             ObjEProject.ProjectDescription = dtPRojectDetails.Rows[0]["ProjectDescription"].ToString();
                             ObjEProject.KundeID = 1;
-                            ObjEProject.KundeNr = dtPRojectDetails.Rows[0]["CustomerID"].ToString();
+                            if (int.TryParse(dtPRojectDetails.Rows[0]["CustomerID"].ToString(), out iValue))
+                                ObjEProject.KundeNr = iValue;
                             ObjEProject.KundeName = dtPRojectDetails.Rows[0]["CustomerName"].ToString();
                             ObjEProject.KundeAddress = dtPRojectDetails.Rows[0]["Street"].ToString();
                             ObjEProject.PlannedID = 1;

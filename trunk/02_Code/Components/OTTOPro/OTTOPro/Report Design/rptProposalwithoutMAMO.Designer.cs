@@ -463,7 +463,7 @@
             this.BottomMargin.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrLabel22,
             this.xrlblPageSum});
-            this.BottomMargin.HeightF = 30F;
+            this.BottomMargin.HeightF = 61.31255F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -472,7 +472,7 @@
             // 
             this.xrLabel22.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrLabel22.ForeColor = System.Drawing.Color.Black;
-            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(538.642F, 0F);
+            this.xrLabel22.LocationFloat = new DevExpress.Utils.PointFloat(534.642F, 9F);
             this.xrLabel22.Name = "xrLabel22";
             this.xrLabel22.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrLabel22.SizeF = new System.Drawing.SizeF(69.99884F, 23F);
@@ -489,7 +489,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_PositionForProposalPriceForCommon.SB")});
             this.xrlblPageSum.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold);
             this.xrlblPageSum.ForeColor = System.Drawing.Color.Black;
-            this.xrlblPageSum.LocationFloat = new DevExpress.Utils.PointFloat(608.6407F, 0F);
+            this.xrlblPageSum.LocationFloat = new DevExpress.Utils.PointFloat(604.6407F, 9F);
             this.xrlblPageSum.Name = "xrlblPageSum";
             this.xrlblPageSum.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
             this.xrlblPageSum.SizeF = new System.Drawing.SizeF(117.4433F, 22.99999F);
@@ -513,7 +513,7 @@
             // 
             // ReportFooter
             // 
-            this.ReportFooter.HeightF = 15.60415F;
+            this.ReportFooter.HeightF = 1.020813F;
             this.ReportFooter.Name = "ReportFooter";
             // 
             // ProjectID
@@ -560,7 +560,7 @@
             this.xrLine4,
             this.xrTable4,
             this.xrTable5});
-            this.GroupFooter3.HeightF = 155.2083F;
+            this.GroupFooter3.HeightF = 154.2083F;
             this.GroupFooter3.Name = "GroupFooter3";
             // 
             // xrLabel10
@@ -1047,7 +1047,7 @@
             new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_PositionForProposalPriceForCommon.ParentDescription")});
             this.xrRichText4.Font = new System.Drawing.Font("Arial", 9.75F);
             this.xrRichText4.ForeColor = System.Drawing.Color.Black;
-            this.xrRichText4.LocationFloat = new DevExpress.Utils.PointFloat(190.2443F, 10F);
+            this.xrRichText4.LocationFloat = new DevExpress.Utils.PointFloat(190.2443F, 9.562546F);
             this.xrRichText4.Name = "xrRichText4";
             this.xrRichText4.SerializableRtfString = resources.GetString("xrRichText4.SerializableRtfString");
             this.xrRichText4.SizeF = new System.Drawing.SizeF(357.5179F, 23F);
@@ -1071,7 +1071,7 @@
             // xrLine2
             // 
             this.xrLine2.ForeColor = System.Drawing.Color.Black;
-            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(0F, 48.41668F);
+            this.xrLine2.LocationFloat = new DevExpress.Utils.PointFloat(1F, 39.00004F);
             this.xrLine2.Name = "xrLine2";
             this.xrLine2.SizeF = new System.Drawing.SizeF(725.0003F, 3.562546F);
             this.xrLine2.StylePriority.UseForeColor = false;
@@ -1444,7 +1444,7 @@
             this.xrLabel41,
             this.xrRichText3,
             this.xrLine3});
-            this.GroupFooter4.HeightF = 58.16681F;
+            this.GroupFooter4.HeightF = 43.58349F;
             this.GroupFooter4.Name = "GroupFooter4";
             // 
             // xrLabel30
@@ -1550,7 +1550,7 @@
             this.DataSource = this.sqlDataSource1;
             this.FormattingRuleSheet.AddRange(new DevExpress.XtraReports.UI.FormattingRule[] {
             this.formattingRule1});
-            this.Margins = new System.Drawing.Printing.Margins(68, 31, 255, 30);
+            this.Margins = new System.Drawing.Printing.Margins(68, 31, 255, 61);
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;

@@ -107,7 +107,8 @@
             // 
             this.btnOk.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOk.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOk.Location = new System.Drawing.Point(252, 131);
+            this.btnOk.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnOk.Location = new System.Drawing.Point(336, 131);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(74, 22);
             this.btnOk.StyleController = this.layoutControl1;
@@ -119,7 +120,8 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(330, 131);
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancel.Location = new System.Drawing.Point(252, 131);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -129,26 +131,26 @@
             // txtNewRaster
             // 
             this.txtNewRaster.Enabled = false;
-            this.txtNewRaster.Location = new System.Drawing.Point(127, 82);
+            this.txtNewRaster.Location = new System.Drawing.Point(145, 82);
             this.txtNewRaster.Name = "txtNewRaster";
             this.txtNewRaster.Properties.ReadOnly = true;
-            this.txtNewRaster.Size = new System.Drawing.Size(259, 20);
+            this.txtNewRaster.Size = new System.Drawing.Size(241, 20);
             this.txtNewRaster.StyleController = this.layoutControl1;
             this.txtNewRaster.TabIndex = 6;
             // 
             // txtOldRaster
             // 
             this.txtOldRaster.Enabled = false;
-            this.txtOldRaster.Location = new System.Drawing.Point(127, 58);
+            this.txtOldRaster.Location = new System.Drawing.Point(145, 58);
             this.txtOldRaster.Name = "txtOldRaster";
             this.txtOldRaster.Properties.ReadOnly = true;
-            this.txtOldRaster.Size = new System.Drawing.Size(259, 20);
+            this.txtOldRaster.Size = new System.Drawing.Size(241, 20);
             this.txtOldRaster.StyleController = this.layoutControl1;
             this.txtOldRaster.TabIndex = 5;
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 12);
             this.label1.Name = "label1";
@@ -166,10 +168,10 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.layoutControlItem6,
-            this.layoutControlItem7,
             this.emptySpaceItem2,
             this.layoutControlItem4,
-            this.layoutControlItem5});
+            this.layoutControlItem5,
+            this.layoutControlItem7});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(422, 165);
@@ -194,7 +196,7 @@
             // 
             // layoutControlItem2
             // 
-            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem2.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem2.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem2.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem2.AppearanceItemCaption.Options.UseForeColor = true;
@@ -203,11 +205,11 @@
             this.layoutControlItem2.Name = "layoutControlItem2";
             this.layoutControlItem2.Size = new System.Drawing.Size(378, 24);
             this.layoutControlItem2.Text = "Initiales Stellenraster";
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(112, 14);
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(130, 14);
             // 
             // layoutControlItem3
             // 
-            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.layoutControlItem3.AppearanceItemCaption.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.layoutControlItem3.AppearanceItemCaption.ForeColor = System.Drawing.Color.White;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem3.AppearanceItemCaption.Options.UseForeColor = true;
@@ -216,12 +218,12 @@
             this.layoutControlItem3.Name = "layoutControlItem3";
             this.layoutControlItem3.Size = new System.Drawing.Size(378, 24);
             this.layoutControlItem3.Text = "Neues Stellenraster";
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(112, 14);
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(130, 14);
             // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnCancel;
-            this.layoutControlItem6.Location = new System.Drawing.Point(318, 119);
+            this.layoutControlItem6.Location = new System.Drawing.Point(240, 119);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(84, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -233,7 +235,7 @@
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.btnOk;
-            this.layoutControlItem7.Location = new System.Drawing.Point(240, 119);
+            this.layoutControlItem7.Location = new System.Drawing.Point(324, 119);
             this.layoutControlItem7.MaxSize = new System.Drawing.Size(78, 26);
             this.layoutControlItem7.MinSize = new System.Drawing.Size(78, 26);
             this.layoutControlItem7.Name = "layoutControlItem7";

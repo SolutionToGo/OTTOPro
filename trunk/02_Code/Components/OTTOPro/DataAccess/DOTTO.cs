@@ -1,4 +1,5 @@
 ﻿using DAL;
+using EL;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -12,12 +13,12 @@ namespace DataAccess
 {
     public class DOTTO
     {
-        public int SaveOTTODetails(XmlDocument XmlDoc)
+        public EOTTO SaveOTTODetails(XmlDocument XmlDoc, EOTTO ObjEOTTO)
         {
             int OTTOID = -1;
+            DataSet dsOTTO = new DataSet();
             try
             {
-
                 string innerxml = XmlDoc.InnerXml;
                 using (SqlCommand cmd = new SqlCommand())
                 {
@@ -27,41 +28,40 @@ namespace DataAccess
                     SqlParameter param = new SqlParameter("@XMLOTTO", SqlDbType.Xml);
                     param.Value = innerxml;
                     cmd.Parameters.Add(param);
-
-                    object returnObj = cmd.ExecuteScalar();
-                    if (returnObj != null)
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        if (returnObj.ToString().Contains("duplicate"))
+                        da.Fill(dsOTTO);
+                    }
+                    if (dsOTTO != null && dsOTTO.Tables.Count > 0)
+                    {
+                        string str = Convert.ToString(dsOTTO.Tables[0].Rows[0][0]);
+                        if (int.TryParse(str, out OTTOID))
                         {
-                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                            ObjEOTTO.OTTOID = OTTOID;
+                            if (dsOTTO.Tables.Count > 1)
+                                ObjEOTTO.dtOTTO = dsOTTO.Tables[1];
+                        }
+                        else
+                        {
+                            if (str.Contains("duplicate"))
                             {
-                                throw new Exception("Dieser Kurzname ist bereits vergeben");
+                                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                    throw new Exception("Dieser Kurzname ist bereits vergeben");
+                                else
+                                    throw new Exception("ShortName is already exists.!");
                             }
                             else
-                            {
-                                throw new Exception("ShortName is already exists.!");
-                            }
+                                throw new Exception("Fehler beim Speichern von Daten zu OTTO");
                         }
-                        if (!int.TryParse(returnObj.ToString(), out OTTOID))
-                        {
-                            throw new Exception(returnObj.ToString());
-                        }
-
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
-            return OTTOID;
+            catch (Exception ex){throw;}
+            finally{SQLCon.Sqlconn().Close();}
+            return ObjEOTTO;
         }
 
-        public DataSet GetOTTODetails()
+        public EOTTO GetOTTODetails(EOTTO ObjEOTTO)
         {
             DataSet dsOTTO = new DataSet();
             try
@@ -75,30 +75,32 @@ namespace DataAccess
                     {
                         da.Fill(dsOTTO);
                     }
+                    if (dsOTTO != null && dsOTTO.Tables.Count > 0)
+                    {
+                        ObjEOTTO.dtOTTO = dsOTTO.Tables[0];
+                        if (dsOTTO.Tables.Count > 1)
+                            ObjEOTTO.dtContact = dsOTTO.Tables[1];
+                    }
                 }
             }
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
                     throw new Exception("Fehler beim Laden der daten zu OTTO");
-                }
                 else
-                {
                     throw new Exception("Error Occured While Retreiving OTTO details");
-
-                }
             }
             finally
             {
                 SQLCon.Sqlconn().Close();
             }
-            return dsOTTO;
+            return ObjEOTTO;
         }
 
-        public int SaveOTTOContactDetails(XmlDocument XmlDoc)
+        public EOTTO SaveOTTOContactDetails(XmlDocument XmlDoc, EOTTO ObjEOTTO)
         {
             int ContactID = -1;
+            DataSet dsOTTO = new DataSet();
             try
             {
 
@@ -111,27 +113,24 @@ namespace DataAccess
                     SqlParameter param = new SqlParameter("@XMLOTTOContact", SqlDbType.Xml);
                     param.Value = innerxml;
                     cmd.Parameters.Add(param);
-
-                    object returnObj = cmd.ExecuteScalar();
-                    if (returnObj != null)
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        if (!int.TryParse(returnObj.ToString(), out ContactID))
+                        da.Fill(dsOTTO);
+                    }
+                    if (dsOTTO != null && dsOTTO.Tables.Count > 0)
+                    {
+                        if (int.TryParse(Convert.ToString(dsOTTO.Tables[0].Rows[0][0]), out ContactID))
                         {
-                            throw new Exception(returnObj.ToString());
+                            ObjEOTTO.ContactID = ContactID;
+                            if (dsOTTO.Tables.Count > 1)
+                                ObjEOTTO.dtContact = dsOTTO.Tables[1];
                         }
-
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
-            return ContactID;
+            catch (Exception ex){throw;}
+            finally{SQLCon.Sqlconn().Close();}
+            return ObjEOTTO;
         }
 
         public void ImportCustomerData(DataTable dt)
@@ -154,6 +153,4 @@ namespace DataAccess
         }
 
     }
-
-//***************
 }

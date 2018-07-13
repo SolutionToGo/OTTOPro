@@ -25,10 +25,10 @@ namespace EL
         private string _Remarks;
         private string _TextKZ;
         private DateTime _ValidityDate;
-        private decimal _Multi1;
-        private decimal _Multi2;
-        private decimal _Multi3;
-        private decimal _Multi4;
+        private decimal _Multi1 = 1;
+        private decimal _Multi2 = 1;
+        private decimal _Multi3 = 1;
+        private decimal _Multi4 =1;
         private string _DataNormNumber;
         private int _CreatedBy;
         private int _LastUpdatedBy;
@@ -360,5 +360,13 @@ namespace EL
             get { return _dtID; }
             set { _dtID = value; }
         }
+        public DataSet dsRabatt { get; set; }
+        public int RID { get; set; }
+        public int RabattTypID { get; set; }
+        public bool IsContinue { get; set; }
+        public string Flag { get; set; }
+        public int RTID { get; set; }
+        public bool IsCopy { get; set; }
+        public DataTable dtDim{get;set;}
     }
 }

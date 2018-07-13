@@ -46,16 +46,14 @@ namespace BL
             {
                 if (ObjEsupplier != null)
                 {
-                    ObjEsupplier.dtSupplier = ObjDSupplier.GetSupplier().Tables[0];
-                    ObjEsupplier.dtContact = ObjDSupplier.GetSupplier().Tables[1];
-                    ObjEsupplier.dtAddress = ObjDSupplier.GetSupplier().Tables[2];
-                    ObjEsupplier.dtArticle = ObjDSupplier.GetSupplier().Tables[3];
+                    DataSet ds = ObjDSupplier.GetSupplier();
+                    ObjEsupplier.dtSupplier = ds.Tables[0];
+                    ObjEsupplier.dtContact = ds.Tables[1];
+                    ObjEsupplier.dtAddress = ds.Tables[2];
+                    ObjEsupplier.dtArticle = ds.Tables[3];
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex){throw;}
             return ObjEsupplier;
         }
 
@@ -65,22 +63,19 @@ namespace BL
             {
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/SupplierContact";
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SupplierID", ObjEsupplier.Cont_supplierID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ContactPersonID", ObjEsupplier.ContactPersonID.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SupplierID", Convert.ToString(ObjEsupplier.SupplierID));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ContactPersonID", Convert.ToString(ObjEsupplier.ContactPersonID));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ContactName", ObjEsupplier.ContactName);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Salutation", ObjEsupplier.Salutation);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Designation", ObjEsupplier.Designation);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EmailID", ObjEsupplier.ContEmailID);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Telephone", ObjEsupplier.ContTelephone);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "FAX", ObjEsupplier.ContFax);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DefaultContact", ObjEsupplier.DefaultContact.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DefaultContact", Convert.ToString(ObjEsupplier.DefaultContact));
                 ObjEsupplier = ObjDSupplier.SavedsSupplierContactDetails(Xdoc, ObjEsupplier);
                 return ObjEsupplier;
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex){throw;}
         }
 
         public ESupplier SaveSupplierAddressDetails(ESupplier ObjEsupplier)
@@ -89,14 +84,14 @@ namespace BL
             {
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/SupplierAddress";
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SupplierID", ObjEsupplier.Addr_supplierID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "AddressID", ObjEsupplier.AddressID.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SupplierID", Convert.ToString(ObjEsupplier.SupplierID));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "AddressID", Convert.ToString(ObjEsupplier.AddressID));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ShortName", ObjEsupplier.AddressShortName);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "StreetNo", ObjEsupplier.StreetNo);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PostalCode", ObjEsupplier.AddrPostalCode);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "City", ObjEsupplier.AddrCity);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Country", ObjEsupplier.AddrCountry);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DefaultAddress", ObjEsupplier.DefaultAddress.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DefaultAddress", Convert.ToString(ObjEsupplier.DefaultAddress));
                 ObjEsupplier = ObjDSupplier.SaveSupplierAddressDetails(Xdoc, ObjEsupplier);
                 return ObjEsupplier;
             }

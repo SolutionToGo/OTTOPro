@@ -42,9 +42,9 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2", ObjEArticle.Multi2.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3", ObjEArticle.Multi3.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4", ObjEArticle.Multi4.ToString(CInfo));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DataNormNumber", ObjEArticle.DataNormNumber.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CreatedBy", ObjEArticle.CreatedBy.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastUpdatedBy", ObjEArticle.LastUpdatedBy.ToString());
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DataNormNumber", Convert.ToString(ObjEArticle.DataNormNumber));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CreatedBy", Convert.ToString(ObjEArticle.CreatedBy));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastUpdatedBy", Convert.ToString(ObjEArticle.LastUpdatedBy));
                 if (ObjDArticles == null)
                     ObjDArticles = new DArticles();
                 ObjEArticle = ObjDArticles.SaveArticle(Xdoc, ObjEArticle);
@@ -75,7 +75,7 @@ namespace BL
         {
             try
             {
-             
+
                 XmlDocument Xdoc = new XmlDocument();
                 string XPath = "/Nouns/Dimension";
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "DimensionID", ObjEArticle.DimensionID.ToString());
@@ -240,7 +240,7 @@ namespace BL
                 if (output != null && output.Tables.Count > 0)
                 {
                     ObjEArticle.dtArticleImport = output.Tables[0];
-                    if(output.Tables.Count > 1)
+                    if (output.Tables.Count > 1)
                         ObjEArticle.dtDimensionImport = output.Tables[1];
                 }
                 CultureInfo ObjCulture = new CultureInfo("en-gb");
@@ -267,7 +267,7 @@ namespace BL
                     ObjEArticle.dtArticleImport.Locale = ObjCulture;
                     ObjEArticle.dtArticleImport = dtTempArticle.Copy();
                 }
-                if(ObjEArticle.dtDimensionImport != null)
+                if (ObjEArticle.dtDimensionImport != null)
                 {
                     DataTable dtTempDimensions = ObjEArticle.dtDimensionImport.Clone();
                     dtTempDimensions.Locale = ObjCulture;
@@ -289,7 +289,7 @@ namespace BL
                     ObjEArticle.dtDimensionImport = dtTempDimensions.Copy();
                 }
             }
-            catch (Exception ex)    
+            catch (Exception ex)
             {
                 throw new Exception("Error While Importing");
             }
@@ -315,7 +315,7 @@ namespace BL
         {
             try
             {
-                if(ObjDArticles == null)
+                if (ObjDArticles == null)
                     ObjDArticles = new DArticles();
                 ObjEArticle = ObjDArticles.SaveArticleMapping(ObjEArticle);
             }
@@ -374,7 +374,7 @@ namespace BL
             try
             {
                 if (ObjDArticles == null)
-                    ObjDArticles = new DArticles(); 
+                    ObjDArticles = new DArticles();
                 ObjEArticle = ObjDArticles.GetArticleBytyp(ObjEArticle);
             }
             catch (Exception ex)
@@ -403,10 +403,10 @@ namespace BL
         {
             DataTable dt = new DataTable();
             try
-            {                
+            {
                 if (ObjDArticles == null)
                     ObjDArticles = new DArticles();
-                 dt= ObjDArticles.GetMultipleTyp(_ID);
+                dt = ObjDArticles.GetMultipleTyp(_ID);
             }
             catch (Exception ex)
             {
@@ -431,7 +431,7 @@ namespace BL
             return _dt;
         }
 
-        public DataTable GetValidityDatesDimensions(int _ID,DateTime _date)
+        public DataTable GetValidityDatesDimensions(int _ID, DateTime _date)
         {
             DataTable _dt = new DataTable();
             try
@@ -460,41 +460,5 @@ namespace BL
             return ObjEArticle;
         }
 
-        public EArticles CopyRabatt(EArticles ObjEArticle)
-        {
-            try
-            {
-                XmlDocument Xdoc = new XmlDocument();
-                string XPath = "/Nouns/Rabatt";
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RabattID", ObjEArticle.RabattID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Rabatt", ObjEArticle.Rabatt.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "TypeID", ObjEArticle.TypID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi1", ObjEArticle.Multi1.ToString(CInfo));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi2", ObjEArticle.Multi2.ToString(CInfo));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi3", ObjEArticle.Multi3.ToString(CInfo));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Multi4", ObjEArticle.Multi4.ToString(CInfo));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEArticle.ValidityDate.ToString("yyyy-MM-dd"));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "CreatedBy", ObjEArticle.CreatedBy.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LastUpdatedBy", ObjEArticle.LastUpdatedBy.ToString());
-                if(ObjEArticle.dtTypID != null)
-                {
-                    ObjEArticle.dtID = ObjEArticle.dtTypID.Copy();
-                    ObjEArticle.dtID.Columns.Remove("Typ");
-                }
-                else
-                {
-                    ObjEArticle.dtID = new DataTable();
-                    ObjEArticle.dtID.Columns.Add("TypID", typeof(int));
-                }
-                if(ObjDArticles == null)
-                    ObjDArticles = new DArticles();
-                ObjEArticle = ObjDArticles.CopyRabatt(Xdoc, ObjEArticle);
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return ObjEArticle;
-        }
     }
 }

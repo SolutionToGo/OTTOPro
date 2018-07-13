@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using BL;
 using EL;
+using DevExpress.XtraGrid.Views.Grid;
+using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DataAccess;
 
 namespace OTTOPro
 {
@@ -17,8 +21,6 @@ namespace OTTOPro
     {
         BArticles ObjBArticle = null;
         EArticles ObjEArticle = null;
-        private bool _IsBind = true;
-        List<Control> ReqFields = new List<Control>();
         public frmRabattGroup()
         {
             InitializeComponent();
@@ -34,22 +36,20 @@ namespace OTTOPro
             try
             {
                 if (Utility.ArticleDataAccess == "7")
-                    btnSave.Enabled = false;
+                    btnAdd.Enabled = false;
 
                 if (ObjEArticle == null)
                     ObjEArticle = new EArticles();
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
                 ObjEArticle = ObjBArticle.GetRabatt(ObjEArticle);
-                cmbType.DataSource = ObjEArticle.dtTyp;
-                cmbType.ValueMember = "TypID";
-                cmbType.DisplayMember = "Typ";
                 BindRabattData();
                 dateEditValidityDate.DateTime = DateTime.Now;
                 dateEditValidityDate.Properties.MinValue = DateTime.Now;
-                cmbType_SelectedValueChanged(null, null);
-                ReqFields.Add(txtRabatt);
-                ReqFields.Add(cmbType);
+                txtMulti1.Text = "1";
+                txtMulti2.Text = "1";
+                txtMulti3.Text = "1";
+                txtMulti4.Text = "1";
             }
             catch (Exception ex)
             {
@@ -64,34 +64,12 @@ namespace OTTOPro
                 if (ObjEArticle == null)
                     ObjEArticle = new EArticles();
                 gcRabatt.DataSource = ObjEArticle.dtRabatt;
+                gvRabatt.Columns["RabattID"].Visible = false;
+                gvRabatt.BestFitColumns();
             }
             catch (Exception ex)
             {
                 throw;
-            }
-        }
-
-        private void cmbType_SelectedValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                int iValue = 0;
-                if (cmbType.SelectedValue != null && int.TryParse(cmbType.SelectedValue.ToString(), out iValue))
-                {
-                    DataRow[] drTyp = ObjEArticle.dtTyp.Select("TypID = '" + iValue + "'");
-                    if (_IsBind)
-                    {
-                        txtMulti1.Text = drTyp[0]["Multi1"].ToString();
-                        txtMulti2.Text = drTyp[0]["Multi2"].ToString();
-                        txtMulti3.Text = drTyp[0]["Multi3"].ToString();
-                        txtMulti4.Text = drTyp[0]["Multi4"].ToString();
-                    }
-                    txtArt.Text = drTyp[0]["ArtDesc"].ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
             }
         }
 
@@ -101,10 +79,8 @@ namespace OTTOPro
             {
                 decimal DValue = 1;
                 DateTime dtTime = DateTime.Now;
-                ObjEArticle.RabattID = -1;
                 ObjEArticle.Rabatt = txtRabatt.Text;
-                ObjEArticle.TypID = Convert.ToInt32(cmbType.SelectedValue);
-                
+               
                 if(decimal.TryParse(txtMulti1.Text,out DValue))
                     ObjEArticle.Multi1 = DValue;
                 else
@@ -140,21 +116,17 @@ namespace OTTOPro
                 int _IDValue = -1;
                 if (gvRabatt.FocusedColumn != null && gvRabatt.GetFocusedRowCellValue("RabattID") != null)
                 {
-                    if (int.TryParse(gvRabatt.GetFocusedRowCellValue("RabattID").ToString(), out _IDValue))
+                    if (int.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("RabattID")), out _IDValue))
                     {
                         if (ObjEArticle == null)
                             ObjEArticle = new EArticles();
-                        _IsBind = false;
-                        ObjEArticle.RabattID = _IDValue;
-                        txtRabatt.Text = gvRabatt.GetFocusedRowCellValue("Rabatt") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Rabatt").ToString();
-                        txtMulti1.Text = gvRabatt.GetFocusedRowCellValue("Multi1") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Multi1").ToString();
-                        txtMulti2.Text = gvRabatt.GetFocusedRowCellValue("Multi2") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Multi2").ToString();
-                        txtMulti3.Text = gvRabatt.GetFocusedRowCellValue("Multi3") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Multi3").ToString();
-                        txtMulti4.Text = gvRabatt.GetFocusedRowCellValue("Multi4") == DBNull.Value ? "" : gvRabatt.GetFocusedRowCellValue("Multi4").ToString();
-                        dateEditValidityDate.DateTime = gvRabatt.GetFocusedRowCellValue("ValidityDate") == DBNull.Value ?
-                            DateTime.Now : Convert.ToDateTime(gvRabatt.GetFocusedRowCellValue("ValidityDate"));
+                        ObjEArticle.RID = _IDValue;
+                        string stRabatt = Convert.ToString(gvRabatt.GetFocusedRowCellValue("Rabatt"));
+                        lblTypName.Text = "Typs Associated with Rabbat : " + stRabatt;
                         ObjEArticle = ObjBArticle.GetTypByRabatt(ObjEArticle);
                         gcTyp.DataSource = ObjEArticle.dtTypID;
+                        gvTyp.Columns["RabattTypMapID"].Visible = false;
+                        gvTyp.BestFitColumns();
                     }
                 }
             }
@@ -181,48 +153,46 @@ namespace OTTOPro
         {
             try
             {
-                if(cmbType.SelectedValue != null)
-                {
-                    if (Utility.ValidateRequiredFields(ReqFields) == false)
-                        return;
-                    int iValue = 0;
-                    if (ObjBArticle == null)
-                        ObjBArticle = new BArticles();
-                    if (ObjEArticle == null)
-                        ObjEArticle = new EArticles();
-                    ParseRabattDetails();
-                    ObjEArticle = ObjBArticle.SaveRabatt(ObjEArticle);
-                    iValue = ObjEArticle.RabattID;
-                    BindRabattData();
-                    Utility.Setfocus(gvRabatt, "RabattID", iValue);
-                    if (Utility._IsGermany == true)
-                    {
-                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Rabattgruppe(n)");
-                    }
-                    else
-                    {
-                        frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
-                    }
+                int iValue = 0;
+                if (ObjBArticle == null)
+                    ObjBArticle = new BArticles();
+                if (ObjEArticle == null)
+                    ObjEArticle = new EArticles();
+                ParseRabattDetails();
+                ObjEArticle = ObjBArticle.SaveRabatt(ObjEArticle);
+                iValue = ObjEArticle.RabattID;
+                BindRabattData();
+                Utility.Setfocus(gvRabatt, "RabattID", iValue);
+                ObjEArticle.RabattID = -1;
+                if (Utility._IsGermany == true)
+                    frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Rabattgruppe(n)");
+                else
+                    frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
+            }
+            catch (Exception ex){Utility.ShowError(ex);}
+        }
 
-                    //string IDValue = Convert.ToString(cmbType.SelectedValue);
-                    //string IDText = cmbType.Text;
-                    //if (ObjEArticle == null)
-                    //    ObjEArticle = new EArticles();
-                    //if(ObjEArticle.dtTypID == null)
-                    //{
-                    //    ObjEArticle.dtTypID = new DataTable();
-                    //    ObjEArticle.dtTypID.Columns.Add("TypID", typeof(int));
-                    //    ObjEArticle.dtTypID.Columns.Add("Typ", typeof(string));
-                    //}
-                    //DataRow[] FoundRows = ObjEArticle.dtTypID.Select("TypID = " + IDValue);
-                    //if (FoundRows.Length == 0)
-                    //{
-                    //    DataRow drnew = ObjEArticle.dtTypID.NewRow();
-                    //    drnew["TypID"] = IDValue;
-                    //    drnew["Typ"] = IDText;
-                    //    ObjEArticle.dtTypID.Rows.Add(drnew);
-                    //    gcTyp.DataSource = ObjEArticle.dtTypID;
-                    //}
+        private void btnAddtype_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmTypList Obj = new frmTypList();
+                Obj.ShowDialog();
+                if(Obj.IScontinue)
+                {
+                    ObjEArticle = new EArticles();
+                    DArticles ObjDArticles = new DArticles(); ;
+                    int ivalue = 0;
+                    if(int.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("RabattID")),out ivalue))
+                    {
+                        ObjEArticle.RabattID = ivalue;
+                        ObjEArticle.TypID = Obj.TypID;
+                        ObjEArticle = ObjDArticles.SaveTypRabattMapping(ObjEArticle);
+                        gcTyp.DataSource = ObjEArticle.dtTypID;
+                        gvTyp.Columns["RabattTypMapID"].Visible = false;
+                        Utility.Setfocus(gvTyp, "RabattTypMapID", ObjEArticle.RabattTypID);
+                        ObjEArticle.RabattTypID = -1;
+                    }
                 }
             }
             catch (Exception ex)
@@ -231,34 +201,130 @@ namespace OTTOPro
             }
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void gcRabatt_ProcessGridKey(object sender, KeyEventArgs e)
         {
             try
             {
-                if (Utility.ValidateRequiredFields(ReqFields) == false)
-                        return;
-                    int iValue = 0;
-                    if (ObjBArticle == null)
-                        ObjBArticle = new BArticles();
-                    if (ObjEArticle == null)
-                        ObjEArticle = new EArticles();
-                    ParseRabattDetails();
-                    ObjEArticle = ObjBArticle.CopyRabatt(ObjEArticle);
-                    iValue = ObjEArticle.RabattID;
-                    BindRabattData();
-                    Utility.Setfocus(gvRabatt, "RabattID", iValue);
-                    if (Utility._IsGermany == true)
-                    {
-                        frmOTTOPro.UpdateStatus("Vorgang abgeschlossen: Speichern der Rabattgruppe(n)");
-                    }
-                    else
-                    {
-                        frmOTTOPro.UpdateStatus("Rabatt group Saved Successfully");
-                    }
+                var grid = sender as GridControl;
+                var view = grid.FocusedView as GridView;
+                if (e.KeyData == Keys.Delete)
+                {
+                    e.Handled = true;
+                }
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
+            }
+        }
+
+        private void gvRabatt_DoubleClick(object sender, EventArgs e)
+        {
+            try
+            {
+                int IValue = 0; decimal DValue = 0;
+                if (int.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("RabattID")), out IValue))
+                {
+                    ObjEArticle.RabattID = IValue;
+                    ObjEArticle.Rabatt = Convert.ToString(gvRabatt.GetFocusedRowCellValue("Rabatt"));
+                    if (decimal.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("Multi1")), out DValue))
+                        ObjEArticle.Multi1 = DValue;
+                    else
+                        ObjEArticle.Multi1 = 1;
+
+                    if (decimal.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("Multi2")), out DValue))
+                        ObjEArticle.Multi2 = DValue;
+                    else
+                        ObjEArticle.Multi2 = 1;
+
+                    if (decimal.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("Multi3")), out DValue))
+                        ObjEArticle.Multi3 = DValue;
+                    else
+                        ObjEArticle.Multi3 = 1;
+
+                    if (decimal.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("Multi4")), out DValue))
+                        ObjEArticle.Multi4 = DValue;
+                    else
+                        ObjEArticle.Multi4 = 1;
+
+                    ObjEArticle.ValidityDate = gvRabatt.GetFocusedRowCellValue("Gültigkeit Datum") == DBNull.Value ?
+                        DateTime.Now : Convert.ToDateTime(gvRabatt.GetFocusedRowCellValue("Gültigkeit Datum"));
+
+                    frmEditRabatt Obj = new frmEditRabatt(ObjEArticle, false);
+                    Obj.ShowDialog();
+                    if (ObjEArticle.IsContinue)
+                    {
+                        ObjEArticle.IsContinue = false;
+                        gcRabatt.DataSource = ObjEArticle.dtRabatt;
+                        Utility.Setfocus(gvRabatt, "RabattID", ObjEArticle.RabattID);
+                        ObjEArticle.RabattID = -1;
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Utility.ShowError(EX);
+            }
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            if(ObjEArticle == null)
+                ObjEArticle = new EArticles();
+            ObjEArticle.RabattID = -1;
+            txtRabatt.Text = string.Empty;
+            txtMulti1.Text = "1";
+            txtMulti2.Text = "1";
+            txtMulti3.Text = "1";
+            txtMulti4.Text = "1";
+        }
+
+        private void btnCopyRabatt_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int IValue = 0; decimal DValue = 0;
+                if(int.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("RabattID")),out IValue))
+                {
+                    ObjEArticle.RabattID = IValue;
+                    ObjEArticle.Rabatt = Convert.ToString(gvRabatt.GetFocusedRowCellValue("Rabatt"));
+                    if(decimal.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("Multi1")),out DValue))
+                        ObjEArticle.Multi1 = DValue;
+                    else
+                        ObjEArticle.Multi1 = 1;
+
+                    if (decimal.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("Multi2")), out DValue))
+                        ObjEArticle.Multi2 = DValue;
+                    else
+                        ObjEArticle.Multi2 = 1;
+
+                    if (decimal.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("Multi3")), out DValue))
+                        ObjEArticle.Multi3 = DValue;
+                    else
+                        ObjEArticle.Multi3 = 1;
+                    
+                    if (decimal.TryParse(Convert.ToString(gvRabatt.GetFocusedRowCellValue("Multi4")), out DValue))
+                        ObjEArticle.Multi4 = DValue;
+                    else
+                        ObjEArticle.Multi4 = 1;
+
+                    ObjEArticle.ValidityDate = gvRabatt.GetFocusedRowCellValue("Gültigkeit Datum") == DBNull.Value ?
+                        DateTime.Now : Convert.ToDateTime(gvRabatt.GetFocusedRowCellValue("Gültigkeit Datum"));
+
+                    frmEditRabatt Obj = new frmEditRabatt(ObjEArticle,true);
+                    Obj.ShowDialog();
+                    if(ObjEArticle.IsContinue)
+                    {
+                        ObjEArticle.IsContinue = false;
+                        gcRabatt.DataSource = ObjEArticle.dtRabatt;
+                        Utility.Setfocus(gvRabatt, "RabattID", ObjEArticle.RabattID);
+                        ObjEArticle.RabattID = -1;
+                    }
+                }
+            }
+            catch (Exception EX)
+            {
+                Utility.ShowError(EX);
             }
         }
     }

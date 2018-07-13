@@ -132,6 +132,7 @@ namespace OTTOPro
             try
             {
                 frmOTTOPro.Instance.tsStatus.Text = null;
+                tmrStatus.Stop();
             }
             catch (Exception ex)
             {
@@ -202,65 +203,26 @@ namespace OTTOPro
         {
             try
             {
-                foreach (Form form in Application.OpenForms)
-                {
-                    if (form.Name == "frmLoadCustomerMaster")
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
-                    frmLoadCustomerMaster Obj = new frmLoadCustomerMaster();
-                    Obj.MdiParent = this;
-                    label2.Visible = false;
-                    pictureBox1.Visible = false;
-                    Obj.Show();                    
+                frmLoadCustomerMaster Obj = new frmLoadCustomerMaster();
+                Obj.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex) { Utility.ShowError(ex); }
         }
 
         private void btnOTTO_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
             {
-                foreach (Form form in Application.OpenForms)
-                {
-                    if (form.Name == "frmLoadOTTOMaster")
-                    {
-                        form.Activate();
-                        return;
-                    }
-                }
                 frmLoadOTTOMaster Obj = new frmLoadOTTOMaster();
-                Obj.MdiParent = this;
-                label2.Visible = false;
-                pictureBox1.Visible = false;
-                Obj.Show();
+                Obj.ShowDialog();
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex){Utility.ShowError(ex);}
         }
 
         private void btnSupplier_ItemClick(object sender, ItemClickEventArgs e)
         {
-            foreach (Form form in Application.OpenForms)
-            {
-                if (form.Name == "frmLoadSupplier")
-                {
-                    form.Activate();
-                    return;
-                }
-            }
             frmLoadSupplier Obj = new frmLoadSupplier();
-            Obj.MdiParent = this;
-            label2.Visible = false;
-            pictureBox1.Visible = false;
-            Obj.Show();
+            Obj.ShowDialog();
         }
 
         private void btnArticledata_ItemClick(object sender, ItemClickEventArgs e)
@@ -272,12 +234,6 @@ namespace OTTOPro
         private void btnTextModule_ItemClick(object sender, ItemClickEventArgs e)
         {
             frmTextModule Obj = new frmTextModule();
-            Obj.ShowDialog();
-        }
-
-        private void btnDesignReport_ItemClick(object sender, ItemClickEventArgs e)
-        {
-            frmDesignReport Obj = new frmDesignReport("Form", 0, 0);
             Obj.ShowDialog();
         }
 
@@ -314,11 +270,6 @@ namespace OTTOPro
             //    pictureBox1.Visible = false;
             //    label2.Visible = false;
             //}
-        }
-
-        private void frmOTTOPro_MdiChildActivate(object sender, EventArgs e)
-        {
-           // BackgroudImageVisibility(false);
         }
 
         private void btnUserData_ItemClick(object sender, ItemClickEventArgs e)
@@ -570,6 +521,108 @@ namespace OTTOPro
                     else
                         throw new Exception("Bitte schließen Sie die Rechnung-Dokumente aller Projekte");
 
+                }
+                SplashScreenManager.CloseForm(false);
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnAngebot1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot1_Template.dotx";
+                if (File.Exists(Convert.ToString(oTemplatePath)))
+                {
+                    if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
+                    {
+                        Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                        ap.Documents.Open(oTemplatePath);
+                        ap.Visible = true;
+                        ap.Activate();
+                    }
+                    else
+                        throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
+                }
+                SplashScreenManager.CloseForm(false);
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnAngebot2_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot2_Template.dotx";
+                if (File.Exists(Convert.ToString(oTemplatePath)))
+                {
+                    if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
+                    {
+                        Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                        ap.Documents.Open(oTemplatePath);
+                        ap.Visible = true;
+                        ap.Activate();
+                    }
+                    else
+                        throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
+                }
+                SplashScreenManager.CloseForm(false);
+            }
+            catch (Exception ex)
+            {
+                SplashScreenManager.CloseForm(false);
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void btnAngebot3_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot3_Template.dotx";
+                if (File.Exists(Convert.ToString(oTemplatePath)))
+                {
+                    if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
+                    {
+                        Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                        ap.Documents.Open(oTemplatePath);
+                        ap.Visible = true;
+                        ap.Activate();
+                    }
+                    else
+                        throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
                 }
                 SplashScreenManager.CloseForm(false);
             }

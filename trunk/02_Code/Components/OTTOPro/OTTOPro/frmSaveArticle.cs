@@ -15,81 +15,34 @@ namespace OTTOPro
 {
     public partial class frmSaveArticle : DevExpress.XtraEditors.XtraForm
     {
-       // ESupplier ObjESupplier = new ESupplier();
         BSupplier ObjBSupplier = null;
-
         private ESupplier _ObjEsupplier = null;
 
-        bool _isValidate = false;
         public frmSaveArticle()
         {
             InitializeComponent();
         }
 
-
-        #region PROPERTY SETTING
-
         public ESupplier ObjEsupplier
         {
-            get
-            {
-                return _ObjEsupplier;
-            }
-            set
-            {
-                _ObjEsupplier = value;
-            }
+            get{return _ObjEsupplier;}
+            set{_ObjEsupplier = value;}
         }
-
-        #endregion
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrEmpty(txtWG.Text.Trim()))
-                {
-                    _isValidate = false;
-                    throw new Exception("Bitte eingeben WG");
-                }
-                if (string.IsNullOrEmpty(txtWA.Text.Trim()))
-                {
-                    _isValidate = false;
-                    throw new Exception("Bitte eingeben WA");
-                }   
-                    if (_ObjEsupplier == null)
-                        _ObjEsupplier = new ESupplier();
-                    ParseSupplierDetails();
-                    ObjBSupplier = new BSupplier();
-                    ObjBSupplier.SaveArticle(_ObjEsupplier);
-                    _isValidate = true;
+                if (!this.dxValidationProvider1.Validate())
+                    return;
+                if (_ObjEsupplier == null)
+                    _ObjEsupplier = new ESupplier();
+                ParseSupplierDetails();
+                ObjBSupplier = new BSupplier();
+                ObjBSupplier.SaveArticle(_ObjEsupplier);
+                this.Close();
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void ValidatControls()
-        {
-            try
-            {
-                bool isValidWG = dxValidationProviderWG.Validate(txtWG);
-                bool isvalidWA = dxValidationProviderWA.Validate(txtWA);
-                if (!isValidWG || !isvalidWA)
-                {
-                    _isValidate = false;
-                }
-                else
-                {
-                    _isValidate = true;
-                }
-            }
-            catch (Exception Ex)
-            {
-                throw;
-            }
-
+            catch (Exception ex) { Utility.ShowError(ex); }
         }
 
         private void ParseSupplierDetails()
@@ -97,37 +50,18 @@ namespace OTTOPro
             try
             {
                 _ObjEsupplier.WG = txtWG.Text;
-                _ObjEsupplier.WA = txtWA.Text;
+                if (string.IsNullOrEmpty(txtWA.Text))
+                    _ObjEsupplier.WA = "0";
+                else
+                    _ObjEsupplier.WA = txtWA.Text;
                 _ObjEsupplier.WGDescription = txtDescription.Text;
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
+            catch (Exception ex){throw;}
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void frmSaveArticle_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            try
-            {
-                if (this.DialogResult != DialogResult.Cancel)
-                {
-                    if (_isValidate == false)
-                        e.Cancel = true;
-                }
-                else
-                    e.Cancel = false;
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
         }
 
         private void BindSupplierDetails()
@@ -138,11 +72,7 @@ namespace OTTOPro
                 txtWA.Text = _ObjEsupplier.WA;
                 txtDescription.Text = _ObjEsupplier.WGDescription;
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
+            catch (Exception ex){throw;}
         }
 
         private void frmSaveArticle_Load(object sender, EventArgs e)
@@ -151,7 +81,7 @@ namespace OTTOPro
             {
                 if (Utility.SupplierDataAccess == "7")
                     btnSave.Enabled = false;
-                if (_ObjEsupplier.SupplierID > 0)
+                if (_ObjEsupplier.WGWAID > 0)
                     BindSupplierDetails();
             }
             catch (Exception ex)

@@ -275,7 +275,8 @@ namespace DataAccess
                        if (int.TryParse(str, out iValue))
                        {
                            ObjEArticle.RabattID = iValue;
-                           ObjEArticle.dtRabatt = dsRabatt.Tables[1];
+                           if (dsRabatt.Tables.Count > 1)
+                               ObjEArticle.dtRabatt = dsRabatt.Tables[1];
                        }
                        else if (str.Contains("UC_RabattTypMap"))
                        {
@@ -329,8 +330,8 @@ namespace DataAccess
                    {
                        da.Fill(dsRabatt);
                    }
-                   ObjEArticle.dtTyp = dsRabatt.Tables[0];
-                   ObjEArticle.dtRabatt = dsRabatt.Tables[1];
+                   if (dsRabatt != null && dsRabatt.Tables.Count > 0)
+                       ObjEArticle.dtRabatt = dsRabatt.Tables[0];
                }
            }
            catch (Exception ex)
@@ -359,12 +360,21 @@ namespace DataAccess
                    cmd.CommandText = "[P_Ins_DimensionCopy]";
                    cmd.Parameters.AddWithValue("@WIID", ObjEArticle.WIID);
                    cmd.Parameters.AddWithValue("@ValidityDate", ObjEArticle.ValidityDate);
-                   cmd.Parameters.AddWithValue("@dtDimension", ObjEArticle.dtDimenstions);
+                   cmd.Parameters.AddWithValue("@dtDimension", ObjEArticle.dtDim);
+                   cmd.Parameters.AddWithValue("@IsCopy", ObjEArticle.IsCopy);
                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                    {
                        da.Fill(dsDimesions);
                    }
-                   ObjEArticle.dtDimenstions = dsDimesions.Tables[0];
+                   if (dsDimesions != null && dsDimesions.Tables.Count > 0 && dsDimesions.Tables[0].Rows.Count > 0)
+                   {
+                       string str = Convert.ToString(dsDimesions.Tables[0].Rows[0][0]);
+                       int IValue = 0;
+                       if (!int.TryParse(str, out IValue))
+                           throw new Exception(str);
+                       else
+                           ObjEArticle.dtDimenstions = dsDimesions.Tables[0];
+                   }
                }
            }
            catch (Exception ex)
@@ -764,7 +774,7 @@ namespace DataAccess
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Get_TypByRabatt]";
-                   cmd.Parameters.Add("@RabattID", ObjEArticle.RabattID);
+                   cmd.Parameters.Add("@RabattID", ObjEArticle.RID);
                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                    {
                        da.Fill(ObjEArticle.dtTypID);
@@ -782,21 +792,18 @@ namespace DataAccess
            return ObjEArticle;
        }
 
-       public EArticles CopyRabatt(XmlDocument xml, EArticles ObjEArticle)
+       public EArticles SaveTypRabattMapping(EArticles ObjEArticle)
        {
            DataSet dsRabatt = new DataSet();
            try
            {
                using (SqlCommand cmd = new SqlCommand())
                {
-                   string innerxml = xml.InnerXml;
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
-                   cmd.CommandText = "[P_Ins_Rabatt_Copy]";
-                   SqlParameter param = new SqlParameter("@XMLRabatt", SqlDbType.Xml);
-                   param.Value = innerxml;
-                   cmd.Parameters.Add(param);
-                   cmd.Parameters.Add("@dtTyp", ObjEArticle.dtID);
+                   cmd.CommandText = "[P_Ins_RabattTypMapping]";
+                   cmd.Parameters.Add("@RabattID", ObjEArticle.RabattID);
+                   cmd.Parameters.Add("@TypID", ObjEArticle.TypID);
                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                    {
                        da.Fill(dsRabatt);
@@ -804,33 +811,19 @@ namespace DataAccess
                    if (dsRabatt != null && dsRabatt.Tables.Count > 0)
                    {
                        int iValue = 0;
-                       string str = dsRabatt.Tables[0].Rows[0][0] == DBNull.Value ? "" : dsRabatt.Tables[0].Rows[0][0].ToString();
+                       string str = Convert.ToString(dsRabatt.Tables[0].Rows[0][0]);
                        if (int.TryParse(str, out iValue))
                        {
-                           ObjEArticle.RabattID = iValue;
-                           ObjEArticle.dtRabatt = dsRabatt.Tables[1];
+                           ObjEArticle.RabattTypID = iValue;
+                           if (dsRabatt.Tables.Count > 1)
+                               ObjEArticle.dtTypID = dsRabatt.Tables[1];
                        }
                        else if (str.Contains("UC_RabattTypMap"))
                        {
                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                           {
                                throw new Exception("Dieser TYP existiert bereits.");
-                           }
                            else
-                           {
                                throw new Exception("Typ OR Rabattgruppe Already Exists With Given ValidityDate");
-                           }
-                       }
-                       else if (str.Contains("UC_Rabatt"))
-                       {
-                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                           {
-                               throw new Exception("Diese Rabattgruppe existiert bereits");
-                           }
-                           else
-                           {
-                               throw new Exception("Rabatt Already Exists");
-                           }
                        }
                        else
                            throw new Exception("Fehler beim Speichern der Rabattgruppe");
@@ -840,6 +833,142 @@ namespace DataAccess
            catch (Exception ex)
            {
                throw;
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
+
+       public EArticles GetTypForRabatt(EArticles ObjEArticle)
+       {
+           DataSet dsTyp = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_TypForRabatt]";
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsTyp);
+                   }
+                   if (dsTyp != null && dsTyp.Tables.Count > 0)
+                       ObjEArticle.dtTyp = dsTyp.Tables[0];
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
+               else
+                   throw new Exception("Error While Retrieving the Typ");
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
+
+       public EArticles UpdateRabatt(EArticles ObjEArticle)
+       {
+           DataSet dsRabatt = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Upd_Rabatt]";
+                   cmd.Parameters.Add("@RabattID", ObjEArticle.RabattID);
+                   cmd.Parameters.Add("@Rabatt", ObjEArticle.Rabatt);
+                   cmd.Parameters.Add("@ValidityDate", ObjEArticle.ValidityDate);
+                   cmd.Parameters.Add("@Multi1", ObjEArticle.Multi1);
+                   cmd.Parameters.Add("@Multi2", ObjEArticle.Multi2);
+                   cmd.Parameters.Add("@Multi3", ObjEArticle.Multi3);
+                   cmd.Parameters.Add("@Multi4", ObjEArticle.Multi4);
+                   cmd.Parameters.Add("@Flag", ObjEArticle.Flag);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsRabatt);
+                   }
+                   if (dsRabatt != null && dsRabatt.Tables.Count > 0)
+                   {
+                       int iValue = 0;
+                       string str = Convert.ToString(dsRabatt.Tables[0].Rows[0][0]);
+                       if (int.TryParse(str, out iValue))
+                       {
+                           ObjEArticle.RabattID = iValue;
+                           if (dsRabatt.Tables.Count > 1)
+                               ObjEArticle.dtRabatt = dsRabatt.Tables[1];
+                       }
+                       else if (str.Contains("UC_RabattTypMap"))
+                       {
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                               throw new Exception("Dieser TYP existiert bereits.");
+                           else
+                               throw new Exception("Typ OR Rabattgruppe Already Exists With Given ValidityDate");
+                       }
+                       else if (str.Contains("UC_Rabatt"))
+                       {
+                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                               throw new Exception("Diese Rabattgruppe existiert bereits");
+                           else
+                               throw new Exception("Rabatt Already Exists");
+                       }
+                       else
+                           throw new Exception("Fehler beim Speichern der Rabattgruppe");
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               throw;
+           }
+           finally
+           {
+               SQLCon.Sqlconn().Close();
+           }
+           return ObjEArticle;
+       }
+
+       public EArticles GetTypByWIID(EArticles ObjEArticle)
+       {
+           DataSet dsTyp = new DataSet();
+           try
+           {
+               using (SqlCommand cmd = new SqlCommand())
+               {
+                   cmd.Connection = SQLCon.Sqlconn();
+                   cmd.CommandType = CommandType.StoredProcedure;
+                   cmd.CommandText = "[P_Get_GetTypByWIID]";
+                   cmd.Parameters.Add("@WIID", ObjEArticle.WIID);
+                   using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                   {
+                       da.Fill(dsTyp);
+                   }
+                   if (dsTyp != null && dsTyp.Tables.Count > 0)
+                   {
+                       int IValue = 0;
+                       if (dsTyp.Tables[0].Rows.Count > 0 && int.TryParse(Convert.ToString(dsTyp.Tables[0].Rows[0][0]),out IValue))
+                           ObjEArticle.RTID = IValue;
+                       else
+                           ObjEArticle.RTID = 0;
+
+                       if (dsTyp.Tables.Count > 1)
+                           ObjEArticle.dtTyp = dsTyp.Tables[1];
+                   }
+               }
+           }
+           catch (Exception ex)
+           {
+               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                   throw new Exception("Fehler bei der Datenaktualisierung für Typ");
+               else
+                   throw new Exception("Error While Retrieving the Typ");
            }
            finally
            {

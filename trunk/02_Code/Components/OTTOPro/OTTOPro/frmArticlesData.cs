@@ -14,6 +14,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
+using DataAccess;
 
 namespace OTTOPro
 {
@@ -40,20 +41,12 @@ namespace OTTOPro
             txtWI.Text = string.Empty;
             txtWIDescription.Text = string.Empty;
             txtFabrikat.Text = string.Empty;
-            txtTyp.Text = string.Empty;
-            txtLiferent.Text = string.Empty;
-            txtRabattgruppe.Text = string.Empty;
             txtDimension.Text = string.Empty;
             cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf("h");
             txtMasseinheit.Text = string.Empty;
             txtTextKZ.Text = string.Empty;
             txtremark.Text = string.Empty;
-            txtMulti1.Text = "1";
-            txtMulti2.Text = "1";
-            txtMulti3.Text = "1";
-            txtMulti4.Text = "1";
             txtDatanormNr.Text = string.Empty;
-            dateEditGultigkeit.DateTime = DateTime.Now;
             lblArticle.Text = "Artikelübersicht zu : ";
             BindDimensions(ObjEArticle.WIID);
         }
@@ -152,17 +145,14 @@ namespace OTTOPro
                         cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf(gvWI.GetFocusedRowCellValue("Menegenheit") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Menegenheit").ToString());
                         txtremark.Text = gvWI.GetFocusedRowCellValue("Remarks") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Remarks").ToString();
                         txtTextKZ.Text = gvWI.GetFocusedRowCellValue("TextKZ") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("TextKZ").ToString();
-                        dateEditGultigkeit.DateTime = gvWI.GetFocusedRowCellValue("ValidityDate") == DBNull.Value ? DateTime.Now : Convert.ToDateTime(gvWI.GetFocusedRowCellValue("ValidityDate"));
-                        txtMulti1.Text = gvWI.GetFocusedRowCellValue("Multi1") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Multi1").ToString();
-                        txtMulti2.Text = gvWI.GetFocusedRowCellValue("Multi2") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Multi2").ToString();
-                        txtMulti3.Text = gvWI.GetFocusedRowCellValue("Multi3") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Multi3").ToString();
-                        txtMulti4.Text = gvWI.GetFocusedRowCellValue("Multi4") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Multi4").ToString();
                         txtDatanormNr.Text = gvWI.GetFocusedRowCellValue("DataNormNumber") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("DataNormNumber").ToString();
-                        txtTyp.Text = gvWI.GetFocusedRowCellValue("Typ") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Typ").ToString();
-                        txtLiferent.Text = gvWI.GetFocusedRowCellValue("FullName") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("FullName").ToString();
-                        txtRabattgruppe.Text = gvWI.GetFocusedRowCellValue("Rabatt") == DBNull.Value ? "" : gvWI.GetFocusedRowCellValue("Rabatt").ToString();
                         lblArticle.Text = "Artikelübersicht zu : " + txtWG.Text + "/" + txtWA.Text + "/" + txtWI.Text;
                         BindDimensions(_WIIDValue);
+                        DArticles Obj = new DArticles();
+                        Obj.GetTypByWIID(ObjEArticle);
+                        gcTyp.DataSource = ObjEArticle.dtTyp;
+                        gvTyp.BestFitColumns();
+                        Utility.Setfocus(gvTyp, "RTID", ObjEArticle.RTID);
                     }
                 }
             }
@@ -181,68 +171,25 @@ namespace OTTOPro
             else
             {
                 if(!Utility._IsGermany)
-                {
                     throw new Exception("Please Enter Valid WG Value");
-                }
                 else
-                {
                     throw new Exception("Bitte geben Sie einen zulässigen Wert an für WG");
-                }
-                
             }
-                
 
-            if (!string.IsNullOrEmpty(txtWA.Text.Trim()) && txtWA.Text != "0")
+            if (!string.IsNullOrEmpty(txtWA.Text.Trim()))
                 ObjEArticle.WA = txtWA.Text;
             else
-            {
-                if (!Utility._IsGermany)
-                {
-                    throw new Exception("Please Enter Valid WA Value");
-                }
-                else
-                {
-                    throw new Exception("Bitte geben Sie einen zulässigen Wert an für WA");
-                }
-            }
-                
-            //if (!string.IsNullOrEmpty(txtWI.Text) && txtWI.Text != "0")
-                ObjEArticle.WI = txtWI.Text.Trim();
-            //else
-            //    throw new Exception("Please Enter Valid WI Value");
-        
-
+                ObjEArticle.WA = "0";
+            ObjEArticle.WI = txtWI.Text.Trim();
             ObjEArticle.WGDescription = txtWGDescription.Text;
             ObjEArticle.WADescription = txtWADescription.Text;
             ObjEArticle.WIDescription = txtWIDescription.Text;
             ObjEArticle.Fabrikate = txtFabrikat.Text;
-            ObjEArticle.Typ = txtTyp.Text;
             ObjEArticle.Dimension = txtDimension.Text;
             ObjEArticle.Menegenheit = cmbME.Text;
             ObjEArticle.Masseinheit = txtMasseinheit.Text;
             ObjEArticle.TextKZ = txtTextKZ.Text;
             ObjEArticle.Remarks = txtremark.Text;
-            ObjEArticle.ValidityDate = dateEditGultigkeit.DateTime;
-            decimal dValue = 1;
-            if (decimal.TryParse(txtMulti1.Text, out dValue) && dValue != 0)
-                ObjEArticle.Multi1 = dValue;                
-            else
-                ObjEArticle.Multi1 = 1;
-
-            if (decimal.TryParse(txtMulti2.Text, out dValue) && dValue != 0)
-                ObjEArticle.Multi2 = dValue;
-            else
-                ObjEArticle.Multi2 = 1;
-
-            if (decimal.TryParse(txtMulti3.Text, out dValue) && dValue != 0)
-                ObjEArticle.Multi3 = dValue;
-            else
-                ObjEArticle.Multi3 = 1;
-
-            if (decimal.TryParse(txtMulti4.Text, out dValue) && dValue != 0)
-                ObjEArticle.Multi4 = dValue;
-            else
-                ObjEArticle.Multi4 = 1;         
             ObjEArticle.DataNormNumber = txtDatanormNr.Text;
         }
 
@@ -263,7 +210,6 @@ namespace OTTOPro
                     ObjEArticle = new EArticles();
                 if (ObjBArticle == null)
                     ObjBArticle = new BArticles();
-                dateEditGultigkeit.DateTime = DateTime.Now;
                 cmbME.SelectedIndex = cmbME.Properties.Items.IndexOf("h");
                 ObjBArticle.GetArticle(ObjEArticle);
                 BindWGdata();
@@ -279,6 +225,7 @@ namespace OTTOPro
             try
             {
                 gcWGWA.DataSource = ObjEArticle.dtWG;
+                gvWGWA.BestFitColumns();
             }
             catch (Exception ex)
             {
@@ -348,27 +295,7 @@ namespace OTTOPro
                     else
                         throw new Exception("Bitte wählen Sie einen Artikel");
                 }
-                decimal dValue = 0;
                 decimal GMulti = 1;
-                if (!decimal.TryParse(txtMulti1.Text, out dValue))
-                    GMulti = 1;
-                else
-                    GMulti = dValue;
-                if (!decimal.TryParse(txtMulti2.Text, out dValue))
-                    GMulti = GMulti * 1;
-                else
-                    GMulti = GMulti * dValue;
-
-                if (!decimal.TryParse(txtMulti3.Text, out dValue))
-                    GMulti = GMulti * 1;
-                else
-                    GMulti = GMulti * dValue;
-
-                if (!decimal.TryParse(txtMulti4.Text, out dValue))
-                    GMulti = GMulti * 1;
-                else
-                    GMulti = GMulti * dValue;
-                
                 ObjEArticle = new EArticles();
                 ObjEArticle.DimensionID = -1;
                 ObjEArticle.WIID = _WIIDValue;
@@ -400,19 +327,6 @@ namespace OTTOPro
             }
         }
 
-        private void gvDimensions_BeforeLeaveRow(object sender, DevExpress.XtraGrid.Views.Base.RowAllowEventArgs e)
-        {
-            //try
-            //{
-            //    int RowHandle = e.RowHandle;
-            //    SaveDimension(RowHandle);
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
-        }
-
         private void gvDimensions_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
             if (!_IsSave)
@@ -435,10 +349,6 @@ namespace OTTOPro
                 ObjEArticle = Obj.ObjEArticle;
                 ObjBArticle = Obj.ObjBArticle;
                 BindDimensions(ObjEArticle.WIID);
-                int _iWIID = ObjEArticle.WIID;
-                ObjEArticle = ObjBArticle.GetArticle(ObjEArticle);
-                BindWIData(ObjEArticle.WGID);
-                Setfocus(gvWI, "WIID", _iWIID);
                 gvWI_FocusedRowChanged(null, null);
              }
             catch (Exception ex)
@@ -532,25 +442,6 @@ namespace OTTOPro
             }
         }
 
-        private void btnAddTyp_Click(object sender, EventArgs e)
-        {            
-            try
-            {
-                frmAddType frm = new frmAddType(_WIIDValue, "Type");
-                frm.ShowDialog();
-                if (frm.Typ!=null)
-                {
-                    txtTyp.Text = frm.Typ;
-                    txtLiferent.Text = frm.FullName;  
-                }
-                  
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void btnValidityDate_Click(object sender, EventArgs e)
         {
             try
@@ -561,8 +452,11 @@ namespace OTTOPro
                 {
                     frm.Hide();
                     frmSaveDimension Objfrm = new frmSaveDimension("ValidityDate", frm.Date, _WIIDValue);
+                    Objfrm.ObjEArticle = ObjEArticle;
                     Objfrm.ShowDialog();
                     frm.Close();
+                    BindDimensions(ObjEArticle.WIID);
+                    gvWI_FocusedRowChanged(null, null);
                 }
             }
             catch (Exception ex)

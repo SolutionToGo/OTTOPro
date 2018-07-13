@@ -86,7 +86,8 @@
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
-            this.btnOK.Location = new System.Drawing.Point(350, 492);
+            this.btnOK.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnOK.Location = new System.Drawing.Point(419, 492);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(70, 22);
             this.btnOK.StyleController = this.layoutControl1;
@@ -98,7 +99,8 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(424, 492);
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
+            this.btnCancel.Location = new System.Drawing.Point(350, 492);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(65, 22);
             this.btnCancel.StyleController = this.layoutControl1;
@@ -139,8 +141,6 @@
             this.gvContentDetails.OptionsBehavior.ReadOnly = true;
             this.gvContentDetails.OptionsCustomization.AllowColumnMoving = false;
             this.gvContentDetails.OptionsFilter.AllowFilterEditor = false;
-            this.gvContentDetails.OptionsFind.AlwaysVisible = true;
-            this.gvContentDetails.OptionsFind.ShowFindButton = false;
             this.gvContentDetails.OptionsMenu.EnableColumnMenu = false;
             this.gvContentDetails.OptionsMenu.EnableFooterMenu = false;
             this.gvContentDetails.OptionsMenu.EnableGroupPanelMenu = false;
@@ -211,8 +211,8 @@
             this.layoutControlItem1,
             this.emptySpaceItem1,
             this.layoutControlItem2,
-            this.layoutControlItem3,
-            this.layoutControlItem4});
+            this.layoutControlItem4,
+            this.layoutControlItem3});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(501, 526);
@@ -238,7 +238,7 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnCancel;
-            this.layoutControlItem2.Location = new System.Drawing.Point(412, 480);
+            this.layoutControlItem2.Location = new System.Drawing.Point(338, 480);
             this.layoutControlItem2.MaxSize = new System.Drawing.Size(69, 26);
             this.layoutControlItem2.MinSize = new System.Drawing.Size(69, 26);
             this.layoutControlItem2.Name = "layoutControlItem2";
@@ -250,7 +250,7 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnOK;
-            this.layoutControlItem3.Location = new System.Drawing.Point(338, 480);
+            this.layoutControlItem3.Location = new System.Drawing.Point(407, 480);
             this.layoutControlItem3.MaxSize = new System.Drawing.Size(74, 26);
             this.layoutControlItem3.MinSize = new System.Drawing.Size(74, 26);
             this.layoutControlItem3.Name = "layoutControlItem3";
