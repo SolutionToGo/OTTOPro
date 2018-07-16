@@ -113,6 +113,7 @@
             this.txtNewRaster.Size = new System.Drawing.Size(256, 20);
             this.txtNewRaster.StyleController = this.layoutControl1;
             this.txtNewRaster.TabIndex = 6;
+            this.txtNewRaster.Enter += new System.EventHandler(this.txtOldRaster_Enter);
             // 
             // rgRasterNumbers
             // 
@@ -141,6 +142,7 @@
             this.txtOldRaster.Size = new System.Drawing.Size(256, 20);
             this.txtOldRaster.StyleController = this.layoutControl1;
             this.txtOldRaster.TabIndex = 4;
+            this.txtOldRaster.Enter += new System.EventHandler(this.txtOldRaster_Enter);
             // 
             // layoutControlGroup1
             // 

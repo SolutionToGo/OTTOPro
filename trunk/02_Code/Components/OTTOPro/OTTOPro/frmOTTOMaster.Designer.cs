@@ -130,6 +130,7 @@
             this.txtContactPerson.Size = new System.Drawing.Size(361, 20);
             this.txtContactPerson.StyleController = this.layoutControl1;
             this.txtContactPerson.TabIndex = 1;
+            this.txtContactPerson.Enter += new System.EventHandler(this.txtContactPerson_Enter);
             // 
             // checkEditDefaultContact
             // 
@@ -153,6 +154,7 @@
             this.txtTelephone.Size = new System.Drawing.Size(361, 20);
             this.txtTelephone.StyleController = this.layoutControl1;
             this.txtTelephone.TabIndex = 2;
+            this.txtTelephone.Enter += new System.EventHandler(this.txtContactPerson_Enter);
             // 
             // txtTaxNo
             // 
@@ -162,6 +164,7 @@
             this.txtTaxNo.Size = new System.Drawing.Size(361, 20);
             this.txtTaxNo.StyleController = this.layoutControl1;
             this.txtTaxNo.TabIndex = 5;
+            this.txtTaxNo.Enter += new System.EventHandler(this.txtContactPerson_Enter);
             // 
             // txtFax
             // 
@@ -171,6 +174,7 @@
             this.txtFax.Size = new System.Drawing.Size(361, 20);
             this.txtFax.StyleController = this.layoutControl1;
             this.txtFax.TabIndex = 3;
+            this.txtFax.Enter += new System.EventHandler(this.txtContactPerson_Enter);
             // 
             // txtemail
             // 
@@ -180,6 +184,7 @@
             this.txtemail.Size = new System.Drawing.Size(361, 20);
             this.txtemail.StyleController = this.layoutControl1;
             this.txtemail.TabIndex = 4;
+            this.txtemail.Enter += new System.EventHandler(this.txtContactPerson_Enter);
             // 
             // layoutControlGroup1
             // 

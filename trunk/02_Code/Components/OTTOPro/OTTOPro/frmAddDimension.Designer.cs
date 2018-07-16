@@ -142,6 +142,7 @@
             this.txtMinuten.StyleController = this.layoutControl1;
             this.txtMinuten.TabIndex = 5;
             this.txtMinuten.Tag = "Minuten";
+            this.txtMinuten.Enter += new System.EventHandler(this.txtA_Enter);
             // 
             // txtListenPrice
             // 
@@ -156,6 +157,7 @@
             this.txtListenPrice.StyleController = this.layoutControl1;
             this.txtListenPrice.TabIndex = 4;
             this.txtListenPrice.Tag = "Listen Preis";
+            this.txtListenPrice.Enter += new System.EventHandler(this.txtA_Enter);
             // 
             // txtL
             // 
@@ -167,6 +169,7 @@
             this.txtL.StyleController = this.layoutControl1;
             this.txtL.TabIndex = 3;
             this.txtL.Tag = "L";
+            this.txtL.Enter += new System.EventHandler(this.txtA_Enter);
             this.txtL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
             // 
             // txtB
@@ -184,6 +187,7 @@
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Bitte eingeben B";
             this.dxValidationProviderB.SetValidationRule(this.txtB, conditionValidationRule1);
+            this.txtB.Enter += new System.EventHandler(this.txtA_Enter);
             this.txtB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
             // 
             // txtA
@@ -201,6 +205,7 @@
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Bitte eingeben A";
             this.dxValidationProviderA.SetValidationRule(this.txtA, conditionValidationRule2);
+            this.txtA.Enter += new System.EventHandler(this.txtA_Enter);
             this.txtA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtA_KeyPress);
             // 
             // layoutControlGroup1

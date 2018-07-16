@@ -465,6 +465,7 @@
             this.txtFullName.Size = new System.Drawing.Size(483, 20);
             this.txtFullName.StyleController = this.layoutControl1;
             this.txtFullName.TabIndex = 2;
+            this.txtFullName.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtShortName
             // 
@@ -475,6 +476,7 @@
             this.txtShortName.Size = new System.Drawing.Size(483, 20);
             this.txtShortName.StyleController = this.layoutControl1;
             this.txtShortName.TabIndex = 3;
+            this.txtShortName.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtStreet
             // 
@@ -484,6 +486,7 @@
             this.txtStreet.Size = new System.Drawing.Size(161, 20);
             this.txtStreet.StyleController = this.layoutControl1;
             this.txtStreet.TabIndex = 5;
+            this.txtStreet.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtPostalCode
             // 
@@ -493,6 +496,7 @@
             this.txtPostalCode.Size = new System.Drawing.Size(166, 20);
             this.txtPostalCode.StyleController = this.layoutControl1;
             this.txtPostalCode.TabIndex = 4;
+            this.txtPostalCode.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtCity
             // 
@@ -502,6 +506,7 @@
             this.txtCity.Size = new System.Drawing.Size(166, 20);
             this.txtCity.StyleController = this.layoutControl1;
             this.txtCity.TabIndex = 6;
+            this.txtCity.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtCountry
             // 
@@ -511,6 +516,7 @@
             this.txtCountry.Size = new System.Drawing.Size(166, 20);
             this.txtCountry.StyleController = this.layoutControl1;
             this.txtCountry.TabIndex = 10;
+            this.txtCountry.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtILN
             // 
@@ -520,6 +526,7 @@
             this.txtILN.Size = new System.Drawing.Size(161, 20);
             this.txtILN.StyleController = this.layoutControl1;
             this.txtILN.TabIndex = 11;
+            this.txtILN.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtOTTOTelefone
             // 
@@ -529,6 +536,7 @@
             this.txtOTTOTelefone.Size = new System.Drawing.Size(166, 20);
             this.txtOTTOTelefone.StyleController = this.layoutControl1;
             this.txtOTTOTelefone.TabIndex = 14;
+            this.txtOTTOTelefone.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtTelefax
             // 
@@ -538,6 +546,7 @@
             this.txtTelefax.Size = new System.Drawing.Size(161, 20);
             this.txtTelefax.StyleController = this.layoutControl1;
             this.txtTelefax.TabIndex = 15;
+            this.txtTelefax.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtHotline
             // 
@@ -547,6 +556,7 @@
             this.txtHotline.Size = new System.Drawing.Size(166, 20);
             this.txtHotline.StyleController = this.layoutControl1;
             this.txtHotline.TabIndex = 19;
+            this.txtHotline.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtWebsite
             // 
@@ -557,6 +567,7 @@
             this.txtWebsite.Size = new System.Drawing.Size(166, 20);
             this.txtWebsite.StyleController = this.layoutControl1;
             this.txtWebsite.TabIndex = 16;
+            this.txtWebsite.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtBankName
             // 
@@ -566,6 +577,7 @@
             this.txtBankName.Size = new System.Drawing.Size(161, 20);
             this.txtBankName.StyleController = this.layoutControl1;
             this.txtBankName.TabIndex = 20;
+            this.txtBankName.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtBankPCode
             // 
@@ -575,6 +587,7 @@
             this.txtBankPCode.Size = new System.Drawing.Size(166, 20);
             this.txtBankPCode.StyleController = this.layoutControl1;
             this.txtBankPCode.TabIndex = 23;
+            this.txtBankPCode.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtBankAccNo
             // 
@@ -584,6 +597,7 @@
             this.txtBankAccNo.Size = new System.Drawing.Size(161, 20);
             this.txtBankAccNo.StyleController = this.layoutControl1;
             this.txtBankAccNo.TabIndex = 24;
+            this.txtBankAccNo.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtIBAN
             // 
@@ -593,6 +607,7 @@
             this.txtIBAN.Size = new System.Drawing.Size(166, 20);
             this.txtIBAN.StyleController = this.layoutControl1;
             this.txtIBAN.TabIndex = 25;
+            this.txtIBAN.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtBIC
             // 
@@ -602,6 +617,7 @@
             this.txtBIC.Size = new System.Drawing.Size(161, 20);
             this.txtBIC.StyleController = this.layoutControl1;
             this.txtBIC.TabIndex = 26;
+            this.txtBIC.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtUSTNr
             // 
@@ -611,6 +627,7 @@
             this.txtUSTNr.Size = new System.Drawing.Size(166, 20);
             this.txtUSTNr.StyleController = this.layoutControl1;
             this.txtUSTNr.TabIndex = 27;
+            this.txtUSTNr.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtDVNr
             // 
@@ -620,6 +637,7 @@
             this.txtDVNr.Size = new System.Drawing.Size(161, 20);
             this.txtDVNr.StyleController = this.layoutControl1;
             this.txtDVNr.TabIndex = 28;
+            this.txtDVNr.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtTenderNo
             // 
@@ -629,6 +647,7 @@
             this.txtTenderNo.Size = new System.Drawing.Size(166, 20);
             this.txtTenderNo.StyleController = this.layoutControl1;
             this.txtTenderNo.TabIndex = 29;
+            this.txtTenderNo.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtDebtorNo
             // 
@@ -638,6 +657,7 @@
             this.txtDebtorNo.Size = new System.Drawing.Size(161, 20);
             this.txtDebtorNo.StyleController = this.layoutControl1;
             this.txtDebtorNo.TabIndex = 30;
+            this.txtDebtorNo.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtCountryType
             // 
@@ -647,6 +667,7 @@
             this.txtCountryType.Size = new System.Drawing.Size(166, 20);
             this.txtCountryType.StyleController = this.layoutControl1;
             this.txtCountryType.TabIndex = 31;
+            this.txtCountryType.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtIndustry
             // 
@@ -656,6 +677,7 @@
             this.txtIndustry.Size = new System.Drawing.Size(161, 20);
             this.txtIndustry.StyleController = this.layoutControl1;
             this.txtIndustry.TabIndex = 32;
+            this.txtIndustry.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtseatofcompany
             // 
@@ -665,6 +687,7 @@
             this.txtseatofcompany.Size = new System.Drawing.Size(166, 20);
             this.txtseatofcompany.StyleController = this.layoutControl1;
             this.txtseatofcompany.TabIndex = 8;
+            this.txtseatofcompany.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtMD
             // 
@@ -674,6 +697,7 @@
             this.txtMD.Size = new System.Drawing.Size(161, 20);
             this.txtMD.StyleController = this.layoutControl1;
             this.txtMD.TabIndex = 9;
+            this.txtMD.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtComplementary
             // 
@@ -683,6 +707,7 @@
             this.txtComplementary.Size = new System.Drawing.Size(161, 20);
             this.txtComplementary.StyleController = this.layoutControl1;
             this.txtComplementary.TabIndex = 7;
+            this.txtComplementary.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtArtNU
             // 
@@ -692,6 +717,7 @@
             this.txtArtNU.Size = new System.Drawing.Size(161, 20);
             this.txtArtNU.StyleController = this.layoutControl1;
             this.txtArtNU.TabIndex = 13;
+            this.txtArtNU.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtArtBevBew
             // 
@@ -701,6 +727,7 @@
             this.txtArtBevBew.Size = new System.Drawing.Size(166, 20);
             this.txtArtBevBew.StyleController = this.layoutControl1;
             this.txtArtBevBew.TabIndex = 12;
+            this.txtArtBevBew.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtBGBez
             // 
@@ -710,6 +737,7 @@
             this.txtBGBez.Size = new System.Drawing.Size(161, 20);
             this.txtBGBez.StyleController = this.layoutControl1;
             this.txtBGBez.TabIndex = 22;
+            this.txtBGBez.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtBGDatum
             // 
@@ -719,6 +747,7 @@
             this.txtBGDatum.Size = new System.Drawing.Size(166, 20);
             this.txtBGDatum.StyleController = this.layoutControl1;
             this.txtBGDatum.TabIndex = 21;
+            this.txtBGDatum.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // txtBGNr
             // 
@@ -728,6 +757,7 @@
             this.txtBGNr.Size = new System.Drawing.Size(161, 20);
             this.txtBGNr.StyleController = this.layoutControl1;
             this.txtBGNr.TabIndex = 18;
+            this.txtBGNr.Enter += new System.EventHandler(this.txtFullName_Enter);
             // 
             // checkEditIsBranch
             // 

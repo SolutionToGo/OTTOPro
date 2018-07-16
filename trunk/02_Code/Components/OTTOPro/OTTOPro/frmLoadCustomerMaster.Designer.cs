@@ -629,6 +629,7 @@
             this.txtILN.Size = new System.Drawing.Size(223, 20);
             this.txtILN.StyleController = this.layoutControl1;
             this.txtILN.TabIndex = 5;
+            this.txtILN.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustTelephone
             // 
@@ -638,6 +639,7 @@
             this.txtCustTelephone.Size = new System.Drawing.Size(231, 20);
             this.txtCustTelephone.StyleController = this.layoutControl1;
             this.txtCustTelephone.TabIndex = 6;
+            this.txtCustTelephone.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustFax
             // 
@@ -647,6 +649,7 @@
             this.txtCustFax.Size = new System.Drawing.Size(223, 20);
             this.txtCustFax.StyleController = this.layoutControl1;
             this.txtCustFax.TabIndex = 7;
+            this.txtCustFax.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustEmail
             // 
@@ -656,6 +659,7 @@
             this.txtCustEmail.Size = new System.Drawing.Size(231, 20);
             this.txtCustEmail.StyleController = this.layoutControl1;
             this.txtCustEmail.TabIndex = 8;
+            this.txtCustEmail.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustShortName
             // 
@@ -672,6 +676,7 @@
             conditionValidationRule1.ErrorText = "Mandatory";
             conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
             this.dxReqValidationProvider.SetValidationRule(this.txtCustShortName, conditionValidationRule1);
+            this.txtCustShortName.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             this.txtCustShortName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustShortName_KeyPress);
             // 
             // txtCustTaxNo
@@ -682,6 +687,7 @@
             this.txtCustTaxNo.Size = new System.Drawing.Size(223, 20);
             this.txtCustTaxNo.StyleController = this.layoutControl1;
             this.txtCustTaxNo.TabIndex = 9;
+            this.txtCustTaxNo.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustBankName
             // 
@@ -691,6 +697,7 @@
             this.txtCustBankName.Size = new System.Drawing.Size(231, 20);
             this.txtCustBankName.StyleController = this.layoutControl1;
             this.txtCustBankName.TabIndex = 10;
+            this.txtCustBankName.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustBankPCode
             // 
@@ -700,6 +707,7 @@
             this.txtCustBankPCode.Size = new System.Drawing.Size(223, 20);
             this.txtCustBankPCode.StyleController = this.layoutControl1;
             this.txtCustBankPCode.TabIndex = 11;
+            this.txtCustBankPCode.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustAccNo
             // 
@@ -709,6 +717,7 @@
             this.txtCustAccNo.Size = new System.Drawing.Size(223, 20);
             this.txtCustAccNo.StyleController = this.layoutControl1;
             this.txtCustAccNo.TabIndex = 15;
+            this.txtCustAccNo.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtDVNr
             // 
@@ -718,6 +727,7 @@
             this.txtDVNr.Size = new System.Drawing.Size(231, 20);
             this.txtDVNr.StyleController = this.layoutControl1;
             this.txtDVNr.TabIndex = 12;
+            this.txtDVNr.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustTenderNo
             // 
@@ -727,6 +737,7 @@
             this.txtCustTenderNo.Size = new System.Drawing.Size(223, 20);
             this.txtCustTenderNo.StyleController = this.layoutControl1;
             this.txtCustTenderNo.TabIndex = 13;
+            this.txtCustTenderNo.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustDebitorNo
             // 
@@ -736,6 +747,7 @@
             this.txtCustDebitorNo.Size = new System.Drawing.Size(231, 20);
             this.txtCustDebitorNo.StyleController = this.layoutControl1;
             this.txtCustDebitorNo.TabIndex = 14;
+            this.txtCustDebitorNo.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustCountryType
             // 
@@ -745,6 +757,7 @@
             this.txtCustCountryType.Size = new System.Drawing.Size(582, 20);
             this.txtCustCountryType.StyleController = this.layoutControl1;
             this.txtCustCountryType.TabIndex = 16;
+            this.txtCustCountryType.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // txtCustCountryName
             // 
@@ -754,6 +767,7 @@
             this.txtCustCountryName.Size = new System.Drawing.Size(582, 20);
             this.txtCustCountryName.StyleController = this.layoutControl1;
             this.txtCustCountryName.TabIndex = 17;
+            this.txtCustCountryName.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             // 
             // layoutControlGroup1
             // 

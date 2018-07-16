@@ -675,6 +675,7 @@
             this.txtShortName.Size = new System.Drawing.Size(428, 20);
             this.txtShortName.StyleController = this.layoutControl1;
             this.txtShortName.TabIndex = 5;
+            this.txtShortName.Enter += new System.EventHandler(this.txtShortName_Enter);
             // 
             // txtSupplierEmail
             // 
@@ -684,6 +685,7 @@
             this.txtSupplierEmail.Size = new System.Drawing.Size(428, 20);
             this.txtSupplierEmail.StyleController = this.layoutControl1;
             this.txtSupplierEmail.TabIndex = 10;
+            this.txtSupplierEmail.Enter += new System.EventHandler(this.txtShortName_Enter);
             // 
             // txtSuppTelephone
             // 
@@ -692,6 +694,7 @@
             this.txtSuppTelephone.Size = new System.Drawing.Size(428, 20);
             this.txtSuppTelephone.StyleController = this.layoutControl1;
             this.txtSuppTelephone.TabIndex = 4;
+            this.txtSuppTelephone.Enter += new System.EventHandler(this.txtShortName_Enter);
             // 
             // txtSuppFax
             // 
@@ -700,6 +703,7 @@
             this.txtSuppFax.Size = new System.Drawing.Size(428, 20);
             this.txtSuppFax.StyleController = this.layoutControl1;
             this.txtSuppFax.TabIndex = 5;
+            this.txtSuppFax.Enter += new System.EventHandler(this.txtShortName_Enter);
             // 
             // layoutControlGroup1
             // 

@@ -63,6 +63,8 @@ namespace OTTOPro
                         rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Complete", cmbLVSection.Text);
                         ReportPrintTool printTool = new ReportPrintTool(rptMA);
                         rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                        rptMA.Parameters["ReportName"].Value = txtReportName.Text;
+                        rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                         printTool.ShowRibbonPreview();
                     }
                     else
@@ -70,6 +72,8 @@ namespace OTTOPro
                         rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Complete", cmbLVSection.Text);
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = _ProjectID;
+                        rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                        rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                         printTool.ShowRibbonPreview();
                     }
                     this.Close();
@@ -119,6 +123,8 @@ namespace OTTOPro
                         rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Title", cmbLVSection.Text);
                         ReportPrintTool printTool = new ReportPrintTool(rptMA);
                         rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                        rptMA.Parameters["ReportName"].Value = txtReportName.Text;
+                        rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                         printTool.ShowRibbonPreview();
                     }
                     else
@@ -126,6 +132,8 @@ namespace OTTOPro
                         rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Title", cmbLVSection.Text);
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = _ProjectID;
+                        rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                        rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                         printTool.ShowRibbonPreview();
                     }
                     this.Close();
@@ -138,6 +146,8 @@ namespace OTTOPro
                         rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "LVSection", cmbLVSection.Text);
                         ReportPrintTool printTool = new ReportPrintTool(rptMA);
                         rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                        rptMA.Parameters["ReportName"].Value = txtReportName.Text;
+                        rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                         printTool.ShowRibbonPreview();
                     }
                     else
@@ -145,6 +155,8 @@ namespace OTTOPro
                         rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "LVSection", cmbLVSection.Text);
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = _ProjectID;
+                        rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                        rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                         printTool.ShowRibbonPreview();
                     }
                     this.Close();
@@ -170,12 +182,15 @@ namespace OTTOPro
                     BindData();
                 }
                 FillLVSection();
+                txtReportName.Text = "ANGEBOT";
+                dtpReportDate.DateTime = DateTime.Now;
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
         }
+
         private void FillLVSection()
         {
             try
@@ -455,6 +470,5 @@ namespace OTTOPro
             }
         }
 
-//************************
     }
 }

@@ -210,5 +210,19 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void txtContactName_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    edit.SelectionStart = 0;
+                    edit.SelectionLength = edit.Text.Length;
+                }));
+            }
+            catch (Exception ex) { }
+        }
     }
 }

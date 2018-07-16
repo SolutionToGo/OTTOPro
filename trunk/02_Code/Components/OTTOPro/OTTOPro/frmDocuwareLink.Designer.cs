@@ -95,6 +95,7 @@
             this.txtLink1.StyleController = this.layoutControl1;
             this.txtLink1.TabIndex = 1;
             this.txtLink1.TextChanged += new System.EventHandler(this.textEdit1_TextChanged);
+            this.txtLink1.Enter += new System.EventHandler(this.txtLink1_Enter);
             // 
             // layoutControl1
             // 
@@ -223,6 +224,7 @@
             this.txtLink3.StyleController = this.layoutControl1;
             this.txtLink3.TabIndex = 1;
             this.txtLink3.TextChanged += new System.EventHandler(this.textEdit3_TextChanged);
+            this.txtLink3.Enter += new System.EventHandler(this.txtLink1_Enter);
             // 
             // txtLink2
             // 
@@ -232,6 +234,7 @@
             this.txtLink2.StyleController = this.layoutControl1;
             this.txtLink2.TabIndex = 1;
             this.txtLink2.TextChanged += new System.EventHandler(this.textEdit2_TextChanged);
+            this.txtLink2.Enter += new System.EventHandler(this.txtLink1_Enter);
             // 
             // layoutControlGroup1
             // 

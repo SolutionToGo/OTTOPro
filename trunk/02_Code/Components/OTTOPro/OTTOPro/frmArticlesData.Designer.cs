@@ -402,6 +402,7 @@
             this.cmbME.Size = new System.Drawing.Size(237, 24);
             this.cmbME.StyleController = this.layoutControl1;
             this.cmbME.TabIndex = 10;
+            this.cmbME.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // btnNew
             // 
@@ -509,6 +510,7 @@
             this.txtMasseinheit.Size = new System.Drawing.Size(235, 20);
             this.txtMasseinheit.StyleController = this.layoutControl1;
             this.txtMasseinheit.TabIndex = 11;
+            this.txtMasseinheit.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // label1
             // 
@@ -530,6 +532,7 @@
             this.txtTextKZ.Size = new System.Drawing.Size(237, 20);
             this.txtTextKZ.StyleController = this.layoutControl1;
             this.txtTextKZ.TabIndex = 12;
+            this.txtTextKZ.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // txtDimension
             // 
@@ -539,6 +542,7 @@
             this.txtDimension.Size = new System.Drawing.Size(235, 20);
             this.txtDimension.StyleController = this.layoutControl1;
             this.txtDimension.TabIndex = 8;
+            this.txtDimension.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // txtFabrikat
             // 
@@ -548,6 +552,7 @@
             this.txtFabrikat.Size = new System.Drawing.Size(237, 20);
             this.txtFabrikat.StyleController = this.layoutControl1;
             this.txtFabrikat.TabIndex = 7;
+            this.txtFabrikat.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // gcDimensions
             // 
@@ -969,6 +974,7 @@
             this.txtWA.Size = new System.Drawing.Size(238, 20);
             this.txtWA.StyleController = this.layoutControl1;
             this.txtWA.TabIndex = 3;
+            this.txtWA.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // txtWG
             // 
@@ -981,6 +987,7 @@
             this.txtWG.Size = new System.Drawing.Size(238, 20);
             this.txtWG.StyleController = this.layoutControl1;
             this.txtWG.TabIndex = 1;
+            this.txtWG.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // txtWI
             // 
@@ -991,6 +998,7 @@
             this.txtWI.Size = new System.Drawing.Size(238, 20);
             this.txtWI.StyleController = this.layoutControl1;
             this.txtWI.TabIndex = 5;
+            this.txtWI.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // txtWIDescription
             // 
@@ -1027,6 +1035,7 @@
             this.txtDatanormNr.Size = new System.Drawing.Size(235, 20);
             this.txtDatanormNr.StyleController = this.layoutControl1;
             this.txtDatanormNr.TabIndex = 9;
+            this.txtDatanormNr.Enter += new System.EventHandler(this.txtWG_Enter);
             // 
             // layoutControlGroup1
             // 

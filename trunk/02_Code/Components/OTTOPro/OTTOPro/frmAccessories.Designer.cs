@@ -101,9 +101,9 @@
             this.layoutControlItem9 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             ((System.ComponentModel.ISupportInitialize)(this.gcArticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvArticles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpChkSelect)).BeginInit();
@@ -173,9 +173,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             this.SuspendLayout();
             // 
             // gcArticles
@@ -328,6 +328,7 @@
             this.txtParentWGDescription.Size = new System.Drawing.Size(347, 20);
             this.txtParentWGDescription.StyleController = this.layoutControl3;
             this.txtParentWGDescription.TabIndex = 10;
+            this.txtParentWGDescription.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtParentWADescription
             // 
@@ -338,6 +339,7 @@
             this.txtParentWADescription.Size = new System.Drawing.Size(347, 20);
             this.txtParentWADescription.StyleController = this.layoutControl3;
             this.txtParentWADescription.TabIndex = 11;
+            this.txtParentWADescription.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtParentWIDescription
             // 
@@ -348,6 +350,7 @@
             this.txtParentWIDescription.Size = new System.Drawing.Size(347, 20);
             this.txtParentWIDescription.StyleController = this.layoutControl3;
             this.txtParentWIDescription.TabIndex = 12;
+            this.txtParentWIDescription.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtParentL
             // 
@@ -358,6 +361,7 @@
             this.txtParentL.TabIndex = 6;
             this.txtParentL.Tag = "Article Dimension L";
             this.txtParentL.EditValueChanged += new System.EventHandler(this.txtParentWG_EditValueChanged);
+            this.txtParentL.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtParentL.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParentA_KeyPress);
             // 
             // txtParentB
@@ -369,6 +373,7 @@
             this.txtParentB.TabIndex = 5;
             this.txtParentB.Tag = "Article Dimension B";
             this.txtParentB.EditValueChanged += new System.EventHandler(this.txtParentWG_EditValueChanged);
+            this.txtParentB.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtParentB.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParentA_KeyPress);
             // 
             // txtParentA
@@ -380,6 +385,7 @@
             this.txtParentA.TabIndex = 4;
             this.txtParentA.Tag = "Article Dimension A";
             this.txtParentA.EditValueChanged += new System.EventHandler(this.txtParentWG_EditValueChanged);
+            this.txtParentA.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtParentA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParentA_KeyPress);
             // 
             // txtParentWI
@@ -391,6 +397,7 @@
             this.txtParentWI.TabIndex = 3;
             this.txtParentWI.Tag = "Article WI";
             this.txtParentWI.EditValueChanged += new System.EventHandler(this.txtParentWG_EditValueChanged);
+            this.txtParentWI.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtParentWI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParentWG_KeyPress);
             // 
             // txtParentWA
@@ -402,6 +409,7 @@
             this.txtParentWA.TabIndex = 2;
             this.txtParentWA.Tag = "Article WA";
             this.txtParentWA.EditValueChanged += new System.EventHandler(this.txtParentWG_EditValueChanged);
+            this.txtParentWA.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtParentWA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParentWG_KeyPress);
             // 
             // txtParentWG
@@ -413,6 +421,7 @@
             this.txtParentWG.TabIndex = 1;
             this.txtParentWG.Tag = "Article WG";
             this.txtParentWG.EditValueChanged += new System.EventHandler(this.txtParentWG_EditValueChanged);
+            this.txtParentWG.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtParentWG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParentWG_KeyPress);
             // 
             // txtParentTyp
@@ -422,6 +431,7 @@
             this.txtParentTyp.Size = new System.Drawing.Size(113, 20);
             this.txtParentTyp.StyleController = this.layoutControl3;
             this.txtParentTyp.TabIndex = 7;
+            this.txtParentTyp.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtParentTyp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtParentTyp_KeyPress);
             // 
             // txtParentLifrant
@@ -433,6 +443,7 @@
             this.txtParentLifrant.Size = new System.Drawing.Size(114, 20);
             this.txtParentLifrant.StyleController = this.layoutControl3;
             this.txtParentLifrant.TabIndex = 8;
+            this.txtParentLifrant.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtParentFabrikate
             // 
@@ -443,6 +454,7 @@
             this.txtParentFabrikate.Size = new System.Drawing.Size(111, 20);
             this.txtParentFabrikate.StyleController = this.layoutControl3;
             this.txtParentFabrikate.TabIndex = 9;
+            this.txtParentFabrikate.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // layoutControlGroup3
             // 
@@ -675,6 +687,7 @@
             this.txtChildWIDescription.Size = new System.Drawing.Size(365, 20);
             this.txtChildWIDescription.StyleController = this.layoutControl2;
             this.txtChildWIDescription.TabIndex = 19;
+            this.txtChildWIDescription.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtChildWADescription
             // 
@@ -684,6 +697,7 @@
             this.txtChildWADescription.Size = new System.Drawing.Size(365, 20);
             this.txtChildWADescription.StyleController = this.layoutControl2;
             this.txtChildWADescription.TabIndex = 18;
+            this.txtChildWADescription.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtChildWGDescription
             // 
@@ -693,6 +707,7 @@
             this.txtChildWGDescription.Size = new System.Drawing.Size(365, 20);
             this.txtChildWGDescription.StyleController = this.layoutControl2;
             this.txtChildWGDescription.TabIndex = 17;
+            this.txtChildWGDescription.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtChildL
             // 
@@ -702,6 +717,7 @@
             this.txtChildL.StyleController = this.layoutControl2;
             this.txtChildL.TabIndex = 19;
             this.txtChildL.Tag = "Accessorie Dimension L";
+            this.txtChildL.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtChildB
             // 
@@ -711,6 +727,7 @@
             this.txtChildB.StyleController = this.layoutControl2;
             this.txtChildB.TabIndex = 18;
             this.txtChildB.Tag = "Accessorie Dimension B";
+            this.txtChildB.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtChildA
             // 
@@ -720,6 +737,7 @@
             this.txtChildA.StyleController = this.layoutControl2;
             this.txtChildA.TabIndex = 17;
             this.txtChildA.Tag = "Accessorie Dimension A";
+            this.txtChildA.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtChildWI
             // 
@@ -729,6 +747,7 @@
             this.txtChildWI.StyleController = this.layoutControl2;
             this.txtChildWI.TabIndex = 16;
             this.txtChildWI.Tag = "Accessorie WI";
+            this.txtChildWI.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtChildWI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChildWG_KeyPress);
             // 
             // txtChildWA
@@ -739,6 +758,7 @@
             this.txtChildWA.StyleController = this.layoutControl2;
             this.txtChildWA.TabIndex = 15;
             this.txtChildWA.Tag = "Accessorie WA";
+            this.txtChildWA.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtChildWA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChildWG_KeyPress);
             // 
             // txtChildWG
@@ -749,6 +769,7 @@
             this.txtChildWG.StyleController = this.layoutControl2;
             this.txtChildWG.TabIndex = 14;
             this.txtChildWG.Tag = "Accessorie WG";
+            this.txtChildWG.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtChildWG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChildWG_KeyPress);
             // 
             // btnAdd
@@ -771,6 +792,7 @@
             this.txtChildLifrant.Size = new System.Drawing.Size(120, 20);
             this.txtChildLifrant.StyleController = this.layoutControl2;
             this.txtChildLifrant.TabIndex = 21;
+            this.txtChildLifrant.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtChildFabrikate
             // 
@@ -780,6 +802,7 @@
             this.txtChildFabrikate.Size = new System.Drawing.Size(123, 20);
             this.txtChildFabrikate.StyleController = this.layoutControl2;
             this.txtChildFabrikate.TabIndex = 22;
+            this.txtChildFabrikate.Enter += new System.EventHandler(this.txtParentWG_Enter);
             // 
             // txtChildTyp
             // 
@@ -788,6 +811,7 @@
             this.txtChildTyp.Size = new System.Drawing.Size(121, 20);
             this.txtChildTyp.StyleController = this.layoutControl2;
             this.txtChildTyp.TabIndex = 20;
+            this.txtChildTyp.Enter += new System.EventHandler(this.txtParentWG_Enter);
             this.txtChildTyp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtChildTyp_KeyPress);
             // 
             // layoutControlGroup2
@@ -1025,6 +1049,29 @@
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.labelControl1;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 195);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(1136, 18);
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem4.TextVisible = false;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(3, 198);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(596, 14);
+            this.labelControl1.StyleController = this.layoutControl1;
+            this.labelControl1.TabIndex = 25;
+            this.labelControl1.Text = "Drücken Sie die EINGABE-Taste im Feld WG/WA/WI/TYP für eine Übersicht der Artikel" +
+    "stammdaten";
+            // 
             // layoutControl1
             // 
             this.layoutControl1.AllowCustomization = false;
@@ -1041,29 +1088,6 @@
             this.layoutControl1.Size = new System.Drawing.Size(1138, 662);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
-            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
-            this.labelControl1.Appearance.Options.UseFont = true;
-            this.labelControl1.Appearance.Options.UseForeColor = true;
-            this.labelControl1.Location = new System.Drawing.Point(3, 198);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(596, 14);
-            this.labelControl1.StyleController = this.layoutControl1;
-            this.labelControl1.TabIndex = 25;
-            this.labelControl1.Text = "Drücken Sie die EINGABE-Taste im Feld WG/WA/WI/TYP für eine Übersicht der Artikel" +
-    "stammdaten";
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.labelControl1;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 195);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(1136, 18);
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem4.TextVisible = false;
             // 
             // frmAccessories
             // 
@@ -1148,9 +1172,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             this.ResumeLayout(false);
 
         }

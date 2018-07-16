@@ -40,9 +40,9 @@
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
@@ -59,9 +59,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
@@ -117,6 +117,7 @@
             this.txtConfirmPassword.Size = new System.Drawing.Size(269, 20);
             this.txtConfirmPassword.StyleController = this.layoutControl1;
             this.txtConfirmPassword.TabIndex = 7;
+            this.txtConfirmPassword.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtNewPassword
             // 
@@ -126,6 +127,7 @@
             this.txtNewPassword.Size = new System.Drawing.Size(269, 20);
             this.txtNewPassword.StyleController = this.layoutControl1;
             this.txtNewPassword.TabIndex = 6;
+            this.txtNewPassword.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtOldPassword
             // 
@@ -135,6 +137,7 @@
             this.txtOldPassword.Size = new System.Drawing.Size(269, 20);
             this.txtOldPassword.StyleController = this.layoutControl1;
             this.txtOldPassword.TabIndex = 5;
+            this.txtOldPassword.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtUserName
             // 
@@ -143,6 +146,7 @@
             this.txtUserName.Size = new System.Drawing.Size(269, 20);
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 4;
+            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // layoutControlGroup1
             // 
@@ -220,18 +224,6 @@
             this.layoutControlItem4.Text = "Neues Passwort (Bestätigung)";
             this.layoutControlItem4.TextSize = new System.Drawing.Size(186, 14);
             // 
-            // layoutControlItem5
-            // 
-            this.layoutControlItem5.Control = this.btnSave;
-            this.layoutControlItem5.Location = new System.Drawing.Point(405, 124);
-            this.layoutControlItem5.MaxSize = new System.Drawing.Size(84, 26);
-            this.layoutControlItem5.MinSize = new System.Drawing.Size(84, 26);
-            this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(84, 26);
-            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
-            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem5.TextVisible = false;
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnCancel;
@@ -251,6 +243,18 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(290, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlItem5
+            // 
+            this.layoutControlItem5.Control = this.btnSave;
+            this.layoutControlItem5.Location = new System.Drawing.Point(405, 124);
+            this.layoutControlItem5.MaxSize = new System.Drawing.Size(84, 26);
+            this.layoutControlItem5.MinSize = new System.Drawing.Size(84, 26);
+            this.layoutControlItem5.Name = "layoutControlItem5";
+            this.layoutControlItem5.Size = new System.Drawing.Size(84, 26);
+            this.layoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
+            this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem5.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
@@ -317,9 +321,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();

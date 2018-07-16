@@ -370,6 +370,7 @@
             this.txtMulti4.Size = new System.Drawing.Size(445, 20);
             this.txtMulti4.StyleController = this.layoutControl1;
             this.txtMulti4.TabIndex = 6;
+            this.txtMulti4.Enter += new System.EventHandler(this.txtRabatt_Enter);
             this.txtMulti4.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti3
@@ -389,6 +390,7 @@
             this.txtMulti3.Size = new System.Drawing.Size(445, 20);
             this.txtMulti3.StyleController = this.layoutControl1;
             this.txtMulti3.TabIndex = 5;
+            this.txtMulti3.Enter += new System.EventHandler(this.txtRabatt_Enter);
             this.txtMulti3.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti2
@@ -408,6 +410,7 @@
             this.txtMulti2.Size = new System.Drawing.Size(445, 20);
             this.txtMulti2.StyleController = this.layoutControl1;
             this.txtMulti2.TabIndex = 4;
+            this.txtMulti2.Enter += new System.EventHandler(this.txtRabatt_Enter);
             this.txtMulti2.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // txtMulti1
@@ -427,6 +430,7 @@
             this.txtMulti1.Size = new System.Drawing.Size(445, 20);
             this.txtMulti1.StyleController = this.layoutControl1;
             this.txtMulti1.TabIndex = 3;
+            this.txtMulti1.Enter += new System.EventHandler(this.txtRabatt_Enter);
             this.txtMulti1.Leave += new System.EventHandler(this.txtMulti1_Leave);
             // 
             // btnCancel
@@ -473,6 +477,7 @@
             this.txtRabatt.StyleController = this.layoutControl1;
             this.txtRabatt.TabIndex = 1;
             this.txtRabatt.Tag = "Rabatt";
+            this.txtRabatt.Enter += new System.EventHandler(this.txtRabatt_Enter);
             // 
             // layoutControlGroup1
             // 

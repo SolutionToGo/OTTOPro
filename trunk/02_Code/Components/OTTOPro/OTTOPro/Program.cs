@@ -41,10 +41,7 @@ namespace OTTOPro
                 UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-
-
-                //Application.Run(frmOTTOPro.Instance);
-                Application.Run(new frmLogin());
+                Application.Run(new frmNewLogin());
             }
             catch (Exception ex)
             {

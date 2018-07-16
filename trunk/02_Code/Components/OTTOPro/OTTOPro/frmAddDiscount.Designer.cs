@@ -126,6 +126,7 @@
             this.txtDiscount.Size = new System.Drawing.Size(365, 20);
             this.txtDiscount.StyleController = this.layoutControl1;
             this.txtDiscount.TabIndex = 6;
+            this.txtDiscount.Enter += new System.EventHandler(this.txtToOZ_Enter);
             // 
             // txtToOZ
             // 
@@ -134,6 +135,7 @@
             this.txtToOZ.Size = new System.Drawing.Size(365, 20);
             this.txtToOZ.StyleController = this.layoutControl1;
             this.txtToOZ.TabIndex = 5;
+            this.txtToOZ.Enter += new System.EventHandler(this.txtToOZ_Enter);
             // 
             // txtFromOZ
             // 
@@ -142,6 +144,7 @@
             this.txtFromOZ.Size = new System.Drawing.Size(365, 20);
             this.txtFromOZ.StyleController = this.layoutControl1;
             this.txtFromOZ.TabIndex = 4;
+            this.txtFromOZ.Enter += new System.EventHandler(this.txtFromOZ_Enter);
             // 
             // layoutControlGroup1
             // 

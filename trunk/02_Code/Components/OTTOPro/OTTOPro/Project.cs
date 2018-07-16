@@ -3684,14 +3684,6 @@ namespace OTTOPro
             {
                 if (ObjEProject.IsFinalInvoice && Utility.LVDetailsAccess == "7")
                     return;
-                TreeListHitInfo hitInfo = (sender as TreeList).CalcHitInfo(e.Point);
-                TreeListNode node = null;
-                if (hitInfo.HitInfoType == HitInfoType.RowIndicator)
-                {
-                    node = hitInfo.Node;
-                }
-                if (node == null) return;
-
                 tlPositions.FocusedNode = ((TreeListNodeMenu)e.Menu).Node;
                 string P_value = tlPositions.FocusedNode["PositionKZ"].ToString();
                 int _DetailKZ = Convert.ToInt32(tlPositions.FocusedNode["DetailKZ"]);
@@ -11469,6 +11461,12 @@ namespace OTTOPro
                     textBox.EditValue = Position.MO_SK;
                 else if (textBox == txtVerkaufspreisValueMO)
                     textBox.EditValue = Position.MO_VK;
+                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    edit.SelectionStart = 0;
+                    edit.SelectionLength = edit.Text.Length;
+                }));
             }
             catch (Exception ex)
             {
@@ -11525,12 +11523,16 @@ namespace OTTOPro
 
         private void txtWG_Enter(object sender, EventArgs e)
         {
-            var edit = ((DevExpress.XtraEditors.TextEdit)sender);
-            BeginInvoke(new MethodInvoker(() =>
+            try
             {
-                edit.SelectionStart = 0;
-                edit.SelectionLength = edit.Text.Length;
-            }));
+                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    edit.SelectionStart = 0;
+                    edit.SelectionLength = edit.Text.Length;
+                }));
+            }
+            catch (Exception ex){}
         }
    }
 }

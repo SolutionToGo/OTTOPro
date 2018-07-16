@@ -117,6 +117,7 @@
             this.txtCoverSheetPath.Name = "txtCoverSheetPath";
             this.txtCoverSheetPath.Size = new System.Drawing.Size(563, 20);
             this.txtCoverSheetPath.TabIndex = 4;
+            this.txtCoverSheetPath.Enter += new System.EventHandler(this.txtCoverSheetPath_Enter);
             // 
             // txtTemplatePath
             // 
@@ -125,6 +126,7 @@
             this.txtTemplatePath.Size = new System.Drawing.Size(563, 20);
             this.txtTemplatePath.StyleController = this.layoutControl1;
             this.txtTemplatePath.TabIndex = 7;
+            this.txtTemplatePath.Enter += new System.EventHandler(this.txtCoverSheetPath_Enter);
             // 
             // btnSave
             // 

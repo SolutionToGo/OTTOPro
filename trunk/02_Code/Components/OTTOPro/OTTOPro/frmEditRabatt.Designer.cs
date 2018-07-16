@@ -131,6 +131,7 @@
             this.txtMulti4.Size = new System.Drawing.Size(289, 20);
             this.txtMulti4.StyleController = this.layoutControl1;
             this.txtMulti4.TabIndex = 9;
+            this.txtMulti4.Enter += new System.EventHandler(this.txtRabatt_Enter);
             // 
             // txtMulti3
             // 
@@ -140,6 +141,7 @@
             this.txtMulti3.Size = new System.Drawing.Size(289, 20);
             this.txtMulti3.StyleController = this.layoutControl1;
             this.txtMulti3.TabIndex = 8;
+            this.txtMulti3.Enter += new System.EventHandler(this.txtRabatt_Enter);
             // 
             // txtMulti2
             // 
@@ -149,6 +151,7 @@
             this.txtMulti2.Size = new System.Drawing.Size(289, 20);
             this.txtMulti2.StyleController = this.layoutControl1;
             this.txtMulti2.TabIndex = 7;
+            this.txtMulti2.Enter += new System.EventHandler(this.txtRabatt_Enter);
             // 
             // txtMulti1
             // 
@@ -158,6 +161,7 @@
             this.txtMulti1.Size = new System.Drawing.Size(289, 20);
             this.txtMulti1.StyleController = this.layoutControl1;
             this.txtMulti1.TabIndex = 6;
+            this.txtMulti1.Enter += new System.EventHandler(this.txtRabatt_Enter);
             // 
             // dtpValidityDate
             // 
@@ -191,6 +195,7 @@
             this.txtRabatt.Size = new System.Drawing.Size(289, 20);
             this.txtRabatt.StyleController = this.layoutControl1;
             this.txtRabatt.TabIndex = 4;
+            this.txtRabatt.Enter += new System.EventHandler(this.txtRabatt_Enter);
             // 
             // layoutControlGroup1
             // 

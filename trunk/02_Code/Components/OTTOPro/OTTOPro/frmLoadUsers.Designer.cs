@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraGrid.GridLevelNode gridLevelNode1 = new DevExpress.XtraGrid.GridLevelNode();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -134,6 +133,7 @@
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 12;
             this.txtUserName.Tag = "Nutzername";
+            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // cmbRoleName
             // 
@@ -159,9 +159,6 @@
             // 
             // gcUser
             // 
-            gridLevelNode1.RelationName = "Level1";
-            this.gcUser.LevelTree.Nodes.AddRange(new DevExpress.XtraGrid.GridLevelNode[] {
-            gridLevelNode1});
             this.gcUser.Location = new System.Drawing.Point(12, 202);
             this.gcUser.MainView = this.gvUser;
             this.gcUser.Name = "gcUser";
@@ -321,6 +318,7 @@
             this.txtFName.StyleController = this.layoutControl1;
             this.txtFName.TabIndex = 4;
             this.txtFName.Tag = "Vorname";
+            this.txtFName.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtLName
             // 
@@ -330,6 +328,7 @@
             this.txtLName.StyleController = this.layoutControl1;
             this.txtLName.TabIndex = 5;
             this.txtLName.Tag = "Nachname";
+            this.txtLName.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtMobileNo
             // 
@@ -339,6 +338,7 @@
             this.txtMobileNo.StyleController = this.layoutControl1;
             this.txtMobileNo.TabIndex = 8;
             this.txtMobileNo.Tag = "Mobile Number";
+            this.txtMobileNo.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtMailId
             // 
@@ -348,6 +348,7 @@
             this.txtMailId.StyleController = this.layoutControl1;
             this.txtMailId.TabIndex = 9;
             this.txtMailId.Tag = "Email";
+            this.txtMailId.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // layoutControlGroup1
             // 

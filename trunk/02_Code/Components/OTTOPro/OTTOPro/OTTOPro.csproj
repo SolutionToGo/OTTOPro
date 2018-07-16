@@ -1065,6 +1065,7 @@
     <None Include="Resources\download.jpg" />
     <None Include="Resources\download %281%29.jpg" />
     <None Include="Resources\Button-Refresh-icon.png" />
+    <None Include="Resources\defaultImage.png" />
     <Content Include="Resources\edit-icon %281%29.png" />
     <Content Include="Resources\edit-icon.png" />
     <None Include="Resources\Save_16x16.png" />

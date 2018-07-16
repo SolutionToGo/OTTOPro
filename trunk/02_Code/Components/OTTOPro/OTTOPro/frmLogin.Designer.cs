@@ -131,6 +131,7 @@
             this.txtUserName.Size = new System.Drawing.Size(387, 22);
             this.txtUserName.StyleController = this.layoutControl1;
             this.txtUserName.TabIndex = 4;
+            this.txtUserName.Enter += new System.EventHandler(this.txtUserName_Enter);
             // 
             // txtPassword
             // 
@@ -144,6 +145,7 @@
             this.txtPassword.Size = new System.Drawing.Size(387, 22);
             this.txtPassword.StyleController = this.layoutControl1;
             this.txtPassword.TabIndex = 5;
+            this.txtPassword.Enter += new System.EventHandler(this.txtUserName_Enter);
             this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
             // layoutControlGroup1
@@ -292,13 +294,15 @@
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(542, 245);
             this.Controls.Add(this.layoutControl1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
+            this.LookAndFeel.SkinName = "Office 2016 Colorful";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
