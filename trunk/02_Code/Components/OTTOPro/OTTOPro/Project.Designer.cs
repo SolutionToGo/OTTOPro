@@ -114,6 +114,7 @@
             this.layoutControlItem93 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem252 = new DevExpress.XtraLayout.LayoutControlItem();
             this.lccmbLVSection = new DevExpress.XtraLayout.LayoutControlItem();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.dockManagerArticles = new DevExpress.XtraBars.Docking.DockManager(this.components);
             this.dockPanelArticles = new DevExpress.XtraBars.Docking.DockPanel();
             this.dockPanel1_Container = new DevExpress.XtraBars.Docking.ControlContainer();
@@ -1277,6 +1278,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem93)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem252)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lccmbLVSection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManagerArticles)).BeginInit();
             this.dockPanelArticles.SuspendLayout();
             this.dockPanel1_Container.SuspendLayout();
@@ -2150,7 +2152,7 @@
             this.btnLangtext1.Appearance.ForeColor = System.Drawing.Color.Black;
             this.btnLangtext1.Appearance.Options.UseFont = true;
             this.btnLangtext1.Appearance.Options.UseForeColor = true;
-            this.btnLangtext1.Location = new System.Drawing.Point(986, 199);
+            this.btnLangtext1.Location = new System.Drawing.Point(968, 257);
             this.btnLangtext1.Name = "btnLangtext1";
             this.btnLangtext1.Size = new System.Drawing.Size(61, 22);
             this.btnLangtext1.TabIndex = 65;
@@ -2181,7 +2183,7 @@
             "ldfm",
             "%"});
             this.cmbME.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbME.Size = new System.Drawing.Size(76, 24);
+            this.cmbME.Size = new System.Drawing.Size(58, 24);
             this.cmbME.TabIndex = 64;
             // 
             // txtStufe4Title
@@ -2251,7 +2253,7 @@
             this.btnAddLVSection.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAddLVSection.Location = new System.Drawing.Point(502, 255);
             this.btnAddLVSection.Name = "btnAddLVSection";
-            this.btnAddLVSection.Size = new System.Drawing.Size(76, 24);
+            this.btnAddLVSection.Size = new System.Drawing.Size(58, 24);
             this.btnAddLVSection.TabIndex = 0;
             this.btnAddLVSection.TabStop = false;
             this.btnAddLVSection.UseVisualStyleBackColor = true;
@@ -2509,7 +2511,7 @@
             // txtShortDescription
             // 
             this.txtShortDescription.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtShortDescription.Location = new System.Drawing.Point(588, 219);
+            this.txtShortDescription.Location = new System.Drawing.Point(570, 219);
             this.txtShortDescription.MaxLength = 80;
             this.txtShortDescription.Name = "txtShortDescription";
             this.txtShortDescription.Size = new System.Drawing.Size(388, 60);
@@ -2601,7 +2603,8 @@
             this.lblsurchargeto,
             this.layoutControlItem93,
             this.layoutControlItem252,
-            this.lccmbLVSection});
+            this.lccmbLVSection,
+            this.emptySpaceItem2});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
             this.layoutControlGroup1.OptionsItemText.TextToControlDistance = 5;
@@ -2857,7 +2860,7 @@
             this.layoutControlItem26.AppearanceItemCaption.Options.UseFont = true;
             this.layoutControlItem26.AppearanceItemCaption.Options.UseForeColor = true;
             this.layoutControlItem26.Control = this.txtShortDescription;
-            this.layoutControlItem26.Location = new System.Drawing.Point(579, 170);
+            this.layoutControlItem26.Location = new System.Drawing.Point(561, 170);
             this.layoutControlItem26.MaxSize = new System.Drawing.Size(398, 90);
             this.layoutControlItem26.MinSize = new System.Drawing.Size(398, 90);
             this.layoutControlItem26.Name = "layoutControlItem26";
@@ -2871,9 +2874,9 @@
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(1048, 170);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(1030, 170);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(458, 90);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(476, 90);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem28
@@ -2963,11 +2966,11 @@
             // layoutControlItem259
             // 
             this.layoutControlItem259.Control = this.btnLangtext1;
-            this.layoutControlItem259.Location = new System.Drawing.Point(977, 170);
+            this.layoutControlItem259.Location = new System.Drawing.Point(959, 228);
             this.layoutControlItem259.MaxSize = new System.Drawing.Size(71, 32);
             this.layoutControlItem259.MinSize = new System.Drawing.Size(71, 32);
             this.layoutControlItem259.Name = "layoutControlItem259";
-            this.layoutControlItem259.Size = new System.Drawing.Size(71, 90);
+            this.layoutControlItem259.Size = new System.Drawing.Size(71, 32);
             this.layoutControlItem259.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem259.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem259.TextVisible = false;
@@ -3004,7 +3007,7 @@
             this.layoutControlItem93.Control = this.btnAddLVSection;
             this.layoutControlItem93.Location = new System.Drawing.Point(493, 226);
             this.layoutControlItem93.Name = "layoutControlItem93";
-            this.layoutControlItem93.Size = new System.Drawing.Size(86, 34);
+            this.layoutControlItem93.Size = new System.Drawing.Size(68, 34);
             this.layoutControlItem93.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem93.TextVisible = false;
             // 
@@ -3018,8 +3021,11 @@
             this.layoutControlItem252.AppearanceItemCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
             this.layoutControlItem252.Control = this.cmbME;
             this.layoutControlItem252.Location = new System.Drawing.Point(493, 170);
+            this.layoutControlItem252.MaxSize = new System.Drawing.Size(68, 56);
+            this.layoutControlItem252.MinSize = new System.Drawing.Size(68, 56);
             this.layoutControlItem252.Name = "layoutControlItem252";
-            this.layoutControlItem252.Size = new System.Drawing.Size(86, 56);
+            this.layoutControlItem252.Size = new System.Drawing.Size(68, 56);
+            this.layoutControlItem252.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem252.Text = "ME";
             this.layoutControlItem252.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.layoutControlItem252.TextLocation = DevExpress.Utils.Locations.Top;
@@ -3040,6 +3046,14 @@
             this.lccmbLVSection.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize;
             this.lccmbLVSection.TextSize = new System.Drawing.Size(64, 17);
             this.lccmbLVSection.TextToControlDistance = 5;
+            // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(959, 170);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(71, 58);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // dockManagerArticles
             // 
@@ -7429,8 +7443,6 @@
             this.treeListColumn6.Caption = "Minutes";
             this.treeListColumn6.FieldName = "MINUTES";
             this.treeListColumn6.Name = "treeListColumn6";
-            this.treeListColumn6.Visible = true;
-            this.treeListColumn6.VisibleIndex = 13;
             // 
             // btnExportExcel
             // 
@@ -7727,6 +7739,7 @@
             this.layoutControlItem172.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom;
             this.layoutControlItem172.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem172.TextVisible = false;
+            this.layoutControlItem172.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
             // 
             // layoutControlItem1
             // 
@@ -7770,6 +7783,7 @@
             // btnDeleteDiscount
             // 
             this.btnDeleteDiscount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDeleteDiscount.ImageOptions.Image")));
+            this.btnDeleteDiscount.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnDeleteDiscount.Location = new System.Drawing.Point(366, 420);
             this.btnDeleteDiscount.Name = "btnDeleteDiscount";
             this.btnDeleteDiscount.Size = new System.Drawing.Size(76, 22);
@@ -7792,6 +7806,7 @@
             // btnAddDiscount
             // 
             this.btnAddDiscount.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDiscount.ImageOptions.Image")));
+            this.btnAddDiscount.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAddDiscount.Location = new System.Drawing.Point(446, 420);
             this.btnAddDiscount.Name = "btnAddDiscount";
             this.btnAddDiscount.Size = new System.Drawing.Size(82, 22);
@@ -17294,6 +17309,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem93)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem252)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lccmbLVSection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dockManagerArticles)).EndInit();
             this.dockPanelArticles.ResumeLayout(false);
             this.dockPanel1_Container.ResumeLayout(false);
@@ -19242,6 +19258,7 @@
         private DevExpress.XtraEditors.SimpleButton btnDeleteDiscount;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem261;
         private DevExpress.XtraTreeList.Columns.TreeListColumn treeListColumn6;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem2;
 
 
     }

@@ -237,5 +237,10 @@ namespace OTTOPro
             }
             cmbLVSection.SetEditValue("HA");
         }
+
+        private void simpleButton2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

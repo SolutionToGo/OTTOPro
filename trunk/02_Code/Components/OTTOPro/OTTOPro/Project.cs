@@ -774,10 +774,10 @@ namespace OTTOPro
                     ObjEPosition.Faktor = dValue;
 
                 if (decimal.TryParse(txtLPMe.Text, out dValue))
-                    ObjEPosition.LPMA = dValue;
+                    ObjEPosition.LPMA = Position.MA_ListPrice;
 
                 if (decimal.TryParse(Convert.ToString(txtLPMO.EditValue), out dValue))
-                    ObjEPosition.LPMO = dValue;
+                    ObjEPosition.LPMO = Position.MO_ListPrice;
 
                 if (decimal.TryParse(txtMulti1ME.Text, out dValue))
                     ObjEPosition.Multi1MA = dValue;
@@ -804,34 +804,34 @@ namespace OTTOPro
                     ObjEPosition.Multi4MO = dValue;
 
                 if (decimal.TryParse(Convert.ToString(txtEinkaufspreisME.EditValue), out dValue))
-                    ObjEPosition.EinkaufspreisMA = dValue;
+                    ObjEPosition.EinkaufspreisMA = Position.MA_EP;
 
                 if (decimal.TryParse(Convert.ToString(txtEinkaufspreisMO.EditValue), out dValue))
-                    ObjEPosition.EinkaufspreisMO = dValue;
+                    ObjEPosition.EinkaufspreisMO = Position.MO_EP;
 
                 if (decimal.TryParse(txtSelbstkostenMultiME.Text, out dValue))
                     ObjEPosition.SelbstkostenMultiMA = dValue;
 
                 if (decimal.TryParse(Convert.ToString(txtSelbstkostenValueME.EditValue), out dValue))
-                    ObjEPosition.SelbstkostenValueMA = dValue;
+                    ObjEPosition.SelbstkostenValueMA = Position.MA_SK;
 
                 if (decimal.TryParse(txtSelbstkostenMultiMO.Text, out dValue))
                     ObjEPosition.SelbstkostenMultiMO = dValue;
 
                 if (decimal.TryParse(Convert.ToString(txtSelbstkostenValueMO.EditValue), out dValue))
-                    ObjEPosition.SelbstkostenValueMO = dValue;
+                    ObjEPosition.SelbstkostenValueMO = Position.MO_SK;
 
                 if (decimal.TryParse(txtVerkaufspreisMultiME.Text, out dValue))
                     ObjEPosition.VerkaufspreisMultiMA = dValue;
 
                 if (decimal.TryParse(Convert.ToString(txtVerkaufspreisValueME.EditValue), out dValue))
-                    ObjEPosition.VerkaufspreisValueMA = dValue;
+                    ObjEPosition.VerkaufspreisValueMA = Position.MA_VK;
 
                 if (decimal.TryParse(txtVerkaufspreisMultiMO.Text, out dValue))
                     ObjEPosition.VerkaufspreisMultiMO = dValue;
 
                 if (decimal.TryParse(Convert.ToString(txtVerkaufspreisValueMO.EditValue), out dValue))
-                    ObjEPosition.VerkaufspreisValueMO = dValue;
+                    ObjEPosition.VerkaufspreisValueMO = Position.MO_VK;
 
                 if (decimal.TryParse(txtStdSatz.Text, out dValue))
                     ObjEPosition.StdSatz = dValue;
@@ -1769,7 +1769,7 @@ namespace OTTOPro
                 if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtMulti1ME.Text))
                 {
                     Position.MA_ListPrice = getDValue(txtLPMe.Text);
-                    Position.MA_Multi1 = Math.Round(GetValue(getDValue(txtLPMe.Text),
+                    Position.MA_Multi1 = Math.Round(GetValue(Position.MA_ListPrice,
                         getDValue(txtMulti1ME.Text)), 8);
                     txtValue1ME.Text = Math.Round(Position.MA_Multi1,2).ToString("F2");
                 }

@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraGrid.Views.Grid.ViewInfo;
 using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraRichEdit;
 
 namespace OTTOPro
 {
@@ -331,7 +332,7 @@ namespace OTTOPro
             catch (Exception ex) { throw; }
         }
 
-        private void gvArticles_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        private void gvArticles_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
         {
             try
             {
@@ -387,6 +388,10 @@ namespace OTTOPro
         {
             try
             {
+                if(string.IsNullOrEmpty(txtFullName.Text.Trim()))
+                    throw new Exception("Vollständiger Name Cannot be empty");
+                if (!dxValidationProvider1.Validate())
+                    return;
                 if (ObjESupplier == null)
                     ObjESupplier = new ESupplier();
                 ParseSupplierDetails();

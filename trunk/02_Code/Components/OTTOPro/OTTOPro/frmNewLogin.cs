@@ -30,8 +30,8 @@ namespace OTTOPro
         {
             try
             {
-                txtUserName.Text = "admin";
-                txtPassword.Text = " ";
+                //txtUserName.Text = "admin";
+                //txtPassword.Text = " ";
                 Thread.Sleep(3000);
             }
             catch (Exception ex)

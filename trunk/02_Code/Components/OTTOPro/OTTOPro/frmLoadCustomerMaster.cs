@@ -306,6 +306,8 @@ namespace OTTOPro
         {
             try
             {
+                if (string.IsNullOrEmpty(txtCustFullName.Text.Trim()))
+                    throw new Exception("Vollständiger Name Cannot be empty");
                 if (!dxReqValidationProvider.Validate())
                     return;
                 if (ObjECustomer == null)

@@ -207,6 +207,8 @@ namespace OTTOPro
         {
             try
             {
+                if (!dxValidationProvider1.Validate())
+                    return;
                 if (ObjEOTTO == null)
                     ObjEOTTO = new EOTTO();
                 if (ObjBOTTO == null)
