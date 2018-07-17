@@ -7407,7 +7407,7 @@ namespace OTTOPro
             }
         }
 
-        private void gvProposedSupplier_RowClick(object sender, RowClickEventArgs e)
+        private void gvProposedSupplier_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
             {
@@ -7648,7 +7648,7 @@ namespace OTTOPro
             }
         }
 
-        private void gvProposal_RowClick(object sender, RowClickEventArgs e)
+        private void gvProposal_RowClick(object sender, DevExpress.XtraGrid.Views.Grid.RowClickEventArgs e)
         {
             try
             {
