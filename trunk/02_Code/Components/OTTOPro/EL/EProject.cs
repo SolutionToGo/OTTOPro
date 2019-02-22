@@ -106,6 +106,7 @@ namespace EL
         private DataTable _dtLVSection;
         private bool _IsCumulated = false;
         private DataTable _dtProjecNumber = null;
+        private DataTable _dtArticleSettings = new DataTable();
         private DataTable _dtDiscount = null;
         public DataTable dtProjecNumber
         {
@@ -117,6 +118,13 @@ namespace EL
             get { return _dtDiscount; }
             set { _dtDiscount = value; }
         }
+
+        public DataTable dtArticleSettings
+        {
+            get { return _dtArticleSettings; }
+            set { _dtArticleSettings = value; }
+        }
+
         private DataSet _dsComaparePrice = null;
         public DataSet dsComaparePrice
         {
@@ -361,6 +369,17 @@ namespace EL
             get { return _RevenueTotal; }
             set { _RevenueTotal = value; }
         }
+
+
+        public bool lPVisible = true;
+        public bool M1Visible = true;
+        public bool M2Visible = true;
+        public bool M3Visible = true;
+        public bool M4Visible = true;
+        public bool DimVisible = true;
+        public bool MinVisible = true;
+        public bool FabVisible = true;
+        public bool MeVisible = true;
     }
 }
 

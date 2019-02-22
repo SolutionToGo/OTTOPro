@@ -104,7 +104,19 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SNO", ObjEPosition.SNO.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Discount", ObjEPosition.Discount.ToString(CInfo));
 
-                PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription);
+                decimal OZID = 0;
+                if (!string.IsNullOrEmpty(ObjEPosition.Position_OZ))
+                {
+                    string[] strOZList = ObjEPosition.Position_OZ.Split('.');
+                    if (strOZList.Count() > 1)
+                    {
+                        string strOZID = strOZList[strOZList.Count() - 2];
+                        string strIndex = strOZList[strOZList.Count() - 1];
+                        if (!decimal.TryParse(strOZID + "." + strIndex,NumberStyles.Float,CultureInfo.GetCultureInfo("en"),out OZID))
+                            OZID = 0;
+                    }
+                }
+                PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription, OZID);
                 if (PositionID < 0)
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")

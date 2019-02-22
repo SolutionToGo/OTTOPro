@@ -103,14 +103,6 @@ namespace OTTOPro
             catch (Exception ex) { Utility.ShowError(ex); }
         }
 
-        private void txtShortName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar != ' ' && !Char.IsDigit(e.KeyChar))
-                e.Handled = false;
-            else
-                e.Handled = true;
-        }
-
         private void BindContactsDetails()
         {
             try

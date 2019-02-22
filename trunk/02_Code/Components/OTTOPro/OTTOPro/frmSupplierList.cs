@@ -111,14 +111,20 @@ namespace OTTOPro
 
         private void btnAddSupplier_Click(object sender, EventArgs e)
         {
-            if (ObjESupplier == null)
-                ObjESupplier = new ESupplier();
-            ObjESupplier.SupplierID = -1;
-            frmSupplierMaster Obj = new frmSupplierMaster("Supplier");
-            Obj.ObjEsupplier = ObjESupplier;
-            Obj.ShowDialog();
-            BindSupplierData();
-            Utility.Setfocus(gvSupplier, "SupplierID", ObjESupplier.SupplierID);
+            try
+            {
+                if (ObjESupplier == null)
+                    ObjESupplier = new ESupplier();
+                ObjESupplier.SupplierID = -1;
+                frmAddSupplier Obj = new frmAddSupplier(ObjESupplier);
+                Obj.ShowDialog();
+                if(Obj._IsContinue)
+                {
+                    BindSupplierData();
+                    Utility.Setfocus(gvSupplier, "SupplierID", ObjESupplier.SupplierID);
+                }
+            }
+            catch (Exception ex){}
         }
     }
 }

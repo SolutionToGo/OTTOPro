@@ -389,5 +389,34 @@ namespace DataAccess
             }
             return ObjEUserInfo;
         }
+
+        public EUserInfo UpdateAutoSave(EUserInfo ObjEUserInfo)
+        {
+            DataSet dsFeature = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_AutoSave]";
+                    cmd.Parameters.AddWithValue("@UserID", ObjEUserInfo.UserID);
+                    cmd.Parameters.AddWithValue("@AutoSave", ObjEUserInfo.AutoSaveMode);
+                    object Objreturn = cmd.ExecuteScalar();
+                    string str = Convert.ToString(Objreturn);
+                    if (!string.IsNullOrEmpty(str))
+                        throw new Exception(str);
+                }
+            }
+            catch (Exception ex)
+            {
+                    throw new Exception("Error While updating AutoSave Mode");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEUserInfo;
+        }
     }
 }

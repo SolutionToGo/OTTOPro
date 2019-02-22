@@ -116,7 +116,7 @@ namespace OTTOPro
                     if (ObjEGAEB == null)
                         ObjEGAEB = new EGAEB();
                     ObjEGAEB.ProjectNumber = txtProjectName.Text;
-                    string strOTTOFilePath = ObjEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    string strOTTOFilePath = ObjEGAEB.DirPath = Application.UserAppDataPath + "\\";
                     XMLDoc = ObjBGAEB.Export(_ProjectID, cmbLVSection.Text, cmbFormatType.Text, _NewRaster,ObjEGAEB);
                     if (!Directory.Exists(strOTTOFilePath))
                         Directory.CreateDirectory(strOTTOFilePath);

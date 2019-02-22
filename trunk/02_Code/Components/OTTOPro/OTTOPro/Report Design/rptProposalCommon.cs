@@ -51,7 +51,7 @@ namespace OTTOPro.Report_Design
             totalMOPrice1 = 0;
         }
 
-        private void xrLabel27_SummaryRowChanged(object sender, EventArgs e)
+        private void xrLabel27_SummaryRowChangeds(object sender, EventArgs e)
         {
             try
             {
@@ -154,8 +154,8 @@ namespace OTTOPro.Report_Design
             {
                 if (e.PageIndex > 0)
                 {
-                    xrRichText5.Visible = false;
-                    xrRichText6.Visible = false;
+                    xrLabel10.Visible = false;
+                    xrLabel11.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -237,7 +237,7 @@ namespace OTTOPro.Report_Design
             Double dValue = 0;
             try
             {
-                if (xrPositionkz.Text != "E")
+                if (xrPositionKZ.Text != "Eventualposition")
                 {
                     if (double.TryParse(xrGB.Text, out dValue))
                     {
@@ -259,20 +259,19 @@ namespace OTTOPro.Report_Design
             try
             {
                 XRRichText richText = (XRRichText)sender;
-                using (DevExpress.XtraRichEdit.RichEditDocumentServer docServer = new DevExpress.XtraRichEdit.RichEditDocumentServer())
-                {
-                    docServer.RtfText = richText.Rtf;
-                    docServer.Document.DefaultCharacterProperties.Bold = true;
-                    richText.Rtf = docServer.RtfText;
-                }
+                richText.Font = new Font("Trebuchet MS", 10, FontStyle.Bold);
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex){}
         }
 
-        
-
+        private void xrRichText3_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                XRRichText richText = (XRRichText)sender;
+                richText.Font = new Font("Trebuchet MS", 10, FontStyle.Regular);
+            }
+            catch (Exception ex) { }
+        }
     }
 }

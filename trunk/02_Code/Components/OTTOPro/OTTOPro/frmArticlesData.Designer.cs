@@ -370,6 +370,7 @@
             this.btnValidityDate.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnValidityDate.Appearance.Options.UseFont = true;
             this.btnValidityDate.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnValidityDate.ImageOptions.Image")));
+            this.btnValidityDate.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnValidityDate.Location = new System.Drawing.Point(818, 396);
             this.btnValidityDate.Name = "btnValidityDate";
             this.btnValidityDate.Size = new System.Drawing.Size(126, 22);
@@ -423,6 +424,7 @@
             this.btnSaveAs.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnSaveAs.Appearance.Options.UseFont = true;
             this.btnSaveAs.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSaveAs.ImageOptions.Image")));
+            this.btnSaveAs.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnSaveAs.Location = new System.Drawing.Point(948, 396);
             this.btnSaveAs.Name = "btnSaveAs";
             this.btnSaveAs.Size = new System.Drawing.Size(154, 22);
@@ -436,6 +438,7 @@
             this.btnAddDimension.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.btnAddDimension.Appearance.Options.UseFont = true;
             this.btnAddDimension.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnAddDimension.ImageOptions.Image")));
+            this.btnAddDimension.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnAddDimension.Location = new System.Drawing.Point(1106, 396);
             this.btnAddDimension.Name = "btnAddDimension";
             this.btnAddDimension.Size = new System.Drawing.Size(124, 22);
@@ -1056,7 +1059,6 @@
             this.layoutControlItem30,
             this.layoutControlItem31,
             this.layoutControlItem34});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup1.Size = new System.Drawing.Size(1233, 767);

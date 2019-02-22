@@ -172,6 +172,8 @@ namespace EL
         {
             get { return _NewPassword; }
             set { _NewPassword = value; }
+
         }
+        public bool AutoSaveMode = false;
     }
 }

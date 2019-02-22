@@ -32,10 +32,7 @@ namespace OTTOPro.Report_Design
             e.Result = _xrGBVlaue;
             e.Handled = true;
         }
-        private void xrlblPageSum_SummaryReset(object sender, EventArgs e)
-        {
-           // totalGB1 = 0;
-        }
+
         double totalMOPrice1 = 0;
         private void xrLabel27_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
@@ -61,40 +58,23 @@ namespace OTTOPro.Report_Design
             }
         }
 
-
-        Double totalvat = 0;
-        Double GBValue = 0;
-        Double GB1 = 0;
-        Double GBWithVat = 0;
         private void xrTableCell13_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            Double dValue = 0;
-            Double GValue = 0;
-            Double Value1 = 0;
-            Double Value2 = 0;
+            double DVat = 0;
             try
             {
                 if (GetCurrentColumnValue("Vat") != DBNull.Value)
-                {
-                    if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out dValue))
-                        totalvat = dValue;
-                }
-                //if (double.TryParse(value, out GValue))
-                    GBValue = value;
-                double _result = Convert.ToDouble((GBValue * totalvat) / 100);
-                xrLblTotalVat.Text = Convert.ToDouble(_result).ToString("n2");
-
-                if (double.TryParse(xrLblGB.Text, out Value1))
-                    GB1 = Value1;
-                if (double.TryParse(xrLblTotalVat.Text, out Value2))
-                    GBWithVat = Value2;
-                double _resultVat = Convert.ToDouble(GB1 + GBWithVat);
-                xrLabelFinalResult.Text = Convert.ToDouble(_resultVat).ToString("n2");
+                    if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out DVat))
+                    {
+                        double DGBValue = 0;
+                        if (double .TryParse(Convert.ToString(xrLblGB.Summary.GetResult()),out DGBValue))
+                        {
+                            double _result = Convert.ToDouble(((DGBValue - _Discount) * DVat) / 100);
+                            xrLblTotalVat.Text = _result.ToString("n2");
+                        }
+                    }
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex){}
         }
 
         private void xrlblPageSum_PrintOnPage(object sender, PrintOnPageEventArgs e)
@@ -112,22 +92,6 @@ namespace OTTOPro.Report_Design
             {
                 Utility.ShowError(ex);
             }
-        }
-
-        private void lblTitle_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            //try
-            //{
-            //    if(!string.IsNullOrEmpty(lblTitle.Text))
-            //    {
-            //        string _title = lblTitle.Text;
-            //        lblTitle.Text = _title.Substring(0, 3);
-            //    }                
-            //}
-            //catch (Exception ex)
-            //{
-            //    Utility.ShowError(ex);
-            //}
         }
 
         private void TopMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -151,8 +115,8 @@ namespace OTTOPro.Report_Design
             {
                 if (e.PageIndex > 0)
                 {
-                    xrRichText5.Visible = false;
-                    xrRichText6.Visible = false;
+                    xrLabel10.Visible = false;
+                    xrLabel11.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -213,13 +177,13 @@ namespace OTTOPro.Report_Design
         {
             try
             {                
-                if (DetailReport1.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-                {
-                    value = Convert.ToDouble(xrLabel10.Summary.GetResult()) - _Discount;
-                    xrLblGB.Text = (value).ToString("n2");
-                }
+            //    if (DetailReport1.GetCurrentColumnValue("FinalGB") != DBNull.Value)
+            //    {
+            //        value = Convert.ToDouble(xrLabel10.Summary.GetResult()) - _Discount;
+            //        xrLblGB.Text = (value).ToString("n2");
+            //    }
 
-                xrTableCell13_BeforePrint(null,null);
+            //    xrTableCell13_BeforePrint(null,null);
                 
             }
             catch (Exception ex)
@@ -234,7 +198,7 @@ namespace OTTOPro.Report_Design
             Double dValue = 0;
             try
             {
-                if (xrPositionkz.Text != "E")
+                if (xrPositionKZ.Text != "Eventualposition")
                 {
                     if (double.TryParse(xrGB.Text, out dValue))
                     {
@@ -256,17 +220,38 @@ namespace OTTOPro.Report_Design
             try
             {
                 XRRichText richText = (XRRichText)sender;
-                using (DevExpress.XtraRichEdit.RichEditDocumentServer docServer = new DevExpress.XtraRichEdit.RichEditDocumentServer())
-                {
-                    docServer.RtfText = richText.Rtf;
-                    docServer.Document.DefaultCharacterProperties.Bold = true;
-                    richText.Rtf = docServer.RtfText;
-                }
+                richText.Font = new Font("Trebuchet MS", 10, FontStyle.Bold);
             }
-            catch (Exception ex)
+            catch (Exception ex) { }
+        }
+
+        private void xrRichText5_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
             {
-                Utility.ShowError(ex);
+                XRRichText richText = (XRRichText)sender;
+                richText.Font = new Font("Trebuchet MS", 10, FontStyle. Regular);
             }
+            catch (Exception ex) { }
+        }
+
+        private void xrLabelFinalResult_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            double DVat = 0;
+            try
+            {
+                if (GetCurrentColumnValue("Vat") != DBNull.Value)
+                    if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out DVat))
+                    {
+                        double DGBValue = 0;
+                        if (double.TryParse(Convert.ToString(xrLblGB.Summary.GetResult()), out DGBValue))
+                        {
+                            double _result = Convert.ToDouble(((DGBValue - _Discount) * DVat) / 100);
+                            xrLabelFinalResult.Text = ((DGBValue + _result) - _Discount).ToString("n2");
+                        }
+                    }
+            }
+            catch (Exception ex) { }
         }
     }
 }

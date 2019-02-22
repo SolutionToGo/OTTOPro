@@ -17,7 +17,7 @@ namespace DataAccess
 {
     public class DPosition
     {
-        public int SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription)
+        public int SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription, decimal OZID)
         {
             int ProjectID = -1;
             try
@@ -33,7 +33,7 @@ namespace DataAccess
                     cmd.Parameters.Add(param);
                     cmd.Parameters.AddWithValue("@ProjectID", iProjectID);
                     cmd.Parameters.AddWithValue("@LongDescription", LongDescription);
-
+                    cmd.Parameters.AddWithValue("@OZID", OZID);
                     object returnObj = cmd.ExecuteScalar();
                     if (returnObj != null)
                     {
@@ -76,6 +76,17 @@ namespace DataAccess
                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                             {
                                 throw new Exception("Eine Summe kann nicht mehrfach für die gleichen Positionen angelegt werden");
+                            }
+                            else
+                            {
+                                throw new Exception(returnObj.ToString());
+                            }
+                        }
+                        else if (returnObj.ToString().Contains("Base"))
+                        {
+                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                            {
+                                throw new Exception("Base position does not exists for Detail KZ position");
                             }
                             else
                             {
@@ -542,6 +553,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@WA", ObjEPositon.WA);
                     cmd.Parameters.AddWithValue("@WI", ObjEPositon.WI);
                     cmd.Parameters.AddWithValue("@dtSubmitDate", ObjEPositon.ValidityDate);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEPositon.ProjectID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(ds);
@@ -562,6 +574,11 @@ namespace DataAccess
 
                         if (ds.Tables.Count > 1)
                             ObjEPositon.dtDimensions = ds.Tables[1];
+                    }
+                    else
+                    {
+                        ObjEPositon.dtArticle.Rows.Clear();
+                        ObjEPositon.dtDimensions.Rows.Clear();
                     }
                 }
             }
@@ -655,6 +672,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@PositionOZ", ObjEPosition.Position_OZ);
                     cmd.Parameters.AddWithValue("@SNO", ObjEPosition.SNO);
                     cmd.Parameters.AddWithValue("@dtCopyPosition", ObjEPosition.dtCopyPosition);
+                    cmd.Parameters.AddWithValue("@OZID", ObjEPosition.OZID);
                     object returnObj = cmd.ExecuteScalar();
                     if (!int.TryParse(Convert.ToString(returnObj), out ProjectID))
                         throw new Exception(Convert.ToString(returnObj));
@@ -735,7 +753,8 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@WA", ObjEPositon.WA);
                     cmd.Parameters.AddWithValue("@WI", ObjEPositon.WI);
                     cmd.Parameters.AddWithValue("@dtSubmitDate", ObjEPositon.ValidityDate);
-                    cmd.Parameters.AddWithValue("@A", ObjEPositon.Dim2);
+                    cmd.Parameters.AddWithValue("@A", ObjEPositon.Dim1);
+                    cmd.Parameters.AddWithValue("@B", ObjEPositon.Dim2);
                     cmd.Parameters.AddWithValue("@DimType", _DimType);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
@@ -755,6 +774,76 @@ namespace DataAccess
             }
             return ObjEPositon;
         }
+
+        public EPosition GetProjectArticles(EPosition ObjEPositon)
+        {
+            try
+            {
+                ObjEPositon.dtProjectArticles = new DataTable();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ProjectArticles]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEPositon.ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ObjEPositon.dtProjectArticles);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
+
+        public EPosition SaveProjectArticle(EPosition ObjEPosition)
+        {
+            try
+            {
+                int WGID = 0;
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_ProjectArticle]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEPosition.ProjectID);
+                    cmd.Parameters.AddWithValue("@WG", ObjEPosition.WG);
+                    cmd.Parameters.AddWithValue("@WA", ObjEPosition.WA);
+                    cmd.Parameters.AddWithValue("@WGDescription", ObjEPosition.WGDescription);
+                    cmd.Parameters.AddWithValue("@WADescription", ObjEPosition.WADescription);
+                    cmd.Parameters.AddWithValue("@UserID", ObjEPosition.UserID);
+                    object returnObj = cmd.ExecuteScalar();
+                    if (!int.TryParse(Convert.ToString(returnObj), out WGID))
+                        throw new Exception(Convert.ToString(returnObj));
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("UNIQUE"))
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Article already exists");
+                    else
+                        throw new Exception("Article already exists");
+                }
+                else
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Error While saving article");
+                    else
+                        throw new Exception("Error While saving article");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEPosition;
+        }
+
     }
 }
     

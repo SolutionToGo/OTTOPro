@@ -34,8 +34,12 @@
             DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+            DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+            DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+            DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
             this.ribbon = new DevExpress.XtraBars.Ribbon.RibbonControl();
             this.btnNewProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnLoadProject = new DevExpress.XtraBars.BarButtonItem();
@@ -80,8 +84,14 @@
             this.btnAngebot3 = new DevExpress.XtraBars.BarButtonItem();
             this.bbAufmass = new DevExpress.XtraBars.BarButtonItem();
             this.bbRechnung = new DevExpress.XtraBars.BarButtonItem();
+            this.chkAutoSave1 = new DevExpress.XtraBars.BarEditItem();
+            this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+            this.nbDeletePosition = new DevExpress.XtraBars.BarButtonItem();
+            this.nbCopyPosition = new DevExpress.XtraBars.BarButtonItem();
+            this.nbCopyDetailKZ = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpgArticleMaster = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -89,8 +99,10 @@
             this.rpSetting = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgTextModule = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.Profile = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.chkAutoSave = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.BarButtonItem10 = new DevExpress.XtraBars.BarButtonItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tsStatus = new System.Windows.Forms.ToolStripStatusLabel();
@@ -102,7 +114,10 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblDBVersion = new System.Windows.Forms.Label();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAutoSave)).BeginInit();
             this.statusStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -154,14 +169,21 @@
             this.bbRechnung,
             this.btnAngebot1,
             this.btnAngebot2,
-            this.btnAngebot3});
+            this.btnAngebot3,
+            this.chkAutoSave1,
+            this.nbDeletePosition,
+            this.nbCopyPosition,
+            this.nbCopyDetailKZ});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 57;
+            this.ribbon.MaxItemId = 64;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
             this.rpSetting,
             this.Profile});
+            this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.chkAutoSave,
+            this.repositoryItemCheckEdit1});
             this.ribbon.Size = new System.Drawing.Size(1230, 143);
             // 
             // btnNewProject
@@ -433,6 +455,7 @@
             this.btnFormBlattarticles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFormBlattarticles.ImageOptions.Image")));
             this.btnFormBlattarticles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFormBlattarticles.ImageOptions.LargeImage")));
             this.btnFormBlattarticles.Name = "btnFormBlattarticles";
+            this.btnFormBlattarticles.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.btnFormBlattarticles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFormBlattarticles_ItemClick);
             // 
             // btnReportSetting
@@ -471,28 +494,28 @@
             // 
             // bbAngebot
             // 
-            this.bbAngebot.Caption = "Angebot";
+            this.bbAngebot.Caption = "Standardanschreiben Angebot V‐011";
             this.bbAngebot.Id = 51;
             this.bbAngebot.Name = "bbAngebot";
             this.bbAngebot.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbAngebot_ItemClick);
             // 
             // btnAngebot1
             // 
-            this.btnAngebot1.Caption = "Angebot1";
+            this.btnAngebot1.Caption = "Angebotsdeckblatt V‐014";
             this.btnAngebot1.Id = 54;
             this.btnAngebot1.Name = "btnAngebot1";
             this.btnAngebot1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAngebot1_ItemClick);
             // 
             // btnAngebot2
             // 
-            this.btnAngebot2.Caption = "Angebo2";
+            this.btnAngebot2.Caption = "Anhang / Schlussblatt V-012";
             this.btnAngebot2.Id = 55;
             this.btnAngebot2.Name = "btnAngebot2";
             this.btnAngebot2.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAngebot2_ItemClick);
             // 
             // btnAngebot3
             // 
-            this.btnAngebot3.Caption = "Angebo3";
+            this.btnAngebot3.Caption = "Angebo3 V-013";
             this.btnAngebot3.Id = 56;
             this.btnAngebot3.Name = "btnAngebot3";
             this.btnAngebot3.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnAngebot3_ItemClick);
@@ -502,6 +525,7 @@
             this.bbAufmass.Caption = "Aufmass";
             this.bbAufmass.Id = 52;
             this.bbAufmass.Name = "bbAufmass";
+            this.bbAufmass.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbAufmass.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbAufmass_ItemClick);
             // 
             // bbRechnung
@@ -509,12 +533,56 @@
             this.bbRechnung.Caption = "Rechnung";
             this.bbRechnung.Id = 53;
             this.bbRechnung.Name = "bbRechnung";
+            this.bbRechnung.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbRechnung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbRechnung_ItemClick);
+            // 
+            // chkAutoSave1
+            // 
+            this.chkAutoSave1.Caption = "Speichermodus: Automatisch";
+            this.chkAutoSave1.Edit = this.repositoryItemCheckEdit1;
+            this.chkAutoSave1.Id = 59;
+            this.chkAutoSave1.Name = "chkAutoSave1";
+            this.chkAutoSave1.EditValueChanged += new System.EventHandler(this.chkAutoSave1_EditValueChanged);
+            // 
+            // repositoryItemCheckEdit1
+            // 
+            this.repositoryItemCheckEdit1.AutoHeight = false;
+            this.repositoryItemCheckEdit1.Name = "repositoryItemCheckEdit1";
+            // 
+            // nbDeletePosition
+            // 
+            this.nbDeletePosition.Caption = "Löschen";
+            this.nbDeletePosition.Id = 60;
+            this.nbDeletePosition.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("nbDeletePosition.ImageOptions.Image")));
+            this.nbDeletePosition.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbDeletePosition.ImageOptions.LargeImage")));
+            this.nbDeletePosition.Name = "nbDeletePosition";
+            toolTipItem1.Text = "AF5 - Löschen";
+            superToolTip1.Items.Add(toolTipItem1);
+            this.nbDeletePosition.SuperTip = superToolTip1;
+            this.nbDeletePosition.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.nbDeletePosition_ItemClick);
+            // 
+            // nbCopyPosition
+            // 
+            this.nbCopyPosition.Caption = "Kopieren";
+            this.nbCopyPosition.Id = 61;
+            this.nbCopyPosition.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("nbCopyPosition.ImageOptions.Image")));
+            this.nbCopyPosition.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("nbCopyPosition.ImageOptions.LargeImage")));
+            this.nbCopyPosition.Name = "nbCopyPosition";
+            toolTipItem2.Text = "F4 - Kopieren";
+            superToolTip2.Items.Add(toolTipItem2);
+            this.nbCopyPosition.SuperTip = superToolTip2;
+            this.nbCopyPosition.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.nbCopyPosition_ItemClick);
+            // 
+            // nbCopyDetailKZ
+            // 
+            this.nbCopyDetailKZ.Id = 63;
+            this.nbCopyDetailKZ.Name = "nbCopyDetailKZ";
             // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.ribbonPageGroup1,
+            this.ribbonPageGroup8,
             this.ribbonPageGroup5,
             this.rpgArticleMaster,
             this.ribbonPageGroup2,
@@ -530,6 +598,13 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemExitProject, true);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Projekt";
+            // 
+            // ribbonPageGroup8
+            // 
+            this.ribbonPageGroup8.ItemLinks.Add(this.nbCopyPosition);
+            this.ribbonPageGroup8.ItemLinks.Add(this.nbDeletePosition);
+            this.ribbonPageGroup8.Name = "ribbonPageGroup8";
+            this.ribbonPageGroup8.Text = "Position";
             // 
             // ribbonPageGroup5
             // 
@@ -566,7 +641,8 @@
             // 
             this.rpSetting.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
             this.rpgTextModule,
-            this.ribbonPageGroup6});
+            this.ribbonPageGroup6,
+            this.ribbonPageGroup7});
             this.rpSetting.Name = "rpSetting";
             this.rpSetting.Text = "Einstellungen";
             // 
@@ -585,6 +661,12 @@
             this.ribbonPageGroup6.Name = "ribbonPageGroup6";
             this.ribbonPageGroup6.Text = "Title Blatt";
             // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.ItemLinks.Add(this.chkAutoSave1);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.Text = "General Settings";
+            // 
             // Profile
             // 
             this.Profile.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -598,6 +680,11 @@
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
             this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
+            // chkAutoSave
+            // 
+            this.chkAutoSave.AutoHeight = false;
+            this.chkAutoSave.Name = "chkAutoSave";
+            // 
             // BarButtonItem10
             // 
             this.BarButtonItem10.Caption = "Users";
@@ -606,11 +693,11 @@
             this.BarButtonItem10.Name = "BarButtonItem10";
             this.BarButtonItem10.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             toolTipTitleItem1.Text = "Otto Pro";
-            toolTipItem1.LeftIndent = 6;
-            toolTipItem1.Text = "Maintains Customer Information";
-            superToolTip1.Items.Add(toolTipTitleItem1);
-            superToolTip1.Items.Add(toolTipItem1);
-            this.BarButtonItem10.SuperTip = superToolTip1;
+            toolTipItem3.LeftIndent = 6;
+            toolTipItem3.Text = "Maintains Customer Information";
+            superToolTip3.Items.Add(toolTipTitleItem1);
+            superToolTip3.Items.Add(toolTipItem3);
+            this.BarButtonItem10.SuperTip = superToolTip3;
             // 
             // statusStrip1
             // 
@@ -669,7 +756,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.1.7 (16-07-2018)";
+            this.label1.Text = "Version Software 9.2.4 (11-02-2019)";
             // 
             // fdImportFile
             // 
@@ -709,6 +796,11 @@
             this.simpleButton1.Visible = false;
             this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "ribbonPage2";
+            // 
             // frmOTTOPro
             // 
             this.ActiveGlowColor = System.Drawing.Color.Transparent;
@@ -738,6 +830,8 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmOTTOPro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chkAutoSave)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -814,5 +908,14 @@
         private DevExpress.XtraBars.BarButtonItem btnAngebot1;
         private DevExpress.XtraBars.BarButtonItem btnAngebot2;
         private DevExpress.XtraBars.BarButtonItem btnAngebot3;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit chkAutoSave;
+        private DevExpress.XtraBars.BarEditItem chkAutoSave1;
+        private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup7;
+        private DevExpress.XtraBars.BarButtonItem nbDeletePosition;
+        private DevExpress.XtraBars.BarButtonItem nbCopyPosition;
+        private DevExpress.XtraBars.BarButtonItem nbCopyDetailKZ;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
     }
 }

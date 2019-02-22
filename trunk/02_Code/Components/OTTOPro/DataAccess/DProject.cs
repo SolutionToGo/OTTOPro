@@ -619,5 +619,33 @@ namespace DAL
             }
             return strError;
         }
+
+        public void UpdateArticleSettings(EProject ObjEProject)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_ArticleSettings]";
+                    cmd.Parameters.AddWithValue("@projectID", ObjEProject.ProjectID);
+                    cmd.Parameters.AddWithValue("@dtArticleSettings", ObjEProject.dtArticleSettings);
+                    cmd.Parameters.AddWithValue("@UserID", ObjEProject.UserID);
+                    object oReturn = cmd.ExecuteScalar();
+                    int IValue = 0;
+                    if (!int.TryParse(Convert.ToString(oReturn), out IValue))
+                        throw new Exception(Convert.ToString(oReturn));
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+        }
     }
 }

@@ -18,6 +18,8 @@ using System.IO;
 using OTTOPro.Report_Design;
 using DevExpress.XtraReports.UI;
 using System.Data.OleDb;
+using DataAccess;
+using DevExpress.XtraEditors;
 
 namespace OTTOPro
 {
@@ -149,6 +151,7 @@ namespace OTTOPro
         {
             try
             {
+                chkAutoSave1.EditValue = Utility.AutoSave;
                 if (Utility.ArticleDataAccess == "9")
                     rpgArticleMaster.Visible = false;
 
@@ -363,7 +366,7 @@ namespace OTTOPro
                     SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
                     SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
                     string strOutputFilepath = string.Empty;
-                    string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    string strOTTOFilePath = Application.UserAppDataPath + "\\";
                     if (!Directory.Exists(strOTTOFilePath))
                         Directory.CreateDirectory(strOTTOFilePath);
                     string strFileName = Path.GetFileNameWithoutExtension(strFilePath);
@@ -392,8 +395,8 @@ namespace OTTOPro
         {
             try
             {
-                frmFormBlattarticles frm = new frmFormBlattarticles();
-                frm.ShowDialog();
+                //frmFormBlattarticles frm = new frmFormBlattarticles();
+                //frm.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -440,7 +443,8 @@ namespace OTTOPro
                 if(ObjBProject == null)
                     ObjBProject = new BProject();
                 ObjEProject = ObjBProject.GetPath(ObjEProject);
-                Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot_Template.dotx";
+                var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-011*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\" + FolderPath;
                 if (File.Exists(Convert.ToString(oTemplatePath)))
                 {
                     if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
@@ -453,13 +457,13 @@ namespace OTTOPro
                     else
                         throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
                 }
-                SplashScreenManager.CloseForm(false);
             }
             catch (Exception ex)
             {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally { SplashScreenManager.CloseForm(false); }
         }
 
         private void bbAufmass_ItemClick(object sender, ItemClickEventArgs e)
@@ -543,7 +547,8 @@ namespace OTTOPro
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
                 ObjEProject = ObjBProject.GetPath(ObjEProject);
-                Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot1_Template.dotx";
+                var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-014*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\" + FolderPath;
                 if (File.Exists(Convert.ToString(oTemplatePath)))
                 {
                     if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
@@ -556,13 +561,13 @@ namespace OTTOPro
                     else
                         throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
                 }
-                SplashScreenManager.CloseForm(false);
             }
             catch (Exception ex)
             {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally { SplashScreenManager.CloseForm(false); }
         }
 
         private void btnAngebot2_ItemClick(object sender, ItemClickEventArgs e)
@@ -577,7 +582,8 @@ namespace OTTOPro
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
                 ObjEProject = ObjBProject.GetPath(ObjEProject);
-                Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot2_Template.dotx";
+                var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-012*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\"+ FolderPath;
                 if (File.Exists(Convert.ToString(oTemplatePath)))
                 {
                     if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
@@ -590,13 +596,13 @@ namespace OTTOPro
                     else
                         throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
                 }
-                SplashScreenManager.CloseForm(false);
             }
             catch (Exception ex)
             {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally { SplashScreenManager.CloseForm(false); }
         }
 
         private void btnAngebot3_ItemClick(object sender, ItemClickEventArgs e)
@@ -611,7 +617,8 @@ namespace OTTOPro
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
                 ObjEProject = ObjBProject.GetPath(ObjEProject);
-                Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot3_Template.dotx";
+                var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-013*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\" + FolderPath;
                 if (File.Exists(Convert.ToString(oTemplatePath)))
                 {
                     if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
@@ -624,13 +631,13 @@ namespace OTTOPro
                     else
                         throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
                 }
-                SplashScreenManager.CloseForm(false);
             }
             catch (Exception ex)
             {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally { SplashScreenManager.CloseForm(false); }
         }
 
         #endregion
@@ -683,5 +690,58 @@ namespace OTTOPro
             }
         }
 
+        private void barEditItem1_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+        }
+
+        private void chkAutoSave1_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                DUserInfo ObjDUserInfo = new DUserInfo();
+                EUserInfo ObjEUserInfo = new EUserInfo();
+                ObjEUserInfo.UserID = Utility.UserID;
+                ObjEUserInfo.AutoSaveMode = Convert.ToBoolean(chkAutoSave1.EditValue);
+                ObjDUserInfo.UpdateAutoSave(ObjEUserInfo);
+                Utility.AutoSave = ObjEUserInfo.AutoSaveMode;
+            }
+            catch (Exception ex) { Utility.ShowError(ex); }
+        }
+
+        private void nbDeletePosition_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                frmProject f = (frmProject)this.ActiveMdiChild;
+                f.DeletePosition();
+            }
+            catch (Exception ex){}
+        }
+
+        private void nbCopyPosition_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                frmProject f = (frmProject)this.ActiveMdiChild;
+                f.CopyPosition();
+            }
+            catch (Exception ex) { }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Alt | Keys.F5))
+            {
+                nbDeletePosition_ItemClick(null, null);
+                return true;
+            }
+            else if(keyData == Keys.F4)
+            {
+                nbCopyPosition_ItemClick(null, null);
+                return true;
+            }
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
     }
 }

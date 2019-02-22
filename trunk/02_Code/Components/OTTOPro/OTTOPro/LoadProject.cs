@@ -16,6 +16,7 @@ using System.IO;
 using System.Configuration;
 using System.Diagnostics;
 using DevExpress.XtraBars;
+using DevExpress.XtraSplashScreen;
 
 namespace OTTOPro
 {
@@ -29,11 +30,18 @@ namespace OTTOPro
         public frmLoadProject()
         {
             InitializeComponent();
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Loading...");
+                BindData();
+            }
+            catch (Exception ex){}
+            finally { SplashScreenManager.CloseForm(); }
         }
         
         public void frmLoadProject_Load(object sender, EventArgs e)
         {         
-            BindData();
         }       
 
         public void BindData()

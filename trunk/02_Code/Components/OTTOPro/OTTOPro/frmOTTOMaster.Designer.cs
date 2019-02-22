@@ -208,7 +208,6 @@
             this.emptySpaceItem3,
             this.emptySpaceItem4,
             this.emptySpaceItem5});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(561, 257);
             this.layoutControlGroup1.TextVisible = false;
@@ -328,6 +327,7 @@
             // frmOTTOMaster
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
+            this.CancelButton = this.btnCancelContact;
             this.ClientSize = new System.Drawing.Size(561, 257);
             this.Controls.Add(this.layoutControl1);
             this.MaximizeBox = false;

@@ -74,6 +74,7 @@ namespace OTTOPro
                     Utility.FirstName = ObjEUserInfo.dtUserDetails.Rows[0]["FirstName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["FirstName"]);
                     Utility.LastName = ObjEUserInfo.dtUserDetails.Rows[0]["LastName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["LastName"]);
                     Utility.IsOTP = ObjEUserInfo.dtUserDetails.Rows[0]["IsOTP"] == DBNull.Value ? false : Convert.ToBoolean(ObjEUserInfo.dtUserDetails.Rows[0]["IsOTP"]);
+                    Utility.AutoSave = ObjEUserInfo.dtUserDetails.Rows[0]["AutoSavePosition"] == DBNull.Value ? false : Convert.ToBoolean(ObjEUserInfo.dtUserDetails.Rows[0]["AutoSavePosition"]);
                 }
                 if (Utility.IsOTP)
                 {
@@ -121,6 +122,8 @@ namespace OTTOPro
                             Utility.UserDataAccess = Convert.ToString(dr["AccessLevel"]);
                         else if (Convert.ToString(dr["FeatureID"]) == "18")
                             Utility.ProjectDataAccess = Convert.ToString(dr["AccessLevel"]);
+                        else if (Convert.ToString(dr["FeatureID"]) == "19")
+                            Utility.FormBlattArticleMappingAccess = Convert.ToString(dr["AccessLevel"]);
                     }
                 }
                 else

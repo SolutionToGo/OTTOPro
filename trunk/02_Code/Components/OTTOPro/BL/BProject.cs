@@ -80,13 +80,18 @@ namespace BL
                 DataSet dsProjectDetails = ObjDAL.GetProjectDetails(ObjEProject);
                 if (dsProjectDetails != null)
                 {
+                    if (dsProjectDetails.Tables.Count > 3)
+                        ObjEProject.dtArticleSettings = dsProjectDetails.Tables[3];
+
                     if (dsProjectDetails.Tables.Count > 2)
-                        ObjEProject.dtDiscount = ObjDAL.GetProjectDetails(ObjEProject).Tables[2];
+                        ObjEProject.dtDiscount = dsProjectDetails.Tables[2];
+
                     if (dsProjectDetails.Tables.Count > 1)
-                        ObjEProject.dtLVSection = ObjDAL.GetProjectDetails(ObjEProject).Tables[1];
+                        ObjEProject.dtLVSection = dsProjectDetails.Tables[1];
+
                     if (dsProjectDetails.Tables.Count > 0)
                     {
-                        DataTable dtPRojectDetails = ObjDAL.GetProjectDetails(ObjEProject).Tables[0];
+                        DataTable dtPRojectDetails = dsProjectDetails.Tables[0];
                         if (dtPRojectDetails != null && dtPRojectDetails.Rows.Count > 0)
                         {
                             int iValue = 0;
@@ -367,6 +372,8 @@ namespace BL
             }
             return str;
         }
+
+
     }
 }
     

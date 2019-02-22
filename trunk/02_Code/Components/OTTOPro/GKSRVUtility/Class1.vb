@@ -1,4 +1,7 @@
-﻿Imports GKsrv
+﻿Imports System.Xml
+Imports GKsrv
+Imports MSXML2
+
 Public Class GKSRVApp
 
     'Private m_GKSrv As GKsrv.cSrv
@@ -9,6 +12,7 @@ Public Class GKSRVApp
     Private m_client As String
     Private m_licence As String
     Private m_GKSrv As GKsrv.cSrv
+    Private m_Importclass As GKsrv.IImport
     Public Function ProcessFile(ImportFile As String, OutputFile As String, ProductFile As String, ClientFile As String, LicenseKey As String)
         Try
             If InitFiles(ImportFile, OutputFile, ProductFile, ClientFile, LicenseKey) = False Then Exit Function
@@ -88,9 +92,12 @@ Public Class GKSRVApp
                 'Preise berechnen
                 'm_GKSrv.Project.TTDocument.CalcLVPrices
             Else
+                Dim stFile As String
+                stFile = "D:\\Settings.ini"
                 'GAEB-Datei importieren
+                'm_GKSrv.PrepareImport(m_import, "", stFile)
                 m_GKSrv.PrepareImport(m_import)
-                If m_GKSrv.Import < 0 Then
+                If m_GKSrv.import < 0 Then
                     Throw New Exception("Bitte installieren Sie den GAEB-Konverter")
                     Exit Sub
                 End If

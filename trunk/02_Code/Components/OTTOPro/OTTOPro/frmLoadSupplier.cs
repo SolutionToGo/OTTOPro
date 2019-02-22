@@ -428,7 +428,14 @@ namespace OTTOPro
 
         private void btnReset_Click(object sender, EventArgs e)
         {
-            cmbSupplier_EditValueChanged(null, null);
+            try
+            {
+                cmbSupplier_EditValueChanged(null, null);
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
         
         private void ParseSupplierDetails()

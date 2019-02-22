@@ -141,8 +141,9 @@ namespace DataAccess
                 {
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_FormBlattArticlesByType]";
-                    cmd.Parameters.Add("@LookUpID", ObjEFormBlatt.LookUpID);
+                    cmd.CommandText = "[P_Get_ArticleForFormBlatt]";
+                    cmd.Parameters.Add("@CostTypeID", ObjEFormBlatt.LookUpID);
+                    cmd.Parameters.Add("@ProjectID", ObjEFormBlatt.ProjectID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsFormBlattArticle);
@@ -185,6 +186,7 @@ namespace DataAccess
                     cmd.CommandText = "[P_Ins_FormBlattarticles]";
                     cmd.Parameters.Add("@LookupID", ObjEFormBlatt.LookUpID);
                     cmd.Parameters.Add("@dtBlattArticles", _dt);
+                    cmd.Parameters.Add("@ProjectID", ObjEFormBlatt.ProjectID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsFormBlattArticle);

@@ -78,7 +78,11 @@ namespace OTTOPro
 
         public static void ShowError(Exception ex)
         {
-            XtraMessageBox.Show(ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try
+            {
+                XtraMessageBox.Show(ex.Message, "Fehler", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex1){}
         }
 
         public static void ShowSucces(string Status)
@@ -272,44 +276,45 @@ namespace OTTOPro
 
         public static string GetRTFFormat(string Plaintext)
         {
+            string st = string.Empty;
             try
             {
-                System.Windows.Forms.RichTextBox rtf = new System.Windows.Forms.RichTextBox();
-                rtf.Text = Plaintext;
-                return rtf.Rtf;
+                using (RichTextBox rtf = new RichTextBox())
+                {
+                    rtf.Text = Plaintext;
+                    st = rtf.Rtf;
+                }
             }
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
                     throw new Exception("Fehler beim Datenimport des Langtext");
-                }
                 else
-                {
                     throw new Exception("Error while importing langtext");
-                }
             }
+            return st;
         }
 
         public static string GetPlaintext(string RTFText)
         {
+
+            string st = string.Empty;
             try
             {
-                System.Windows.Forms.RichTextBox rtf = new System.Windows.Forms.RichTextBox();
-                rtf.Rtf = RTFText;
-                return rtf.Text;
+                using (RichTextBox rtf = new RichTextBox())
+                {
+                    rtf.Rtf = RTFText;
+                    st = rtf.Text;
+                }
             }
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
                     throw new Exception("Fehler beim Datenimport des Langtext");
-                }
                 else
-                {
                     throw new Exception("Error while importing langtext");
-                }
             }
+            return st;
         }
 
         public static DataSet CreateDatasetSchema(string strFilePath, string strLVSection, string Raster, EGAEB ObjEGAEB)
@@ -335,6 +340,7 @@ namespace OTTOPro
                 dtV.Columns.Add("Bedarf", typeof(string));
                 dtV.Columns.Add("Nr", typeof(string));
                 dtV.Columns.Add("BezugOZ", typeof(string));
+                dtV.Columns.Add("OZID", typeof(decimal));
                 dsXmlData.Tables.Add(dtV);
 
                 XmlDocument xDoc = new XmlDocument();
@@ -363,10 +369,11 @@ namespace OTTOPro
                 XmlNodeList xnLVPos = xDoc.GetElementsByTagName("LVPos");
                 string strART = string.Empty;
                 int iSNO = 0;
+                DataRow drLVPos = null;
                 foreach (XmlNode xnPos in xnLVPos)
                 {
                     iSNO++;
-                    DataRow drLVPos = dtV.NewRow();
+                    drLVPos = dtV.NewRow();
                     XmlNode xnArt = xnPos.SelectSingleNode("Art");
                     if (xnArt != null)
                     {
@@ -375,17 +382,33 @@ namespace OTTOPro
                             continue;
                     }
                     XmlNode xnOZ = xnPos.SelectSingleNode("OZ");
+                    string stOZ = string.Empty;
                     if (xnOZ != null)
                     {
                         if (!xnOZ.InnerText.Contains("Z"))
                         {
-                            drLVPos["OZ"] = PrepareOZ(xnOZ.InnerText, Raster);
+                            drLVPos["OZ"] = stOZ = PrepareOZ(xnOZ.InnerText, Raster);
                         }
                         else
                         {
                             continue;
                         }
+
+                        decimal OZID = 0;
+                        if (!string.IsNullOrEmpty(stOZ))
+                        {
+                            string[] strOZList = stOZ.Split('.');
+                            if (strOZList.Count() > 1)
+                            {
+                                string strOZID = strOZList[strOZList.Count() - 2];
+                                string strIndex = strOZList[strOZList.Count() - 1];
+                                if (!decimal.TryParse(strOZID + "." + strIndex, out OZID))
+                                    OZID = 0;
+                            }
+                        }
+                        drLVPos["OZID"] = OZID;
                     }
+
                     XmlNode xnMenge = xnPos.SelectSingleNode("Menge");
                     if (xnMenge != null)
                     {
@@ -417,54 +440,82 @@ namespace OTTOPro
                     XmlNode xnBezugOZ = xnPos.SelectSingleNode("BezugOZ");
                     if (xnEinheit != null)
                         drLVPos["BezugOZ"] = xnBezugOZ.InnerText;
-
-                    XmlNode xnKurztext = xnPos.SelectSingleNode("Kurztext");
-                    if (xnKurztext != null)
+                    try
                     {
-                        if (IsRtfText(xnKurztext.InnerText))
+                        XmlNode xnKurztext = xnPos.SelectSingleNode("Kurztext");
+                        if (xnKurztext != null)
                         {
-                            drLVPos["Kurztext"] = xnKurztext.InnerText;
-                            if (strART.ToLower() == "ng")
-                                drLVPos["Title"] = GetPlaintext(xnKurztext.InnerText);
-                        }
-                        else
-                        {
-                            drLVPos["Kurztext"] = GetRTFFormat(xnKurztext.InnerText);
-                            if (strART.ToLower() == "ng")
-                                drLVPos["Title"] = xnKurztext.InnerText;
-                        }
-                    }
-                    XmlNode xnLangtext = xnPos.SelectSingleNode("Langtext");
-                    if (xnLangtext != null)
-                    {
-                        string strTemp = string.Empty;
-                        if (IsRtfText(xnLangtext.InnerText))
-                            strTemp = GetPlaintext(xnLangtext.InnerText);
-                        else
-                            strTemp = xnLangtext.InnerText;
-                        RichTextBox txt = new RichTextBox();
-                        if (!string.IsNullOrEmpty(strTemp))
-                        {
-                            Clipboard.SetText(strTemp);
-                            txt.Paste();
-                            Clipboard.Clear();
-                            //Thread.Sleep(100);
-                        }
-                        XmlNodeList xnlist = xnPos.SelectNodes("ExtDat/ExtDatName");
-                        if (xnlist != null)
-                        {
-                            foreach (XmlNode xnExtdat in xnlist)
+                            string stKurztext = xnKurztext.InnerText;
+                            if (IsRtfText(xnKurztext.InnerText))
                             {
-                                string strImage = xnExtdat.InnerText;
-                                Image img = Image.FromFile(strImage);
-                                Clipboard.SetImage(img);
-                                txt.Paste();
-                                Clipboard.Clear();
+                                drLVPos["Kurztext"] = xnKurztext.InnerText;
+                                if (strART.ToLower() == "ng")
+                                    drLVPos["Title"] = GetPlaintext(xnKurztext.InnerText);
+                            }
+                            else if(!string.IsNullOrEmpty(stKurztext))
+                            {
+                                drLVPos["Kurztext"] = GetRTFFormat(xnKurztext.InnerText);
+                                if (strART.ToLower() == "ng")
+                                    drLVPos["Title"] = xnKurztext.InnerText;
+                            }
+                            else
+                            {
+                                drLVPos["Kurztext"] = string.Empty;
+                                if (strART.ToLower() == "ng")
+                                    drLVPos["Title"] = string.Empty;
                             }
                         }
-                        drLVPos["Langtext"] = txt.Rtf;
                     }
+                    catch (Exception ex)
+                    {
+                        Utility.ShowError(ex);
+                    }
+                    try
+                    {
+                        XmlNode xnLangtext = xnPos.SelectSingleNode("Langtext");
+                        if (xnLangtext != null)
+                        {
+                            XmlNodeList xnlist = xnPos.SelectNodes("ExtDat/ExtDatName");
+                            if (xnlist != null && xnlist.Count > 0)
+                            {
+                                using (RichTextBox txt = new RichTextBox())
+                                {
+                                    string strTemp = string.Empty;
+                                    if (IsRtfText(xnLangtext.InnerText))
+                                        strTemp = GetPlaintext(xnLangtext.InnerText);
+                                    else
+                                        strTemp = xnLangtext.InnerText;
 
+                                    if (!string.IsNullOrEmpty(strTemp))
+                                    {
+                                        Clipboard.SetText(strTemp);
+                                        txt.Paste();
+                                        Clipboard.Clear();
+                                    }
+                                    foreach (XmlNode xnExtdat in xnlist)
+                                    {
+                                        string strImage = xnExtdat.InnerText;
+                                        Image img = Image.FromFile(strImage);
+                                        Clipboard.SetImage(img);
+                                        txt.Paste();
+                                        Clipboard.Clear();
+                                    }
+                                    drLVPos["Langtext"] = txt.Rtf;
+                                }
+                            }
+                            else
+                            {
+                                if (IsRtfText(xnLangtext.InnerText))
+                                    drLVPos["Langtext"] = xnLangtext.InnerText;
+                                else
+                                    drLVPos["Langtext"] = GetRTFFormat(xnLangtext.InnerText);
+                            }
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Utility.ShowError(ex);
+                    }
 
                     XmlNode xnEP = xnPos.SelectSingleNode("EP");
                     if (xnEP != null)
@@ -496,7 +547,7 @@ namespace OTTOPro
                             drLVPos["Nachlass"] = str;
                     }
 
-                    drLVPos["SNO"] = iSNO.ToString(); ;
+                    drLVPos["SNO"] = iSNO.ToString();
                     dtV.Rows.Add(drLVPos);
                 }
                 Clipboard.SetDataObject(obj);
@@ -694,9 +745,16 @@ namespace OTTOPro
         {
             try
             {
-                new RichTextBox().Rtf = text;
+                using (RichTextBox rtf = new RichTextBox())
+                {
+                    rtf.Rtf = text;
+                }
             }
-            catch (ArgumentException)
+            catch (ArgumentException ex)
+            {
+                return false;
+            }
+            catch (Exception ex)
             {
                 return false;
             }
@@ -737,12 +795,83 @@ namespace OTTOPro
             return strParentOZ.ToString();
         }
 
+        public static string GetKZDescription(string stPKZ)
+        {
+            string stDescription = string.Empty;
+            try
+            {
+                if (stPKZ == "N")
+                    stDescription = "N-Normalposition";
+                else if (stPKZ == "ZS")
+                    stDescription = "ZS-Sum Position";
+                else if (stPKZ == "Z")
+                    stDescription = "Z-Zuschlagsposition";
+                else if (stPKZ == "E")
+                    stDescription = "E-Bedarfspos. o. GB";
+                else if (stPKZ == "A")
+                    stDescription = "A-Alternativposition";
+                else if (stPKZ == "M")
+                    stDescription = "M-Bedarfspos. m. GB";
+                else if (stPKZ == "P")
+                    stDescription = "P-Pauschalposition";
+                else if (stPKZ == "H")
+                    stDescription = "H-Hinweistext";
+                else if (stPKZ == "NG")
+                    stDescription = "NG-LV-Normalgruppe";
+                else if (stPKZ == "K")
+                    stDescription = "K-Kombiposition";
+                else if (stPKZ == "G")
+                    stDescription = "G-Grundposition";
+                else if (stPKZ == "B")
+                    stDescription = "B-Bezugsposition";
+                else if (stPKZ == "W")
+                    stDescription = "W-Wiederholungsposition";
+                else if (stPKZ == "L")
+                    stDescription = "L-Leitbeschreibung";
+                else if (stPKZ == "S")
+                    stDescription = "S-Stundenlohnarbeiten";
+                else if (stPKZ == "AB")
+                    stDescription = "AB-Ausführungsbeschreibung";
+                else if (stPKZ == "BA")
+                    stDescription = "BA-Block einer Ausführungsbeschreibung";
+                else if (stPKZ == "UB")
+                    stDescription = "UB-Unterbeschreibung";
+                else if (stPKZ == "LO")
+                    stDescription = "LO-Los";
+                else if (stPKZ == "GG")
+                    stDescription = "GG-LV-Grundgruppe";
+                else if (stPKZ == "AG")
+                    stDescription = "AG-LV-Alternativgruppe";
+                else if (stPKZ == "VR")
+                    stDescription = "VR-Vertragliche Regelung";
+                else if (stPKZ == "ZZ")
+                    stDescription = "ZZ-Zuschlagsposition";
+            }
+            catch (Exception ex){}
+            return stDescription;
+        }
+
+        public static string GetPosKZ(string stDescription)
+        {
+            string stPosKZ = string.Empty;
+            try
+            {
+                string[] stPList = stDescription.Split('-');
+                if (stPList != null && stPList.Count() > 0)
+                    stPosKZ = stPList[0];
+            }
+            catch (Exception ex){}
+            return stPosKZ;
+        }
+
+
         public static int UserID;
         public static string UserName;
         public static string FirstName;
         public static string LastName;
         public static bool IsOTP;
         public static int RoleID;
+        public static bool AutoSave;
 
         public static string LVDetailsAccess = string.Empty;
         public static string CalcAccess = string.Empty;
@@ -762,6 +891,7 @@ namespace OTTOPro
         public static string CalculationTextModuleAccessEdit = string.Empty;
         public static string InvoiceTextModuleAccess = string.Empty;
         public static string InvoiceTextModuleAccessEdit = string.Empty;
+        public static string FormBlattArticleMappingAccess = string.Empty;
         public static bool Isclose = false;
     }
 

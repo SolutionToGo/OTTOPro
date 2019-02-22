@@ -478,7 +478,6 @@
             this.layoutControlItem10,
             this.layoutControlItem11,
             this.emptySpaceItem2});
-            this.layoutControlGroup3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup3.Name = "Root";
             this.layoutControlGroup3.Size = new System.Drawing.Size(547, 168);
             this.layoutControlGroup3.TextVisible = false;
@@ -624,7 +623,7 @@
             this.layoutControlItem11.Location = new System.Drawing.Point(176, 96);
             this.layoutControlItem11.Name = "layoutControlItem11";
             this.layoutControlItem11.Size = new System.Drawing.Size(177, 24);
-            this.layoutControlItem11.Text = "Lifrant";
+            this.layoutControlItem11.Text = "Lieferant";
             this.layoutControlItem11.TextSize = new System.Drawing.Size(56, 14);
             // 
             // emptySpaceItem2
@@ -781,7 +780,7 @@
             this.btnAdd.Size = new System.Drawing.Size(88, 24);
             this.btnAdd.StyleController = this.layoutControl2;
             this.btnAdd.TabIndex = 23;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Hinzufügen";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtChildLifrant
@@ -837,7 +836,6 @@
             this.layoutControlItem1,
             this.layoutControlItem14,
             this.emptySpaceItem1});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(573, 168);
             this.layoutControlGroup2.TextVisible = false;
@@ -994,7 +992,7 @@
             this.layoutControlItem14.Location = new System.Drawing.Point(184, 96);
             this.layoutControlItem14.Name = "layoutControlItem14";
             this.layoutControlItem14.Size = new System.Drawing.Size(183, 24);
-            this.layoutControlItem14.Text = "Lifrant";
+            this.layoutControlItem14.Text = "Lieferant";
             this.layoutControlItem14.TextSize = new System.Drawing.Size(56, 14);
             // 
             // emptySpaceItem1
@@ -1016,7 +1014,6 @@
             this.layoutControlItem5,
             this.layoutControlItem2,
             this.layoutControlItem4});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup1.Size = new System.Drawing.Size(1138, 662);

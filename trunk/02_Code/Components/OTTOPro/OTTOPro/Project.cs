@@ -42,6 +42,7 @@ using DevExpress.XtraGrid.Views.BandedGrid;
 using DevExpress.XtraEditors.Repository;
 using System.Xml;
 using System.Threading;
+using DataAccess;
 
 namespace OTTOPro
 {
@@ -104,6 +105,9 @@ namespace OTTOPro
         DataTable _dtCopyDetailKZ;
         bool _ISCopied = false;
 
+        bool _IsKeyypressEvent = false;
+        bool _IsTypKeyypressEvent = false;
+
         public int ProjectID
         { get { return _ProjectID; } set { _ProjectID = value; } }
 
@@ -116,6 +120,7 @@ namespace OTTOPro
         public frmProject()
         {
             InitializeComponent();
+            this.tlPositions.GetNodeDisplayValue += new DevExpress.XtraTreeList.GetNodeDisplayValueEventHandler(this.treeList1_GetNodeDisplayValue);
         }
 
         private void Navbar_Linkclicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
@@ -153,116 +158,9 @@ namespace OTTOPro
             try
             {
                 ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
-                // switch (tcProjectDetails.SelectedTabPage.Name)
-                switch (arg.Page.Text)
-                {
-                    case "Projekteigenschaften":
-                        DialogResult dr = XtraMessageBox.Show("Wollen Sie die Angaben speichern?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                        if (dr == DialogResult.Yes)
-                        {
-                            if (txtkommissionNumber.Text == string.Empty)
-                            {
-                                btnProjectSave_Click(null, null);
-                            }
-                        }
-                        if (dr == DialogResult.Cancel)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "LV Detailsicht":
-                        DialogResult drLV = XtraMessageBox.Show("Wollen Sie die Angaben speichern?", "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-                        if (drLV == DialogResult.Yes)
-                        {
-                            btnSaveLVDetails_Click(null, null);
-                        }
-                        if (drLV == DialogResult.Cancel)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "Globale LV Bearbeitung":
-                        DialogResult drBP = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drBP == DialogResult.No)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "Selbstkosten":
-                        DialogResult drM5 = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drM5 == DialogResult.No)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "Verkaufskosten":
-                        DialogResult drM6 = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drM6 == DialogResult.No)
-                        {
-                            return;
-                        }
-
-                        break;
-
-                    case "Umlage":
-                        DialogResult drOm = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drOm == DialogResult.No)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "Aufmasse":
-                        DialogResult drtest = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drtest == DialogResult.No)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "Rechnungen":
-                        DialogResult drIN = MessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drIN == DialogResult.No)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "Preisanfrage Starten":
-                        DialogResult drSP = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drSP == DialogResult.No)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "Preisanfrage Erfassung":
-                        DialogResult drUS = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drUS == DialogResult.No)
-                        {
-                            return;
-                        }
-                        break;
-
-                    case "LV Positionen kopieren":
-                        DialogResult drCLV = XtraMessageBox.Show("Sind Sie sicher, dass Sie diese Seite schließen möchten?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-                        if (drCLV == DialogResult.No)
-                        {
-                            return;
-                        }
-                        break;
-                }
-                // ClosePageButtonEventArgs arg = e as ClosePageButtonEventArgs;
                 (arg.Page as XtraTabPage).PageVisible = false;
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex) { }
         }
 
         private void frmProject_Load(object sender, EventArgs e)
@@ -284,7 +182,7 @@ namespace OTTOPro
                 tbCopyLVs.PageVisible = false;
                 tbAufmassReport.PageVisible = false;
                 tbReports.PageVisible = false;
-                cmbPositionKZ.Text = "N";
+                cmbPositionKZ.Text = Utility.GetKZDescription("N");
                 chkCumulated.Checked = true;
                 tbFormBlatt1.PageVisible = false;
 
@@ -342,6 +240,10 @@ namespace OTTOPro
                     nbDeliveryNotes.Visible = false;
                 if (Utility.InvoiceAccess == "9")
                     nbInvoices.Visible = false;
+
+                if (Utility.FormBlattArticleMappingAccess == "9" || Utility.FormBlattArticleMappingAccess == "7")
+                    nbFormBlattArticleMapping.Visible = false;
+
                 if (Utility.KomissionDataAccess == "9" || Utility.KomissionDataAccess == "7")
                     txtkommissionNumber.Enabled = false;
 
@@ -499,7 +401,30 @@ namespace OTTOPro
                     cmbLVSection.DisplayMember = "LVSectionName";
                     cmbLVSection.ValueMember = "LVSectionID";
                 }
-
+                if (ObjEProject.dtArticleSettings != null && ObjEProject.dtArticleSettings.Rows.Count > 0)
+                {
+                    foreach (DataRow dr in ObjEProject.dtArticleSettings.Rows)
+                    {
+                        if (Convert.ToString(dr["SettingName"]) == "Listpreis")
+                            ObjEProject.lPVisible = Convert.ToBoolean(dr["IsVisible"]);
+                        else if (Convert.ToString(dr["SettingName"]) == "Multi1")
+                            ObjEProject.M1Visible = Convert.ToBoolean(dr["IsVisible"]);
+                        else if (Convert.ToString(dr["SettingName"]) == "Multi2")
+                            ObjEProject.M2Visible = Convert.ToBoolean(dr["IsVisible"]);
+                        else if (Convert.ToString(dr["SettingName"]) == "Multi3")
+                            ObjEProject.M3Visible = Convert.ToBoolean(dr["IsVisible"]);
+                        else if (Convert.ToString(dr["SettingName"]) == "Multi4")
+                            ObjEProject.M4Visible = Convert.ToBoolean(dr["IsVisible"]);
+                        else if (Convert.ToString(dr["SettingName"]) == "Dim")
+                            ObjEProject.DimVisible = Convert.ToBoolean(dr["IsVisible"]);
+                        else if (Convert.ToString(dr["SettingName"]) == "Minutes")
+                            ObjEProject.MinVisible = Convert.ToBoolean(dr["IsVisible"]);
+                        else if (Convert.ToString(dr["SettingName"]) == "Fabrikat")
+                            ObjEProject.FabVisible = Convert.ToBoolean(dr["IsVisible"]);
+                        else if (Convert.ToString(dr["SettingName"]) == "ME")
+                            ObjEProject.MeVisible = Convert.ToBoolean(dr["IsVisible"]);
+                    }
+                }
                 if (ProjectID > 0)
                 {
                     if (_IsCopy)
@@ -716,17 +641,19 @@ namespace OTTOPro
                         }
                     }
                 }
-                txtShortDescription.Font = new System.Drawing.Font("Tahoma",9);
-                txtShortDescriptionCD.Font = new System.Drawing.Font("Tahoma",9);
+                txtShortDescription.Font = new System.Drawing.Font("Tahoma", 9);
+                txtShortDescriptionCD.Font = new System.Drawing.Font("Tahoma", 9);
 
                 ObjEPosition.ShortDescription = txtShortDescription.Rtf;
 
                 if (txtPosition.Text == string.Empty)
                     ObjEPosition.Title = txtShortDescription.Text;
+
+                string stPosKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
                 if (txtPosition.Text != string.Empty)
-                    ObjEPosition.PositionKZ = cmbPositionKZ.Text;
-                else if (cmbPositionKZ.Text == "H")
-                    ObjEPosition.PositionKZ = cmbPositionKZ.Text;
+                    ObjEPosition.PositionKZ = stPosKZ;
+                else if (stPosKZ == "H")
+                    ObjEPosition.PositionKZ = stPosKZ;
                 else
                     ObjEPosition.PositionKZ = "NG";
 
@@ -773,11 +700,8 @@ namespace OTTOPro
                 if (decimal.TryParse(txtFaktor.Text, out dValue))
                     ObjEPosition.Faktor = dValue;
 
-                if (decimal.TryParse(txtLPMe.Text, out dValue))
-                    ObjEPosition.LPMA = Position.MA_ListPrice;
-
-                if (decimal.TryParse(Convert.ToString(txtLPMO.EditValue), out dValue))
-                    ObjEPosition.LPMO = Position.MO_ListPrice;
+                ObjEPosition.LPMA = Position.MA_ListPrice;
+                ObjEPosition.LPMO = Position.MO_ListPrice;
 
                 if (decimal.TryParse(txtMulti1ME.Text, out dValue))
                     ObjEPosition.Multi1MA = dValue;
@@ -803,35 +727,28 @@ namespace OTTOPro
                 if (decimal.TryParse(txtMulti4MO.Text, out dValue))
                     ObjEPosition.Multi4MO = dValue;
 
-                if (decimal.TryParse(Convert.ToString(txtEinkaufspreisME.EditValue), out dValue))
-                    ObjEPosition.EinkaufspreisMA = Position.MA_EP;
-
-                if (decimal.TryParse(Convert.ToString(txtEinkaufspreisMO.EditValue), out dValue))
-                    ObjEPosition.EinkaufspreisMO = Position.MO_EP;
+                ObjEPosition.EinkaufspreisMA = Position.MA_EP;
+                ObjEPosition.EinkaufspreisMO = Position.MO_EP;
 
                 if (decimal.TryParse(txtSelbstkostenMultiME.Text, out dValue))
                     ObjEPosition.SelbstkostenMultiMA = dValue;
 
-                if (decimal.TryParse(Convert.ToString(txtSelbstkostenValueME.EditValue), out dValue))
-                    ObjEPosition.SelbstkostenValueMA = Position.MA_SK;
+                ObjEPosition.SelbstkostenValueMA = Position.MA_SK;
 
                 if (decimal.TryParse(txtSelbstkostenMultiMO.Text, out dValue))
                     ObjEPosition.SelbstkostenMultiMO = dValue;
 
-                if (decimal.TryParse(Convert.ToString(txtSelbstkostenValueMO.EditValue), out dValue))
-                    ObjEPosition.SelbstkostenValueMO = Position.MO_SK;
+                ObjEPosition.SelbstkostenValueMO = Position.MO_SK;
 
                 if (decimal.TryParse(txtVerkaufspreisMultiME.Text, out dValue))
                     ObjEPosition.VerkaufspreisMultiMA = dValue;
 
-                if (decimal.TryParse(Convert.ToString(txtVerkaufspreisValueME.EditValue), out dValue))
-                    ObjEPosition.VerkaufspreisValueMA = Position.MA_VK;
+                ObjEPosition.VerkaufspreisValueMA = Position.MA_VK;
 
                 if (decimal.TryParse(txtVerkaufspreisMultiMO.Text, out dValue))
                     ObjEPosition.VerkaufspreisMultiMO = dValue;
 
-                if (decimal.TryParse(Convert.ToString(txtVerkaufspreisValueMO.EditValue), out dValue))
-                    ObjEPosition.VerkaufspreisValueMO = Position.MO_VK;
+                ObjEPosition.VerkaufspreisValueMO = Position.MO_VK;
 
                 if (decimal.TryParse(txtStdSatz.Text, out dValue))
                     ObjEPosition.StdSatz = dValue;
@@ -858,14 +775,24 @@ namespace OTTOPro
 
                 if (decimal.TryParse(txtGrandTotalME.Text, out dValue))
                     ObjEPosition.GrandTotalME = dValue;
+                else
+                    ObjEPosition.GrandTotalME = 0;
 
-                if (decimal.TryParse(txtGrandTotalMO.Text, out dValue))
+
+
+                if (decimal.TryParse(txtGrandTotalMO.Text, out dValue) && dValue != 0)
                     ObjEPosition.GrandTotalMO = dValue;
+                else
+                    ObjEPosition.GrandTotalMO = 0;
 
-                if (decimal.TryParse(txtFinalGB.Text, out dValue))
+                if (decimal.TryParse(txtFinalGB.Text, out dValue) && dValue != 0)
                     ObjEPosition.FinalGB = dValue;
-                if (decimal.TryParse(txtEP.Text, out dValue))
+                else
+                    ObjEPosition.FinalGB = 0;
+                if (decimal.TryParse(txtEP.Text, out dValue) && dValue != 0)
                     ObjEPosition.EP = dValue;
+                else
+                    ObjEPosition.EP = 0;
                 ObjEPosition.SNO = iSNO;
                 if (decimal.TryParse(txtDiscount.Text, out dValue))
                     ObjEPosition.Discount = dValue;
@@ -884,6 +811,8 @@ namespace OTTOPro
                 {
                     btnModify.Enabled = false;
                 }
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Loading...");
                 ObjBPosition.GetPositionList(ObjEPosition, ObjEProject.ProjectID);
                 if (ObjEPosition.dsPositionList != null)
                 {
@@ -894,12 +823,14 @@ namespace OTTOPro
                     tlPositions.KeyFieldName = "PositionID";
                     tlPositions.ForceInitialize();
                     tlPositions.ExpandAll();
-                    CalculateNodes(tlPositions, "GB");
+                    //CalculateNodes(tlPositions, "GB");
                     tlPositions.BestFitColumns();
                 }
+                SplashScreenManager.CloseForm(false);
             }
             catch (Exception ex)
             {
+                SplashScreenManager.CloseForm(false);
                 Utility.ShowError(ex);
             }
         }
@@ -954,15 +885,15 @@ namespace OTTOPro
                             btnSaveLVDetails.Enabled = true;
                             btnCancel.Enabled = true;
                         }
-                        string strHaveDetailKZ = tlPositions.FocusedNode["HaveDetailkz"] == DBNull.Value ? "" : Convert.ToString(tlPositions.FocusedNode["HaveDetailkz"]);
-                        bool HaveDetailKZ = false;
-                        if (bool.TryParse(strHaveDetailKZ, out HaveDetailKZ))
-                        {
-                            if (HaveDetailKZ)
-                                layoutControlGroup6.Enabled = false;
-                            else
-                                layoutControlGroup6.Enabled = true;
-                        }
+                        //string strHaveDetailKZ = tlPositions.FocusedNode["HaveDetailkz"] == DBNull.Value ? "" : Convert.ToString(tlPositions.FocusedNode["HaveDetailkz"]);
+                        //bool HaveDetailKZ = false;
+                        //if (bool.TryParse(strHaveDetailKZ, out HaveDetailKZ))
+                        //{
+                        //    if (HaveDetailKZ)
+                        //        layoutControlGroup6.Enabled = false;
+                        //    else
+                        //        layoutControlGroup6.Enabled = true;
+                        //}
                     }
                     LongDescription = string.Empty;
                     string strPositionID = tlPositions.FocusedNode["PositionID"].ToString();
@@ -1076,13 +1007,13 @@ namespace OTTOPro
                     }
 
                     txtWG.Text = txtWGCD.Text = tlPositions.FocusedNode["WG"] == DBNull.Value ? "" : tlPositions.FocusedNode["WG"].ToString();
-                    txtWI.Text = txtWICD.Text= tlPositions.FocusedNode["WI"] == DBNull.Value ? "" : tlPositions.FocusedNode["WI"].ToString();
+                    txtWI.Text = txtWICD.Text = tlPositions.FocusedNode["WI"] == DBNull.Value ? "" : tlPositions.FocusedNode["WI"].ToString();
                     txtWA.Text = txtWACD.Text = tlPositions.FocusedNode["WA"] == DBNull.Value ? "" : tlPositions.FocusedNode["WA"].ToString();
-                    txtType.Text = txtTypeCD.Text= tlPositions.FocusedNode["Type"] == DBNull.Value ? "" : tlPositions.FocusedNode["Type"].ToString();
+                    txtType.Text = txtTypeCD.Text = tlPositions.FocusedNode["Type"] == DBNull.Value ? "" : tlPositions.FocusedNode["Type"].ToString();
                     txtFabrikate.Text = tlPositions.FocusedNode["Fabricate"] == DBNull.Value ? "" : tlPositions.FocusedNode["Fabricate"].ToString();
                     txtLiefrantMA.Text = tlPositions.FocusedNode["LiefrantMA"] == DBNull.Value ? "" : tlPositions.FocusedNode["LiefrantMA"].ToString();
                     txtMenge.Text = txtMengeCD.Text = tlPositions.FocusedNode["Menge"] == DBNull.Value ? "0" : tlPositions.FocusedNode["Menge"].ToString();
-                    cmbPositionKZ.Text = cmbPositionKZCD.Text = tlPositions.FocusedNode["PositionKZ"] == DBNull.Value ? "" : tlPositions.FocusedNode["PositionKZ"].ToString();
+                    cmbPositionKZ.Text = cmbPositionKZCD.Text = Utility.GetKZDescription(Convert.ToString(tlPositions.FocusedNode["PositionKZ"]));
                     txtDetailKZ.Text = txtDetailKZCD.Text = tlPositions.FocusedNode["DetailKZ"] == DBNull.Value ? "" : tlPositions.FocusedNode["DetailKZ"].ToString();
                     int _DetailKZ = 0;
                     if (int.TryParse(txtDetailKZ.Text, out _DetailKZ))
@@ -1106,74 +1037,109 @@ namespace OTTOPro
                     txtMo.Text = tlPositions.FocusedNode["MO"] == DBNull.Value ? "" : tlPositions.FocusedNode["MO"].ToString();
                     txtMin.Text = tlPositions.FocusedNode["MINUTES"] == DBNull.Value ? "" : tlPositions.FocusedNode["MINUTES"].ToString();
                     txtFaktor.Text = tlPositions.FocusedNode["Faktor"] == DBNull.Value ? "" : tlPositions.FocusedNode["Faktor"].ToString();
-                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_listprice"]),out DValue))
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_listprice"]), out DValue) && DValue != 0)
                     {
+                        txtLPMe.Properties.Mask.UseMaskAsDisplayFormat = true;
                         Position.MA_ListPrice = DValue;
-                        txtLPMe.Text = Math.Round(DValue,2).ToString("F2");
+                        txtLPMe.EditValue = Math.Round(DValue, 2);
                     }
                     else
-                    { txtLPMe.Text = "0"; }
-                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_listprice"]), out DValue))
                     {
+                        txtLPMe.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtLPMe.Text = string.Empty;
+                    }
+
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_listprice"]), out DValue) && DValue != 0)
+                    {
+                        txtLPMO.Properties.Mask.UseMaskAsDisplayFormat = true;
                         Position.MO_ListPrice = DValue;
-                        txtLPMO.Text = Math.Round(DValue, 2).ToString("F2");
+                        txtLPMO.EditValue = Math.Round(DValue, 2);
                     }
                     else
-                    { txtLPMO.Text = "0"; }
+                    {
+                        txtLPMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtLPMO.Text = string.Empty;
+                    }
                     txtMulti1ME.Text = tlPositions.FocusedNode["MA_Multi1"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_Multi1"].ToString();
                     txtMulti2ME.Text = tlPositions.FocusedNode["MA_multi2"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_multi2"].ToString();
                     txtMulti3ME.Text = tlPositions.FocusedNode["MA_multi3"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_multi3"].ToString();
                     txtMulti4ME.Text = tlPositions.FocusedNode["MA_multi4"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_multi4"].ToString();
-                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_einkaufspreis"]), out DValue))
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_einkaufspreis"]), out DValue) && DValue != 0)
                     {
+                        txtEinkaufspreisME.Properties.Mask.UseMaskAsDisplayFormat = true;
                         Position.MA_EP = DValue;
-                        txtEinkaufspreisME.Text = Math.Round(DValue, 2).ToString("F2");
+                        txtEinkaufspreisME.EditValue = Math.Round(DValue, 2);
                     }
                     else
-                    { txtEinkaufspreisME.Text = "0"; }
+                    {
+                        txtEinkaufspreisME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtEinkaufspreisME.Text = string.Empty;
+                    }
+
                     txtSelbstkostenMultiME.Text = tlPositions.FocusedNode["MA_selbstkostenMulti"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_selbstkostenMulti"].ToString();
-                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_selbstkosten"]), out DValue))
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_selbstkosten"]), out DValue) && DValue != 0)
                     {
+                        txtSelbstkostenValueME.Properties.Mask.UseMaskAsDisplayFormat = true;
                         Position.MA_SK = DValue;
-                        txtSelbstkostenValueME.Text = Math.Round(DValue, 2).ToString("F2");
+                        txtSelbstkostenValueME.EditValue = Math.Round(DValue, 2);
                     }
                     else
-                    { txtSelbstkostenValueME.Text = "0"; }
-                    txtVerkaufspreisMultiME.Text = tlPositions.FocusedNode["MA_verkaufspreis_Multi"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_verkaufspreis_Multi"].ToString();
-                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_verkaufspreis"]), out DValue))
                     {
+                        txtSelbstkostenValueME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtSelbstkostenValueME.Text = string.Empty;
+                    }
+                    txtVerkaufspreisMultiME.Text = tlPositions.FocusedNode["MA_verkaufspreis_Multi"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MA_verkaufspreis_Multi"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_verkaufspreis"]), out DValue) && DValue != 0)
+                    {
+                        txtVerkaufspreisValueME.Properties.Mask.UseMaskAsDisplayFormat = true;
                         Position.MA_VK = DValue;
-                        txtVerkaufspreisValueME.Text = Math.Round(DValue, 2).ToString("F2");
+                        txtVerkaufspreisValueME.EditValue = Math.Round(DValue, 2);
                     }
                     else
-                    { txtVerkaufspreisValueME.Text = "0"; }
+                    {
+                        txtVerkaufspreisValueME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtVerkaufspreisValueME.Text = string.Empty;
+                    }
                     txtMulti1MO.Text = tlPositions.FocusedNode["MO_multi1"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_multi1"].ToString();
                     txtMulti2MO.Text = tlPositions.FocusedNode["MO_multi2"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_multi2"].ToString();
                     txtMulti3MO.Text = tlPositions.FocusedNode["MO_multi3"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_multi3"].ToString();
                     txtMulti4MO.Text = tlPositions.FocusedNode["MO_multi4"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_multi4"].ToString();
-                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_Einkaufspreis"]), out DValue))
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_Einkaufspreis"]), out DValue) && DValue != 0)
                     {
+                        txtEinkaufspreisMO.Properties.Mask.UseMaskAsDisplayFormat = true;
                         Position.MO_EP = DValue;
                         txtEinkaufspreisMO.Text = Math.Round(DValue, 2).ToString("F2");
                     }
                     else
-                    { txtEinkaufspreisMO.Text = "0"; }
+                    {
+                        txtEinkaufspreisMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtEinkaufspreisMO.Text = string.Empty;
+                    }
+
                     txtSelbstkostenMultiMO.Text = tlPositions.FocusedNode["MO_selbstkostenMulti"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_selbstkostenMulti"].ToString();
-                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_selbstkosten"]), out DValue))
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_selbstkosten"]), out DValue) && DValue != 0)
                     {
+                        txtSelbstkostenValueMO.Properties.Mask.UseMaskAsDisplayFormat = true;
                         Position.MO_SK = DValue;
-                        txtSelbstkostenValueMO.Text = Math.Round(DValue, 2).ToString("F2");
+                        txtSelbstkostenValueMO.EditValue = Math.Round(DValue, 2);
                     }
                     else
-                    { txtSelbstkostenValueMO.Text = "0"; }
-                    txtVerkaufspreisMultiMO.Text = tlPositions.FocusedNode["MO_verkaufspreisMulti"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_verkaufspreisMulti"].ToString();
-                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_verkaufspreis"]), out DValue))
                     {
+                        txtSelbstkostenValueMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtSelbstkostenValueMO.Text = string.Empty;
+                    }
+                    txtVerkaufspreisMultiMO.Text = tlPositions.FocusedNode["MO_verkaufspreisMulti"] == DBNull.Value ? "1" : tlPositions.FocusedNode["MO_verkaufspreisMulti"].ToString();
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MO_verkaufspreis"]), out DValue) && DValue != 0)
+                    {
+                        txtVerkaufspreisValueMO.Properties.Mask.UseMaskAsDisplayFormat = true;
                         Position.MO_VK = DValue;
-                        txtVerkaufspreisValueMO.Text = Math.Round(DValue, 2).ToString("F2");
+                        txtVerkaufspreisValueMO.EditValue = Math.Round(DValue, 2);
                     }
                     else
-                    { txtVerkaufspreisValueMO.Text = "0"; }
+                    {
+                        txtVerkaufspreisValueMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtVerkaufspreisValueMO.Text = string.Empty;
+                    }
                     txtStdSatz.Text = tlPositions.FocusedNode["std_satz"] == DBNull.Value ? "0" : tlPositions.FocusedNode["std_satz"].ToString();
                     txtPreisText.Text = tlPositions.FocusedNode["PreisText"] == DBNull.Value ? "" : tlPositions.FocusedNode["PreisText"].ToString();
                     chkEinkaufspreisME.EditValue = tlPositions.FocusedNode["MA_einkaufspreis_lck"] == DBNull.Value ? true : Convert.ToBoolean(tlPositions.FocusedNode["MA_einkaufspreis_lck"]);
@@ -1189,10 +1155,51 @@ namespace OTTOPro
                     _DocuwareLink1 = tlPositions.FocusedNode["DocuwareLink1"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink1"].ToString();
                     _DocuwareLink2 = tlPositions.FocusedNode["DocuwareLink2"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink2"].ToString();
                     _DocuwareLink3 = tlPositions.FocusedNode["DocuwareLink3"] == DBNull.Value ? "" : tlPositions.FocusedNode["DocuwareLink3"].ToString();
-                    txtGrandTotalME.Text = tlPositions.FocusedNode["GrandTotalME"] == DBNull.Value ? "0" : RoundValue(Convert.ToDecimal(tlPositions.FocusedNode["GrandTotalME"])).ToString();
-                    txtGrandTotalMO.Text = tlPositions.FocusedNode["GrandTotalMO"] == DBNull.Value ? "0" : RoundValue(Convert.ToDecimal(tlPositions.FocusedNode["GrandTotalMO"])).ToString();
-                    txtFinalGB.Text = tlPositions.FocusedNode["GB"] == DBNull.Value ? "0" : RoundValue(Convert.ToDecimal(tlPositions.FocusedNode["GB"])).ToString();
-                    txtEP.Text = tlPositions.FocusedNode["EP"] == DBNull.Value ? "0" : RoundValue(Convert.ToDecimal(tlPositions.FocusedNode["EP"])).ToString();
+                    decimal dValue = 0;
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["GrandTotalME"]), out dValue) && dValue != 0)
+                    {
+                        txtGrandTotalME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                        txtGrandTotalME.EditValue = dValue;
+                    }
+                    else
+                    {
+                        txtGrandTotalME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtGrandTotalME.Text = string.Empty;
+                    }
+
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["GrandTotalMO"]), out dValue) && dValue != 0)
+                    {
+                        txtGrandTotalMO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                        txtGrandTotalMO.EditValue = dValue;
+                    }
+                    else
+                    {
+                        txtGrandTotalMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtGrandTotalMO.Text = string.Empty;
+                    }
+
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["GB"]), out dValue) && dValue != 0)
+                    {
+                        txtFinalGB.Properties.Mask.UseMaskAsDisplayFormat = true;
+                        txtFinalGB.EditValue = dValue;
+                    }
+                    else
+                    {
+                        txtFinalGB.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtFinalGB.Text = string.Empty;
+                    }
+
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["EP"]), out dValue) && dValue != 0)
+                    {
+                        txtEP.Properties.Mask.UseMaskAsDisplayFormat = true;
+                        txtEP.EditValue = dValue;
+                    }
+                    else
+                    {
+                        txtEP.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtEP.Text = string.Empty;
+                    }
+
                     txtDiscount.Text = tlPositions.FocusedNode["Discount"] == DBNull.Value ? "0" : tlPositions.FocusedNode["Discount"].ToString();
 
 
@@ -1287,22 +1294,6 @@ namespace OTTOPro
             }
         }
 
-        private void tlPositions_ShownEditor(object sender, EventArgs e)
-        {
-            try
-            {
-                var view = (TreeList)sender;
-                var editor = view.ActiveEditor as TextEdit;
-                if (editor == null)
-                    return;
-                editor.ContextMenuStrip = new ContextMenuStrip();
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         XtraTabPage ObjTabDetails = null;
 
         private void CalculateNodes(TreeList Objtreelist, string strField)
@@ -1314,7 +1305,7 @@ namespace OTTOPro
                     CalculateTitleSum(node, strField);
                 }
             }
-            catch (Exception ex){throw;}
+            catch (Exception ex) { throw; }
         }
 
         private void CalculateTitleSum(TreeListNode Node, string strField)
@@ -1349,14 +1340,53 @@ namespace OTTOPro
             }
         }
 
+        public class ChildrenSumOperation : TreeListOperation
+        {
+            private decimal _result = 0;
+            public ChildrenSumOperation() : base() { }
+
+            public override void Execute(DevExpress.XtraTreeList.Nodes.TreeListNode node)
+            {
+                try
+                {
+                    string stPKZ = Convert.ToString(node["PositionKZ"]);
+                    if (stPKZ != "ZS" && stPKZ != "E" && stPKZ != "A")
+                    {
+                        decimal d = 0;
+                        if(Convert.ToString(node["DetailKZ"]) == "0" && decimal.TryParse(Convert.ToString(node["GB"]), out d))
+                        {
+                            _result += d;
+                        }
+                    }
+                }
+                catch (Exception ex){}
+            }
+
+            public decimal Result { get { return _result; } }
+        }
+
+        private void treeList1_GetNodeDisplayValue(object sender, GetNodeDisplayValueEventArgs e)
+        {
+            TreeList tl = sender as TreeList;
+            if (e.Node.HasChildren)
+            {
+                ChildrenSumOperation op = new ChildrenSumOperation();
+                tl.NodesIterator.DoLocalOperation(op, e.Node.Nodes);
+                if (e.Column.FieldName == "GB")
+                    e.Value = op.Result;
+            }
+        }
+
         private void cmbPositionKZ_SelectedValueChanged(object sender, EventArgs e)
         {
             try
             {
-                if (!string.IsNullOrEmpty(cmbPositionKZ.Text) && (cmbPositionKZ.Text.ToLower() == "zs" || cmbPositionKZ.Text.ToLower() == "z") || cmbPositionKZ.Text.ToLower() == "zz")
+                string stPosKZ = Utility.GetPosKZ(cmbPositionKZ.Text).ToLower();
+                if (!string.IsNullOrEmpty(stPosKZ) && (stPosKZ == "zs"
+                    || stPosKZ == "z") || stPosKZ == "zz")
                 {
                     FormatFieldsForSum();
-                    if (cmbPositionKZ.Text.ToLower() == "zs")
+                    if (stPosKZ == "zs")
                     {
                         txtSurchargePerME.Enabled = false;
                         txtSurchargePerMO.Enabled = false;
@@ -1371,7 +1401,7 @@ namespace OTTOPro
                         }
                         lcCostDetails.Enabled = false;
                     }
-                    else if (cmbPositionKZ.Text.ToLower() == "z")
+                    else if (stPosKZ == "z")
                     {
                         if (tlPositions.FocusedNode != null)
                         {
@@ -1392,7 +1422,7 @@ namespace OTTOPro
                         }
                         lcCostDetails.Enabled = false;
                     }
-                    else if (cmbPositionKZ.Text.ToLower() == "zz")
+                    else if (stPosKZ == "zz")
                     {
                         txtSurchargePerME.Enabled = false;
                         txtSurchargePerMO.Enabled = false;
@@ -1408,7 +1438,7 @@ namespace OTTOPro
                     lcCostDetails.Enabled = true;
                 }
 
-                if (cmbPositionKZ.Text.ToLower() == "h" || cmbPositionKZ.Text.ToLower() == "vr")
+                if (stPosKZ == "h" || stPosKZ == "vr")
                 {
                     EnableAndDisableAllControls(false);
                 }
@@ -1416,20 +1446,17 @@ namespace OTTOPro
                 {
                     EnableAndDisableAllControls(true);
                 }
-                if (cmbPositionKZ.Text == "P")
+                if (stPosKZ == "p")
                 {
                     cmbCDME.Text = "psch";
-                }                
-            }             
-            catch (Exception ex)
-            {
-                throw;
+                }
             }
+            catch (Exception ex) { }
         }
 
         public void ClearingValues()
         {
-            txtSurchargePerME.Enabled=false;
+            txtSurchargePerME.Enabled = false;
             txtSurchargePerMO.Enabled = false;
             txtDiscount.Enabled = false;
             txtSurchargeFrom.Enabled = false;
@@ -1573,8 +1600,9 @@ namespace OTTOPro
                     else
                     {
                         this.Text = ObjEProject.ProjectNumber;
-                         XtraMessageBox.Show("'" + ObjEProject.ProjectNumber + "'" + " Project Details Saved Successfully");
+                        XtraMessageBox.Show("'" + ObjEProject.ProjectNumber + "'" + " Project Details Saved Successfully");
                     }
+                    ObjBProject.GetProjectDetails(ObjEProject);
                     BindPositionData();
                     if (ObjEProject.CommissionNumber != string.Empty)
                         txtkommissionNumber.Enabled = false;
@@ -1619,7 +1647,47 @@ namespace OTTOPro
         {
             try
             {
-                if (cmbPositionKZ.Text == "ZZ")
+                if (ObjBPosition == null)
+                    ObjBPosition = new BPosition();
+
+                if (!string.IsNullOrEmpty(txtWG.Text) && !string.IsNullOrEmpty(txtWG.Text))
+                {
+                    ObjEPosition.dtDimensions = new DataTable();
+                    ObjEPosition.dtArticle = new DataTable();
+                    ObjEPosition.WG = txtWG.Text;
+                    ObjEPosition.WA = txtWA.Text;
+                    ObjEPosition.WI = txtWI.Text;
+                    ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
+                    ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                    ObjEPosition = ObjBPosition.GetArticleByWI(ObjEPosition);
+                    if (ObjEPosition.dtArticle.Rows.Count == 0)
+                    {
+                        var dlgResult = XtraMessageBox.Show("Do you want to save the new article?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (Convert.ToString(dlgResult).ToLower() == "yes")
+                        {
+                            frmAddProjectArticles Obj = new frmAddProjectArticles(ObjEPosition);
+                            Obj.ShowDialog();
+                            if (!Obj.IsContinue)
+                            {
+                                XtraMessageBox.Show("Position changes will not get saved");
+                                return;
+                            }
+                            else
+                            {
+                                txtWI.Text = string.Empty;
+                                txtWICD.Text = string.Empty;
+                            }
+                        }
+                        else
+                        {
+                            XtraMessageBox.Show("Position changes will not get saved");
+                            return;
+                        }
+                    }
+                }
+
+                string stPosKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
+                if (stPosKZ == "ZZ")
                     return;
                 if (!dxValidationProvider1.Validate())
                     return;
@@ -1632,7 +1700,7 @@ namespace OTTOPro
                     else
                         throw new Exception("Cannot Save Positions With NT Or NTM");
                 }
-                if (cmbPositionKZ.Text != "H")
+                if (stPosKZ != "H")
                 {
                     if (!string.IsNullOrEmpty(txtPosition.Text))
                     {
@@ -1651,7 +1719,7 @@ namespace OTTOPro
                         else
                             throw new Exception("Plesae Enter Atleast One Stufe");
                     }
-                    if (cmbPositionKZ.Text == "Z" || cmbPositionKZ.Text == "ZS")
+                    if (stPosKZ == "Z" || stPosKZ == "ZS")
                     {
                         if (string.IsNullOrEmpty(txtSurchargeFrom.Text))
                             if (Utility._IsGermany == true)
@@ -1662,9 +1730,9 @@ namespace OTTOPro
                 }
                 if (string.IsNullOrEmpty(txtPosition.Text))
                     txtDetailKZ.Text = "0";
-                if (string.IsNullOrEmpty(cmbPositionKZ.Text))
-                    cmbPositionKZ.Text = "N";
-                if (cmbPositionKZ.Text == "P")
+                if (string.IsNullOrEmpty(stPosKZ))
+                    cmbPositionKZ.Text = Utility.GetKZDescription("N");
+                if (stPosKZ == "P")
                     txtMenge.Text = "1";
                 if (ObjEPosition == null)
                     ObjEPosition = new EPosition();
@@ -1706,7 +1774,7 @@ namespace OTTOPro
                 BindPositionData();
                 _ISChange = true;
                 SetFocus(NewPositionID, tlPositions);
-                txtPosition.Enabled = false;
+                //txtPosition.Enabled = false;
                 if (chkCreateNew.Checked == true)
                 {
                     btnNew_Click(null, null);
@@ -1728,7 +1796,7 @@ namespace OTTOPro
                 tlPositions.BestFitColumns();
                 if (!_IsTabPressed)
                 {
-                    if (cmbPositionKZ.Text == "H")
+                    if (stPosKZ == "H")
                     {
                         tlPositions.MoveNext();
                     }
@@ -1742,7 +1810,7 @@ namespace OTTOPro
 
         public void CostDetailsDefaultValues()
         {
-            txtLPMe.Text = "0";
+            txtLPMe.Text = string.Empty;
             txtMulti1ME.Text = "1";
             txtMulti1MO.Text = "1";
             txtMulti2ME.Text = "1";
@@ -1766,14 +1834,18 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtMulti1ME.Text))
+                Position.MA_ListPrice = getDValue(txtLPMe.Text);
+                Position.MA_Multi1 = Math.Round(GetValue(Position.MA_ListPrice, getDValue(txtMulti1ME.Text)), 8);
+                if (Position.MA_Multi1 == 0)
                 {
-                    Position.MA_ListPrice = getDValue(txtLPMe.Text);
-                    Position.MA_Multi1 = Math.Round(GetValue(Position.MA_ListPrice,
-                        getDValue(txtMulti1ME.Text)), 8);
-                    txtValue1ME.Text = Math.Round(Position.MA_Multi1,2).ToString("F2");
+                    txtValue1ME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue1ME.Text = string.Empty;
                 }
-                CalculateGrundMultiME();
+                else
+                {
+                    txtValue1ME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue1ME.EditValue = Math.Round(Position.MA_Multi1, 2);
+                }
                 CalculateEinkuafpreisME();
             }
             catch (Exception ex)
@@ -1786,11 +1858,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtMulti1ME.Text))
+                Position.MA_Multi1 = Math.Round(GetValue(Position.MA_ListPrice,
+                    getDValue(txtMulti1ME.Text)), 8);
+                if (Position.MA_Multi1 == 0)
                 {
-                    Position.MA_Multi1 = Math.Round(GetValue(Position.MA_ListPrice,
-                        getDValue(txtMulti1ME.Text)), 8);
-                    txtValue1ME.Text = Math.Round(Position.MA_Multi1, 2).ToString("F2");
+                    txtValue1ME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue1ME.Text = string.Empty;
+                }
+                else
+                {
+                    txtValue1ME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue1ME.EditValue = Math.Round(Position.MA_Multi1, 2);
                 }
                 CalculateGrundMultiME();
                 CalculateEinkuafpreisME();
@@ -1805,12 +1883,18 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) && !string.IsNullOrEmpty(txtMulti2ME.Text))
+                Position.MA_Multi2 = Math.Round(GetValue(Position.MA_ListPrice +
+                    Position.MA_Multi1, getDValue(txtMulti2ME.Text)), 8);
+
+                if (Position.MA_Multi2 == 0)
                 {
-                    Position.MA_Multi2 = Math.Round(GetValue(Position.MA_ListPrice +
-                        Position.MA_Multi1,
-                        getDValue(txtMulti2ME.Text)), 8);
-                    txtValue2ME.Text = Math.Round(Position.MA_Multi2, 2).ToString();
+                    txtValue2ME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue2ME.Text = string.Empty;
+                }
+                else
+                {
+                    txtValue2ME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue2ME.EditValue = Math.Round(Position.MA_Multi2, 2);
                 }
                 CalculateGrundMultiME();
                 CalculateGrundValueME();
@@ -1825,17 +1909,18 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMe.Text) &&
-                                !string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) &&
-                                !string.IsNullOrEmpty(Convert.ToString(txtValue2ME.EditValue)) &&
-                                !string.IsNullOrEmpty(txtMulti3ME.Text))
+                Position.MA_Multi3 = Math.Round(GetValue(Position.MA_ListPrice + Position.MA_Multi1
+                    + Position.MA_Multi2, getDValue(txtMulti3ME.Text)), 8);
+
+                if (Position.MA_Multi3 == 0)
                 {
-                    Position.MA_Multi3 = Math.Round(
-                        GetValue(Position.MA_ListPrice
-                        + Position.MA_Multi1
-                        + Position.MA_Multi2
-                        , getDValue(txtMulti3ME.Text)), 8);
-                    txtValue3ME.Text = Math.Round(Position.MA_Multi3, 2).ToString();
+                    txtValue3ME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue3ME.Text = string.Empty;
+                }
+                else
+                {
+                    txtValue3ME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue3ME.EditValue = Math.Round(Position.MA_Multi3, 2);
                 }
                 CalculateGrundMultiME();
                 CalculateGrundValueME();
@@ -1850,18 +1935,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMe.Text) &&
-                !string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) &&
-                !string.IsNullOrEmpty(Convert.ToString(txtValue2ME.EditValue)) &&
-                !string.IsNullOrEmpty(Convert.ToString(txtValue3ME.EditValue)))
+                Position.MA_Multi4 = Math.Round(GetValue(Position.MA_ListPrice + Position.MA_Multi1 +
+                    Position.MA_Multi2 + Position.MA_Multi3, getDValue(txtMulti4ME.Text)), 8);
+                if (Position.MA_Multi4 == 0)
                 {
-                    Position.MA_Multi4 = Math.Round(GetValue(
-                        Position.MA_ListPrice +
-                        Position.MA_Multi1 +
-                        Position.MA_Multi2 +
-                        Position.MA_Multi3,
-                        getDValue(txtMulti4ME.Text)), 8);
-                    txtValue4ME.Text = Math.Round(Position.MA_Multi4, 2).ToString();
+                    txtValue4ME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue4ME.Text = string.Empty;
+                }
+                else
+                {
+                    txtValue4ME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue4ME.EditValue = Math.Round(Position.MA_Multi4, 2);
                 }
                 CalculateGrundMultiME();
                 CalculateGrundValueME();
@@ -1889,12 +1973,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtEinkaufspreisME.EditValue))
-                    && !string.IsNullOrEmpty(txtSelbstkostenMultiME.Text))
+                Position.MA_SK = Math.Round(Position.MA_EP + GetValue(Position.MA_EP,
+                    getDValue(txtSelbstkostenMultiME.Text)), 8);
+                if (Position.MA_SK != 0)
                 {
-                    Position.MA_SK = Math.Round(Position.MA_EP + GetValue(Position.MA_EP,
-                        getDValue(txtSelbstkostenMultiME.Text)), 8);
-                    txtSelbstkostenValueME.Text = Math.Round(Position.MA_SK, 2).ToString();
+                    txtSelbstkostenValueME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtSelbstkostenValueME.EditValue = Math.Round(Position.MA_SK, 2);
+                }
+                else
+                {
+                    txtSelbstkostenValueME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtSelbstkostenValueME.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -1907,11 +1996,24 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtSelbstkostenValueME.EditValue)) && !string.IsNullOrEmpty(txtVerkaufspreisMultiME.Text))
+                if (IsFire)
                 {
                     Position.MA_VK = Math.Round(Position.MA_SK + GetValue(Position.MA_SK,
                         getDValue(txtVerkaufspreisMultiME.Text)), 8);
-                    txtVerkaufspreisValueME.Text = Math.Round(Position.MA_VK,2).ToString("F2");
+                    if (Position.MA_VK != 0)
+                    {
+                        txtVerkaufspreisValueME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                        txtVerkaufspreisValueME.EditValue = Math.Round(Position.MA_VK, 2);
+                    }
+                    else
+                    {
+                        txtVerkaufspreisValueME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtVerkaufspreisValueME.Text = string.Empty;
+                    }
+                }
+                else
+                {
+                    IsFire = true;
                 }
             }
             catch (Exception ex)
@@ -1924,14 +2026,34 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) && !string.IsNullOrEmpty(txtMulti1MO.Text))
+                Position.MO_ListPrice = Math.Round(getDValue(txtLPMO.Text), 8);
+                Position.MO_Multi1 = Math.Round(GetValue(Position.MO_ListPrice,
+                    getDValue(txtMulti1MO.Text)), 8);
+
+                if (Position.MO_Multi1 == 0)
                 {
-                    Position.MO_Multi1 = Math.Round(GetValue(Position.MO_ListPrice,
-                        getDValue(txtMulti1MO.Text)), 8);
-                    txtValue1MO.Text = Math.Round(Position.MO_Multi1,2).ToString();
+                    txtValue1MO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue1MO.Text = string.Empty;
                 }
+                else
+                {
+                    txtValue1MO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue1MO.EditValue = Math.Round(Position.MO_Multi1, 2);
+                }
+
                 CalculateGrundMultiMO();
                 CalculateEinkuafpreisMO();
+
+                if (ChkManualMontageentry.Checked == true)
+                {
+                    decimal HourlyRate = getDValue(txtStdSatz.Text);
+                    decimal factor = getDValue(txtFaktor.Text);
+                    if (HourlyRate != 0 && factor != 0)
+                    {
+                        txtHours.Text = Convert.ToString((Position.MO_ListPrice / HourlyRate) / factor);
+                        txtMin.Text = Convert.ToString(getDValue(txtHours.Text) * 60);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -1943,16 +2065,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) 
-                    && !string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue)) 
-                    && !string.IsNullOrEmpty(txtMulti2MO.Text))
+                Position.MO_Multi2 = Math.Round(GetValue(Position.MO_ListPrice +
+                    Position.MO_Multi1, getDValue(txtMulti2MO.Text)), 8);
+                if (Position.MO_Multi2 == 0)
                 {
-                    Position.MO_Multi2 = Math.Round(GetValue(
-                        Position.MO_ListPrice +
-                        Position.MO_Multi1,
-                        getDValue(txtMulti2MO.Text)
-                        ), 8);
-                    txtValue2MO.Text = Math.Round(Position.MO_Multi2, 2).ToString();
+                    txtValue2MO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue2MO.Text = string.Empty;
+                }
+                else
+                {
+                    txtValue2MO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue2MO.EditValue = Math.Round(Position.MO_Multi2, 2);
                 }
                 CalculateGrundMultiMO();
                 CalculateGrundValueMO();
@@ -1967,19 +2090,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue))
-                                && !string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue))
-                                && !string.IsNullOrEmpty(Convert.ToString(txtValue2MO.EditValue))
-                                && !string.IsNullOrEmpty(txtMulti3MO.Text))
+                Position.MO_Multi3 = Math.Round(GetValue(Position.MO_ListPrice + Position.MO_Multi1 +
+                    Position.MO_Multi2, getDValue(txtMulti3MO.Text)), 8);
+                if (Position.MO_Multi3 == 0)
                 {
-                    Position.MO_Multi3 = Math.Round(GetValue(
-                        Position.MO_ListPrice +
-                        Position.MO_Multi1 +
-                        Position.MO_Multi2,
-                        getDValue(txtMulti3MO.Text)
-                        ), 8);
-                    txtValue3MO.Text =
-                        Math.Round(Position.MO_Multi3, 2).ToString();
+                    txtValue3MO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue3MO.Text = string.Empty;
+                }
+                else
+                {
+                    txtValue3MO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue3MO.EditValue = Math.Round(Position.MO_Multi3, 2);
                 }
                 CalculateGrundMultiMO();
                 CalculateGrundValueMO();
@@ -1994,21 +2115,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue))
-                                && !string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue))
-                                && !string.IsNullOrEmpty(Convert.ToString(txtValue2MO.EditValue))
-                                && !string.IsNullOrEmpty(Convert.ToString(txtValue3MO.EditValue))
-                                && !string.IsNullOrEmpty(txtMulti4MO.Text))
+                Position.MO_Multi4 = Math.Round(GetValue(Position.MO_ListPrice +
+                    Position.MO_Multi1 + Position.MO_Multi2 + Position.MO_Multi3, getDValue(txtMulti4MO.Text)), 8);
+                if (Position.MO_Multi4 == 0)
                 {
-                    Position.MO_Multi4 = Math.Round(GetValue(
-                        Position.MO_ListPrice +
-                        Position.MO_Multi1 +
-                        Position.MO_Multi2 +
-                        Position.MO_Multi3,
-                        getDValue(txtMulti4MO.Text)
-                        ), 8);
-                    txtValue4MO.Text =
-                       Math.Round(Position.MO_Multi4, 2).ToString();
+                    txtValue4MO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtValue4MO.Text = string.Empty;
+                }
+                else
+                {
+                    txtValue4MO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtValue4MO.EditValue = Math.Round(Position.MO_Multi4, 2);
                 }
                 CalculateGrundMultiMO();
                 CalculateGrundValueMO();
@@ -2032,21 +2149,21 @@ namespace OTTOPro
             }
         }
 
-        private void txtValue5MO_TextChanged(object sender, EventArgs e)
-        {
-            CalculateGrundValueMO();
-        }
-
         private void txtEinkaufspreisMO_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtEinkaufspreisMO.EditValue)) && !string.IsNullOrEmpty(txtSelbstkostenMultiMO.Text))
+                Position.MO_SK = Math.Round(Position.MO_EP + GetValue(Position.MO_EP,
+                    getDValue(txtSelbstkostenMultiMO.Text)), 8);
+                if (Position.MO_SK != 0)
                 {
-                    Position.MO_SK = Math.Round(Position.MO_EP + GetValue(Position.MO_EP,
-                        getDValue(txtSelbstkostenMultiMO.Text)), 8);
-                    txtSelbstkostenValueMO.Text =
-                        Math.Round(Position.MO_SK, 2).ToString();
+                    txtSelbstkostenValueMO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtSelbstkostenValueMO.EditValue = Math.Round(Position.MO_SK, 2);
+                }
+                else
+                {
+                    txtSelbstkostenValueMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtSelbstkostenValueMO.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -2059,11 +2176,24 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtSelbstkostenValueMO.EditValue)) && !string.IsNullOrEmpty(txtVerkaufspreisMultiMO.Text))
+                if (IsFire)
                 {
                     Position.MO_VK = Math.Round(Position.MO_SK + GetValue(Position.MO_SK,
                         getDValue(txtVerkaufspreisMultiMO.Text)), 8);
-                    txtVerkaufspreisValueMO.Text = Math.Round(Position.MO_VK,2).ToString();
+                    if (Position.MO_VK != 0)
+                    {
+                        txtVerkaufspreisValueMO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                        txtVerkaufspreisValueMO.EditValue = Math.Round(Position.MO_VK, 2);
+                    }
+                    else
+                    {
+                        txtVerkaufspreisValueMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                        txtVerkaufspreisValueMO.Text = string.Empty;
+                    }
+                }
+                else
+                {
+                    IsFire = true;
                 }
             }
             catch (Exception ex)
@@ -2076,17 +2206,19 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtGrandTotalME.Text) && !string.IsNullOrEmpty(txtGrandTotalMO.Text))
+
+                CalculateEP();
+                decimal GB = RoundValue((getDValue(txtGrandTotalME.Text) * getDValue(txtMenge.Text)))
+                    + RoundValue(getDValue(txtGrandTotalMO.Text) * getDValue(txtMenge.Text));
+                if (GB != 0)
                 {
-                    CalculateEP();
-                    txtFinalGB.Text =
-                        Convert.ToString(RoundValue((getDValue(txtGrandTotalME.Text) * getDValue(txtMenge.Text)))
-                        + RoundValue(getDValue(txtGrandTotalMO.Text) * getDValue(txtMenge.Text)));
+                    txtFinalGB.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtFinalGB.EditValue = GB;
                 }
                 else
                 {
-                    txtEP.Text = "0";
-                    txtFinalGB.Text = "0";
+                    txtFinalGB.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtFinalGB.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -2099,8 +2231,11 @@ namespace OTTOPro
         {
             try
             {
-                txtHours.Text = Convert.ToString(Math.Round(getDValue(txtMin.Text)
-                    / Convert.ToDecimal(60), 8));
+                if (ChkManualMontageentry.Checked == false)
+                {
+                    txtHours.Text = Convert.ToString(Math.Round(getDValue(txtMin.Text)
+                        / Convert.ToDecimal(60), 8));
+                }
             }
             catch (Exception ex)
             {
@@ -2112,13 +2247,27 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtHours.EditValue)) && !string.IsNullOrEmpty(txtFaktor.Text) && !string.IsNullOrEmpty(txtStdSatz.Text))
+                if (ChkManualMontageentry.Checked == false)
                 {
-                    Position.MO_ListPrice = Math.Round(
-                        getDValue(Convert.ToString(txtHours.EditValue)) *
-                        getDValue(txtFaktor.Text) *
-                        getDValue(txtStdSatz.Text), 8);
-                    txtLPMO.Text = Math.Round(Position.MO_ListPrice, 2).ToString();
+                    if (!string.IsNullOrEmpty(Convert.ToString(txtHours.EditValue))
+                        && !string.IsNullOrEmpty(txtFaktor.Text)
+                        && !string.IsNullOrEmpty(txtStdSatz.Text))
+                    {
+                        Position.MO_ListPrice = Math.Round(
+                            getDValue(Convert.ToString(txtHours.EditValue)) *
+                            getDValue(txtFaktor.Text) *
+                            getDValue(txtStdSatz.Text), 8);
+                        if (Position.MO_ListPrice != 0)
+                        {
+                            txtLPMO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                            txtLPMO.EditValue = Math.Round(Position.MO_ListPrice, 2);
+                        }
+                        else
+                        {
+                            txtLPMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                            txtLPMO.Text = string.Empty;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -2152,7 +2301,7 @@ namespace OTTOPro
                         getDValue(txtMulti2ME.Text) *
                         getDValue(txtMulti3ME.Text) *
                         getDValue(txtMulti4ME.Text), 3);
-                   txtGrundMultiME1.Text= txtGrundMultiME.Text = GrundMulti.ToString();
+                    txtGrundMultiME1.Text = txtGrundMultiME.Text = GrundMulti.ToString();
                 }
             }
             catch (Exception ex)
@@ -2165,17 +2314,19 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtValue1ME.EditValue)) &&
-                                !string.IsNullOrEmpty(Convert.ToString(txtValue2ME.EditValue)) &&
-                                !string.IsNullOrEmpty(Convert.ToString(txtValue3ME.EditValue)) &&
-                                !string.IsNullOrEmpty(Convert.ToString(txtValue4ME.EditValue))
-                                )
+                Position.MA_GrundMulti = Math.Round(Position.MA_Multi1 +
+                    Position.MA_Multi2 +
+                    Position.MA_Multi3 +
+                    Position.MA_Multi4, 8);
+                if (Position.MA_GrundMulti == 0)
                 {
-                    Position.MA_GrundMulti = Math.Round(Position.MA_Multi1 +
-                        Position.MA_Multi2 +
-                        Position.MA_Multi3 +
-                        Position.MA_Multi4, 8);
-                    txtGrundValueME.Text = Math.Round(Position.MA_GrundMulti,2).ToString("F2");
+                    txtGrundValueME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtGrundValueME.Text = string.Empty;
+                }
+                else
+                {
+                    txtGrundValueME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtGrundValueME.EditValue = Math.Round(Position.MA_GrundMulti, 2);
                 }
             }
             catch (Exception ex)
@@ -2199,7 +2350,7 @@ namespace OTTOPro
                         getDValue(txtMulti2MO.Text) *
                         getDValue(txtMulti3MO.Text) *
                         getDValue(txtMulti4MO.Text), 3);
-                   txtGrundMultiMO1.Text= txtGrundMultiMO.Text = GrundMulti.ToString();
+                    txtGrundMultiMO1.Text = txtGrundMultiMO.Text = GrundMulti.ToString();
                 }
             }
             catch (Exception ex)
@@ -2212,18 +2363,20 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtValue1MO.EditValue)) &&
-                                !string.IsNullOrEmpty(Convert.ToString(txtValue2MO.EditValue)) &&
-                                !string.IsNullOrEmpty(Convert.ToString(txtValue3MO.EditValue)) &&
-                                !string.IsNullOrEmpty(Convert.ToString(txtValue4MO.EditValue))
-                                )
+                Position.MO_GrundMulti = Math.Round(
+                    Position.MO_Multi1 +
+                    Position.MO_Multi2 +
+                    Position.MO_Multi3 +
+                    Position.MO_Multi4, 8);
+                if (Position.MO_GrundMulti == 0)
                 {
-                    Position.MO_GrundMulti = Math.Round(
-                        Position.MO_Multi1 +
-                        Position.MO_Multi2 +
-                        Position.MO_Multi3 +
-                        Position.MO_Multi4, 8);
-                    txtGrundValueMO.Text = Math.Round(Position.MO_GrundMulti,2).ToString();
+                    txtGrundValueMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtGrundValueMO.Text = string.Empty;
+                }
+                else
+                {
+                    txtGrundValueMO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtGrundValueMO.EditValue = Math.Round(Position.MO_GrundMulti, 2);
                 }
             }
             catch (Exception ex)
@@ -2236,11 +2389,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtLPMe.Text) && !string.IsNullOrEmpty(txtGrundMultiME.Text))
+                Position.MA_EP = Math.Round(Position.MA_ListPrice
+                    + GetValue(Position.MA_ListPrice, getDValue(Convert.ToString(txtGrundMultiME.EditValue))), 8);
+                if (Position.MA_EP != 0)
                 {
-                    Position.MA_EP = Math.Round(Position.MA_ListPrice
-                        + GetValue(Position.MA_ListPrice, getDValue(Convert.ToString(txtGrundMultiME.EditValue))), 8);
-                    txtEinkaufspreisME.Text = Math.Round(Position.MA_EP,2).ToString();
+                    txtEinkaufspreisME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtEinkaufspreisME.EditValue = Math.Round(Position.MA_EP, 2);
+                }
+                else
+                {
+                    txtEinkaufspreisME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtEinkaufspreisME.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -2253,12 +2412,18 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(Convert.ToString(txtLPMO.EditValue)) && !string.IsNullOrEmpty(txtGrundMultiMO.Text))
+                Position.MO_EP = Math.Round(Position.MO_ListPrice
+                    + GetValue(Position.MO_ListPrice,
+                    getDValue(Convert.ToString(txtGrundMultiMO.EditValue))), 8);
+                if (Position.MO_EP != 0)
                 {
-                    Position.MO_EP = Math.Round(Position.MO_ListPrice
-                        + GetValue(Position.MO_ListPrice,
-                        getDValue(Convert.ToString(txtGrundMultiMO.EditValue))), 8);
+                    txtEinkaufspreisMO.Properties.Mask.UseMaskAsDisplayFormat = true;
                     txtEinkaufspreisMO.Text = Math.Round(Position.MO_EP, 2).ToString();
+                }
+                else
+                {
+                    txtEinkaufspreisMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtEinkaufspreisMO.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -2287,15 +2452,9 @@ namespace OTTOPro
             decimal dValue = 0;
             try
             {
-                if (!decimal.TryParse(strValue, out dValue))
-                {
-
-                }
+                if (!decimal.TryParse(strValue, out dValue)) { }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex) { }
             return dValue;
         }
 
@@ -2322,13 +2481,17 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtGrandTotalME.Text) &&
-                               !string.IsNullOrEmpty(txtGrandTotalMO.Text)
-                               )
+                decimal EP = getDValue(txtGrandTotalME.Text) +
+                   getDValue(txtGrandTotalMO.Text);
+                if (EP != 0)
                 {
-                    decimal EP = getDValue(txtGrandTotalME.Text) +
-                       getDValue(txtGrandTotalMO.Text);
-                    txtEP.Text = EP.ToString();
+                    txtEP.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtEP.EditValue = EP;
+                }
+                else
+                {
+                    txtEP.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtEP.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -2454,7 +2617,7 @@ namespace OTTOPro
                     txtType.Text = "";
                     txtTypeCD.Text = "";
                     cmbCDME.Text = "";
-                    cmbPositionKZ.Text = "N";
+                    cmbPositionKZ.Text = Utility.GetKZDescription("N");
                     txtMenge.Text = "1";
                     txtMengeCD.Text = "1";
                     txtLVPosition.Text = string.Empty;
@@ -2496,7 +2659,7 @@ namespace OTTOPro
                     txtType.Text = "";
                     txtTypeCD.Text = "";
                     cmbCDME.Text = "";
-                    cmbPositionKZ.Text = "H";
+                    cmbPositionKZ.Text = Utility.GetKZDescription("H");
                     txtMenge.Text = "";
                     txtMengeCD.Text = "";
                     txtLVPosition.Text = string.Empty;
@@ -2560,7 +2723,7 @@ namespace OTTOPro
                     txtType.Text = "";
                     txtTypeCD.Text = "";
                     cmbCDME.Text = "";
-                    cmbPositionKZ.Text = "N";
+                    cmbPositionKZ.Text = Utility.GetKZDescription("N");
                     txtMenge.Text = "1";
                     txtMengeCD.Text = "1";
                     txtLVPosition.Text = string.Empty;
@@ -2598,10 +2761,10 @@ namespace OTTOPro
                 txtDim3.Text = string.Empty;
                 txtDim.Text = string.Empty;
                 txtMin.Text = "0";
-                txtLPMe.Text = "0";
+                txtLPMe.Text = string.Empty;
                 txtDetailKZ.Text = "0";
-                txtEP.Text = "0";
-                txtFinalGB.Text = "0";
+                txtEP.Text = string.Empty;
+                txtFinalGB.Text = string.Empty;
                 if (Utility.LVsectionAddAccess == "7" || Utility.LVsectionAddAccess == "9")
                     cmbLVSection.Text = "HA";
                 else
@@ -2685,32 +2848,14 @@ namespace OTTOPro
 
         private void setMask()
         {
-            string strMask = "n" + ObjEProject.RoundingPrice.ToString();
-            if (txtLPMe.Properties.Mask.EditMask != strMask)
-            {
-                //txtLPMe.Properties.Mask.EditMask = strMask;
-                //txtLPMO.Properties.Mask.EditMask = strMask;
-                //txtValue1ME.Properties.Mask.EditMask = strMask;
-                //txtValue2ME.Properties.Mask.EditMask = strMask;
-                //txtValue3ME.Properties.Mask.EditMask = strMask;
-                //txtValue4ME.Properties.Mask.EditMask = strMask;
-                //txtValue1MO.Properties.Mask.EditMask = strMask;
-                //txtValue2MO.Properties.Mask.EditMask = strMask;
-                //txtValue3MO.Properties.Mask.EditMask = strMask;
-                //txtValue4MO.Properties.Mask.EditMask = strMask;
-                //txtGrundValueME.Properties.Mask.EditMask = strMask;
-                //txtGrundValueMO.Properties.Mask.EditMask = strMask;
-                //txtEinkaufspreisME.Properties.Mask.EditMask = strMask;
-                //txtSelbstkostenValueME.Properties.Mask.EditMask = strMask;
-                //txtVerkaufspreisValueME.Properties.Mask.EditMask = strMask;
-                //txtEinkaufspreisMO.Properties.Mask.EditMask = strMask;
-                //txtSelbstkostenValueMO.Properties.Mask.EditMask = strMask;
-                //txtVerkaufspreisValueMO.Properties.Mask.EditMask = strMask;
-                txtGrandTotalME.Properties.Mask.EditMask = strMask;
-                txtGrandTotalMO.Properties.Mask.EditMask = strMask;
-                txtFinalGB.Properties.Mask.EditMask = strMask;
-                txtEP.Properties.Mask.EditMask = strMask;
-            }
+            //string strMask = "n" + ObjEProject.RoundingPrice.ToString();
+            //if (txtGrandTotalME.Properties.Mask.EditMask != strMask)
+            //{
+            //    txtGrandTotalME.Properties.Mask.EditMask = strMask;
+            //    txtGrandTotalMO.Properties.Mask.EditMask = strMask;
+            //    txtFinalGB.Properties.Mask.EditMask = strMask;
+            //    txtEP.Properties.Mask.EditMask = strMask;
+            //}
         }
 
         private void SetMaskForMaulties()
@@ -2848,7 +2993,7 @@ namespace OTTOPro
             try
             {
                 if (ObjEPosition.dsPositionList != null)
-                {                    
+                {
                     DataTable dt = ObjEPosition.dsPositionList.Tables[0];
                     DataRow[] tPosition_Id = dt.Select("Position_OZ='" + strParent + "'");
                     if (tPosition_Id != null && tPosition_Id.Count() > 0)
@@ -2856,51 +3001,36 @@ namespace OTTOPro
                         string tResult = tPosition_Id[0]["PositionID"] == DBNull.Value ? "" : tPosition_Id[0]["PositionID"].ToString();
                         if (!string.IsNullOrEmpty(tResult))
                         {
-                            object Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult);
-                            if (Max_Identity != DBNull.Value)
+                            strNewOZ = Convert.ToString(dt.Compute("MAX(OZID)", "Parent_OZ =" + tResult));
+                            int iValue = 0;
+                            if (int.TryParse(strNewOZ, out iValue))
                             {
-                                string MaxValue = dt.Compute("MIN(Position_OZ)", "SNO =" + Max_Identity) == DBNull.Value ? "" : dt.Compute("MIN(Position_OZ)", "SNO =" + Max_Identity).ToString();
-                                string[] Raster = ObjEProject.LVRaster.Split('.');
-                                string[] NewOZ = MaxValue.Split('.');
-                                if (Raster != null && NewOZ != null && NewOZ.Count() > 0)
-                                {
-                                    int iValue = 0;
-                                    if (Raster.Count() == NewOZ.Count())
-                                    {
-                                        if (int.TryParse(NewOZ[NewOZ.Count() - 2], out iValue))
-                                        {
-                                            strNewOZ = (((iValue / ObjEProject.LVSprunge) * ObjEProject.LVSprunge) + ObjEProject.LVSprunge).ToString();
-                                        }
-                                    }
-                                    else
-                                    {
-                                        if (int.TryParse(NewOZ[NewOZ.Count() - 1], out iValue))
-                                        {
-                                            strNewOZ = (((iValue / ObjEProject.LVSprunge) * ObjEProject.LVSprunge) + ObjEProject.LVSprunge).ToString();
-                                        }
-                                    }
-                                }
-                                else
-                                    strNewOZ = ObjEProject.LVSprunge.ToString();
+                                strNewOZ = Convert.ToString((((iValue / ObjEProject.LVSprunge) * ObjEProject.LVSprunge) + ObjEProject.LVSprunge));
                             }
                             else
-                            {
-                                string[] strArr = ObjEProject.LVRaster.Split('.');
-                                int Count = strArr.Count();
-                                if (strArr != null)
-                                {
-                                    if (Count > 3 && string.IsNullOrEmpty(txtStufe2Short.Text))//99.99.1111.9
-                                        strNewOZ = "";
-                                    else if (Count > 4 && string.IsNullOrEmpty(txtStufe3Short.Text))//99.99.99.1111.9
-                                        strNewOZ = "";
-                                    else if (Count > 5 && string.IsNullOrEmpty(txtStufe4Short.Text))//99.99.99.99.1111.9
-                                        strNewOZ = "";
-                                    else
-                                        strNewOZ = ObjEProject.LVSprunge.ToString();
-                                }
-                            }
+                                strNewOZ = Convert.ToString(ObjEProject.LVSprunge);
+                        }
+                        else
+                            strNewOZ = Convert.ToString(ObjEProject.LVSprunge);
+                    }
+                    else
+                    {
+                        string[] strArr = ObjEProject.LVRaster.Split('.');
+                        int Count = strArr.Count();
+                        if (strArr != null)
+                        {
+                            if (Count > 3 && string.IsNullOrEmpty(txtStufe2Short.Text))//99.99.1111.9
+                                strNewOZ = "";
+                            else if (Count > 4 && string.IsNullOrEmpty(txtStufe3Short.Text))//99.99.99.1111.9
+                                strNewOZ = "";
+                            else if (Count > 5 && string.IsNullOrEmpty(txtStufe4Short.Text))//99.99.99.99.1111.9
+                                strNewOZ = "";
+                            else
+                                strNewOZ = ObjEProject.LVSprunge.ToString();
                         }
                     }
+
+
                 }
             }
             catch (Exception ex)
@@ -3001,12 +3131,13 @@ namespace OTTOPro
             TextEdit textbox = (TextEdit)sender;
             try
             {
+                string stPosKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
                 DataView dvPosition = ObjEPosition.dsPositionList.Tables[0].DefaultView;
-                if (cmbPositionKZ.Text == "Z")
+                if (stPosKZ == "Z")
                     dvPosition.RowFilter = "Position_OZ = '" + textbox.Text + "' and (PositionKZ = 'N' OR PositionKZ = 'M')";
-                else if (cmbPositionKZ.Text == "ZS")
+                else if (stPosKZ == "ZS")
                     dvPosition.RowFilter = "Position_OZ = '" + textbox.Text + "' and (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z')";
-                else if (cmbPositionKZ.Text == "ZZ")
+                else if (stPosKZ == "ZZ")
                 {
                     if (textbox == txtSurchargeFrom)
                     {
@@ -3038,10 +3169,11 @@ namespace OTTOPro
                     }
                     if (_IsNewMode)
                     {
+
                         if (textbox == txtSurchargeFrom)
-                            textbox.Text = FromOZ(PrepareOZ(), cmbPositionKZ.Text);
+                            textbox.Text = FromOZ(PrepareOZ(), stPosKZ);
                         else
-                            textbox.Text = ToOZ(PrepareOZ(), cmbPositionKZ.Text);
+                            textbox.Text = ToOZ(PrepareOZ(), stPosKZ);
                     }
                     else
                     {
@@ -3069,13 +3201,13 @@ namespace OTTOPro
                 string MinValue = string.Empty;
 
                 if (strPositionKZ.ToLower() == "zs")
-                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z' OR PositionKZ = 'P' OR PositionKZ = 'ZZ')");
+                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + " AND (PositionKZ IN ('N','M','P','K','W','S','B','G','Z'))");
                 else if (strPositionKZ.ToLower() == "z")
-                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
+                    Min_Identity = dt.Compute("MIN(SNO)", "Parent_OZ =" + tResult + " AND (PositionKZ IN ('N','M','P','K','W','S','B','G'))");
 
                 if (Min_Identity != DBNull.Value)
                 {
-                    strFromOZ = Convert.ToString(dt.Compute("MIN(Position_OZ)", "SNO =" + Min_Identity));
+                    strFromOZ = Convert.ToString(dt.Compute("MIN(Position_OZ)", "SNO =" + Min_Identity + " AND Parent_OZ =" + tResult));
                 }
             }
             catch (Exception ex)
@@ -3097,13 +3229,13 @@ namespace OTTOPro
                 object Max_Identity = null;
 
                 if (strPositionKZ.ToLower() == "zs")
-                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'Z' OR PositionKZ = 'P' OR PositionKZ = 'ZZ')");
+                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + " AND (PositionKZ IN ('N','M','P','K','W','S','B','G','Z'))");
                 else if (strPositionKZ.ToLower() == "z")
-                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + "And (PositionKZ = 'N' OR PositionKZ = 'M' OR PositionKZ = 'P')");
+                    Max_Identity = dt.Compute("MAX(SNO)", "Parent_OZ =" + tResult + " AND (PositionKZ IN ('N','M','P','K','W','S','B','G'))");
 
                 if (Max_Identity != DBNull.Value)
                 {
-                    strToOZ = Convert.ToString(dt.Compute("MIN(Position_OZ)", "SNO =" + Max_Identity));
+                    strToOZ = Convert.ToString(dt.Compute("MIN(Position_OZ)", "SNO =" + Max_Identity + " AND Parent_OZ =" + tResult));
                 }
             }
             catch (Exception ex)
@@ -3126,10 +3258,7 @@ namespace OTTOPro
                 _DocuwareLink2 = Obj.DocuwareLink2;
                 _DocuwareLink3 = Obj.DocuwareLink3;
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex) { }
         }
 
         private void btnAddPositionKZ_Click(object sender, EventArgs e)
@@ -3189,14 +3318,15 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtMenge.Text) && !string.IsNullOrEmpty(Convert.ToString(txtVerkaufspreisValueME.EditValue)))
+                if (Position.MA_VK != 0)
                 {
-                    txtGrandTotalME.Text =
-                        RoundValue(getDValue(Convert.ToString(txtVerkaufspreisValueME.EditValue))).ToString();
+                    txtGrandTotalME.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtGrandTotalME.EditValue = RoundValue(Position.MA_VK);
                 }
                 else
                 {
-                    txtGrandTotalME.Text = "0";
+                    txtGrandTotalME.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtGrandTotalME.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -3209,14 +3339,15 @@ namespace OTTOPro
         {
             try
             {
-                if (!string.IsNullOrEmpty(txtMenge.Text) && !string.IsNullOrEmpty(Convert.ToString(txtVerkaufspreisValueMO.EditValue)))
+                if (Position.MO_VK != 0)
                 {
-                    txtGrandTotalMO.Text =
-                        RoundValue(getDValue(Convert.ToString(txtVerkaufspreisValueMO.EditValue))).ToString();
+                    txtGrandTotalMO.Properties.Mask.UseMaskAsDisplayFormat = true;
+                    txtGrandTotalMO.EditValue = RoundValue(Position.MO_VK);
                 }
                 else
                 {
-                    txtGrandTotalMO.Text = "0";
+                    txtGrandTotalMO.Properties.Mask.UseMaskAsDisplayFormat = false;
+                    txtGrandTotalMO.Text = string.Empty;
                 }
             }
             catch (Exception ex)
@@ -3228,29 +3359,40 @@ namespace OTTOPro
 
         private void txtMenge_TextChanged(object sender, EventArgs e)
         {
-            txtGrandTotalME_TextChanged(null, null);            
+            txtGrandTotalME_TextChanged(null, null);
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
             try
             {
-                if (cmbPositionKZ.Text == "ZZ")
+                if (Utility.AutoSave)
                 {
-                    tlPositions.MovePrev();
-                    return;
-                }
-                btnModify_Click(null, null);
-                if (_IsEditMode)
-                {
-                    if (!ObjEProject.IsFinalInvoice)
-                        btnSaveLVDetails_Click(null, null);
-                    tlPositions.MovePrev();
+                    string stPosKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
+                    if (stPosKZ == "ZZ")
+                    {
+                        tlPositions.MovePrev();
+                        return;
+                    }
                     btnModify_Click(null, null);
+                    if (_IsEditMode)
+                    {
+                        if (!ObjEProject.IsFinalInvoice)
+                            btnSaveLVDetails_Click(null, null);
+                        tlPositions.MovePrev();
+                        btnModify_Click(null, null);
+                    }
+                    else if (!_IsNewMode)
+                    {
+                        tlPositions.MovePrev();
+                    }
                 }
-                else if (!_IsNewMode)
+                else
                 {
-                    tlPositions.MovePrev();
+                    if (!_IsNewMode)
+                    {
+                        tlPositions.MovePrev();
+                    }
                 }
             }
             catch (Exception)
@@ -3263,22 +3405,33 @@ namespace OTTOPro
         {
             try
             {
-                if (cmbPositionKZ.Text == "ZZ")
+                if (Utility.AutoSave)
                 {
-                    tlPositions.MoveNext();
-                    return;
-                }
-                btnModify_Click(null, null);
-                if (_IsEditMode)
-                {
-                    if (!ObjEProject.IsFinalInvoice)
-                        btnSaveLVDetails_Click(null, null);
-                    tlPositions.MoveNext();
+                    string stPosKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
+                    if (stPosKZ == "ZZ")
+                    {
+                        tlPositions.MoveNext();
+                        return;
+                    }
                     btnModify_Click(null, null);
+                    if (_IsEditMode)
+                    {
+                        if (!ObjEProject.IsFinalInvoice)
+                            btnSaveLVDetails_Click(null, null);
+                        tlPositions.MoveNext();
+                        btnModify_Click(null, null);
+                    }
+                    else if (!_IsNewMode)
+                    {
+                        tlPositions.MoveNext();
+                    }
                 }
-                else if (!_IsNewMode)
+                else
                 {
-                    tlPositions.MoveNext();
+                    if (!_IsNewMode)
+                    {
+                        tlPositions.MoveNext();
+                    }
                 }
             }
             catch (Exception)
@@ -3343,21 +3496,16 @@ namespace OTTOPro
             try
             {
                 TextEdit textbox = (TextEdit)sender;
-                if (Convert.ToDouble(textbox.Text) < 0)
+                decimal dValue = 0;
+                if (decimal.TryParse(Convert.ToString(textbox.Text), out dValue))
                 {
-                    textbox.ForeColor = Color.Red;
-                }
-                else
-                {
-                    textbox.ForeColor = Color.Black;
+                    if (dValue < 0)
+                        textbox.ForeColor = Color.Red;
+                    else
+                        textbox.ForeColor = Color.Black;
                 }
             }
-            catch (Exception)
-            {
-
-                throw;
-            }
-
+            catch (Exception) { }
         }
 
         private void dtpProjectStartDate_EditValueChanged(object sender, EventArgs e)
@@ -3393,7 +3541,8 @@ namespace OTTOPro
                 {
                     if (tcProjectDetails.SelectedTabPage.Name == "tbLVDetails")
                     {
-                        if (cmbPositionKZ.Text == "ZZ")
+                        string stPosKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
+                        if (stPosKZ == "ZZ")
                             return false;
                         if (ObjEProject.IsFinalInvoice)
                             return false;
@@ -3448,11 +3597,12 @@ namespace OTTOPro
                                     ObjBSupplier = new BSupplier();
                                 ObjESupplier = ObjBSupplier.UpdateSupplierProposal(ObjESupplier);
                                 gcProposal.DataSource = ObjESupplier.dtProposal;
-                                gvProposal_RowClick(null, null);
                                 Utility.Setfocus(gvProposal, "SupplierProposalID", IValue);
+                                gvProposal_RowClick(null, null);
                             }
                         }
                     }
+                    return true;
                 }
             }
             catch (Exception ex)
@@ -3547,7 +3697,7 @@ namespace OTTOPro
                     tlPositions.FocusedColumn = tlPositions.Columns[strcolumnName];
                 }
             }
-            catch (Exception ex){Utility.ShowError(ex);}
+            catch (Exception ex) { Utility.ShowError(ex); }
         }
 
         private void chkCreateNew_CheckedChanged(object sender, EventArgs e)
@@ -3633,11 +3783,15 @@ namespace OTTOPro
 
         }
 
-        private void DeletePosition()
+        public void DeletePosition()
         {
             string strConfirmation = "";
             try
             {
+                if (tcProjectDetails.SelectedTabPage != tbLVDetails)
+                    return;
+                if (tlPositions.FocusedNode.HasChildren)
+                    return;
                 if (tlPositions.FocusedNode != null && tlPositions.FocusedNode["PositionID"] != null)
                 {
                     int iValue = 0;
@@ -3827,6 +3981,7 @@ namespace OTTOPro
             }
         }
 
+
         private void bbPasteLVAndDetailKZ_Click(object sender, EventArgs e)
         {
             try
@@ -3849,7 +4004,7 @@ namespace OTTOPro
                                 if (ObjEPosition == null)
                                     ObjEPosition = new EPosition();
                                 ParseLVAndDetailKZCopyLV(dr, strPositionOZ, strParentOZ, iSNOValue, string.Empty, false);
-                                if(string.IsNullOrEmpty(ObjEPosition.Position_OZ))
+                                if (string.IsNullOrEmpty(ObjEPosition.Position_OZ))
                                     return;
                                 NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, true);
                                 if (iSNOValue != -1)
@@ -3888,10 +4043,10 @@ namespace OTTOPro
                     else
                         ObjEPosition.DetailKZ = 0;
                 }
-                
+
                 if (ObjEPosition.DetailKZ == 0)
                     ObjEPosition.Position_OZ = strPositionsOZ;
-                if(isDetailKZ)
+                if (isDetailKZ)
                     ObjEPosition.Position_OZ = strPositionsOZ;
 
                 ObjEPosition.Parent_OZ = strParetntOZ;
@@ -5168,6 +5323,7 @@ namespace OTTOPro
                     chkSelbstkostenME.Enabled = false;
                     txtSelbstkostenMultiME.Enabled = false;
                     txtVerkaufspreisMultiME.Enabled = false;
+                    txtVerkaufspreisValueME.Enabled = false;
                 }
                 else
                 {
@@ -5177,6 +5333,7 @@ namespace OTTOPro
                     chkSelbstkostenME.Enabled = true;
                     txtSelbstkostenMultiME.Enabled = true;
                     txtVerkaufspreisMultiME.Enabled = true;
+                    txtVerkaufspreisValueME.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -5197,6 +5354,7 @@ namespace OTTOPro
                     chkSelbstkostenMO.Enabled = false;
                     txtSelbstkostenMultiMO.Enabled = false;
                     txtVerkaufspreisMultiMO.Enabled = false;
+                    txtVerkaufspreisValueMO.Enabled = false;
                 }
                 else
                 {
@@ -5206,6 +5364,7 @@ namespace OTTOPro
                     chkSelbstkostenMO.Enabled = true;
                     txtSelbstkostenMultiMO.Enabled = true;
                     txtVerkaufspreisMultiMO.Enabled = true;
+                    txtVerkaufspreisValueMO.Enabled = true;
                 }
             }
             catch (Exception ex)
@@ -5218,7 +5377,7 @@ namespace OTTOPro
         {
             try
             {
-                if (cmbSelectGridviewOptions.EditValue.ToString() == "" 
+                if (cmbSelectGridviewOptions.EditValue.ToString() == ""
                     || cmbSelectGridviewOptions.EditValue == null)
                 {
                     cmbSelectGridviewOptions.Text = "Auswahl";
@@ -5736,7 +5895,7 @@ namespace OTTOPro
                     ObjEPosition = new EPosition();
                 ObjEPosition.dtArticle = new DataTable();
                 ObjEPosition.dtDimensions = new DataTable();
-               txtTypeCD.Text= ObjEPosition.Type = txtType.Text;
+                txtTypeCD.Text = ObjEPosition.Type = txtType.Text;
                 ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                 ObjEPosition = ObjBPosition.GetArticleByTyp(ObjEPosition);
                 if (ObjEPosition.dtArticle != null && ObjEPosition.dtArticle.Rows.Count > 0)
@@ -5762,20 +5921,31 @@ namespace OTTOPro
                     txtWGCD.Text = ObjEPosition.WG;
                     txtWACD.Text = ObjEPosition.WA;
                     txtWICD.Text = ObjEPosition.WI;
-                    txtFabrikate.Text = ObjEPosition.Fabricate;
+                    if (ObjEProject.FabVisible)
+                        txtFabrikate.Text = ObjEPosition.Fabricate;
                     txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
-                    cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
+                    if (ObjEProject.MeVisible)
+                        cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
                     txtDim1.Text = ObjEPosition.Dim1;
                     txtDim2.Text = ObjEPosition.Dim2;
                     txtDim3.Text = ObjEPosition.Dim3;
-                    txtMin.Text = ObjEPosition.Mins.ToString();
-                    txtFaktor.Text = ObjEPosition.Faktor.ToString();
-                    txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
-                    txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
-                    txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
-                    txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
-                    txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
-                    txtDim.Text = ObjEPosition.Dim;
+                    if (ObjEProject.MinVisible)
+                        txtMin.Text = Convert.ToString(ObjEPosition.Mins);
+                    txtFaktor.Text = Convert.ToString(ObjEPosition.Faktor);
+                    if (ObjEProject.lPVisible && ObjEPosition.LPMA != 0)
+                        txtLPMe.Text = Convert.ToString(ObjEPosition.LPMA);
+                    else
+                        txtLPMe.Text = string.Empty;
+                    if (ObjEProject.M1Visible)
+                        txtMulti1ME.Text = Convert.ToString(ObjEPosition.Multi1MA);
+                    if (ObjEProject.M2Visible)
+                        txtMulti2ME.Text = Convert.ToString(ObjEPosition.Multi2MA);
+                    if (ObjEProject.M3Visible)
+                        txtMulti3ME.Text = Convert.ToString(ObjEPosition.Multi3MA);
+                    if (ObjEProject.M4Visible)
+                        txtMulti4ME.Text = Convert.ToString(ObjEPosition.Multi4MA);
+                    if (ObjEProject.DimVisible)
+                        txtDim.Text = ObjEPosition.Dim;
                 }
             }
             catch (Exception ex)
@@ -5820,20 +5990,31 @@ namespace OTTOPro
                         }
                     }
                     txtTypeCD.Text = txtType.Text = ObjEPosition.Type;
-                    txtFabrikate.Text = ObjEPosition.Fabricate;
+                    if (ObjEProject.FabVisible)
+                        txtFabrikate.Text = ObjEPosition.Fabricate;
                     txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
-                    cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
-                    txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
-                    txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
-                    txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
-                    txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
+                    if (ObjEProject.MeVisible)
+                        cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
+                    if (ObjEProject.M1Visible)
+                        txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
+                    if (ObjEProject.M2Visible)
+                        txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
+                    if (ObjEProject.M3Visible)
+                        txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
+                    if (ObjEProject.M4Visible)
+                        txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
                     txtFaktor.Text = ObjEPosition.Faktor.ToString();
                     txtDim1.Text = ObjEPosition.Dim1;
                     txtDim2.Text = ObjEPosition.Dim2;
                     txtDim3.Text = ObjEPosition.Dim3;
-                    txtMin.Text = ObjEPosition.Mins.ToString();
-                    txtLPMe.Text = ObjEPosition.LPMA.ToString();
-                    txtDim.Text = ObjEPosition.Dim;
+                    if (ObjEProject.MinVisible)
+                        txtMin.Text = ObjEPosition.Mins.ToString();
+                    if (ObjEProject.lPVisible && ObjEPosition.LPMA != 0)
+                        txtLPMe.Text = ObjEPosition.LPMA.ToString();
+                    else
+                        txtLPMe.Text = string.Empty;
+                    if (ObjEProject.DimVisible)
+                        txtDim.Text = ObjEPosition.Dim;
                 }
             }
             catch (Exception ex)
@@ -5846,10 +6027,11 @@ namespace OTTOPro
         {
             try
             {
-                if (!Char.IsDigit(e.KeyChar) && (e.KeyChar) != '\b')
-                    e.Handled = true;
-                if (e.KeyChar == (char)Keys.Enter || e.KeyChar == (char)Keys.Tab)
+                if (e.KeyChar == (char)Keys.Enter)
+                {
                     txtWI_Leave(null, null);
+                    _IsKeyypressEvent = true;
+                }
             }
             catch (Exception ex)
             {
@@ -5880,22 +6062,27 @@ namespace OTTOPro
                     {
                         _DimType = "A";
                         ObjEPosition = ObjBPosition.GetArticleByA(ObjEPosition, _DimType);
+                        txtDim1.Text = ObjEPosition.Dim1;
+                        txtDim2.Text = ObjEPosition.Dim2;
+                        txtDim3.Text = ObjEPosition.Dim3;
                     }
                     if (_txtDimensions == "txtDim2")
                     {
                         _DimType = "B";
                         ObjEPosition = ObjBPosition.GetArticleByB(ObjEPosition, _DimType);
+                        txtDim2.Text = ObjEPosition.Dim2;
+                        txtDim3.Text = ObjEPosition.Dim3;
                     }
-                    txtDim1.Text = ObjEPosition.Dim1;
-                    txtDim2.Text = ObjEPosition.Dim2;
-                    txtDim3.Text = ObjEPosition.Dim3;
                 }
                 ObjEPosition = ObjBPosition.GetArticleByDimension(ObjEPosition);
                 if (ObjEPosition.dtDimensions.Rows.Count > 0)
                 {
                     txtMin.Text = Convert.ToString(ObjEPosition.Mins);
                     txtFaktor.Text = Convert.ToString(ObjEPosition.Faktor);
-                    txtLPMe.Text = Convert.ToString(ObjEPosition.LPMA);
+                    if (ObjEPosition.LPMA != 0)
+                        txtLPMe.Text = Convert.ToString(ObjEPosition.LPMA);
+                    else
+                        txtLPMe.Text = string.Empty;
                 }
 
             }
@@ -6014,12 +6201,12 @@ namespace OTTOPro
                 else if (Utility.CalcAccess == "7")
                 {
                     splitContainerControl2.Panel2.Enabled = false;
-                    LVCalculationColumnReadOnly(true);   
+                    LVCalculationColumnReadOnly(true);
                 }
                 else if (Utility.CalcAccess == "8")
                 {
                     splitContainerControl2.Panel2.Enabled = true;
-                    LVCalculationColumnReadOnly(false);   
+                    LVCalculationColumnReadOnly(false);
                 }
 
                 if (Utility.LVsectionAddAccess == "9" || Utility.LVsectionAddAccess == "7")
@@ -6439,6 +6626,33 @@ namespace OTTOPro
             }
         }
 
+        private void nbArticleSettings_LinkPressed(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            frmArticleSettings Obj = new frmArticleSettings(ObjEProject);
+            Obj.ShowDialog();
+        }
+
+        private void nbFormBlattArticleMapping_LinkPressed(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                frmFormBlattarticles Obj = new frmFormBlattarticles(ObjEPosition);
+                Obj.ShowDialog();
+            }
+            catch (Exception ex) { }
+        }
+
+        private void nbProjectArticles_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                frmProjectArticles Obj = new frmProjectArticles(ObjEPosition);
+                Obj.ShowDialog();
+            }
+            catch (Exception ex) { }
+        }
 
         #endregion
 
@@ -7024,8 +7238,8 @@ namespace OTTOPro
             {
                 string[] strArr = null;
                 strArr = WGWA.Split('-');
-                if (_WGforSupplier == strArr[0] && _WAforSupplier == strArr[1] && _LVSection == LVSection)
-                    return;
+                //if (_WGforSupplier == strArr[0] && _WAforSupplier == strArr[1] && _LVSection == LVSection)
+                //    return;
 
                 _WGforSupplier = strArr[0];
                 _WAforSupplier = strArr[1];
@@ -7137,13 +7351,12 @@ namespace OTTOPro
                 if (saveFileDialog1.ShowDialog() == DialogResult.OK)
                 {
                     rpt.ExportToPdf(saveFileDialog1.FileName);
-                    StartProcess(saveFileDialog1.FileName);
+                    rpt.ShowRibbonPreview();
                     _pdfpath = saveFileDialog1.FileName;
                 }
             }
             catch (Exception ex)
             {
-                Utility.ShowError(ex);
             }
         }
 
@@ -7172,8 +7385,8 @@ namespace OTTOPro
                         strLVSection = Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("LVSection"));
 
                     string strFileName = "Proposal_" + ObjEProject.ProjectNumber + "_" + strWGWA + "_" + strLVSection + ".pdf";
-                    string appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\SupplierProposal_pdf";
-                    string appPathGAEB = Path.GetDirectoryName(Application.ExecutablePath) + "\\SupplierProposal_GAEB";
+                    string appPath = Application.UserAppDataPath + "\\SupplierProposal_pdf";
+                    string appPathGAEB = Application.UserAppDataPath + "\\SupplierProposal_GAEB";
 
                     string _GAEBPath = string.Empty;
 
@@ -7206,7 +7419,7 @@ namespace OTTOPro
                         int IValue = 0;
                         if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
                         {
-                            string strOTTOFilePath = objEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                            string strOTTOFilePath = objEGAEB.DirPath = Application.UserAppDataPath + "\\";
                             XMLDoc = objBGAEB.ExportSupplierproposal(IValue, ObjEProject.ProjectID, objEGAEB.FileFormat, ObjEProject.LVRaster, objEGAEB);
                             if (!Directory.Exists(strOTTOFilePath))
                                 Directory.CreateDirectory(strOTTOFilePath);
@@ -7282,14 +7495,11 @@ namespace OTTOPro
             try
             {
                 int iIndex = gvLVDetailsforSupplier.FocusedRowHandle;
-
                 DataRow dr = gvLVDetailsforSupplier.GetDataRow(gvLVDetailsforSupplier.FocusedRowHandle);
                 DataTable _dt = gcDeletedDetails.DataSource as DataTable;
                 _dt.ImportRow(dr);
-
                 Utility.Setfocus(gvDeletedDetails, "PositionID", Convert.ToInt32(gvLVDetailsforSupplier.GetFocusedRowCellValue("PositionID").ToString()));
                 ObjESupplier.dtNewPositions.Rows.RemoveAt(iIndex);
-
             }
             catch (Exception ex)
             {
@@ -7457,7 +7667,7 @@ namespace OTTOPro
             try
             {
                 int IValue = 0;
-                if (gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID") != null && int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")),out IValue))
+                if (gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID") != null && int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
                 {
                     if (ObjESupplier == null)
                         ObjESupplier = new ESupplier();
@@ -7496,7 +7706,7 @@ namespace OTTOPro
                     int IValue = 0;
                     if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out IValue))
                     {
-                        string strOTTOFilePath = objEGAEB.DirPath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                        string strOTTOFilePath = objEGAEB.DirPath = Application.UserAppDataPath + "\\";
                         XMLDoc = objBGAEB.ExportSupplierproposal(IValue, ObjEProject.ProjectID, objEGAEB.FileFormat, ObjEProject.LVRaster, objEGAEB);
                         if (!Directory.Exists(strOTTOFilePath))
                             Directory.CreateDirectory(strOTTOFilePath);
@@ -7545,7 +7755,7 @@ namespace OTTOPro
                     SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
                     SplashScreenManager.Default.SetWaitFormDescription("Importieren...");
                     string strOutputFilepath = string.Empty;
-                    string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    string strOTTOFilePath = Application.UserAppDataPath + "\\";
                     if (!Directory.Exists(strOTTOFilePath))
                         Directory.CreateDirectory(strOTTOFilePath);
                     string strFileName = Path.GetFileNameWithoutExtension(strFilePath);
@@ -7654,6 +7864,8 @@ namespace OTTOPro
             {
                 if (gvProposal != null && gvProposal.GetFocusedRowCellValue("SupplierProposalID") != null)
                 {
+                    SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                    SplashScreenManager.Default.SetWaitFormDescription("Loading...");
                     string strLVSection = Convert.ToString(gvProposal.GetFocusedRowCellValue("LVSection"));
                     if (strLVSection.ToLower() != "ha")
                     {
@@ -7769,6 +7981,7 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
+            finally { SplashScreenManager.CloseForm(false); }
         }
 
         private void UpdatePosition(GridView gridView, string columnName, Control control)
@@ -8175,6 +8388,7 @@ namespace OTTOPro
                 }
                 ObjESupplier = ObjBSupplier.UpdateSupplierPrice(ObjESupplier);
                 frmOTTOPro.UpdateStatus("Preisübersicht für Lieferanten wurde erfolgreich aktualisiert");
+                gvProposal_RowClick(null, null);
             }
             catch (Exception ex)
             {
@@ -8206,27 +8420,27 @@ namespace OTTOPro
                     ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "SupplierName"] = ObjESupplier.SupplierName = txtNewSupplierName.Text;
 
                     decimal dValue = 1;
-                    if (decimal.TryParse(txtListPreis.Text, out  dValue))
+                    if (decimal.TryParse(txtListPreis.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName] = ObjESupplier.SupplierPrice = dValue;
                     else
                         ObjESupplier.SupplierPrice = 0;
 
-                    if (decimal.TryParse(txtNewMulti1.Text, out  dValue))
+                    if (decimal.TryParse(txtNewMulti1.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi1"] = ObjESupplier.Multi1 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi1"] = ObjESupplier.Multi1 = 1;
 
-                    if (decimal.TryParse(txtNewMulti2.Text, out  dValue))
+                    if (decimal.TryParse(txtNewMulti2.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi2"] = ObjESupplier.Multi2 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi2"] = ObjESupplier.Multi2 = 1;
 
-                    if (decimal.TryParse(txtNewMulti3.Text, out  dValue))
+                    if (decimal.TryParse(txtNewMulti3.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi3"] = ObjESupplier.Multi3 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi3"] = ObjESupplier.Multi3 = 1;
 
-                    if (decimal.TryParse(txtNewMulti4.Text, out  dValue))
+                    if (decimal.TryParse(txtNewMulti4.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
@@ -8290,28 +8504,28 @@ namespace OTTOPro
 
                     decimal dValue = 1;
                     string strName = Convert.ToString(ObjESupplier.dtPositions.Rows[iRowIndex][txtNewSupplierName.Text]);
-                    if (decimal.TryParse(strName, out  dValue))
+                    if (decimal.TryParse(strName, out dValue))
                         ObjESupplier.SupplierPrice = dValue;
                     else
                         ObjESupplier.SupplierPrice = 0;
                     txtListPreis.Text = ObjESupplier.SupplierPrice.ToString();
 
-                    if (decimal.TryParse(txtNewMulti1.Text, out  dValue))
+                    if (decimal.TryParse(txtNewMulti1.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi1"] = ObjESupplier.Multi1 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi1"] = ObjESupplier.Multi1 = 1;
 
-                    if (decimal.TryParse(txtNewMulti2.Text, out  dValue))
+                    if (decimal.TryParse(txtNewMulti2.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi2"] = ObjESupplier.Multi2 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi2"] = ObjESupplier.Multi2 = 1;
 
-                    if (decimal.TryParse(txtNewMulti3.Text, out  dValue))
+                    if (decimal.TryParse(txtNewMulti3.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi3"] = ObjESupplier.Multi3 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi3"] = ObjESupplier.Multi3 = 1;
 
-                    if (decimal.TryParse(txtNewMulti4.Text, out  dValue))
+                    if (decimal.TryParse(txtNewMulti4.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
@@ -8584,7 +8798,7 @@ namespace OTTOPro
                     {
                         string strNewOz = ParentOZ + _Suggested_OZ;
                         Position_OZ = strNewOz;
-                    }  
+                    }
                 }
                 else
                 {
@@ -8937,13 +9151,13 @@ namespace OTTOPro
                         }
                         else
                             if (Utility._IsGermany == true)
-                            {
-                                throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
-                            }
-                            else
-                            {
-                                throw new Exception("Please select the copy mode OR target location");
-                            }
+                        {
+                            throw new Exception("Bitte wählen Sie einen anderen Kopiermodus");
+                        }
+                        else
+                        {
+                            throw new Exception("Please select the copy mode OR target location");
+                        }
                     }
                     else
                         strNewOZ = ObjEProject.LVSprunge.ToString() + ".";
@@ -9453,7 +9667,7 @@ namespace OTTOPro
 
             try
             {
-                string strPositionKZ = cmbPositionKZ.Text;
+                string strPositionKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
                 if (strPositionKZ == "N" || strPositionKZ == "E" || strPositionKZ == "A" || strPositionKZ == "M" || strPositionKZ == "P")
                 {
                     BArticles ObjBArticles = new BArticles();
@@ -9561,7 +9775,7 @@ namespace OTTOPro
                 ObjEPosition.Stufe4 = txtStufe4Short.Text;
                 ObjEPosition.Position = txtPosition.Text;
                 ObjEPosition.PositionID = -1;
-                ObjEPosition.PositionKZ = cmbPositionKZ.Text;
+                ObjEPosition.PositionKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
                 ObjEPosition.DetailKZ = DetailKZ;
                 ObjEPosition.LVSection = strLVSection;
                 ObjEPosition.WG = Convert.ToString(dr["WG"]);
@@ -9647,7 +9861,7 @@ namespace OTTOPro
                 ObjEPosition.Multi2MO = 1;
                 ObjEPosition.Multi3MO = 1;
                 ObjEPosition.Multi4MO = 1;
-                ObjEPosition.EinkaufspreisMA = Math.Round(((ObjEPosition.LPMA) * (ObjEPosition.Multi1MA * ObjEPosition.Multi2MA * ObjEPosition.Multi3MA * ObjEPosition.Multi4MA)),8);
+                ObjEPosition.EinkaufspreisMA = Math.Round(((ObjEPosition.LPMA) * (ObjEPosition.Multi1MA * ObjEPosition.Multi2MA * ObjEPosition.Multi3MA * ObjEPosition.Multi4MA)), 8);
                 ObjEPosition.EinkaufspreisMO = ObjEPosition.LPMO;
                 ObjEPosition.SelbstkostenMultiMA = 1;
                 ObjEPosition.SelbstkostenValueMA = ObjEPosition.EinkaufspreisMA;
@@ -9696,7 +9910,7 @@ namespace OTTOPro
                         }
                     }
                 }
-                chkLockHierarchy.Checked = true;	
+                chkLockHierarchy.Checked = true;
             }
             catch (Exception ex)
             {
@@ -9706,7 +9920,11 @@ namespace OTTOPro
 
         private void tlPositions_DragEnter(object sender, DragEventArgs e)
         {
-            e.Effect = DragDropEffects.Move;
+            try
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+            catch (Exception ex) { }
         }
 
         private void tlPositions_DragDrop(object sender, DragEventArgs e)
@@ -9763,15 +9981,8 @@ namespace OTTOPro
                     IIndex = 0;
                     ParentID = Convert.ToString(Tnode["PositionID"]);
                     if (Tnode.FirstNode != null)
-                    {
-                        SNO = Convert.ToString(Tnode.FirstNode["SNO"]);
                         PositionOZ = Convert.ToString(Tnode.FirstNode["Position_OZ"]);
-                    }
-                    int iTemp = 0;
-                    if (!int.TryParse(SNO, out iTemp))
-                        SNO = Convert.ToString(Tnode["SNO"]);
-                    else
-                        SNO = (iTemp - 2).ToString();
+                    SNO = "0";
                 }
                 else
                 {
@@ -9793,7 +10004,7 @@ namespace OTTOPro
                                 strnextLV = Convert.ToString(Tnode.ParentNode.Nodes[INodeIndex + iValue]["Position_OZ"]);
                                 if (!string.IsNullOrEmpty(strnextLV))
                                     _Continue = false;
-                                    
+
                             }
                             else
                                 _Continue = false;
@@ -9863,7 +10074,7 @@ namespace OTTOPro
                 {
                     string strNewOz = ParentOZ + _Suggested_OZ;
                     ObjEPosition.Position_OZ = strNewOz;
-                } 
+                }
 
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
                 ObjEPosition.PositionID = IPositionID;
@@ -9879,6 +10090,8 @@ namespace OTTOPro
                 else
                     throw new Exception("Fehler beim Verschieben der Position");
                 int ITemp = ObjEPosition.SNO;
+                if (!decimal.TryParse(_Suggested_OZ,NumberStyles.Float, CultureInfo.GetCultureInfo("en"), out ObjEPosition.OZID))
+                    ObjEPosition.OZID = 0;
                 foreach (DataRow dr in ObjEPosition.dtCopyPosition.Rows)
                 {
                     ITemp++;
@@ -9949,7 +10162,7 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }   
+        }
 
         private void BindCoaprePrice(string _type)
         {
@@ -10316,7 +10529,7 @@ namespace OTTOPro
             try
             {
                 frmReportSetting Obj = new frmReportSetting(ObjEProject.ProjectID);
-                Obj.ShowDialog();               
+                Obj.ShowDialog();
             }
             catch (Exception ex)
             {
@@ -10399,6 +10612,7 @@ namespace OTTOPro
                             ObjEProject.dtDiscountList.Columns.Add("UserID", typeof(int));
                             ObjEProject.dtDiscountList.Columns.Add("Discount", typeof(decimal));
                             ObjEProject.dtDiscountList.Columns.Add("ME", typeof(string));
+                            ObjEProject.dtDiscountList.Columns.Add("OZID", typeof(decimal));
 
                             if (FromNode.ParentNode == null)
                             {
@@ -10498,14 +10712,15 @@ namespace OTTOPro
                                     }
                                 }
                             }
+                            string stNewOZ = SuggestOZ(strTempParentOZ);
                             if (str.Length > 0)
                             {
-                                string strBlankNewOz = strTempParentOZ + str + SuggestOZ(strTempParentOZ) + ".";
+                                string strBlankNewOz = strTempParentOZ + str + stNewOZ + ".";
                                 newOZ = strBlankNewOz;
                             }
                             else
                             {
-                                string strNewOz = strTempParentOZ + SuggestOZ(strTempParentOZ) + ".";
+                                string strNewOz = strTempParentOZ + stNewOZ + ".";
                                 newOZ = strNewOz;
                             }
 
@@ -10529,6 +10744,10 @@ namespace OTTOPro
                             drnew["UserID"] = Utility.UserID;
                             drnew["Discount"] = ObjEProject.Discount;
                             drnew["ME"] = "%";
+                            decimal dValue = 0;
+                            if (!decimal.TryParse(stNewOZ, out dValue))
+                                dValue = 0;
+                            drnew["OZID"] = dValue;
                             ObjEProject.dtDiscountList.Rows.Add(drnew);
                         }
                     }
@@ -10546,10 +10765,11 @@ namespace OTTOPro
 
         private void nbCoverSheet1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+            SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             try
             {
-                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -10558,20 +10778,15 @@ namespace OTTOPro
                 ObjEProject = ObjBProject.GetPath(ObjEProject);
                 if (string.IsNullOrEmpty(ObjEProject.CoverSheetPath))
                     throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
-
                 if (!Directory.Exists(ObjEProject.CoverSheetPath))
                     throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
-
                 string strFileName = ObjEProject.CoverSheetPath + "\\" + ObjEProject.ProjectNumber + "_Rechnung.Docx";
                 if (!File.Exists(strFileName))
                 {
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Rechnung_Template.dotx";
+                    Object appPath = Application.UserAppDataPath + "\\Rechnung_Template.dotx";
                     Object oTemplatePath = ObjEProject.TemplatePath + "\\Rechnung_Template.dotx";
-
                     System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
-
-                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
                     wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
 
@@ -10618,7 +10833,7 @@ namespace OTTOPro
                         }
                     }
                     wordDoc.SaveAs(strFileName);
-                    wordApp.Application.Quit();
+                    wordDoc.Close();
                     Thread.Sleep(1000);
                 }
                 if (!Utility.fileIsOpen(strFileName))
@@ -10627,24 +10842,25 @@ namespace OTTOPro
                     ap.Documents.Open(strFileName);
                     ap.Visible = true;
                     ap.Activate();
-                    SplashScreenManager.CloseForm(false);
                 }
                 else
                     throw new Exception("Das Angebotsdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
-            catch (Exception ex)
+            catch (Exception ex){}
+            finally
             {
                 SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+                wordApp.Quit();
             }
         }
 
         private void nbCoverSheet2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+            SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             try
             {
-                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -10661,12 +10877,9 @@ namespace OTTOPro
                 if (!File.Exists(strFileName))
                 {
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Aufmass_Template.dotx";
+                    Object appPath = Application.UserAppDataPath + "\\Aufmass_Template.dotx";
                     Object oTemplatePath = ObjEProject.TemplatePath + "\\Aufmass_Template.dotx";
-
                     System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
-
-                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
                     wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
 
@@ -10713,7 +10926,7 @@ namespace OTTOPro
                         }
                     }
                     wordDoc.SaveAs(strFileName);
-                    wordApp.Application.Quit();
+                    wordDoc.Close();
                     Thread.Sleep(1000);
                 }
                 if (!Utility.fileIsOpen(strFileName))
@@ -10722,24 +10935,25 @@ namespace OTTOPro
                     ap.Documents.Open(strFileName);
                     ap.Visible = true;
                     ap.Activate();
-                    SplashScreenManager.CloseForm(false);
                 }
                 else
                     throw new Exception("Das Aufmassdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
-            catch (Exception ex)
+            catch (Exception ex){}
+            finally
             {
                 SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+                wordApp.Quit();
             }
         }
 
         private void nbCoverSheet3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+            SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             try
             {
-                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -10750,20 +10964,16 @@ namespace OTTOPro
                     throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
                 if (!Directory.Exists(ObjEProject.CoverSheetPath))
                     throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
-
-                string strFileName = ObjEProject.CoverSheetPath + "\\" + ObjEProject.ProjectNumber + "_Angebot.Docx";
+                string strFileName = ObjEProject.CoverSheetPath + "\\" + "V-011-" + ObjEProject.ProjectNumber + ".Docx";
                 if (!File.Exists(strFileName))
                 {
+                    var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-011*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Angebot_Template.dotx";
-                    Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot_Template.dotx";
-
+                    Object appPath = Application.UserAppDataPath + "\\" + FolderPath;
+                    Object oTemplatePath = ObjEProject.TemplatePath + "\\" + FolderPath;
                     System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
-
-                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
                     wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
-
                     foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
                     {
                         Microsoft.Office.Interop.Word.Range rngFieldCode = myMergeField.Code;
@@ -10807,7 +11017,7 @@ namespace OTTOPro
                         }
                     }
                     wordDoc.SaveAs(strFileName);
-                    wordApp.Application.Quit();
+                    wordDoc.Close();
                     Thread.Sleep(1000);
                 }
                 if (!Utility.fileIsOpen(strFileName))
@@ -10816,24 +11026,26 @@ namespace OTTOPro
                     ap.Documents.Open(strFileName);
                     ap.Visible = true;
                     ap.Activate();
-                    SplashScreenManager.CloseForm(false);
                 }
                 else
                     throw new Exception("Das Angebotdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
-            catch (Exception ex)
-            {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+            catch (Exception ex){
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally {SplashScreenManager.CloseForm(false);
+                wordApp.Quit();
             }
         }
 
         private void nbAngebot1_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+            SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             try
             {
-                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -10844,20 +11056,16 @@ namespace OTTOPro
                     throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
                 if (!Directory.Exists(ObjEProject.CoverSheetPath))
                     throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
-
-                string strFileName = ObjEProject.CoverSheetPath + "\\" + ObjEProject.ProjectNumber + "_Angebot1.Docx";
+                string strFileName = ObjEProject.CoverSheetPath + "\\" + "V-014-" + ObjEProject.ProjectNumber + ".Docx";
                 if (!File.Exists(strFileName))
                 {
+                    var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-014*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Angebot1_Template.dotx";
-                    Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot1_Template.dotx";
-
+                    Object appPath = Application.UserAppDataPath + "\\" + FolderPath;
+                    Object oTemplatePath = ObjEProject.TemplatePath + "\\" + FolderPath;
                     System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
-
-                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
                     wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
-
                     foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
                     {
                         Microsoft.Office.Interop.Word.Range rngFieldCode = myMergeField.Code;
@@ -10901,7 +11109,7 @@ namespace OTTOPro
                         }
                     }
                     wordDoc.SaveAs(strFileName);
-                    wordApp.Application.Quit();
+                    wordDoc.Close();
                     Thread.Sleep(1000);
                 }
                 if (!Utility.fileIsOpen(strFileName))
@@ -10910,24 +11118,24 @@ namespace OTTOPro
                     ap.Documents.Open(strFileName);
                     ap.Visible = true;
                     ap.Activate();
-                    SplashScreenManager.CloseForm(false);
                 }
                 else
                     throw new Exception("Das Angebotdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
-            catch (Exception ex)
-            {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+            catch (Exception ex) {
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally { SplashScreenManager.CloseForm(false); wordApp.Quit(); }
         }
 
         private void nbAngebot2_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+            SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             try
             {
-                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -10938,20 +11146,16 @@ namespace OTTOPro
                     throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
                 if (!Directory.Exists(ObjEProject.CoverSheetPath))
                     throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
-
-                string strFileName = ObjEProject.CoverSheetPath + "\\" + ObjEProject.ProjectNumber + "_Angebot2.Docx";
+                string strFileName = ObjEProject.CoverSheetPath + "\\" + "V-012-" + ObjEProject.ProjectNumber + ".Docx";
                 if (!File.Exists(strFileName))
                 {
+                    var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-012*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Angebot2_Template.dotx";
-                    Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot2_Template.dotx";
-
+                    Object appPath = Application.UserAppDataPath + "\\" + FolderPath;
+                    Object oTemplatePath = ObjEProject.TemplatePath + "\\" + FolderPath;
                     System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
-
-                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
                     wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
-
                     foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
                     {
                         Microsoft.Office.Interop.Word.Range rngFieldCode = myMergeField.Code;
@@ -10995,7 +11199,7 @@ namespace OTTOPro
                         }
                     }
                     wordDoc.SaveAs(strFileName);
-                    wordApp.Application.Quit();
+                    wordDoc.Close();
                     Thread.Sleep(1000);
                 }
                 if (!Utility.fileIsOpen(strFileName))
@@ -11004,24 +11208,24 @@ namespace OTTOPro
                     ap.Documents.Open(strFileName);
                     ap.Visible = true;
                     ap.Activate();
-                    SplashScreenManager.CloseForm(false);
                 }
                 else
                     throw new Exception("Das Angebotdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
-            catch (Exception ex)
-            {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+            catch (Exception ex){
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally { SplashScreenManager.CloseForm(false); wordApp.Quit(); }
         }
 
         private void nbAngebot3_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
+            SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+            SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
             try
             {
-                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
-                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
                 if (ObjEProject == null)
                     ObjEProject = new EProject();
                 if (ObjBProject == null)
@@ -11032,20 +11236,16 @@ namespace OTTOPro
                     throw new Exception("Der angegeben Ordnerpfad zum Titelblatt existiert nicht (mehr)");
                 if (!Directory.Exists(ObjEProject.CoverSheetPath))
                     throw new Exception("Kein gültiger Ordnerpfad zum Titelblatt");
-
-                string strFileName = ObjEProject.CoverSheetPath + "\\" + ObjEProject.ProjectNumber + "_Angebot3.Docx";
+                string strFileName = ObjEProject.CoverSheetPath + "\\" + "V-013-" + ObjEProject.ProjectNumber + ".Docx";
                 if (!File.Exists(strFileName))
                 {
+                    var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-013*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
                     Object oMissing = System.Reflection.Missing.Value;
-                    Object appPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\Angebot3_Template.dotx";
-                    Object oTemplatePath = ObjEProject.TemplatePath + "\\Angebot3_Template.dotx";
-
+                    Object appPath = Application.UserAppDataPath + "\\" + FolderPath;
+                    Object oTemplatePath = ObjEProject.TemplatePath + "\\" + FolderPath;
                     System.IO.File.Copy(Convert.ToString(oTemplatePath), Convert.ToString(appPath), true);
-
-                    Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
                     Microsoft.Office.Interop.Word.Document wordDoc = new Microsoft.Office.Interop.Word.Document();
                     wordDoc = wordApp.Documents.Add(ref appPath, ref oMissing, ref oMissing, ref oMissing);
-
                     foreach (Microsoft.Office.Interop.Word.Field myMergeField in wordDoc.Fields)
                     {
                         Microsoft.Office.Interop.Word.Range rngFieldCode = myMergeField.Code;
@@ -11089,7 +11289,7 @@ namespace OTTOPro
                         }
                     }
                     wordDoc.SaveAs(strFileName);
-                    wordApp.Application.Quit();
+                    wordDoc.Close();
                     Thread.Sleep(1000);
                 }
                 if (!Utility.fileIsOpen(strFileName))
@@ -11098,16 +11298,15 @@ namespace OTTOPro
                     ap.Documents.Open(strFileName);
                     ap.Visible = true;
                     ap.Activate();
-                    SplashScreenManager.CloseForm(false);
                 }
                 else
                     throw new Exception("Das Angebotdokument für die '" + ObjEProject.ProjectNumber + "' ist bereits geöffnet");
             }
-            catch (Exception ex)
-            {
-                SplashScreenManager.CloseForm(false);
-                Utility.ShowError(ex);
+            catch (Exception ex){
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            finally { SplashScreenManager.CloseForm(false); wordApp.Quit(); }
         }
 
         #endregion
@@ -11116,69 +11315,76 @@ namespace OTTOPro
         {
             try
             {
-                if (string.IsNullOrEmpty(txtDim1.Text))
+                if (ObjBPosition == null)
+                    ObjBPosition = new BPosition();
+                if (ObjEPosition == null)
+                    ObjEPosition = new EPosition();
+                ObjEPosition.dtArticle = new DataTable();
+                ObjEPosition.dtDimensions = new DataTable();
+                ObjEPosition.Type = txtType.Text;
+                ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
+                ObjEPosition = ObjBPosition.GetArticleByTyp(ObjEPosition);
+                if (ObjEPosition.dtArticle != null && ObjEPosition.dtArticle.Rows.Count > 0)
                 {
-                    if (ObjBPosition == null)
-                        ObjBPosition = new BPosition();
-                    if (ObjEPosition == null)
-                        ObjEPosition = new EPosition();
-                    ObjEPosition.dtArticle = new DataTable();
-                    ObjEPosition.dtDimensions = new DataTable();
-                    ObjEPosition.Type = txtType.Text;
-                    ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
-                    ObjEPosition = ObjBPosition.GetArticleByTyp(ObjEPosition);
-                    if (ObjEPosition.dtArticle != null && ObjEPosition.dtArticle.Rows.Count > 0)
-                    {
-                        if (ObjEPosition.dtDimensions != null && ObjEPosition.dtDimensions.Rows.Count > 0)
-                        {
-                            ObjEPosition.Dim1 = ObjEPosition.dtDimensions.Rows[0]["A"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["A"].ToString();
-                            ObjEPosition.Dim2 = ObjEPosition.dtDimensions.Rows[0]["B"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["B"].ToString();
-                            ObjEPosition.Dim3 = ObjEPosition.dtDimensions.Rows[0]["L"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["L"].ToString();
-                            ObjEPosition.LPMA = ObjEPosition.dtDimensions.Rows[0]["ListPrice"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["ListPrice"]);
-                            ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[0]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["Minuten"]);
-                        }
-                        txtWG.Text = ObjEPosition.WG;
-                        txtWA.Text = ObjEPosition.WA;
-                        txtWI.Text = ObjEPosition.WI;
+                    txtWGCD.Text = ObjEPosition.WG;
+                    txtWACD.Text = ObjEPosition.WA;
+                    txtWICD.Text = ObjEPosition.WI;
+                    if (ObjEProject.FabVisible)
                         txtFabrikate.Text = ObjEPosition.Fabricate;
-                        txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
+                    txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
+                    if (ObjEProject.MeVisible)
                         cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
-                        txtDim1.Text = ObjEPosition.Dim1;
-                        txtDim2.Text = ObjEPosition.Dim2;
-                        txtDim3.Text = ObjEPosition.Dim3;
-                        txtMin.Text = ObjEPosition.Mins.ToString();
-                        txtFaktor.Text = ObjEPosition.Faktor.ToString();
-                        txtLPMe.Text = ObjEPosition.LPMA.ToString(); ;
-                        txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
-                        txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
-                        txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
-                        txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
-                    }
+                    txtFaktor.Text = Convert.ToString(ObjEPosition.Faktor);
+                    if (ObjEProject.M1Visible)
+                        txtMulti1ME.Text = Convert.ToString(ObjEPosition.Multi1MA);
+                    if (ObjEProject.M2Visible)
+                        txtMulti2ME.Text = Convert.ToString(ObjEPosition.Multi2MA);
+                    if (ObjEProject.M3Visible)
+                        txtMulti3ME.Text = Convert.ToString(ObjEPosition.Multi3MA);
+                    if (ObjEProject.M4Visible)
+                        txtMulti4ME.Text = Convert.ToString(ObjEPosition.Multi4MA);
+                    if (ObjEProject.DimVisible)
+                        txtDim.Text = ObjEPosition.Dim;
                 }
+                else
+                {
+                    txtWG.Text = string.Empty;
+                    txtWA.Text = string.Empty;
+                    txtWI.Text = string.Empty;
+                    if (ObjEProject.FabVisible)
+                        txtFabrikate.Text = string.Empty;
+                    if (ObjEProject.MeVisible)
+                        cmbCDME.SelectedIndex = -1;
+                    if (ObjEProject.M1Visible)
+                        txtMulti1.Text = "1";
+                    if (ObjEProject.M2Visible)
+                        txtMulti2.Text = "1";
+                    if (ObjEProject.M3Visible)
+                        txtMulti3.Text = "1";
+                    if (ObjEProject.M4Visible)
+                        txtMulti4.Text = "1";
+                    if (ObjEProject.DimVisible)
+                        txtDim.Text = string.Empty;
+                }
+                txtDim1.Text = string.Empty;
+                txtDim2.Text = string.Empty;
+                txtDim3.Text = string.Empty;
             }
-            catch (Exception ex){throw;}
+            catch (Exception ex) { throw; }
         }
 
         private void txtType_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
+            {
+                _IsTypKeyypressEvent = true;
                 txtType_Leave(null, null);
+            }
         }
 
         private void txtType_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
         {
-            try
-            {
-                if (e.KeyData == Keys.Tab)
-                {
-                    FillDimension();
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }       
+        }
 
         private void txtDetailKZCD_TextChanged(object sender, EventArgs e)
         {
@@ -11351,7 +11557,7 @@ namespace OTTOPro
             try
             {
                 TextEdit textedit = (TextEdit)sender;
-                ShowTooltip(textedit);   
+                ShowTooltip(textedit);
             }
             catch (Exception ex)
             {
@@ -11363,7 +11569,7 @@ namespace OTTOPro
         {
             try
             {
-                string formattedMessage = "Press 'Enter' to see the updated Verkaufspreis Multi";
+                string formattedMessage = "Press 'Enter/F8' to see the updated Verkaufspreis Multi";
                 Point toolTipLocation = textedit.PointToScreen(new Point(0, textedit.Height));
                 toolTipController1.ShowHint(formattedMessage, ToolTipLocation.Fixed, toolTipLocation);
             }
@@ -11379,14 +11585,13 @@ namespace OTTOPro
             {
                 if (e.KeyChar == (char)Keys.Enter)
                 {
-                    decimal SelbValue = 0;
                     decimal VerkValue = 0;
-                    if (decimal.TryParse(txtSelbstkostenValueME.Text, out SelbValue)
-                        && decimal.TryParse(txtVerkaufspreisValueME.Text, out VerkValue))
+                    if (decimal.TryParse(txtVerkaufspreisValueME.Text, out VerkValue) && VerkValue != 0 && Position.MA_SK != 0)
                     {
                         Position.MA_VK = VerkValue;
                         decimal VerkMulti = 0;
                         VerkMulti = Math.Round(Position.MA_VK / Position.MA_SK, 3);
+                        IsFire = false;
                         txtVerkaufspreisMultiME.EditValue = VerkMulti;
                     }
                 }
@@ -11403,15 +11608,75 @@ namespace OTTOPro
             {
                 if (e.KeyChar == (char)Keys.Enter)
                 {
-                    decimal SelbValue = 0;
                     decimal VerkValue = 0;
-                    if (decimal.TryParse(txtSelbstkostenValueMO.Text, out SelbValue)
-                        && decimal.TryParse(txtVerkaufspreisValueMO.Text, out VerkValue))
+                    if (decimal.TryParse(txtVerkaufspreisValueMO.Text, out VerkValue) && VerkValue != 0 && Position.MO_SK != 0)
                     {
                         Position.MO_VK = VerkValue;
                         decimal VerkMulti = 0;
                         VerkMulti = Math.Round(Position.MO_VK / Position.MO_SK, 3);
+                        IsFire = false;
                         txtVerkaufspreisMultiMO.EditValue = VerkMulti;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        bool IsFire = true;
+        private void txtVerkaufspreisValueME_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.F8)
+                {
+                    string strPositionKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
+                    if (strPositionKZ == "ZZ")
+                        return;
+                    if (ObjEProject.IsFinalInvoice)
+                        return;
+                    decimal VerkValue = 0;
+                    if (decimal.TryParse(txtVerkaufspreisValueME.Text, out VerkValue) && VerkValue != 0 && Position.MA_SK != 0)
+                    {
+                        Position.MA_VK = VerkValue;
+                        decimal VerkMulti = 0;
+                        VerkMulti = Math.Round(Position.MA_VK / Position.MA_SK, 3);
+                        IsFire = false;
+                        txtVerkaufspreisMultiME.EditValue = VerkMulti;
+                        txtVerkaufspreisValueME_TextChanged(null, null);
+                        btnSaveLVDetails.PerformClick();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void txtVerkaufspreisValueMO_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.F8)
+                {
+                    string strPositionKZ = Utility.GetPosKZ(cmbPositionKZ.Text);
+                    if (strPositionKZ == "ZZ")
+                        return;
+                    if (ObjEProject.IsFinalInvoice)
+                        return;
+                    decimal VerkValue = 0;
+                    if (decimal.TryParse(txtVerkaufspreisValueMO.Text, out VerkValue) && VerkValue != 0 && Position.MO_SK != 0)
+                    {
+                        Position.MO_VK = VerkValue;
+                        decimal VerkMulti = 0;
+                        VerkMulti = Math.Round(Position.MO_VK / Position.MO_SK, 3);
+                        IsFire = false;
+                        txtVerkaufspreisMultiMO.EditValue = VerkMulti;
+                        txtVerkaufspreisValueMO_TextChanged(null, null);
+                        btnSaveLVDetails.PerformClick();
                     }
                 }
             }
@@ -11425,42 +11690,6 @@ namespace OTTOPro
         {
             try
             {
-                TextEdit textBox = (TextEdit)sender;
-                textBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-                textBox.Properties.Mask.EditMask = "N8";
-                textBox.Properties.Mask.UseMaskAsDisplayFormat = true;
-                if (textBox == txtLPMe)
-                    textBox.EditValue = Position.MA_ListPrice;
-                else if (textBox == txtValue1ME)
-                    textBox.EditValue = Position.MA_Multi1;
-                else if (textBox == txtValue2ME)
-                    textBox.EditValue = Position.MA_Multi2;
-                else if (textBox == txtValue3ME)
-                    textBox.EditValue = Position.MA_Multi3;
-                else if (textBox == txtValue4ME)
-                    textBox.EditValue = Position.MA_Multi4;
-                else if (textBox == txtEinkaufspreisME)
-                    textBox.EditValue = Position.MA_EP;
-                else if (textBox == txtSelbstkostenValueME)
-                    textBox.EditValue = Position.MA_SK;
-                else if (textBox == txtVerkaufspreisValueME)
-                    textBox.EditValue = Position.MA_VK;
-                else if (textBox == txtLPMO)
-                    textBox.EditValue = Position.MO_ListPrice;
-                else if (textBox == txtValue1MO)
-                    textBox.EditValue = Position.MO_Multi1;
-                else if (textBox == txtValue2MO)
-                    textBox.EditValue = Position.MO_Multi2;
-                else if (textBox == txtValue3MO)
-                    textBox.EditValue = Position.MO_Multi3;
-                else if (textBox == txtValue4MO)
-                    textBox.EditValue = Position.MO_Multi4;
-                else if (textBox == txtEinkaufspreisMO)
-                    textBox.EditValue = Position.MO_EP;
-                else if (textBox == txtSelbstkostenValueMO)
-                    textBox.EditValue = Position.MO_SK;
-                else if (textBox == txtVerkaufspreisValueMO)
-                    textBox.EditValue = Position.MO_VK;
                 var edit = ((DevExpress.XtraEditors.TextEdit)sender);
                 BeginInvoke(new MethodInvoker(() =>
                 {
@@ -11479,41 +11708,38 @@ namespace OTTOPro
             try
             {
                 TextEdit textBox = (TextEdit)sender;
-                textBox.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
-                textBox.Properties.Mask.EditMask = "N2";
-                textBox.Properties.Mask.UseMaskAsDisplayFormat = true;
-                if (textBox == txtLPMe)
-                    textBox.EditValue = Math.Round(Position.MA_ListPrice,2);
-                else if (textBox == txtValue1ME)
-                    textBox.EditValue = Math.Round(Position.MA_Multi1,2);
-                else if (textBox == txtValue2ME)
-                    textBox.EditValue = Math.Round(Position.MA_Multi2,2);
-                else if (textBox == txtValue3ME)
-                    textBox.EditValue = Math.Round(Position.MA_Multi3,2);
-                else if (textBox == txtValue4ME)
-                    textBox.EditValue = Math.Round(Position.MA_Multi4,2);
-                else if (textBox == txtEinkaufspreisME)
-                    textBox.EditValue = Math.Round(Position.MA_EP,2);
-                else if (textBox == txtSelbstkostenValueME)
-                    textBox.EditValue = Math.Round(Position.MA_SK,2);
-                else if (textBox == txtVerkaufspreisValueME)
-                    textBox.EditValue = Math.Round(Position.MA_VK,2);
-                else if (textBox == txtLPMO)
-                    textBox.EditValue = Math.Round(Position.MO_ListPrice,2);
-                else if (textBox == txtValue1MO)
-                    textBox.EditValue = Math.Round(Position.MO_Multi1,2);
-                else if (textBox == txtValue2MO)
-                    textBox.EditValue = Math.Round(Position.MO_Multi2,2);
-                else if (textBox == txtValue3MO)
-                    textBox.EditValue = Math.Round(Position.MO_Multi3,2);
-                else if (textBox == txtValue4MO)
-                    textBox.EditValue = Math.Round(Position.MO_Multi4,2);
-                else if (textBox == txtEinkaufspreisMO)
-                    textBox.EditValue = Math.Round(Position.MO_EP,2);
-                else if (textBox == txtSelbstkostenValueMO)
-                    textBox.EditValue = Math.Round(Position.MO_SK,2);
-                else if (textBox == txtVerkaufspreisValueMO)
-                    textBox.EditValue = Math.Round(Position.MO_VK,2);
+                if (textBox == txtLPMe && Position.MA_ListPrice != 0)
+                    textBox.EditValue = Math.Round(Position.MA_ListPrice, 2);
+                else if (textBox == txtValue1ME && Position.MA_Multi1 != 0)
+                    textBox.EditValue = Math.Round(Position.MA_Multi1, 2);
+                else if (textBox == txtValue2ME && Position.MA_Multi2 != 0)
+                    textBox.EditValue = Math.Round(Position.MA_Multi2, 2);
+                else if (textBox == txtValue3ME && Position.MA_Multi3 != 0)
+                    textBox.EditValue = Math.Round(Position.MA_Multi3, 2);
+                else if (textBox == txtValue4ME && Position.MA_Multi4 != 0)
+                    textBox.EditValue = Math.Round(Position.MA_Multi4, 2);
+                else if (textBox == txtEinkaufspreisME && Position.MA_EP != 0)
+                    textBox.EditValue = Math.Round(Position.MA_EP, 2);
+                else if (textBox == txtSelbstkostenValueME && Position.MA_SK != 0)
+                    textBox.EditValue = Math.Round(Position.MA_SK, 2);
+                else if (textBox == txtVerkaufspreisValueME && Position.MA_VK != 0)
+                    textBox.EditValue = Math.Round(Position.MA_VK, 2);
+                else if (textBox == txtLPMO && Position.MO_ListPrice != 0)
+                    textBox.EditValue = Math.Round(Position.MO_ListPrice, 2);
+                else if (textBox == txtValue1MO && Position.MO_Multi1 != 0)
+                    textBox.EditValue = Math.Round(Position.MO_Multi1, 2);
+                else if (textBox == txtValue2MO && Position.MO_Multi2 != 0)
+                    textBox.EditValue = Math.Round(Position.MO_Multi2, 2);
+                else if (textBox == txtValue3MO && Position.MO_Multi3 != 0)
+                    textBox.EditValue = Math.Round(Position.MO_Multi3, 2);
+                else if (textBox == txtValue4MO && Position.MO_Multi4 != 0)
+                    textBox.EditValue = Math.Round(Position.MO_Multi4, 2);
+                else if (textBox == txtEinkaufspreisMO && Position.MO_EP != 0)
+                    textBox.EditValue = Math.Round(Position.MO_EP, 2);
+                else if (textBox == txtSelbstkostenValueMO && Position.MO_SK != 0)
+                    textBox.EditValue = Math.Round(Position.MO_SK, 2);
+                else if (textBox == txtVerkaufspreisValueMO && Position.MO_VK != 0)
+                    textBox.EditValue = Math.Round(Position.MO_VK, 2);
             }
             catch (Exception ex)
             {
@@ -11532,7 +11758,191 @@ namespace OTTOPro
                     edit.SelectionLength = edit.Text.Length;
                 }));
             }
-            catch (Exception ex){}
+            catch (Exception ex) { }
         }
-   }
+
+        private void txtWG_Leave(object sender, EventArgs e)
+        {
+            try
+            {
+                TextEdit txt = sender as TextEdit;
+                string OldWG = string.Empty;
+                string OldWA = string.Empty;
+                string OldWI = string.Empty;
+
+                OldWG = Convert.ToString(tlPositions.FocusedNode["WG"]);
+                OldWA = Convert.ToString(tlPositions.FocusedNode["WA"]);
+                OldWI = Convert.ToString(tlPositions.FocusedNode["WI"]);
+
+                if (OldWG != txtWG.Text || OldWA != txtWA.Text || OldWI != txtWI.Text && !_IsKeyypressEvent)
+                {
+                    if (ObjBPosition == null)
+                        ObjBPosition = new BPosition();
+                    if (ObjEPosition == null)
+                        ObjEPosition = new EPosition();
+                    ObjEPosition.dtDimensions = new DataTable();
+                    ObjEPosition.dtArticle = new DataTable();
+                    ObjEPosition.WG = txtWG.Text;
+                    ObjEPosition.WA = txtWA.Text;
+                    ObjEPosition.WI = txtWI.Text;
+                    ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
+                    ObjEPosition.ProjectID = ObjEProject.ProjectID;
+                    ObjEPosition = ObjBPosition.GetArticleByWI(ObjEPosition);
+                    if (ObjEPosition.dtArticle != null && ObjEPosition.dtArticle.Rows.Count > 0)
+                    {
+                        txtTypeCD.Text = txtType.Text = ObjEPosition.Type;
+                        if (ObjEProject.FabVisible)
+                            txtFabrikate.Text = ObjEPosition.Fabricate;
+                        txtLiefrantMA.Text = ObjEPosition.LiefrantMA;
+                        if (ObjEProject.MeVisible)
+                            cmbCDME.SelectedIndex = cmbCDME.Properties.Items.IndexOf(ObjEPosition.ME);
+                        if (ObjEProject.M1Visible)
+                            txtMulti1ME.Text = ObjEPosition.Multi1MA.ToString();
+                        if (ObjEProject.M2Visible)
+                            txtMulti2ME.Text = ObjEPosition.Multi2MA.ToString();
+                        if (ObjEProject.M3Visible)
+                            txtMulti3ME.Text = ObjEPosition.Multi3MA.ToString();
+                        if (ObjEProject.M4Visible)
+                            txtMulti4ME.Text = ObjEPosition.Multi4MA.ToString();
+                        txtFaktor.Text = ObjEPosition.Faktor.ToString();
+                        if (ObjEProject.DimVisible)
+                            txtDim.Text = ObjEPosition.Dim;
+                    }
+                    else
+                    {
+                        txtTypeCD.Text = txtType.Text = string.Empty;
+                        if (ObjEProject.FabVisible)
+                            txtFabrikate.Text = string.Empty;
+                        txtLiefrantMA.Text = string.Empty;
+                        if (ObjEProject.MeVisible)
+                            cmbCDME.SelectedIndex = -1;
+                        if (ObjEProject.M1Visible)
+                            txtMulti1ME.Text = "1";
+                        if (ObjEProject.M2Visible)
+                            txtMulti2ME.Text = "1";
+                        if (ObjEProject.M3Visible)
+                            txtMulti3ME.Text = "1";
+                        if (ObjEProject.M4Visible)
+                            txtMulti4ME.Text = "1";
+                        if (ObjEProject.DimVisible)
+                            txtDim.Text = string.Empty;
+                    }
+                    txtDim1.Text = string.Empty;
+                    txtDim2.Text = string.Empty;
+                    txtDim3.Text = string.Empty;
+                }
+                if (_IsKeyypressEvent)
+                    _IsKeyypressEvent = false;
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void ChkManualMontageentry_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkManualMontageentry.Checked == true)
+                txtLPMO.ReadOnly = false;
+            else
+                txtLPMO.ReadOnly = true;
+        }
+
+        private void txtType_Leave_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (tlPositions.FocusedNode != null)
+                {
+                    string OldTyp = Convert.ToString(tlPositions.FocusedNode["Type"]);
+                    if (OldTyp != txtType.Text && !_IsTypKeyypressEvent)
+                        FillDimension();
+                    if (_IsTypKeyypressEvent)
+                        _IsTypKeyypressEvent = false;
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        private void gvProposedDetails_PopupMenuShowing(object sender, DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteProposalPossitions_ItemClick));
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteProposalPossitions_ItemClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvProposedDetails.FocusedRowHandle != null)
+                {
+                    int PID = 0;
+                    int SID = 0;
+                    if (int.TryParse(Convert.ToString(gvProposedDetails.GetFocusedRowCellValue("PositionID")), out PID))
+                    {
+                        if (int.TryParse(Convert.ToString(gvProposedSupplier.GetFocusedRowCellValue("SupplierProposalID")), out SID))
+                        {
+                            DSupplier ObjDSupplier = new DSupplier();
+                            ObjDSupplier.DeleteProposalPositions(SID, PID);
+                            gvProposedDetails.DeleteRow(gvProposedDetails.FocusedRowHandle);
+                            gvProposedSupplier_RowClick(null, null);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        private void txtPreisText_EditValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(txtPreisText.Text.Trim()))
+                {
+                    txtLPMe.Text = "0";
+                    txtMin.Text = "0";
+                    txtMulti1ME.Text = "1";
+                    txtMulti2ME.Text = "1";
+                    txtMulti3ME.Text = "1";
+                    txtMulti4ME.Text = "1";
+                    txtMulti1MO.Text = "1";
+                    txtMulti2MO.Text = "1";
+                    txtMulti3MO.Text = "1";
+                    txtMulti4MO.Text = "1";
+                    txtSelbstkostenMultiME.Text = "1";
+                    txtSelbstkostenMultiMO.Text = "1";
+                    txtVerkaufspreisMultiME.Text = "1";
+                    txtVerkaufspreisMultiMO.Text = "1";
+                }
+                else
+                    tlPositions_FocusedNodeChanged(null, null);
+            }
+            catch (Exception ex) { }
+        }
+
+        public void CopyPosition()
+        {
+            try
+            {
+                if (tlPositions.FocusedNode == null)
+                    return;
+                if (tcProjectDetails.SelectedTabPage != tbLVDetails)
+                    return;
+                string stPKz = Convert.ToString(tlPositions.FocusedNode["PositionKZ"]);
+                if (stPKz == "NG" || stPKz == "H" || stPKz == "VR" || stPKz == "AB" || stPKz == "BA")
+                    return;
+                ObjEPosition.PositionID = -1;
+                _IsNewMode = true;
+                btnSaveLVDetails_Click(null, null);
+            }
+            catch (Exception ex) { }
+        }
+    }
 }

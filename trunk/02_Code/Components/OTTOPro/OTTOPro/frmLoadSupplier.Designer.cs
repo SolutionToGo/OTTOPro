@@ -226,6 +226,7 @@
             // txtCommentary
             // 
             this.txtCommentary.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtCommentary.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.txtCommentary.Location = new System.Drawing.Point(12, 467);
             this.txtCommentary.Name = "txtCommentary";
             this.txtCommentary.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
@@ -237,6 +238,7 @@
             // txtPaymentConditions
             // 
             this.txtPaymentConditions.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtPaymentConditions.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.txtPaymentConditions.Location = new System.Drawing.Point(12, 278);
             this.txtPaymentConditions.Name = "txtPaymentConditions";
             this.txtPaymentConditions.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
@@ -248,6 +250,7 @@
             // txtSupptreet
             // 
             this.txtSupptreet.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtSupptreet.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.txtSupptreet.Location = new System.Drawing.Point(155, 135);
             this.txtSupptreet.Name = "txtSupptreet";
             this.txtSupptreet.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
@@ -259,6 +262,7 @@
             // txtFullName
             // 
             this.txtFullName.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtFullName.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.txtFullName.Location = new System.Drawing.Point(155, 54);
             this.txtFullName.Name = "txtFullName";
             this.txtFullName.Options.HorizontalScrollbar.Visibility = DevExpress.XtraRichEdit.RichEditScrollbarVisibility.Hidden;
@@ -755,7 +759,6 @@
             this.simpleSeparator1,
             this.emptySpaceItem1,
             this.layoutControlItem13});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1283, 744);
             this.layoutControlGroup1.TextVisible = false;
@@ -1024,7 +1027,6 @@
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnReset;
             this.ClientSize = new System.Drawing.Size(1283, 744);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));

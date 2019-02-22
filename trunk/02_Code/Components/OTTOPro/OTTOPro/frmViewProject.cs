@@ -68,6 +68,11 @@ namespace OTTOPro
                 BGAEB ObjBGAEB = new BGAEB();
                 ObjEGAEB.ProjectNumber = txtProjectNumber.Text;
                 ObjEGAEB.ProjectDescription = txtProjectDescription.Text;
+                int Ivalue = 0;
+                if (int.TryParse(txtLVSprunge.Text, out Ivalue))
+                    ObjEGAEB.LVSprunge = Ivalue;
+                else
+                    ObjEGAEB.LVSprunge = Ivalue;
                 ObjEGAEB.IsSave = true;
                 ObjBGAEB.SaveeProject(ObjEGAEB);
                 SplashScreenManager.CloseForm(false);

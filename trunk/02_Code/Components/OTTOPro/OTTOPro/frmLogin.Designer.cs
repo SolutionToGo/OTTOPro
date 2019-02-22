@@ -102,6 +102,7 @@
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
+            this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnCancel.Location = new System.Drawing.Point(386, 163);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(80, 22);
@@ -113,6 +114,7 @@
             // btnLogin
             // 
             this.btnLogin.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
+            this.btnLogin.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnLogin.Location = new System.Drawing.Point(299, 163);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(73, 22);
@@ -165,7 +167,6 @@
             this.emptySpaceItem9,
             this.emptySpaceItem2,
             this.emptySpaceItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(542, 245);
             this.layoutControlGroup1.TextVisible = false;

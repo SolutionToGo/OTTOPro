@@ -777,6 +777,28 @@ namespace DataAccess
             }
             return ObjESupplier;
         }
-        
+
+        public void DeleteProposalPositions(int SupplierProposalID, int PositionID)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_ProposalPosition]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", SupplierProposalID);
+                    cmd.Parameters.AddWithValue("@PositionID", PositionID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler beim Löschen des Position");
+                else
+                    throw new Exception("Error while Deleting Position");
+            }
+        }
     }
 }

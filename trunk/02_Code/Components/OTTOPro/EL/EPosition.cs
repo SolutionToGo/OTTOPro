@@ -595,13 +595,15 @@ namespace EL
             get { return _Discount; }
             set { _Discount = value; }
         }
-
         public string Dim
         {
             get { return _Dim; }
             set { _Dim = value; }
         }
-
         public DataTable dtArticle { get; set; }
+        public decimal OZID = 0;
+        public DataTable dtProjectArticles { get; set; }
+        public string WGDescription { get; set; }
+        public string WADescription { get; set; }
     }
 }

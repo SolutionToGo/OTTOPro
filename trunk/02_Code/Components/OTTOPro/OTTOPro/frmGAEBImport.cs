@@ -82,7 +82,7 @@ namespace OTTOPro
                 if (txtImportFilePath.Text != string.Empty)
                 {
                     string strOutputFilepath = string.Empty;
-                    string strOTTOFilePath = ConfigurationManager.AppSettings["OTTOFilePath"].ToString();
+                    string strOTTOFilePath = Application.UserAppDataPath + "\\";
                     if (!Directory.Exists(strOTTOFilePath))
                         Directory.CreateDirectory(strOTTOFilePath);
                     string strFileName = Path.GetFileNameWithoutExtension(txtImportFilePath.Text);

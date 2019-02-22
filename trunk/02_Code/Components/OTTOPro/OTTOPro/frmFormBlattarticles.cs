@@ -17,9 +17,13 @@ namespace OTTOPro
     {
         BFormBlatt ObjBFormBlatt = null;
         EFormBlatt ObjEFormBlatt = null;
-        public frmFormBlattarticles()
+        int _FormBlattTyPeID = 0;
+        EPosition ObjEPosition = null;
+
+        public frmFormBlattarticles(EPosition _ObjEPosition)
         {
             InitializeComponent();
+            ObjEPosition = _ObjEPosition;
         }
 
         private void frmFormBlattarticles_Load(object sender, EventArgs e)
@@ -56,7 +60,7 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-        int _FormBlattTyPeID = 0;
+
         private void cmbFormBlatttypes_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -67,12 +71,13 @@ namespace OTTOPro
                     ObjBFormBlatt = new BFormBlatt();
                 if (cmbFormBlatttypes.Text != string.Empty)
                 {
-                    if (int.TryParse(cmbFormBlatttypes.SelectedValue.ToString(), out _FormBlattTyPeID))
+                    if (int.TryParse(Convert.ToString(cmbFormBlatttypes.SelectedValue), out _FormBlattTyPeID))
 
                         if (_FormBlattTyPeID > 0)
                         {
                             gcFormBlattArticles.DataSource = null;
                             ObjEFormBlatt.LookUpID = _FormBlattTyPeID;
+                            ObjEFormBlatt.ProjectID = ObjEPosition.ProjectID;
                             ObjBFormBlatt.Get_FormBlattArticles(ObjEFormBlatt);
                             if (ObjEFormBlatt.dtBlattArticles != null)
                             {
@@ -98,7 +103,8 @@ namespace OTTOPro
                 Temp.Columns.Remove("WG");
                 Temp.Columns.Remove("WA");
                 Temp.Columns.Remove("WI");
-
+                Temp.Columns.Remove("WGDescription");
+                Temp.Columns.Remove("WADescription");
                 DataTable dt = Temp;
                 if (dt != null)
                 {
@@ -111,18 +117,16 @@ namespace OTTOPro
                     ObjBFormBlatt = new BFormBlatt();
                 ObjEFormBlatt = ObjBFormBlatt.Save_FormBlattArticles(ObjEFormBlatt, dvArticles.ToTable());
                 if (Utility._IsGermany == true)
-                {
                     frmOTTOPro.UpdateStatus("Artikelangaben für das Formblatt erfolgreich gespeichert");
-                }
                 else
-                {
                     frmOTTOPro.UpdateStatus("FormBlatt Articles Saved Successfully");
-                }
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex){Utility.ShowError(ex);}
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
