@@ -153,6 +153,7 @@ namespace OTTOPro
                     rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Complete",cmbLVSection.Text);
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
                     rpt.Parameters["ProjectID"].Value = ProjectID;
+                    rpt.Parameters["UsrName"].Value = Utility.FirstName;
                     printTool.ShowRibbonPreview();
                     this.Close();
                 }
@@ -199,6 +200,7 @@ namespace OTTOPro
                     rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Title", cmbLVSection.Text);
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
                     rpt.Parameters["ProjectID"].Value = ProjectID;
+                    rpt.Parameters["UsrName"].Value = Utility.FirstName;
                     printTool.ShowRibbonPreview();
                     this.Close();
                 }
@@ -208,6 +210,7 @@ namespace OTTOPro
                     rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "LVSection", cmbLVSection.Text);
                     ReportPrintTool printTool = new ReportPrintTool(rpt);
                     rpt.Parameters["ProjectID"].Value = ProjectID;
+                    rpt.Parameters["UsrName"].Value = Utility.FirstName;
                     printTool.ShowRibbonPreview();
                     this.Close();
                 }

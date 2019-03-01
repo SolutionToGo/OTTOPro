@@ -120,7 +120,6 @@
             // 
             this.txtLAngtext.Location = new System.Drawing.Point(12, 569);
             this.txtLAngtext.Name = "txtLAngtext";
-            this.txtLAngtext.ReadOnly = true;
             this.txtLAngtext.Size = new System.Drawing.Size(644, 204);
             this.txtLAngtext.TabIndex = 6;
             this.txtLAngtext.Text = "";

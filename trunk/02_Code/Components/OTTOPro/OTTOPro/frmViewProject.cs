@@ -51,7 +51,7 @@ namespace OTTOPro
             try
             {
                 if (tlLVDetails.FocusedNode != null)
-                    txtLAngtext.Rtf = tlLVDetails.FocusedNode["Longdiscription"] == null ? "" : tlLVDetails.FocusedNode["Longdiscription"].ToString();
+                    txtLAngtext.Rtf = Convert.ToString(tlLVDetails.FocusedNode["Longdiscription"]);
             }
             catch (Exception ex)
             {
