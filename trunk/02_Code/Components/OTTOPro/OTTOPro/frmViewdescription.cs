@@ -77,7 +77,6 @@ namespace OTTOPro
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            //this._IsSave = false;
             this.Close();
         }
 
@@ -88,6 +87,16 @@ namespace OTTOPro
                 _ISUpdated = true;    
             }
             _isFirstTime = false;
+        }
+
+        private void frmViewdescription_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.F1)
+                    btnCancel_Click(null, null);
+            }
+            catch (Exception ex){}
         }
     }
 }

@@ -21,6 +21,10 @@ namespace OTTOPro
         {
             InitializeComponent();
             ObjEPosition = _ObjEPosition;
+            txtWG.Text = ObjEPosition.WG;
+            txtWA.Text = ObjEPosition.WA;
+            txtWG.Enabled = false;
+            txtWA.Enabled = false;
         }
 
         private void btnSave_Click(object sender, EventArgs e)

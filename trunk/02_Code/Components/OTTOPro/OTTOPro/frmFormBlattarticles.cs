@@ -100,9 +100,6 @@ namespace OTTOPro
             {
                 DataView dvArticles = null;
                 DataTable Temp = ObjEFormBlatt.dtBlattArticles.Copy();
-                Temp.Columns.Remove("WG");
-                Temp.Columns.Remove("WA");
-                Temp.Columns.Remove("WI");
                 Temp.Columns.Remove("WGDescription");
                 Temp.Columns.Remove("WADescription");
                 DataTable dt = Temp;

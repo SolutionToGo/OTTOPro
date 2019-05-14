@@ -382,6 +382,7 @@ namespace OTTOPro
                     SplashScreenManager.CloseForm(false);
                     frmViewProject Obj = new frmViewProject(ObjEGAEB);
                     Obj.ShowDialog();
+                    UpdateStatus("Project imported successfully!!");
                 }
             }
             catch (Exception ex)

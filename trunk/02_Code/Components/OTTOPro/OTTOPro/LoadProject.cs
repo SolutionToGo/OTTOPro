@@ -160,18 +160,22 @@ namespace OTTOPro
                     int IValue = 0;
                     if(int.TryParse(Convert.ToString(dgProjectSearch.GetFocusedRowCellValue("ProjectID")),out IValue))
                     {
-                        string _PrNr = dgProjectSearch.GetFocusedDataRow()["ProjectNumber"].ToString();
-                         if(ObjBProject == null)
-                             ObjBProject = new BProject();
-                        ObjBProject.DeleteProject(IValue);
-                        dgProjectSearch.DeleteSelectedRows();
-                        foreach (Form form in Application.OpenForms)
+                        var dlgResult = XtraMessageBox.Show("Are you sure want to delete project ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (Convert.ToString(dlgResult) == "Yes")
                         {
-                            if (form.Text == _PrNr)
+                            string _PrNr = dgProjectSearch.GetFocusedDataRow()["ProjectNumber"].ToString();
+                            if (ObjBProject == null)
+                                ObjBProject = new BProject();
+                            ObjBProject.DeleteProject(IValue);
+                            dgProjectSearch.DeleteSelectedRows();
+                            foreach (Form form in Application.OpenForms)
                             {
-                                Utility.Isclose = true;
-                                form.Close();
-                                break;
+                                if (form.Text == _PrNr)
+                                {
+                                    Utility.Isclose = true;
+                                    form.Close();
+                                    break;
+                                }
                             }
                         }
                     }

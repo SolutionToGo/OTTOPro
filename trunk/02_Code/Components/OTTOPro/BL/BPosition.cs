@@ -6,6 +6,7 @@ using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
@@ -16,7 +17,7 @@ namespace BL
     {
         DPosition ObjDPosition = new DPosition();
 
-        public int SavePositionDetails(EPosition ObjEPosition,string strRaster, bool _IsCopy = false)
+        public int SavePositionDetails(EPosition ObjEPosition,string strRaster, int LVSprunge,bool _IsCopy = false)
         {
             try
             {
@@ -26,9 +27,9 @@ namespace BL
                 if (!_IsCopy)
                     PrepareOZ(ObjEPosition, strRaster);
                 string XPath = "/Nouns/Position";
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionID", ObjEPosition.PositionID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ProjectID", ObjEPosition.ProjectID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionOZ", ObjEPosition.Position_OZ);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionID", Convert.ToString(ObjEPosition.PositionID));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ProjectID", Convert.ToString(ObjEPosition.ProjectID));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionOZ", PrepareOZ(ObjEPosition.Position_OZ, strRaster));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ParentOZ", ObjEPosition.Parent_OZ);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Title", ObjEPosition.Title);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ShortDescription", ObjEPosition.ShortDescription);
@@ -104,19 +105,52 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SNO", ObjEPosition.SNO.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Discount", ObjEPosition.Discount.ToString(CInfo));
 
-                decimal OZID = 0;
+                double OZID = 0;
+                string stOZChar = "";
+                string OZ1 = string.Empty, OZ2 = string.Empty, OZ3 = string.Empty, OZ4 = string.Empty, OZ5 = string.Empty, OZ6 = string.Empty;
                 if (!string.IsNullOrEmpty(ObjEPosition.Position_OZ))
                 {
-                    string[] strOZList = ObjEPosition.Position_OZ.Split('.');
+                    string[] strOZList = PrepareOZ(ObjEPosition.Position_OZ, strRaster).Split('.');
                     if (strOZList.Count() > 1)
                     {
                         string strOZID = strOZList[strOZList.Count() - 2];
                         string strIndex = strOZList[strOZList.Count() - 1];
-                        if (!decimal.TryParse(strOZID + "." + strIndex,NumberStyles.Float,CultureInfo.GetCultureInfo("en"),out OZID))
+                        if (!double.TryParse(strOZID + "." + strIndex, NumberStyles.Float, CultureInfo.GetCultureInfo("en"), out OZID))
                             OZID = 0;
+                        char [] OZcharList = strOZID.ToCharArray();
+                        int CharCount = OZcharList.Count();
+                        if (CharCount > 0)
+                        {
+                            OZ1 = Convert.ToString(OZcharList[0]);
+                            if (CharCount > 1)
+                            {
+                                OZ2 = Convert.ToString(OZcharList[1]);
+                                if (CharCount > 2)
+                                {
+                                    OZ3 = Convert.ToString(OZcharList[2]);
+                                    if (CharCount > 3)
+                                    {
+                                        OZ4 = Convert.ToString(OZcharList[3]);
+                                        if (CharCount > 4)
+                                        {
+                                            OZ5 = Convert.ToString(OZcharList[4]);
+                                            OZ6 = strIndex;
+                                        }
+                                        else
+                                            OZ5 = strIndex;
+                                    }
+                                    else
+                                        OZ4 = strIndex;
+                                }
+                                else
+                                    OZ3 = strIndex;
+                            }
+                            else
+                                OZ2 = strIndex;
+                        }
                     }
                 }
-                PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription, OZID);
+                PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription, OZID, OZ1, OZ2, OZ3, OZ4, OZ5, OZ6, stOZChar);
                 if (PositionID < 0)
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
@@ -244,8 +278,8 @@ namespace BL
                         ObjEPosition.Title = string.Empty;
                     }
                     
-                    ObjEPosition.Position_OZ = strPositionOZ.ToString();
-                    ObjEPosition.Parent_OZ = strParentOZ.ToString();
+                    ObjEPosition.Position_OZ = Convert.ToString(strPositionOZ);
+                    ObjEPosition.Parent_OZ = Convert.ToString(strParentOZ);
                 }
                 else
                 {
@@ -410,6 +444,19 @@ namespace BL
             return ObjEPositon;
         }
 
+        public EPosition GetArticleByWGWA(EPosition ObjEPositon)
+        {
+            try
+            {
+                ObjEPositon = ObjDPosition.GetArticleByWGWA(ObjEPositon);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
+
         public EPosition GetArticleByDimension(EPosition ObjEPositon)
         {
             try
@@ -437,12 +484,12 @@ namespace BL
             return ds;
         }
 
-        public int CopyPosition(EPosition ObjEPosition)
+        public int CopyPosition(EPosition ObjEPosition,string stOZChar)
         {
             int NewPositionID = 0;
             try
             {
-                NewPositionID = ObjDPosition.CopyPosition(ObjEPosition);
+                NewPositionID = ObjDPosition.CopyPosition(ObjEPosition, stOZChar);
             }
             catch (Exception ex)
             {
@@ -475,6 +522,60 @@ namespace BL
                 throw;
             }
             return ObjEPositon;
+        }
+
+        public string PrepareOZ(string strOZ, string strRaster)
+        {
+            string str = string.Empty;
+            try
+            {
+                string[] strPOZ = strOZ.Split('.');
+                string[] strPRaster = strRaster.Split('.');
+                int Count = -1;
+                int i = -1;
+                Count = strPOZ.Count();
+                while (Count > 0)
+                {
+                    i = i + 1;
+                    Count = Count - 1;
+                    string OZ = string.Empty;
+                    int OZLength = 0;
+                    int RasterLength = 0;
+
+                    OZ = strPOZ[i].Trim();
+                    RasterLength = strPRaster[i].Length;
+
+                    OZLength = OZ.Trim().Length;
+
+                    if (Count == 0)
+                    {
+                        if (RasterLength == 1 && OZLength > 0)
+                        {
+                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ;
+                        }
+                        else if (OZLength > 0)
+                        {
+                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
+                        }
+                    }
+                    else
+                    {
+                        if (OZ == "")
+                        {
+                            str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
+                        }
+                        else
+                        {
+                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Please enter valid OZ");
+            }
+            return str;
         }
 
     }

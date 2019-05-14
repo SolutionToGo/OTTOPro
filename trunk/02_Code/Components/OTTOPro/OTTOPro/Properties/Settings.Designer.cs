@@ -43,5 +43,16 @@ namespace OTTOPro.Properties {
                 return ((string)(this["OTTOConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-QKVH12I;Initial Catalog=OTTO;Persist Security Info=True;User " +
+            "ID=sa")]
+        public string OTTOConnectionString1 {
+            get {
+                return ((string)(this["OTTOConnectionString1"]));
+            }
+        }
     }
 }

@@ -5,6 +5,8 @@ using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 using DAL;
 using System.Data;
+using DevExpress.XtraRichEdit;
+using DevExpress.XtraRichEdit.API.Native;
 
 namespace OTTOPro.Report_Design
 {
@@ -14,84 +16,20 @@ namespace OTTOPro.Report_Design
         DataTable dtValue;
         string _Type = string.Empty;
         string _LVSection = string.Empty;
+        bool IswithGB = false;
         public rptProposalwithoutMAMO()
         {
             InitializeComponent();
         }
-        public rptProposalwithoutMAMO(int _ProID, DataTable dt, string type, string LVSection)
+
+        public rptProposalwithoutMAMO(int _ProID, DataTable dt, string type, string LVSection, bool IsReportWithGB = true)
         {
             InitializeComponent();
             _PID=_ProID;
             dtValue = dt;
             _Type = type;
             _LVSection = LVSection;
-        }
-
-        private void xrlblPageSum_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        {
-            e.Result = _xrGBVlaue;
-            e.Handled = true;
-        }
-
-        double totalMOPrice1 = 0;
-        private void xrLabel27_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        {
-            e.Result = totalMOPrice1;
-            e.Handled = true;
-        }
-
-        private void xrLabel27_SummaryReset(object sender, EventArgs e)
-        {
-            totalMOPrice1 = 0;
-        }
-
-        private void xrLabel27_SummaryRowChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (DetailReport.GetCurrentColumnValue("MA_verkaufspreis") != DBNull.Value)
-                    totalMOPrice1 += Convert.ToDouble(DetailReport.GetCurrentColumnValue("MA_verkaufspreis"));
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void xrTableCell13_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            double DVat = 0;
-            try
-            {
-                if (GetCurrentColumnValue("Vat") != DBNull.Value)
-                    if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out DVat))
-                    {
-                        double DGBValue = 0;
-                        if (double .TryParse(Convert.ToString(xrLblGB.Summary.GetResult()),out DGBValue))
-                        {
-                            double _result = Convert.ToDouble(((DGBValue - _Discount) * DVat) / 100);
-                            xrLblTotalVat.Text = _result.ToString("n2");
-                        }
-                    }
-            }
-            catch (Exception ex){}
-        }
-
-        private void xrlblPageSum_PrintOnPage(object sender, PrintOnPageEventArgs e)
-        {
-            try
-            {
-                if (e.PageIndex == e.PageCount - 1)
-                {
-                    xrLabel22.Visible = false;
-                    xrlblPageSum.Visible = false;
-                }
-               
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            IswithGB = IsReportWithGB;
         }
 
         private void TopMargin_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -124,7 +62,9 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }
         }
+
         double _Discount = 0;
+
         private void rptProposalCommon_DataSourceDemanded(object sender, EventArgs e)
         {
             try
@@ -133,7 +73,7 @@ namespace OTTOPro.Report_Design
                 dsDiscountCalculation ds = new dsDiscountCalculation();
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
                 this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.ClearBeforeFill = true;
-                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtValue, _PID, _Type, "");
+                this.p_Rpt_QuerCalculation_DiscountPositionTableAdapter.Fill(ds.P_Rpt_QuerCalculation_DiscountPosition, dtValue, _PID, _Type, _LVSection);
 
                 dsProposalCommon _dsCommon = new dsProposalCommon();
                 this.p_Rpt_PositionForProposalPriceForCommonTableAdapter.Connection.ConnectionString = SQLCon.ConnectionString();
@@ -152,7 +92,7 @@ namespace OTTOPro.Report_Design
                     decimal _result = 0;
                     if (decimal.TryParse(Convert.ToString(dtdiscount.Rows[0][0]), out _result))
                     {
-                        if (_result != 0)
+                        if (_result != 0 && !IswithGB)
                         {
                             tbDiscount.Text = '-' + _result.ToString("n2");
                             _Discount = Convert.ToDouble(_result);
@@ -172,47 +112,63 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }
         }
-        double value = 0;
-        private void xrLblGB_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            try
-            {                
-            //    if (DetailReport1.GetCurrentColumnValue("FinalGB") != DBNull.Value)
-            //    {
-            //        value = Convert.ToDouble(xrLabel10.Summary.GetResult()) - _Discount;
-            //        xrLblGB.Text = (value).ToString("n2");
-            //    }
 
-            //    xrTableCell13_BeforePrint(null,null);
-                
-            }
-            catch (Exception ex)
+        private void xrTableCell13_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            double DVat = 0;
+            try
             {
-                Utility.ShowError(ex);
+                if (double.TryParse(txtVat.Text, out DVat))
+                {
+                    double DGBValue = 0;
+                    if (double.TryParse(Convert.ToString(xrLblGB.Summary.GetResult()), out DGBValue))
+                    {
+                        double _result = 0;
+                        if (!IswithGB)
+                            _result = Convert.ToDouble(((DGBValue - _Discount) * DVat) / 100);
+                        xrLblTotalVat.Text = _result.ToString("n2");
+                    }
+                }
             }
+            catch (Exception ex) { }
         }
 
-        double _xrGBVlaue = 0;
-        private void xrGB_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void xrLabelFinalResult_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            Double dValue = 0;
+            double DVat = 0;
             try
             {
-                if (xrPositionKZ.Text != "Eventualposition")
+                if (double.TryParse(txtVat.Text, out DVat))
                 {
-                    if (double.TryParse(xrGB.Text, out dValue))
+                    double DGBValue = 0;
+                    if (double.TryParse(Convert.ToString(xrLblGB.Summary.GetResult()), out DGBValue))
                     {
-                        if (dValue > 0)
-                        {
-                            _xrGBVlaue += dValue;
-                        }
-                    }    
-                }                            
+                        double _result = 0;
+                        if (!IswithGB)
+                            _result = Convert.ToDouble(((DGBValue - _Discount) * DVat) / 100);
+                        xrLabelFinalResult.Text = ((DGBValue + _result) - _Discount).ToString("n2");
+                    }
+                }
             }
-            catch (Exception ex)
+            catch (Exception ex) { }
+        }
+
+        #region 'Font Settings'
+        private void xrKommentarKalkulator_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
             {
-                Utility.ShowError(ex);
+                XRRichText richText = (XRRichText)sender;
+                using (RichEditDocumentServer docServer = new RichEditDocumentServer())
+                {
+                    docServer.RtfText = richText.Rtf;
+                    docServer.Document.DefaultCharacterProperties.FontName = "Trebuchet MS";
+                    docServer.Document.DefaultCharacterProperties.FontSize = 10;
+                    docServer.Document.DefaultParagraphProperties.Alignment = ParagraphAlignment.Justify;
+                    richText.Rtf = docServer.RtfText;
+                }
             }
+            catch (Exception ex) { }
         }
 
         private void xrRichText1_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
@@ -230,28 +186,79 @@ namespace OTTOPro.Report_Design
             try
             {
                 XRRichText richText = (XRRichText)sender;
-                richText.Font = new Font("Trebuchet MS", 10, FontStyle. Regular);
+                richText.Font = new Font("Trebuchet MS", 10, FontStyle.Regular);
             }
             catch (Exception ex) { }
+        }
+        #endregion
+
+        #region 'group Summary Calculation'
+        double GroupSum = 0;
+        double AlternateSum = 0;
+        bool IsNormalSubtitle = false;
+        private void lblGroupSum_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            if (!IsNormalSubtitle)
+                e.Result = AlternateSum + "A";
+            else
+                e.Result = GroupSum;
+            e.Handled = true;
         }
 
-        private void xrLabelFinalResult_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void lblGroupSum_SummaryReset(object sender, EventArgs e)
         {
-            double DVat = 0;
+            GroupSum = 0;
+            AlternateSum = 0;
+            IsNormalSubtitle = false;
+        }
+
+        private void lblGroupSum_SummaryRowChanged(object sender, EventArgs e)
+        {
             try
             {
-                if (GetCurrentColumnValue("Vat") != DBNull.Value)
-                    if (double.TryParse(Convert.ToString(GetCurrentColumnValue("Vat")), out DVat))
+                string stTemp = Convert.ToString(DetailReport.GetCurrentColumnValue("FinalGB"));
+                double dSum = 0;
+                double.TryParse(stTemp, out dSum);
+                string stPKZ = Convert.ToString(DetailReport.GetCurrentColumnValue("PositionKZ"));
+                if (stPKZ != "A")
+                {
+                    if (stPKZ != "E")
                     {
-                        double DGBValue = 0;
-                        if (double.TryParse(Convert.ToString(xrLblGB.Summary.GetResult()), out DGBValue))
-                        {
-                            double _result = Convert.ToDouble(((DGBValue - _Discount) * DVat) / 100);
-                            xrLabelFinalResult.Text = ((DGBValue + _result) - _Discount).ToString("n2");
-                        }
+                        GroupSum += dSum;
+                        IsNormalSubtitle = true;
                     }
+                }
+                AlternateSum += dSum;
             }
             catch (Exception ex) { }
         }
+        #endregion
+
+        #region 'Page Total  Calculation'
+        double _xrGBVlaue = 0;
+        private void xrGB_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            Double dValue = 0;
+            try
+            {
+                if (double.TryParse(xrGB.Text, out dValue))
+                {
+                    if (dValue > 0)
+                    {
+                        _xrGBVlaue += dValue;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+        private void xrlblPageSum_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            e.Result = _xrGBVlaue;
+            e.Handled = true;
+        }
+        #endregion
     }
 }

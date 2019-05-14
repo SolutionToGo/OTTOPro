@@ -148,6 +148,7 @@
             this.ProjectNumber.Name = "ProjectNumber";
             this.ProjectNumber.Visible = true;
             this.ProjectNumber.VisibleIndex = 0;
+            this.ProjectNumber.Width = 89;
             // 
             // ComissionNumber
             // 
@@ -157,7 +158,8 @@
             this.ComissionNumber.FieldName = "ComissionNumber";
             this.ComissionNumber.Name = "ComissionNumber";
             this.ComissionNumber.Visible = true;
-            this.ComissionNumber.VisibleIndex = 1;
+            this.ComissionNumber.VisibleIndex = 2;
+            this.ComissionNumber.Width = 193;
             // 
             // CustomerName
             // 
@@ -169,7 +171,8 @@
             this.CustomerName.FieldName = "CustomerName";
             this.CustomerName.Name = "CustomerName";
             this.CustomerName.Visible = true;
-            this.CustomerName.VisibleIndex = 2;
+            this.CustomerName.VisibleIndex = 3;
+            this.CustomerName.Width = 238;
             // 
             // PlannerName
             // 
@@ -179,9 +182,14 @@
             // 
             // ProjectDescription
             // 
+            this.ProjectDescription.AppearanceHeader.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold);
+            this.ProjectDescription.AppearanceHeader.Options.UseFont = true;
             this.ProjectDescription.Caption = "Project Description";
             this.ProjectDescription.FieldName = "ProjectDescription";
             this.ProjectDescription.Name = "ProjectDescription";
+            this.ProjectDescription.Visible = true;
+            this.ProjectDescription.VisibleIndex = 1;
+            this.ProjectDescription.Width = 171;
             // 
             // Created_By
             // 
@@ -278,7 +286,6 @@
             this.emptySpaceItem3,
             this.emptySpaceItem4,
             this.emptySpaceItem5});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1050, 547);
             this.layoutControlGroup1.TextVisible = false;
@@ -399,8 +406,5 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraEditors.SimpleButton btnImport;
-
-
-
     }
 }

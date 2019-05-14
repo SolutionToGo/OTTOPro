@@ -40,5 +40,6 @@ namespace EL
             get { return _UmlageValue; }
             set { _UmlageValue = value; }
         }
+        public int UmlageMode = 0;
     }
 }

@@ -210,7 +210,7 @@ namespace OTTOPro
             }
             catch (Exception ex)
             {
-                throw;
+                throw new Exception("Please enter valid OZ");
             }
             return str;
         }
@@ -341,6 +341,12 @@ namespace OTTOPro
                 dtV.Columns.Add("Nr", typeof(string));
                 dtV.Columns.Add("BezugOZ", typeof(string));
                 dtV.Columns.Add("OZID", typeof(decimal));
+                dtV.Columns.Add("OZ1", typeof(string));
+                dtV.Columns.Add("OZ2", typeof(string));
+                dtV.Columns.Add("OZ3", typeof(string));
+                dtV.Columns.Add("OZ4", typeof(string));
+                dtV.Columns.Add("OZ5", typeof(string));
+                dtV.Columns.Add("OZ6", typeof(string));
                 dsXmlData.Tables.Add(dtV);
 
                 XmlDocument xDoc = new XmlDocument();
@@ -407,6 +413,54 @@ namespace OTTOPro
                             }
                         }
                         drLVPos["OZID"] = OZID;
+
+                        string OZ1 = string.Empty, OZ2 = string.Empty, OZ3 = string.Empty, OZ4 = string.Empty, OZ5 = string.Empty, OZ6 = string.Empty;
+                        if (!string.IsNullOrEmpty(stOZ))
+                        {
+                            string[] strOZList = stOZ.Split('.');
+                            if (strOZList.Count() > 1)
+                            {
+                                string strOZID = strOZList[strOZList.Count() - 2];
+                                string strIndex = strOZList[strOZList.Count() - 1];
+                                char[] OZcharList = strOZID.ToCharArray();
+                                int CharCount = OZcharList.Count();
+                                if (CharCount > 0)
+                                {
+                                    OZ1 = Convert.ToString(OZcharList[0]);
+                                    if (CharCount > 1)
+                                    {
+                                        OZ2 = Convert.ToString(OZcharList[1]);
+                                        if (CharCount > 2)
+                                        {
+                                            OZ3 = Convert.ToString(OZcharList[2]);
+                                            if (CharCount > 3)
+                                            {
+                                                OZ4 = Convert.ToString(OZcharList[3]);
+                                                if (CharCount > 4)
+                                                {
+                                                    OZ5 = Convert.ToString(OZcharList[4]);
+                                                    OZ6 = strIndex;
+                                                }
+                                                else
+                                                    OZ5 = strIndex;
+                                            }
+                                            else
+                                                OZ4 = strIndex;
+                                        }
+                                        else
+                                            OZ3 = strIndex;
+                                    }
+                                    else
+                                        OZ2 = strIndex;
+                                }
+                            }
+                        }
+                        drLVPos["OZ1"] = OZ1;
+                        drLVPos["OZ2"] = OZ2;
+                        drLVPos["OZ3"] = OZ3;
+                        drLVPos["OZ4"] = OZ4;
+                        drLVPos["OZ5"] = OZ5;
+                        drLVPos["OZ6"] = OZ6;
                     }
 
                     XmlNode xnMenge = xnPos.SelectSingleNode("Menge");

@@ -20,17 +20,17 @@ namespace OTTOPro.Report_Design {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsQuerKalculation")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsQuerCalcNew")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsQuerKalculation : global::System.Data.DataSet {
+    public partial class dsQuerCalcNew : global::System.Data.DataSet {
         
-        private P_Rpt_QuerCalculationDataTable tableP_Rpt_QuerCalculation;
+        private P_Rpt_QuerCalculation_1DataTable tableP_Rpt_QuerCalculation_1;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public dsQuerKalculation() {
+        public dsQuerCalcNew() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace OTTOPro.Report_Design {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected dsQuerKalculation(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsQuerCalcNew(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace OTTOPro.Report_Design {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["P_Rpt_QuerCalculation"] != null)) {
-                    base.Tables.Add(new P_Rpt_QuerCalculationDataTable(ds.Tables["P_Rpt_QuerCalculation"]));
+                if ((ds.Tables["P_Rpt_QuerCalculation_1"] != null)) {
+                    base.Tables.Add(new P_Rpt_QuerCalculation_1DataTable(ds.Tables["P_Rpt_QuerCalculation_1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace OTTOPro.Report_Design {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public P_Rpt_QuerCalculationDataTable P_Rpt_QuerCalculation {
+        public P_Rpt_QuerCalculation_1DataTable P_Rpt_QuerCalculation_1 {
             get {
-                return this.tableP_Rpt_QuerCalculation;
+                return this.tableP_Rpt_QuerCalculation_1;
             }
         }
         
@@ -127,7 +127,7 @@ namespace OTTOPro.Report_Design {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsQuerKalculation cln = ((dsQuerKalculation)(base.Clone()));
+            dsQuerCalcNew cln = ((dsQuerCalcNew)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace OTTOPro.Report_Design {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["P_Rpt_QuerCalculation"] != null)) {
-                    base.Tables.Add(new P_Rpt_QuerCalculationDataTable(ds.Tables["P_Rpt_QuerCalculation"]));
+                if ((ds.Tables["P_Rpt_QuerCalculation_1"] != null)) {
+                    base.Tables.Add(new P_Rpt_QuerCalculation_1DataTable(ds.Tables["P_Rpt_QuerCalculation_1"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace OTTOPro.Report_Design {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableP_Rpt_QuerCalculation = ((P_Rpt_QuerCalculationDataTable)(base.Tables["P_Rpt_QuerCalculation"]));
+            this.tableP_Rpt_QuerCalculation_1 = ((P_Rpt_QuerCalculation_1DataTable)(base.Tables["P_Rpt_QuerCalculation_1"]));
             if ((initTable == true)) {
-                if ((this.tableP_Rpt_QuerCalculation != null)) {
-                    this.tableP_Rpt_QuerCalculation.InitVars();
+                if ((this.tableP_Rpt_QuerCalculation_1 != null)) {
+                    this.tableP_Rpt_QuerCalculation_1.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace OTTOPro.Report_Design {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsQuerKalculation";
+            this.DataSetName = "dsQuerCalcNew";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsQuerKalculation.xsd";
+            this.Namespace = "http://tempuri.org/dsQuerCalcNew.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableP_Rpt_QuerCalculation = new P_Rpt_QuerCalculationDataTable();
-            base.Tables.Add(this.tableP_Rpt_QuerCalculation);
+            this.tableP_Rpt_QuerCalculation_1 = new P_Rpt_QuerCalculation_1DataTable();
+            base.Tables.Add(this.tableP_Rpt_QuerCalculation_1);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeP_Rpt_QuerCalculation() {
+        private bool ShouldSerializeP_Rpt_QuerCalculation_1() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace OTTOPro.Report_Design {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsQuerKalculation ds = new dsQuerKalculation();
+            dsQuerCalcNew ds = new dsQuerCalcNew();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,22 +270,14 @@ namespace OTTOPro.Report_Design {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void P_Rpt_QuerCalculationRowChangeEventHandler(object sender, P_Rpt_QuerCalculationRowChangeEvent e);
+        public delegate void P_Rpt_QuerCalculation_1RowChangeEventHandler(object sender, P_Rpt_QuerCalculation_1RowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class P_Rpt_QuerCalculationDataTable : global::System.Data.TypedTableBase<P_Rpt_QuerCalculationRow> {
-            
-            private global::System.Data.DataColumn columnMA_EK;
-            
-            private global::System.Data.DataColumn columnMA_VK;
-            
-            private global::System.Data.DataColumn columnMO_EK;
-            
-            private global::System.Data.DataColumn columnMO_VK;
+        public partial class P_Rpt_QuerCalculation_1DataTable : global::System.Data.TypedTableBase<P_Rpt_QuerCalculation_1Row> {
             
             private global::System.Data.DataColumn columnWG;
             
@@ -297,14 +289,20 @@ namespace OTTOPro.Report_Design {
             
             private global::System.Data.DataColumn columnLIEFR;
             
-            private global::System.Data.DataColumn columnMA_VKONUM;
+            private global::System.Data.DataColumn columnMA_EK;
             
-            private global::System.Data.DataColumn columnMO_VKONUM;
+            private global::System.Data.DataColumn columnMA_VK;
+            
+            private global::System.Data.DataColumn columnMO_EK;
+            
+            private global::System.Data.DataColumn columnMO_VK;
+            
+            private global::System.Data.DataColumn columnMA_VKONUM;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationDataTable() {
-                this.TableName = "P_Rpt_QuerCalculation";
+            public P_Rpt_QuerCalculation_1DataTable() {
+                this.TableName = "P_Rpt_QuerCalculation_1";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -312,7 +310,7 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal P_Rpt_QuerCalculationDataTable(global::System.Data.DataTable table) {
+            internal P_Rpt_QuerCalculation_1DataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -329,41 +327,9 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected P_Rpt_QuerCalculationDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected P_Rpt_QuerCalculation_1DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MA_EKColumn {
-                get {
-                    return this.columnMA_EK;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MA_VKColumn {
-                get {
-                    return this.columnMA_VK;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MO_EKColumn {
-                get {
-                    return this.columnMO_EK;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MO_VKColumn {
-                get {
-                    return this.columnMO_VK;
-                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -408,17 +374,41 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MA_VKONUMColumn {
+            public global::System.Data.DataColumn MA_EKColumn {
                 get {
-                    return this.columnMA_VKONUM;
+                    return this.columnMA_EK;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MO_VKONUMColumn {
+            public global::System.Data.DataColumn MA_VKColumn {
                 get {
-                    return this.columnMO_VKONUM;
+                    return this.columnMA_VK;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MO_EKColumn {
+                get {
+                    return this.columnMO_EK;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MO_VKColumn {
+                get {
+                    return this.columnMO_VK;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MA_VKONUMColumn {
+                get {
+                    return this.columnMA_VKONUM;
                 }
             }
             
@@ -433,55 +423,54 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRow this[int index] {
+            public P_Rpt_QuerCalculation_1Row this[int index] {
                 get {
-                    return ((P_Rpt_QuerCalculationRow)(this.Rows[index]));
+                    return ((P_Rpt_QuerCalculation_1Row)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event P_Rpt_QuerCalculationRowChangeEventHandler P_Rpt_QuerCalculationRowChanging;
+            public event P_Rpt_QuerCalculation_1RowChangeEventHandler P_Rpt_QuerCalculation_1RowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event P_Rpt_QuerCalculationRowChangeEventHandler P_Rpt_QuerCalculationRowChanged;
+            public event P_Rpt_QuerCalculation_1RowChangeEventHandler P_Rpt_QuerCalculation_1RowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event P_Rpt_QuerCalculationRowChangeEventHandler P_Rpt_QuerCalculationRowDeleting;
+            public event P_Rpt_QuerCalculation_1RowChangeEventHandler P_Rpt_QuerCalculation_1RowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event P_Rpt_QuerCalculationRowChangeEventHandler P_Rpt_QuerCalculationRowDeleted;
+            public event P_Rpt_QuerCalculation_1RowChangeEventHandler P_Rpt_QuerCalculation_1RowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddP_Rpt_QuerCalculationRow(P_Rpt_QuerCalculationRow row) {
+            public void AddP_Rpt_QuerCalculation_1Row(P_Rpt_QuerCalculation_1Row row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRow AddP_Rpt_QuerCalculationRow(decimal MA_EK, decimal MA_VK, decimal MO_EK, decimal MO_VK, string WG, string WA, string WADESCRIPTION, int WGID, string LIEFR, decimal MA_VKONUM, decimal MO_VKONUM) {
-                P_Rpt_QuerCalculationRow rowP_Rpt_QuerCalculationRow = ((P_Rpt_QuerCalculationRow)(this.NewRow()));
+            public P_Rpt_QuerCalculation_1Row AddP_Rpt_QuerCalculation_1Row(string WG, string WA, string WADESCRIPTION, int WGID, string LIEFR, decimal MA_EK, decimal MA_VK, decimal MO_EK, decimal MO_VK, decimal MA_VKONUM) {
+                P_Rpt_QuerCalculation_1Row rowP_Rpt_QuerCalculation_1Row = ((P_Rpt_QuerCalculation_1Row)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        MA_EK,
-                        MA_VK,
-                        MO_EK,
-                        MO_VK,
                         WG,
                         WA,
                         WADESCRIPTION,
                         WGID,
                         LIEFR,
-                        MA_VKONUM,
-                        MO_VKONUM};
-                rowP_Rpt_QuerCalculationRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowP_Rpt_QuerCalculationRow);
-                return rowP_Rpt_QuerCalculationRow;
+                        MA_EK,
+                        MA_VK,
+                        MO_EK,
+                        MO_VK,
+                        MA_VKONUM};
+                rowP_Rpt_QuerCalculation_1Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowP_Rpt_QuerCalculation_1Row);
+                return rowP_Rpt_QuerCalculation_1Row;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                P_Rpt_QuerCalculationDataTable cln = ((P_Rpt_QuerCalculationDataTable)(base.Clone()));
+                P_Rpt_QuerCalculation_1DataTable cln = ((P_Rpt_QuerCalculation_1DataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -489,36 +478,27 @@ namespace OTTOPro.Report_Design {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new P_Rpt_QuerCalculationDataTable();
+                return new P_Rpt_QuerCalculation_1DataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnMA_EK = base.Columns["MA_EK"];
-                this.columnMA_VK = base.Columns["MA_VK"];
-                this.columnMO_EK = base.Columns["MO_EK"];
-                this.columnMO_VK = base.Columns["MO_VK"];
                 this.columnWG = base.Columns["WG"];
                 this.columnWA = base.Columns["WA"];
                 this.columnWADESCRIPTION = base.Columns["WADESCRIPTION"];
                 this.columnWGID = base.Columns["WGID"];
                 this.columnLIEFR = base.Columns["LIEFR"];
+                this.columnMA_EK = base.Columns["MA_EK"];
+                this.columnMA_VK = base.Columns["MA_VK"];
+                this.columnMO_EK = base.Columns["MO_EK"];
+                this.columnMO_VK = base.Columns["MO_VK"];
                 this.columnMA_VKONUM = base.Columns["MA_VKONUM"];
-                this.columnMO_VKONUM = base.Columns["MO_VKONUM"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnMA_EK = new global::System.Data.DataColumn("MA_EK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMA_EK);
-                this.columnMA_VK = new global::System.Data.DataColumn("MA_VK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMA_VK);
-                this.columnMO_EK = new global::System.Data.DataColumn("MO_EK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMO_EK);
-                this.columnMO_VK = new global::System.Data.DataColumn("MO_VK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMO_VK);
                 this.columnWG = new global::System.Data.DataColumn("WG", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnWG);
                 this.columnWA = new global::System.Data.DataColumn("WA", typeof(string), null, global::System.Data.MappingType.Element);
@@ -529,47 +509,52 @@ namespace OTTOPro.Report_Design {
                 base.Columns.Add(this.columnWGID);
                 this.columnLIEFR = new global::System.Data.DataColumn("LIEFR", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnLIEFR);
+                this.columnMA_EK = new global::System.Data.DataColumn("MA_EK", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_EK);
+                this.columnMA_VK = new global::System.Data.DataColumn("MA_VK", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_VK);
+                this.columnMO_EK = new global::System.Data.DataColumn("MO_EK", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMO_EK);
+                this.columnMO_VK = new global::System.Data.DataColumn("MO_VK", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMO_VK);
                 this.columnMA_VKONUM = new global::System.Data.DataColumn("MA_VKONUM", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnMA_VKONUM);
-                this.columnMO_VKONUM = new global::System.Data.DataColumn("MO_VKONUM", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMO_VKONUM);
-                this.columnMA_EK.ReadOnly = true;
-                this.columnMA_VK.ReadOnly = true;
-                this.columnMO_EK.ReadOnly = true;
-                this.columnMO_VK.ReadOnly = true;
                 this.columnWG.MaxLength = 10;
                 this.columnWA.MaxLength = 10;
                 this.columnWADESCRIPTION.ReadOnly = true;
                 this.columnWADESCRIPTION.MaxLength = 500;
                 this.columnLIEFR.MaxLength = 50;
+                this.columnMA_EK.ReadOnly = true;
+                this.columnMA_VK.ReadOnly = true;
+                this.columnMO_EK.ReadOnly = true;
+                this.columnMO_VK.ReadOnly = true;
                 this.columnMA_VKONUM.ReadOnly = true;
-                this.columnMO_VKONUM.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRow NewP_Rpt_QuerCalculationRow() {
-                return ((P_Rpt_QuerCalculationRow)(this.NewRow()));
+            public P_Rpt_QuerCalculation_1Row NewP_Rpt_QuerCalculation_1Row() {
+                return ((P_Rpt_QuerCalculation_1Row)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new P_Rpt_QuerCalculationRow(builder);
+                return new P_Rpt_QuerCalculation_1Row(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(P_Rpt_QuerCalculationRow);
+                return typeof(P_Rpt_QuerCalculation_1Row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.P_Rpt_QuerCalculationRowChanged != null)) {
-                    this.P_Rpt_QuerCalculationRowChanged(this, new P_Rpt_QuerCalculationRowChangeEvent(((P_Rpt_QuerCalculationRow)(e.Row)), e.Action));
+                if ((this.P_Rpt_QuerCalculation_1RowChanged != null)) {
+                    this.P_Rpt_QuerCalculation_1RowChanged(this, new P_Rpt_QuerCalculation_1RowChangeEvent(((P_Rpt_QuerCalculation_1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -577,8 +562,8 @@ namespace OTTOPro.Report_Design {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.P_Rpt_QuerCalculationRowChanging != null)) {
-                    this.P_Rpt_QuerCalculationRowChanging(this, new P_Rpt_QuerCalculationRowChangeEvent(((P_Rpt_QuerCalculationRow)(e.Row)), e.Action));
+                if ((this.P_Rpt_QuerCalculation_1RowChanging != null)) {
+                    this.P_Rpt_QuerCalculation_1RowChanging(this, new P_Rpt_QuerCalculation_1RowChangeEvent(((P_Rpt_QuerCalculation_1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -586,8 +571,8 @@ namespace OTTOPro.Report_Design {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.P_Rpt_QuerCalculationRowDeleted != null)) {
-                    this.P_Rpt_QuerCalculationRowDeleted(this, new P_Rpt_QuerCalculationRowChangeEvent(((P_Rpt_QuerCalculationRow)(e.Row)), e.Action));
+                if ((this.P_Rpt_QuerCalculation_1RowDeleted != null)) {
+                    this.P_Rpt_QuerCalculation_1RowDeleted(this, new P_Rpt_QuerCalculation_1RowChangeEvent(((P_Rpt_QuerCalculation_1Row)(e.Row)), e.Action));
                 }
             }
             
@@ -595,14 +580,14 @@ namespace OTTOPro.Report_Design {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.P_Rpt_QuerCalculationRowDeleting != null)) {
-                    this.P_Rpt_QuerCalculationRowDeleting(this, new P_Rpt_QuerCalculationRowChangeEvent(((P_Rpt_QuerCalculationRow)(e.Row)), e.Action));
+                if ((this.P_Rpt_QuerCalculation_1RowDeleting != null)) {
+                    this.P_Rpt_QuerCalculation_1RowDeleting(this, new P_Rpt_QuerCalculation_1RowChangeEvent(((P_Rpt_QuerCalculation_1Row)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveP_Rpt_QuerCalculationRow(P_Rpt_QuerCalculationRow row) {
+            public void RemoveP_Rpt_QuerCalculation_1Row(P_Rpt_QuerCalculation_1Row row) {
                 this.Rows.Remove(row);
             }
             
@@ -611,7 +596,7 @@ namespace OTTOPro.Report_Design {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsQuerKalculation ds = new dsQuerKalculation();
+                dsQuerCalcNew ds = new dsQuerCalcNew();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -629,7 +614,7 @@ namespace OTTOPro.Report_Design {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "P_Rpt_QuerCalculationDataTable";
+                attribute2.FixedValue = "P_Rpt_QuerCalculation_1DataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -673,79 +658,15 @@ namespace OTTOPro.Report_Design {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class P_Rpt_QuerCalculationRow : global::System.Data.DataRow {
+        public partial class P_Rpt_QuerCalculation_1Row : global::System.Data.DataRow {
             
-            private P_Rpt_QuerCalculationDataTable tableP_Rpt_QuerCalculation;
+            private P_Rpt_QuerCalculation_1DataTable tableP_Rpt_QuerCalculation_1;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal P_Rpt_QuerCalculationRow(global::System.Data.DataRowBuilder rb) : 
+            internal P_Rpt_QuerCalculation_1Row(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableP_Rpt_QuerCalculation = ((P_Rpt_QuerCalculationDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MA_EK {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MA_EKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MA_EK\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableP_Rpt_QuerCalculation.MA_EKColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MA_VK {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MA_VKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MA_VK\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableP_Rpt_QuerCalculation.MA_VKColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MO_EK {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MO_EKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MO_EK\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableP_Rpt_QuerCalculation.MO_EKColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MO_VK {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MO_VKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MO_VK\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableP_Rpt_QuerCalculation.MO_VKColumn] = value;
-                }
+                this.tableP_Rpt_QuerCalculation_1 = ((P_Rpt_QuerCalculation_1DataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -753,14 +674,14 @@ namespace OTTOPro.Report_Design {
             public string WG {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_QuerCalculation.WGColumn]));
+                        return ((string)(this[this.tableP_Rpt_QuerCalculation_1.WGColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WG\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'WG\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.WGColumn] = value;
+                    this[this.tableP_Rpt_QuerCalculation_1.WGColumn] = value;
                 }
             }
             
@@ -769,14 +690,14 @@ namespace OTTOPro.Report_Design {
             public string WA {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_QuerCalculation.WAColumn]));
+                        return ((string)(this[this.tableP_Rpt_QuerCalculation_1.WAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WA\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'WA\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.WAColumn] = value;
+                    this[this.tableP_Rpt_QuerCalculation_1.WAColumn] = value;
                 }
             }
             
@@ -785,14 +706,15 @@ namespace OTTOPro.Report_Design {
             public string WADESCRIPTION {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_QuerCalculation.WADESCRIPTIONColumn]));
+                        return ((string)(this[this.tableP_Rpt_QuerCalculation_1.WADESCRIPTIONColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WADESCRIPTION\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'WADESCRIPTION\' in table \'P_Rpt_QuerCalculation_1\' is DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.WADESCRIPTIONColumn] = value;
+                    this[this.tableP_Rpt_QuerCalculation_1.WADESCRIPTIONColumn] = value;
                 }
             }
             
@@ -801,14 +723,14 @@ namespace OTTOPro.Report_Design {
             public int WGID {
                 get {
                     try {
-                        return ((int)(this[this.tableP_Rpt_QuerCalculation.WGIDColumn]));
+                        return ((int)(this[this.tableP_Rpt_QuerCalculation_1.WGIDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WGID\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'WGID\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.WGIDColumn] = value;
+                    this[this.tableP_Rpt_QuerCalculation_1.WGIDColumn] = value;
                 }
             }
             
@@ -817,14 +739,78 @@ namespace OTTOPro.Report_Design {
             public string LIEFR {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_QuerCalculation.LIEFRColumn]));
+                        return ((string)(this[this.tableP_Rpt_QuerCalculation_1.LIEFRColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LIEFR\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LIEFR\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.LIEFRColumn] = value;
+                    this[this.tableP_Rpt_QuerCalculation_1.LIEFRColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MA_EK {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation_1.MA_EKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_EK\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_QuerCalculation_1.MA_EKColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MA_VK {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation_1.MA_VKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_VK\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_QuerCalculation_1.MA_VKColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MO_EK {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation_1.MO_EKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MO_EK\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_QuerCalculation_1.MO_EKColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal MO_VK {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation_1.MO_VKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'MO_VK\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_QuerCalculation_1.MO_VKColumn] = value;
                 }
             }
             
@@ -833,163 +819,135 @@ namespace OTTOPro.Report_Design {
             public decimal MA_VKONUM {
                 get {
                     try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MA_VKONUMColumn]));
+                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation_1.MA_VKONUMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MA_VKONUM\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_VKONUM\' in table \'P_Rpt_QuerCalculation_1\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.MA_VKONUMColumn] = value;
+                    this[this.tableP_Rpt_QuerCalculation_1.MA_VKONUMColumn] = value;
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MO_VKONUM {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MO_VKONUMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MO_VKONUM\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableP_Rpt_QuerCalculation.MO_VKONUMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMA_EKNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MA_EKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMA_EKNull() {
-                this[this.tableP_Rpt_QuerCalculation.MA_EKColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMA_VKNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MA_VKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMA_VKNull() {
-                this[this.tableP_Rpt_QuerCalculation.MA_VKColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMO_EKNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MO_EKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMO_EKNull() {
-                this[this.tableP_Rpt_QuerCalculation.MO_EKColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMO_VKNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MO_VKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMO_VKNull() {
-                this[this.tableP_Rpt_QuerCalculation.MO_VKColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsWGNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.WGColumn);
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.WGColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetWGNull() {
-                this[this.tableP_Rpt_QuerCalculation.WGColumn] = global::System.Convert.DBNull;
+                this[this.tableP_Rpt_QuerCalculation_1.WGColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsWANull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.WAColumn);
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.WAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetWANull() {
-                this[this.tableP_Rpt_QuerCalculation.WAColumn] = global::System.Convert.DBNull;
+                this[this.tableP_Rpt_QuerCalculation_1.WAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsWADESCRIPTIONNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.WADESCRIPTIONColumn);
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.WADESCRIPTIONColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetWADESCRIPTIONNull() {
-                this[this.tableP_Rpt_QuerCalculation.WADESCRIPTIONColumn] = global::System.Convert.DBNull;
+                this[this.tableP_Rpt_QuerCalculation_1.WADESCRIPTIONColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsWGIDNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.WGIDColumn);
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.WGIDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetWGIDNull() {
-                this[this.tableP_Rpt_QuerCalculation.WGIDColumn] = global::System.Convert.DBNull;
+                this[this.tableP_Rpt_QuerCalculation_1.WGIDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsLIEFRNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.LIEFRColumn);
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.LIEFRColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetLIEFRNull() {
-                this[this.tableP_Rpt_QuerCalculation.LIEFRColumn] = global::System.Convert.DBNull;
+                this[this.tableP_Rpt_QuerCalculation_1.LIEFRColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_EKNull() {
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.MA_EKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_EKNull() {
+                this[this.tableP_Rpt_QuerCalculation_1.MA_EKColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_VKNull() {
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.MA_VKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_VKNull() {
+                this[this.tableP_Rpt_QuerCalculation_1.MA_VKColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMO_EKNull() {
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.MO_EKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMO_EKNull() {
+                this[this.tableP_Rpt_QuerCalculation_1.MO_EKColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMO_VKNull() {
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.MO_VKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMO_VKNull() {
+                this[this.tableP_Rpt_QuerCalculation_1.MO_VKColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsMA_VKONUMNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MA_VKONUMColumn);
+                return this.IsNull(this.tableP_Rpt_QuerCalculation_1.MA_VKONUMColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetMA_VKONUMNull() {
-                this[this.tableP_Rpt_QuerCalculation.MA_VKONUMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMO_VKONUMNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MO_VKONUMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMO_VKONUMNull() {
-                this[this.tableP_Rpt_QuerCalculation.MO_VKONUMColumn] = global::System.Convert.DBNull;
+                this[this.tableP_Rpt_QuerCalculation_1.MA_VKONUMColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -997,22 +955,22 @@ namespace OTTOPro.Report_Design {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class P_Rpt_QuerCalculationRowChangeEvent : global::System.EventArgs {
+        public class P_Rpt_QuerCalculation_1RowChangeEvent : global::System.EventArgs {
             
-            private P_Rpt_QuerCalculationRow eventRow;
+            private P_Rpt_QuerCalculation_1Row eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRowChangeEvent(P_Rpt_QuerCalculationRow row, global::System.Data.DataRowAction action) {
+            public P_Rpt_QuerCalculation_1RowChangeEvent(P_Rpt_QuerCalculation_1Row row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRow Row {
+            public P_Rpt_QuerCalculation_1Row Row {
                 get {
                     return this.eventRow;
                 }
@@ -1028,7 +986,7 @@ namespace OTTOPro.Report_Design {
         }
     }
 }
-namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
+namespace OTTOPro.Report_Design.dsQuerCalcNewTableAdapters {
     
     
     /// <summary>
@@ -1040,7 +998,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class P_Rpt_QuerCalculationTableAdapter : global::System.ComponentModel.Component {
+    public partial class P_Rpt_QuerCalculation_1TableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1054,7 +1012,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public P_Rpt_QuerCalculationTableAdapter() {
+        public P_Rpt_QuerCalculation_1TableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1151,18 +1109,17 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "P_Rpt_QuerCalculation";
-            tableMapping.ColumnMappings.Add("MA_EK", "MA_EK");
-            tableMapping.ColumnMappings.Add("MA_VK", "MA_VK");
-            tableMapping.ColumnMappings.Add("MO_EK", "MO_EK");
-            tableMapping.ColumnMappings.Add("MO_VK", "MO_VK");
+            tableMapping.DataSetTable = "P_Rpt_QuerCalculation_1";
             tableMapping.ColumnMappings.Add("WG", "WG");
             tableMapping.ColumnMappings.Add("WA", "WA");
             tableMapping.ColumnMappings.Add("WADESCRIPTION", "WADESCRIPTION");
             tableMapping.ColumnMappings.Add("WGID", "WGID");
             tableMapping.ColumnMappings.Add("LIEFR", "LIEFR");
+            tableMapping.ColumnMappings.Add("MA_EK", "MA_EK");
+            tableMapping.ColumnMappings.Add("MA_VK", "MA_VK");
+            tableMapping.ColumnMappings.Add("MO_EK", "MO_EK");
+            tableMapping.ColumnMappings.Add("MO_VK", "MO_VK");
             tableMapping.ColumnMappings.Add("MA_VKONUM", "MA_VKONUM");
-            tableMapping.ColumnMappings.Add("MO_VKONUM", "MO_VKONUM");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1179,7 +1136,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.P_Rpt_QuerCalculation";
+            this._commandCollection[0].CommandText = "dbo.P_Rpt_QuerCalculation_1";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Position_OZ_Table", global::System.Data.SqlDbType.Structured, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1192,7 +1149,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsQuerKalculation.P_Rpt_QuerCalculationDataTable dataTable, object Position_OZ_Table, global::System.Nullable<int> ProjectID, string Type, string LVSection) {
+        public virtual int Fill(dsQuerCalcNew.P_Rpt_QuerCalculation_1DataTable dataTable, object Position_OZ_Table, global::System.Nullable<int> ProjectID, string Type, string LVSection) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Position_OZ_Table == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1229,7 +1186,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsQuerKalculation.P_Rpt_QuerCalculationDataTable GetData(object Position_OZ_Table, global::System.Nullable<int> ProjectID, string Type, string LVSection) {
+        public virtual dsQuerCalcNew.P_Rpt_QuerCalculation_1DataTable GetData(object Position_OZ_Table, global::System.Nullable<int> ProjectID, string Type, string LVSection) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Position_OZ_Table == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1255,7 +1212,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[4].Value = ((string)(LVSection));
             }
-            dsQuerKalculation.P_Rpt_QuerCalculationDataTable dataTable = new dsQuerKalculation.P_Rpt_QuerCalculationDataTable();
+            dsQuerCalcNew.P_Rpt_QuerCalculation_1DataTable dataTable = new dsQuerCalcNew.P_Rpt_QuerCalculation_1DataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1329,7 +1286,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(dsQuerKalculation dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(dsQuerCalcNew dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1339,7 +1296,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(dsQuerKalculation dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(dsQuerCalcNew dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1349,7 +1306,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(dsQuerKalculation dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(dsQuerCalcNew dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1383,7 +1340,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(dsQuerKalculation dataSet) {
+        public virtual int UpdateAll(dsQuerCalcNew dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

@@ -29,5 +29,10 @@ namespace OTTOPro
         public static decimal MO_Multi3 = 0;
         public static decimal MO_Multi4 = 0;
         public static decimal MO_GrundMulti = 0;
+
+        public static bool HaveDetailsKz = false;
+
+        public static string OldWG = string.Empty;
+        public static string OldWA = string.Empty;
     }
 }

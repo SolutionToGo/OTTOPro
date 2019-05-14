@@ -41,7 +41,7 @@ namespace OTTOPro
                 }
                 if (txtToOZ.Text.Length > 0)
                 {
-                    char cLastCharacter = txtToOZ.Text[txtFromOZ.Text.Length - 1];
+                    char cLastCharacter = txtToOZ.Text[txtToOZ.Text.Length - 1];
                     if (cLastCharacter == '.')
                         ObjEProject.ToOZ = txtToOZ.Text.Replace(",", ".");
                     else

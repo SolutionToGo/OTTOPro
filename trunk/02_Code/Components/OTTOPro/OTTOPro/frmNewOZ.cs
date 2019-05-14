@@ -14,6 +14,7 @@ namespace OTTOPro
     public partial class frmNewOZ : DevExpress.XtraEditors.XtraForm
     {
         public string strNewOZ = string.Empty;
+        public string LVRaster = string.Empty;
         public bool IsSave = false;
         public frmNewOZ()
         {
@@ -32,7 +33,25 @@ namespace OTTOPro
 
         private void frmNewOZ_Load(object sender, EventArgs e)
         {
-            txtNewOZ.Text = strNewOZ;
+
+            try
+            {
+                string[] Levels = LVRaster.Split('.');
+                int Count = Levels.Length;
+                if (Count >= 2)
+                {
+                    int _Length = Levels[Count - 2].Length;
+                    txtNewOZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+                    txtNewOZ.Properties.Mask.EditMask = "[A-Z0-9]{1," + _Length + "}((\\.)\\d{0,1})?";
+                    txtNewOZ.Properties.Mask.UseMaskAsDisplayFormat = true;
+                }
+
+                txtNewOZ.Text = strNewOZ;
+            }
+            catch (Exception ex){}
+            
+
+
         }
 
         private void btnOk_Click(object sender, EventArgs e)

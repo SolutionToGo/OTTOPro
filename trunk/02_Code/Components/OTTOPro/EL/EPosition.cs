@@ -601,7 +601,7 @@ namespace EL
             set { _Dim = value; }
         }
         public DataTable dtArticle { get; set; }
-        public decimal OZID = 0;
+        public double OZID = 0;
         public DataTable dtProjectArticles { get; set; }
         public string WGDescription { get; set; }
         public string WADescription { get; set; }

@@ -122,8 +122,8 @@
             // 
             this.txtDiscount.Location = new System.Drawing.Point(98, 81);
             this.txtDiscount.Name = "txtDiscount";
-            this.txtDiscount.Properties.Mask.EditMask = "n3";
-            this.txtDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            this.txtDiscount.Properties.Mask.EditMask = "\\d{0,2}(\\R.\\d{0,2})";
+            this.txtDiscount.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
             this.txtDiscount.Properties.Mask.ShowPlaceHolders = false;
             this.txtDiscount.Properties.Mask.UseMaskAsDisplayFormat = true;
             this.txtDiscount.Size = new System.Drawing.Size(365, 20);

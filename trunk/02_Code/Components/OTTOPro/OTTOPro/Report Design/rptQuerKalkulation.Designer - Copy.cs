@@ -72,7 +72,6 @@
             DevExpress.XtraReports.UI.XRSummary xrSummary38 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary39 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.XtraReports.UI.XRSummary xrSummary40 = new DevExpress.XtraReports.UI.XRSummary();
-            DevExpress.XtraReports.UI.XRSummary xrSummary41 = new DevExpress.XtraReports.UI.XRSummary();
             DevExpress.DataAccess.Sql.StoredProcQuery storedProcQuery2 = new DevExpress.DataAccess.Sql.StoredProcQuery();
             DevExpress.DataAccess.Sql.QueryParameter queryParameter2 = new DevExpress.DataAccess.Sql.QueryParameter();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
@@ -196,8 +195,6 @@
             this.p_Rpt_QuerCalculationTableAdapter1 = new OTTOPro.Report_Design.dsQuerKalculationTableAdapters.P_Rpt_QuerCalculationTableAdapter();
             this.DetailReport1 = new DevExpress.XtraReports.UI.DetailReportBand();
             this.Detail2 = new DevExpress.XtraReports.UI.DetailBand();
-            this.DetailReport3 = new DevExpress.XtraReports.UI.DetailReportBand();
-            this.Detail4 = new DevExpress.XtraReports.UI.DetailBand();
             this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter = new OTTOPro.Report_Design.dsSurchargeCalculationTableAdapters.P_Rpt_QuerCalculation_SurchargePositionTableAdapter();
             this.dsSurchargeCalculation1 = new OTTOPro.Report_Design.dsSurchargeCalculation();
             this.MAMULTI = new DevExpress.XtraReports.UI.CalculatedField();
@@ -239,16 +236,8 @@
             this.xrLabel23 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel24 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel25 = new DevExpress.XtraReports.UI.XRLabel();
-            this.GroupFooter2 = new DevExpress.XtraReports.UI.GroupFooterBand();
-            this.xrTable7 = new DevExpress.XtraReports.UI.XRTable();
-            this.xrTableRow8 = new DevExpress.XtraReports.UI.XRTableRow();
-            this.xrTableCell4 = new DevExpress.XtraReports.UI.XRTableCell();
-            this.xrTableCell7 = new DevExpress.XtraReports.UI.XRTableCell();
             this.sqlDataSource2 = new DevExpress.DataAccess.Sql.SqlDataSource(this.components);
             this.Duration = new DevExpress.XtraReports.UI.CalculatedField();
-            this.DetailReport4 = new DevExpress.XtraReports.UI.DetailReportBand();
-            this.Detail5 = new DevExpress.XtraReports.UI.DetailBand();
-            this.xrKommentarKalkulator = new DevExpress.XtraReports.UI.XRRichText();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tblDiscount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable6)).BeginInit();
@@ -259,8 +248,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsSurchargeCalculation1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrKommentarKalkulator)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // Detail
@@ -273,14 +260,14 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 25F;
+            this.TopMargin.HeightF = 0F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 25F;
+            this.BottomMargin.HeightF = 15.00003F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -402,7 +389,7 @@
             this.xrTableCell13.CanGrow = false;
             this.xrTableCell13.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.WG")});
-            this.xrTableCell13.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell13.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell13.Name = "xrTableCell13";
             this.xrTableCell13.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell13.StylePriority.UseFont = false;
@@ -416,7 +403,7 @@
             this.xrTableCell14.CanGrow = false;
             this.xrTableCell14.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.WA")});
-            this.xrTableCell14.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell14.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell14.Name = "xrTableCell14";
             this.xrTableCell14.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell14.StylePriority.UseFont = false;
@@ -430,7 +417,7 @@
             this.xrTableCell15.CanGrow = false;
             this.xrTableCell15.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.WADescription")});
-            this.xrTableCell15.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell15.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell15.Name = "xrTableCell15";
             this.xrTableCell15.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell15.StylePriority.UseFont = false;
@@ -444,7 +431,7 @@
             this.xrTableCell16.CanGrow = false;
             this.xrTableCell16.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.Liefr")});
-            this.xrTableCell16.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell16.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell16.Name = "xrTableCell16";
             this.xrTableCell16.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell16.StylePriority.UseFont = false;
@@ -458,7 +445,7 @@
             this.xrTableCell17.CanGrow = false;
             this.xrTableCell17.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MA_EK", "{0:n2}")});
-            this.xrTableCell17.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell17.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell17.Name = "xrTableCell17";
             this.xrTableCell17.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell17.StylePriority.UseFont = false;
@@ -474,7 +461,7 @@
             this.xrTableCell18.CanGrow = false;
             this.xrTableCell18.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MAMULTI", "{0:n3}")});
-            this.xrTableCell18.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell18.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell18.Name = "xrTableCell18";
             this.xrTableCell18.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell18.StylePriority.UseFont = false;
@@ -490,7 +477,7 @@
             this.xrTableCell19.CanGrow = false;
             this.xrTableCell19.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MA_VK", "{0:n2}")});
-            this.xrTableCell19.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell19.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell19.Name = "xrTableCell19";
             this.xrTableCell19.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell19.StylePriority.UseFont = false;
@@ -506,7 +493,7 @@
             this.xrTableCell20.CanGrow = false;
             this.xrTableCell20.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MO_EK", "{0:n2}")});
-            this.xrTableCell20.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell20.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell20.Name = "xrTableCell20";
             this.xrTableCell20.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell20.StylePriority.UseFont = false;
@@ -522,7 +509,7 @@
             this.xrTableCell21.CanGrow = false;
             this.xrTableCell21.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MOMULTI", "{0:n3}")});
-            this.xrTableCell21.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell21.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell21.Name = "xrTableCell21";
             this.xrTableCell21.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell21.StylePriority.UseFont = false;
@@ -538,7 +525,7 @@
             this.xrTableCell22.CanGrow = false;
             this.xrTableCell22.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MO_VK", "{0:n2}")});
-            this.xrTableCell22.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell22.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell22.Name = "xrTableCell22";
             this.xrTableCell22.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell22.StylePriority.UseFont = false;
@@ -554,7 +541,7 @@
             this.xrTableCell23.CanGrow = false;
             this.xrTableCell23.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.GESAMTVK", "{0:n2}")});
-            this.xrTableCell23.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell23.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell23.Name = "xrTableCell23";
             this.xrTableCell23.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell23.StylePriority.UseFont = false;
@@ -570,7 +557,7 @@
             this.xrTableCell24.CanGrow = false;
             this.xrTableCell24.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.ANTEIL", "{0:n2}")});
-            this.xrTableCell24.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell24.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell24.Name = "xrTableCell24";
             this.xrTableCell24.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell24.StylePriority.UseFont = false;
@@ -594,10 +581,11 @@
             // 
             // tblDiscount
             // 
-            this.tblDiscount.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
+            this.tblDiscount.BackColor = System.Drawing.Color.Gray;
             this.tblDiscount.BorderColor = System.Drawing.Color.Black;
-            this.tblDiscount.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.tblDiscount.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.tblDiscount.LocationFloat = new DevExpress.Utils.PointFloat(1F, 46F);
             this.tblDiscount.Name = "tblDiscount";
             this.tblDiscount.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
@@ -649,7 +637,7 @@
             // xrTableCell64
             // 
             this.xrTableCell64.CanGrow = false;
-            this.xrTableCell64.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell64.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell64.Name = "xrTableCell64";
             this.xrTableCell64.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell64.StylePriority.UseFont = false;
@@ -741,7 +729,7 @@
             // tbDiscountResult
             // 
             this.tbDiscountResult.CanGrow = false;
-            this.tbDiscountResult.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbDiscountResult.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbDiscountResult.Name = "tbDiscountResult";
             this.tbDiscountResult.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.tbDiscountResult.StylePriority.UseFont = false;
@@ -770,7 +758,7 @@
             // 
             // xrTable6
             // 
-            this.xrTable6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
+            this.xrTable6.BackColor = System.Drawing.Color.Gray;
             this.xrTable6.BorderColor = System.Drawing.Color.Black;
             this.xrTable6.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
@@ -826,7 +814,7 @@
             // xrTableCell53
             // 
             this.xrTableCell53.CanGrow = false;
-            this.xrTableCell53.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell53.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell53.Name = "xrTableCell53";
             this.xrTableCell53.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell53.StylePriority.UseFont = false;
@@ -841,7 +829,7 @@
             this.xrTableCell54.CanGrow = false;
             this.xrTableCell54.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MA_EK")});
-            this.xrTableCell54.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell54.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell54.KeepTogether = true;
             this.xrTableCell54.Name = "xrTableCell54";
             this.xrTableCell54.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -859,7 +847,7 @@
             this.xrTableCell55.CanGrow = false;
             this.xrTableCell55.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.SumMAMulti", "{0:n3}")});
-            this.xrTableCell55.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell55.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell55.Name = "xrTableCell55";
             this.xrTableCell55.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell55.StylePriority.UseFont = false;
@@ -876,7 +864,7 @@
             this.xrTableCell56.CanGrow = false;
             this.xrTableCell56.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MA_VK")});
-            this.xrTableCell56.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell56.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell56.Name = "xrTableCell56";
             this.xrTableCell56.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell56.StylePriority.UseFont = false;
@@ -893,7 +881,7 @@
             this.xrTableCell57.CanGrow = false;
             this.xrTableCell57.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MO_EK")});
-            this.xrTableCell57.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell57.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell57.Name = "xrTableCell57";
             this.xrTableCell57.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell57.StylePriority.UseFont = false;
@@ -910,7 +898,7 @@
             this.xrTableCell58.CanGrow = false;
             this.xrTableCell58.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.SumMOMulti", "{0:n3}")});
-            this.xrTableCell58.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell58.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell58.Name = "xrTableCell58";
             this.xrTableCell58.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell58.StylePriority.UseFont = false;
@@ -927,7 +915,7 @@
             this.xrTableCell59.CanGrow = false;
             this.xrTableCell59.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MO_VK")});
-            this.xrTableCell59.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell59.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell59.Name = "xrTableCell59";
             this.xrTableCell59.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell59.StylePriority.UseFont = false;
@@ -942,7 +930,7 @@
             // xrTableCell60
             // 
             this.xrTableCell60.CanGrow = false;
-            this.xrTableCell60.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell60.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell60.Name = "xrTableCell60";
             this.xrTableCell60.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell60.StylePriority.UseFont = false;
@@ -958,26 +946,25 @@
             // xrTableCell61
             // 
             this.xrTableCell61.CanGrow = false;
-            this.xrTableCell61.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.ANTEIL")});
-            this.xrTableCell61.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell61.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell61.Name = "xrTableCell61";
             this.xrTableCell61.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell61.StylePriority.UseFont = false;
             this.xrTableCell61.StylePriority.UsePadding = false;
             this.xrTableCell61.StylePriority.UseTextAlignment = false;
             xrSummary24.FormatString = "{0:n2}";
-            xrSummary24.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
+            xrSummary24.Func = DevExpress.XtraReports.UI.SummaryFunc.Custom;
             this.xrTableCell61.Summary = xrSummary24;
             this.xrTableCell61.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
             this.xrTableCell61.Weight = 0.256395420160553D;
             // 
             // xrTable5
             // 
-            this.xrTable5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
+            this.xrTable5.BackColor = System.Drawing.Color.Gray;
             this.xrTable5.BorderColor = System.Drawing.Color.Black;
-            this.xrTable5.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTable5.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable5.LocationFloat = new DevExpress.Utils.PointFloat(0.999999F, 23F);
             this.xrTable5.Name = "xrTable5";
             this.xrTable5.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
@@ -1029,7 +1016,7 @@
             // xrTableCell41
             // 
             this.xrTableCell41.CanGrow = false;
-            this.xrTableCell41.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell41.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell41.Name = "xrTableCell41";
             this.xrTableCell41.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell41.StylePriority.UseFont = false;
@@ -1121,7 +1108,7 @@
             // tblSurchargeresult
             // 
             this.tblSurchargeresult.CanGrow = false;
-            this.tblSurchargeresult.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tblSurchargeresult.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tblSurchargeresult.Name = "tblSurchargeresult";
             this.tblSurchargeresult.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.tblSurchargeresult.StylePriority.UseFont = false;
@@ -1150,10 +1137,11 @@
             // 
             // xrTable4
             // 
-            this.xrTable4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
+            this.xrTable4.BackColor = System.Drawing.Color.Gray;
             this.xrTable4.BorderColor = System.Drawing.Color.Black;
-            this.xrTable4.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
-            | DevExpress.XtraPrinting.BorderSide.Right)));
+            this.xrTable4.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
+            | DevExpress.XtraPrinting.BorderSide.Right) 
+            | DevExpress.XtraPrinting.BorderSide.Bottom)));
             this.xrTable4.LocationFloat = new DevExpress.Utils.PointFloat(0.999999F, 0F);
             this.xrTable4.Name = "xrTable4";
             this.xrTable4.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 5, 5, 100F);
@@ -1205,7 +1193,7 @@
             // xrTableCell29
             // 
             this.xrTableCell29.CanGrow = false;
-            this.xrTableCell29.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell29.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell29.Name = "xrTableCell29";
             this.xrTableCell29.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell29.StylePriority.UseFont = false;
@@ -1220,7 +1208,7 @@
             this.xrTableCell30.CanGrow = false;
             this.xrTableCell30.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MA_EK")});
-            this.xrTableCell30.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell30.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell30.Name = "xrTableCell30";
             this.xrTableCell30.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell30.StylePriority.UseFont = false;
@@ -1237,7 +1225,7 @@
             this.xrTableCell31.CanGrow = false;
             this.xrTableCell31.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.SumMAMulti", "{0:n3}")});
-            this.xrTableCell31.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell31.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell31.Name = "xrTableCell31";
             this.xrTableCell31.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell31.StylePriority.UseFont = false;
@@ -1254,7 +1242,7 @@
             this.xrTableCell32.CanGrow = false;
             this.xrTableCell32.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MA_VK")});
-            this.xrTableCell32.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell32.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell32.Name = "xrTableCell32";
             this.xrTableCell32.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell32.StylePriority.UseFont = false;
@@ -1271,7 +1259,7 @@
             this.xrTableCell33.CanGrow = false;
             this.xrTableCell33.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MO_EK")});
-            this.xrTableCell33.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell33.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell33.Name = "xrTableCell33";
             this.xrTableCell33.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell33.StylePriority.UseFont = false;
@@ -1288,7 +1276,7 @@
             this.xrTableCell34.CanGrow = false;
             this.xrTableCell34.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.SumMOMulti", "{0:n3}")});
-            this.xrTableCell34.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell34.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell34.Name = "xrTableCell34";
             this.xrTableCell34.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell34.StylePriority.UseFont = false;
@@ -1305,7 +1293,7 @@
             this.xrTableCell35.CanGrow = false;
             this.xrTableCell35.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.MO_VK")});
-            this.xrTableCell35.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell35.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell35.Name = "xrTableCell35";
             this.xrTableCell35.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell35.StylePriority.UseFont = false;
@@ -1322,7 +1310,7 @@
             this.xrTableCell36.CanGrow = false;
             this.xrTableCell36.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.GESAMTVK")});
-            this.xrTableCell36.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell36.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell36.Name = "xrTableCell36";
             this.xrTableCell36.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell36.StylePriority.UseFont = false;
@@ -1339,7 +1327,7 @@
             this.xrTableCell37.CanGrow = false;
             this.xrTableCell37.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Rpt_QuerCalculation.ANTEIL")});
-            this.xrTableCell37.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.xrTableCell37.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xrTableCell37.Name = "xrTableCell37";
             this.xrTableCell37.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrTableCell37.StylePriority.UseFont = false;
@@ -1477,7 +1465,7 @@
             // xrTableCell111
             // 
             this.xrTableCell111.CanGrow = false;
-            this.xrTableCell111.Font = new System.Drawing.Font("Trebuchet MS", 9F);
+            this.xrTableCell111.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell111.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell111.Name = "xrTableCell111";
             this.xrTableCell111.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1492,7 +1480,7 @@
             // xrTableCell112
             // 
             this.xrTableCell112.CanGrow = false;
-            this.xrTableCell112.Font = new System.Drawing.Font("Trebuchet MS", 9F);
+            this.xrTableCell112.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell112.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell112.Multiline = true;
             this.xrTableCell112.Name = "xrTableCell112";
@@ -1508,7 +1496,7 @@
             // xrTableCell113
             // 
             this.xrTableCell113.CanGrow = false;
-            this.xrTableCell113.Font = new System.Drawing.Font("Trebuchet MS", 9F);
+            this.xrTableCell113.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell113.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell113.Name = "xrTableCell113";
             this.xrTableCell113.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1523,7 +1511,7 @@
             // xrTableCell114
             // 
             this.xrTableCell114.CanGrow = false;
-            this.xrTableCell114.Font = new System.Drawing.Font("Trebuchet MS", 9F);
+            this.xrTableCell114.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell114.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell114.Name = "xrTableCell114";
             this.xrTableCell114.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1538,7 +1526,7 @@
             // xrTableCell115
             // 
             this.xrTableCell115.CanGrow = false;
-            this.xrTableCell115.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell115.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell115.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell115.Name = "xrTableCell115";
             this.xrTableCell115.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1568,7 +1556,7 @@
             // xrTableCell117
             // 
             this.xrTableCell117.CanGrow = false;
-            this.xrTableCell117.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell117.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell117.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell117.Name = "xrTableCell117";
             this.xrTableCell117.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1583,7 +1571,7 @@
             // xrTableCell118
             // 
             this.xrTableCell118.CanGrow = false;
-            this.xrTableCell118.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell118.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell118.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell118.Name = "xrTableCell118";
             this.xrTableCell118.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1613,7 +1601,7 @@
             // xrTableCell120
             // 
             this.xrTableCell120.CanGrow = false;
-            this.xrTableCell120.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell120.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell120.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell120.Name = "xrTableCell120";
             this.xrTableCell120.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1628,7 +1616,7 @@
             // xrTableCell121
             // 
             this.xrTableCell121.CanGrow = false;
-            this.xrTableCell121.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell121.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell121.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell121.Name = "xrTableCell121";
             this.xrTableCell121.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1643,7 +1631,7 @@
             // xrTableCell122
             // 
             this.xrTableCell122.CanGrow = false;
-            this.xrTableCell122.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell122.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell122.ForeColor = System.Drawing.Color.Black;
             this.xrTableCell122.Name = "xrTableCell122";
             this.xrTableCell122.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -1670,10 +1658,10 @@
             // xrPageInfo2
             // 
             this.xrPageInfo2.Font = new System.Drawing.Font("Trebuchet MS", 10F);
-            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(1029F, 92.02F);
+            this.xrPageInfo2.LocationFloat = new DevExpress.Utils.PointFloat(1029.394F, 92.02F);
             this.xrPageInfo2.Name = "xrPageInfo2";
             this.xrPageInfo2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
-            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(109.9999F, 23F);
+            this.xrPageInfo2.SizeF = new System.Drawing.SizeF(109.6055F, 23F);
             this.xrPageInfo2.StylePriority.UseFont = false;
             this.xrPageInfo2.StylePriority.UsePadding = false;
             this.xrPageInfo2.StylePriority.UseTextAlignment = false;
@@ -1683,11 +1671,11 @@
             // xrPageInfo4
             // 
             this.xrPageInfo4.Font = new System.Drawing.Font("Trebuchet MS", 10F);
-            this.xrPageInfo4.LocationFloat = new DevExpress.Utils.PointFloat(1029F, 69.01999F);
+            this.xrPageInfo4.LocationFloat = new DevExpress.Utils.PointFloat(1029.394F, 69.01999F);
             this.xrPageInfo4.Name = "xrPageInfo4";
             this.xrPageInfo4.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrPageInfo4.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo4.SizeF = new System.Drawing.SizeF(109.9999F, 22.89584F);
+            this.xrPageInfo4.SizeF = new System.Drawing.SizeF(109.6055F, 22.89584F);
             this.xrPageInfo4.StylePriority.UseFont = false;
             this.xrPageInfo4.StylePriority.UsePadding = false;
             this.xrPageInfo4.StylePriority.UseTextAlignment = false;
@@ -1895,8 +1883,7 @@
             // DetailReport1
             // 
             this.DetailReport1.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
-            this.Detail2,
-            this.DetailReport3});
+            this.Detail2});
             this.DetailReport1.DataAdapter = this.p_Rpt_QuerCalculation_SurchargePositionTableAdapter;
             this.DetailReport1.DataMember = "P_Rpt_QuerCalculation_SurchargePosition";
             this.DetailReport1.DataSource = this.dsSurchargeCalculation1;
@@ -1911,17 +1898,6 @@
             this.Detail2.KeepTogether = true;
             this.Detail2.KeepTogetherWithDetailReports = true;
             this.Detail2.Name = "Detail2";
-            // 
-            // DetailReport3
-            // 
-            this.DetailReport3.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
-            this.Detail4});
-            this.DetailReport3.Level = 0;
-            this.DetailReport3.Name = "DetailReport3";
-            // 
-            // Detail4
-            // 
-            this.Detail4.Name = "Detail4";
             // 
             // p_Rpt_QuerCalculation_SurchargePositionTableAdapter
             // 
@@ -1964,22 +1940,21 @@
             // 
             this.SumMAMulti.DataMember = "P_Rpt_QuerCalculation";
             this.SumMAMulti.DataSource = this.dsQuerKalculation1;
-            this.SumMAMulti.Expression = "Sum([MA_VK]) / Sum([MA_EK])";
+            this.SumMAMulti.Expression = "Sum([MA_VK] / Sum([MA_EK]))";
             this.SumMAMulti.Name = "SumMAMulti";
             // 
             // SumMOMulti
             // 
             this.SumMOMulti.DataMember = "P_Rpt_QuerCalculation";
             this.SumMOMulti.DataSource = this.dsQuerKalculation1;
-            this.SumMOMulti.Expression = "Sum([MO_VK]) / Sum([MO_EK])";
+            this.SumMOMulti.Expression = "Sum([MO_VK] / Sum([MO_EK]))";
             this.SumMOMulti.Name = "SumMOMulti";
             // 
             // DetailReport2
             // 
             this.DetailReport2.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
             this.Detail3,
-            this.ReportHeader1,
-            this.GroupFooter2});
+            this.ReportHeader1});
             this.DetailReport2.DataMember = "P_Get_SpecialCost";
             this.DetailReport2.DataSource = this.sqlDataSource2;
             this.DetailReport2.Level = 2;
@@ -2020,7 +1995,7 @@
             // 
             this.xrTableCell2.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Get_SpecialCost.Cost_Desciption")});
-            this.xrTableCell2.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell2.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell2.Multiline = true;
             this.xrTableCell2.Name = "xrTableCell2";
             this.xrTableCell2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -2034,7 +2009,7 @@
             // 
             this.xrTableCell5.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
             new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Get_SpecialCost.Price")});
-            this.xrTableCell5.Font = new System.Drawing.Font("Trebuchet MS", 8F);
+            this.xrTableCell5.Font = new System.Drawing.Font("Trebuchet MS", 10F);
             this.xrTableCell5.Multiline = true;
             this.xrTableCell5.Name = "xrTableCell5";
             this.xrTableCell5.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -2093,7 +2068,7 @@
             this.xrTable1.Borders = ((DevExpress.XtraPrinting.BorderSide)((((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Top) 
             | DevExpress.XtraPrinting.BorderSide.Right) 
             | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(601.5325F, 163.9375F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(601.5321F, 163.9375F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
             this.xrTableRow1});
@@ -2111,7 +2086,7 @@
             // 
             // xrTableCell1
             // 
-            this.xrTableCell1.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell1.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell1.Multiline = true;
             this.xrTableCell1.Name = "xrTableCell1";
             this.xrTableCell1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -2124,7 +2099,7 @@
             // 
             // xrTableCell3
             // 
-            this.xrTableCell3.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
+            this.xrTableCell3.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.xrTableCell3.Multiline = true;
             this.xrTableCell3.Name = "xrTableCell3";
             this.xrTableCell3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
@@ -2327,11 +2302,11 @@
             // xrPageInfo1
             // 
             this.xrPageInfo1.Font = new System.Drawing.Font("Trebuchet MS", 10F);
-            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(1029F, 69.01999F);
+            this.xrPageInfo1.LocationFloat = new DevExpress.Utils.PointFloat(1028.394F, 69.01999F);
             this.xrPageInfo1.Name = "xrPageInfo1";
             this.xrPageInfo1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
             this.xrPageInfo1.PageInfo = DevExpress.XtraPrinting.PageInfo.DateTime;
-            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(110.0002F, 22.89584F);
+            this.xrPageInfo1.SizeF = new System.Drawing.SizeF(110.6056F, 22.89584F);
             this.xrPageInfo1.StylePriority.UseFont = false;
             this.xrPageInfo1.StylePriority.UsePadding = false;
             this.xrPageInfo1.StylePriority.UseTextAlignment = false;
@@ -2341,10 +2316,10 @@
             // xrPageInfo3
             // 
             this.xrPageInfo3.Font = new System.Drawing.Font("Trebuchet MS", 10F);
-            this.xrPageInfo3.LocationFloat = new DevExpress.Utils.PointFloat(1029F, 92.02F);
+            this.xrPageInfo3.LocationFloat = new DevExpress.Utils.PointFloat(1028.394F, 92.02F);
             this.xrPageInfo3.Name = "xrPageInfo3";
             this.xrPageInfo3.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
-            this.xrPageInfo3.SizeF = new System.Drawing.SizeF(110.0002F, 23F);
+            this.xrPageInfo3.SizeF = new System.Drawing.SizeF(110.6055F, 23F);
             this.xrPageInfo3.StylePriority.UseFont = false;
             this.xrPageInfo3.StylePriority.UsePadding = false;
             this.xrPageInfo3.StylePriority.UseTextAlignment = false;
@@ -2417,64 +2392,6 @@
             this.xrLabel25.StylePriority.UseTextAlignment = false;
             this.xrLabel25.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
             // 
-            // GroupFooter2
-            // 
-            this.GroupFooter2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrTable7});
-            this.GroupFooter2.HeightF = 25F;
-            this.GroupFooter2.Name = "GroupFooter2";
-            // 
-            // xrTable7
-            // 
-            this.xrTable7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
-            this.xrTable7.Borders = ((DevExpress.XtraPrinting.BorderSide)(((DevExpress.XtraPrinting.BorderSide.Left | DevExpress.XtraPrinting.BorderSide.Right) 
-            | DevExpress.XtraPrinting.BorderSide.Bottom)));
-            this.xrTable7.LocationFloat = new DevExpress.Utils.PointFloat(601.5325F, 0F);
-            this.xrTable7.Name = "xrTable7";
-            this.xrTable7.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
-            this.xrTableRow8});
-            this.xrTable7.SizeF = new System.Drawing.SizeF(537.4674F, 25F);
-            this.xrTable7.StylePriority.UseBackColor = false;
-            this.xrTable7.StylePriority.UseBorders = false;
-            // 
-            // xrTableRow8
-            // 
-            this.xrTableRow8.Cells.AddRange(new DevExpress.XtraReports.UI.XRTableCell[] {
-            this.xrTableCell4,
-            this.xrTableCell7});
-            this.xrTableRow8.Name = "xrTableRow8";
-            this.xrTableRow8.Weight = 1D;
-            // 
-            // xrTableCell4
-            // 
-            this.xrTableCell4.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold);
-            this.xrTableCell4.Multiline = true;
-            this.xrTableCell4.Name = "xrTableCell4";
-            this.xrTableCell4.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
-            this.xrTableCell4.StylePriority.UseFont = false;
-            this.xrTableCell4.StylePriority.UsePadding = false;
-            this.xrTableCell4.StylePriority.UseTextAlignment = false;
-            this.xrTableCell4.Text = "Summe Umlagekosten";
-            this.xrTableCell4.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomLeft;
-            this.xrTableCell4.Weight = 1.5884198101583649D;
-            // 
-            // xrTableCell7
-            // 
-            this.xrTableCell7.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Text", null, "P_Get_SpecialCost.Price")});
-            this.xrTableCell7.Font = new System.Drawing.Font("Trebuchet MS", 8F, System.Drawing.FontStyle.Bold);
-            this.xrTableCell7.Multiline = true;
-            this.xrTableCell7.Name = "xrTableCell7";
-            this.xrTableCell7.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 2, 100F);
-            this.xrTableCell7.StylePriority.UseFont = false;
-            this.xrTableCell7.StylePriority.UsePadding = false;
-            this.xrTableCell7.StylePriority.UseTextAlignment = false;
-            xrSummary41.Running = DevExpress.XtraReports.UI.SummaryRunning.Group;
-            this.xrTableCell7.Summary = xrSummary41;
-            this.xrTableCell7.TextAlignment = DevExpress.XtraPrinting.TextAlignment.BottomRight;
-            this.xrTableCell7.TextFormatString = "{0:n2}";
-            this.xrTableCell7.Weight = 0.41158018984163514D;
-            // 
             // sqlDataSource2
             // 
             this.sqlDataSource2.ConnectionName = "OTTOPro";
@@ -2492,41 +2409,9 @@
             // Duration
             // 
             this.Duration.DataMember = "P_Rpt_GetProjectdetails";
-            this.Duration.Expression = "FormatString(\'{0:MM/yyyy}\',[ProjectStartDate])  + \' bis \' + FormatString(\'{0:MM/y" +
-    "yyy}\',[ProjectEndDate])";
+            this.Duration.Expression = "FormatString(\'{0:MMM/yyyy}\',[ProjectStartDate])  + \' bis \' + FormatString(\'{0:MMM" +
+    "/yyyy}\',[ProjectEndDate])";
             this.Duration.Name = "Duration";
-            // 
-            // DetailReport4
-            // 
-            this.DetailReport4.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
-            this.Detail5});
-            this.DetailReport4.Level = 3;
-            this.DetailReport4.Name = "DetailReport4";
-            // 
-            // Detail5
-            // 
-            this.Detail5.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
-            this.xrKommentarKalkulator});
-            this.Detail5.HeightF = 59.375F;
-            this.Detail5.Name = "Detail5";
-            // 
-            // xrKommentarKalkulator
-            // 
-            this.xrKommentarKalkulator.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(238)))), ((int)(((byte)(240)))));
-            this.xrKommentarKalkulator.Borders = DevExpress.XtraPrinting.BorderSide.None;
-            this.xrKommentarKalkulator.BorderWidth = 1F;
-            this.xrKommentarKalkulator.DataBindings.AddRange(new DevExpress.XtraReports.UI.XRBinding[] {
-            new DevExpress.XtraReports.UI.XRBinding("Rtf", null, "P_Rpt_GetProjectdetails.CommentaryDescription")});
-            this.xrKommentarKalkulator.Font = new System.Drawing.Font("Times New Roman", 9.75F);
-            this.xrKommentarKalkulator.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10.00001F);
-            this.xrKommentarKalkulator.Name = "xrKommentarKalkulator";
-            this.xrKommentarKalkulator.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrKommentarKalkulator.SerializableRtfString = resources.GetString("xrKommentarKalkulator.SerializableRtfString");
-            this.xrKommentarKalkulator.SizeF = new System.Drawing.SizeF(1019F, 39.37498F);
-            this.xrKommentarKalkulator.StylePriority.UseBorderColor = false;
-            this.xrKommentarKalkulator.StylePriority.UseBorders = false;
-            this.xrKommentarKalkulator.StylePriority.UseBorderWidth = false;
-            this.xrKommentarKalkulator.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrKommentarKalkulator_BeforePrint);
             // 
             // rptQuerKalkulation
             // 
@@ -2537,8 +2422,7 @@
             this.ReportFooter,
             this.DetailReport,
             this.DetailReport1,
-            this.DetailReport2,
-            this.DetailReport4});
+            this.DetailReport2});
             this.CalculatedFields.AddRange(new DevExpress.XtraReports.UI.CalculatedField[] {
             this.MAVK,
             this.MOEKP,
@@ -2557,7 +2441,7 @@
             this.sqlDataSource2});
             this.DataSource = this.sqlDataSource1;
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(75, 75, 25, 25);
+            this.Margins = new System.Drawing.Printing.Margins(15, 15, 0, 15);
             this.PageHeight = 827;
             this.PageWidth = 1169;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;
@@ -2578,8 +2462,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dsSurchargeCalculation1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrTable7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.xrKommentarKalkulator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
 
         }
@@ -2750,15 +2632,5 @@
         private DevExpress.XtraReports.UI.XRTableCell xrTableCell5;
         private DevExpress.XtraReports.UI.XRLine xrLine1;
         private DevExpress.XtraReports.UI.CalculatedField Duration;
-        private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter2;
-        private DevExpress.XtraReports.UI.XRTable xrTable7;
-        private DevExpress.XtraReports.UI.XRTableRow xrTableRow8;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell4;
-        private DevExpress.XtraReports.UI.XRTableCell xrTableCell7;
-        private DevExpress.XtraReports.UI.DetailReportBand DetailReport3;
-        private DevExpress.XtraReports.UI.DetailBand Detail4;
-        private DevExpress.XtraReports.UI.DetailReportBand DetailReport4;
-        private DevExpress.XtraReports.UI.DetailBand Detail5;
-        private DevExpress.XtraReports.UI.XRRichText xrKommentarKalkulator;
     }
 }

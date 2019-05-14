@@ -102,7 +102,7 @@ namespace EL
         private string _KundeNr;
         private string _KundeName;
         private string _KundeAddress;
-        private int _RoundingPrice = 3;
+        private int _RoundingPrice =2;
         private DataTable _dtLVSection;
         private bool _IsCumulated = false;
         private DataTable _dtProjecNumber = null;
@@ -147,6 +147,8 @@ namespace EL
             get { return _ProjectNumber; }
             set { _ProjectNumber = value; }
         }
+
+        public string ProjectName;
         public string CommissionNumber
         {
             get { return _CommissionNumber; }

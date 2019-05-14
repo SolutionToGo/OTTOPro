@@ -23,6 +23,7 @@ namespace DataAccess
                     cmd.CommandText = "[P_Upd_SpecialCost]";
                     cmd.Parameters.Add("@ProjectID", ObjEUmlage.ProjectID);
                     cmd.Parameters.Add("@dt", ObjEUmlage.dtSpecialCost);
+                    cmd.Parameters.Add("@UmlageMode", ObjEUmlage.UmlageMode);
                     Object Objreturn = cmd.ExecuteScalar();
                 }
             }
@@ -49,6 +50,7 @@ namespace DataAccess
             try
             {
                 ObjEUmlage.dtSpecialCost = new DataTable();
+                DataSet ds = new DataSet();
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
@@ -57,7 +59,15 @@ namespace DataAccess
                     cmd.Parameters.Add("@ProjectID", ObjEUmlage.ProjectID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        da.Fill(ObjEUmlage.dtSpecialCost);
+                        da.Fill(ds);
+                    }
+                    if (ds != null && ds.Tables.Count > 0)
+                    {
+                        ObjEUmlage.dtSpecialCost = ds.Tables[0];
+                        if (ds.Tables.Count > 1 && ds.Tables[1].Rows.Count > 0)
+                        {
+                            int.TryParse(Convert.ToString(ds.Tables[1].Rows[0][0]), out ObjEUmlage.UmlageMode);
+                        }
                     }
                 }
             }
@@ -126,6 +136,7 @@ namespace DataAccess
                     cmd.CommandText = "[P_Ins_SpecialCost]";
                     cmd.Parameters.Add("@ProjectID", ObjEUmlage.ProjectID);
                     cmd.Parameters.Add("@dt", ObjEUmlage.dtSpecialCost);
+                    cmd.Parameters.Add("@UmlageMode", ObjEUmlage.UmlageMode);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                         da.Fill(dt);
 

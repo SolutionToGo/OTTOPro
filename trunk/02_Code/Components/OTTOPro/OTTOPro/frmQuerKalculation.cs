@@ -17,16 +17,19 @@ namespace OTTOPro
     public partial class frmQuerKalculation : DevExpress.XtraEditors.XtraForm
     {
         int ProjectID = 0;
+        int version = 1;
         BGAEB objBGAEB = null;
+        public string stRaster = string.Empty;
         public frmQuerKalculation()
         {
             InitializeComponent();
         }
 
-        public frmQuerKalculation(int _PID)
+        public frmQuerKalculation(int _PID ,int _version = 1)
         {
             InitializeComponent();
             ProjectID = _PID;
+            version = _version;
         }
 
         private void gvAddRemovePositions_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -150,11 +153,23 @@ namespace OTTOPro
                 if (radioGroupSelection.SelectedIndex == 0)
                 {
                     this.Hide();
-                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Complete",cmbLVSection.Text);
-                    ReportPrintTool printTool = new ReportPrintTool(rpt);
-                    rpt.Parameters["ProjectID"].Value = ProjectID;
-                    rpt.Parameters["UsrName"].Value = Utility.FirstName;
-                    printTool.ShowRibbonPreview();
+                    if (version == 1)
+                    {
+                        rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Complete", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = ProjectID;
+                        rpt.Parameters["UsrName"].Value = Utility.FirstName;
+                        rpt.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                        printTool.ShowRibbonPreview();
+                    }else
+                    {
+                        rptQuercalcV2 rpt = new rptQuercalcV2(ProjectID, dtPos, "Complete", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = ProjectID;
+                        rpt.Parameters["UsrName"].Value = Utility.FirstName;
+                        rpt.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                        printTool.ShowRibbonPreview();
+                    }
                     this.Close();
                 }
                 else if (radioGroupSelection.SelectedIndex == 1)
@@ -191,27 +206,53 @@ namespace OTTOPro
                             else
                                 throw new Exception("Please enter the same Parent level..!");
                         }
-                        drPos["fromPos"] = tfrom.Replace(',', '.');
-                        drPos["toPos"] = tTo.Replace(',', '.');
+                        drPos["fromPos"] = Utility.PrepareOZ(tfrom.Replace(',', '.'),stRaster);
+                        drPos["toPos"] = Utility.PrepareOZ(tTo.Replace(',', '.'),stRaster);
                         dtPos.Rows.Add(drPos);
                     }
 
                     this.Hide();
-                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Title", cmbLVSection.Text);
-                    ReportPrintTool printTool = new ReportPrintTool(rpt);
-                    rpt.Parameters["ProjectID"].Value = ProjectID;
-                    rpt.Parameters["UsrName"].Value = Utility.FirstName;
-                    printTool.ShowRibbonPreview();
+                    if (version == 1)
+                    {
+                        rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Title", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = ProjectID;
+                        rpt.Parameters["UsrName"].Value = Utility.FirstName;
+                        rpt.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                        printTool.ShowRibbonPreview();
+                    }
+                    else
+                    {
+                        rptQuercalcV2 rpt = new rptQuercalcV2(ProjectID, dtPos, "Title", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = ProjectID;
+                        rpt.Parameters["UsrName"].Value = Utility.FirstName;
+                        rpt.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                        printTool.ShowRibbonPreview();
+                    }
                     this.Close();
                 }
                 else if (radioGroupSelection.SelectedIndex == 2)
                 {
                     this.Hide();
-                    rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "LVSection", cmbLVSection.Text);
-                    ReportPrintTool printTool = new ReportPrintTool(rpt);
-                    rpt.Parameters["ProjectID"].Value = ProjectID;
-                    rpt.Parameters["UsrName"].Value = Utility.FirstName;
-                    printTool.ShowRibbonPreview();
+                    if (version == 1)
+                    {
+                        rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "LVSection", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = ProjectID;
+                        rpt.Parameters["UsrName"].Value = Utility.FirstName;
+                        rpt.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                        printTool.ShowRibbonPreview();
+                    }
+                    else
+                    {
+                        rptQuercalcV2 rpt = new rptQuercalcV2(ProjectID, dtPos, "LVSection", cmbLVSection.Text);
+                        ReportPrintTool printTool = new ReportPrintTool(rpt);
+                        rpt.Parameters["ProjectID"].Value = ProjectID;
+                        rpt.Parameters["UsrName"].Value = Utility.FirstName;
+                        rpt.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                        printTool.ShowRibbonPreview();
+                    }
                     this.Close();
                 }
             }

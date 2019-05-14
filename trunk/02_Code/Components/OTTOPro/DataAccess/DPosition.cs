@@ -17,7 +17,7 @@ namespace DataAccess
 {
     public class DPosition
     {
-        public int SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription, decimal OZID)
+        public int SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription, double OZID,string OZ1, string OZ2, string OZ3, string OZ4, string OZ5, string OZ6, string stOZChar = "")
         {
             int ProjectID = -1;
             try
@@ -34,6 +34,13 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@ProjectID", iProjectID);
                     cmd.Parameters.AddWithValue("@LongDescription", LongDescription);
                     cmd.Parameters.AddWithValue("@OZID", OZID);
+                    cmd.Parameters.AddWithValue("@OZChar", stOZChar);
+                    cmd.Parameters.AddWithValue("@O1", OZ1);
+                    cmd.Parameters.AddWithValue("@O2", OZ2);
+                    cmd.Parameters.AddWithValue("@O3", OZ3);
+                    cmd.Parameters.AddWithValue("@O4", OZ4);
+                    cmd.Parameters.AddWithValue("@O5", OZ5);
+                    cmd.Parameters.AddWithValue("@O6", OZ6);
                     object returnObj = cmd.ExecuteScalar();
                     if (returnObj != null)
                     {
@@ -419,7 +426,11 @@ namespace DataAccess
                     object ObjReturn = cmd.ExecuteScalar();
                     string str = Convert.ToString(ObjReturn);
                     if (!string.IsNullOrEmpty(str))
-                        throw new Exception(str);
+                    {
+                        int IValue = 0;
+                        if (!int.TryParse(str, out IValue))
+                            throw new Exception(str);
+                    }
                 }
             }
             catch (Exception ex)
@@ -589,6 +600,36 @@ namespace DataAccess
             return ObjEPositon;
         }
 
+        public EPosition GetArticleByWGWA(EPosition ObjEPositon)
+        {
+            DataSet ds = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_WGWAComb]";
+                    cmd.Parameters.AddWithValue("@WG", ObjEPositon.WG);
+                    cmd.Parameters.AddWithValue("@WA", ObjEPositon.WA);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEPositon.ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ds);
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                        ObjEPositon.dtArticle = ds.Tables[0];
+                    else
+                        ObjEPositon.dtArticle.Rows.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEPositon;
+        }
+
         public EPosition GetArticleByDimension(EPosition ObjEPositon)
         {
             DataTable dt = new DataTable();
@@ -657,7 +698,7 @@ namespace DataAccess
             return dsPositionsList;
         }
 
-        public int CopyPosition(EPosition ObjEPosition)
+        public int CopyPosition(EPosition ObjEPosition,string stOZChar)
         {
             int ProjectID = -1;
             try
@@ -673,6 +714,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@SNO", ObjEPosition.SNO);
                     cmd.Parameters.AddWithValue("@dtCopyPosition", ObjEPosition.dtCopyPosition);
                     cmd.Parameters.AddWithValue("@OZID", ObjEPosition.OZID);
+                    cmd.Parameters.AddWithValue("@OZChar", stOZChar);
                     object returnObj = cmd.ExecuteScalar();
                     if (!int.TryParse(Convert.ToString(returnObj), out ProjectID))
                         throw new Exception(Convert.ToString(returnObj));
@@ -814,6 +856,50 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@WA", ObjEPosition.WA);
                     cmd.Parameters.AddWithValue("@WGDescription", ObjEPosition.WGDescription);
                     cmd.Parameters.AddWithValue("@WADescription", ObjEPosition.WADescription);
+                    cmd.Parameters.AddWithValue("@UserID", ObjEPosition.UserID);
+                    object returnObj = cmd.ExecuteScalar();
+                    if (!int.TryParse(Convert.ToString(returnObj), out WGID))
+                        throw new Exception(Convert.ToString(returnObj));
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("UNIQUE"))
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Article already exists");
+                    else
+                        throw new Exception("Article already exists");
+                }
+                else
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Error While saving article");
+                    else
+                        throw new Exception("Error While saving article");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEPosition;
+        }
+
+        public EPosition SavePositionArticle(EPosition ObjEPosition)
+        {
+            try
+            {
+                int WGID = 0;
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_PositionArticle]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEPosition.ProjectID);
+                    cmd.Parameters.AddWithValue("@WG", ObjEPosition.WG);
+                    cmd.Parameters.AddWithValue("@WA", ObjEPosition.WA);
+                    cmd.Parameters.AddWithValue("@WI", ObjEPosition.WI);
                     cmd.Parameters.AddWithValue("@UserID", ObjEPosition.UserID);
                     object returnObj = cmd.ExecuteScalar();
                     if (!int.TryParse(Convert.ToString(returnObj), out WGID))

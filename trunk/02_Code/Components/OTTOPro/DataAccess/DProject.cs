@@ -55,6 +55,7 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@ProjectEndDate", ObjEProject.ProjectEndDate);
                     cmd.Parameters.AddWithValue("@IsCummulated", ObjEProject.IsCumulated);
                     cmd.Parameters.AddWithValue("@ISRasterChange", ObjEProject.IsRasterChange);
+                    cmd.Parameters.AddWithValue("@ProjectName", ObjEProject.ProjectName);
                     object returnObj = cmd.ExecuteScalar();
                     if (returnObj != null)
                     {
@@ -646,6 +647,103 @@ namespace DAL
             {
                 SQLCon.Sqlconn().Close();
             }
+        }
+
+        public void SaveProjectCommentary(int ProjectID, string CommentaryDescription)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_ProjectCommentary]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    cmd.Parameters.AddWithValue("@CommentaryDescription", CommentaryDescription);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+        }
+        public string GetProjectCommentary(int ProjectID)
+        {
+            string st = string.Empty;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())   
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ProjectCommentary]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    object ObjReturn = cmd.ExecuteScalar();
+                    st = Convert.ToString(ObjReturn);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return st;
+        }
+        public void SaveAngebotCommentary(int ProjectID, string CommentaryDescription)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_AngebotComentary]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    cmd.Parameters.AddWithValue("@CommentaryDescription", CommentaryDescription);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+        }
+        public string GetAngebotCommentary(int ProjectID)
+        {
+            string st = string.Empty;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_AngebotComentary]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    object ObjReturn = cmd.ExecuteScalar();
+                    st = Convert.ToString(ObjReturn);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return st;
         }
     }
 }

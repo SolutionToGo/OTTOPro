@@ -511,6 +511,12 @@
     <Compile Include="frmTypList.Designer.cs">
       <DependentUpon>frmTypList.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmViewcommentory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewcommentory.Designer.cs">
+      <DependentUpon>frmViewcommentory.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmViewdescription.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -574,10 +580,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\dsQuerCalcNew.cs">
+      <DependentUpon>dsQuerCalcNew.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\dsQuerCalcNew.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsQuerCalcNew.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\dsQuerKalculation.cs">
+      <DependentUpon>dsQuerKalculation.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\dsQuerKalculation1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsQuerKalculation.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\dsSurchargeCalculation.cs">
+      <DependentUpon>dsSurchargeCalculation.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report Design\dsSurchargeCalculation.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -637,6 +657,12 @@
     </Compile>
     <Compile Include="Report Design\rptProposalwithoutMAMO.Designer.cs">
       <DependentUpon>rptProposalwithoutMAMO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptQuercalcV2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptQuercalcV2.Designer.cs">
+      <DependentUpon>rptQuercalcV2.cs</DependentUpon>
     </Compile>
     <Compile Include="Report Design\rptQuerKalkulation.cs">
       <SubType>Component</SubType>
@@ -810,6 +836,9 @@
     <EmbeddedResource Include="frmTypList.resx">
       <DependentUpon>frmTypList.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmViewcommentory.resx">
+      <DependentUpon>frmViewcommentory.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmViewdescription.resx">
       <DependentUpon>frmViewdescription.cs</DependentUpon>
     </EmbeddedResource>
@@ -857,6 +886,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalwithoutMAMO.resx">
       <DependentUpon>rptProposalwithoutMAMO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptQuercalcV2.resx">
+      <DependentUpon>rptQuercalcV2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptQuerKalkulation.resx">
       <DependentUpon>rptQuerKalkulation.cs</DependentUpon>
@@ -943,6 +975,17 @@
     </None>
     <None Include="Report Design\dsProposalCoverPage1.xss">
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsQuerCalcNew.xsc">
+      <DependentUpon>dsQuerCalcNew.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsQuerCalcNew.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsQuerCalcNew.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsQuerCalcNew.xss">
+      <DependentUpon>dsQuerCalcNew.xsd</DependentUpon>
     </None>
     <None Include="Report Design\dsQuerKalculation.xsc">
       <DependentUpon>dsQuerKalculation.xsd</DependentUpon>

@@ -99,43 +99,44 @@ namespace BL
                             DateTime SubmitDate = DateTime.Now;
                             bool LockLV = false;
 
-                            if (int.TryParse(dtPRojectDetails.Rows[0]["ProjectID"].ToString(), out iValue))
+                            if (int.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["ProjectID"]), out iValue))
                                 ObjEProject.ProjectID = iValue;
                             else
                                 ObjEProject.ProjectID = -1;
 
-                            ObjEProject.ProjectNumber = dtPRojectDetails.Rows[0]["ProjectNumber"].ToString();
-                            ObjEProject.Location = dtPRojectDetails.Rows[0]["Location"].ToString();
-                            ObjEProject.CommissionNumber = dtPRojectDetails.Rows[0]["ComissionNumber"].ToString();
-                            ObjEProject.LVRaster = dtPRojectDetails.Rows[0]["LV_Raster"].ToString();
+                            ObjEProject.ProjectNumber = Convert.ToString(dtPRojectDetails.Rows[0]["ProjectNumber"]);
+                            ObjEProject.ProjectName = Convert.ToString(dtPRojectDetails.Rows[0]["ProjectName"]);
+                            ObjEProject.Location = Convert.ToString(dtPRojectDetails.Rows[0]["Location"]);
+                            ObjEProject.CommissionNumber = Convert.ToString(dtPRojectDetails.Rows[0]["ComissionNumber"]);
+                            ObjEProject.LVRaster = Convert.ToString(dtPRojectDetails.Rows[0]["LV_Raster"]);
 
-                            if (int.TryParse(dtPRojectDetails.Rows[0]["LV_Sprung"].ToString(), out iValue))
+                            if (int.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["LV_Sprung"]), out iValue))
                                 ObjEProject.LVSprunge = iValue;
 
-                            if (decimal.TryParse(dtPRojectDetails.Rows[0]["Vat"].ToString(), out dValue))
+                            if (decimal.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Vat"]), out dValue))
                                 ObjEProject.Vat = dValue;
 
-                            ObjEProject.ProjectDescription = dtPRojectDetails.Rows[0]["ProjectDescription"].ToString();
+                            ObjEProject.ProjectDescription = Convert.ToString(dtPRojectDetails.Rows[0]["ProjectDescription"]);
                             ObjEProject.KundeID = 1;
-                            if (int.TryParse(dtPRojectDetails.Rows[0]["CustomerID"].ToString(), out iValue))
+                            if (int.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["CustomerID"]), out iValue))
                                 ObjEProject.KundeNr = iValue;
-                            ObjEProject.KundeName = dtPRojectDetails.Rows[0]["CustomerName"].ToString();
-                            ObjEProject.KundeAddress = dtPRojectDetails.Rows[0]["Street"].ToString();
+                            ObjEProject.KundeName = Convert.ToString(dtPRojectDetails.Rows[0]["CustomerName"]);
+                            ObjEProject.KundeAddress = Convert.ToString(dtPRojectDetails.Rows[0]["Street"]);
                             ObjEProject.PlannedID = 1;
-                            ObjEProject.PlannerName = dtPRojectDetails.Rows[0]["PlannerName"].ToString();
+                            ObjEProject.PlannerName = Convert.ToString(dtPRojectDetails.Rows[0]["PlannerName"]);
 
-                            if (int.TryParse(dtPRojectDetails.Rows[0]["Planned_Duration"].ToString(), out iValue))
+                            if (int.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Planned_Duration"]), out iValue))
                                 ObjEProject.ProjectDuration = iValue;
 
-                            if (decimal.TryParse(dtPRojectDetails.Rows[0]["Intern_X"].ToString(), out dValue))
+                            if (decimal.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Intern_X"]), out dValue))
                                 ObjEProject.InternX = dValue;
 
-                            if (decimal.TryParse(dtPRojectDetails.Rows[0]["Intern_S"].ToString(), out dValue))
+                            if (decimal.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Intern_S"]), out dValue))
                                 ObjEProject.InternS = dValue;
 
-                            ObjEProject.Submitlocation = dtPRojectDetails.Rows[0]["Submit_Location"].ToString();
+                            ObjEProject.Submitlocation = Convert.ToString(dtPRojectDetails.Rows[0]["Submit_Location"]);
 
-                            if (DateTime.TryParse(dtPRojectDetails.Rows[0]["Submit_Date"].ToString(), out SubmitDate))
+                            if (DateTime.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Submit_Date"]), out SubmitDate))
                             {
                                 ObjEProject.SubmitTime = SubmitDate;
                                 ObjEProject.SubmitDate = SubmitDate;
@@ -146,38 +147,38 @@ namespace BL
                                 ObjEProject.SubmitDate = SubmitDate;
                             }
 
-                            if (int.TryParse(dtPRojectDetails.Rows[0]["Estimated_LV"].ToString(), out iValue))
+                            if (int.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Estimated_LV"]), out iValue))
                                 ObjEProject.EstimatedLvs = iValue;
 
-                            if (int.TryParse(dtPRojectDetails.Rows[0]["Actual_LV"].ToString(), out iValue))
+                            if (int.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Actual_LV"]), out iValue))
                                 ObjEProject.ActualLvs = iValue;
 
                             ObjEProject.RoundingPriceID = 1;
-                            ObjEProject.Remarks = dtPRojectDetails.Rows[0]["Remarks"].ToString();
+                            ObjEProject.Remarks = Convert.ToString(dtPRojectDetails.Rows[0]["Remarks"]);
 
-                            if (bool.TryParse(dtPRojectDetails.Rows[0]["Lock_LVHierarchy"].ToString(), out LockLV))
+                            if (bool.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Lock_LVHierarchy"]), out LockLV))
                                 ObjEProject.LockHierarchy = LockLV;
 
-                            if (int.TryParse(dtPRojectDetails.Rows[0]["Round_Off"].ToString(), out iValue))
+                            if (int.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["Round_Off"]), out iValue))
                                 ObjEProject.RoundingPrice = iValue;
 
-                            if (DateTime.TryParse(dtPRojectDetails.Rows[0]["ProjectStartDate"].ToString(), out SubmitDate))
+                            if (DateTime.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["ProjectStartDate"]), out SubmitDate))
                                 ObjEProject.ProjectStartDate = SubmitDate;
                             else
                                 ObjEProject.ProjectStartDate = SubmitDate;
 
-                            if (DateTime.TryParse(dtPRojectDetails.Rows[0]["ProjectEndDate"].ToString(), out SubmitDate))
+                            if (DateTime.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["ProjectEndDate"]), out SubmitDate))
                                 ObjEProject.ProjectEndDate = SubmitDate;
                             else
                                 ObjEProject.ProjectEndDate = SubmitDate;
 
-                            if (bool.TryParse(dtPRojectDetails.Rows[0]["IsDisable"].ToString(), out LockLV))
+                            if (bool.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["IsDisable"]), out LockLV))
                                 ObjEProject.IsDisable = LockLV;
 
-                            if (bool.TryParse(dtPRojectDetails.Rows[0]["IsCumulated"].ToString(), out LockLV))
+                            if (bool.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["IsCumulated"]), out LockLV))
                                 ObjEProject.IsCumulated = LockLV;
 
-                            if (bool.TryParse(dtPRojectDetails.Rows[0]["FinalInvoice"].ToString(), out LockLV))
+                            if (bool.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["FinalInvoice"]), out LockLV))
                                 ObjEProject.IsFinalInvoice = LockLV;
                         }
                     }
@@ -373,7 +374,45 @@ namespace BL
             return str;
         }
 
+        public void SaveProjectCommentary(int ProjectID, string CommentaryDescription)
+        {
+            try
+            {
+                ObjDAL.SaveProjectCommentary(ProjectID, CommentaryDescription);
+            }
+            catch (Exception ex){throw ex;}
+        }
 
+        public string GetProjectCommentary(int ProjectID)
+        {
+            string st = string.Empty;
+            try
+            {
+                st = ObjDAL.GetProjectCommentary(ProjectID);
+            }
+            catch (Exception ex) { throw ex; }
+            return st;
+        }
+
+        public void SaveAngebotCommentary(int ProjectID, string CommentaryDescription)
+        {
+            try
+            {
+                ObjDAL.SaveAngebotCommentary(ProjectID, CommentaryDescription);
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        public string GetAngebotCommentary(int ProjectID)
+        {
+            string st = string.Empty;
+            try
+            {
+                st = ObjDAL.GetAngebotCommentary(ProjectID);
+            }
+            catch (Exception ex) { throw ex; }
+            return st;
+        }
     }
 }
     
