@@ -306,13 +306,17 @@
             this.ClientSize = new System.Drawing.Size(611, 195);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmGAEBExport";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GAEB Export";
             this.Load += new System.EventHandler(this.frmGAEBExport_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmGAEBExport_KeyDown);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmGAEBExport_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbFormatType.Properties)).EndInit();

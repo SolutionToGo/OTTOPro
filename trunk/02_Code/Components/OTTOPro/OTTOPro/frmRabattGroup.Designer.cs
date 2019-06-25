@@ -232,6 +232,7 @@
             this.gvTyp.Name = "gvTyp";
             this.gvTyp.OptionsBehavior.Editable = false;
             this.gvTyp.OptionsView.ShowGroupPanel = false;
+            this.gvTyp.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvTyp_PopupMenuShowing);
             // 
             // gcRabatt
             // 
@@ -508,7 +509,6 @@
             this.emptySpaceItem1,
             this.layoutControlItem15,
             this.layoutControlItem10});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1147, 720);
             this.layoutControlGroup1.TextVisible = false;
@@ -743,6 +743,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRabattGroup";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Rabatt Gruppe ";

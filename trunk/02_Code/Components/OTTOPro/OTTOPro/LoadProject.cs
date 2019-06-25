@@ -160,7 +160,7 @@ namespace OTTOPro
                     int IValue = 0;
                     if(int.TryParse(Convert.ToString(dgProjectSearch.GetFocusedRowCellValue("ProjectID")),out IValue))
                     {
-                        var dlgResult = XtraMessageBox.Show("Are you sure want to delete project ?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        var dlgResult = XtraMessageBox.Show("Sind Sie sicher, dass Sie dieses Projekt unwiderruflich löschen möchten?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                         if (Convert.ToString(dlgResult) == "Yes")
                         {
                             string _PrNr = dgProjectSearch.GetFocusedDataRow()["ProjectNumber"].ToString();

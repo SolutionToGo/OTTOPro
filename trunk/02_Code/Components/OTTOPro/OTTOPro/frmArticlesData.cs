@@ -22,12 +22,13 @@ namespace OTTOPro
     {
         EArticles ObjEArticle = null;
         BArticles ObjBArticle = null;
+
+        DArticles ObjDArticle = null;
         private bool _IsNew = false;
         public frmArticlesData()
         {
             InitializeComponent();
         }
-        private bool _IsSave;
         private bool _IsSaveDimension = false;
         
 
@@ -154,6 +155,11 @@ namespace OTTOPro
                         gvTyp.BestFitColumns();
                         Utility.Setfocus(gvTyp, "RTID", ObjEArticle.RTID);
                     }
+                }
+                else
+                {
+                    gcDimensions.DataSource = null;
+                    gcTyp.DataSource = null;
                 }
             }
             catch (Exception ex)
@@ -329,8 +335,28 @@ namespace OTTOPro
 
         private void gvDimensions_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
-            if (!_IsSave)
-                 _IsSave = true;
+            try
+            {
+                if(gvDimensions.GetFocusedRowCellValue("DimensionID") != null)
+                {
+                    if (ObjEArticle == null)
+                        ObjEArticle = new EArticles();
+                    if (ObjDArticle == null)
+                        ObjDArticle = new DArticles();
+                    int IValue = 0;
+                    decimal dMins = 0;
+                    decimal dListPrice = 0;
+                    if (int.TryParse(Convert.ToString(gvDimensions.GetFocusedRowCellValue("DimensionID")), out IValue))
+                        ObjEArticle.DimensionID = IValue;
+                    if (decimal.TryParse(Convert.ToString(gvDimensions.GetFocusedRowCellValue("Minuten")), out dMins))
+                        ObjEArticle.Minuten = dMins;
+                    if (decimal.TryParse(Convert.ToString(gvDimensions.GetFocusedRowCellValue("ListPrice")), out dListPrice))
+                        ObjEArticle.ListPrice = dListPrice;
+                     ObjDArticle.UpdateDimension(ObjEArticle);
+                    gvWI_FocusedRowChanged(null, null);
+                }
+            }
+            catch (Exception ex){ Utility.ShowError(ex); }
         }
 
         private void btnSaveAs_Click(object sender, EventArgs e)
@@ -378,10 +404,12 @@ namespace OTTOPro
 
         private void frmArticlesData_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Escape)
+            try
             {
-                btnCancel_Click(null, null);
+                if (e.KeyData == Keys.Escape)
+                    this.Close();
             }
+            catch (Exception ex) { }
         }
 
         private void gvDimensions_DoubleClick(object sender, EventArgs e)
@@ -479,5 +507,138 @@ namespace OTTOPro
             catch (Exception ex) { }
         }
 
+        private void gvWGWA_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteWG_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteWG_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvWGWA.GetFocusedRowCellValue("WGID") != null)
+                {
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvWGWA.GetFocusedRowCellValue("WGID")), out IValue))
+                    {
+                        var dlgResult = XtraMessageBox.Show("Sind Sie sicher, dass Sie den ausgewählten WG/WA Datensatz löschen möchten?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (Convert.ToString(dlgResult) == "Yes")
+                        {
+                            if (ObjEArticle == null)
+                                ObjEArticle = new EArticles();
+                            ObjEArticle.WGID = IValue;
+                            if (ObjDArticle == null)
+                                ObjDArticle = new DArticles();
+                            ObjDArticle.DeleteWG(ObjEArticle);
+                            gvWGWA.DeleteSelectedRows();
+                            gvWGWA_FocusedRowChanged(null, null);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvWI_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteWI_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteWI_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvWI.GetFocusedRowCellValue("WIID") != null)
+                {
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvWI.GetFocusedRowCellValue("WIID")), out IValue))
+                    {
+                        var dlgResult = XtraMessageBox.Show("Sind Sie sicher, dass Sie den ausgewählten WI Datensatz löschen möchten?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (Convert.ToString(dlgResult) == "Yes")
+                        {
+                            if (ObjEArticle == null)
+                                ObjEArticle = new EArticles();
+                            ObjEArticle.WIID = IValue;
+                            if (ObjDArticle == null)
+                                ObjDArticle = new DArticles();
+                            ObjDArticle.DeleteWI(ObjEArticle);
+                            gvWI.DeleteSelectedRows();
+                            gvWI_FocusedRowChanged(null, null);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDimensions_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteDimension_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteDimension_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvDimensions.GetFocusedRowCellValue("DimensionID") != null)
+                {
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvDimensions.GetFocusedRowCellValue("DimensionID")), out IValue))
+                    {
+                        var dlgResult = XtraMessageBox.Show("Sind Sie sicher, dass Sie die ausgewählten Abmessungen löschen möchten?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (Convert.ToString(dlgResult) == "Yes")
+                        {
+                            if (ObjEArticle == null)
+                                ObjEArticle = new EArticles();
+                            ObjEArticle.DimensionID = IValue;
+                            if (ObjDArticle == null)
+                                ObjDArticle = new DArticles();
+                            ObjDArticle.DeleteDimension(ObjEArticle);
+                            gvDimensions.DeleteSelectedRows();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
     }
 }

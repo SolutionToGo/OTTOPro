@@ -358,6 +358,7 @@
             this.KeyPreview = true;
             this.MinimizeBox = false;
             this.Name = "frmLoadProject";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Text = "Projekt laden";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

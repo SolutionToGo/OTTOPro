@@ -107,7 +107,7 @@ namespace OTTOPro
         private void txtParentWG_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
-            {
+                {
                 if (e.KeyChar == (char)Keys.Enter)
                 {
                     ObjEArticles.WG = txtParentWG.Text;
@@ -364,6 +364,16 @@ namespace OTTOPro
                     edit.SelectionStart = 0;
                     edit.SelectionLength = edit.Text.Length;
                 }));
+            }
+            catch (Exception ex){}
+        }
+
+        private void frmAccessories_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.Escape)
+                    this.Close();
             }
             catch (Exception ex){}
         }

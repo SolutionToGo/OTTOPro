@@ -95,15 +95,15 @@
             this.simpleLabelItem7,
             this.simpleLabelItem8});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(596, 308);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(459, 217);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(534, 36);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(407, 32);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(42, 252);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(32, 165);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -111,86 +111,86 @@
             this.emptySpaceItem4.AllowHotTrack = false;
             this.emptySpaceItem4.Location = new System.Drawing.Point(0, 0);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
-            this.emptySpaceItem4.Size = new System.Drawing.Size(576, 14);
+            this.emptySpaceItem4.Size = new System.Drawing.Size(439, 10);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleLabelItem1
             // 
             this.simpleLabelItem1.AllowHotTrack = false;
-            this.simpleLabelItem1.Location = new System.Drawing.Point(0, 102);
+            this.simpleLabelItem1.Location = new System.Drawing.Point(0, 98);
             this.simpleLabelItem1.Name = "simpleLabelItem1";
-            this.simpleLabelItem1.Size = new System.Drawing.Size(534, 22);
+            this.simpleLabelItem1.Size = new System.Drawing.Size(407, 22);
             this.simpleLabelItem1.Text = "F1  \t       Langtext öffnen / schließen";
             this.simpleLabelItem1.TextSize = new System.Drawing.Size(237, 18);
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 190);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 186);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(534, 98);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(407, 11);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleLabelItem2
             // 
             this.simpleLabelItem2.AllowHotTrack = false;
-            this.simpleLabelItem2.Location = new System.Drawing.Point(0, 124);
+            this.simpleLabelItem2.Location = new System.Drawing.Point(0, 120);
             this.simpleLabelItem2.Name = "simpleLabelItem2";
-            this.simpleLabelItem2.Size = new System.Drawing.Size(534, 22);
+            this.simpleLabelItem2.Size = new System.Drawing.Size(407, 22);
             this.simpleLabelItem2.Text = "F2         \tSuche";
             this.simpleLabelItem2.TextSize = new System.Drawing.Size(237, 18);
             // 
             // simpleLabelItem3
             // 
             this.simpleLabelItem3.AllowHotTrack = false;
-            this.simpleLabelItem3.Location = new System.Drawing.Point(0, 146);
+            this.simpleLabelItem3.Location = new System.Drawing.Point(0, 142);
             this.simpleLabelItem3.Name = "simpleLabelItem3";
-            this.simpleLabelItem3.Size = new System.Drawing.Size(534, 22);
+            this.simpleLabelItem3.Size = new System.Drawing.Size(407, 22);
             this.simpleLabelItem3.Text = "F4         \tkopieren";
             this.simpleLabelItem3.TextSize = new System.Drawing.Size(237, 18);
             // 
             // simpleLabelItem4
             // 
             this.simpleLabelItem4.AllowHotTrack = false;
-            this.simpleLabelItem4.Location = new System.Drawing.Point(0, 168);
+            this.simpleLabelItem4.Location = new System.Drawing.Point(0, 164);
             this.simpleLabelItem4.Name = "simpleLabelItem4";
-            this.simpleLabelItem4.Size = new System.Drawing.Size(534, 22);
+            this.simpleLabelItem4.Size = new System.Drawing.Size(407, 22);
             this.simpleLabelItem4.Text = "F6         \tumschalten Kostendetails";
             this.simpleLabelItem4.TextSize = new System.Drawing.Size(237, 18);
             // 
             // simpleLabelItem5
             // 
             this.simpleLabelItem5.AllowHotTrack = false;
-            this.simpleLabelItem5.Location = new System.Drawing.Point(0, 80);
+            this.simpleLabelItem5.Location = new System.Drawing.Point(0, 76);
             this.simpleLabelItem5.Name = "simpleLabelItem5";
-            this.simpleLabelItem5.Size = new System.Drawing.Size(534, 22);
+            this.simpleLabelItem5.Size = new System.Drawing.Size(407, 22);
             this.simpleLabelItem5.Text = "F10\t       nur speichern";
             this.simpleLabelItem5.TextSize = new System.Drawing.Size(237, 18);
             // 
             // simpleLabelItem6
             // 
             this.simpleLabelItem6.AllowHotTrack = false;
-            this.simpleLabelItem6.Location = new System.Drawing.Point(0, 58);
+            this.simpleLabelItem6.Location = new System.Drawing.Point(0, 54);
             this.simpleLabelItem6.Name = "simpleLabelItem6";
-            this.simpleLabelItem6.Size = new System.Drawing.Size(534, 22);
+            this.simpleLabelItem6.Size = new System.Drawing.Size(407, 22);
             this.simpleLabelItem6.Text = "F9             Speichern";
             this.simpleLabelItem6.TextSize = new System.Drawing.Size(237, 18);
             // 
             // simpleLabelItem7
             // 
             this.simpleLabelItem7.AllowHotTrack = false;
-            this.simpleLabelItem7.Location = new System.Drawing.Point(0, 36);
+            this.simpleLabelItem7.Location = new System.Drawing.Point(0, 32);
             this.simpleLabelItem7.Name = "simpleLabelItem7";
-            this.simpleLabelItem7.Size = new System.Drawing.Size(534, 22);
+            this.simpleLabelItem7.Size = new System.Drawing.Size(407, 22);
             this.simpleLabelItem7.Text = "Esc            Abbrechen";
             this.simpleLabelItem7.TextSize = new System.Drawing.Size(237, 18);
             // 
             // simpleLabelItem8
             // 
             this.simpleLabelItem8.AllowHotTrack = false;
-            this.simpleLabelItem8.Location = new System.Drawing.Point(0, 14);
+            this.simpleLabelItem8.Location = new System.Drawing.Point(0, 10);
             this.simpleLabelItem8.Name = "simpleLabelItem8";
-            this.simpleLabelItem8.Size = new System.Drawing.Size(576, 22);
+            this.simpleLabelItem8.Size = new System.Drawing.Size(439, 22);
             this.simpleLabelItem8.Text = "Alt + N      Neu";
             this.simpleLabelItem8.TextSize = new System.Drawing.Size(237, 18);
             // 
@@ -201,12 +201,15 @@
             this.ClientSize = new System.Drawing.Size(459, 217);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmShortCuts";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Abkürzungen";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmShortCuts_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();

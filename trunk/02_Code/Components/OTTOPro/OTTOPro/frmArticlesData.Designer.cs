@@ -299,7 +299,7 @@
             // 
             // gridColumn24
             // 
-            this.gridColumn24.Caption = "Supplier";
+            this.gridColumn24.Caption = "Lieferant";
             this.gridColumn24.FieldName = "Supplier";
             this.gridColumn24.Name = "gridColumn24";
             this.gridColumn24.Visible = true;
@@ -315,7 +315,7 @@
             // 
             // gridColumn26
             // 
-            this.gridColumn26.Caption = "ValidityDate";
+            this.gridColumn26.Caption = "Gültigkeitsdatum";
             this.gridColumn26.ColumnEdit = this.dtpValidityDate;
             this.gridColumn26.FieldName = "ValidityDate";
             this.gridColumn26.Name = "gridColumn26";
@@ -599,8 +599,6 @@
             this.gvDimensions.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.gvDimensions.GridControl = this.gcDimensions;
             this.gvDimensions.Name = "gvDimensions";
-            this.gvDimensions.OptionsBehavior.Editable = false;
-            this.gvDimensions.OptionsBehavior.ReadOnly = true;
             this.gvDimensions.OptionsCustomization.AllowColumnMoving = false;
             this.gvDimensions.OptionsCustomization.AllowColumnResizing = false;
             this.gvDimensions.OptionsCustomization.AllowGroup = false;
@@ -610,6 +608,7 @@
             this.gvDimensions.OptionsMenu.EnableFooterMenu = false;
             this.gvDimensions.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvDimensions.OptionsView.ShowGroupPanel = false;
+            this.gvDimensions.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvDimensions_PopupMenuShowing);
             this.gvDimensions.CellValueChanged += new DevExpress.XtraGrid.Views.Base.CellValueChangedEventHandler(this.gvDimensions_CellValueChanged);
             this.gvDimensions.DoubleClick += new System.EventHandler(this.gvDimensions_DoubleClick);
             // 
@@ -621,6 +620,7 @@
             this.gridColumn8.ColumnEdit = this.rpDimension;
             this.gridColumn8.FieldName = "A";
             this.gridColumn8.Name = "gridColumn8";
+            this.gridColumn8.OptionsColumn.AllowEdit = false;
             this.gridColumn8.Visible = true;
             this.gridColumn8.VisibleIndex = 0;
             // 
@@ -639,6 +639,7 @@
             this.gridColumn9.ColumnEdit = this.rpDimension;
             this.gridColumn9.FieldName = "B";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
             this.gridColumn9.Visible = true;
             this.gridColumn9.VisibleIndex = 1;
             // 
@@ -650,6 +651,7 @@
             this.gridColumn10.ColumnEdit = this.rpDimension;
             this.gridColumn10.FieldName = "L";
             this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
             this.gridColumn10.Visible = true;
             this.gridColumn10.VisibleIndex = 2;
             // 
@@ -708,6 +710,7 @@
             this.gridColumn18.ColumnEdit = this.repositoryItemDateEdit1;
             this.gridColumn18.FieldName = "ValidityDate";
             this.gridColumn18.Name = "gridColumn18";
+            this.gridColumn18.OptionsColumn.AllowEdit = false;
             this.gridColumn18.Visible = true;
             this.gridColumn18.VisibleIndex = 5;
             // 
@@ -736,6 +739,7 @@
             this.gridColumn12.ColumnEdit = this.rpMulti;
             this.gridColumn12.FieldName = "GMulti";
             this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.OptionsColumn.AllowEdit = false;
             this.gridColumn12.Visible = true;
             this.gridColumn12.VisibleIndex = 10;
             // 
@@ -752,7 +756,6 @@
             this.rpMulti.Mask.UseMaskAsDisplayFormat = true;
             this.rpMulti.MaxLength = 5;
             this.rpMulti.Name = "rpMulti";
-            this.rpMulti.ReadOnly = true;
             // 
             // gridColumn14
             // 
@@ -762,6 +765,7 @@
             this.gridColumn14.ColumnEdit = this.rpMulti;
             this.gridColumn14.FieldName = "Multi1";
             this.gridColumn14.Name = "gridColumn14";
+            this.gridColumn14.OptionsColumn.AllowEdit = false;
             this.gridColumn14.Visible = true;
             this.gridColumn14.VisibleIndex = 6;
             // 
@@ -773,6 +777,7 @@
             this.gridColumn15.ColumnEdit = this.rpMulti;
             this.gridColumn15.FieldName = "Multi2";
             this.gridColumn15.Name = "gridColumn15";
+            this.gridColumn15.OptionsColumn.AllowEdit = false;
             this.gridColumn15.Visible = true;
             this.gridColumn15.VisibleIndex = 7;
             // 
@@ -784,6 +789,7 @@
             this.gridColumn16.ColumnEdit = this.rpMulti;
             this.gridColumn16.FieldName = "Multi3";
             this.gridColumn16.Name = "gridColumn16";
+            this.gridColumn16.OptionsColumn.AllowEdit = false;
             this.gridColumn16.Visible = true;
             this.gridColumn16.VisibleIndex = 8;
             // 
@@ -795,6 +801,7 @@
             this.gridColumn17.ColumnEdit = this.rpMulti;
             this.gridColumn17.FieldName = "Multi4";
             this.gridColumn17.Name = "gridColumn17";
+            this.gridColumn17.OptionsColumn.AllowEdit = false;
             this.gridColumn17.Visible = true;
             this.gridColumn17.VisibleIndex = 9;
             // 
@@ -806,6 +813,7 @@
             this.gridColumn19.ColumnEdit = this.rpMulti;
             this.gridColumn19.FieldName = "Einkaufspreis";
             this.gridColumn19.Name = "gridColumn19";
+            this.gridColumn19.OptionsColumn.AllowEdit = false;
             this.gridColumn19.Visible = true;
             this.gridColumn19.VisibleIndex = 11;
             // 
@@ -847,6 +855,7 @@
             this.gvWI.OptionsMenu.EnableFooterMenu = false;
             this.gvWI.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvWI.OptionsView.ShowGroupPanel = false;
+            this.gvWI.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvWI_PopupMenuShowing);
             this.gvWI.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvWI_FocusedRowChanged);
             // 
             // gridColumn5
@@ -918,6 +927,7 @@
             this.gvWGWA.OptionsMenu.EnableGroupPanelMenu = false;
             this.gvWGWA.OptionsSelection.EnableAppearanceHideSelection = false;
             this.gvWGWA.OptionsView.ShowGroupPanel = false;
+            this.gvWGWA.PopupMenuShowing += new DevExpress.XtraGrid.Views.Grid.PopupMenuShowingEventHandler(this.gvWGWA_PopupMenuShowing);
             this.gvWGWA.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvWGWA_FocusedRowChanged);
             // 
             // gridColumn1
@@ -1417,6 +1427,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmArticlesData";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artikelstammdaten ";

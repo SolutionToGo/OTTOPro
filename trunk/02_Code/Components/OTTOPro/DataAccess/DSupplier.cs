@@ -541,6 +541,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@Fabrikate", ObjESupplier.Fabrikate);
                     cmd.Parameters.AddWithValue("@SupplierName", ObjESupplier.SupplierName);
                     cmd.Parameters.AddWithValue("@IsSingle", ObjESupplier.IsSingle);
+                    cmd.Parameters.AddWithValue("@dtPostionID", ObjESupplier.PID);
                     object Objreturn = cmd.ExecuteScalar();
                     if (Objreturn != null)
                     {

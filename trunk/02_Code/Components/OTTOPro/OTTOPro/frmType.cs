@@ -11,6 +11,7 @@ using DevExpress.XtraEditors;
 using EL;
 using BL;
 using DevExpress.XtraGrid.Views.Grid;
+using DataAccess;
 
 namespace OTTOPro
 {
@@ -18,6 +19,7 @@ namespace OTTOPro
     {
         EArticles ObjEArticle = null;
         BArticles ObjBArticle = null;
+        DArticles ObjDArticle = null;
         List<Control> ReqFields = new List<Control>();
 
         public frmType()
@@ -111,6 +113,50 @@ namespace OTTOPro
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void gvTyp_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteTyp_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteTyp_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvTyp.GetFocusedRowCellValue("TypID") != null)
+                {
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvTyp.GetFocusedRowCellValue("TypID")), out IValue))
+                    {
+                        var dlgResult = XtraMessageBox.Show("Sind Sie sicher, dass Sie den ausgewählten TYP (Artikelstammdaten) löschen möchten?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (Convert.ToString(dlgResult) == "Yes")
+                        {
+                            if (ObjEArticle == null)
+                                ObjEArticle = new EArticles();
+                            ObjEArticle.TypID = IValue;
+                            if (ObjDArticle == null)
+                                ObjDArticle = new DArticles();
+                            ObjDArticle.DeleteTyp(ObjEArticle);
+                            gvTyp.DeleteSelectedRows();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
     }
 } 

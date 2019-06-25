@@ -70,7 +70,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(824, 377, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(809, 693);
+            this.layoutControl1.Size = new System.Drawing.Size(809, 694);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -90,7 +90,7 @@
             // 
             this.btnSaveFeature.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSaveFeature.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnSaveFeature.Location = new System.Drawing.Point(713, 659);
+            this.btnSaveFeature.Location = new System.Drawing.Point(713, 660);
             this.btnSaveFeature.Name = "btnSaveFeature";
             this.btnSaveFeature.Size = new System.Drawing.Size(84, 22);
             this.btnSaveFeature.StyleController = this.layoutControl1;
@@ -105,7 +105,7 @@
             this.gcFeature.Name = "gcFeature";
             this.gcFeature.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpiAccessLevels});
-            this.gcFeature.Size = new System.Drawing.Size(785, 619);
+            this.gcFeature.Size = new System.Drawing.Size(785, 620);
             this.gcFeature.TabIndex = 5;
             this.gcFeature.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvFeature});
@@ -206,9 +206,8 @@
             this.layoutControlItem6,
             this.emptySpaceItem4,
             this.layoutControlItem7});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(809, 693);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(809, 694);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -216,7 +215,7 @@
             this.layoutControlItem1.Control = this.gcFeature;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 24);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(789, 623);
+            this.layoutControlItem1.Size = new System.Drawing.Size(789, 624);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -231,7 +230,7 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnSaveFeature;
-            this.layoutControlItem6.Location = new System.Drawing.Point(701, 647);
+            this.layoutControlItem6.Location = new System.Drawing.Point(701, 648);
             this.layoutControlItem6.MaxSize = new System.Drawing.Size(88, 26);
             this.layoutControlItem6.MinSize = new System.Drawing.Size(88, 26);
             this.layoutControlItem6.Name = "layoutControlItem6";
@@ -243,7 +242,7 @@
             // emptySpaceItem4
             // 
             this.emptySpaceItem4.AllowHotTrack = false;
-            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 647);
+            this.emptySpaceItem4.Location = new System.Drawing.Point(0, 648);
             this.emptySpaceItem4.Name = "emptySpaceItem4";
             this.emptySpaceItem4.Size = new System.Drawing.Size(701, 26);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -265,16 +264,19 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(809, 693);
+            this.ClientSize = new System.Drawing.Size(809, 694);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmFeature";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Berechtigung";
             this.Load += new System.EventHandler(this.frmFeature_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmFeature_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbRole.Properties)).EndInit();

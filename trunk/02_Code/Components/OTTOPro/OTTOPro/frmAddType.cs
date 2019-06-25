@@ -23,6 +23,9 @@ namespace OTTOPro
         private string _Date = null;
         int _WIID = 0;
         string _FormType = string.Empty;
+        private DataTable _dtDates = null;
+        public int DimensionID = 0;
+        public bool _IsSave = false;
 
         public frmAddType()
         {
@@ -54,6 +57,12 @@ namespace OTTOPro
             set { _Date = value; }
         }
 
+        public DataTable dtDates
+        {
+            get { return _dtDates; }
+            set { _dtDates = value; }
+        }
+
         private void frmAddType_Load(object sender, EventArgs e)
         {
             try
@@ -65,14 +74,17 @@ namespace OTTOPro
                 if (_FormType == "ValidityDate")
                 {
                     FillValidityDates();       
-                    // Bind the item to the control's column. 
                     gvAddTyp.Columns["GültigkeitDatum"].ColumnEdit = repositoryItemDateEdit1;
                 }
+                if (_Typ == "DM")
+                {
+                    gcAddTyp.DataSource = _dtDates;
+                    gvAddTyp.Columns["GültigkeitDatum"].ColumnEdit = repositoryItemDateEdit1;
+                    gvAddTyp.Columns["DimensionID"].Visible = false;
+                    gvAddTyp.BestFitColumns();
+                }
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex){}
         }
 
         private void FillTypeData()
@@ -119,25 +131,7 @@ namespace OTTOPro
 
         private void gvAddTyp_KeyPress(object sender, KeyPressEventArgs e)
         {
-            try
-            {
-                if (e.KeyChar == (char)Keys.Enter)
-                {
-                    if (_FormType == "Type")
-                    {
-                        GetValues();
-                    }
-                    if (_FormType == "ValidityDate")
-                    {
-                        GetDates();
-                    }
-                }
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            gvAddTyp_DoubleClick(null, null);
         }
 
         private void gvAddTyp_DoubleClick(object sender, EventArgs e)
@@ -151,6 +145,11 @@ namespace OTTOPro
                 if (_FormType == "ValidityDate")
                 {
                     GetDates();
+                }
+                if(_Typ == "DM")
+                {
+                    if (gvAddTyp.SelectedRowsCount != 0 && int.TryParse(Convert.ToString(gvAddTyp.GetFocusedRowCellValue("DimensionID")), out DimensionID))
+                        _IsSave = true;
                 }
                 this.Close();
             }
@@ -189,6 +188,16 @@ namespace OTTOPro
             {
                 throw;
             }
+        }
+
+        private void frmAddType_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.Escape)
+                    this.Close();
+            }
+            catch (Exception ex) { }
         }
     }
 }

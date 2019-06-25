@@ -105,6 +105,7 @@
             this.KeyPreview = true;
             this.MinimizeBox = false;
             this.Name = "frmViewdescription";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Lange Beschreibung";

@@ -442,7 +442,7 @@ namespace OTTOPro
                     {
                         txtProjectNumber.Text = ObjEProject.ProjectNumber;
                         txtkommissionNumber.Text = ObjEProject.CommissionNumber;
-                        txtProjectNumber.ReadOnly = true;
+                        txtProjectNumber.Enabled = false;
                         if (txtkommissionNumber.Text != string.Empty)
                             txtkommissionNumber.ReadOnly = true;
                         this.Text = ObjEProject.ProjectNumber;
@@ -1058,7 +1058,10 @@ namespace OTTOPro
                     dtpValidityDate.Value = tlPositions.FocusedNode["validitydate"] == DBNull.Value ? DateTime.Now : Convert.ToDateTime(tlPositions.FocusedNode["validitydate"]);
                     txtMa.Text = tlPositions.FocusedNode["MA"] == DBNull.Value ? "" : tlPositions.FocusedNode["MA"].ToString();
                     txtMo.Text = tlPositions.FocusedNode["MO"] == DBNull.Value ? "" : tlPositions.FocusedNode["MO"].ToString();
-                    txtMin.Text = tlPositions.FocusedNode["MINUTES"] == DBNull.Value ? "" : tlPositions.FocusedNode["MINUTES"].ToString();
+                    decimal dval = 0;
+                    if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MINUTES"]), out dval))
+                        txtMin.EditValue = dval;
+                    
                     txtFaktor.Text = tlPositions.FocusedNode["Faktor"] == DBNull.Value ? "" : tlPositions.FocusedNode["Faktor"].ToString();
                     if (decimal.TryParse(Convert.ToString(tlPositions.FocusedNode["MA_listprice"]), out DValue) && DValue != 0)
                     {
@@ -1068,6 +1071,7 @@ namespace OTTOPro
                     }
                     else
                     {
+                        Position.MA_ListPrice = 0;
                         txtLPMe.Properties.Mask.UseMaskAsDisplayFormat = false;
                         txtLPMe.Text = string.Empty;
                     }
@@ -1080,6 +1084,7 @@ namespace OTTOPro
                     }
                     else
                     {
+                        Position.MO_ListPrice = 0;
                         txtLPMO.Properties.Mask.UseMaskAsDisplayFormat = false;
                         txtLPMO.Text = string.Empty;
                     }
@@ -1095,6 +1100,7 @@ namespace OTTOPro
                     }
                     else
                     {
+                        Position.MA_EP = 0;
                         txtEinkaufspreisME.Properties.Mask.UseMaskAsDisplayFormat = false;
                         txtEinkaufspreisME.Text = string.Empty;
                     }
@@ -1108,6 +1114,7 @@ namespace OTTOPro
                     }
                     else
                     {
+                        Position.MA_SK = 0;
                         txtSelbstkostenValueME.Properties.Mask.UseMaskAsDisplayFormat = false;
                         txtSelbstkostenValueME.Text = string.Empty;
                     }
@@ -1120,6 +1127,7 @@ namespace OTTOPro
                     }
                     else
                     {
+                        Position.MA_VK = 0;
                         txtVerkaufspreisValueME.Properties.Mask.UseMaskAsDisplayFormat = false;
                         txtVerkaufspreisValueME.Text = string.Empty;
                     }
@@ -1135,6 +1143,7 @@ namespace OTTOPro
                     }
                     else
                     {
+                        Position.MO_EP = 0;
                         txtEinkaufspreisMO.Properties.Mask.UseMaskAsDisplayFormat = false;
                         txtEinkaufspreisMO.Text = string.Empty;
                     }
@@ -1148,6 +1157,7 @@ namespace OTTOPro
                     }
                     else
                     {
+                        Position.MO_SK = 0;
                         txtSelbstkostenValueMO.Properties.Mask.UseMaskAsDisplayFormat = false;
                         txtSelbstkostenValueMO.Text = string.Empty;
                     }
@@ -1160,6 +1170,7 @@ namespace OTTOPro
                     }
                     else
                     {
+                        Position.MO_VK = 0;
                         txtVerkaufspreisValueMO.Properties.Mask.UseMaskAsDisplayFormat = false;
                         txtVerkaufspreisValueMO.Text = string.Empty;
                     }
@@ -1660,7 +1671,7 @@ namespace OTTOPro
                 setMask();
                 SetMaskForMaulties();
                 SetRoundingPriceforColumn();
-                txtProjectNumber.Properties.ReadOnly = true;
+                txtProjectNumber.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -1799,8 +1810,6 @@ namespace OTTOPro
                     txtDetailKZ.Text = "0";
                 if (string.IsNullOrEmpty(stPosKZ))
                     cmbPositionKZ.Text = Utility.GetKZDescription("N");
-                if (stPosKZ == "P")
-                    txtMenge.Text = "1";
                 if (ObjEPosition == null)
                     ObjEPosition = new EPosition();
                 ParsePositionDetails();
@@ -2343,6 +2352,8 @@ namespace OTTOPro
         {
             try
             {
+                if (Position.HaveDetailsKz)
+                    txtHours.EditValue = 0;
                 if (_IsNewMode || !Position.HaveDetailsKz)
                 {
                     if (ChkManualMontageentry.Checked == false)
@@ -2896,6 +2907,7 @@ namespace OTTOPro
                 txtDetailKZ.Text = "0";
                 txtEP.Text = string.Empty;
                 txtFinalGB.Text = string.Empty;
+                dtpValidityDate.Value = ObjEProject.SubmitDate;
                 if (Utility.LVsectionAddAccess == "7" || Utility.LVsectionAddAccess == "9")
                     cmbLVSection.Text = "HA";
                 else
@@ -4318,7 +4330,11 @@ namespace OTTOPro
                 else
                     ObjEPosition.surchargePercentage_MO = 0;
 
-                ObjEPosition.ValidityDate = DateTime.Now;
+                DateTime dtv = ObjEProject.SubmitDate;
+                if (DateTime.TryParse(Convert.ToString(dr["validitydate"]), out dtv))
+                    ObjEPosition.ValidityDate = dtv;
+                else
+                    ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
 
                 ObjEPosition.MA = dr["MA"] == DBNull.Value ? "" : dr["MA"].ToString();
                 ObjEPosition.MO = dr["MO"] == DBNull.Value ? "" : dr["MO"].ToString();
@@ -6067,6 +6083,11 @@ namespace OTTOPro
                             ObjEPosition.Dim3 = ObjEPosition.dtDimensions.Rows[0]["L"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["L"].ToString();
                             ObjEPosition.LPMA = ObjEPosition.dtDimensions.Rows[0]["ListPrice"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["ListPrice"]);
                             ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[0]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["Minuten"]);
+                            DateTime dt = DateTime.Now;
+                            if (DateTime.TryParse(Convert.ToString(ObjEPosition.dtDimensions.Rows[0]["ValidityDate"]), out dt))
+                                ObjEPosition.ValidityDate = dt;
+                            else
+                                ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                         }
                     }
                     txtWGCD.Text = ObjEPosition.WG;
@@ -6097,6 +6118,7 @@ namespace OTTOPro
                         txtMulti4ME.Text = Convert.ToString(ObjEPosition.Multi4MA);
                     if (ObjEProject.DimVisible)
                         txtDim.Text = ObjEPosition.Dim;
+                    dtpValidityDate.Value = ObjEPosition.ValidityDate;
                 }
             }
             catch (Exception ex)
@@ -6138,6 +6160,11 @@ namespace OTTOPro
                             ObjEPosition.Dim3 = ObjEPosition.dtDimensions.Rows[0]["L"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["L"].ToString();
                             ObjEPosition.LPMA = ObjEPosition.dtDimensions.Rows[0]["ListPrice"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["ListPrice"]);
                             ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[0]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["Minuten"]);
+                            DateTime dt = DateTime.Now;
+                            if (DateTime.TryParse(Convert.ToString(ObjEPosition.dtDimensions.Rows[0]["ValidityDate"]), out dt))
+                                ObjEPosition.ValidityDate = dt;
+                            else
+                                ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                         }
                     }
                     txtTypeCD.Text = txtType.Text = ObjEPosition.Type;
@@ -6166,6 +6193,12 @@ namespace OTTOPro
                         txtLPMe.Text = string.Empty;
                     if (ObjEProject.DimVisible)
                         txtDim.Text = ObjEPosition.Dim;
+                    dtpValidityDate.Value = ObjEPosition.ValidityDate;
+                }
+                else
+                {
+                    ObjEPosition.LPMA = 0;
+                    ObjEPosition.Mins = 0;
                 }
             }
             catch (Exception ex)
@@ -6228,12 +6261,13 @@ namespace OTTOPro
                 ObjEPosition = ObjBPosition.GetArticleByDimension(ObjEPosition);
                 if (ObjEPosition.dtDimensions.Rows.Count > 0)
                 {
-                    txtMin.Text = Convert.ToString(ObjEPosition.Mins);
-                    txtFaktor.Text = Convert.ToString(ObjEPosition.Faktor);
+                    txtMin.EditValue = ObjEPosition.Mins;
+                    txtFaktor.EditValue = ObjEPosition.Faktor;
                     if (ObjEPosition.LPMA != 0)
-                        txtLPMe.Text = Convert.ToString(ObjEPosition.LPMA);
+                        txtLPMe.EditValue = ObjEPosition.LPMA;
                     else
                         txtLPMe.Text = string.Empty;
+                    dtpValidityDate.Value = ObjEPosition.ValidityDate;
                 }
 
             }
@@ -6694,7 +6728,7 @@ namespace OTTOPro
                         else
                             ChkRaster.Enabled = false;
                         SplashScreenManager.CloseForm(false);
-                        frmOTTOPro.UpdateStatus("Project imported successfully!!");
+                        frmOTTOPro.UpdateStatus("Projektdatenimport mit Erfolg abgeschlossen");
                     }
                 }
             }
@@ -7390,9 +7424,6 @@ namespace OTTOPro
             {
                 string[] strArr = null;
                 strArr = WGWA.Split('-');
-                //if (_WGforSupplier == strArr[0] && _WAforSupplier == strArr[1] && _LVSection == LVSection)
-                //    return;
-
                 _WGforSupplier = strArr[0];
                 _WAforSupplier = strArr[1];
                 _LVSection = LVSection;
@@ -7947,7 +7978,7 @@ namespace OTTOPro
                                 }
                             }
                             objEGAEB = objBGAEB.SupplierProposalImport(objEGAEB);
-                            frmOTTOPro.UpdateStatus("Proposal imported successfully!!");
+                            frmOTTOPro.UpdateStatus("Import von Angebotsdaten mit Erfolg abgeschlossen");
                             SplashScreenManager.CloseForm(false);
                         }
                     }
@@ -8088,6 +8119,14 @@ namespace OTTOPro
                             gvSupplier.Columns.ColumnByFieldName("MA_listprice").Visible = false;
                             gvSupplier.Columns.ColumnByFieldName("Fabricate").Visible = false;
                             gvSupplier.Columns.ColumnByFieldName("PositionKZ").Visible = false;
+
+                            gvSupplier.Columns.ColumnByFieldName("sno").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("PositionID2").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("PositionID3").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("Parent_OZ").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("ID").Visible = false;
+                            gvSupplier.Columns.ColumnByFieldName("SID").Visible = false;
+
                             gvSupplier.Columns.ColumnByFieldName("Cheapest").VisibleIndex = Columncount - 1;
                             gvSupplier.Columns.ColumnByFieldName("Position_OZ").VisibleIndex = 0;
                             gvSupplier.Columns.ColumnByFieldName("Cheapest").OptionsColumn.AllowEdit = false;
@@ -8289,10 +8328,9 @@ namespace OTTOPro
                         }
                     }
                     if (l != null && l.Count() > 0)
-                        ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = Math.Round(Convert.ToDecimal(l.Min()), 3);
+                        ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = Math.Round(Convert.ToDecimal(l.Min()), 2);
                     else
-                        ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = 0.000;
-
+                        ObjESupplier.dtPositions.Rows[iIvalue]["Cheapest"] = 0.00;
                     SaveListPrice(iIvalue, e.Column.FieldName);
                 }
                 gvSupplier.UpdateTotalSummary();
@@ -8597,12 +8635,47 @@ namespace OTTOPro
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = dValue;
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
-                    if (!chkUpdateAll.Checked)
+                    ObjESupplier.PID = new DataTable();
+                    ObjESupplier.PID.Columns.Add("ID", typeof(int));
+                    if (rgFilter.SelectedIndex == 0)
                         ObjESupplier.IsSingle = true;
-                    else
+                    else if(rgFilter.SelectedIndex == 1)
                         ObjESupplier.IsSingle = false;
+                    else if (rgFilter.SelectedIndex == 2)
+                    {
+                        DataTable dtTemp = ObjESupplier.dtPositions.Copy();
+                        DataRow[] FilteredFromRow = dtTemp.Select("Position_OZ = '" + Utility.PrepareOZ(txtFromOZSupplier.Text,ObjEProject.LVRaster) + "'");
+                        DataRow[] FilteredToRow = dtTemp.Select("Position_OZ = '" + Utility.PrepareOZ(txtToOZsupplier.Text, ObjEProject.LVRaster) + "'");
+
+                        int ifromValue = 0;
+                        int itoValue = 0;
+
+                        if (FilteredFromRow != null && FilteredFromRow.Count() > 0)
+                            ifromValue = Convert.ToInt32(FilteredFromRow[0]["SID"]);
+
+                        if (FilteredToRow != null && FilteredToRow.Count() > 0)
+                            itoValue = Convert.ToInt32(FilteredToRow[0]["SID"]);
+
+                        if (ifromValue == 0)
+                            throw new Exception("From oz invalid!");
+                        if (itoValue == 0)
+                            throw new Exception("To oz invalid!");
+                        if (ifromValue > itoValue)
+                            throw new Exception("FromOZ should be less than ToOZ!");
+
+                        DataView dvTemp = dtTemp.DefaultView;
+                        dvTemp.RowFilter = "SID >= " + ifromValue +" AND SID <= " + itoValue;
+                        DataTable dtp = dvTemp.ToTable();
+                        DataRow drnew = ObjESupplier.PID.NewRow();
+                        foreach (DataRow dr in dtp.Rows)
+                        {
+                            drnew = ObjESupplier.PID.NewRow();
+                            drnew["ID"] = dr["PositionID"];
+                            ObjESupplier.PID.Rows.Add(drnew);
+                        }
+                    }
                     ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
-                    if (chkUpdateAll.Checked)
+                    if (rgFilter.SelectedIndex != 0)
                     {
                         gvProposal_RowClick(null, null);
                         gvSupplier.FocusedRowHandle = iRowIndex;
@@ -8626,7 +8699,6 @@ namespace OTTOPro
                     RadioGroup edit = sender as RadioGroup;
                     ObjESupplier = ObjBSupplier.ChangeProposalView(ObjESupplier, edit.SelectedIndex);
                     gcSupplier.DataSource = ObjESupplier.dtPositions;
-
                     CalculateSupplierColumns();
                 }
             }
@@ -8661,7 +8733,7 @@ namespace OTTOPro
                         ObjESupplier.SupplierPrice = dValue;
                     else
                         ObjESupplier.SupplierPrice = 0;
-                    txtListPreis.Text = ObjESupplier.SupplierPrice.ToString();
+                    txtListPreis.EditValue = ObjESupplier.SupplierPrice;
 
                     if (decimal.TryParse(txtNewMulti1.Text, out dValue))
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi1"] = ObjESupplier.Multi1 = dValue;
@@ -8683,6 +8755,8 @@ namespace OTTOPro
                     else
                         ObjESupplier.dtPositions.Rows[iRowIndex][strSupliercolumnName + "Multi4"] = ObjESupplier.Multi4 = 1;
                     ObjESupplier.IsSingle = true;
+                    ObjESupplier.PID = new DataTable();
+                    ObjESupplier.PID.Columns.Add("ID", typeof(int));
                     ObjESupplier = ObjBSupplier.SaveProposaleValues(ObjESupplier);
                     ObjESupplier.IsSingle = false;
                 }
@@ -9184,7 +9258,11 @@ namespace OTTOPro
                     ObjEPosition.Surcharge_To = Convert.ToString(dr["surchargeto"]);
                     ObjEPosition.Surcharge_Per = 0;
                     ObjEPosition.surchargePercentage_MO = 0;
-                    ObjEPosition.ValidityDate = DateTime.Now;
+                    DateTime dtv = ObjEProject.SubmitDate;
+                    if (DateTime.TryParse(Convert.ToString(dr["validitydate"]), out dtv))
+                        ObjEPosition.ValidityDate = dtv;
+                    else
+                        ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                     ObjEPosition.MA = Convert.ToString(dr["MA"]);
                     ObjEPosition.MO = Convert.ToString(dr["MO"]);
                     ObjEPosition.Mins = dr["MINUTES"] == DBNull.Value ? 0 : Convert.ToDecimal(dr["MINUTES"]);
@@ -9749,18 +9827,18 @@ namespace OTTOPro
 
         private void txtListPreis_Leave(object sender, EventArgs e)
         {
-            try
-            {
-                if (_IsSave)
-                {
-                    btnSaveTemparary_Click(null, null);
-                    _IsSave = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            //try
+            //{
+            //    if (_IsSave)
+            //    {
+            //        btnSaveTemparary_Click(null, null);
+            //        _IsSave = false;
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
         }
 
         private void txtListPreis_EditValueChanged(object sender, EventArgs e)
@@ -10015,7 +10093,12 @@ namespace OTTOPro
                 ObjEPosition.Surcharge_To = string.Empty;
                 ObjEPosition.Surcharge_Per = 0;
                 ObjEPosition.surchargePercentage_MO = 0;
-                ObjEPosition.ValidityDate = DateTime.Now;
+
+                DateTime dtv = ObjEProject.SubmitDate;
+                if (DateTime.TryParse(Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["ValidityDate"]), out dtv))
+                    ObjEPosition.ValidityDate = dtv;
+                else
+                    ObjEPosition.ValidityDate = ObjEProject.SubmitDate;
                 ObjEPosition.MA = "X";
                 ObjEPosition.MO = "X";
                 if (string.IsNullOrEmpty(ObjEProject.CommissionNumber))
@@ -12164,9 +12247,6 @@ namespace OTTOPro
                         if (ObjEProject.DimVisible)
                             txtDim.Text = string.Empty;
                     }
-                    //txtDim1.Text = string.Empty;
-                    //txtDim2.Text = string.Empty;
-                    //txtDim3.Text = string.Empty;
                 }
                 if (_IsKeyypressEvent)
                     _IsKeyypressEvent = false;
@@ -12476,6 +12556,90 @@ namespace OTTOPro
         private void txtDetailKZCD_EditValueChanged(object sender, EventArgs e)
         {
             txtDetailKZ.EditValue = txtDetailKZCD.EditValue;
+        }
+
+        private void btnValiditydates_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                EArticles ObjEArticles = new EArticles();
+                DArticles ObjDArticles = new DArticles();
+                ObjEArticles.WG = txtWG.Text;
+                ObjEArticles.WA = txtWA.Text;
+                ObjEArticles.WI = txtWI.Text;
+                ObjEArticles.A = txtDim1.Text;
+                ObjEArticles.B = txtDim2.Text;
+                ObjEArticles.L = txtDim3.Text;
+                ObjDArticles.GetDimensionValidityDates(ObjEArticles);
+                frmAddType Obj = new frmAddType();
+                Obj.Typ = "DM";
+                Obj.dtDates = ObjEArticles.dtDimensionValidityDates;
+                Obj.ShowDialog();
+                if (Obj._IsSave)
+                {
+                    ObjEArticles.DimensionID = Obj.DimensionID;
+                    ObjDArticles.GetValuesByDimension(ObjEArticles);
+                    decimal dValue = 0;
+                    if (ObjEArticles.dtMultiValues != null && ObjEArticles.dtMultiValues.Rows.Count > 0)
+                    {
+                        if (decimal.TryParse(Convert.ToString(ObjEArticles.dtMultiValues.Rows[0]["Multi1"]), out dValue))
+                            txtMulti1ME.EditValue = dValue;
+                        else
+                            txtMulti1ME.EditValue = 1;
+                        if (decimal.TryParse(Convert.ToString(ObjEArticles.dtMultiValues.Rows[0]["Multi2"]), out dValue))
+                            txtMulti2ME.EditValue = dValue;
+                        else
+                            txtMulti2ME.EditValue = 1;
+                        if (decimal.TryParse(Convert.ToString(ObjEArticles.dtMultiValues.Rows[0]["Multi3"]), out dValue))
+                            txtMulti3ME.EditValue = dValue;
+                        else
+                            txtMulti3ME.EditValue = 1;
+                        if (decimal.TryParse(Convert.ToString(ObjEArticles.dtMultiValues.Rows[0]["Multi4"]), out dValue))
+                            txtMulti4ME.EditValue = dValue;
+                        else
+                            txtMulti4ME.EditValue = 1;
+                    }
+                    if (ObjEArticles.dtDimensionValues != null && ObjEArticles.dtDimensionValues.Rows.Count > 0)
+                    {
+                        if (decimal.TryParse(Convert.ToString(ObjEArticles.dtDimensionValues.Rows[0]["listPrice"]), out dValue) && dValue != 0)
+                        {
+                            txtLPMe.Properties.Mask.UseMaskAsDisplayFormat = true;
+                            Position.MA_ListPrice = dValue;
+                            txtLPMe.EditValue = Math.Round(dValue, 2);
+                        }
+                        else
+                        {
+                            Position.MA_ListPrice = 0;
+                            txtLPMe.Properties.Mask.UseMaskAsDisplayFormat = false;
+                            txtLPMe.Text = string.Empty;
+                        }
+                        if (decimal.TryParse(Convert.ToString(ObjEArticles.dtDimensionValues.Rows[0]["Minuten"]), out dValue))
+                            txtMin.EditValue = dValue;
+                        DateTime dt = DateTime.Now;
+                        if (DateTime.TryParse(Convert.ToString(ObjEArticles.dtDimensionValues.Rows[0]["ValidityDate"]), out dt))
+                            dtpValidityDate.Value = dt;
+                        else
+                            dtpValidityDate.Value = ObjEProject.SubmitDate;
+                    }
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        private void rgFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(rgFilter.SelectedIndex == 2)
+            {
+                lvFromOZSupplier.Enabled = true;
+                lvToOZSupplier.Enabled = true;
+            }
+            else
+            {
+                lvFromOZSupplier.Enabled = false;
+                lvToOZSupplier.Enabled = false;
+                txtFromOZSupplier.Text = string.Empty;
+                txtToOZsupplier.Text = string.Empty;
+            }
         }
     }
 }

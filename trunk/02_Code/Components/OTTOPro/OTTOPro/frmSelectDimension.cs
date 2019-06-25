@@ -43,6 +43,9 @@ namespace OTTOPro
                 ObjEPosition.Dim3 = ObjEPosition.dtDimensions.Rows[IValue]["L"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[IValue]["L"].ToString();
                 ObjEPosition.LPMA = ObjEPosition.dtDimensions.Rows[IValue]["ListPrice"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[IValue]["ListPrice"]);
                 ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[IValue]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[IValue]["Minuten"]);
+                DateTime dt = DateTime.Now;
+                if (DateTime.TryParse(Convert.ToString(ObjEPosition.dtDimensions.Rows[0]["ValidityDate"]), out dt))
+                    ObjEPosition.ValidityDate = dt;
                 this.Close();
             }
             catch (Exception ex)

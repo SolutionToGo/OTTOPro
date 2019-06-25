@@ -283,6 +283,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSelectTextModuleDetails";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select Text Module Details";

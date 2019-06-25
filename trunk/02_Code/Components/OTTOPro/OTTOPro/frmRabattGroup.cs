@@ -21,6 +21,7 @@ namespace OTTOPro
     {
         BArticles ObjBArticle = null;
         EArticles ObjEArticle = null;
+        DArticles ObjDArticle = null;
         public frmRabattGroup()
         {
             InitializeComponent();
@@ -340,6 +341,50 @@ namespace OTTOPro
                 }));
             }
             catch (Exception ex) { }
+        }
+
+        private void gvTyp_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteRabattTypMap_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteRabattTypMap_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvTyp.GetFocusedRowCellValue("RabattTypMapID") != null)
+                {
+                    int IValue = 0;
+                    if (int.TryParse(Convert.ToString(gvTyp.GetFocusedRowCellValue("RabattTypMapID")), out IValue))
+                    {
+                        var dlgResult = XtraMessageBox.Show("Sind Sie sicher, dass Sie den ausgewählten TYP löschen möchten?", "Frage", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        if (Convert.ToString(dlgResult) == "Yes")
+                        {
+                            if (ObjEArticle == null)
+                                ObjEArticle = new EArticles();
+                            ObjEArticle.RabattTypID = IValue;
+                            if (ObjDArticle == null)
+                                ObjDArticle = new DArticles();
+                            ObjDArticle.DeleteRabattTypMap(ObjEArticle);
+                            gvTyp.DeleteSelectedRows();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
     }
 }

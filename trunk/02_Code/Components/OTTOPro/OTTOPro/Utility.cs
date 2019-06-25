@@ -210,7 +210,7 @@ namespace OTTOPro
             }
             catch (Exception ex)
             {
-                throw new Exception("Please enter valid OZ");
+                throw new Exception("Bitte geben Sie eine gültige Ordnungskennzahl ein");
             }
             return str;
         }

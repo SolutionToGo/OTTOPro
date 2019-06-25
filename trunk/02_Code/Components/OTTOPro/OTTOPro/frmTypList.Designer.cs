@@ -124,7 +124,6 @@
             this.layoutControlItem2,
             this.layoutControlItem3,
             this.emptySpaceItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1);
             this.layoutControlGroup1.Size = new System.Drawing.Size(985, 536);
@@ -174,6 +173,7 @@
             this.ClientSize = new System.Drawing.Size(985, 536);
             this.Controls.Add(this.layoutControl1);
             this.Name = "frmTypList";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Typ";

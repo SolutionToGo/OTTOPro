@@ -191,8 +191,6 @@
             this.CalcSummaryMOPrice = new DevExpress.XtraReports.UI.CalculatedField();
             this.CalcSummaryTotalGB = new DevExpress.XtraReports.UI.CalculatedField();
             this.WithGB = new DevExpress.XtraReports.Parameters.Parameter();
-            this.CalcMA_Summary = new DevExpress.XtraReports.UI.CalculatedField();
-            this.CalcMO_Summary = new DevExpress.XtraReports.UI.CalculatedField();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dsProposalCommon1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrKommentarKalkulator)).BeginInit();
@@ -370,7 +368,7 @@
             this.xrLabel2.LocationFloat = new DevExpress.Utils.PointFloat(105.3334F, 119.3127F);
             this.xrLabel2.Name = "xrLabel2";
             this.xrLabel2.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 2, 2, 100F);
-            this.xrLabel2.SizeF = new System.Drawing.SizeF(312F, 22.99998F);
+            this.xrLabel2.SizeF = new System.Drawing.SizeF(626.6663F, 22.99998F);
             this.xrLabel2.StylePriority.UseFont = false;
             this.xrLabel2.StylePriority.UseForeColor = false;
             this.xrLabel2.StylePriority.UsePadding = false;
@@ -1423,6 +1421,7 @@
             xrSummary4.FormatString = "{0:n2}";
             this.xrTableCell23.Summary = xrSummary4;
             this.xrTableCell23.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrTableCell23.TextFormatString = "{0:n2}";
             this.xrTableCell23.Weight = 0.49460915903989D;
             // 
             // xrGB
@@ -1441,6 +1440,7 @@
             this.xrGB.StylePriority.UsePadding = false;
             this.xrGB.StylePriority.UseTextAlignment = false;
             this.xrGB.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleRight;
+            this.xrGB.TextFormatString = "{0:n2}";
             this.xrGB.Weight = 0.4231173480452402D;
             this.xrGB.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.xrGB_BeforePrint);
             // 
@@ -1553,7 +1553,7 @@
             this.xrTable10,
             this.xrTable11});
             this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
-            new DevExpress.XtraReports.UI.GroupField("Parent_OZ", DevExpress.XtraReports.UI.XRColumnSortOrder.Ascending)});
+            new DevExpress.XtraReports.UI.GroupField("Parent", DevExpress.XtraReports.UI.XRColumnSortOrder.None)});
             this.GroupHeader1.HeightF = 113.04F;
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.PageBreak = DevExpress.XtraReports.UI.PageBreak.BeforeBand;
@@ -1847,7 +1847,6 @@
             this.DetailReport1.DataAdapter = this.p_Rpt_GetTotalSummeryTableAdapter;
             this.DetailReport1.DataMember = "P_Rpt_GetTotalSummery";
             this.DetailReport1.DataSource = this.dsProposalCommonTotalSummery1;
-            this.DetailReport1.Expanded = false;
             this.DetailReport1.Level = 1;
             this.DetailReport1.Name = "DetailReport1";
             // 
@@ -1856,7 +1855,6 @@
             this.Detail2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable3,
             this.xrRichText2});
-            this.Detail2.Expanded = false;
             this.Detail2.HeightF = 55.89574F;
             this.Detail2.Name = "Detail2";
             // 
@@ -2003,7 +2001,6 @@
             this.lblParent,
             this.xrRichTextParent,
             this.xrLine3});
-            this.GroupFooter4.Expanded = false;
             this.GroupFooter4.HeightF = 40.75006F;
             this.GroupFooter4.Name = "GroupFooter4";
             // 
@@ -2183,20 +2180,6 @@
             this.WithGB.ValueInfo = "False";
             this.WithGB.Visible = false;
             // 
-            // CalcMA_Summary
-            // 
-            this.CalcMA_Summary.DataMember = "P_Rpt_PositionForProposalPriceForCommon";
-            this.CalcMA_Summary.DataSource = this.dsProposalCommon1;
-            this.CalcMA_Summary.Expression = "Iif([Parameters].[WithGB] = 0,sum([MA_VER_Total]) , 0)";
-            this.CalcMA_Summary.Name = "CalcMA_Summary";
-            // 
-            // CalcMO_Summary
-            // 
-            this.CalcMO_Summary.DataMember = "P_Rpt_PositionForProposalPriceForCommon";
-            this.CalcMO_Summary.DataSource = this.dsProposalCommon1;
-            this.CalcMO_Summary.Expression = "Iif([Parameters].[WithGB] =0,[MO_VER_Total] ,0 )";
-            this.CalcMO_Summary.Name = "CalcMO_Summary";
-            // 
             // rptProposalCommon
             // 
             this.Bands.AddRange(new DevExpress.XtraReports.UI.Band[] {
@@ -2221,9 +2204,7 @@
             this.CalcSummaryGB,
             this.CalcSummaryMAPrice,
             this.CalcSummaryMOPrice,
-            this.CalcSummaryTotalGB,
-            this.CalcMA_Summary,
-            this.CalcMO_Summary});
+            this.CalcSummaryTotalGB});
             this.ComponentStorage.AddRange(new System.ComponentModel.IComponent[] {
             this.dsDiscountCalculation1,
             this.sqlDataSource1,
@@ -2427,7 +2408,5 @@
         private DevExpress.XtraReports.UI.XRLabel lblPageSum;
         private DevExpress.XtraReports.UI.GroupFooterBand GroupFooter2;
         private DevExpress.XtraReports.Parameters.Parameter WithGB;
-        private DevExpress.XtraReports.UI.CalculatedField CalcMA_Summary;
-        private DevExpress.XtraReports.UI.CalculatedField CalcMO_Summary;
     }
 }

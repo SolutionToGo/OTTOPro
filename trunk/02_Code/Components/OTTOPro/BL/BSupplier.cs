@@ -230,6 +230,13 @@ namespace BL
                 ObjESupplier.dtPositions = new DataTable();
                 ChangeCultureInfo(ObjESupplier.dtPositions);
                 ObjESupplier.dtPositions = dtTemp.Copy();
+                ObjESupplier.dtPositions.Columns.Add("SID", typeof(int));
+                int iindex = 0;
+                foreach (DataRow dr in ObjESupplier.dtPositions.Rows)
+                {
+                    iindex++;
+                    dr["SID"] = iindex;
+                }
                 if (_IsCalculate)
                     ObjESupplier = CalculateCheapestValues(ObjESupplier);
             }

@@ -93,7 +93,7 @@ namespace DataAccess
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                             {
-                                throw new Exception("Base position does not exists for Detail KZ position");
+                                throw new Exception("Es existiert keine Basis-Position für diese Detail KZ Position");
                             }
                             else
                             {
@@ -657,6 +657,9 @@ namespace DataAccess
                         ObjEPositon.LPMA = dt.Rows[0]["ListPrice"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["ListPrice"]);
                         ObjEPositon.Mins = dt.Rows[0]["Minuten"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Minuten"]);
                         ObjEPositon.Faktor = dt.Rows[0]["Factor"] == DBNull.Value ? 1 : Convert.ToDecimal(dt.Rows[0]["Factor"]);
+                        DateTime dtdate = DateTime.Now;
+                        if (DateTime.TryParse(Convert.ToString(dt.Rows[0]["ValidityDate"]), out dtdate))
+                            ObjEPositon.ValidityDate = dtdate;
                     }
                 }
             }

@@ -313,6 +313,10 @@ namespace EL
             set { _dtArticleDetails = value; }
         }
 
+        public DataTable dtDimensionValidityDates = null;
+        public DataTable dtDimensionValues = null;
+        public DataTable dtMultiValues = null;
+
         private string _ChildWG;
         private string _ChildWA;
         private string _ChildWI;

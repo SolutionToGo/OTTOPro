@@ -213,6 +213,8 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSelectDimension";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Maße auswählen";
             this.Load += new System.EventHandler(this.frmSelectDimension_Load);

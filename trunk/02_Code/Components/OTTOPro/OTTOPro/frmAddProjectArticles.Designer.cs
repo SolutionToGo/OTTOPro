@@ -30,10 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddProjectArticles));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule5 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule3 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule4 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
@@ -121,9 +121,9 @@
             this.txtWG.Size = new System.Drawing.Size(80, 20);
             this.txtWG.StyleController = this.layoutControl1;
             this.txtWG.TabIndex = 1;
-            conditionValidationRule5.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule5.ErrorText = "Mandatory";
-            this.dxValidationProvider1.SetValidationRule(this.txtWG, conditionValidationRule5);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Mandatory";
+            this.dxValidationProvider1.SetValidationRule(this.txtWG, conditionValidationRule1);
             // 
             // txtWGDesc
             // 
@@ -133,9 +133,9 @@
             this.txtWGDesc.Size = new System.Drawing.Size(268, 20);
             this.txtWGDesc.StyleController = this.layoutControl1;
             this.txtWGDesc.TabIndex = 2;
-            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule1.ErrorText = "Mandatory";
-            this.dxValidationProvider1.SetValidationRule(this.txtWGDesc, conditionValidationRule1);
+            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule2.ErrorText = "Mandatory";
+            this.dxValidationProvider1.SetValidationRule(this.txtWGDesc, conditionValidationRule2);
             // 
             // txtWA
             // 
@@ -145,9 +145,9 @@
             this.txtWA.Size = new System.Drawing.Size(80, 20);
             this.txtWA.StyleController = this.layoutControl1;
             this.txtWA.TabIndex = 3;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Mandatory";
-            this.dxValidationProvider1.SetValidationRule(this.txtWA, conditionValidationRule2);
+            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule3.ErrorText = "Mandatory";
+            this.dxValidationProvider1.SetValidationRule(this.txtWA, conditionValidationRule3);
             // 
             // txtWADesc
             // 
@@ -157,9 +157,9 @@
             this.txtWADesc.Size = new System.Drawing.Size(268, 20);
             this.txtWADesc.StyleController = this.layoutControl1;
             this.txtWADesc.TabIndex = 4;
-            conditionValidationRule3.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule3.ErrorText = "Mandatory";
-            this.dxValidationProvider1.SetValidationRule(this.txtWADesc, conditionValidationRule3);
+            conditionValidationRule4.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule4.ErrorText = "Mandatory";
+            this.dxValidationProvider1.SetValidationRule(this.txtWADesc, conditionValidationRule4);
             // 
             // layoutControlGroup1
             // 
@@ -258,6 +258,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAddProjectArticles";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Speichern Projekt Artikel";

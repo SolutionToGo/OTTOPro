@@ -565,6 +565,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\dsProposalCommon.cs">
+      <DependentUpon>dsProposalCommon.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\dsProposalCommon.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

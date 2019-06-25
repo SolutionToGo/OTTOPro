@@ -1093,13 +1093,16 @@
             this.ClientSize = new System.Drawing.Size(1138, 662);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAccessories";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zuordnung des Zubehör zu Artikelstammdaten";
             this.Load += new System.EventHandler(this.frmAccessories_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmAccessories_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.gcArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvArticles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rpChkSelect)).EndInit();

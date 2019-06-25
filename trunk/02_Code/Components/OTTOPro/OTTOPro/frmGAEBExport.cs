@@ -138,5 +138,20 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void frmGAEBExport_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+        }
+
+        private void frmGAEBExport_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.Escape)
+                    this.Close();
+            }
+            catch (Exception ex) { }
+        }
     }
 }

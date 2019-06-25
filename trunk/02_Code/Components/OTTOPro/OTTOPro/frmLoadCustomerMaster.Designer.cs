@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLoadCustomerMaster));
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -233,6 +233,7 @@
             // memoEditCommentary
             // 
             this.memoEditCommentary.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.memoEditCommentary.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.memoEditCommentary.Location = new System.Drawing.Point(12, 368);
             this.memoEditCommentary.Name = "memoEditCommentary";
             this.memoEditCommentary.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
@@ -246,6 +247,7 @@
             // txtCustStreet
             // 
             this.txtCustStreet.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtCustStreet.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.txtCustStreet.Location = new System.Drawing.Point(136, 129);
             this.txtCustStreet.Name = "txtCustStreet";
             this.txtCustStreet.Options.HorizontalRuler.Visibility = DevExpress.XtraRichEdit.RichEditRulerVisibility.Hidden;
@@ -260,6 +262,7 @@
             // txtCustFullName
             // 
             this.txtCustFullName.ActiveViewType = DevExpress.XtraRichEdit.RichEditViewType.Simple;
+            this.txtCustFullName.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.txtCustFullName.Location = new System.Drawing.Point(136, 54);
             this.txtCustFullName.Margin = new System.Windows.Forms.Padding(0);
             this.txtCustFullName.Name = "txtCustFullName";
@@ -298,7 +301,6 @@
             // 
             // btnReset
             // 
-            this.btnReset.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnReset.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnReset.ImageOptions.Image")));
             this.btnReset.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
             this.btnReset.Location = new System.Drawing.Point(443, 689);
@@ -674,10 +676,10 @@
             this.txtCustShortName.Size = new System.Drawing.Size(231, 20);
             this.txtCustShortName.StyleController = this.layoutControl1;
             this.txtCustShortName.TabIndex = 3;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Mandatory";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxReqValidationProvider.SetValidationRule(this.txtCustShortName, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Mandatory";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxReqValidationProvider.SetValidationRule(this.txtCustShortName, conditionValidationRule1);
             this.txtCustShortName.Enter += new System.EventHandler(this.txtCustShortName_Enter);
             this.txtCustShortName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustShortName_KeyPress);
             // 
@@ -813,7 +815,6 @@
             this.layoutControlItem4,
             this.simpleSeparator1,
             this.emptySpaceItem3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(1342, 723);
             this.layoutControlGroup1.TextVisible = false;
@@ -1160,18 +1161,20 @@
             this.Appearance.Options.UseFont = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.btnReset;
             this.ClientSize = new System.Drawing.Size(1342, 723);
             this.Controls.Add(this.layoutControl1);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLoadCustomerMaster";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Stammdaten Kunden";
             this.Load += new System.EventHandler(this.frmLoadCustomerMaster_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmLoadCustomerMaster_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cmbCustomer.Properties)).EndInit();

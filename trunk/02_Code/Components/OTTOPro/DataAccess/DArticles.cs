@@ -976,5 +976,279 @@ namespace DataAccess
            }
            return ObjEArticle;
        }
-   }
+
+        public EArticles DeleteDimension(EArticles ObjEArticle)
+        {
+            DataSet dsDimension = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_Dimension]";
+                    cmd.Parameters.Add("@DID", ObjEArticle.DimensionID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsDimension);
+                    }
+                    if (dsDimension != null && dsDimension.Tables.Count > 0 && dsDimension.Tables[0].Rows.Count > 0)
+                    {
+                        string st = Convert.ToString(dsDimension.Tables[0].Rows[0][0]);
+                        if (!string.IsNullOrEmpty(st))
+                            throw new Exception(st);
+                        if(dsDimension.Tables.Count > 1)
+                        {
+                            ObjEArticle.dtDimenstions = dsDimension.Tables[1];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles DeleteWI(EArticles ObjEArticle)
+        {
+            DataSet dsWI = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_WI]";
+                    cmd.Parameters.Add("@WIID", ObjEArticle.WIID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsWI);
+                    }
+                    if (dsWI != null && dsWI.Tables.Count > 0 && dsWI.Tables[0].Rows.Count > 0)
+                    {
+                        string st = Convert.ToString(dsWI.Tables[0].Rows[0][0]);
+                        if (!string.IsNullOrEmpty(st))
+                            throw new Exception(st);
+                        if (dsWI.Tables.Count > 1)
+                            ObjEArticle.dtWI = dsWI.Tables[1];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles DeleteWG(EArticles ObjEArticle)
+        {
+            DataSet dsRabatt = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_WG]";
+                    cmd.Parameters.Add("@WGID", ObjEArticle.WGID);
+                    object objreturn = cmd.ExecuteScalar();
+                    string st = Convert.ToString(objreturn);
+                    if (!string.IsNullOrEmpty(st))
+                        throw new Exception(st);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles DeleteTyp(EArticles ObjEArticle)
+        {
+            DataSet dsRabatt = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_Typ]";
+                    cmd.Parameters.Add("@TypID", ObjEArticle.TypID);
+                    object objreturn = cmd.ExecuteScalar();
+                    string st = Convert.ToString(objreturn);
+                    if (!string.IsNullOrEmpty(st))
+                        throw new Exception(st);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles UpdateDimension(EArticles ObjEArticle)
+        {
+            DataSet dsDimension = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_Dimension]";
+                    cmd.Parameters.Add("@DimensionID", ObjEArticle.DimensionID);
+                    cmd.Parameters.Add("@Minutes", ObjEArticle.Minuten);
+                    cmd.Parameters.Add("@ListPrice", ObjEArticle.ListPrice);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsDimension);
+                    }
+                    if(dsDimension != null && dsDimension.Tables.Count > 0 && dsDimension.Tables[0].Rows.Count > 0)
+                    {
+                        ObjEArticle.dtDimenstions = dsDimension.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles DeleteRabattTypMap(EArticles ObjEArticle)
+        {
+            DataSet dsRabatt = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_TypRabattMap]";
+                    cmd.Parameters.Add("@RabattTypMapID", ObjEArticle.RabattTypID);
+                    object objreturn = cmd.ExecuteScalar();
+                    string st = Convert.ToString(objreturn);
+                    if (!string.IsNullOrEmpty(st))
+                        throw new Exception(st);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles GetDimensionValidityDates(EArticles ObjEArticle)
+        {
+            DataSet dsArticleDetails = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_DimensionValidityDates]";
+                    cmd.Parameters.Add("@WG", ObjEArticle.WG);
+                    cmd.Parameters.Add("@WA", ObjEArticle.WA);
+                    cmd.Parameters.Add("@WI", ObjEArticle.WI);
+                    cmd.Parameters.Add("@A", ObjEArticle.A);
+                    cmd.Parameters.Add("@B", ObjEArticle.B);
+                    cmd.Parameters.Add("@L", ObjEArticle.L);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsArticleDetails);
+                    }
+                    if (dsArticleDetails != null && dsArticleDetails.Tables.Count > 0)
+                    {
+                        ObjEArticle.dtDimensionValidityDates = new DataTable();
+                        ObjEArticle.dtDimensionValidityDates = dsArticleDetails.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler bei der Datenaktualisierung für Gültigkeitsdatum");
+                else
+                    throw new Exception("Error While Retrieving ArticleDetails");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles GetValuesByDimension(EArticles ObjEArticle)
+        {
+            DataSet dsArticleDetails = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ArticleByValidityDate]";
+                    cmd.Parameters.Add("@DimensionID", ObjEArticle.DimensionID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsArticleDetails);
+                    }
+                    if (dsArticleDetails != null && dsArticleDetails.Tables.Count > 0)
+                    {
+                        ObjEArticle.dtDimensionValues = new DataTable();
+                        ObjEArticle.dtDimensionValues = dsArticleDetails.Tables[0];
+                        if (dsArticleDetails.Tables.Count > 1)
+                        {
+                            ObjEArticle.dtMultiValues = new DataTable();
+                            ObjEArticle.dtMultiValues = dsArticleDetails.Tables[1];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler bei der Datenaktualisierung für Gültigkeitsdatum");
+                else
+                    throw new Exception("Error While Retrieving ArticleDetails");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+    }
 }

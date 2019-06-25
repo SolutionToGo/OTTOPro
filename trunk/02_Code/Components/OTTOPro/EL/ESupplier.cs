@@ -100,6 +100,7 @@ namespace EL
             get { return _dtSupplierMail; }
             set { _dtSupplierMail = value; }
         }
+        public DataTable PID = new DataTable();
         // Article Properties and entities
         public int WGWAID
         {
