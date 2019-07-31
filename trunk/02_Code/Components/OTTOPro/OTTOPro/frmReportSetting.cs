@@ -53,125 +53,127 @@ namespace OTTOPro
                 if (ObjEReport == null)
                     ObjEReport = new EReportDesign();
                 ParseReportSettings();
-                ObjBReport.SaveReportSetting(ObjEReport);  
-
-                DataTable dtPos = new DataTable();
-                dtPos.Columns.Add("FromPos");
-                dtPos.Columns.Add("ToPos");
-                if (radioGroupSelection.SelectedIndex == 0)
+                ObjBReport.SaveReportSetting(ObjEReport);
+                if (_ProjectID > 0)
                 {
-                    this.Hide();
-                    if (_ISMAMOChecked)
+                    DataTable dtPos = new DataTable();
+                    dtPos.Columns.Add("FromPos");
+                    dtPos.Columns.Add("ToPos");
+                    if (radioGroupSelection.SelectedIndex == 0)
                     {
-                        rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Complete", cmbLVSection.Text, ObjEReport.GB);
-                        ReportPrintTool printTool = new ReportPrintTool(rptMA);
-                        rptMA.Parameters["ProjectID"].Value = _ProjectID;
-                        rptMA.Parameters["ReportName"].Value = txtReportName.Text;
-                        rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                        rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
-                        printTool.ShowRibbonPreview();
-                    }
-                    else
-                    {
-                        rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Complete", cmbLVSection.Text, ObjEReport.GB);
-                        ReportPrintTool printTool = new ReportPrintTool(rpt);
-                        rpt.Parameters["ProjectID"].Value = _ProjectID;
-                        rpt.Parameters["ReportName"].Value = txtReportName.Text;
-                        rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                        rpt.Parameters["WithGB"].Value = ObjEReport.GB;
-                        printTool.ShowRibbonPreview();
-                    }
-                    this.Close();
-                }
-                else if (radioGroupSelection.SelectedIndex == 1)
-                {
-                    if (gvAddRemovePositions.RowCount == 0)
-                    {
-                        if (Utility._IsGermany == true)
+                        this.Hide();
+                        if (_ISMAMOChecked)
                         {
-                            XtraMessageBox.Show("Bitte machen Sie VON / BIS Angaben.");
+                            rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Complete", cmbLVSection.Text, ObjEReport.GB);
+                            ReportPrintTool printTool = new ReportPrintTool(rptMA);
+                            rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                            rptMA.Parameters["ReportName"].Value = txtReportName.Text;
+                            rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                            rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
+                            printTool.ShowRibbonPreview();
                         }
                         else
                         {
-                            XtraMessageBox.Show("Please Add From and To values.");
+                            rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Complete", cmbLVSection.Text, ObjEReport.GB);
+                            ReportPrintTool printTool = new ReportPrintTool(rpt);
+                            rpt.Parameters["ProjectID"].Value = _ProjectID;
+                            rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                            rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                            rpt.Parameters["WithGB"].Value = ObjEReport.GB;
+                            printTool.ShowRibbonPreview();
                         }
-                        return;
+                        this.Close();
                     }
-                    string tfrom = null;
-                    string tTo = null;
-                    foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
+                    else if (radioGroupSelection.SelectedIndex == 1)
                     {
-                        DataRow drPos = dtPos.NewRow();
-                        tfrom = dr.Cells[0].Value.ToString();
-                        tTo = dr.Cells[1].Value.ToString();
-                        string _fromParent = string.Empty;
-                        string _ToParent = string.Empty;
-                        if (tfrom.Contains("."))
-                            _fromParent = tfrom.Substring(0, tfrom.IndexOf('.'));
-                        if (tTo.Contains("."))
-                            _ToParent = tTo.Substring(0, tTo.IndexOf('.'));
-                        if (_fromParent != _ToParent)
+                        if (gvAddRemovePositions.RowCount == 0)
                         {
-                            if (Utility._IsGermany)
-                                throw new Exception("Bitte geben Sie den gleichen Parent-Level ein..!");
+                            if (Utility._IsGermany == true)
+                            {
+                                XtraMessageBox.Show("Bitte machen Sie VON / BIS Angaben.");
+                            }
                             else
-                                throw new Exception("Please enter the same Parent level..!");
+                            {
+                                XtraMessageBox.Show("Please Add From and To values.");
+                            }
+                            return;
                         }
-                        drPos["fromPos"] = Utility.PrepareOZ(tfrom.Replace(',', '.'), stRaster);
-                        drPos["toPos"] = Utility.PrepareOZ(tTo.Replace(',', '.'), stRaster);
-                        dtPos.Rows.Add(drPos);
-                    }
+                        string tfrom = null;
+                        string tTo = null;
+                        foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
+                        {
+                            DataRow drPos = dtPos.NewRow();
+                            tfrom = dr.Cells[0].Value.ToString();
+                            tTo = dr.Cells[1].Value.ToString();
+                            string _fromParent = string.Empty;
+                            string _ToParent = string.Empty;
+                            if (tfrom.Contains("."))
+                                _fromParent = tfrom.Substring(0, tfrom.IndexOf('.'));
+                            if (tTo.Contains("."))
+                                _ToParent = tTo.Substring(0, tTo.IndexOf('.'));
+                            if (_fromParent != _ToParent)
+                            {
+                                if (Utility._IsGermany)
+                                    throw new Exception("Bitte geben Sie den gleichen Parent-Level ein..!");
+                                else
+                                    throw new Exception("Please enter the same Parent level..!");
+                            }
+                            drPos["fromPos"] = Utility.PrepareOZ(tfrom.Replace(',', '.'), stRaster);
+                            drPos["toPos"] = Utility.PrepareOZ(tTo.Replace(',', '.'), stRaster);
+                            dtPos.Rows.Add(drPos);
+                        }
 
-                    this.Hide();
-                    if (_ISMAMOChecked)
-                    {
-                        rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Title", cmbLVSection.Text, ObjEReport.GB);
-                        ReportPrintTool printTool = new ReportPrintTool(rptMA);
-                        rptMA.Parameters["ProjectID"].Value = _ProjectID;
-                        rptMA.Parameters["ReportName"].Value = txtReportName.Text;
-                        rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                        rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
-                        printTool.ShowRibbonPreview();
+                        this.Hide();
+                        if (_ISMAMOChecked)
+                        {
+                            rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Title", cmbLVSection.Text, ObjEReport.GB);
+                            ReportPrintTool printTool = new ReportPrintTool(rptMA);
+                            rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                            rptMA.Parameters["ReportName"].Value = txtReportName.Text;
+                            rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                            rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
+                            printTool.ShowRibbonPreview();
+                        }
+                        else
+                        {
+                            rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Title", cmbLVSection.Text, ObjEReport.GB);
+                            ReportPrintTool printTool = new ReportPrintTool(rpt);
+                            rpt.Parameters["ProjectID"].Value = _ProjectID;
+                            rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                            rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                            rpt.Parameters["WithGB"].Value = ObjEReport.GB;
+                            printTool.ShowRibbonPreview();
+                        }
+                        this.Close();
                     }
-                    else
+                    else if (radioGroupSelection.SelectedIndex == 2)
                     {
-                        rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Title", cmbLVSection.Text, ObjEReport.GB);
-                        ReportPrintTool printTool = new ReportPrintTool(rpt);
-                        rpt.Parameters["ProjectID"].Value = _ProjectID;
-                        rpt.Parameters["ReportName"].Value = txtReportName.Text;
-                        rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                        rpt.Parameters["WithGB"].Value = ObjEReport.GB;
-                        printTool.ShowRibbonPreview();
+                        if (string.IsNullOrEmpty(cmbLVSection.Text))
+                            throw new Exception("Please select atleast one LV Section");
+                        this.Hide();
+                        if (_ISMAMOChecked)
+                        {
+                            rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "LVSection", cmbLVSection.Text, ObjEReport.GB);
+                            ReportPrintTool printTool = new ReportPrintTool(rptMA);
+                            rptMA.Parameters["ProjectID"].Value = _ProjectID;
+                            rptMA.Parameters["ReportName"].Value = txtReportName.Text;
+                            rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                            rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
+                            printTool.ShowRibbonPreview();
+                        }
+                        else
+                        {
+                            rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "LVSection", cmbLVSection.Text, ObjEReport.GB);
+                            ReportPrintTool printTool = new ReportPrintTool(rpt);
+                            rpt.Parameters["ProjectID"].Value = _ProjectID;
+                            rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                            rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                            rpt.Parameters["WithGB"].Value = ObjEReport.GB;
+                            printTool.ShowRibbonPreview();
+                        }
+                        this.Close();
                     }
-                    this.Close();
                 }
-                else if (radioGroupSelection.SelectedIndex == 2)
-                {
-                    if (string.IsNullOrEmpty(cmbLVSection.Text))
-                        throw new Exception("Please select atleast one LV Section");
-                    this.Hide();
-                    if (_ISMAMOChecked)
-                    {
-                        rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "LVSection", cmbLVSection.Text, ObjEReport.GB);
-                        ReportPrintTool printTool = new ReportPrintTool(rptMA);
-                        rptMA.Parameters["ProjectID"].Value = _ProjectID;
-                        rptMA.Parameters["ReportName"].Value = txtReportName.Text;
-                        rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                        rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
-                        printTool.ShowRibbonPreview();
-                    }
-                    else
-                    {
-                        rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "LVSection", cmbLVSection.Text, ObjEReport.GB);
-                        ReportPrintTool printTool = new ReportPrintTool(rpt);
-                        rpt.Parameters["ProjectID"].Value = _ProjectID;
-                        rpt.Parameters["ReportName"].Value = txtReportName.Text;
-                        rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                        rpt.Parameters["WithGB"].Value = ObjEReport.GB;
-                        printTool.ShowRibbonPreview();
-                    }
-                    this.Close();
-                }                             
             }
             catch (Exception ex)
             {
@@ -293,12 +295,35 @@ namespace OTTOPro
                         _ISMAMOChecked = true;
                     }
                 }                
+                if(chkH.Checked)
+                    ObjEReport.HPos = true;
+                else
+                    ObjEReport.HPos = false;
+                if (chkAB.Checked)
+                    ObjEReport.ABPos = true;
+                else
+                    ObjEReport.ABPos = false;
+                if (chkBA.Checked)
+                    ObjEReport.BAPos = true;
+                else
+                    ObjEReport.BAPos = false;
+                if (chkVR.Checked)
+                    ObjEReport.VRPos = true;
+                else
+                    ObjEReport.VRPos = false;
+                if (chkUB.Checked)
+                    ObjEReport.UBPos = true;
+                else
+                    ObjEReport.UBPos = false;
+                if (chkNone.Checked)
+                    ObjEReport.NonePos = true;
+                else
+                    ObjEReport.NonePos = false;
             }
             catch (Exception ex)
             {
                 throw;
             }
-
         }
 
         private void BindData()
@@ -399,9 +424,21 @@ namespace OTTOPro
                     {
                         if (_values == true)
                         {
-                            chkSelectOptions.SetItemChecked(5, true);                           
+                            chkSelectOptions.SetItemChecked(5, true);
                         }
                     }
+                    if (bool.TryParse(row["NonePos"].ToString(), out _values))
+                        chkNone.Checked = _values;
+                    if (bool.TryParse(row["HPos"].ToString(), out _values))
+                        chkH.Checked = _values;
+                    if (bool.TryParse(row["ABPos"].ToString(), out _values))
+                        chkAB.Checked = _values;
+                    if (bool.TryParse(row["BAPos"].ToString(), out _values))
+                        chkBA.Checked = _values;
+                    if (bool.TryParse(row["VRPos"].ToString(), out _values))
+                        chkVR.Checked = _values;
+                    if (bool.TryParse(row["UBPos"].ToString(), out _values))
+                        chkUB.Checked = _values;
                 }
             }
             catch (Exception ex)
@@ -484,5 +521,29 @@ namespace OTTOPro
             }
         }
 
+        private void chkNone_CheckedChanged(object sender, EventArgs e)
+        {
+            if(chkNone.Checked)
+            {
+                chkH.Checked = false;
+                chkAB.Checked = false;
+                chkBA.Checked = false;
+                chkVR.Checked = false;
+                chkUB.Checked = false;
+                chkH.Enabled = false;
+                chkAB.Enabled = false;
+                chkBA.Enabled = false;
+                chkVR.Enabled = false;
+                chkUB.Enabled = false;
+            }
+            else
+            {
+                chkH.Enabled = true;
+                chkAB.Enabled = true;
+                chkBA.Enabled = true;
+                chkVR.Enabled = true;
+                chkUB.Enabled = true;
+            }
+        }
     }
 }

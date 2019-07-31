@@ -418,6 +418,46 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        public ESupplier GetUpdateSupplierProposal(ESupplier ObjESupplier)
+        {
+            DataSet dsWGWA = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_UpdateSupplierProposal]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.AddWithValue("@LVSsection", ObjESupplier.LVSection);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsWGWA);
+                    }
+                    if (dsWGWA != null && dsWGWA.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtProposal = dsWGWA.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der Daten");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving records");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
         public ESupplier GetProposalPostions(ESupplier ObjESupplier)
         {
             DataSet dsPositions = new DataSet();

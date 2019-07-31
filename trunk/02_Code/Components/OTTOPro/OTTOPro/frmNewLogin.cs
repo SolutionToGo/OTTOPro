@@ -11,11 +11,13 @@ using DevExpress.XtraEditors;
 using System.Threading;
 using EL;
 using BL;
+using Microsoft.Win32;
 
 namespace OTTOPro
 {
     public partial class frmNewLogin : DevExpress.XtraEditors.XtraForm
     {
+        public string RegPath = @"Software\Categis\OTTOPro\";
         public frmNewLogin()
         {
             InitializeComponent();
@@ -30,8 +32,9 @@ namespace OTTOPro
         {
             try
             {
-                //txtUserName.Text = "admin";
-                //txtPassword.Text = " ";
+                RegistryKey RGkey = Registry.CurrentUser.OpenSubKey(RegPath, true);
+                if (RGkey != null)
+                    txtUserName.EditValue = RGkey.GetValue("LUser");
                 Thread.Sleep(3000);
             }
             catch (Exception ex)
@@ -129,8 +132,12 @@ namespace OTTOPro
                 else
                     throw new Exception("Für den ausgewählten Nutzer wurden keine Berechtigungsangaben vorgenommen");
 
+                RegistryKey RGkey = Registry.CurrentUser.OpenSubKey(RegPath, true);
+                if (RGkey == null)
+                    RGkey = Registry.CurrentUser.CreateSubKey(RegPath);
+                RGkey.SetValue("LUser", txtUserName.Text);
                 this.Hide();
-                frmOTTOPro.Instance.ShowDialog();
+                    frmOTTOPro.Instance.ShowDialog();
                 this.Close();
             }
             catch (Exception ex)

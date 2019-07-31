@@ -325,6 +325,9 @@ namespace EL
             get { return _dtProposal; }
             set { _dtProposal = value; }
         }
+
+        public DataTable dtSupplierProposal = null;
+
         public DataTable dtPositions
         {
             get { return _dtPositions; }

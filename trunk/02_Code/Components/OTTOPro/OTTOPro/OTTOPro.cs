@@ -183,10 +183,7 @@ namespace OTTOPro
                 string strVersion = ObjBProject.GetDBVersion();
                 lblDBVersion.Text = "Version Datenbank: " + strVersion;
             }
-            catch (Exception ex)
-            {
-                
-            }
+            catch (Exception ex){}
         }
 
         private void btnShortCuts_ItemClick(object sender, ItemClickEventArgs e)

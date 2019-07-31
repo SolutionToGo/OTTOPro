@@ -48,7 +48,7 @@ namespace OTTOPro.Report_Design
                 GBValue = value;
                 double _result = 0;
                 //if (!ISWithGB)
-                    _result = (GBValue * totalvat) / 100;
+                _result = (GBValue * totalvat) / 100;
                 xrLblTotalVat.Text = _result.ToString("n2");
                 if (double.TryParse(xrLblGB.Text, out Value1))
                     GB1 = Value1;
@@ -56,7 +56,7 @@ namespace OTTOPro.Report_Design
                     GBWithVat = Value2;
                 double _resultVat = 0;
                 //if (!ISWithGB)
-                    _resultVat = GB1 + GBWithVat;
+                _resultVat = GB1 + GBWithVat;
                 xrLabelFinalResult.Text = _resultVat.ToString("n2");
             }
             catch (Exception ex)
@@ -154,7 +154,7 @@ namespace OTTOPro.Report_Design
                 double.TryParse(Convert.ToString(xrLblMA.Summary.GetResult()), out dMA);
                 double.TryParse(Convert.ToString(xrLblMO.Summary.GetResult()), out dMO);
                 //if (!ISWithGB)
-                    value = dMA + dMO - _Discount;
+                value = dMA + dMO - _Discount;
                 xrLblGB.Text = (value).ToString("n2");
                 xrTableCell13_BeforePrint(null, null);
             }
@@ -250,6 +250,16 @@ namespace OTTOPro.Report_Design
         #region 'Page sum calculation'
 
         double _xrGBVlaue = 0;
+
+        private void lblPageSum_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {
+            try
+            {
+                lblPageSum.Text = _xrGBVlaue.ToString("F2");
+            }
+            catch (Exception ex) { }
+        }
+
         private void xrGB_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
             Double dValue = 0;
@@ -267,21 +277,6 @@ namespace OTTOPro.Report_Design
             }
         }
 
-        private void xrlblPageSum_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
-        {
-            e.Result = _xrGBVlaue;
-            e.Handled = true;
-        }
-
         #endregion
-
-        private void xrLblMA_AfterPrint(object sender, EventArgs e)
-        {
-            try
-            {
-                
-            }
-            catch (Exception ex){}
-        }
     }
 }

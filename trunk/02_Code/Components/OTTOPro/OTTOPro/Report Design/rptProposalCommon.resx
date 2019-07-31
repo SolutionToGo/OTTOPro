@@ -333,6 +333,9 @@
   <metadata name="p_Rpt_QuerCalculation_DiscountPositionTableAdapter.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 212</value>
   </metadata>
+  <data name="CalcPosKZ.Expression" xml:space="preserve">
+    <value>Iif([PositionKZ] = 'A','Alternativposition',Iif([PositionKZ] ='E','Eventualposition ohne GB',Iif([PositionKZ] ='M','Eventualposition mit GB',Iif([PositionKZ] = 'H','Hinweistext',Iif([PositionKZ] = 'AB','Ausführungsbeschreibung' ,Iif([PositionKZ] = 'BA','Block einer Ausführungsbeschreibung' ,Iif([PositionKZ] = 'VR','Vertragliche Regelung' ,Iif([PositionKZ] = 'UB','Unterbeschreibung' ,''))))))))</value>
+  </data>
   <metadata name="sqlDataSource2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 446</value>
   </metadata>

@@ -132,6 +132,7 @@
             this.layoutControl2.Location = new System.Drawing.Point(2, 2);
             this.layoutControl2.Name = "layoutControl2";
             this.layoutControl2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(1095, 245, 450, 400);
+            this.layoutControl2.OptionsFocus.EnableAutoTabOrder = false;
             this.layoutControl2.Root = this.layoutControlGroup2;
             this.layoutControl2.Size = new System.Drawing.Size(527, 323);
             this.layoutControl2.TabIndex = 0;
@@ -162,7 +163,7 @@
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(112, 22);
             this.btnCancel.StyleController = this.layoutControl2;
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -174,7 +175,7 @@
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(113, 22);
             this.btnLogin.StyleController = this.layoutControl2;
-            this.btnLogin.TabIndex = 6;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Login";
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
@@ -185,7 +186,7 @@
             this.txtPassword.Properties.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(390, 20);
             this.txtPassword.StyleController = this.layoutControl2;
-            this.txtPassword.TabIndex = 5;
+            this.txtPassword.TabIndex = 2;
             conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule1.ErrorText = "Mandatory";
             conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
@@ -198,7 +199,7 @@
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(390, 20);
             this.txtUserName.StyleController = this.layoutControl2;
-            this.txtUserName.TabIndex = 4;
+            this.txtUserName.TabIndex = 1;
             conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
             conditionValidationRule2.ErrorText = "Mandatory";
             conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
@@ -223,7 +224,6 @@
             this.emptySpaceItem11,
             this.layoutControlItem6,
             this.emptySpaceItem12});
-            this.layoutControlGroup2.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup2.Name = "Root";
             this.layoutControlGroup2.Size = new System.Drawing.Size(527, 323);
             this.layoutControlGroup2.TextVisible = false;
@@ -357,7 +357,6 @@
             this.emptySpaceItem1,
             this.emptySpaceItem4,
             this.emptySpaceItem3});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "Root";
             this.layoutControlGroup1.Size = new System.Drawing.Size(825, 550);
             this.layoutControlGroup1.TextVisible = false;

@@ -149,8 +149,12 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@Prices", ObjEReportDesign.Prices);
                     cmd.Parameters.AddWithValue("@MAMO", ObjEReportDesign.MAMO);
                     cmd.Parameters.AddWithValue("@KurzAndLangText", ObjEReportDesign.KurzAnLangText);
-
-
+                    cmd.Parameters.AddWithValue("@HPos", ObjEReportDesign.HPos);
+                    cmd.Parameters.AddWithValue("@ABPos", ObjEReportDesign.ABPos);
+                    cmd.Parameters.AddWithValue("@BAPos", ObjEReportDesign.BAPos);
+                    cmd.Parameters.AddWithValue("@VRPos", ObjEReportDesign.VRPos);
+                    cmd.Parameters.AddWithValue("@UBPos", ObjEReportDesign.UBPos);
+                    cmd.Parameters.AddWithValue("@NonePos", ObjEReportDesign.NonePos);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsReportSetting);

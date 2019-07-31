@@ -132,5 +132,11 @@ namespace EL
             get { return _KurzAndLangText; }
             set { _KurzAndLangText = value; }
         }
+        public bool HPos;
+        public bool ABPos;
+        public bool BAPos;
+        public bool VRPos;
+        public bool UBPos;
+        public bool NonePos;
     }
 }

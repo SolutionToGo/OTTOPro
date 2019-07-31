@@ -186,6 +186,19 @@ namespace BL
             return ObjEsupplier;
         }
 
+        public ESupplier GetUpdateSupplierProposal(ESupplier ObjEsupplier)
+        {
+            try
+            {
+                ObjEsupplier = ObjDSupplier.GetUpdateSupplierProposal(ObjEsupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEsupplier;
+        }
+
         public ESupplier SaveDeletePosition(ESupplier ObjEsupplier)
         {
             try

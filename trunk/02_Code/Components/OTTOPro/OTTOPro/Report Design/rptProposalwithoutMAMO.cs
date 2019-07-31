@@ -254,11 +254,17 @@ namespace OTTOPro.Report_Design
                 Utility.ShowError(ex);
             }
         }
-        private void xrlblPageSum_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+
+        private void xrlblPageSum_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
-            e.Result = _xrGBVlaue;
-            e.Handled = true;
+            try
+            {
+                xrlblPageSum.Text = _xrGBVlaue.ToString("F2");
+            }
+            catch (Exception ex) { }
         }
+
         #endregion
+
     }
 }

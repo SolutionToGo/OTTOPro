@@ -53,6 +53,7 @@
               <Mapping SourceColumn="ProjectID" DataSetColumn="ProjectID" />
               <Mapping SourceColumn="Parent_OZ" DataSetColumn="Parent_OZ" />
               <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="SB" DataSetColumn="SB" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -64,7 +65,7 @@
   <xs:element name="dsProposalCommon" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsProposalCommon" msprop:Generator_UserDSName="dsProposalCommon">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_TableClassName="P_Rpt_PositionForProposalPriceForCommonDataTable" msprop:Generator_TableVarName="tableP_Rpt_PositionForProposalPriceForCommon" msprop:Generator_TablePropName="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowDeletingName="P_Rpt_PositionForProposalPriceForCommonRowDeleting" msprop:Generator_RowChangingName="P_Rpt_PositionForProposalPriceForCommonRowChanging" msprop:Generator_RowEvHandlerName="P_Rpt_PositionForProposalPriceForCommonRowChangeEventHandler" msprop:Generator_RowDeletedName="P_Rpt_PositionForProposalPriceForCommonRowDeleted" msprop:Generator_UserTableName="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowChangedName="P_Rpt_PositionForProposalPriceForCommonRowChanged" msprop:Generator_RowEvArgName="P_Rpt_PositionForProposalPriceForCommonRowChangeEvent" msprop:Generator_RowClassName="P_Rpt_PositionForProposalPriceForCommonRow">
+        <xs:element name="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_TableClassName="P_Rpt_PositionForProposalPriceForCommonDataTable" msprop:Generator_TableVarName="tableP_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowChangedName="P_Rpt_PositionForProposalPriceForCommonRowChanged" msprop:Generator_TablePropName="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowDeletingName="P_Rpt_PositionForProposalPriceForCommonRowDeleting" msprop:Generator_RowChangingName="P_Rpt_PositionForProposalPriceForCommonRowChanging" msprop:Generator_RowEvHandlerName="P_Rpt_PositionForProposalPriceForCommonRowChangeEventHandler" msprop:Generator_RowDeletedName="P_Rpt_PositionForProposalPriceForCommonRowDeleted" msprop:Generator_RowClassName="P_Rpt_PositionForProposalPriceForCommonRow" msprop:Generator_UserTableName="P_Rpt_PositionForProposalPriceForCommon" msprop:Generator_RowEvArgName="P_Rpt_PositionForProposalPriceForCommonRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Position_OZ" msprop:Generator_ColumnVarNameInTable="columnPosition_OZ" msprop:Generator_ColumnPropNameInRow="Position_OZ" msprop:Generator_ColumnPropNameInTable="Position_OZColumn" msprop:Generator_UserColumnName="Position_OZ" minOccurs="0">
@@ -183,6 +184,7 @@
               <xs:element name="ProjectID" msprop:Generator_ColumnVarNameInTable="columnProjectID" msprop:Generator_ColumnPropNameInRow="ProjectID" msprop:Generator_ColumnPropNameInTable="ProjectIDColumn" msprop:Generator_UserColumnName="ProjectID" type="xs:int" minOccurs="0" />
               <xs:element name="Parent_OZ" msprop:Generator_ColumnVarNameInTable="columnParent_OZ" msprop:Generator_ColumnPropNameInRow="Parent_OZ" msprop:Generator_ColumnPropNameInTable="Parent_OZColumn" msprop:Generator_UserColumnName="Parent_OZ" type="xs:int" minOccurs="0" />
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="SB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSB" msprop:Generator_ColumnPropNameInRow="SB" msprop:Generator_ColumnPropNameInTable="SBColumn" msprop:Generator_UserColumnName="SB" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
