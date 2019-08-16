@@ -30,6 +30,7 @@ namespace OTTOPro.Report_Design
             _Type = type;
             _LVSection = LVSection;
             ISWithGB = IsReportWithGB;
+            //xrPictureBox1.Image = null;
         }
 
         Double totalvat = 0;
@@ -247,36 +248,9 @@ namespace OTTOPro.Report_Design
         }
         #endregion
 
-        #region 'Page sum calculation'
-
-        double _xrGBVlaue = 0;
-
-        private void lblPageSum_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        private void DetailReport_AfterPrint(object sender, EventArgs e)
         {
-            try
-            {
-                lblPageSum.Text = _xrGBVlaue.ToString("F2");
-            }
-            catch (Exception ex) { }
+            PageFooter.Visible = false;
         }
-
-        private void xrGB_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            Double dValue = 0;
-            try
-            {
-                if (double.TryParse(xrGB.Text, out dValue))
-                {
-                    if (dValue > 0)
-                        _xrGBVlaue += dValue;
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        #endregion
     }
 }

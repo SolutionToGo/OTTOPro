@@ -476,6 +476,8 @@ namespace DataAccess
                     if (dsPositions != null && dsPositions.Tables.Count > 0)
                     {
                         ObjESupplier.dtPositions = dsPositions.Tables[0];
+                        if(dsPositions.Tables.Count > 1)
+                            ObjESupplier.dtSuppliers = dsPositions.Tables[1];
                     }
                 }
             }
@@ -840,6 +842,35 @@ namespace DataAccess
                 else
                     throw new Exception("Error while Deleting Position");
             }
+        }
+
+        public ESupplier DeleteSuipplierProposal(ESupplier ObjESupplier)
+        {
+            DataSet dsArticle = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_SupplierProposal]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    cmd.Parameters.AddWithValue("@ProposalName", ObjESupplier.ProposalName);
+                    cmd.Parameters.AddWithValue("@ProposalSupplierID", ObjESupplier.ProposalSupplierID);
+                    object ObjReturn = cmd.ExecuteScalar();
+                    int ivalue = 0;
+                    if (!int.TryParse(Convert.ToString(ObjReturn), out ivalue))
+                        throw new Exception(Convert.ToString(ObjReturn));
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler beim Löschen des Supplier Proposal");
+                else
+                    throw new Exception("Error while Deleting Supplier Proposal");
+            }
+            return ObjESupplier;
         }
     }
 }

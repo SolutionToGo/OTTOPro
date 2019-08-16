@@ -74,17 +74,15 @@ namespace OTTOPro
                 cmbLVSection.Enabled = true;
                 DataTable dtLVSection = new DataTable();
                 dtLVSection = ObjBGAEB.GetLVSection(_ProjectID);
-                DataRow dr = dtLVSection.NewRow();
-                dr["LVSection"] = "ALL";
-                dtLVSection.Rows.Add(dr);
                 if (rtnOldRaster)
                 {
                     DataView dvLVSection = dtLVSection.DefaultView;
                     dvLVSection.RowFilter = "LVSection =  'HA'";
                 }
-                cmbLVSection.DataSource = dtLVSection;
-                cmbLVSection.DisplayMember = "LVSection";
-                cmbLVSection.ValueMember = "LVSection";
+                cmbLVSection.Properties.DataSource = dtLVSection;
+                cmbLVSection.Properties.DisplayMember = "LVSection";
+                cmbLVSection.Properties.ValueMember = "LVSection";
+                cmbLVSection.SetEditValue("HA");
             }
             catch (Exception ex)
             {

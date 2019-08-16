@@ -50,6 +50,8 @@
             this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCopy = new DevExpress.XtraEditors.SimpleButton();
             this.btnLoad = new DevExpress.XtraEditors.SimpleButton();
@@ -61,6 +63,7 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.riDate = new DevExpress.XtraEditors.Repository.RepositoryItemDateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcProjectSearch)).BeginInit();
@@ -73,6 +76,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riDate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riDate.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -98,6 +103,8 @@
             this.gcProjectSearch.LookAndFeel.UseDefaultLookAndFeel = false;
             this.gcProjectSearch.MainView = this.dgProjectSearch;
             this.gcProjectSearch.Name = "gcProjectSearch";
+            this.gcProjectSearch.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.riDate});
             this.gcProjectSearch.Size = new System.Drawing.Size(902, 372);
             this.gcProjectSearch.TabIndex = 7;
             this.gcProjectSearch.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -137,7 +144,9 @@
             this.gridColumn7,
             this.gridColumn8,
             this.gridColumn9,
-            this.gridColumn10});
+            this.gridColumn10,
+            this.gridColumn11,
+            this.gridColumn12});
             this.dgProjectSearch.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
             this.dgProjectSearch.GridControl = this.gcProjectSearch;
             this.dgProjectSearch.Name = "dgProjectSearch";
@@ -263,15 +272,37 @@
             // 
             // gridColumn9
             // 
-            this.gridColumn9.Caption = "ProjectStartDate";
+            this.gridColumn9.Caption = "Beginn";
+            this.gridColumn9.ColumnEdit = this.riDate;
             this.gridColumn9.FieldName = "ProjectStartDate";
             this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 5;
             // 
             // gridColumn10
             // 
-            this.gridColumn10.Caption = "ProjectEndDate";
+            this.gridColumn10.Caption = "Abschluss";
+            this.gridColumn10.ColumnEdit = this.riDate;
             this.gridColumn10.FieldName = "ProjectEndDate";
             this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 6;
+            // 
+            // gridColumn11
+            // 
+            this.gridColumn11.Caption = "Ausführungsstand";
+            this.gridColumn11.FieldName = "ShowVK";
+            this.gridColumn11.Name = "gridColumn11";
+            // 
+            // gridColumn12
+            // 
+            this.gridColumn12.AppearanceCell.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+            this.gridColumn12.AppearanceCell.Options.UseFont = true;
+            this.gridColumn12.Caption = "VK";
+            this.gridColumn12.FieldName = "VK";
+            this.gridColumn12.Name = "gridColumn12";
+            this.gridColumn12.Visible = true;
+            this.gridColumn12.VisibleIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -409,6 +440,19 @@
             this.emptySpaceItem5.Size = new System.Drawing.Size(1030, 52);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // riDate
+            // 
+            this.riDate.AutoHeight = false;
+            this.riDate.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riDate.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.riDate.DisplayFormat.FormatString = "y";
+            this.riDate.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime;
+            this.riDate.Mask.EditMask = "y";
+            this.riDate.Name = "riDate";
+            this.riDate.VistaCalendarViewStyle = DevExpress.XtraEditors.VistaCalendarViewStyle.YearView;
+            // 
             // frmLoadProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -438,6 +482,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riDate.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.riDate)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -476,5 +522,8 @@
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn8;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn11;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn12;
+        private DevExpress.XtraEditors.Repository.RepositoryItemDateEdit riDate;
     }
 }

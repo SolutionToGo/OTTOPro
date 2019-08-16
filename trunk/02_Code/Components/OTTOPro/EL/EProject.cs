@@ -125,6 +125,8 @@ namespace EL
             set { _dtArticleSettings = value; }
         }
 
+        public DataTable dtQuerCalc = null;
+
         private DataSet _dsComaparePrice = null;
         public DataSet dsComaparePrice
         {
@@ -382,6 +384,8 @@ namespace EL
         public bool MinVisible = true;
         public bool FabVisible = true;
         public bool MeVisible = true;
+
+        public bool ShowVK = false;
     }
 }
 

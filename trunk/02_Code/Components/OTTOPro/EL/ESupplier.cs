@@ -334,6 +334,7 @@ namespace EL
             set { _dtPositions = value; }
         }
 
+        public DataTable dtSuppliers = null;
 
         //Supplier Proposal
         private int _ProposalID = -1;
@@ -353,6 +354,9 @@ namespace EL
             get { return _SupplierProposalID; }
             set { _SupplierProposalID = value; }
         }
+
+        public int ProposalSupplierID = -1;
+        public string ProposalName = string.Empty;
         public DataTable dtUpdateSupplierPrice
         {
             get { return _dtUpdateSupplierPrice; }

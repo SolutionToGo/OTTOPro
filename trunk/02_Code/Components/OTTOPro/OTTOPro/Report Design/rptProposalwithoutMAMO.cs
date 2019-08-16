@@ -234,37 +234,5 @@ namespace OTTOPro.Report_Design
         }
         #endregion
 
-        #region 'Page Total  Calculation'
-        double _xrGBVlaue = 0;
-        private void xrGB_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            Double dValue = 0;
-            try
-            {
-                if (double.TryParse(xrGB.Text, out dValue))
-                {
-                    if (dValue > 0)
-                    {
-                        _xrGBVlaue += dValue;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void xrlblPageSum_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
-        {
-            try
-            {
-                xrlblPageSum.Text = _xrGBVlaue.ToString("F2");
-            }
-            catch (Exception ex) { }
-        }
-
-        #endregion
-
     }
 }

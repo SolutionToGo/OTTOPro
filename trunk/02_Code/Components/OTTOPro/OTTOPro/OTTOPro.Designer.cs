@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup1 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup2 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
-            DevExpress.XtraBars.Ribbon.GalleryItemGroup galleryItemGroup3 = new DevExpress.XtraBars.Ribbon.GalleryItemGroup();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOTTOPro));
             DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
             DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
@@ -271,16 +268,6 @@
             // skinRibbonGalleryBarItem1
             // 
             this.skinRibbonGalleryBarItem1.Caption = "skinRibbonGalleryBarItem1";
-            // 
-            // 
-            // 
-            galleryItemGroup1.Caption = "Group1";
-            galleryItemGroup2.Caption = "Group2";
-            galleryItemGroup3.Caption = "Group3";
-            this.skinRibbonGalleryBarItem1.Gallery.Groups.AddRange(new DevExpress.XtraBars.Ribbon.GalleryItemGroup[] {
-            galleryItemGroup1,
-            galleryItemGroup2,
-            galleryItemGroup3});
             this.skinRibbonGalleryBarItem1.Id = 20;
             this.skinRibbonGalleryBarItem1.Name = "skinRibbonGalleryBarItem1";
             // 
@@ -756,7 +743,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.4.2 (25.07.2019)";
+            this.label1.Text = "Version Software 9.4.4 (08.08.2019)";
             // 
             // fdImportFile
             // 

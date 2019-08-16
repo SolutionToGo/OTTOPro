@@ -56,6 +56,8 @@ namespace DAL
                     cmd.Parameters.AddWithValue("@IsCummulated", ObjEProject.IsCumulated);
                     cmd.Parameters.AddWithValue("@ISRasterChange", ObjEProject.IsRasterChange);
                     cmd.Parameters.AddWithValue("@ProjectName", ObjEProject.ProjectName);
+                    cmd.Parameters.AddWithValue("@ShowVK", ObjEProject.ShowVK);
+                    cmd.Parameters.AddWithValue("@dtQuerCalc", ObjEProject.dtQuerCalc);
                     object returnObj = cmd.ExecuteScalar();
                     if (returnObj != null)
                     {

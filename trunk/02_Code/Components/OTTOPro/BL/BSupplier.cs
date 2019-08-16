@@ -482,6 +482,16 @@ namespace BL
             }
             return ObjESupplier;
         }
+
+        public ESupplier DeleteSuipplierProposal(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjDSupplier.DeleteSuipplierProposal(ObjESupplier);
+            }
+            catch (Exception ex){ throw; }
+            return ObjESupplier;
+        }
     }
 }
 

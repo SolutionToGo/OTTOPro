@@ -37,5 +37,8 @@ namespace EL
             get { return _Type; }
             set { _Type = value; }
         }
+        public DataTable dtSoldMultis;
+        public DataTable dtVoldMultis;
+        public bool ISMaterial = false;
     }
 }

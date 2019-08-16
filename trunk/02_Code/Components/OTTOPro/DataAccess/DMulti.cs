@@ -151,5 +151,77 @@ namespace DataAccess
             }
             return ObjEMulti;
         }
+
+        public EMulti GetSOldMultis(EMulti ObjEMulti)
+        {
+            try
+            {
+                ObjEMulti.dtSoldMultis = new DataTable();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_SoldMultis]";
+                    cmd.Parameters.Add("@ProjectID", ObjEMulti.ProjectID);
+                    cmd.Parameters.Add("@LVSection", ObjEMulti.LVSection);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ObjEMulti.dtSoldMultis);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der Artikelgruppen");
+                }
+                else
+                {
+                    throw new Exception("Error while retrieving article groups");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEMulti;
+        }
+        public EMulti GetVOldMultis(EMulti ObjEMulti)
+        {
+            try
+            {
+                ObjEMulti.dtVoldMultis = new DataTable();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_VoldMultis]";
+                    cmd.Parameters.Add("@ProjectID", ObjEMulti.ProjectID);
+                    cmd.Parameters.Add("@LVSection", ObjEMulti.LVSection);
+                    cmd.Parameters.Add("@IsMaterial", ObjEMulti.ISMaterial);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ObjEMulti.dtVoldMultis);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der Artikelgruppen");
+                }
+                else
+                {
+                    throw new Exception("Error while retrieving article groups");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEMulti;
+        }
     }
 }

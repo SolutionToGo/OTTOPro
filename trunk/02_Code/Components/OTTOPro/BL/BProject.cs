@@ -80,6 +80,9 @@ namespace BL
                 DataSet dsProjectDetails = ObjDAL.GetProjectDetails(ObjEProject);
                 if (dsProjectDetails != null)
                 {
+                    if (dsProjectDetails.Tables.Count > 4)
+                        ObjEProject.dtQuerCalc = dsProjectDetails.Tables[4];
+
                     if (dsProjectDetails.Tables.Count > 3)
                         ObjEProject.dtArticleSettings = dsProjectDetails.Tables[3];
 
@@ -180,6 +183,9 @@ namespace BL
 
                             if (bool.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["FinalInvoice"]), out LockLV))
                                 ObjEProject.IsFinalInvoice = LockLV;
+
+                            if (bool.TryParse(Convert.ToString(dtPRojectDetails.Rows[0]["ShowVK"]), out LockLV))
+                                ObjEProject.ShowVK = LockLV;
                         }
                     }
                 }
