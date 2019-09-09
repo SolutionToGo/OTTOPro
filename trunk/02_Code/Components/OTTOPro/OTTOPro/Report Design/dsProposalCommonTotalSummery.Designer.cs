@@ -295,10 +295,6 @@ namespace OTTOPro.Report_Design {
             
             private global::System.Data.DataColumn columnGB;
             
-            private global::System.Data.DataColumn columnParent;
-            
-            private global::System.Data.DataColumn columnParentDescription;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public P_Rpt_GetTotalSummeryDataTable() {
@@ -398,22 +394,6 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ParentColumn {
-                get {
-                    return this.columnParent;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn ParentDescriptionColumn {
-                get {
-                    return this.columnParentDescription;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -449,7 +429,7 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_GetTotalSummeryRow AddP_Rpt_GetTotalSummeryRow(int PositionID, int ParentOZ, string Position_OZ, string ShortDescription, decimal MAPrice, decimal MoPrice, decimal EP, decimal GB, string Parent, string ParentDescription) {
+            public P_Rpt_GetTotalSummeryRow AddP_Rpt_GetTotalSummeryRow(int PositionID, int ParentOZ, string Position_OZ, string ShortDescription, decimal MAPrice, decimal MoPrice, decimal EP, decimal GB) {
                 P_Rpt_GetTotalSummeryRow rowP_Rpt_GetTotalSummeryRow = ((P_Rpt_GetTotalSummeryRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         PositionID,
@@ -459,9 +439,7 @@ namespace OTTOPro.Report_Design {
                         MAPrice,
                         MoPrice,
                         EP,
-                        GB,
-                        Parent,
-                        ParentDescription};
+                        GB};
                 rowP_Rpt_GetTotalSummeryRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowP_Rpt_GetTotalSummeryRow);
                 return rowP_Rpt_GetTotalSummeryRow;
@@ -492,8 +470,6 @@ namespace OTTOPro.Report_Design {
                 this.columnMoPrice = base.Columns["MoPrice"];
                 this.columnEP = base.Columns["EP"];
                 this.columnGB = base.Columns["GB"];
-                this.columnParent = base.Columns["Parent"];
-                this.columnParentDescription = base.Columns["ParentDescription"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -515,18 +491,10 @@ namespace OTTOPro.Report_Design {
                 base.Columns.Add(this.columnEP);
                 this.columnGB = new global::System.Data.DataColumn("GB", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGB);
-                this.columnParent = new global::System.Data.DataColumn("Parent", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnParent);
-                this.columnParentDescription = new global::System.Data.DataColumn("ParentDescription", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnParentDescription);
                 this.columnPosition_OZ.AllowDBNull = false;
                 this.columnPosition_OZ.MaxLength = 100;
                 this.columnShortDescription.ReadOnly = true;
                 this.columnShortDescription.MaxLength = 1000;
-                this.columnParent.AllowDBNull = false;
-                this.columnParent.MaxLength = 100;
-                this.columnParentDescription.ReadOnly = true;
-                this.columnParentDescription.MaxLength = 1000;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -793,34 +761,6 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Parent {
-                get {
-                    return ((string)(this[this.tableP_Rpt_GetTotalSummery.ParentColumn]));
-                }
-                set {
-                    this[this.tableP_Rpt_GetTotalSummery.ParentColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string ParentDescription {
-                get {
-                    try {
-                        return ((string)(this[this.tableP_Rpt_GetTotalSummery.ParentDescriptionColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ParentDescription\' in table \'P_Rpt_GetTotalSummery\' is DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableP_Rpt_GetTotalSummery.ParentDescriptionColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsPositionIDNull() {
                 return this.IsNull(this.tableP_Rpt_GetTotalSummery.PositionIDColumn);
             }
@@ -901,18 +841,6 @@ namespace OTTOPro.Report_Design {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetGBNull() {
                 this[this.tableP_Rpt_GetTotalSummery.GBColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsParentDescriptionNull() {
-                return this.IsNull(this.tableP_Rpt_GetTotalSummery.ParentDescriptionColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetParentDescriptionNull() {
-                this[this.tableP_Rpt_GetTotalSummery.ParentDescriptionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1083,8 +1011,6 @@ namespace OTTOPro.Report_Design.dsProposalCommonTotalSummeryTableAdapters {
             tableMapping.ColumnMappings.Add("MoPrice", "MoPrice");
             tableMapping.ColumnMappings.Add("EP", "EP");
             tableMapping.ColumnMappings.Add("GB", "GB");
-            tableMapping.ColumnMappings.Add("Parent", "Parent");
-            tableMapping.ColumnMappings.Add("ParentDescription", "ParentDescription");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

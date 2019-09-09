@@ -2302,7 +2302,7 @@
             this.xrTableCell95.StylePriority.UseFont = false;
             this.xrTableCell95.StylePriority.UsePadding = false;
             this.xrTableCell95.StylePriority.UseTextAlignment = false;
-            this.xrTableCell95.Text = "Sonstige Kostem\r\n(Vom Bieter zu erläutern)\t\t\r\n";
+            this.xrTableCell95.Text = "Sonstige Kosten\r\n(Vom Bieter zu erläutern)\t\t\r\n";
             this.xrTableCell95.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleLeft;
             this.xrTableCell95.Weight = 4.0965171637205939D;
             // 

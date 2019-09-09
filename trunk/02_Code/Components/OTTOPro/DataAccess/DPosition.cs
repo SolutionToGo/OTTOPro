@@ -708,7 +708,7 @@ namespace DataAccess
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.Connection = SQLCon.Sqlconn();
+                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Ins_CopyPosition]";
                     cmd.Parameters.AddWithValue("@ProjectID", ObjEPosition.ProjectID);

@@ -8120,18 +8120,18 @@ namespace OTTOPro
                     if (int.TryParse(gvProposal.GetFocusedRowCellValue("SupplierProposalID").ToString(), out iValue))
                     {
 
-                        if (ObjESupplier.dtPositions != null)
-                        {
-                            foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
-                            {
-                                if (dc.DataType == typeof(bool))
-                                {
-                                    CheckEdit ch = (CheckEdit)this.Controls.Find(dc.ColumnName, true)[0];
-                                    gcSupplier.Controls.Remove(ch);
-                                }
-                            }
-                        }
-
+                        //if (ObjESupplier.dtPositions != null)
+                        //{
+                        //    foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                        //    {
+                        //        if (dc.DataType == typeof(bool))
+                        //        {
+                        //            CheckEdit ch = (CheckEdit)this.Controls.Find(dc.ColumnName, true)[0];
+                        //            gcSupplier.Controls.Remove(ch);
+                        //        }
+                        //    }
+                        //}
+                        gcSupplier.Controls.Clear();
                         gvSupplier.Columns.Clear();
                         ObjESupplier.SupplierProposalID = iValue;
                         if (radioGroup1.SelectedIndex == 0)
@@ -10423,49 +10423,55 @@ namespace OTTOPro
                             ObjEPosition.dtCopyPosition.Columns.Remove(dc.ColumnName);
                     }
                 }
-                string _Suggested_OZ = SuggestOZForCopy(PositionOZ, strnextLV, IIndex);
-
-                frmNewOZ Obj = new frmNewOZ();
-                Obj.strNewOZ = _Suggested_OZ;
-                Obj.LVRaster = ObjEProject.LVRaster;
-                Obj.ShowDialog();
-                if (!Obj.IsSave)
-                    return;
-                _Suggested_OZ = Obj.strNewOZ;
-                string str = string.Empty;
-                string strRaster = ObjEProject.LVRaster;
-                string[] strPOZ = PositionOZ.Split('.');
-                string[] strPRaster = strRaster.Split('.');
-                int Count = -1;
-                int i = -1;
-                Count = strPOZ.Count();
-                while (Count > 0)
-                {
-                    i = i + 1;
-                    Count = Count - 1;
-                    int OZLength = 0;
-                    int RasterLength = 0;
-                    string OZ = string.Empty;
-                    OZ = strPOZ[i].Trim();
-                    RasterLength = strPRaster[i].Length;
-                    OZLength = OZ.Trim().Length;
-                    if (Count > 0)
-                    {
-                        if (OZ == "")
-                        {
-                            str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
-                        }
-                    }
-                }
-                if (str.Length > 0)
-                {
-                    string strBlankNewOz = ParentOZ + str + _Suggested_OZ;
-                    ObjEPosition.Position_OZ = strBlankNewOz;
-                }
+                string _Suggested_OZ = string.Empty;
+                if (_OldPosKZ == "H")
+                { ObjEPosition.Position_OZ = string.Empty; }
                 else
                 {
-                    string strNewOz = ParentOZ + _Suggested_OZ;
-                    ObjEPosition.Position_OZ = strNewOz;
+                    _Suggested_OZ = SuggestOZForCopy(PositionOZ, strnextLV, IIndex);
+
+                    frmNewOZ Obj = new frmNewOZ();
+                    Obj.strNewOZ = _Suggested_OZ;
+                    Obj.LVRaster = ObjEProject.LVRaster;
+                    Obj.ShowDialog();
+                    if (!Obj.IsSave)
+                        return;
+                    _Suggested_OZ = Obj.strNewOZ;
+                    string str = string.Empty;
+                    string strRaster = ObjEProject.LVRaster;
+                    string[] strPOZ = PositionOZ.Split('.');
+                    string[] strPRaster = strRaster.Split('.');
+                    int Count = -1;
+                    int i = -1;
+                    Count = strPOZ.Count();
+                    while (Count > 0)
+                    {
+                        i = i + 1;
+                        Count = Count - 1;
+                        int OZLength = 0;
+                        int RasterLength = 0;
+                        string OZ = string.Empty;
+                        OZ = strPOZ[i].Trim();
+                        RasterLength = strPRaster[i].Length;
+                        OZLength = OZ.Trim().Length;
+                        if (Count > 0)
+                        {
+                            if (OZ == "")
+                            {
+                                str = str + string.Concat(Enumerable.Repeat(" ", RasterLength - OZLength)) + OZ + ".";
+                            }
+                        }
+                    }
+                    if (str.Length > 0)
+                    {
+                        string strBlankNewOz = ParentOZ + str + _Suggested_OZ;
+                        ObjEPosition.Position_OZ = strBlankNewOz;
+                    }
+                    else
+                    {
+                        string strNewOz = ParentOZ + _Suggested_OZ;
+                        ObjEPosition.Position_OZ = strNewOz;
+                    }
                 }
 
                 ObjEPosition.ProjectID = ObjEProject.ProjectID;
@@ -10492,7 +10498,7 @@ namespace OTTOPro
                 string OZ1 = string.Empty, OZ2 = string.Empty, OZ3 = string.Empty, OZ4 = string.Empty, OZ5 = string.Empty, OZ6 = string.Empty;
                 if (!string.IsNullOrEmpty(ObjEPosition.Position_OZ))
                 {
-                    string[] strOZList = Utility.PrepareOZ(ObjEPosition.Position_OZ, strRaster).Split('.');
+                    string[] strOZList = Utility.PrepareOZ(ObjEPosition.Position_OZ, ObjEProject.LVRaster).Split('.');
                     if (strOZList.Count() > 1)
                     {
                         string strOZID = strOZList[strOZList.Count() - 2];

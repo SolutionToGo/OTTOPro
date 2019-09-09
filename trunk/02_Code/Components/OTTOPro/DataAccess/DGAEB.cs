@@ -270,13 +270,9 @@ namespace DataAccess
                         else
                         {
                             if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
                                 throw new Exception("Die ausgewählte Projektnummer existiert bereits");
-                            }
                             else
-                            {
                                 throw new Exception("Selected Project Number Already Exists");
-                            }
                         }
                     }
             }

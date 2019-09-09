@@ -250,7 +250,7 @@ namespace OTTOPro.Report_Design
 
         private void DetailReport_AfterPrint(object sender, EventArgs e)
         {
-            PageFooter.Visible = false;
+            
         }
     }
 }

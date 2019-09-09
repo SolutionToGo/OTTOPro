@@ -33,8 +33,6 @@
               <Mapping SourceColumn="MoPrice" DataSetColumn="MoPrice" />
               <Mapping SourceColumn="EP" DataSetColumn="EP" />
               <Mapping SourceColumn="GB" DataSetColumn="GB" />
-              <Mapping SourceColumn="Parent" DataSetColumn="Parent" />
-              <Mapping SourceColumn="ParentDescription" DataSetColumn="ParentDescription" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -46,7 +44,7 @@
   <xs:element name="dsProposalCommonTotalSummery" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsProposalCommonTotalSummery" msprop:Generator_UserDSName="dsProposalCommonTotalSummery">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="P_Rpt_GetTotalSummery" msprop:Generator_TableClassName="P_Rpt_GetTotalSummeryDataTable" msprop:Generator_TableVarName="tableP_Rpt_GetTotalSummery" msprop:Generator_TablePropName="P_Rpt_GetTotalSummery" msprop:Generator_RowDeletingName="P_Rpt_GetTotalSummeryRowDeleting" msprop:Generator_RowChangingName="P_Rpt_GetTotalSummeryRowChanging" msprop:Generator_RowEvHandlerName="P_Rpt_GetTotalSummeryRowChangeEventHandler" msprop:Generator_RowDeletedName="P_Rpt_GetTotalSummeryRowDeleted" msprop:Generator_UserTableName="P_Rpt_GetTotalSummery" msprop:Generator_RowChangedName="P_Rpt_GetTotalSummeryRowChanged" msprop:Generator_RowEvArgName="P_Rpt_GetTotalSummeryRowChangeEvent" msprop:Generator_RowClassName="P_Rpt_GetTotalSummeryRow">
+        <xs:element name="P_Rpt_GetTotalSummery" msprop:Generator_TableClassName="P_Rpt_GetTotalSummeryDataTable" msprop:Generator_TableVarName="tableP_Rpt_GetTotalSummery" msprop:Generator_RowChangedName="P_Rpt_GetTotalSummeryRowChanged" msprop:Generator_TablePropName="P_Rpt_GetTotalSummery" msprop:Generator_RowDeletingName="P_Rpt_GetTotalSummeryRowDeleting" msprop:Generator_RowChangingName="P_Rpt_GetTotalSummeryRowChanging" msprop:Generator_RowEvHandlerName="P_Rpt_GetTotalSummeryRowChangeEventHandler" msprop:Generator_RowDeletedName="P_Rpt_GetTotalSummeryRowDeleted" msprop:Generator_RowClassName="P_Rpt_GetTotalSummeryRow" msprop:Generator_UserTableName="P_Rpt_GetTotalSummery" msprop:Generator_RowEvArgName="P_Rpt_GetTotalSummeryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PositionID" msprop:Generator_ColumnVarNameInTable="columnPositionID" msprop:Generator_ColumnPropNameInRow="PositionID" msprop:Generator_ColumnPropNameInTable="PositionIDColumn" msprop:Generator_UserColumnName="PositionID" type="xs:int" minOccurs="0" />
@@ -69,20 +67,6 @@
               <xs:element name="MoPrice" msprop:Generator_ColumnVarNameInTable="columnMoPrice" msprop:Generator_ColumnPropNameInRow="MoPrice" msprop:Generator_ColumnPropNameInTable="MoPriceColumn" msprop:Generator_UserColumnName="MoPrice" type="xs:decimal" minOccurs="0" />
               <xs:element name="EP" msprop:Generator_ColumnVarNameInTable="columnEP" msprop:Generator_ColumnPropNameInRow="EP" msprop:Generator_ColumnPropNameInTable="EPColumn" msprop:Generator_UserColumnName="EP" type="xs:decimal" minOccurs="0" />
               <xs:element name="GB" msprop:Generator_ColumnVarNameInTable="columnGB" msprop:Generator_ColumnPropNameInRow="GB" msprop:Generator_ColumnPropNameInTable="GBColumn" msprop:Generator_UserColumnName="GB" type="xs:decimal" minOccurs="0" />
-              <xs:element name="Parent" msprop:Generator_ColumnVarNameInTable="columnParent" msprop:Generator_ColumnPropNameInRow="Parent" msprop:Generator_ColumnPropNameInTable="ParentColumn" msprop:Generator_UserColumnName="Parent">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="ParentDescription" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnParentDescription" msprop:Generator_ColumnPropNameInRow="ParentDescription" msprop:Generator_ColumnPropNameInTable="ParentDescriptionColumn" msprop:Generator_UserColumnName="ParentDescription" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1000" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
