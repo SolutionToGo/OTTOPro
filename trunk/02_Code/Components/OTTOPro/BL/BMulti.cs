@@ -63,5 +63,25 @@ namespace BL
             }
             return ObjEMulti;
         }
+
+        public EMulti GetSOldMultis(EMulti ObjEMulti)
+        {
+            try
+            {
+                ObjDMulti.GetSOldMultis(ObjEMulti);
+            }
+            catch (Exception ex){}
+            return ObjEMulti;
+        }
+
+        public EMulti GetVOldMultis(EMulti ObjEMulti)
+        {
+            try
+            {
+                ObjDMulti.GetVOldMultis(ObjEMulti);
+            }
+            catch (Exception ex) { }
+            return ObjEMulti;
+        }
     }
 }
