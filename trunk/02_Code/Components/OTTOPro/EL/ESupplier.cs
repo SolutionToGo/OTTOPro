@@ -469,5 +469,9 @@ namespace EL
             get { return _LVSection; }
             set { _LVSection = value; }
         }
+
+        public object PSupplierID = null;
+        public object NotSelectedPSupplierID = null;
+        public object SelectedPSupplierID = null;
     }
 }

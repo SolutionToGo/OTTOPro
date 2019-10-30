@@ -741,5 +741,16 @@ namespace OTTOPro
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
+
+        private void frmOTTOPro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+               var dlgrslt = XtraMessageBox.Show("Wollen Sie das Programm OTTO PRO jetzt beenden?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (Convert.ToString(dlgrslt) == "No")
+                    e.Cancel = true;
+            }
+            catch (Exception ex){}
+        }
     }
 }

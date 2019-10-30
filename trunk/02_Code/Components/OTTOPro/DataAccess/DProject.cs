@@ -674,6 +674,7 @@ namespace DAL
                 SQLCon.Sqlconn().Close();
             }
         }
+
         public string GetProjectCommentary(int ProjectID)
         {
             string st = string.Empty;
@@ -699,6 +700,7 @@ namespace DAL
             }
             return st;
         }
+
         public void SaveAngebotCommentary(int ProjectID, string CommentaryDescription)
         {
             try
@@ -722,6 +724,7 @@ namespace DAL
                 SQLCon.Sqlconn().Close();
             }
         }
+
         public string GetAngebotCommentary(int ProjectID)
         {
             string st = string.Empty;

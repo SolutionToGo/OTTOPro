@@ -166,7 +166,7 @@
             this.txtL.EnterMoveNextControl = true;
             this.txtL.Location = new System.Drawing.Point(116, 85);
             this.txtL.Name = "txtL";
-            this.txtL.Properties.MaxLength = 3;
+            this.txtL.Properties.MaxLength = 4;
             this.txtL.Size = new System.Drawing.Size(297, 20);
             this.txtL.StyleController = this.layoutControl1;
             this.txtL.TabIndex = 3;
@@ -181,7 +181,7 @@
             this.dxValidationProviderB.SetIconAlignment(this.txtB, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtB.Location = new System.Drawing.Point(116, 61);
             this.txtB.Name = "txtB";
-            this.txtB.Properties.MaxLength = 3;
+            this.txtB.Properties.MaxLength = 4;
             this.txtB.Size = new System.Drawing.Size(297, 20);
             this.txtB.StyleController = this.layoutControl1;
             this.txtB.TabIndex = 2;
@@ -199,7 +199,7 @@
             this.dxValidationProviderB.SetIconAlignment(this.txtA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtA.Location = new System.Drawing.Point(116, 37);
             this.txtA.Name = "txtA";
-            this.txtA.Properties.MaxLength = 3;
+            this.txtA.Properties.MaxLength = 4;
             this.txtA.Size = new System.Drawing.Size(297, 20);
             this.txtA.StyleController = this.layoutControl1;
             this.txtA.TabIndex = 1;

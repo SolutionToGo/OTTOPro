@@ -286,11 +286,36 @@ namespace BL
             return ObjESupplier;
         }
 
+        public ESupplier SaveSupplierPrice(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier = ObjDSupplier.SaveSupplierPrice(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
+
         public ESupplier SaveSelection(ESupplier ObjESupplier)
         {
             try
             {
                 ObjESupplier = ObjDSupplier.SaveSelection(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
+        public ESupplier SaveBulkSelection(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier = ObjDSupplier.SaveBulkSelection(ObjESupplier);
             }
             catch (Exception ex)
             {

@@ -743,7 +743,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.4.5 (26.08.2019)";
+            this.label1.Text = "Version Software 9.5.0 (25.10.2019)";
             // 
             // fdImportFile
             // 
@@ -815,6 +815,7 @@
             this.Ribbon = this.ribbon;
             this.Text = "OTTOPro";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmOTTOPro_FormClosing);
             this.Load += new System.EventHandler(this.frmOTTOPro_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit1)).EndInit();

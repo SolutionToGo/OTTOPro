@@ -584,6 +584,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@SupplierName", ObjESupplier.SupplierName);
                     cmd.Parameters.AddWithValue("@IsSingle", ObjESupplier.IsSingle);
                     cmd.Parameters.AddWithValue("@dtPostionID", ObjESupplier.PID);
+                    cmd.Parameters.AddWithValue("@ProposalSupplierID", ObjESupplier.PSupplierID);
                     object Objreturn = cmd.ExecuteScalar();
                     if (Objreturn != null)
                     {
@@ -597,12 +598,55 @@ namespace DataAccess
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                 {
-                    throw new Exception("Fehler beim Speichern des Listenpreises");
+                    throw ex;
+                    //throw new Exception("Fehler beim Speichern des Listenpreises");
                 }
                 else
                 {
-                    throw new Exception("Error While Saving the ListPrice");
-
+                    throw ex;
+                    //throw new Exception("Error While Saving the ListPrice");
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+        public ESupplier SaveSupplierPrice(ESupplier ObjESupplier)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_ProposalValues_LP]";
+                    cmd.Parameters.AddWithValue("@PostionID", ObjESupplier.PositionID);
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    cmd.Parameters.AddWithValue("@SupplierPrice", ObjESupplier.SupplierPrice);
+                    cmd.Parameters.AddWithValue("@SupplierName", ObjESupplier.SupplierName);
+                    cmd.Parameters.AddWithValue("@ProposalSupplierID", ObjESupplier.PSupplierID);
+                    object Objreturn = cmd.ExecuteScalar();
+                    if (Objreturn != null)
+                    {
+                        int iValue = 0;
+                        if (!int.TryParse(Convert.ToString(Objreturn), out iValue))
+                            throw new Exception(Objreturn.ToString());
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw ex;
+                    //throw new Exception("Fehler beim Speichern des Listenpreises");
+                }
+                else
+                {
+                    throw ex;
+                    //throw new Exception("Error While Saving the ListPrice");
                 }
             }
             finally
@@ -625,6 +669,34 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
                     cmd.Parameters.AddWithValue("@SelectedSupplier", ObjESupplier.SelectedColumn);
                     cmd.Parameters.AddWithValue("@NotSelectedSupplier", ObjESupplier.UncheckedColumn);
+                    cmd.Parameters.AddWithValue("@IsSelected", ObjESupplier.IsSelected);
+                    cmd.Parameters.AddWithValue("@NotSelectedPSupplierID", ObjESupplier.NotSelectedPSupplierID);
+                    cmd.Parameters.AddWithValue("@SelectedPSupplierID", ObjESupplier. SelectedPSupplierID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier SaveBulkSelection(ESupplier ObjESupplier)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Upd_SaveBulkSelection]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    cmd.Parameters.AddWithValue("@ProposalSupplierID", ObjESupplier.PSupplierID);
                     cmd.Parameters.AddWithValue("@IsSelected", ObjESupplier.IsSelected);
                     cmd.ExecuteNonQuery();
                 }

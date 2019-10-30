@@ -44,12 +44,13 @@ namespace OTTOPro
                 //AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>
                 //{
                 //    System.Text.StringBuilder msg = new System.Text.StringBuilder();
+                //    msg.AppendLine("Exception occured on : " + Convert.ToString(DateTime.Now));
                 //    msg.AppendLine(e.Exception.GetType().FullName);
                 //    msg.AppendLine(e.Exception.Message);
                 //    System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
                 //    msg.AppendLine(st.ToString());
                 //    msg.AppendLine();
-                //    String desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                //    String desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                 //    string logFilePath = String.Format("{0}\\{1}", desktopPath, "logfile.txt");
                 //    System.IO.File.AppendAllText(logFilePath, msg.ToString());
                 //};

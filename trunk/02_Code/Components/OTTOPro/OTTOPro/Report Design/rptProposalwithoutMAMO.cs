@@ -198,11 +198,15 @@ namespace OTTOPro.Report_Design
         bool IsNormalSubtitle = false;
         private void lblGroupSum_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
         {
-            if (!IsNormalSubtitle)
-                e.Result = AlternateSum + "A";
-            else
-                e.Result = GroupSum;
-            e.Handled = true;
+            try
+            {
+                if (!IsNormalSubtitle)
+                    e.Result = AlternateSum;
+                else
+                    e.Result = GroupSum;
+                e.Handled = true;
+            }
+            catch (Exception){}
         }
 
         private void lblGroupSum_SummaryReset(object sender, EventArgs e)
@@ -234,5 +238,17 @@ namespace OTTOPro.Report_Design
         }
         #endregion
 
+        private void xrLabel15_SummaryGetResult(object sender, SummaryGetResultEventArgs e)
+        {
+            try
+            {
+                if (!IsNormalSubtitle)
+                    e.Result = "A";
+                else
+                    e.Result = "";
+                e.Handled = true;
+            }
+            catch (Exception) { }
+        }
     }
 }

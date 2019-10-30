@@ -322,6 +322,9 @@ namespace OTTOPro
             DataSet dsXmlData = new DataSet("Generic");
             try
             {
+                string stFromOZ = string.Empty;
+                string stToOZ = string.Empty;
+
                 DataTable dtV = new DataTable("LVPos");
                 dtV.Columns.Add("Art", typeof(string));
                 dtV.Columns.Add("OZ", typeof(string));
@@ -347,6 +350,10 @@ namespace OTTOPro
                 dtV.Columns.Add("OZ4", typeof(string));
                 dtV.Columns.Add("OZ5", typeof(string));
                 dtV.Columns.Add("OZ6", typeof(string));
+                dtV.Columns.Add("Bezuschl", typeof(string));
+                dtV.Columns.Add("FromOZ", typeof(string));
+                dtV.Columns.Add("ToOZ", typeof(string));
+                dtV.Columns.Add("SurchargeSno", typeof(int));
                 dsXmlData.Tables.Add(dtV);
 
                 XmlDocument xDoc = new XmlDocument();
@@ -384,9 +391,8 @@ namespace OTTOPro
                     if (xnArt != null)
                     {
                         drLVPos["Art"] = strART = xnArt.InnerText;
-                        if (strART == "Z")
-                            continue;
                     }
+
                     XmlNode xnOZ = xnPos.SelectSingleNode("OZ");
                     string stOZ = string.Empty;
                     if (xnOZ != null)
@@ -476,24 +482,49 @@ namespace OTTOPro
                         drLVPos["Einheit"] = xnEinheit.InnerText;
 
                     XmlNode xnBezugBeschr = xnPos.SelectSingleNode("BezugBeschr");
-                    if (xnEinheit != null)
+                    if (xnBezugBeschr != null)
                         drLVPos["BezugBeschr"] = xnBezugBeschr.InnerText;
 
                     XmlNode xnBezugAusfNr = xnPos.SelectSingleNode("BezugAusfNr");
-                    if (xnEinheit != null)
+                    if (xnBezugAusfNr != null)
                         drLVPos["BezugAusfNr"] = xnBezugAusfNr.InnerText;
 
                     XmlNode xnBedarf = xnPos.SelectSingleNode("Bedarf");
-                    if (xnEinheit != null)
+                    if (xnBedarf != null)
                         drLVPos["Bedarf"] = xnBedarf.InnerText;
 
                     XmlNode xnNr = xnPos.SelectSingleNode("Nr");
-                    if (xnEinheit != null)
+                    if (xnNr != null)
                         drLVPos["Nr"] = xnNr.InnerText;
 
                     XmlNode xnBezugOZ = xnPos.SelectSingleNode("BezugOZ");
-                    if (xnEinheit != null)
+                    if (xnBezugOZ != null)
                         drLVPos["BezugOZ"] = xnBezugOZ.InnerText;
+
+                    XmlNode xnBezuschl = xnPos.SelectSingleNode("Bezuschl");
+                    string stBezuschl = string.Empty;
+                    if (xnBezuschl != null)
+                        drLVPos["Bezuschl"] = stBezuschl = xnBezuschl.InnerText;
+
+                    if (!string.IsNullOrEmpty(stBezuschl))
+                    {
+                        if (string.IsNullOrEmpty(stFromOZ))
+                            stFromOZ = stToOZ = stOZ;
+                        else
+                            stToOZ = stOZ;
+                    }
+
+                    if(strART == "Z")
+                    {
+                        drLVPos["FromOZ"] = stFromOZ;
+                        drLVPos["ToOZ"] = stToOZ;
+                        stFromOZ = string.Empty;
+                        stToOZ = string.Empty;
+                        DataRow[] drfind  = dtV.Select("Bezuschl = 'J' AND ISNULL(SurchargeSno,0) = 0");
+                        foreach (DataRow dr in drfind)
+                            dr["SurchargeSno"] = iSNO;
+                    }
+
                     try
                     {
                         XmlNode xnKurztext = xnPos.SelectSingleNode("Kurztext");
@@ -625,7 +656,7 @@ namespace OTTOPro
                         {
                             string Value = dsXmlData.Tables[0].Compute("MAX(SNO)", "SNO <'" + strSNO + "'AND OZ <> ''").ToString();
                             DataRow[] drNextPosition = dsXmlData.Tables[0].Select("SNO=" + Value);
-                            dr["ParentOz"] = GetParentOZ(drNextPosition[0]["OZ"].ToString());
+                            dr["ParentOz"] = GetParentOZ(drNextPosition[0]["OZ"].ToString()); 
                         }
 
                     }

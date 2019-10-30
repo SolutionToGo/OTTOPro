@@ -84,7 +84,7 @@ namespace OTTOPro
                     int ProjectID = 0;
                     if (int.TryParse(dgProjectSearch.GetFocusedDataRow()["ProjectId"].ToString(), out ProjectID))
                     {
-                        string _PrNr = dgProjectSearch.GetFocusedDataRow()["ProjectNumber"].ToString();                       
+                        string _PrNr = dgProjectSearch.GetFocusedDataRow()["ProjectDescription"] + " - " + dgProjectSearch.GetFocusedDataRow()["ProjectNumber"];
                         foreach (Form form in Application.OpenForms)
                         {
                             if (form.Text == _PrNr)
