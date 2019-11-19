@@ -33,7 +33,6 @@
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleLabelItem1 = new DevExpress.XtraLayout.SimpleLabelItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.simpleLabelItem2 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.simpleLabelItem3 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.simpleLabelItem4 = new DevExpress.XtraLayout.SimpleLabelItem();
@@ -41,12 +40,13 @@
             this.simpleLabelItem6 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.simpleLabelItem7 = new DevExpress.XtraLayout.SimpleLabelItem();
             this.simpleLabelItem8 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.simpleLabelItem9 = new DevExpress.XtraLayout.SimpleLabelItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem4)).BeginInit();
@@ -54,6 +54,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -68,7 +70,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(932, 79, 250, 350);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(459, 217);
+            this.layoutControl1.Size = new System.Drawing.Size(459, 250);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -86,16 +88,17 @@
             this.emptySpaceItem3,
             this.emptySpaceItem4,
             this.simpleLabelItem1,
-            this.emptySpaceItem1,
             this.simpleLabelItem2,
             this.simpleLabelItem3,
             this.simpleLabelItem4,
             this.simpleLabelItem5,
             this.simpleLabelItem6,
             this.simpleLabelItem7,
-            this.simpleLabelItem8});
+            this.simpleLabelItem8,
+            this.simpleLabelItem9,
+            this.emptySpaceItem1});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(459, 217);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(459, 250);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // emptySpaceItem3
@@ -103,7 +106,7 @@
             this.emptySpaceItem3.AllowHotTrack = false;
             this.emptySpaceItem3.Location = new System.Drawing.Point(407, 32);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
-            this.emptySpaceItem3.Size = new System.Drawing.Size(32, 165);
+            this.emptySpaceItem3.Size = new System.Drawing.Size(32, 198);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem4
@@ -122,14 +125,6 @@
             this.simpleLabelItem1.Size = new System.Drawing.Size(407, 22);
             this.simpleLabelItem1.Text = "F1  \t       Langtext öffnen / schließen";
             this.simpleLabelItem1.TextSize = new System.Drawing.Size(237, 18);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 186);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(407, 11);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // simpleLabelItem2
             // 
@@ -194,11 +189,29 @@
             this.simpleLabelItem8.Text = "Alt + N      Neu";
             this.simpleLabelItem8.TextSize = new System.Drawing.Size(237, 18);
             // 
+            // simpleLabelItem9
+            // 
+            this.simpleLabelItem9.AllowHotTrack = false;
+            this.simpleLabelItem9.CustomizationFormText = "F5";
+            this.simpleLabelItem9.Location = new System.Drawing.Point(0, 186);
+            this.simpleLabelItem9.Name = "simpleLabelItem9";
+            this.simpleLabelItem9.Size = new System.Drawing.Size(407, 22);
+            this.simpleLabelItem9.Text = "F5             Project Refresh";
+            this.simpleLabelItem9.TextSize = new System.Drawing.Size(237, 18);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 208);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(407, 22);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // frmShortCuts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 217);
+            this.ClientSize = new System.Drawing.Size(459, 250);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.KeyPreview = true;
@@ -215,7 +228,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem4)).EndInit();
@@ -223,6 +235,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.simpleLabelItem9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -234,7 +248,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem4;
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem1;
-        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem2;
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem3;
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem4;
@@ -242,5 +255,7 @@
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem6;
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem7;
         private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem8;
+        private DevExpress.XtraLayout.SimpleLabelItem simpleLabelItem9;
+        private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
     }
 }

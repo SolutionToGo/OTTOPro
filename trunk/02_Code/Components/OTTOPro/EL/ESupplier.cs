@@ -334,6 +334,8 @@ namespace EL
             set { _dtPositions = value; }
         }
 
+        public DataTable dtPositionscopy = null;
+
         public DataTable dtSuppliers = null;
 
         //Supplier Proposal

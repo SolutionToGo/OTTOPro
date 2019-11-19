@@ -189,7 +189,7 @@ namespace BL
                     switch (strNodeName.ToLower())
                     {
                         case "generic" :
-                            XmlAttribute idGeneric = xmldoc.CreateAttribute("Id");
+                            XmlAttribute idGeneric = xmldoc.CreateAttribute("id");
                             idGeneric.Value = "0";
                             node.Attributes.Append(idGeneric);
                             break;
@@ -262,7 +262,7 @@ namespace BL
                     if (strNodeName.ToLower() != "generic")
                     {
                         Count++;
-                        XmlAttribute id = xmldoc.CreateAttribute("Id");
+                        XmlAttribute id = xmldoc.CreateAttribute("id");
                         XmlAttribute type = xmldoc.CreateAttribute("type");
                         id.Value = Count.ToString();
                         type.Value = strtype;

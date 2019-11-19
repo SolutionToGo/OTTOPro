@@ -734,11 +734,13 @@ namespace OTTOPro
                 nbDeletePosition_ItemClick(null, null);
                 return true;
             }
-            else if(keyData == Keys.F4)
+            else if (keyData == Keys.F4)
             {
                 nbCopyPosition_ItemClick(null, null);
                 return true;
             }
+            else if (keyData == (Keys.F5))
+                btnRefreshProject_ItemClick(null, null);
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
@@ -749,6 +751,20 @@ namespace OTTOPro
                var dlgrslt = XtraMessageBox.Show("Wollen Sie das Programm OTTO PRO jetzt beenden?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (Convert.ToString(dlgrslt) == "No")
                     e.Cancel = true;
+            }
+            catch (Exception ex){}
+        }
+
+        private void btnRefreshProject_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                try
+                {
+                    frmProject f = (frmProject)this.ActiveMdiChild;
+                    f.RefreshProject();
+                }
+                catch (Exception ex) { }
             }
             catch (Exception ex){}
         }

@@ -3061,7 +3061,7 @@
             this.UsrName});
             this.ScriptsSource = "\r\n\r\n\r\n\r\n";
             this.ShowPrintMarginsWarning = false;
-            this.Version = "18.1";
+            this.Version = "18.2";
             this.DataSourceDemanded += new System.EventHandler<System.EventArgs>(this.rptQuerKalkulation_DataSourceDemanded);
             ((System.ComponentModel.ISupportInitialize)(this.xrKommentarKalkulator)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xrTable2)).EndInit();

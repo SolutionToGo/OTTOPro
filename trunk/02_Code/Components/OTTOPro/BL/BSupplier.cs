@@ -334,17 +334,19 @@ namespace BL
                 }
                 else
                 {
-                    ObjESupplier = GetProposalPostions(ObjESupplier, false);
+                    ObjESupplier.dtPositionscopy = new DataTable();
+                    ObjESupplier.dtPositionscopy = ObjESupplier.dtPositions.Copy();
+                    //ObjESupplier = GetProposalPostions(ObjESupplier, false);
                     List<string> TableColumnNAmes = new List<string>();
-                    foreach (DataColumn dc in ObjESupplier.dtPositions.Columns)
+                    foreach (DataColumn dc in ObjESupplier.dtPositionscopy.Columns)
                     {
-                        if (ObjESupplier.dtPositions.Columns[dc.ColumnName + "Check"] != null)
+                        if (ObjESupplier.dtPositionscopy.Columns[dc.ColumnName + "Check"] != null)
                         {
                             TableColumnNAmes.Add(dc.ColumnName);
                         }
                     }
 
-                    foreach (DataRow drTemp in ObjESupplier.dtPositions.Rows)
+                    foreach (DataRow drTemp in ObjESupplier.dtPositionscopy.Rows)
                     {
                         foreach (string s in TableColumnNAmes)
                         {
@@ -383,7 +385,7 @@ namespace BL
                             drTemp[s] = Math.Round(DValue, 3);
                         }
                     }
-                    ObjESupplier = CalculateCheapestValues(ObjESupplier);
+                    ObjESupplier = CalculateCheapestValuesCopy(ObjESupplier);
                 }
             }
             catch (Exception ex)
@@ -407,6 +409,43 @@ namespace BL
                 }
 
                 foreach (DataRow drTemp in ObjESupplier.dtPositions.Rows)
+                {
+                    List<double> SupplierPirces = new List<double>();
+                    foreach (string s in TableColumnNAmes)
+                    {
+                        double DValue = drTemp[s] == DBNull.Value ? 0 : Math.Round(Convert.ToDouble(drTemp[s]), 3);
+                        if (DValue > 0)
+                            SupplierPirces.Add(DValue);
+                    }
+                    if (SupplierPirces != null && SupplierPirces.Count() > 0)
+                    {
+                        var i = Math.Round(SupplierPirces.Min(), 3);
+                        drTemp["Cheapest"] = i;
+                    }
+                    else
+                        drTemp["Cheapest"] = 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
+        private ESupplier CalculateCheapestValuesCopy(ESupplier ObjESupplier)
+        {
+            try
+            {
+                List<string> TableColumnNAmes = new List<string>();
+                foreach (DataColumn dc in ObjESupplier.dtPositionscopy.Columns)
+                {
+                    if (ObjESupplier.dtPositionscopy.Columns[dc.ColumnName + "Check"] != null)
+                    {
+                        TableColumnNAmes.Add(dc.ColumnName);
+                    }
+                }
+
+                foreach (DataRow drTemp in ObjESupplier.dtPositionscopy.Rows)
                 {
                     List<double> SupplierPirces = new List<double>();
                     foreach (string s in TableColumnNAmes)

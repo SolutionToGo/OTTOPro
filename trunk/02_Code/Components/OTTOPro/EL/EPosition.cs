@@ -605,5 +605,7 @@ namespace EL
         public DataTable dtProjectArticles { get; set; }
         public string WGDescription { get; set; }
         public string WADescription { get; set; }
+
+        public bool MontageEntry = false;
     }
 }

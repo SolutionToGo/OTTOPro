@@ -43,26 +43,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Interop.ICrypt2Vb6, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\ThirdParty\Interop.ICrypt2Vb6.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.IttLiz2Vb6, Version=12.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\ThirdParty\Interop.IttLiz2Vb6.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.ttComLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\ThirdParty\Interop.ttComLib.dll</HintPath>
-    </Reference>
-    <Reference Include="Interop.VBA, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <EmbedInteropTypes>False</EmbedInteropTypes>
-      <HintPath>..\..\..\ThirdParty\Interop.VBA.dll</HintPath>
-    </Reference>
     <Reference Include="System">
       <Private>True</Private>
     </Reference>
@@ -136,7 +116,7 @@
   <ItemGroup>
     <COMReference Include="GKsrv">
       <Guid>{7C7A77F7-66D7-493E-B724-57B03C076693}</Guid>
-      <VersionMajor>314</VersionMajor>
+      <VersionMajor>345</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>

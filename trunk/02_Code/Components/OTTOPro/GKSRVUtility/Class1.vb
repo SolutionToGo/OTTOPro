@@ -13,6 +13,8 @@ Public Class GKSRVApp
     Private m_licence As String
     Private m_GKSrv As GKsrv.cSrv
     Private m_Importclass As GKsrv.IImport
+    Private result As String
+    Private result1 As String
     Public Function ProcessFile(ImportFile As String, OutputFile As String, ProductFile As String, ClientFile As String, LicenseKey As String)
         Try
             If InitFiles(ImportFile, OutputFile, ProductFile, ClientFile, LicenseKey) = False Then Exit Function
@@ -64,7 +66,7 @@ Public Class GKSRVApp
         Try
             'm_GKSrv = New GKsrv.cSrv
             m_GKSrv = New cSrv()
-
+            m_GKSrv.LogFile = "D:\\gksrv.log"
             lRet = m_GKSrv.Init
             If lRet <> 0 Then
                 MsgBox("Fehler: " & lRet)
@@ -148,6 +150,11 @@ Public Class GKSRVApp
                 Case 7
                     m_GKSrv.Export()
                     '  SetExportSettings ActiveWorkbook.Worksheets("Exp_GXML")
+
+                    result = m_GKSrv.Project.ProtocolContainer.GetProtocoll("ExportMakeStructure").ToString
+                    result1 = result
+
+
             End Select
 
             'exportieren

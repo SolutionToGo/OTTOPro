@@ -1173,7 +1173,7 @@
   <ItemGroup>
     <COMReference Include="GKsrv">
       <Guid>{7C7A77F7-66D7-493E-B724-57B03C076693}</Guid>
-      <VersionMajor>314</VersionMajor>
+      <VersionMajor>345</VersionMajor>
       <VersionMinor>0</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>tlbimp</WrapperTool>

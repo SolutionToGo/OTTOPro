@@ -86,6 +86,7 @@
             this.nbDeletePosition = new DevExpress.XtraBars.BarButtonItem();
             this.nbCopyPosition = new DevExpress.XtraBars.BarButtonItem();
             this.nbCopyDetailKZ = new DevExpress.XtraBars.BarButtonItem();
+            this.btnRefreshProject = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -170,9 +171,10 @@
             this.chkAutoSave1,
             this.nbDeletePosition,
             this.nbCopyPosition,
-            this.nbCopyDetailKZ});
+            this.nbCopyDetailKZ,
+            this.btnRefreshProject});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 64;
+            this.ribbon.MaxItemId = 65;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -565,6 +567,15 @@
             this.nbCopyDetailKZ.Id = 63;
             this.nbCopyDetailKZ.Name = "nbCopyDetailKZ";
             // 
+            // btnRefreshProject
+            // 
+            this.btnRefreshProject.Caption = "Refresh";
+            this.btnRefreshProject.Id = 64;
+            this.btnRefreshProject.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnRefreshProject.ImageOptions.Image")));
+            this.btnRefreshProject.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnRefreshProject.ImageOptions.LargeImage")));
+            this.btnRefreshProject.Name = "btnRefreshProject";
+            this.btnRefreshProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefreshProject_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -583,6 +594,7 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLoadProject, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnProjectImport, true);
             this.ribbonPageGroup1.ItemLinks.Add(this.barButtonItemExitProject, true);
+            this.ribbonPageGroup1.ItemLinks.Add(this.btnRefreshProject);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
             this.ribbonPageGroup1.Text = "Projekt";
             // 
@@ -743,7 +755,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(215, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.5.0 (25.10.2019)";
+            this.label1.Text = "Version Software 9.5.1 (14.11.2019)";
             // 
             // fdImportFile
             // 
@@ -905,5 +917,6 @@
         private DevExpress.XtraBars.BarButtonItem nbCopyDetailKZ;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.BarButtonItem btnRefreshProject;
     }
 }

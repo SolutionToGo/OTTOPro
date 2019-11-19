@@ -150,7 +150,8 @@ namespace BL
                         }
                     }
                 }
-                PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription, OZID, OZ1, OZ2, OZ3, OZ4, OZ5, OZ6, stOZChar);
+                PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription, 
+                    OZID, OZ1, OZ2, OZ3, OZ4, OZ5, OZ6, stOZChar,ObjEPosition.MontageEntry);
                 if (PositionID < 0)
                 {
                     if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")

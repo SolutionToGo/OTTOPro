@@ -17,7 +17,8 @@ namespace DataAccess
 {
     public class DPosition
     {
-        public int SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription, double OZID,string OZ1, string OZ2, string OZ3, string OZ4, string OZ5, string OZ6, string stOZChar = "")
+        public int SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription, double OZID,
+            string OZ1, string OZ2, string OZ3, string OZ4, string OZ5, string OZ6, string stOZChar,bool MontageEntry)
         {
             int ProjectID = -1;
             try
@@ -41,6 +42,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@O4", OZ4);
                     cmd.Parameters.AddWithValue("@O5", OZ5);
                     cmd.Parameters.AddWithValue("@O6", OZ6);
+                    cmd.Parameters.AddWithValue("@MontageEntry", MontageEntry);
                     object returnObj = cmd.ExecuteScalar();
                     if (returnObj != null)
                     {
