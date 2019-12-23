@@ -7552,7 +7552,6 @@ SELECT OttoID, ShortName, FullName, IsBranch, Street, PostalCode, City, Country,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::OTTOPro.Properties.Settings.Default.OTTOPro;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9229,7 +9228,6 @@ SELECT ContactID, OttoID, ContactPerson, Telephone, Fax, EmailID, TaxNo, Created
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::OTTOPro.Properties.Settings.Default.OTTOPro;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10263,7 +10261,6 @@ SELECT ProjectID, Location, ProjectNumber, ComissionNumber, CustomerID, ProjectD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::OTTOPro.Properties.Settings.Default.OTTOPro;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11844,7 +11841,6 @@ SELECT CustomerID, CustomerFullName, CustomerShortName, Street, PostalCode, City
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::OTTOPro.Properties.Settings.Default.OTTOPro;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -13038,7 +13034,6 @@ SELECT DesignID, DesignType, COL1, COL2, COL3, COL4, COL5, COL6, COL7, COL8, COL
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::OTTOPro.Properties.Settings.Default.OTTOPro;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

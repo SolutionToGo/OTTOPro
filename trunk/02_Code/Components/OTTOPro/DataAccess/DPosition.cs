@@ -180,7 +180,7 @@ namespace DataAccess
                 }
                 else
                 {
-                    throw new Exception("Error Occured While Retreiving Position List");
+                    throw new Exception("Error Occured While Retreiving Lang Text");
                 }
             }
             finally

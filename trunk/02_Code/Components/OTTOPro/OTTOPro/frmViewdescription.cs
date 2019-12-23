@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using BL;
 
 namespace OTTOPro
 {
@@ -18,18 +19,26 @@ namespace OTTOPro
         private bool _ISUpdated = false;
         private bool _isFirstTime = true;
         private bool _isNewMode = false;
+        frmProject frmParent = null;
+        BPosition ObjBPosition = new BPosition();
+        private int PositionID = 0;
+
         public frmViewdescription()
         {
             InitializeComponent();
             _isFirstTime = true;
+
         }
 
-        public frmViewdescription(bool _Mode)
+        public frmViewdescription(bool _Mode, frmProject _frmParent,int _PositionID)
         {
             InitializeComponent();
             _isFirstTime = true;
             _isNewMode = _Mode;
+            frmParent = _frmParent;
+            PositionID = _PositionID;
         }
+
         public string LongDescription
         {
             get { return _LongDescription; }
@@ -62,11 +71,21 @@ namespace OTTOPro
 
         private void frmViewdescription_Load(object sender, EventArgs e)
         {
-            
-            if (_LongDescription != null)
+            try
             {
-                txtLongdescription.RtfText = _LongDescription;
+                if (_LongDescription != null && !_isNewMode)
+                {
+                    txtLongdescription.RtfText = _LongDescription;
+                    txtLVPosition.EditValue = frmParent.tl.FocusedNode["Position_OZ"];
+                    txtShortDescription.EditValue = Utility.GetPlaintext(Convert.ToString(frmParent.tl.FocusedNode["ShortDescription"]));
+                }
+                else
+                {
+                    btnPrevious.Enabled = false;
+                    btnNext.Enabled = false;
+                }
             }
+            catch (Exception ex){Utility.ShowError(ex);}
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -95,8 +114,63 @@ namespace OTTOPro
             {
                 if (e.KeyData == Keys.F1)
                     btnOK_Click(null, null);
+                else if (e.KeyData == Keys.PageUp)
+                {
+                    btnPrevious_Click(null, null);
+                    e.Handled = false;
+                }
+                else if (e.KeyData == Keys.PageDown)
+                {
+                    btnNext_Click(null, null);
+                    e.Handled = false;
+                }
             }
             catch (Exception ex){}
+        }
+
+        private void btnPrevious_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                if (!_isNewMode)
+                {
+                    ObjBPosition.UpdateLongDescription(PositionID, txtLongdescription.RtfText);
+                    frmParent.tl.MovePrev();
+                    int ivalue = 0;
+                    if (int.TryParse(Convert.ToString(frmParent.tl.FocusedNode["PositionID"]), out ivalue))
+                    {
+                        txtLongdescription.RtfText = ObjBPosition.GetLongDescription(ivalue);
+                        txtLVPosition.EditValue = frmParent.tl.FocusedNode["Position_OZ"];
+                        txtShortDescription.EditValue = Utility.GetPlaintext(Convert.ToString(frmParent.tl.FocusedNode["ShortDescription"]));
+                        PositionID = ivalue;
+                    }
+                    else { throw new Exception("Error while retrieving lang text"); }
+                }
+            }
+            catch (Exception ex){ Utility.ShowError(ex); }
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!_isNewMode)
+                {
+                    ObjBPosition.UpdateLongDescription(PositionID, txtLongdescription.RtfText);
+                    frmParent.tl.MoveNext();
+                    int ivalue = 0;
+                    if (int.TryParse(Convert.ToString(frmParent.tl.FocusedNode["PositionID"]), out ivalue))
+                    {
+                        txtLongdescription.RtfText = ObjBPosition.GetLongDescription(ivalue);
+                        txtLVPosition.EditValue = frmParent.tl.FocusedNode["Position_OZ"];
+                        txtShortDescription.EditValue = Utility.GetPlaintext(Convert.ToString(frmParent.tl.FocusedNode["ShortDescription"]));
+                        PositionID = ivalue;
+                    }
+                    else { throw new Exception("Error while retrieving lang text"); }
+                }
+            }
+            catch (Exception ex) { Utility.ShowError(ex); }
         }
     }
 }

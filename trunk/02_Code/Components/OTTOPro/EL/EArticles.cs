@@ -182,6 +182,8 @@ namespace EL
             get { return _dtWG; }
             set { _dtWG = value; }
         }
+
+        public DataTable dtArt = null;
         public DataTable dtWI
         {
             get { return _dtWI; }
@@ -367,7 +369,7 @@ namespace EL
         public DataSet dsRabatt { get; set; }
         public int RID { get; set; }
         public int RabattTypID { get; set; }
-        public bool IsContinue { get; set; }
+        public bool IsContinue = false;
         public string Flag { get; set; }
         public int RTID { get; set; }
         public bool IsCopy { get; set; }

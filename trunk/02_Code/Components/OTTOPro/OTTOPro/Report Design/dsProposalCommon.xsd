@@ -2,16 +2,17 @@
 <xs:schema id="dsProposalCommon" targetNamespace="http://tempuri.org/dsProposalCommon.xsd" xmlns:mstns="http://tempuri.org/dsProposalCommon.xsd" xmlns="http://tempuri.org/dsProposalCommon.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DefaultConnectionIndex="2" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="3" FunctionsComponentName="QueriesTableAdapter" GeneratorFunctionsComponentClassName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" UserFunctionsComponentName="QueriesTableAdapter" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOPro" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOPro (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOPro" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOConnectionString" Provider="System.Data.SqlClient" />
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOPro" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOPro (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOPro" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOConnectionString1" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOConnectionString1 (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOConnectionString1" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="OTTOProConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="OTTOProConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.OTTOPro.Properties.Settings.GlobalReference.Default.OTTOProConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="P_Rpt_PositionForProposalPriceForCommonTableAdapter" GeneratorDataComponentClassName="P_Rpt_PositionForProposalPriceForCommonTableAdapter" Name="P_Rpt_PositionForProposalPriceForCommon" UserDataComponentName="P_Rpt_PositionForProposalPriceForCommonTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="OTTOConnectionString1 (Settings)" DbObjectName="OTTO.dbo.P_Rpt_PositionForProposalPriceForCommon" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="OTTOProConnectionString (Settings)" DbObjectName="OTTOPro.dbo.P_Rpt_PositionForProposalPriceForCommon" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.P_Rpt_PositionForProposalPriceForCommon</CommandText>
@@ -54,6 +55,8 @@
               <Mapping SourceColumn="Parent_OZ" DataSetColumn="Parent_OZ" />
               <Mapping SourceColumn="ID" DataSetColumn="ID" />
               <Mapping SourceColumn="SB" DataSetColumn="SB" />
+              <Mapping SourceColumn="DetailKZ" DataSetColumn="DetailKZ" />
+              <Mapping SourceColumn="DetailKZS" DataSetColumn="DetailKZS" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -185,6 +188,8 @@
               <xs:element name="Parent_OZ" msprop:Generator_ColumnVarNameInTable="columnParent_OZ" msprop:Generator_ColumnPropNameInRow="Parent_OZ" msprop:Generator_ColumnPropNameInTable="Parent_OZColumn" msprop:Generator_UserColumnName="Parent_OZ" type="xs:int" minOccurs="0" />
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
               <xs:element name="SB" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSB" msprop:Generator_ColumnPropNameInRow="SB" msprop:Generator_ColumnPropNameInTable="SBColumn" msprop:Generator_UserColumnName="SB" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DetailKZ" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDetailKZ" msprop:Generator_ColumnPropNameInRow="DetailKZ" msprop:Generator_ColumnPropNameInTable="DetailKZColumn" msprop:Generator_UserColumnName="DetailKZ" type="xs:int" minOccurs="0" />
+              <xs:element name="DetailKZS" msprop:Generator_ColumnVarNameInTable="columnDetailKZS" msprop:Generator_ColumnPropNameInRow="DetailKZS" msprop:Generator_ColumnPropNameInTable="DetailKZSColumn" msprop:Generator_UserColumnName="DetailKZS" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

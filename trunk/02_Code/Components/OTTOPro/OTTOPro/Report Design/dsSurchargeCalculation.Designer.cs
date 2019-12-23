@@ -682,7 +682,6 @@ namespace OTTOPro.Report_Design.dsSurchargeCalculationTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::OTTOPro.Properties.Settings.Default.OTTOPro;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

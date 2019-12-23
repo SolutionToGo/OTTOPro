@@ -115,6 +115,7 @@ namespace DAL
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
+                    
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "P_Get_ProjectList";
@@ -126,14 +127,15 @@ namespace DAL
             }
             catch (Exception ex)
             {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Laden der Projektliste");
-                }
-                else
-                {
-                    throw new Exception("Error Occured While Retreiving ProjectList");
-                }
+                throw ex;
+                //if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                //{
+                //    throw new Exception("Fehler beim Laden der Projektliste");
+                //}
+                //else
+                //{
+                //    throw new Exception("Error Occured While Retreiving ProjectList");
+                //}
             }
             finally
             {

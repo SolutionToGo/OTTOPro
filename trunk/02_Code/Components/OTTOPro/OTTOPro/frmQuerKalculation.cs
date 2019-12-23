@@ -20,16 +20,18 @@ namespace OTTOPro
         int version = 1;
         BGAEB objBGAEB = null;
         public string stRaster = string.Empty;
+        string stProjectNumber = string.Empty;
         public frmQuerKalculation()
         {
             InitializeComponent();
         }
 
-        public frmQuerKalculation(int _PID ,int _version = 1)
+        public frmQuerKalculation(int _PID ,string _stProjectNumber, int _version = 1)
         {
             InitializeComponent();
             ProjectID = _PID;
             version = _version;
+            stProjectNumber = _stProjectNumber;
         }
 
         private void gvAddRemovePositions_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
@@ -156,6 +158,8 @@ namespace OTTOPro
                     if (version == 1)
                     {
                         rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Complete", cmbLVSection.Text);
+                        rpt.Name = "QuerKalkulationV001";
+                        //rpt.Name = "QuerKalkulationV001_" + stProjectNumber.Replace("-","");
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = ProjectID;
                         rpt.Parameters["UsrName"].Value = Utility.FirstName;
@@ -164,6 +168,8 @@ namespace OTTOPro
                     }else
                     {
                         rptQuercalcV2 rpt = new rptQuercalcV2(ProjectID, dtPos, "Complete", cmbLVSection.Text);
+                        rpt.Name = "QuerKalkulationV002";
+                        //rpt.Name = "QuerKalkulationV002_" + stProjectNumber.Replace("-", "");
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = ProjectID;
                         rpt.Parameters["UsrName"].Value = Utility.FirstName;
@@ -215,6 +221,7 @@ namespace OTTOPro
                     if (version == 1)
                     {
                         rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "Title", cmbLVSection.Text);
+                        rpt.Name = "QuerKalkulationV001";
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = ProjectID;
                         rpt.Parameters["UsrName"].Value = Utility.FirstName;
@@ -224,6 +231,7 @@ namespace OTTOPro
                     else
                     {
                         rptQuercalcV2 rpt = new rptQuercalcV2(ProjectID, dtPos, "Title", cmbLVSection.Text);
+                        rpt.Name = "QuerKalkulationV002";
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = ProjectID;
                         rpt.Parameters["UsrName"].Value = Utility.FirstName;
@@ -238,6 +246,7 @@ namespace OTTOPro
                     if (version == 1)
                     {
                         rptQuerKalkulation rpt = new rptQuerKalkulation(ProjectID, dtPos, "LVSection", cmbLVSection.Text);
+                        rpt.Name = "QuerKalkulationV001";
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = ProjectID;
                         rpt.Parameters["UsrName"].Value = Utility.FirstName;
@@ -247,6 +256,7 @@ namespace OTTOPro
                     else
                     {
                         rptQuercalcV2 rpt = new rptQuercalcV2(ProjectID, dtPos, "LVSection", cmbLVSection.Text);
+                        rpt.Name = "QuerKalkulationV002";
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProjectID"].Value = ProjectID;
                         rpt.Parameters["UsrName"].Value = Utility.FirstName;

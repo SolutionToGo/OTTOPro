@@ -50,7 +50,7 @@ namespace OTTOPro
             try
             {
                 if (e.KeyData == Keys.F1)
-                    btnCancel_Click(null, null);
+                    btnSave_Click(null, null);
             }
             catch (Exception ex) { }
         }

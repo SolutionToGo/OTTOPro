@@ -126,7 +126,7 @@ namespace OTTOPro.Report_Design
                         if (_result != 0)
                             //&& !ISWithGB)
                         {
-                            tbDiscount.Text = '-' + _result.ToString("F2");
+                            tbDiscount.Text = '-' + _result.ToString("n2");
                             _Discount = Convert.ToDouble(_result);
                         }
                         else
@@ -238,15 +238,19 @@ namespace OTTOPro.Report_Design
                 double dSum = 0;
                 double.TryParse(sttemp, out dSum);
                 string stPKZ = Convert.ToString(DetailReport.GetCurrentColumnValue("PositionKZ"));
-                if (stPKZ != "A")
+                int i = 0;
+                if (int.TryParse(Convert.ToString(DetailReport.GetCurrentColumnValue("DetailKZ")), out i) && i == 0)
                 {
-                    if (stPKZ != "E")
+                    if (stPKZ != "A")
                     {
-                        GroupSum += dSum;
-                        IsNormalSubtitle = true;
+                        if (stPKZ != "E")
+                        {
+                            GroupSum += dSum;
+                            IsNormalSubtitle = true;
+                        }
                     }
+                    AlternateSum += dSum;
                 }
-                AlternateSum += dSum;
             }
             catch (Exception ex) { Utility.ShowError(ex); }
         }

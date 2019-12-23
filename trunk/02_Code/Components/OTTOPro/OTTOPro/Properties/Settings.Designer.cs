@@ -26,32 +26,11 @@ namespace OTTOPro.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=192.168.1.50\\SQLEXPRESS;Initial Catalog=OTTOPro_Dev;User ID=stguser;P" +
-            "assword=stg@#987")]
-        public string OTTOPro {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-94G76H0;Initial Catalog=OTTOPro;User ID=sa;Password=Apple@123" +
+            "4")]
+        public string OTTOProConnectionString {
             get {
-                return ((string)(this["OTTOPro"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=NAREN-PC;Initial Catalog=OTTO;User ID=sa;Password=Apple@1234")]
-        public string OTTOConnectionString {
-            get {
-                return ((string)(this["OTTOConnectionString"]));
-            }
-        }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-QKVH12I;Initial Catalog=OTTO;Persist Security Info=True;User " +
-            "ID=sa")]
-        public string OTTOConnectionString1 {
-            get {
-                return ((string)(this["OTTOConnectionString1"]));
+                return ((string)(this["OTTOProConnectionString"]));
             }
         }
     }

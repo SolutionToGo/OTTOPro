@@ -312,7 +312,7 @@ namespace OTTOPro
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
                     throw new Exception("Fehler beim Datenimport des Langtext");
                 else
-                    throw new Exception("Error while importing langtext");
+                    throw new Exception("Error while generating plain text");
             }
             return st;
         }
@@ -397,15 +397,7 @@ namespace OTTOPro
                     string stOZ = string.Empty;
                     if (xnOZ != null)
                     {
-                        if (!xnOZ.InnerText.Contains("Z"))
-                        {
-                            drLVPos["OZ"] = stOZ = PrepareOZ(xnOZ.InnerText, Raster);
-                        }
-                        else
-                        {
-                            continue;
-                        }
-
+                        drLVPos["OZ"] = stOZ = PrepareOZ(xnOZ.InnerText, Raster);
                         decimal OZID = 0;
                         if (!string.IsNullOrEmpty(stOZ))
                         {
@@ -524,7 +516,6 @@ namespace OTTOPro
                         foreach (DataRow dr in drfind)
                             dr["SurchargeSno"] = iSNO;
                     }
-
                     try
                     {
                         XmlNode xnKurztext = xnPos.SelectSingleNode("Kurztext");
@@ -537,7 +528,7 @@ namespace OTTOPro
                                 if (strART.ToLower() == "ng")
                                     drLVPos["Title"] = GetPlaintext(xnKurztext.InnerText);
                             }
-                            else if(!string.IsNullOrEmpty(stKurztext))
+                            else if (!string.IsNullOrEmpty(stKurztext))
                             {
                                 drLVPos["Kurztext"] = GetRTFFormat(xnKurztext.InnerText);
                                 if (strART.ToLower() == "ng")
@@ -555,6 +546,7 @@ namespace OTTOPro
                     {
                         Utility.ShowError(ex);
                     }
+
                     try
                     {
                         XmlNode xnLangtext = xnPos.SelectSingleNode("Langtext");
@@ -563,9 +555,9 @@ namespace OTTOPro
                             XmlNodeList xnlist = xnPos.SelectNodes("ExtDat/ExtDatName");
                             if (xnlist != null && xnlist.Count > 0)
                             {
+                                string strTemp = string.Empty;
                                 using (RichTextBox txt = new RichTextBox())
                                 {
-                                    string strTemp = string.Empty;
                                     if (IsRtfText(xnLangtext.InnerText))
                                         strTemp = GetPlaintext(xnLangtext.InnerText);
                                     else
@@ -586,14 +578,63 @@ namespace OTTOPro
                                         Clipboard.Clear();
                                     }
                                     drLVPos["Langtext"] = txt.Rtf;
+                                    if (string.IsNullOrEmpty(Utility.GetPlaintext(Convert.ToString(drLVPos["Kurztext"]))))
+                                    {
+                                        if (strTemp.Length > 80)
+                                        {
+                                            drLVPos["Kurztext"] = Utility.GetRTFFormat(strTemp.Substring(0, 81));
+                                            if (strART.ToLower() == "ng")
+                                                drLVPos["Title"] = strTemp.Substring(0, 80);
+                                        }
+                                        else
+                                        {
+                                            drLVPos["Kurztext"] = Utility.GetRTFFormat(strTemp);
+                                            drLVPos["Title"] = strTemp;
+                                        }
+                                    }
                                 }
                             }
                             else
                             {
                                 if (IsRtfText(xnLangtext.InnerText))
+                                {
                                     drLVPos["Langtext"] = xnLangtext.InnerText;
+                                    string stTemp = Utility.GetPlaintext(xnLangtext.InnerText);
+                                    if (string.IsNullOrEmpty(Utility.GetPlaintext(Convert.ToString(drLVPos["Kurztext"]))))
+                                    {
+                                        if (stTemp.Length > 80)
+                                        {
+                                            drLVPos["Kurztext"] = Utility.GetRTFFormat(stTemp.Substring(0, 81));
+                                            if (strART.ToLower() == "ng")
+                                                drLVPos["Title"] = stTemp.Substring(0, 80);
+                                        }
+                                        else
+                                        {
+                                            drLVPos["Kurztext"] = Utility.GetRTFFormat(stTemp);
+                                            if (strART.ToLower() == "ng")
+                                                drLVPos["Title"] = stTemp;
+                                        }
+                                    }
+                                }
                                 else
+                                {
                                     drLVPos["Langtext"] = GetRTFFormat(xnLangtext.InnerText);
+                                    if (string.IsNullOrEmpty(Utility.GetPlaintext(Convert.ToString(drLVPos["Kurztext"]))))
+                                    {
+                                        if (xnLangtext.InnerText.Length > 80)
+                                        {
+                                            drLVPos["Kurztext"] = Utility.GetRTFFormat(xnLangtext.InnerText.Substring(0, 81));
+                                            if (strART.ToLower() == "ng")
+                                                drLVPos["Title"] = xnLangtext.InnerText.Substring(0, 80);
+                                        }
+                                        else
+                                        {
+                                            drLVPos["Kurztext"] = Utility.GetRTFFormat(xnLangtext.InnerText);
+                                            if (strART.ToLower() == "ng")
+                                                drLVPos["Title"] = xnLangtext.InnerText;
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

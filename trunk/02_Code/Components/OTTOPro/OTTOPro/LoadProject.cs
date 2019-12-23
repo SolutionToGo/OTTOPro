@@ -17,6 +17,8 @@ using System.Configuration;
 using System.Diagnostics;
 using DevExpress.XtraBars;
 using DevExpress.XtraSplashScreen;
+using log4net;
+using System.Runtime.InteropServices;
 
 namespace OTTOPro
 {
@@ -26,7 +28,7 @@ namespace OTTOPro
         EProject ObjEProject = new EProject();
         DataTable dtPRojectList;
 
-
+        private static readonly ILog logger = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         public frmLoadProject()
         {
             InitializeComponent();
@@ -36,21 +38,28 @@ namespace OTTOPro
                 SplashScreenManager.Default.SetWaitFormDescription("Loading...");
                 BindData();
             }
-            catch (Exception ex){}
+            catch (Exception ex) { logger.Error(ex.Message, ex); }
             finally { SplashScreenManager.CloseForm(); }
         }
         
         public void frmLoadProject_Load(object sender, EventArgs e)
         {         
+
         }       
 
         public void BindData()
         {
             try
             {
+
+                logger.Info("Transaction Started");
                 ObjBProject.GetProjectList(ObjEProject);
+                logger.Info("Transaction Completed");
+
+                logger.Info("Grid Binding Started");
                 dtPRojectList = ObjEProject.dtProjectList;
                 gcProjectSearch.DataSource = dtPRojectList;
+                logger.Info("Grid Binding completed");
             }
             catch (Exception ex)
             {

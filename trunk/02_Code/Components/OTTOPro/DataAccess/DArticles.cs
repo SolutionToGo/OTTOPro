@@ -439,39 +439,46 @@ namespace DataAccess
        {
            try
            {
+                DataSet dsAcces = new DataSet();
                using (SqlCommand cmd = new SqlCommand())
                {
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Ins_Accessories]";
-                   cmd.Parameters.AddWithValue("@ParentWG", ObjEArticle.WG);
-                   cmd.Parameters.AddWithValue("@ParentWA", ObjEArticle.WA);
-                   cmd.Parameters.AddWithValue("@ParentWI", ObjEArticle.WI);
-                   cmd.Parameters.AddWithValue("@ParentA", ObjEArticle.A);
-                   cmd.Parameters.AddWithValue("@ParentB", ObjEArticle.B);
-                   cmd.Parameters.AddWithValue("@ParentL", ObjEArticle.L);
-                   cmd.Parameters.AddWithValue("@ChildWG", ObjEArticle.ChildWG);
-                   cmd.Parameters.AddWithValue("@ChildWA", ObjEArticle.ChildWA);
-                   cmd.Parameters.AddWithValue("@ChildWI", ObjEArticle.ChildWI);
-                   cmd.Parameters.AddWithValue("@ChildA", ObjEArticle.ChildA);
-                   cmd.Parameters.AddWithValue("@ChildB", ObjEArticle.ChildB);
-                   cmd.Parameters.AddWithValue("@ChildL", ObjEArticle.ChildL);
+                   cmd.Parameters.AddWithValue("@ParentID", ObjEArticle.ParentID);
+                   cmd.Parameters.AddWithValue("@ChildWG", ObjEArticle. WG);
+                   cmd.Parameters.AddWithValue("@ChildWA", ObjEArticle.WA);
+                   cmd.Parameters.AddWithValue("@ChildWI", ObjEArticle.WI);
                    cmd.Parameters.AddWithValue("@UserID", ObjEArticle.UserID);
-                   object ObjReturn = cmd.ExecuteScalar();
-                   if (ObjReturn != null)
-                       ObjEArticle.AccessoriesID = Convert.ToInt32(ObjReturn);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsAcces);
+                    }
+                    if(dsAcces != null && dsAcces.Tables.Count > 0  && dsAcces.Tables[0].Rows.Count > 0)
+                    {
+                        int IVAlue = 0;
+                        if (int.TryParse(Convert.ToString(dsAcces.Tables[0].Rows[0][0]), out IVAlue))
+                        {
+                            ObjEArticle.AccessoriesID = IVAlue;
+                            if (dsAcces.Tables.Count > 1)
+                                ObjEArticle.dtAccessories = dsAcces.Tables[1];
+                        }
+                        else
+                            throw new Exception(Convert.ToString(dsAcces.Tables[0].Rows[0][0]));
+                    }
                }
            }
            catch (Exception ex)
            {
-               if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-               {
-                   throw new Exception("Fehler beim Speichern von Zubehörangaben");
-               }
-               else
-               {
-                   throw new Exception("Error while saving the accessories");
-               }
+                if (ex.Message.Contains("Artikel"))
+                    throw ex;
+                else
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Speichern von Zubehörangaben");
+                    else
+                        throw new Exception("Error while saving the accessories");
+                }
            }
            finally
            {
@@ -490,12 +497,7 @@ namespace DataAccess
                    cmd.Connection = SQLCon.Sqlconn();
                    cmd.CommandType = CommandType.StoredProcedure;
                    cmd.CommandText = "[P_Get_AccessorieS]";
-                   cmd.Parameters.Add("@ParentWG", ObjEArticle.WG);
-                   cmd.Parameters.Add("@ParentWA", ObjEArticle.WA);
-                   cmd.Parameters.Add("@ParentWI", ObjEArticle.WI);
-                   cmd.Parameters.Add("@ParentA", ObjEArticle.A);
-                   cmd.Parameters.Add("@ParentB", ObjEArticle.B);
-                   cmd.Parameters.Add("@ParentL", ObjEArticle.L);
+                   cmd.Parameters.Add("@ParentID", ObjEArticle.ParentID);
                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                    {
                        da.Fill(dsAccessories);
@@ -531,9 +533,6 @@ namespace DataAccess
                    cmd.Parameters.Add("@WG", ObjEArticle.WG);
                    cmd.Parameters.Add("@WA", ObjEArticle.WA);
                    cmd.Parameters.Add("@WI", ObjEArticle.WI);
-                   cmd.Parameters.Add("@A", ObjEArticle.A);
-                   cmd.Parameters.Add("@B", ObjEArticle.B);
-                   cmd.Parameters.Add("@L", ObjEArticle.L);
                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                    {
                        da.Fill(dsAccessories);
@@ -1250,5 +1249,105 @@ namespace DataAccess
             }
             return ObjEArticle;
         }
+
+        public EArticles GetArticleForAccessories(EArticles ObjEArticle)
+        {
+            DataSet dsArticles = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ArticlesForMapping]";
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsArticles);
+                    }
+                    ObjEArticle.dtArt = new DataTable();
+                    ObjEArticle.dtArt = dsArticles.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler bei der Datenaktualisierung für Artikel");
+                else
+                    throw new Exception("Error While Retrieving Articles");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles DeleteAccessory(EArticles ObjEArticle)
+        {
+            DataSet dsWI = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Del_Accessories]";
+                    cmd.Parameters.Add("@AccessoryID", ObjEArticle.AccessoriesID);
+                    object ObjReturn = cmd.ExecuteScalar();
+                    int iv = 0;
+                    if (!int.TryParse(Convert.ToString(ObjReturn), out iv))
+                        throw new Exception("Error while deleting Accessory");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
+        public EArticles GetAccessoryDimension(EArticles ObjEArticle)
+        {
+            DataSet dsArticles = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_DimensionByAccessory]";
+                    cmd.Parameters.Add("@WG", ObjEArticle.ChildWG);
+                    cmd.Parameters.Add("@WA", ObjEArticle.ChildWA);
+                    cmd.Parameters.Add("@WI", ObjEArticle.ChildWI);
+                    cmd.Parameters.Add("@A", ObjEArticle.A);
+                    cmd.Parameters.Add("@B", ObjEArticle.B);
+                    cmd.Parameters.Add("@L", ObjEArticle.L);
+                    cmd.Parameters.Add("@dtSubmitDate", ObjEArticle.ValidityDate);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsArticles);
+                    }
+                    ObjEArticle.dtArt = new DataTable();
+                    ObjEArticle.dtArt = dsArticles.Tables[0];
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler bei der Datenaktualisierung für Artikel");
+                else
+                    throw new Exception("Error While Retrieving Dimensions");
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjEArticle;
+        }
+
     }
 }

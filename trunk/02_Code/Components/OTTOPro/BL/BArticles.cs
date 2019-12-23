@@ -460,5 +460,43 @@ namespace BL
             return ObjEArticle;
         }
 
+        public EArticles GetArticleForAccessories(EArticles ObjEArticle)
+        {
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjDArticles.GetArticleForAccessories(ObjEArticle);
+            }
+            catch (Exception ex){ throw ex; }
+            return ObjEArticle;
+        }
+        public EArticles DeleteAccessory(EArticles ObjEArticle)
+        {
+            try
+            {
+                if (ObjDArticles == null)
+                    ObjDArticles = new DArticles();
+                ObjDArticles.DeleteAccessory(ObjEArticle);
+            }
+            catch (Exception ex) { throw ex; }
+            return ObjEArticle;
+        }
+
+        public EArticles GetAccessoryDimension(EArticles ObjEArticle)
+        {
+            try
+            {
+                try
+                {
+                    if (ObjDArticles == null)
+                        ObjDArticles = new DArticles();
+                    ObjDArticles.GetAccessoryDimension(ObjEArticle);
+                }
+                catch (Exception ex) { throw ex; }
+                return ObjEArticle;
+            }
+            catch (Exception ex){throw ex;}
+        }
     }
 }

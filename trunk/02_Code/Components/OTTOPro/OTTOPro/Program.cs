@@ -1,5 +1,6 @@
 ﻿using BL;
 using DevExpress.LookAndFeel;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -13,6 +14,7 @@ namespace OTTOPro
 {
     static class Program
     {
+        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -30,10 +32,8 @@ namespace OTTOPro
                 }
                 // The following line provides localization for the application's user interface.  
                 Thread.CurrentThread.CurrentUICulture = culture;
-
                 // The following line provides localization for data formats.  
                 Thread.CurrentThread.CurrentCulture = culture;
-
                 // Set this culture as the default culture for all threads in this application.  
                 // Note: The following properties are supported in the .NET Framework 4.5+ 
                 CultureInfo.DefaultThreadCurrentCulture = culture;
@@ -41,19 +41,16 @@ namespace OTTOPro
                 UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                //AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>
-                //{
-                //    System.Text.StringBuilder msg = new System.Text.StringBuilder();
-                //    msg.AppendLine("Exception occured on : " + Convert.ToString(DateTime.Now));
-                //    msg.AppendLine(e.Exception.GetType().FullName);
-                //    msg.AppendLine(e.Exception.Message);
-                //    System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
-                //    msg.AppendLine(st.ToString());
-                //    msg.AppendLine();
-                //    String desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                //    string logFilePath = String.Format("{0}\\{1}", desktopPath, "logfile.txt");
-                //    System.IO.File.AppendAllText(logFilePath, msg.ToString());
-                //};
+                AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>
+                {
+                    System.Text.StringBuilder msg = new System.Text.StringBuilder();
+                    msg.AppendLine(e.Exception.GetType().FullName);
+                    msg.AppendLine(e.Exception.Message);
+                    System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
+                    msg.AppendLine(st.ToString());
+                    msg.AppendLine();
+                    Log.Error(msg);
+                };
                 Application.Run(new frmNewLogin());
             }
             catch (Exception ex)

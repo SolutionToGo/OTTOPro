@@ -65,7 +65,7 @@ namespace BL
             }
             catch (Exception ex)
             {
-                throw;
+                throw ex;
             }
         }
 

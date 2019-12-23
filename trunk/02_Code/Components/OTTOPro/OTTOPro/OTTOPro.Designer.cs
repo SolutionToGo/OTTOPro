@@ -87,6 +87,7 @@
             this.nbCopyPosition = new DevExpress.XtraBars.BarButtonItem();
             this.nbCopyDetailKZ = new DevExpress.XtraBars.BarButtonItem();
             this.btnRefreshProject = new DevExpress.XtraBars.BarButtonItem();
+            this.btnSendLogfile = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -172,9 +173,10 @@
             this.nbDeletePosition,
             this.nbCopyPosition,
             this.nbCopyDetailKZ,
-            this.btnRefreshProject});
+            this.btnRefreshProject,
+            this.btnSendLogfile});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 65;
+            this.ribbon.MaxItemId = 66;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -576,6 +578,14 @@
             this.btnRefreshProject.Name = "btnRefreshProject";
             this.btnRefreshProject.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnRefreshProject_ItemClick);
             // 
+            // btnSendLogfile
+            // 
+            this.btnSendLogfile.Caption = "Send Log file ";
+            this.btnSendLogfile.Id = 65;
+            this.btnSendLogfile.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnSendLogfile.ImageOptions.SvgImage")));
+            this.btnSendLogfile.Name = "btnSendLogfile";
+            this.btnSendLogfile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSendLogfile_ItemClick);
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -650,6 +660,7 @@
             this.rpgTextModule.ItemLinks.Add(this.btnTextModule, true);
             this.rpgTextModule.ItemLinks.Add(this.btnShortCuts, true);
             this.rpgTextModule.ItemLinks.Add(this.btnReportSetting, true);
+            this.rpgTextModule.ItemLinks.Add(this.btnSendLogfile);
             this.rpgTextModule.Name = "rpgTextModule";
             this.rpgTextModule.Text = "Datenerfassung Textmodul";
             // 
@@ -751,11 +762,11 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(1015, 126);
+            this.label1.Location = new System.Drawing.Point(1003, 120);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 17);
+            this.label1.Size = new System.Drawing.Size(221, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.5.1 (14.11.2019)";
+            this.label1.Text = "Version Software 9.5.3.1 (19.12.2019)";
             // 
             // fdImportFile
             // 
@@ -918,5 +929,6 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.BarButtonItem btnRefreshProject;
+        private DevExpress.XtraBars.BarButtonItem btnSendLogfile;
     }
 }

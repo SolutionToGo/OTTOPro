@@ -17,6 +17,7 @@ namespace OTTOPro.Report_Design
         {
             InitializeComponent();
         }
+
         public rptFormBlatt_221_1(int _id, DataTable dt)
         {
             InitializeComponent();

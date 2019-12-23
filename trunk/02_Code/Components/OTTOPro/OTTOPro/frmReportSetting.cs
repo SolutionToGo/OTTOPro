@@ -25,6 +25,7 @@ namespace OTTOPro
         BGAEB objBGAEB = null;
         int _ProjectID = 0;
         string stRaster = string.Empty;
+        string stProjectNumber = string.Empty;
 
 
         public frmReportSetting()
@@ -32,11 +33,12 @@ namespace OTTOPro
             InitializeComponent();
         }
 
-        public frmReportSetting(int _ProjID,string _stRaster = "")
+        public frmReportSetting(int _ProjID,string _stProjectNumber,string _stRaster = "")
         {
             InitializeComponent();
             _ProjectID = _ProjID;
             stRaster = _stRaster;
+            stProjectNumber = _stProjectNumber;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -65,21 +67,26 @@ namespace OTTOPro
                         if (_ISMAMOChecked)
                         {
                             rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Complete", cmbLVSection.Text, ObjEReport.GB);
+                            rptMA.Name = "Angebot";
+                            //rptMA.Name = "Angebot_" + stProjectNumber.Replace("-","");
                             ReportPrintTool printTool = new ReportPrintTool(rptMA);
                             rptMA.Parameters["ProjectID"].Value = _ProjectID;
                             rptMA.Parameters["ReportName"].Value = txtReportName.Text;
                             rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                             rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
+                            rptMA.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
                             printTool.ShowRibbonPreview();
                         }
                         else
                         {
                             rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Complete", cmbLVSection.Text, ObjEReport.GB);
+                            rpt.Name = "Angebot";
                             ReportPrintTool printTool = new ReportPrintTool(rpt);
                             rpt.Parameters["ProjectID"].Value = _ProjectID;
                             rpt.Parameters["ReportName"].Value = txtReportName.Text;
                             rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                             rpt.Parameters["WithGB"].Value = ObjEReport.GB;
+                            rpt.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
                             printTool.ShowRibbonPreview();
                         }
                         this.Close();
@@ -127,21 +134,25 @@ namespace OTTOPro
                         if (_ISMAMOChecked)
                         {
                             rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Title", cmbLVSection.Text, ObjEReport.GB);
+                            rptMA.Name = "Angebot";
                             ReportPrintTool printTool = new ReportPrintTool(rptMA);
                             rptMA.Parameters["ProjectID"].Value = _ProjectID;
                             rptMA.Parameters["ReportName"].Value = txtReportName.Text;
                             rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                             rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
+                            rptMA.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
                             printTool.ShowRibbonPreview();
                         }
                         else
                         {
                             rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Title", cmbLVSection.Text, ObjEReport.GB);
+                            rpt.Name = "Angebot";
                             ReportPrintTool printTool = new ReportPrintTool(rpt);
                             rpt.Parameters["ProjectID"].Value = _ProjectID;
                             rpt.Parameters["ReportName"].Value = txtReportName.Text;
                             rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                             rpt.Parameters["WithGB"].Value = ObjEReport.GB;
+                            rpt.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
                             printTool.ShowRibbonPreview();
                         }
                         this.Close();
@@ -154,21 +165,25 @@ namespace OTTOPro
                         if (_ISMAMOChecked)
                         {
                             rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "LVSection", cmbLVSection.Text, ObjEReport.GB);
+                            rptMA.Name = "Angebot";
                             ReportPrintTool printTool = new ReportPrintTool(rptMA);
                             rptMA.Parameters["ProjectID"].Value = _ProjectID;
                             rptMA.Parameters["ReportName"].Value = txtReportName.Text;
                             rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                             rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
+                            rptMA.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
                             printTool.ShowRibbonPreview();
                         }
                         else
                         {
                             rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "LVSection", cmbLVSection.Text, ObjEReport.GB);
+                            rpt.Name = "Angebot";
                             ReportPrintTool printTool = new ReportPrintTool(rpt);
                             rpt.Parameters["ProjectID"].Value = _ProjectID;
                             rpt.Parameters["ReportName"].Value = txtReportName.Text;
                             rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
                             rpt.Parameters["WithGB"].Value = ObjEReport.GB;
+                            rpt.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
                             printTool.ShowRibbonPreview();
                         }
                         this.Close();
@@ -265,36 +280,41 @@ namespace OTTOPro
                     ObjEReport.KurzAnLangText = true;
                 }
 
-                foreach (CheckedListBoxItem i in chkSelectOptions.CheckedItems)
-                {
-                    string _value = i.Value.ToString();
 
-                    if (_value =="sender")
-                    {
-                        ObjEReport.Sender = true;
-                    }
-                    if (_value=="menge")
-                    {
+                if (chksender.Checked)
+                    ObjEReport.Sender = true;
+                else
+                    ObjEReport.Sender = false;
+                if (chkmenge.Checked)
                         ObjEReport.Menge = true;
-                    }
-                    if (_value=="GB")
-                    {
+                else
+                    ObjEReport.Menge = false;
+                if (chkGB.Checked)
                         ObjEReport.GB = true;
-                    }
-                    if (_value=="prices")
-                    {
+                else
+                    ObjEReport.GB =  false;
+                if (chkprices.Checked)
                         ObjEReport.Prices = true;
-                    }
-                    if (_value=="EP")
-                    {
+                else
+                    ObjEReport.Prices = false;
+                if (chkEP.Checked)
                         ObjEReport.EP = true;
-                    }
-                    if (_value == "MAMO")
-                    {
-                        ObjEReport.MAMO = true;
-                        _ISMAMOChecked = true;
-                    }
-                }                
+                else
+                    ObjEReport.EP = false;
+                if (chkTitlesPreises.Checked)
+                    ObjEReport.WithTitlePrices = true;
+                else
+                    ObjEReport.WithTitlePrices = false;
+                if (chkMAMO.Checked)
+                {
+                    ObjEReport.MAMO = true;
+                    _ISMAMOChecked = true;
+                }
+                else
+                {
+                    ObjEReport.MAMO = false;
+                    _ISMAMOChecked = false;
+                }
                 if(chkH.Checked)
                     ObjEReport.HPos = true;
                 else
@@ -319,6 +339,11 @@ namespace OTTOPro
                     ObjEReport.NonePos = true;
                 else
                     ObjEReport.NonePos = false;
+                if(chkWithDetailKZ.Checked)
+                    ObjEReport.WithDetailKZ = true;
+                else
+                    ObjEReport.WithDetailKZ = false;
+
             }
             catch (Exception ex)
             {
@@ -334,99 +359,36 @@ namespace OTTOPro
                 foreach (DataRow row in ObjEReport.dtReportSettings.Rows)
                 {
                     //Sorting
-                    if (bool.TryParse(row["LVPosition"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
+                    if (bool.TryParse(row["LVPosition"].ToString(), out _values) && _values)
                             radioGroupSorting.SelectedIndex = 0;
-                        }
-                    }
-                    if (bool.TryParse(row["Fabrikat"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
+                    if (bool.TryParse(row["Fabrikat"].ToString(), out _values) && _values)
                             radioGroupSorting.SelectedIndex = 3;
-                        }
-                    }
-                    if (bool.TryParse(row["ArticleNr"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
+                    if (bool.TryParse(row["ArticleNr"].ToString(), out _values) && _values)
                             radioGroupSorting.SelectedIndex = 1;
-                        }
-                    }
-                    if (bool.TryParse(row["LieferantMA"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
+                    if (bool.TryParse(row["LieferantMA"].ToString(), out _values) && _values)
                             radioGroupSorting.SelectedIndex = 2;
-                        }
-                    }
                     //Select Text
-                    if (bool.TryParse(row["LangText"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
+                    if (bool.TryParse(row["LangText"].ToString(), out _values) && _values)
                             radioGroupShowText.SelectedIndex = 0;
-                        }
-                    }
-                    if (bool.TryParse(row["KurzText"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
+                    if (bool.TryParse(row["KurzText"].ToString(), out _values) && _values)
                             radioGroupShowText.SelectedIndex = 1;
-                        }
-                    }
-                    if (bool.TryParse(row["KurzAndLangText"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
+                    if (bool.TryParse(row["KurzAndLangText"].ToString(), out _values) && _values)
                             radioGroupShowText.SelectedIndex = 2;
-                        }
-                    }
                     //Selection Option
-                    if (bool.TryParse(row["Sender"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
-                            chkSelectOptions.SetItemChecked(0, true);
-                        }
-                    }
-                    if (bool.TryParse(row["Menge"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
-                            chkSelectOptions.SetItemChecked(1, true);
-                        }
-                    }
-                    if (bool.TryParse(row["GB"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
-                            chkSelectOptions.SetItemChecked(2, true);
-                        }
-                    }
-                    if (bool.TryParse(row["EP"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
-                            chkSelectOptions.SetItemChecked(4, true);
-                        }
-                    }
-                    if (bool.TryParse(row["Prices"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
-                            chkSelectOptions.SetItemChecked(3, true);
-                        }
-                    }
-                    if (bool.TryParse(row["MAMO"].ToString(), out _values))
-                    {
-                        if (_values == true)
-                        {
-                            chkSelectOptions.SetItemChecked(5, true);
-                        }
-                    }
+                    if (bool.TryParse(row["Sender"].ToString(), out _values) && _values)
+                        chksender.Checked = true;
+                    if (bool.TryParse(row["Menge"].ToString(), out _values) && _values)
+                        chkmenge.Checked = true;
+                    if (bool.TryParse(row["GB"].ToString(), out _values) && _values)
+                        chkGB.Checked = true;
+                    if (bool.TryParse(row["EP"].ToString(), out _values) && _values)
+                        chkEP.Checked = true;
+                    if (bool.TryParse(row["Prices"].ToString(), out _values) && _values)
+                        chkprices.Checked = true;
+                    if (bool.TryParse(row["MAMO"].ToString(), out _values) && _values)
+                        chkMAMO.Checked = true;
+                    if (bool.TryParse(row["WithTitlePrices"].ToString(), out _values) && _values)
+                        chkTitlesPreises.Checked = true;
                     if (bool.TryParse(row["NonePos"].ToString(), out _values))
                         chkNone.Checked = _values;
                     if (bool.TryParse(row["HPos"].ToString(), out _values))
@@ -439,12 +401,11 @@ namespace OTTOPro
                         chkVR.Checked = _values;
                     if (bool.TryParse(row["UBPos"].ToString(), out _values))
                         chkUB.Checked = _values;
+                    if (bool.TryParse(row["WithDetKZ"].ToString(), out _values))
+                        chkWithDetailKZ.Checked = _values;
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex){throw ex;}
         }
 
         private void radioGroupSelection_SelectedIndexChanged(object sender, EventArgs e)
@@ -530,19 +491,19 @@ namespace OTTOPro
                 chkBA.Checked = false;
                 chkVR.Checked = false;
                 chkUB.Checked = false;
-                chkH.Enabled = false;
-                chkAB.Enabled = false;
-                chkBA.Enabled = false;
-                chkVR.Enabled = false;
-                chkUB.Enabled = false;
+                chkH.ReadOnly = true;
+                chkAB.ReadOnly = true;
+                chkBA.ReadOnly = true;
+                chkVR.ReadOnly = true;
+                chkUB.ReadOnly = true;
             }
             else
             {
-                chkH.Enabled = true;
-                chkAB.Enabled = true;
-                chkBA.Enabled = true;
-                chkVR.Enabled = true;
-                chkUB.Enabled = true;
+                chkH.ReadOnly = false;
+                chkAB.ReadOnly = false;
+                chkBA.ReadOnly = false;
+                chkVR.ReadOnly = false;
+                chkUB.ReadOnly = false;
             }
         }
     }

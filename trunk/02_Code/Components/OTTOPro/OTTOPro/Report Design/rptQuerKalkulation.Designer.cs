@@ -311,14 +311,14 @@
             // 
             // TopMargin
             // 
-            this.TopMargin.HeightF = 25F;
+            this.TopMargin.HeightF = 50F;
             this.TopMargin.Name = "TopMargin";
             this.TopMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.TopMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 25F;
+            this.BottomMargin.HeightF = 50F;
             this.BottomMargin.Name = "BottomMargin";
             this.BottomMargin.Padding = new DevExpress.XtraPrinting.PaddingInfo(0, 0, 0, 0, 100F);
             this.BottomMargin.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopLeft;
@@ -408,7 +408,6 @@
             this.DetailReport.DataAdapter = this.p_Rpt_QuerCalculationTableAdapter;
             this.DetailReport.DataMember = "P_Rpt_QuerCalculation";
             this.DetailReport.DataSource = this.dsQuerKalculation1;
-            this.DetailReport.Expanded = false;
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
             this.DetailReport.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBand;
@@ -417,7 +416,6 @@
             // 
             this.Detail1.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable2});
-            this.Detail1.Expanded = false;
             this.Detail1.HeightF = 23.12501F;
             this.Detail1.KeepTogether = true;
             this.Detail1.Name = "Detail1";
@@ -1437,7 +1435,6 @@
             this.xrLabel53,
             this.xrLabel54,
             this.xrLabel55});
-            this.GroupHeader1.Expanded = false;
             this.GroupHeader1.HeightF = 180.3333F;
             this.GroupHeader1.Name = "GroupHeader1";
             this.GroupHeader1.RepeatEveryPage = true;
@@ -3052,7 +3049,7 @@
             this.sqlDataSource3});
             this.DataSource = this.sqlDataSource1;
             this.Landscape = true;
-            this.Margins = new System.Drawing.Printing.Margins(75, 75, 25, 25);
+            this.Margins = new System.Drawing.Printing.Margins(75, 75, 50, 50);
             this.PageHeight = 827;
             this.PageWidth = 1169;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;

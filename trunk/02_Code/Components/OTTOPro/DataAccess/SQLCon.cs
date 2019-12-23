@@ -1,4 +1,5 @@
-﻿using System;
+﻿using log4net;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -11,24 +12,27 @@ namespace DAL
 {
     public static class SQLCon
     {
-        /// <summary>
-        /// Static SQL Connection to connect with database
-        /// </summary>
+        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         static SqlConnection ObjCon = new SqlConnection();
         static SqlConnection ObjCockpitConn = new SqlConnection();
+
         public static SqlConnection Sqlconn()
         {
-            if (ObjCon.State == ConnectionState.Open)
+            try
             {
-                return ObjCon;
+                if (ObjCon.State == ConnectionState.Closed)
+                {
+                    Log.Info("Connection is Closed");
+                    ObjCon.ConnectionString = ConfigurationManager.ConnectionStrings["OTTOPro"].ToString();
+                    ObjCon.Open();
+                    Log.Info("Connection is Open");
+                }
             }
-            else
-            {
-                ObjCon.ConnectionString = ConfigurationManager.ConnectionStrings["OTTOPro"].ToString();
-                ObjCon.Open();
-                return ObjCon;
-            }
+            catch (Exception ex){ Log.Error(ex.Message, ex); }
+            return ObjCon;
         }
+
         public static string ConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["OTTOPro"].ToString();

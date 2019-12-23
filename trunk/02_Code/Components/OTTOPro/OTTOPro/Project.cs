@@ -48,11 +48,13 @@ using DevExpress.XtraGrid.Columns;
 using System.Text.RegularExpressions;
 using DevExpress.XtraRichEdit.API.Native;
 using DevExpress.XtraTreeList.StyleFormatConditions;
+using log4net;
 
 namespace OTTOPro
 {
     public partial class frmProject : DevExpress.XtraEditors.XtraForm
     {
+        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
         private List<Control> RequiredPositionFields = new List<Control>();
         private List<Control> RequiredPositionFieldsforTitle = new List<Control>();
         private List<Control> RequiredFieldsFormBlatt = new List<Control>();
@@ -114,6 +116,11 @@ namespace OTTOPro
         bool _IsTypKeyypressEvent = false;
 
         bool IsRefresh = false;
+
+        public TreeList tl
+        {
+            get { return tlPositions; }
+        }
 
         public int ProjectID
         { get { return _ProjectID; } set { _ProjectID = value; } }
@@ -1358,19 +1365,27 @@ namespace OTTOPro
         {
             try
             {
-                if (tlPositions.FocusedNode != null)
+                int ivpos = 0;
+                if (tlPositions.FocusedNode != null && int.TryParse(Convert.ToString(tlPositions.FocusedNode["PositionID"]),out ivpos))
                 {
-                    frmViewdescription Obj = new frmViewdescription(_IsNewMode);
-                    if (LongDescription == string.Empty && !_IsNewMode)
-                        Obj.LongDescription = ObjBPosition.GetLongDescription(Convert.ToInt32(tlPositions.FocusedNode["PositionID"]));
-                    else
-                        Obj.LongDescription = LongDescription;
-                    Obj.ShowDialog();
-                    LongDescription = Obj.LongDescription;
-                    if (ObjEPosition.PositionID > 0 && Obj._IsSave)
+                    if (Convert.ToString(tlPositions.FocusedNode["PositionKZ"]) != "NG")
                     {
-                        ObjBPosition.UpdateLongDescription(ObjEPosition.PositionID, LongDescription);
-                        LongDescription = string.Empty;
+                        frmViewdescription Obj = new frmViewdescription(_IsNewMode, this, ivpos);
+                        if (LongDescription == string.Empty && !_IsNewMode)
+                            Obj.LongDescription = ObjBPosition.GetLongDescription(ivpos);
+                        else
+                            Obj.LongDescription = LongDescription;
+                        Obj.ShowDialog();
+                        LongDescription = Obj.LongDescription;
+                        if (Obj._IsSave && !_IsNewMode)
+                        {
+                            int ivalue = 0;
+                            if (int.TryParse(Convert.ToString(tlPositions.FocusedNode["PositionID"]), out ivalue))
+                            {
+                                ObjBPosition.UpdateLongDescription(ivalue, LongDescription);
+                                LongDescription = string.Empty;
+                            }
+                        }
                     }
                 }
             }
@@ -1767,7 +1782,7 @@ namespace OTTOPro
                     }
                     else
                     {
-                        this.Text = ObjEProject.ProjectNumber;
+                        this.Text = ObjEProject.ProjectDescription + " - " + ObjEProject.ProjectNumber;
                         XtraMessageBox.Show("'" + ObjEProject.ProjectNumber + "'" + " Project Details Saved Successfully");
                     }
                     ObjBProject.GetProjectDetails(ObjEProject);
@@ -1839,6 +1854,7 @@ namespace OTTOPro
                 if (ObjBPosition == null)
                     ObjBPosition = new BPosition();
 
+                Log.Info("Save Proccess Started");
                 if (!string.IsNullOrEmpty(txtWG.Text) && !string.IsNullOrEmpty(txtWA.Text) && (_IsNewMode || (txtWG.Text != Position.OldWG || txtWA.Text != Position.OldWA)))
                 {
                     ObjEPosition.dtDimensions = new DataTable();
@@ -1925,6 +1941,7 @@ namespace OTTOPro
                     cmbPositionKZ.Text = Utility.GetKZDescription("N");
                 if (ObjEPosition == null)
                     ObjEPosition = new EPosition();
+                Log.Info("Position Values Parsing Started");
                 ParsePositionDetails();
                 if (ObjEPosition.PositionKZ.ToLower() == "h")
                 {
@@ -1949,6 +1966,7 @@ namespace OTTOPro
                         ObjEPosition.Parent_OZ = "";
                     }
                 }
+                Log.Info("Save database transaction Started");
                 int NewPositionID = ObjBPosition.SavePositionDetails(ObjEPosition, ObjEProject.LVRaster, ObjEProject.LVSprunge,false);
 
                 if (Utility._IsGermany == true)
@@ -1960,7 +1978,9 @@ namespace OTTOPro
                     frmOTTOPro.UpdateStatus("'" + ObjEPosition.Position_OZ + "'" + " OZ Saved Successfully");
                 }
                 _ISChange = false;
+                Log.Info("get database transaction Started");
                 BindPositionData();
+                Log.Info("get database transaction Completed");
                 _ISChange = true;
                 SetFocus(NewPositionID, tlPositions);
                 //txtPosition.Enabled = false;
@@ -1990,6 +2010,7 @@ namespace OTTOPro
                         tlPositions.MoveNext();
                     }
                 }
+                Log.Info("Save Proccess Completed");
             }
             catch (Exception ex)
             {
@@ -6397,9 +6418,9 @@ namespace OTTOPro
                         }
                         else
                         {
-                            ObjEPosition.Dim1 = ObjEPosition.dtDimensions.Rows[0]["A"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["A"].ToString();
-                            ObjEPosition.Dim2 = ObjEPosition.dtDimensions.Rows[0]["B"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["B"].ToString();
-                            ObjEPosition.Dim3 = ObjEPosition.dtDimensions.Rows[0]["L"] == DBNull.Value ? "" : ObjEPosition.dtDimensions.Rows[0]["L"].ToString();
+                            ObjEPosition.Dim1 = Convert.ToString(ObjEPosition.dtDimensions.Rows[0]["A"]);
+                            ObjEPosition.Dim2 = Convert.ToString(ObjEPosition.dtDimensions.Rows[0]["B"]);
+                            ObjEPosition.Dim3 = Convert.ToString(ObjEPosition.dtDimensions.Rows[0]["L"]);
                             ObjEPosition.LPMA = ObjEPosition.dtDimensions.Rows[0]["ListPrice"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["ListPrice"]);
                             ObjEPosition.Mins = ObjEPosition.dtDimensions.Rows[0]["Minuten"] == DBNull.Value ? 0 : Convert.ToDecimal(ObjEPosition.dtDimensions.Rows[0]["Minuten"]);
                             DateTime dt = DateTime.Now;
@@ -7104,6 +7125,23 @@ namespace OTTOPro
             catch (Exception ex) { }
         }
 
+        private void nbBreakdownReport_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
+        {
+            try
+            {
+                rptSampleBreakdown rptMA = new rptSampleBreakdown();
+                rptMA.Name = "Einzelaufgliederung Beispiel";
+                //rptMA.Name = "Einzelaufgliederung Beispiel_" + ObjEProject.ProjectDescription.Replace("-", "");
+                ReportPrintTool printTool = new ReportPrintTool(rptMA);
+                rptMA.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
+                rptMA.Parameters["InternX"].Value = ObjEProject.InternX;
+                rptMA.Parameters["InternS"].Value = ObjEProject.InternS;
+                rptMA.PrintingSystem.Document.AutoFitToPagesWidth = 1;
+                printTool.ShowRibbonPreview();
+            }
+            catch (Exception ex){}
+        }
+
         #endregion
 
         #region "Delivery Notes Code"
@@ -7775,6 +7813,7 @@ namespace OTTOPro
             try
             {
                 Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
+                //rpt.Name = "Preisanfrage" + ObjEProject.ProjectDescription.Replace("-","");
                 ReportPrintTool printTool = new ReportPrintTool(rpt);
                 rpt.Parameters["ProposalID"].Value = _ProposalID;
                 rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
@@ -7866,7 +7905,8 @@ namespace OTTOPro
                         }
                         SplashScreenManager.Default.SetWaitFormDescription("Generating Pdf...");
                         //PDF Save
-                        Report_Design.rptSupplierProposal rpt = new Report_Design.rptSupplierProposal();
+                        rptSupplierProposal rpt = new rptSupplierProposal();
+                        //rpt.Name = "Preisanfrage_" + ObjEProject.ProjectDescription.Replace("-", "");
                         ReportPrintTool printTool = new ReportPrintTool(rpt);
                         rpt.Parameters["ProposalID"].Value = _ProposalID;
                         rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
@@ -10290,7 +10330,7 @@ namespace OTTOPro
         {
             try
             {
-                frmQuerKalculation frm = new frmQuerKalculation(ObjEProject.ProjectID);
+                frmQuerKalculation frm = new frmQuerKalculation(ObjEProject.ProjectID,ObjEProject.ProjectDescription);
                 frm.stRaster = ObjEProject.LVRaster;
                 frm.ShowDialog();
             }
@@ -10362,9 +10402,9 @@ namespace OTTOPro
                         }
                     }
 
-                    ObjEArticles.WG = txtWG.Text;
-                    ObjEArticles.WA = txtWA.Text;
-                    ObjEArticles.WI = txtWI.Text;
+                    ObjEArticles.WG = txtWGCD.Text;
+                    ObjEArticles.WA = txtWACD.Text;
+                    ObjEArticles.WI = txtWICD.Text;
                     ObjEArticles.A = txtDim1.Text;
                     ObjEArticles.B = txtDim2.Text;
                     ObjEArticles.L = txtDim3.Text;
@@ -10385,7 +10425,7 @@ namespace OTTOPro
                     ObjEArticles.dtAccessories.Rows.Add(drnew);
                     foreach (DataRow dr in dt.Rows)
                         ObjEArticles.dtAccessories.ImportRow(dr);
-
+                    ObjEArticles.ValidityDate = ObjEProject.SubmitDate;
                     frmSelectAccessories Obj = new frmSelectAccessories();
                     Obj.ObjEArticle = ObjEArticles;
                     Obj.ShowInTaskbar = false;
@@ -10463,7 +10503,6 @@ namespace OTTOPro
                 ObjEArticles.L = ObjEPosition.Dim3;
                 ObjEArticles.ValidityDate = ObjEProject.SubmitDate;
                 ObjEArticles = ObjBArticles.GetArticleDetailsForAccessories(ObjEArticles);
-
                 ObjEPosition.PreisText = string.Empty;
                 ObjEPosition.ME = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Menegenheit"]);
                 ObjEPosition.Fabricate = Convert.ToString(ObjEArticles.dtArticleDetails.Rows[0]["Fabrikate"]);
@@ -11208,6 +11247,7 @@ namespace OTTOPro
                 table = gc221_2.DataSource as DataTable;
 
                 rptFormBlatt_221_1 rpt = new rptFormBlatt_221_1(ObjEProject.ProjectID, table);
+                rpt.Name = "FormBlatt221";
                 ReportPrintTool printTool = new ReportPrintTool(rpt);
                 rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
                 if (decimal.TryParse(txtAmount.Text, out Value))
@@ -11257,6 +11297,7 @@ namespace OTTOPro
                 ObjEFormBlatt = ObjBFormBlatt.GetFormBlattMapping(ObjEFormBlatt);
 
                 rptFormBlatt_223 rpt = new rptFormBlatt_223();
+                rpt.Name = "FormBlatt223";
                 ReportPrintTool printTool = new ReportPrintTool(rpt);
                 rpt.Parameters["ProjectID"].Value = ObjEProject.ProjectID;
                 printTool.ShowRibbonPreview();
@@ -11273,7 +11314,7 @@ namespace OTTOPro
         {
             try
             {
-                frmReportSetting Obj = new frmReportSetting(ObjEProject.ProjectID,ObjEProject.LVRaster);
+                frmReportSetting Obj = new frmReportSetting(ObjEProject.ProjectID, ObjEProject.ProjectDescription, ObjEProject.LVRaster);
                 Obj.ShowDialog();
             }
             catch (Exception ex)
@@ -12347,32 +12388,6 @@ namespace OTTOPro
             _IsSave = true;
         }
 
-        private void btnLangtext1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (tlPositions.FocusedNode != null)
-                {
-                    frmViewdescription Obj = new frmViewdescription(_IsNewMode);
-                    if (LongDescription == string.Empty && !_IsNewMode)
-                        Obj.LongDescription = ObjBPosition.GetLongDescription(Convert.ToInt32(tlPositions.FocusedNode["PositionID"]));
-                    else
-                        Obj.LongDescription = LongDescription;
-                    Obj.ShowDialog();
-                    LongDescription = Obj.LongDescription;
-                    if (ObjEPosition.PositionID > 0 && Obj._IsSave)
-                    {
-                        ObjBPosition.UpdateLongDescription(ObjEPosition.PositionID, LongDescription);
-                        LongDescription = string.Empty;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
         private void txtVerkaufspreisValueME_MouseEnter(object sender, EventArgs e)
         {
             try
@@ -12770,7 +12785,7 @@ namespace OTTOPro
         {
             try
             {
-                frmQuerKalculation frm = new frmQuerKalculation(ObjEProject.ProjectID,2);
+                frmQuerKalculation frm = new frmQuerKalculation(ObjEProject.ProjectID,ObjEProject.ProjectDescription,2);
                 frm.stRaster = ObjEProject.LVRaster;
                 frm.ShowDialog();
             }
@@ -13119,5 +13134,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
     }
 }

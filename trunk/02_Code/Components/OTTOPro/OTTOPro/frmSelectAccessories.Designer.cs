@@ -118,8 +118,6 @@
             // 
             this.gvArticles.Appearance.FocusedCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.gvArticles.Appearance.FocusedCell.Options.UseBackColor = true;
-            this.gvArticles.Appearance.FocusedRow.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.gvArticles.Appearance.FocusedRow.Options.UseBackColor = true;
             this.gvArticles.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold);
             this.gvArticles.Appearance.HeaderPanel.Options.UseFont = true;
             this.gvArticles.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -136,6 +134,7 @@
             this.gvArticles.OptionsCustomization.AllowColumnMoving = false;
             this.gvArticles.OptionsCustomization.AllowSort = false;
             this.gvArticles.OptionsView.ShowGroupPanel = false;
+            this.gvArticles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.gvArticles_KeyDown);
             // 
             // gridColumn1
             // 

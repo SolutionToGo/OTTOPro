@@ -20,6 +20,7 @@ using DevExpress.XtraReports.UI;
 using System.Data.OleDb;
 using DataAccess;
 using DevExpress.XtraEditors;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace OTTOPro
 {
@@ -334,7 +335,7 @@ namespace OTTOPro
         
         private void btnAddAccessories_ItemClick(object sender, ItemClickEventArgs e)
         {           
-            frmAccessories Obj = new frmAccessories();           
+            frmArticleAccessories Obj = new frmArticleAccessories();           
             Obj.ShowDialog();
         }
 
@@ -642,50 +643,56 @@ namespace OTTOPro
 
         private void simpleButton1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                string strFilePath = string.Empty;
-                OpenFileDialog dlg = new OpenFileDialog();
 
-                dlg.InitialDirectory = @"C:\";
-                dlg.Title = "Dateiauswahl für Data File Import";
+            rptSampleBreakdown rptMA = new rptSampleBreakdown();
+            ReportPrintTool printTool = new ReportPrintTool(rptMA);
+            rptMA.Parameters["ProjectID"].Value = 113;
+            printTool.ShowRibbonPreview();
 
-                dlg.CheckFileExists = true;
-                dlg.CheckPathExists = true;
+            //try
+            //{
+            //    string strFilePath = string.Empty;
+            //    OpenFileDialog dlg = new OpenFileDialog();
 
-                dlg.Filter = "All files (*.*)|*.*";
-                dlg.RestoreDirectory = true;
+            //    dlg.InitialDirectory = @"C:\";
+            //    dlg.Title = "Dateiauswahl für Data File Import";
 
-                dlg.ReadOnlyChecked = true;
-                dlg.ShowReadOnly = true;
-                if (dlg.ShowDialog() == DialogResult.OK)
-                {
-                    strFilePath = dlg.FileName;
-                    string fileExt = Path.GetExtension(strFilePath);
-                    if (fileExt.CompareTo(".xls") == 0 || fileExt.CompareTo(".xlsx") == 0)
-                    {
-                        DataTable dtExcel = new DataTable();
-                        dtExcel = Utility.ReadExcel(strFilePath, fileExt); //read excel file  
-                        
-                        foreach(DataRow dr in dtExcel.Rows)
-                        {
-                            string str = Convert.ToString(dr["F2"]);
-                            if(str.Substring(0,1) == "\n")
-                                str = str.Substring(1);
-                            if (str.Contains("\r"))
-                                str = str.Replace("\r", "");
-                            dr["F2"] = str;
-                        }
-                        DataTable dt = dtExcel.Copy();
-                        BOTTO ObjBOTTO = new BOTTO();
-                        ObjBOTTO.ImportCustomerData(dt);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            //    dlg.CheckFileExists = true;
+            //    dlg.CheckPathExists = true;
+
+            //    dlg.Filter = "All files (*.*)|*.*";
+            //    dlg.RestoreDirectory = true;
+
+            //    dlg.ReadOnlyChecked = true;
+            //    dlg.ShowReadOnly = true;
+            //    if (dlg.ShowDialog() == DialogResult.OK)
+            //    {
+            //        strFilePath = dlg.FileName;
+            //        string fileExt = Path.GetExtension(strFilePath);
+            //        if (fileExt.CompareTo(".xls") == 0 || fileExt.CompareTo(".xlsx") == 0)
+            //        {
+            //            DataTable dtExcel = new DataTable();
+            //            dtExcel = Utility.ReadExcel(strFilePath, fileExt); //read excel file  
+
+            //            foreach(DataRow dr in dtExcel.Rows)
+            //            {
+            //                string str = Convert.ToString(dr["F2"]);
+            //                if(str.Substring(0,1) == "\n")
+            //                    str = str.Substring(1);
+            //                if (str.Contains("\r"))
+            //                    str = str.Replace("\r", "");
+            //                dr["F2"] = str;
+            //            }
+            //            DataTable dt = dtExcel.Copy();
+            //            BOTTO ObjBOTTO = new BOTTO();
+            //            ObjBOTTO.ImportCustomerData(dt);
+            //        }
+            //    }
+            //}
+            //catch (Exception ex)
+            //{
+            //    Utility.ShowError(ex);
+            //}
         }
 
         private void barEditItem1_ItemClick(object sender, ItemClickEventArgs e)
@@ -765,6 +772,40 @@ namespace OTTOPro
                     f.RefreshProject();
                 }
                 catch (Exception ex) { }
+            }
+            catch (Exception ex){}
+        }
+
+        private void btnSendLogfile_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            sendEMailThroughOUTLOOK();
+        }
+
+        public void sendEMailThroughOUTLOOK()
+        {
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Sending aail to administrator...");
+                Outlook.Application oApp = new Outlook.Application();
+                Outlook.MailItem oMsg = (Outlook.MailItem)oApp.CreateItem(Outlook.OlItemType.olMailItem);
+                oMsg.HTMLBody = "Hello, Here is the log file!!";
+                String sDisplayName = "OTTOPro Log File";
+                int iPosition = (int)oMsg.Body.Length + 1;
+                int iAttachType = (int)Outlook.OlAttachmentType.olByValue;
+                string st = Path.GetTempPath();
+                Outlook.Attachment oAttach = oMsg.Attachments.Add(st + "\\OTTOPro.log", iAttachType, iPosition, sDisplayName);
+                oMsg.Subject = "OTTOPro Log File";
+                Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
+                Outlook.Recipient oRecip = (Outlook.Recipient)oRecips.Add("narendar.reddy@betasystems.com");
+                oRecip.Resolve();
+                oMsg.Send();
+                oRecip = null;
+                oRecips = null;
+                oMsg = null;
+                oApp = null;
+                SplashScreenManager.CloseForm(false);
+                XtraMessageBox.Show("Log file mail sent to administrator.!");
             }
             catch (Exception ex){}
         }

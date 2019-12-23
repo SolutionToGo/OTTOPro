@@ -155,6 +155,8 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@VRPos", ObjEReportDesign.VRPos);
                     cmd.Parameters.AddWithValue("@UBPos", ObjEReportDesign.UBPos);
                     cmd.Parameters.AddWithValue("@NonePos", ObjEReportDesign.NonePos);
+                    cmd.Parameters.AddWithValue("@WithDetKZ", ObjEReportDesign.WithDetailKZ);
+                    cmd.Parameters.AddWithValue("@WithTitlePrices", ObjEReportDesign.WithTitlePrices);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsReportSetting);

@@ -179,6 +179,10 @@
     <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
@@ -225,11 +229,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmAccessories.cs">
+    <Compile Include="frmAddAccessory.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmAccessories.Designer.cs">
-      <DependentUpon>frmAccessories.cs</DependentUpon>
+    <Compile Include="frmAddAccessory.Designer.cs">
+      <DependentUpon>frmAddAccessory.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAddDimension.cs">
       <SubType>Form</SubType>
@@ -266,6 +270,12 @@
     </Compile>
     <Compile Include="frmAddType.Designer.cs">
       <DependentUpon>frmAddType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmArticleAccessories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmArticleAccessories.Designer.cs">
+      <DependentUpon>frmArticleAccessories.cs</DependentUpon>
     </Compile>
     <Compile Include="frmArticlesData.cs">
       <SubType>Form</SubType>
@@ -672,6 +682,12 @@
     <Compile Include="Report Design\rptQuerKalkulation.Designer.cs">
       <DependentUpon>rptQuerKalkulation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\rptSampleBreakdown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptSampleBreakdown.Designer.cs">
+      <DependentUpon>rptSampleBreakdown.cs</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\rptSupplierProposal.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -697,8 +713,8 @@
     <Compile Include="WaitForm1.Designer.cs">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmAccessories.resx">
-      <DependentUpon>frmAccessories.cs</DependentUpon>
+    <EmbeddedResource Include="frmAddAccessory.resx">
+      <DependentUpon>frmAddAccessory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddDimension.resx">
       <DependentUpon>frmAddDimension.cs</DependentUpon>
@@ -717,6 +733,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddType.resx">
       <DependentUpon>frmAddType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmArticleAccessories.resx">
+      <DependentUpon>frmArticleAccessories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmArticlesData.resx">
       <DependentUpon>frmArticlesData.cs</DependentUpon>
@@ -895,6 +914,9 @@
     <EmbeddedResource Include="Report Design\rptQuerKalkulation.resx">
       <DependentUpon>rptQuerKalkulation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptSampleBreakdown.resx">
+      <DependentUpon>rptSampleBreakdown.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptSupplierProposal.resx">
       <DependentUpon>rptSupplierProposal.cs</DependentUpon>
     </EmbeddedResource>
@@ -907,6 +929,9 @@
     <EmbeddedResource Include="WaitForm1.resx">
       <DependentUpon>WaitForm1.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

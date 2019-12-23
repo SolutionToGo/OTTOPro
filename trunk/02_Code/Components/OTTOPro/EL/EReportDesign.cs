@@ -138,5 +138,7 @@ namespace EL
         public bool VRPos;
         public bool UBPos;
         public bool NonePos;
+        public bool WithDetailKZ;
+        public bool WithTitlePrices;
     }
 }
