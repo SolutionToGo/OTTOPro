@@ -21,6 +21,8 @@ using System.Data.OleDb;
 using DataAccess;
 using DevExpress.XtraEditors;
 using Outlook = Microsoft.Office.Interop.Outlook;
+using OTTOPro.Report_Design.dsProposalTableAdapters;
+using DAL;
 
 namespace OTTOPro
 {
@@ -644,10 +646,54 @@ namespace OTTOPro
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
-            rptSampleBreakdown rptMA = new rptSampleBreakdown();
-            ReportPrintTool printTool = new ReportPrintTool(rptMA);
-            rptMA.Parameters["ProjectID"].Value = 113;
+            if (ObjBProject == null)
+                ObjBProject = new BProject();
+            DataTable dt = new DataTable();
+            dt = ObjBProject.GetProjectCustomerDetails(147);
+
+            dsProposal ds = new dsProposal();
+            P_Rpt_PositionForProposalPriceTableAdapter adapter = new P_Rpt_PositionForProposalPriceTableAdapter();
+            adapter.Connection.ConnectionString = SQLCon.ConnectionString();
+            adapter.ClearBeforeFill = true;
+            adapter.Fill(ds.P_Rpt_PositionForProposalPrice, "", 147, "", "");
+            rptProposalPositions rpt = new rptProposalPositions();
+            rpt.DataSource = ds;
+            rpt.Parameters["ProjectID"].Value = 147;
+            rpt.Parameters["TitleList"].Value = string.Empty;
+            rpt.Parameters["Type"].Value = "";
+            rpt.Parameters["LVSection"].Value = "";
+            rpt.Parameters["ReportName"].Value = "NEW ANGEBOT REPORT";
+            rpt.Parameters["ReportDate"].Value = DateTime.Now;
+            rpt.Parameters["CustomerName"].Value = dt.Rows[0]["CustomerFullName"];
+            rpt.Parameters["CustomerAddress"].Value = dt.Rows[0]["CustomerStreet"];
+            rpt.Parameters["ProjectDesc"].Value = dt.Rows[0]["ProjectDescription"];
+            rpt.Parameters["ProjectNumber"].Value = dt.Rows[0]["ProjectNumber"];
+            rpt.CreateDocument();
+            rptProposalSummary rptSummary = new rptProposalSummary();
+            rptSummary.DataSource = ds;
+            rptSummary.Parameters["ProjectID"].Value = 147;
+            rptSummary.Parameters["TitleList"].Value = string.Empty;
+            rptSummary.Parameters["Type"].Value = "";
+            rptSummary.Parameters["LVSection"].Value = "";
+            rptSummary.Parameters["ReportName"].Value = "NEW ANGEBOT REPORT";
+            rptSummary.Parameters["ReportDate"].Value = DateTime.Now;
+            rpt.Parameters["ProjectDesc"].Value = dt.Rows[0]["ProjectDescription"];
+            rpt.Parameters["ProjectNumber"].Value = dt.Rows[0]["ProjectNumber"];
+            rptSummary.Parameters["Vat"].Value = dt.Rows[0]["Vat"];
+            rptSummary.Parameters["AngebotDescription"].Value = dt.Rows[0]["AngebotDescription"];
+            rptSummary.CreateDocument();
+            rpt.Pages.AddRange(rptSummary.Pages);
+
+            rpt.PrintingSystem.ContinuousPageNumbering = true;
+            ReportPrintTool printTool = new ReportPrintTool(rpt);
             printTool.ShowRibbonPreview();
+
+
+
+            //rptSampleBreakdown rptMA = new rptSampleBreakdown();
+            //ReportPrintTool printTool = new ReportPrintTool(rptMA);
+            //rptMA.Parameters["ProjectID"].Value = 113;
+            //printTool.ShowRibbonPreview();
 
             //try
             //{
@@ -808,6 +854,11 @@ namespace OTTOPro
                 XtraMessageBox.Show("Log file mail sent to administrator.!");
             }
             catch (Exception ex){}
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

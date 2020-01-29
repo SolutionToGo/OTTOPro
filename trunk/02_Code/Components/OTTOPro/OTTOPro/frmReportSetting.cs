@@ -13,6 +13,9 @@ using BL;
 using DevExpress.XtraEditors.Controls;
 using OTTOPro.Report_Design;
 using DevExpress.XtraReports.UI;
+using OTTOPro.Report_Design.dsProposalTableAdapters;
+using DAL;
+using OTTOPro.Report_Design.dsProposalMinutesTableAdapters;
 
 namespace OTTOPro
 {
@@ -64,31 +67,12 @@ namespace OTTOPro
                     if (radioGroupSelection.SelectedIndex == 0)
                     {
                         this.Hide();
-                        if (_ISMAMOChecked)
-                        {
-                            rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Complete", cmbLVSection.Text, ObjEReport.GB);
-                            rptMA.Name = "Angebot";
-                            //rptMA.Name = "Angebot_" + stProjectNumber.Replace("-","");
-                            ReportPrintTool printTool = new ReportPrintTool(rptMA);
-                            rptMA.Parameters["ProjectID"].Value = _ProjectID;
-                            rptMA.Parameters["ReportName"].Value = txtReportName.Text;
-                            rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                            rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
-                            rptMA.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
-                            printTool.ShowRibbonPreview();
-                        }
-                        else
-                        {
-                            rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Complete", cmbLVSection.Text, ObjEReport.GB);
-                            rpt.Name = "Angebot";
-                            ReportPrintTool printTool = new ReportPrintTool(rpt);
-                            rpt.Parameters["ProjectID"].Value = _ProjectID;
-                            rpt.Parameters["ReportName"].Value = txtReportName.Text;
-                            rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                            rpt.Parameters["WithGB"].Value = ObjEReport.GB;
-                            rpt.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
-                            printTool.ShowRibbonPreview();
-                        }
+                        if (chkMAMO.Checked)
+                            GenerateReportWithputMAMO("Complete", dtPos, cmbLVSection.Text);
+                        else if (chkOnheMontagePrice.Checked)
+                            GenerateReportWithMinutes("Complete", dtPos, cmbLVSection.Text);
+                        else 
+                            GenerateReport("Complete", dtPos, cmbLVSection.Text);
                         this.Close();
                     }
                     else if (radioGroupSelection.SelectedIndex == 1)
@@ -96,13 +80,9 @@ namespace OTTOPro
                         if (gvAddRemovePositions.RowCount == 0)
                         {
                             if (Utility._IsGermany == true)
-                            {
                                 XtraMessageBox.Show("Bitte machen Sie VON / BIS Angaben.");
-                            }
                             else
-                            {
                                 XtraMessageBox.Show("Please Add From and To values.");
-                            }
                             return;
                         }
                         string tfrom = null;
@@ -110,8 +90,8 @@ namespace OTTOPro
                         foreach (DataGridViewRow dr in gvAddRemovePositions.Rows)
                         {
                             DataRow drPos = dtPos.NewRow();
-                            tfrom = dr.Cells[0].Value.ToString();
-                            tTo = dr.Cells[1].Value.ToString();
+                            tfrom = Convert.ToString(dr.Cells[0].Value);
+                            tTo = Convert.ToString(dr.Cells[1].Value);
                             string _fromParent = string.Empty;
                             string _ToParent = string.Empty;
                             if (tfrom.Contains("."))
@@ -125,36 +105,17 @@ namespace OTTOPro
                                 else
                                     throw new Exception("Please enter the same Parent level..!");
                             }
-                            drPos["fromPos"] = Utility.PrepareOZ(tfrom.Replace(',', '.'), stRaster);
-                            drPos["toPos"] = Utility.PrepareOZ(tTo.Replace(',', '.'), stRaster);
+                            drPos["fromPos"] = Utility.PrepareOZ(tfrom, stRaster);
+                            drPos["toPos"] = Utility.PrepareOZ(tTo, stRaster);
                             dtPos.Rows.Add(drPos);
                         }
-
                         this.Hide();
-                        if (_ISMAMOChecked)
-                        {
-                            rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "Title", cmbLVSection.Text, ObjEReport.GB);
-                            rptMA.Name = "Angebot";
-                            ReportPrintTool printTool = new ReportPrintTool(rptMA);
-                            rptMA.Parameters["ProjectID"].Value = _ProjectID;
-                            rptMA.Parameters["ReportName"].Value = txtReportName.Text;
-                            rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                            rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
-                            rptMA.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
-                            printTool.ShowRibbonPreview();
-                        }
+                        if (chkMAMO.Checked)
+                            GenerateReportWithputMAMO("Title", dtPos, cmbLVSection.Text);
+                        else if (chkOnheMontagePrice.Checked)
+                            GenerateReportWithMinutes("Title", dtPos, cmbLVSection.Text);
                         else
-                        {
-                            rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "Title", cmbLVSection.Text, ObjEReport.GB);
-                            rpt.Name = "Angebot";
-                            ReportPrintTool printTool = new ReportPrintTool(rpt);
-                            rpt.Parameters["ProjectID"].Value = _ProjectID;
-                            rpt.Parameters["ReportName"].Value = txtReportName.Text;
-                            rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                            rpt.Parameters["WithGB"].Value = ObjEReport.GB;
-                            rpt.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
-                            printTool.ShowRibbonPreview();
-                        }
+                            GenerateReport("Title", dtPos, cmbLVSection.Text);
                         this.Close();
                     }
                     else if (radioGroupSelection.SelectedIndex == 2)
@@ -162,30 +123,12 @@ namespace OTTOPro
                         if (string.IsNullOrEmpty(cmbLVSection.Text))
                             throw new Exception("Please select atleast one LV Section");
                         this.Hide();
-                        if (_ISMAMOChecked)
-                        {
-                            rptProposalwithoutMAMO rptMA = new rptProposalwithoutMAMO(_ProjectID, dtPos, "LVSection", cmbLVSection.Text, ObjEReport.GB);
-                            rptMA.Name = "Angebot";
-                            ReportPrintTool printTool = new ReportPrintTool(rptMA);
-                            rptMA.Parameters["ProjectID"].Value = _ProjectID;
-                            rptMA.Parameters["ReportName"].Value = txtReportName.Text;
-                            rptMA.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                            rptMA.Parameters["WithGB"].Value = ObjEReport.GB;
-                            rptMA.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
-                            printTool.ShowRibbonPreview();
-                        }
+                        if (chkMAMO.Checked)
+                            GenerateReportWithputMAMO("LVSection", dtPos, cmbLVSection.Text);
+                        else if (chkOnheMontagePrice.Checked)
+                            GenerateReportWithMinutes("LVSection", dtPos, cmbLVSection.Text);
                         else
-                        {
-                            rptProposalCommon rpt = new rptProposalCommon(_ProjectID, dtPos, "LVSection", cmbLVSection.Text, ObjEReport.GB);
-                            rpt.Name = "Angebot";
-                            ReportPrintTool printTool = new ReportPrintTool(rpt);
-                            rpt.Parameters["ProjectID"].Value = _ProjectID;
-                            rpt.Parameters["ReportName"].Value = txtReportName.Text;
-                            rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
-                            rpt.Parameters["WithGB"].Value = ObjEReport.GB;
-                            rpt.Parameters["WithTitles"].Value = ObjEReport.WithTitlePrices;
-                            printTool.ShowRibbonPreview();
-                        }
+                            GenerateReport("LVSection", dtPos, cmbLVSection.Text);
                         this.Close();
                     }
                 }
@@ -344,6 +287,16 @@ namespace OTTOPro
                 else
                     ObjEReport.WithDetailKZ = false;
 
+                if (chkOnheMengePositions.Checked)
+                    ObjEReport.OnheMengeZeroPositions = true;
+                else
+                    ObjEReport.OnheMengeZeroPositions = false;
+
+                if (chkOnheMontagePrice.Checked)
+                    ObjEReport.OnheMontagePrice = true;
+                else
+                    ObjEReport.OnheMontagePrice = false;
+
             }
             catch (Exception ex)
             {
@@ -403,6 +356,10 @@ namespace OTTOPro
                         chkUB.Checked = _values;
                     if (bool.TryParse(row["WithDetKZ"].ToString(), out _values))
                         chkWithDetailKZ.Checked = _values;
+                    if (bool.TryParse(row["OnheMengeZeroPositions"].ToString(), out _values))
+                        chkOnheMengePositions.Checked = _values;
+                    if (bool.TryParse(row["OnheMontagePrice"].ToString(), out _values))
+                        chkOnheMontagePrice.Checked = _values;
                 }
             }
             catch (Exception ex){throw ex;}
@@ -505,6 +462,320 @@ namespace OTTOPro
                 chkVR.ReadOnly = false;
                 chkUB.ReadOnly = false;
             }
+        }
+
+        private void GenerateReport(string stType,DataTable dtPos,string LVSection)
+        {
+            try
+            {
+                dsProposal ds = new dsProposal();
+                P_Rpt_PositionForProposalPriceTableAdapter adapter = new P_Rpt_PositionForProposalPriceTableAdapter();
+                adapter.Connection.ConnectionString = SQLCon.ConnectionString();
+                adapter.ClearBeforeFill = true;
+                adapter.Fill(ds.P_Rpt_PositionForProposalPrice, dtPos, _ProjectID, stType, LVSection);
+                if (ds != null)
+                {
+                    DataTable dt = ObjBReport.GetProjectCustomerDetails(_ProjectID);
+                    rptProposalPositions rpt = new rptProposalPositions();
+                    rpt.DataSource = ds;
+                    rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                    rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                    rpt.Parameters["CustomerName"].Value = dt.Rows[0]["CustomerFullName"];
+                    rpt.Parameters["CustomerAddress"].Value = dt.Rows[0]["CustomerStreet"];
+                    rpt.Parameters["ProjectDesc"].Value = dt.Rows[0]["ProjectDescription"];
+                    rpt.Parameters["ProjectNumber"].Value = dt.Rows[0]["ProjectNumber"];
+                    if (chkWithDetailKZ.Checked)
+                        rpt.Parameters["DetKZ"].Value = true;
+                    else
+                        rpt.Parameters["DetKZ"].Value = false;
+
+                    if (radioGroupShowText.SelectedIndex == 0)
+                        rpt.Parameters["Langtext"].Value = true;
+                    else if (radioGroupShowText.SelectedIndex == 1)
+                        rpt.Parameters["Kurztext"].Value = true;
+                    else
+                    {
+                        rpt.Parameters["Langtext"].Value = true;
+                        rpt.Parameters["Kurztext"].Value = true;
+                    }
+
+                    if (chksender.Checked)
+                        rpt.Parameters["CustomerSender"].Value = false;
+                    else
+                        rpt.Parameters["CustomerSender"].Value = true;
+
+                    if (chkmenge.Checked)
+                        rpt.Parameters["WithMenge"].Value = false;
+                    else
+                        rpt.Parameters["WithMenge"].Value = true;
+
+                    if (chkGB.Checked)
+                        rpt.Parameters["WithGP"].Value = false;
+                    else
+                        rpt.Parameters["WithGP"].Value = true;
+
+                    if (chkEP.Checked)
+                        rpt.Parameters["WithEP"].Value = false;
+                    else
+                        rpt.Parameters["WithEP"].Value = true;
+
+                    if (chkprices.Checked)
+                        rpt.Parameters["WithPrice"].Value = false;
+                    else
+                        rpt.Parameters["WithPrice"].Value = true;
+
+                    if (chkTitlesPreises.Checked)
+                        rpt.Parameters["WithPrices"].Value = false;
+                    else
+                        rpt.Parameters["WithPrices"].Value = true;
+
+                    if (chkOnheMengePositions.Checked)
+                        rpt.Parameters["OnheMenge"].Value = true;
+                    else
+                        rpt.Parameters["OnheMenge"].Value = false;
+
+                    rpt.CreateDocument();
+
+                    DataView dv = ds.Tables[0].DefaultView;
+                    dv.RowFilter = "PositionKZ NOT IN ('H','VR','UB','AB','BA')";
+                    DataTable dtsource = dv.ToTable();
+
+                    rptProposalSummary rptSummary = new rptProposalSummary();
+                    rptSummary.DataSource = dtsource;
+                    rptSummary.Parameters["ReportName"].Value = txtReportName.Text;
+                    rptSummary.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                    rptSummary.Parameters["ProjectDesc"].Value = dt.Rows[0]["ProjectDescription"];
+                    rptSummary.Parameters["ProjectNumber"].Value = dt.Rows[0]["ProjectNumber"];
+                    rptSummary.Parameters["Vat"].Value = dt.Rows[0]["Vat"];
+                    rptSummary.Parameters["AngebotDescription"].Value = dt.Rows[0]["AngebotDescription"];
+                    if (chkGB.Checked)
+                        rptSummary.Parameters["WithGP"].Value = false;
+                    else
+                        rptSummary.Parameters["WithGP"].Value = true;
+
+                    if (chkprices.Checked)
+                        rptSummary.Parameters["WithPrice"].Value = false;
+                    else
+                        rptSummary.Parameters["WithPrice"].Value = true;
+
+                    rptSummary.CreateDocument();
+                    rpt.Pages.AddRange(rptSummary.Pages);
+
+                    rpt.PrintingSystem.ContinuousPageNumbering = true;
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    printTool.ShowRibbonPreview();
+                }
+            }
+            catch (Exception ex){}
+        }
+
+        private void GenerateReportWithputMAMO(string stType, DataTable dtPos, string LVSection)
+        {
+            try
+            {
+                dsProposal ds = new dsProposal();
+                P_Rpt_PositionForProposalPriceTableAdapter adapter = new P_Rpt_PositionForProposalPriceTableAdapter();
+                adapter.Connection.ConnectionString = SQLCon.ConnectionString();
+                adapter.ClearBeforeFill = true;
+                adapter.Fill(ds.P_Rpt_PositionForProposalPrice, dtPos, _ProjectID, stType, LVSection);
+                if (ds != null)
+                {
+                    DataTable dt = ObjBReport.GetProjectCustomerDetails(_ProjectID);
+                    rptProposalPositionsWithoutMAMO rpt = new rptProposalPositionsWithoutMAMO();
+                    rpt.DataSource = ds;
+                    rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                    rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                    rpt.Parameters["CustomerName"].Value = dt.Rows[0]["CustomerFullName"];
+                    rpt.Parameters["CustomerAddress"].Value = dt.Rows[0]["CustomerStreet"];
+                    rpt.Parameters["ProjectDesc"].Value = dt.Rows[0]["ProjectDescription"];
+                    rpt.Parameters["ProjectNumber"].Value = dt.Rows[0]["ProjectNumber"];
+                    if (chkWithDetailKZ.Checked)
+                        rpt.Parameters["DetKZ"].Value = true;
+                    else
+                        rpt.Parameters["DetKZ"].Value = false;
+
+                    if (radioGroupShowText.SelectedIndex == 0)
+                        rpt.Parameters["Langtext"].Value = true;
+                    else if (radioGroupShowText.SelectedIndex == 1)
+                        rpt.Parameters["Kurztext"].Value = true;
+                    else
+                    {
+                        rpt.Parameters["Langtext"].Value = true;
+                        rpt.Parameters["Kurztext"].Value = true;
+                    }
+
+                    if (chksender.Checked)
+                        rpt.Parameters["CustomerSender"].Value = false;
+                    else
+                        rpt.Parameters["CustomerSender"].Value = true;
+
+                    if (chkmenge.Checked)
+                        rpt.Parameters["WithMenge"].Value = false;
+                    else
+                        rpt.Parameters["WithMenge"].Value = true;
+
+                    if (chkGB.Checked)
+                        rpt.Parameters["WithGP"].Value = false;
+                    else
+                        rpt.Parameters["WithGP"].Value = true;
+
+                    if (chkEP.Checked)
+                        rpt.Parameters["WithEP"].Value = false;
+                    else
+                        rpt.Parameters["WithEP"].Value = true;
+
+                    if (chkprices.Checked)
+                        rpt.Parameters["WithPrice"].Value = false;
+                    else
+                        rpt.Parameters["WithPrice"].Value = true;
+
+                    if (chkTitlesPreises.Checked)
+                        rpt.Parameters["WithPrices"].Value = false;
+                    else
+                        rpt.Parameters["WithPrices"].Value = true;
+
+                    if (chkOnheMengePositions.Checked)
+                        rpt.Parameters["OnheMenge"].Value = true;
+                    else
+                        rpt.Parameters["OnheMenge"].Value = false;
+
+                    rpt.CreateDocument();
+
+                    DataView dv = ds.Tables[0].DefaultView;
+                    dv.RowFilter = "PositionKZ NOT IN ('H','VR','UB','AB','BA')";
+                    DataTable dtsource = dv.ToTable();
+                    rptProposalSummaryWithoutMAMO rptSummary = new rptProposalSummaryWithoutMAMO();
+                    rptSummary.DataSource = dtsource;
+                    rptSummary.Parameters["ReportName"].Value = txtReportName.Text;
+                    rptSummary.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                    rptSummary.Parameters["ProjectDesc"].Value = dt.Rows[0]["ProjectDescription"];
+                    rptSummary.Parameters["ProjectNumber"].Value = dt.Rows[0]["ProjectNumber"];
+                    rptSummary.Parameters["Vat"].Value = dt.Rows[0]["Vat"];
+                    rptSummary.Parameters["AngebotDescription"].Value = dt.Rows[0]["AngebotDescription"];
+                    if (chkGB.Checked)
+                        rptSummary.Parameters["WithGP"].Value = false;
+                    else
+                        rptSummary.Parameters["WithGP"].Value = true;
+
+                    if (chkprices.Checked)
+                        rptSummary.Parameters["WithPrice"].Value = false;
+                    else
+                        rptSummary.Parameters["WithPrice"].Value = true;
+
+                    rptSummary.CreateDocument();
+                    rpt.Pages.AddRange(rptSummary.Pages);
+
+                    rpt.PrintingSystem.ContinuousPageNumbering = true;
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    printTool.ShowRibbonPreview();
+                }
+            }
+            catch (Exception ex) { }
+        }
+
+        private void GenerateReportWithMinutes(string stType, DataTable dtPos, string LVSection)
+        {
+            try
+            {
+                dsProposalMinutes ds = new dsProposalMinutes();
+                P_Rpt_PositionForProposalMinutesTableAdapter adapter = new P_Rpt_PositionForProposalMinutesTableAdapter();
+                adapter.Connection.ConnectionString = SQLCon.ConnectionString();
+                adapter.ClearBeforeFill = true;
+                adapter.Fill(ds.P_Rpt_PositionForProposalMinutes, dtPos, _ProjectID, stType, LVSection);
+                if (ds != null)
+                {
+                    DataTable dt = ObjBReport.GetProjectCustomerDetails(_ProjectID);
+                    rptProposalPositionswithminutes rpt = new rptProposalPositionswithminutes();
+                    rpt.DataSource = ds;
+                    rpt.Parameters["ReportName"].Value = txtReportName.Text;
+                    rpt.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                    rpt.Parameters["CustomerName"].Value = dt.Rows[0]["CustomerFullName"];
+                    rpt.Parameters["CustomerAddress"].Value = dt.Rows[0]["CustomerStreet"];
+                    rpt.Parameters["ProjectDesc"].Value = dt.Rows[0]["ProjectDescription"];
+                    rpt.Parameters["ProjectNumber"].Value = dt.Rows[0]["ProjectNumber"];
+                    if (chkWithDetailKZ.Checked)
+                        rpt.Parameters["DetKZ"].Value = true;
+                    else
+                        rpt.Parameters["DetKZ"].Value = false;
+
+                    if (radioGroupShowText.SelectedIndex == 0)
+                        rpt.Parameters["Langtext"].Value = true;
+                    else if (radioGroupShowText.SelectedIndex == 1)
+                        rpt.Parameters["Kurztext"].Value = true;
+                    else
+                    {
+                        rpt.Parameters["Langtext"].Value = true;
+                        rpt.Parameters["Kurztext"].Value = true;
+                    }
+
+                    if (chksender.Checked)
+                        rpt.Parameters["CustomerSender"].Value = false;
+                    else
+                        rpt.Parameters["CustomerSender"].Value = true;
+
+                    if (chkmenge.Checked)
+                        rpt.Parameters["WithMenge"].Value = false;
+                    else
+                        rpt.Parameters["WithMenge"].Value = true;
+
+                    if (chkGB.Checked)
+                        rpt.Parameters["WithGP"].Value = false;
+                    else
+                        rpt.Parameters["WithGP"].Value = true;
+
+                    if (chkEP.Checked)
+                        rpt.Parameters["WithEP"].Value = false;
+                    else
+                        rpt.Parameters["WithEP"].Value = true;
+
+                    if (chkprices.Checked)
+                        rpt.Parameters["WithPrice"].Value = false;
+                    else
+                        rpt.Parameters["WithPrice"].Value = true;
+
+                    if (chkTitlesPreises.Checked)
+                        rpt.Parameters["WithPrices"].Value = false;
+                    else
+                        rpt.Parameters["WithPrices"].Value = true;
+
+                    if (chkOnheMengePositions.Checked)
+                        rpt.Parameters["OnheMenge"].Value = true;
+                    else
+                        rpt.Parameters["OnheMenge"].Value = false;
+
+                    rpt.CreateDocument();
+
+                    DataView dv = ds.Tables[0].DefaultView;
+                    dv.RowFilter = "PositionKZ NOT IN ('H','VR','UB','AB','BA')";
+                    DataTable dtsource = dv.ToTable();
+
+                    rptProposalSummarywithminutes rptSummary = new rptProposalSummarywithminutes();
+                    rptSummary.DataSource = dtsource;
+                    rptSummary.Parameters["ReportName"].Value = txtReportName.Text;
+                    rptSummary.Parameters["ReportDate"].Value = dtpReportDate.DateTime;
+                    rptSummary.Parameters["ProjectDesc"].Value = dt.Rows[0]["ProjectDescription"];
+                    rptSummary.Parameters["ProjectNumber"].Value = dt.Rows[0]["ProjectNumber"];
+                    rptSummary.Parameters["Vat"].Value = dt.Rows[0]["Vat"];
+                    rptSummary.Parameters["AngebotDescription"].Value = dt.Rows[0]["AngebotDescription"];
+                    if (chkGB.Checked)
+                        rptSummary.Parameters["WithGP"].Value = false;
+                    else
+                        rptSummary.Parameters["WithGP"].Value = true;
+
+                    if (chkprices.Checked)
+                        rptSummary.Parameters["WithPrice"].Value = false;
+                    else
+                        rptSummary.Parameters["WithPrice"].Value = true;
+
+                    rptSummary.CreateDocument();
+                    rpt.Pages.AddRange(rptSummary.Pages);
+
+                    rpt.PrintingSystem.ContinuousPageNumbering = true;
+                    ReportPrintTool printTool = new ReportPrintTool(rpt);
+                    printTool.ShowRibbonPreview();
+                }
+            }
+            catch (Exception ex) { }
         }
     }
 }

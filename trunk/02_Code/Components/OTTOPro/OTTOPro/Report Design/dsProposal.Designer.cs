@@ -20,17 +20,17 @@ namespace OTTOPro.Report_Design {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsQuerKalculation")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsProposal")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsQuerKalculation : global::System.Data.DataSet {
+    public partial class dsProposal : global::System.Data.DataSet {
         
-        private P_Rpt_QuerCalculationDataTable tableP_Rpt_QuerCalculation;
+        private P_Rpt_PositionForProposalPriceDataTable tableP_Rpt_PositionForProposalPrice;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public dsQuerKalculation() {
+        public dsProposal() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace OTTOPro.Report_Design {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected dsQuerKalculation(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsProposal(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace OTTOPro.Report_Design {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["P_Rpt_QuerCalculation"] != null)) {
-                    base.Tables.Add(new P_Rpt_QuerCalculationDataTable(ds.Tables["P_Rpt_QuerCalculation"]));
+                if ((ds.Tables["P_Rpt_PositionForProposalPrice"] != null)) {
+                    base.Tables.Add(new P_Rpt_PositionForProposalPriceDataTable(ds.Tables["P_Rpt_PositionForProposalPrice"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace OTTOPro.Report_Design {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public P_Rpt_QuerCalculationDataTable P_Rpt_QuerCalculation {
+        public P_Rpt_PositionForProposalPriceDataTable P_Rpt_PositionForProposalPrice {
             get {
-                return this.tableP_Rpt_QuerCalculation;
+                return this.tableP_Rpt_PositionForProposalPrice;
             }
         }
         
@@ -127,7 +127,7 @@ namespace OTTOPro.Report_Design {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsQuerKalculation cln = ((dsQuerKalculation)(base.Clone()));
+            dsProposal cln = ((dsProposal)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace OTTOPro.Report_Design {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["P_Rpt_QuerCalculation"] != null)) {
-                    base.Tables.Add(new P_Rpt_QuerCalculationDataTable(ds.Tables["P_Rpt_QuerCalculation"]));
+                if ((ds.Tables["P_Rpt_PositionForProposalPrice"] != null)) {
+                    base.Tables.Add(new P_Rpt_PositionForProposalPriceDataTable(ds.Tables["P_Rpt_PositionForProposalPrice"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace OTTOPro.Report_Design {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableP_Rpt_QuerCalculation = ((P_Rpt_QuerCalculationDataTable)(base.Tables["P_Rpt_QuerCalculation"]));
+            this.tableP_Rpt_PositionForProposalPrice = ((P_Rpt_PositionForProposalPriceDataTable)(base.Tables["P_Rpt_PositionForProposalPrice"]));
             if ((initTable == true)) {
-                if ((this.tableP_Rpt_QuerCalculation != null)) {
-                    this.tableP_Rpt_QuerCalculation.InitVars();
+                if ((this.tableP_Rpt_PositionForProposalPrice != null)) {
+                    this.tableP_Rpt_PositionForProposalPrice.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace OTTOPro.Report_Design {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsQuerKalculation";
+            this.DataSetName = "dsProposal";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsQuerKalculation.xsd";
+            this.Namespace = "http://tempuri.org/dsProposal.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableP_Rpt_QuerCalculation = new P_Rpt_QuerCalculationDataTable();
-            base.Tables.Add(this.tableP_Rpt_QuerCalculation);
+            this.tableP_Rpt_PositionForProposalPrice = new P_Rpt_PositionForProposalPriceDataTable();
+            base.Tables.Add(this.tableP_Rpt_PositionForProposalPrice);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeP_Rpt_QuerCalculation() {
+        private bool ShouldSerializeP_Rpt_PositionForProposalPrice() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace OTTOPro.Report_Design {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsQuerKalculation ds = new dsQuerKalculation();
+            dsProposal ds = new dsProposal();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,41 +270,73 @@ namespace OTTOPro.Report_Design {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void P_Rpt_QuerCalculationRowChangeEventHandler(object sender, P_Rpt_QuerCalculationRowChangeEvent e);
+        public delegate void P_Rpt_PositionForProposalPriceRowChangeEventHandler(object sender, P_Rpt_PositionForProposalPriceRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class P_Rpt_QuerCalculationDataTable : global::System.Data.TypedTableBase<P_Rpt_QuerCalculationRow> {
+        public partial class P_Rpt_PositionForProposalPriceDataTable : global::System.Data.TypedTableBase<P_Rpt_PositionForProposalPriceRow> {
             
-            private global::System.Data.DataColumn columnMA_EK;
+            private global::System.Data.DataColumn columnPositionID;
             
-            private global::System.Data.DataColumn columnMA_VK;
+            private global::System.Data.DataColumn columnProjectID;
             
-            private global::System.Data.DataColumn columnMO_EK;
+            private global::System.Data.DataColumn columnPosition_OZ;
             
-            private global::System.Data.DataColumn columnMO_VK;
+            private global::System.Data.DataColumn columnPositionKZ;
             
-            private global::System.Data.DataColumn columnWG;
+            private global::System.Data.DataColumn columnLVSection;
             
-            private global::System.Data.DataColumn columnWA;
+            private global::System.Data.DataColumn columnDetailKZ;
             
-            private global::System.Data.DataColumn columnWADESCRIPTION;
+            private global::System.Data.DataColumn columnEP;
             
-            private global::System.Data.DataColumn columnWGID;
+            private global::System.Data.DataColumn columnFinalGB;
             
-            private global::System.Data.DataColumn columnLIEFR;
+            private global::System.Data.DataColumn columnMenge;
             
-            private global::System.Data.DataColumn columnMA_VKONUM;
+            private global::System.Data.DataColumn columnME;
             
-            private global::System.Data.DataColumn columnMO_VKONUM;
+            private global::System.Data.DataColumn columnMA_verkaufspreis;
+            
+            private global::System.Data.DataColumn columnMO_verkaufspreis;
+            
+            private global::System.Data.DataColumn columnKurzText;
+            
+            private global::System.Data.DataColumn columnLangText;
+            
+            private global::System.Data.DataColumn columnPreisText;
+            
+            private global::System.Data.DataColumn columnTitle1ID;
+            
+            private global::System.Data.DataColumn columnTitle1;
+            
+            private global::System.Data.DataColumn columnTitle1Desc;
+            
+            private global::System.Data.DataColumn columnTitle2ID;
+            
+            private global::System.Data.DataColumn columnTitle2;
+            
+            private global::System.Data.DataColumn columnTitle2Desc;
+            
+            private global::System.Data.DataColumn columnTitle3ID;
+            
+            private global::System.Data.DataColumn columnTitle3;
+            
+            private global::System.Data.DataColumn columnTitle3Desc;
+            
+            private global::System.Data.DataColumn columnTitle4ID;
+            
+            private global::System.Data.DataColumn columnTitle4;
+            
+            private global::System.Data.DataColumn columnTitle4Desc;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationDataTable() {
-                this.TableName = "P_Rpt_QuerCalculation";
+            public P_Rpt_PositionForProposalPriceDataTable() {
+                this.TableName = "P_Rpt_PositionForProposalPrice";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -312,7 +344,7 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal P_Rpt_QuerCalculationDataTable(global::System.Data.DataTable table) {
+            internal P_Rpt_PositionForProposalPriceDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -329,96 +361,224 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected P_Rpt_QuerCalculationDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected P_Rpt_PositionForProposalPriceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MA_EKColumn {
+            public global::System.Data.DataColumn PositionIDColumn {
                 get {
-                    return this.columnMA_EK;
+                    return this.columnPositionID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MA_VKColumn {
+            public global::System.Data.DataColumn ProjectIDColumn {
                 get {
-                    return this.columnMA_VK;
+                    return this.columnProjectID;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MO_EKColumn {
+            public global::System.Data.DataColumn Position_OZColumn {
                 get {
-                    return this.columnMO_EK;
+                    return this.columnPosition_OZ;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MO_VKColumn {
+            public global::System.Data.DataColumn PositionKZColumn {
                 get {
-                    return this.columnMO_VK;
+                    return this.columnPositionKZ;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WGColumn {
+            public global::System.Data.DataColumn LVSectionColumn {
                 get {
-                    return this.columnWG;
+                    return this.columnLVSection;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WAColumn {
+            public global::System.Data.DataColumn DetailKZColumn {
                 get {
-                    return this.columnWA;
+                    return this.columnDetailKZ;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WADESCRIPTIONColumn {
+            public global::System.Data.DataColumn EPColumn {
                 get {
-                    return this.columnWADESCRIPTION;
+                    return this.columnEP;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn WGIDColumn {
+            public global::System.Data.DataColumn FinalGBColumn {
                 get {
-                    return this.columnWGID;
+                    return this.columnFinalGB;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn LIEFRColumn {
+            public global::System.Data.DataColumn MengeColumn {
                 get {
-                    return this.columnLIEFR;
+                    return this.columnMenge;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MA_VKONUMColumn {
+            public global::System.Data.DataColumn MEColumn {
                 get {
-                    return this.columnMA_VKONUM;
+                    return this.columnME;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn MO_VKONUMColumn {
+            public global::System.Data.DataColumn MA_verkaufspreisColumn {
                 get {
-                    return this.columnMO_VKONUM;
+                    return this.columnMA_verkaufspreis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn MO_verkaufspreisColumn {
+                get {
+                    return this.columnMO_verkaufspreis;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn KurzTextColumn {
+                get {
+                    return this.columnKurzText;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn LangTextColumn {
+                get {
+                    return this.columnLangText;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn PreisTextColumn {
+                get {
+                    return this.columnPreisText;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title1IDColumn {
+                get {
+                    return this.columnTitle1ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title1Column {
+                get {
+                    return this.columnTitle1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title1DescColumn {
+                get {
+                    return this.columnTitle1Desc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title2IDColumn {
+                get {
+                    return this.columnTitle2ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title2Column {
+                get {
+                    return this.columnTitle2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title2DescColumn {
+                get {
+                    return this.columnTitle2Desc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title3IDColumn {
+                get {
+                    return this.columnTitle3ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title3Column {
+                get {
+                    return this.columnTitle3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title3DescColumn {
+                get {
+                    return this.columnTitle3Desc;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title4IDColumn {
+                get {
+                    return this.columnTitle4ID;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title4Column {
+                get {
+                    return this.columnTitle4;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Title4DescColumn {
+                get {
+                    return this.columnTitle4Desc;
                 }
             }
             
@@ -433,55 +593,97 @@ namespace OTTOPro.Report_Design {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRow this[int index] {
+            public P_Rpt_PositionForProposalPriceRow this[int index] {
                 get {
-                    return ((P_Rpt_QuerCalculationRow)(this.Rows[index]));
+                    return ((P_Rpt_PositionForProposalPriceRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event P_Rpt_QuerCalculationRowChangeEventHandler P_Rpt_QuerCalculationRowChanging;
+            public event P_Rpt_PositionForProposalPriceRowChangeEventHandler P_Rpt_PositionForProposalPriceRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event P_Rpt_QuerCalculationRowChangeEventHandler P_Rpt_QuerCalculationRowChanged;
+            public event P_Rpt_PositionForProposalPriceRowChangeEventHandler P_Rpt_PositionForProposalPriceRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event P_Rpt_QuerCalculationRowChangeEventHandler P_Rpt_QuerCalculationRowDeleting;
+            public event P_Rpt_PositionForProposalPriceRowChangeEventHandler P_Rpt_PositionForProposalPriceRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event P_Rpt_QuerCalculationRowChangeEventHandler P_Rpt_QuerCalculationRowDeleted;
+            public event P_Rpt_PositionForProposalPriceRowChangeEventHandler P_Rpt_PositionForProposalPriceRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddP_Rpt_QuerCalculationRow(P_Rpt_QuerCalculationRow row) {
+            public void AddP_Rpt_PositionForProposalPriceRow(P_Rpt_PositionForProposalPriceRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRow AddP_Rpt_QuerCalculationRow(decimal MA_EK, decimal MA_VK, decimal MO_EK, decimal MO_VK, string WG, string WA, string WADESCRIPTION, int WGID, string LIEFR, decimal MA_VKONUM, decimal MO_VKONUM) {
-                P_Rpt_QuerCalculationRow rowP_Rpt_QuerCalculationRow = ((P_Rpt_QuerCalculationRow)(this.NewRow()));
+            public P_Rpt_PositionForProposalPriceRow AddP_Rpt_PositionForProposalPriceRow(
+                        int ProjectID, 
+                        string Position_OZ, 
+                        string PositionKZ, 
+                        string LVSection, 
+                        int DetailKZ, 
+                        decimal EP, 
+                        decimal FinalGB, 
+                        decimal Menge, 
+                        string ME, 
+                        decimal MA_verkaufspreis, 
+                        decimal MO_verkaufspreis, 
+                        string KurzText, 
+                        string LangText, 
+                        string PreisText, 
+                        int Title1ID, 
+                        string Title1, 
+                        string Title1Desc, 
+                        int Title2ID, 
+                        string Title2, 
+                        string Title2Desc, 
+                        int Title3ID, 
+                        string Title3, 
+                        string Title3Desc, 
+                        int Title4ID, 
+                        string Title4, 
+                        string Title4Desc) {
+                P_Rpt_PositionForProposalPriceRow rowP_Rpt_PositionForProposalPriceRow = ((P_Rpt_PositionForProposalPriceRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        MA_EK,
-                        MA_VK,
-                        MO_EK,
-                        MO_VK,
-                        WG,
-                        WA,
-                        WADESCRIPTION,
-                        WGID,
-                        LIEFR,
-                        MA_VKONUM,
-                        MO_VKONUM};
-                rowP_Rpt_QuerCalculationRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowP_Rpt_QuerCalculationRow);
-                return rowP_Rpt_QuerCalculationRow;
+                        null,
+                        ProjectID,
+                        Position_OZ,
+                        PositionKZ,
+                        LVSection,
+                        DetailKZ,
+                        EP,
+                        FinalGB,
+                        Menge,
+                        ME,
+                        MA_verkaufspreis,
+                        MO_verkaufspreis,
+                        KurzText,
+                        LangText,
+                        PreisText,
+                        Title1ID,
+                        Title1,
+                        Title1Desc,
+                        Title2ID,
+                        Title2,
+                        Title2Desc,
+                        Title3ID,
+                        Title3,
+                        Title3Desc,
+                        Title4ID,
+                        Title4,
+                        Title4Desc};
+                rowP_Rpt_PositionForProposalPriceRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowP_Rpt_PositionForProposalPriceRow);
+                return rowP_Rpt_PositionForProposalPriceRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                P_Rpt_QuerCalculationDataTable cln = ((P_Rpt_QuerCalculationDataTable)(base.Clone()));
+                P_Rpt_PositionForProposalPriceDataTable cln = ((P_Rpt_PositionForProposalPriceDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -489,87 +691,158 @@ namespace OTTOPro.Report_Design {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new P_Rpt_QuerCalculationDataTable();
+                return new P_Rpt_PositionForProposalPriceDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnMA_EK = base.Columns["MA_EK"];
-                this.columnMA_VK = base.Columns["MA_VK"];
-                this.columnMO_EK = base.Columns["MO_EK"];
-                this.columnMO_VK = base.Columns["MO_VK"];
-                this.columnWG = base.Columns["WG"];
-                this.columnWA = base.Columns["WA"];
-                this.columnWADESCRIPTION = base.Columns["WADESCRIPTION"];
-                this.columnWGID = base.Columns["WGID"];
-                this.columnLIEFR = base.Columns["LIEFR"];
-                this.columnMA_VKONUM = base.Columns["MA_VKONUM"];
-                this.columnMO_VKONUM = base.Columns["MO_VKONUM"];
+                this.columnPositionID = base.Columns["PositionID"];
+                this.columnProjectID = base.Columns["ProjectID"];
+                this.columnPosition_OZ = base.Columns["Position_OZ"];
+                this.columnPositionKZ = base.Columns["PositionKZ"];
+                this.columnLVSection = base.Columns["LVSection"];
+                this.columnDetailKZ = base.Columns["DetailKZ"];
+                this.columnEP = base.Columns["EP"];
+                this.columnFinalGB = base.Columns["FinalGB"];
+                this.columnMenge = base.Columns["Menge"];
+                this.columnME = base.Columns["ME"];
+                this.columnMA_verkaufspreis = base.Columns["MA_verkaufspreis"];
+                this.columnMO_verkaufspreis = base.Columns["MO_verkaufspreis"];
+                this.columnKurzText = base.Columns["KurzText"];
+                this.columnLangText = base.Columns["LangText"];
+                this.columnPreisText = base.Columns["PreisText"];
+                this.columnTitle1ID = base.Columns["Title1ID"];
+                this.columnTitle1 = base.Columns["Title1"];
+                this.columnTitle1Desc = base.Columns["Title1Desc"];
+                this.columnTitle2ID = base.Columns["Title2ID"];
+                this.columnTitle2 = base.Columns["Title2"];
+                this.columnTitle2Desc = base.Columns["Title2Desc"];
+                this.columnTitle3ID = base.Columns["Title3ID"];
+                this.columnTitle3 = base.Columns["Title3"];
+                this.columnTitle3Desc = base.Columns["Title3Desc"];
+                this.columnTitle4ID = base.Columns["Title4ID"];
+                this.columnTitle4 = base.Columns["Title4"];
+                this.columnTitle4Desc = base.Columns["Title4Desc"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnMA_EK = new global::System.Data.DataColumn("MA_EK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMA_EK);
-                this.columnMA_VK = new global::System.Data.DataColumn("MA_VK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMA_VK);
-                this.columnMO_EK = new global::System.Data.DataColumn("MO_EK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMO_EK);
-                this.columnMO_VK = new global::System.Data.DataColumn("MO_VK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMO_VK);
-                this.columnWG = new global::System.Data.DataColumn("WG", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWG);
-                this.columnWA = new global::System.Data.DataColumn("WA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWA);
-                this.columnWADESCRIPTION = new global::System.Data.DataColumn("WADESCRIPTION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWADESCRIPTION);
-                this.columnWGID = new global::System.Data.DataColumn("WGID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnWGID);
-                this.columnLIEFR = new global::System.Data.DataColumn("LIEFR", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnLIEFR);
-                this.columnMA_VKONUM = new global::System.Data.DataColumn("MA_VKONUM", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMA_VKONUM);
-                this.columnMO_VKONUM = new global::System.Data.DataColumn("MO_VKONUM", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnMO_VKONUM);
-                this.columnMA_EK.ReadOnly = true;
-                this.columnMA_VK.ReadOnly = true;
-                this.columnMO_EK.ReadOnly = true;
-                this.columnMO_VK.ReadOnly = true;
-                this.columnWG.MaxLength = 10;
-                this.columnWA.MaxLength = 10;
-                this.columnWADESCRIPTION.ReadOnly = true;
-                this.columnWADESCRIPTION.MaxLength = 500;
-                this.columnLIEFR.MaxLength = 50;
-                this.columnMA_VKONUM.ReadOnly = true;
-                this.columnMO_VKONUM.ReadOnly = true;
+                this.columnPositionID = new global::System.Data.DataColumn("PositionID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPositionID);
+                this.columnProjectID = new global::System.Data.DataColumn("ProjectID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnProjectID);
+                this.columnPosition_OZ = new global::System.Data.DataColumn("Position_OZ", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPosition_OZ);
+                this.columnPositionKZ = new global::System.Data.DataColumn("PositionKZ", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPositionKZ);
+                this.columnLVSection = new global::System.Data.DataColumn("LVSection", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLVSection);
+                this.columnDetailKZ = new global::System.Data.DataColumn("DetailKZ", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDetailKZ);
+                this.columnEP = new global::System.Data.DataColumn("EP", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEP);
+                this.columnFinalGB = new global::System.Data.DataColumn("FinalGB", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFinalGB);
+                this.columnMenge = new global::System.Data.DataColumn("Menge", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMenge);
+                this.columnME = new global::System.Data.DataColumn("ME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnME);
+                this.columnMA_verkaufspreis = new global::System.Data.DataColumn("MA_verkaufspreis", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMA_verkaufspreis);
+                this.columnMO_verkaufspreis = new global::System.Data.DataColumn("MO_verkaufspreis", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnMO_verkaufspreis);
+                this.columnKurzText = new global::System.Data.DataColumn("KurzText", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnKurzText);
+                this.columnLangText = new global::System.Data.DataColumn("LangText", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnLangText);
+                this.columnPreisText = new global::System.Data.DataColumn("PreisText", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPreisText);
+                this.columnTitle1ID = new global::System.Data.DataColumn("Title1ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle1ID);
+                this.columnTitle1 = new global::System.Data.DataColumn("Title1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle1);
+                this.columnTitle1Desc = new global::System.Data.DataColumn("Title1Desc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle1Desc);
+                this.columnTitle2ID = new global::System.Data.DataColumn("Title2ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle2ID);
+                this.columnTitle2 = new global::System.Data.DataColumn("Title2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle2);
+                this.columnTitle2Desc = new global::System.Data.DataColumn("Title2Desc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle2Desc);
+                this.columnTitle3ID = new global::System.Data.DataColumn("Title3ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle3ID);
+                this.columnTitle3 = new global::System.Data.DataColumn("Title3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle3);
+                this.columnTitle3Desc = new global::System.Data.DataColumn("Title3Desc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle3Desc);
+                this.columnTitle4ID = new global::System.Data.DataColumn("Title4ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle4ID);
+                this.columnTitle4 = new global::System.Data.DataColumn("Title4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle4);
+                this.columnTitle4Desc = new global::System.Data.DataColumn("Title4Desc", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTitle4Desc);
+                this.columnPositionID.AutoIncrement = true;
+                this.columnPositionID.AutoIncrementSeed = -1;
+                this.columnPositionID.AutoIncrementStep = -1;
+                this.columnPositionID.AllowDBNull = false;
+                this.columnPositionID.ReadOnly = true;
+                this.columnProjectID.AllowDBNull = false;
+                this.columnPosition_OZ.AllowDBNull = false;
+                this.columnPosition_OZ.MaxLength = 100;
+                this.columnPositionKZ.MaxLength = 10;
+                this.columnLVSection.MaxLength = 10;
+                this.columnEP.ReadOnly = true;
+                this.columnFinalGB.ReadOnly = true;
+                this.columnMenge.ReadOnly = true;
+                this.columnME.MaxLength = 50;
+                this.columnMA_verkaufspreis.ReadOnly = true;
+                this.columnMO_verkaufspreis.ReadOnly = true;
+                this.columnKurzText.ReadOnly = true;
+                this.columnKurzText.MaxLength = 2147483647;
+                this.columnLangText.ReadOnly = true;
+                this.columnLangText.MaxLength = 2147483647;
+                this.columnPreisText.ReadOnly = true;
+                this.columnPreisText.MaxLength = 200;
+                this.columnTitle1ID.ReadOnly = true;
+                this.columnTitle1.MaxLength = 100;
+                this.columnTitle1Desc.MaxLength = 2147483647;
+                this.columnTitle2ID.ReadOnly = true;
+                this.columnTitle2.MaxLength = 100;
+                this.columnTitle2Desc.MaxLength = 2147483647;
+                this.columnTitle3ID.ReadOnly = true;
+                this.columnTitle3.MaxLength = 100;
+                this.columnTitle3Desc.MaxLength = 2147483647;
+                this.columnTitle4ID.ReadOnly = true;
+                this.columnTitle4.MaxLength = 100;
+                this.columnTitle4Desc.MaxLength = 2147483647;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRow NewP_Rpt_QuerCalculationRow() {
-                return ((P_Rpt_QuerCalculationRow)(this.NewRow()));
+            public P_Rpt_PositionForProposalPriceRow NewP_Rpt_PositionForProposalPriceRow() {
+                return ((P_Rpt_PositionForProposalPriceRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new P_Rpt_QuerCalculationRow(builder);
+                return new P_Rpt_PositionForProposalPriceRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(P_Rpt_QuerCalculationRow);
+                return typeof(P_Rpt_PositionForProposalPriceRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.P_Rpt_QuerCalculationRowChanged != null)) {
-                    this.P_Rpt_QuerCalculationRowChanged(this, new P_Rpt_QuerCalculationRowChangeEvent(((P_Rpt_QuerCalculationRow)(e.Row)), e.Action));
+                if ((this.P_Rpt_PositionForProposalPriceRowChanged != null)) {
+                    this.P_Rpt_PositionForProposalPriceRowChanged(this, new P_Rpt_PositionForProposalPriceRowChangeEvent(((P_Rpt_PositionForProposalPriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -577,8 +850,8 @@ namespace OTTOPro.Report_Design {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.P_Rpt_QuerCalculationRowChanging != null)) {
-                    this.P_Rpt_QuerCalculationRowChanging(this, new P_Rpt_QuerCalculationRowChangeEvent(((P_Rpt_QuerCalculationRow)(e.Row)), e.Action));
+                if ((this.P_Rpt_PositionForProposalPriceRowChanging != null)) {
+                    this.P_Rpt_PositionForProposalPriceRowChanging(this, new P_Rpt_PositionForProposalPriceRowChangeEvent(((P_Rpt_PositionForProposalPriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -586,8 +859,8 @@ namespace OTTOPro.Report_Design {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.P_Rpt_QuerCalculationRowDeleted != null)) {
-                    this.P_Rpt_QuerCalculationRowDeleted(this, new P_Rpt_QuerCalculationRowChangeEvent(((P_Rpt_QuerCalculationRow)(e.Row)), e.Action));
+                if ((this.P_Rpt_PositionForProposalPriceRowDeleted != null)) {
+                    this.P_Rpt_PositionForProposalPriceRowDeleted(this, new P_Rpt_PositionForProposalPriceRowChangeEvent(((P_Rpt_PositionForProposalPriceRow)(e.Row)), e.Action));
                 }
             }
             
@@ -595,14 +868,14 @@ namespace OTTOPro.Report_Design {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.P_Rpt_QuerCalculationRowDeleting != null)) {
-                    this.P_Rpt_QuerCalculationRowDeleting(this, new P_Rpt_QuerCalculationRowChangeEvent(((P_Rpt_QuerCalculationRow)(e.Row)), e.Action));
+                if ((this.P_Rpt_PositionForProposalPriceRowDeleting != null)) {
+                    this.P_Rpt_PositionForProposalPriceRowDeleting(this, new P_Rpt_PositionForProposalPriceRowChangeEvent(((P_Rpt_PositionForProposalPriceRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveP_Rpt_QuerCalculationRow(P_Rpt_QuerCalculationRow row) {
+            public void RemoveP_Rpt_PositionForProposalPriceRow(P_Rpt_PositionForProposalPriceRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -611,7 +884,7 @@ namespace OTTOPro.Report_Design {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsQuerKalculation ds = new dsQuerKalculation();
+                dsProposal ds = new dsProposal();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -629,7 +902,7 @@ namespace OTTOPro.Report_Design {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "P_Rpt_QuerCalculationDataTable";
+                attribute2.FixedValue = "P_Rpt_PositionForProposalPriceDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -673,323 +946,742 @@ namespace OTTOPro.Report_Design {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class P_Rpt_QuerCalculationRow : global::System.Data.DataRow {
+        public partial class P_Rpt_PositionForProposalPriceRow : global::System.Data.DataRow {
             
-            private P_Rpt_QuerCalculationDataTable tableP_Rpt_QuerCalculation;
+            private P_Rpt_PositionForProposalPriceDataTable tableP_Rpt_PositionForProposalPrice;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal P_Rpt_QuerCalculationRow(global::System.Data.DataRowBuilder rb) : 
+            internal P_Rpt_PositionForProposalPriceRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableP_Rpt_QuerCalculation = ((P_Rpt_QuerCalculationDataTable)(this.Table));
+                this.tableP_Rpt_PositionForProposalPrice = ((P_Rpt_PositionForProposalPriceDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MA_EK {
+            public int PositionID {
+                get {
+                    return ((int)(this[this.tableP_Rpt_PositionForProposalPrice.PositionIDColumn]));
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.PositionIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int ProjectID {
+                get {
+                    return ((int)(this[this.tableP_Rpt_PositionForProposalPrice.ProjectIDColumn]));
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.ProjectIDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Position_OZ {
+                get {
+                    return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Position_OZColumn]));
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Position_OZColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string PositionKZ {
                 get {
                     try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MA_EKColumn]));
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.PositionKZColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MA_EK\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'PositionKZ\' in table \'P_Rpt_PositionForProposalPrice\' is DB" +
+                                "Null.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.MA_EKColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.PositionKZColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MA_VK {
+            public string LVSection {
                 get {
                     try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MA_VKColumn]));
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.LVSectionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MA_VK\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LVSection\' in table \'P_Rpt_PositionForProposalPrice\' is DBN" +
+                                "ull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.MA_VKColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.LVSectionColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MO_EK {
+            public int DetailKZ {
                 get {
                     try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MO_EKColumn]));
+                        return ((int)(this[this.tableP_Rpt_PositionForProposalPrice.DetailKZColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MO_EK\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DetailKZ\' in table \'P_Rpt_PositionForProposalPrice\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.MO_EKColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.DetailKZColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MO_VK {
+            public decimal EP {
                 get {
                     try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MO_VKColumn]));
+                        return ((decimal)(this[this.tableP_Rpt_PositionForProposalPrice.EPColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MO_VK\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'EP\' in table \'P_Rpt_PositionForProposalPrice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.MO_VKColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.EPColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string WG {
+            public decimal FinalGB {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_QuerCalculation.WGColumn]));
+                        return ((decimal)(this[this.tableP_Rpt_PositionForProposalPrice.FinalGBColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WG\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'FinalGB\' in table \'P_Rpt_PositionForProposalPrice\' is DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.WGColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.FinalGBColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string WA {
+            public decimal Menge {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_QuerCalculation.WAColumn]));
+                        return ((decimal)(this[this.tableP_Rpt_PositionForProposalPrice.MengeColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WA\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Menge\' in table \'P_Rpt_PositionForProposalPrice\' is DBNull." +
+                                "", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.WAColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.MengeColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string WADESCRIPTION {
+            public string ME {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_QuerCalculation.WADESCRIPTIONColumn]));
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.MEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WADESCRIPTION\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ME\' in table \'P_Rpt_PositionForProposalPrice\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.WADESCRIPTIONColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.MEColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int WGID {
+            public decimal MA_verkaufspreis {
                 get {
                     try {
-                        return ((int)(this[this.tableP_Rpt_QuerCalculation.WGIDColumn]));
+                        return ((decimal)(this[this.tableP_Rpt_PositionForProposalPrice.MA_verkaufspreisColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'WGID\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MA_verkaufspreis\' in table \'P_Rpt_PositionForProposalPrice\'" +
+                                " is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.WGIDColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.MA_verkaufspreisColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string LIEFR {
+            public decimal MO_verkaufspreis {
                 get {
                     try {
-                        return ((string)(this[this.tableP_Rpt_QuerCalculation.LIEFRColumn]));
+                        return ((decimal)(this[this.tableP_Rpt_PositionForProposalPrice.MO_verkaufspreisColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'LIEFR\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'MO_verkaufspreis\' in table \'P_Rpt_PositionForProposalPrice\'" +
+                                " is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.LIEFRColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.MO_verkaufspreisColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MA_VKONUM {
+            public string KurzText {
                 get {
                     try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MA_VKONUMColumn]));
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.KurzTextColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MA_VKONUM\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'KurzText\' in table \'P_Rpt_PositionForProposalPrice\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.MA_VKONUMColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.KurzTextColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public decimal MO_VKONUM {
+            public string LangText {
                 get {
                     try {
-                        return ((decimal)(this[this.tableP_Rpt_QuerCalculation.MO_VKONUMColumn]));
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.LangTextColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MO_VKONUM\' in table \'P_Rpt_QuerCalculation\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'LangText\' in table \'P_Rpt_PositionForProposalPrice\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tableP_Rpt_QuerCalculation.MO_VKONUMColumn] = value;
+                    this[this.tableP_Rpt_PositionForProposalPrice.LangTextColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMA_EKNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MA_EKColumn);
+            public string PreisText {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.PreisTextColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PreisText\' in table \'P_Rpt_PositionForProposalPrice\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.PreisTextColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMA_EKNull() {
-                this[this.tableP_Rpt_QuerCalculation.MA_EKColumn] = global::System.Convert.DBNull;
+            public int Title1ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableP_Rpt_PositionForProposalPrice.Title1IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title1ID\' in table \'P_Rpt_PositionForProposalPrice\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title1IDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMA_VKNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MA_VKColumn);
+            public string Title1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Title1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title1\' in table \'P_Rpt_PositionForProposalPrice\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title1Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMA_VKNull() {
-                this[this.tableP_Rpt_QuerCalculation.MA_VKColumn] = global::System.Convert.DBNull;
+            public string Title1Desc {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Title1DescColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title1Desc\' in table \'P_Rpt_PositionForProposalPrice\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title1DescColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMO_EKNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MO_EKColumn);
+            public int Title2ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableP_Rpt_PositionForProposalPrice.Title2IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title2ID\' in table \'P_Rpt_PositionForProposalPrice\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title2IDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMO_EKNull() {
-                this[this.tableP_Rpt_QuerCalculation.MO_EKColumn] = global::System.Convert.DBNull;
+            public string Title2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Title2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title2\' in table \'P_Rpt_PositionForProposalPrice\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title2Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMO_VKNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MO_VKColumn);
+            public string Title2Desc {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Title2DescColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title2Desc\' in table \'P_Rpt_PositionForProposalPrice\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title2DescColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMO_VKNull() {
-                this[this.tableP_Rpt_QuerCalculation.MO_VKColumn] = global::System.Convert.DBNull;
+            public int Title3ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableP_Rpt_PositionForProposalPrice.Title3IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title3ID\' in table \'P_Rpt_PositionForProposalPrice\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title3IDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWGNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.WGColumn);
+            public string Title3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Title3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title3\' in table \'P_Rpt_PositionForProposalPrice\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title3Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWGNull() {
-                this[this.tableP_Rpt_QuerCalculation.WGColumn] = global::System.Convert.DBNull;
+            public string Title3Desc {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Title3DescColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title3Desc\' in table \'P_Rpt_PositionForProposalPrice\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title3DescColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWANull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.WAColumn);
+            public int Title4ID {
+                get {
+                    try {
+                        return ((int)(this[this.tableP_Rpt_PositionForProposalPrice.Title4IDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title4ID\' in table \'P_Rpt_PositionForProposalPrice\' is DBNu" +
+                                "ll.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title4IDColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWANull() {
-                this[this.tableP_Rpt_QuerCalculation.WAColumn] = global::System.Convert.DBNull;
+            public string Title4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Title4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title4\' in table \'P_Rpt_PositionForProposalPrice\' is DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title4Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWADESCRIPTIONNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.WADESCRIPTIONColumn);
+            public string Title4Desc {
+                get {
+                    try {
+                        return ((string)(this[this.tableP_Rpt_PositionForProposalPrice.Title4DescColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Title4Desc\' in table \'P_Rpt_PositionForProposalPrice\' is DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableP_Rpt_PositionForProposalPrice.Title4DescColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWADESCRIPTIONNull() {
-                this[this.tableP_Rpt_QuerCalculation.WADESCRIPTIONColumn] = global::System.Convert.DBNull;
+            public bool IsPositionKZNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.PositionKZColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsWGIDNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.WGIDColumn);
+            public void SetPositionKZNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.PositionKZColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetWGIDNull() {
-                this[this.tableP_Rpt_QuerCalculation.WGIDColumn] = global::System.Convert.DBNull;
+            public bool IsLVSectionNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.LVSectionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsLIEFRNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.LIEFRColumn);
+            public void SetLVSectionNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.LVSectionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetLIEFRNull() {
-                this[this.tableP_Rpt_QuerCalculation.LIEFRColumn] = global::System.Convert.DBNull;
+            public bool IsDetailKZNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.DetailKZColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMA_VKONUMNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MA_VKONUMColumn);
+            public void SetDetailKZNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.DetailKZColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMA_VKONUMNull() {
-                this[this.tableP_Rpt_QuerCalculation.MA_VKONUMColumn] = global::System.Convert.DBNull;
+            public bool IsEPNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.EPColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsMO_VKONUMNull() {
-                return this.IsNull(this.tableP_Rpt_QuerCalculation.MO_VKONUMColumn);
+            public void SetEPNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.EPColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetMO_VKONUMNull() {
-                this[this.tableP_Rpt_QuerCalculation.MO_VKONUMColumn] = global::System.Convert.DBNull;
+            public bool IsFinalGBNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.FinalGBColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetFinalGBNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.FinalGBColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMengeNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.MengeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMengeNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.MengeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMENull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.MEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMENull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.MEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMA_verkaufspreisNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.MA_verkaufspreisColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMA_verkaufspreisNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.MA_verkaufspreisColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsMO_verkaufspreisNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.MO_verkaufspreisColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetMO_verkaufspreisNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.MO_verkaufspreisColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsKurzTextNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.KurzTextColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetKurzTextNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.KurzTextColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsLangTextNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.LangTextColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetLangTextNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.LangTextColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsPreisTextNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.PreisTextColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetPreisTextNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.PreisTextColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle1IDNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title1IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle1IDNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title1IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle1Null() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle1Null() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle1DescNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title1DescColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle1DescNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title1DescColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle2IDNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title2IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle2IDNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title2IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle2Null() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle2Null() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle2DescNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title2DescColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle2DescNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title2DescColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle3IDNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title3IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle3IDNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title3IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle3Null() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle3Null() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle3DescNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title3DescColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle3DescNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title3DescColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle4IDNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title4IDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle4IDNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title4IDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle4Null() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle4Null() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title4Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsTitle4DescNull() {
+                return this.IsNull(this.tableP_Rpt_PositionForProposalPrice.Title4DescColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetTitle4DescNull() {
+                this[this.tableP_Rpt_PositionForProposalPrice.Title4DescColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -997,22 +1689,22 @@ namespace OTTOPro.Report_Design {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class P_Rpt_QuerCalculationRowChangeEvent : global::System.EventArgs {
+        public class P_Rpt_PositionForProposalPriceRowChangeEvent : global::System.EventArgs {
             
-            private P_Rpt_QuerCalculationRow eventRow;
+            private P_Rpt_PositionForProposalPriceRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRowChangeEvent(P_Rpt_QuerCalculationRow row, global::System.Data.DataRowAction action) {
+            public P_Rpt_PositionForProposalPriceRowChangeEvent(P_Rpt_PositionForProposalPriceRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public P_Rpt_QuerCalculationRow Row {
+            public P_Rpt_PositionForProposalPriceRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1028,7 +1720,7 @@ namespace OTTOPro.Report_Design {
         }
     }
 }
-namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
+namespace OTTOPro.Report_Design.dsProposalTableAdapters {
     
     
     /// <summary>
@@ -1040,7 +1732,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class P_Rpt_QuerCalculationTableAdapter : global::System.ComponentModel.Component {
+    public partial class P_Rpt_PositionForProposalPriceTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1054,7 +1746,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public P_Rpt_QuerCalculationTableAdapter() {
+        public P_Rpt_PositionForProposalPriceTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1151,18 +1843,34 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "P_Rpt_QuerCalculation";
-            tableMapping.ColumnMappings.Add("MA_EK", "MA_EK");
-            tableMapping.ColumnMappings.Add("MA_VK", "MA_VK");
-            tableMapping.ColumnMappings.Add("MO_EK", "MO_EK");
-            tableMapping.ColumnMappings.Add("MO_VK", "MO_VK");
-            tableMapping.ColumnMappings.Add("WG", "WG");
-            tableMapping.ColumnMappings.Add("WA", "WA");
-            tableMapping.ColumnMappings.Add("WADESCRIPTION", "WADESCRIPTION");
-            tableMapping.ColumnMappings.Add("WGID", "WGID");
-            tableMapping.ColumnMappings.Add("LIEFR", "LIEFR");
-            tableMapping.ColumnMappings.Add("MA_VKONUM", "MA_VKONUM");
-            tableMapping.ColumnMappings.Add("MO_VKONUM", "MO_VKONUM");
+            tableMapping.DataSetTable = "P_Rpt_PositionForProposalPrice";
+            tableMapping.ColumnMappings.Add("PositionID", "PositionID");
+            tableMapping.ColumnMappings.Add("ProjectID", "ProjectID");
+            tableMapping.ColumnMappings.Add("Position_OZ", "Position_OZ");
+            tableMapping.ColumnMappings.Add("PositionKZ", "PositionKZ");
+            tableMapping.ColumnMappings.Add("LVSection", "LVSection");
+            tableMapping.ColumnMappings.Add("DetailKZ", "DetailKZ");
+            tableMapping.ColumnMappings.Add("EP", "EP");
+            tableMapping.ColumnMappings.Add("FinalGB", "FinalGB");
+            tableMapping.ColumnMappings.Add("Menge", "Menge");
+            tableMapping.ColumnMappings.Add("ME", "ME");
+            tableMapping.ColumnMappings.Add("MA_verkaufspreis", "MA_verkaufspreis");
+            tableMapping.ColumnMappings.Add("MO_verkaufspreis", "MO_verkaufspreis");
+            tableMapping.ColumnMappings.Add("KurzText", "KurzText");
+            tableMapping.ColumnMappings.Add("LangText", "LangText");
+            tableMapping.ColumnMappings.Add("PreisText", "PreisText");
+            tableMapping.ColumnMappings.Add("Title1ID", "Title1ID");
+            tableMapping.ColumnMappings.Add("Title1", "Title1");
+            tableMapping.ColumnMappings.Add("Title1Desc", "Title1Desc");
+            tableMapping.ColumnMappings.Add("Title2ID", "Title2ID");
+            tableMapping.ColumnMappings.Add("Title2", "Title2");
+            tableMapping.ColumnMappings.Add("Title2Desc", "Title2Desc");
+            tableMapping.ColumnMappings.Add("Title3ID", "Title3ID");
+            tableMapping.ColumnMappings.Add("Title3", "Title3");
+            tableMapping.ColumnMappings.Add("Title3Desc", "Title3Desc");
+            tableMapping.ColumnMappings.Add("Title4ID", "Title4ID");
+            tableMapping.ColumnMappings.Add("Title4", "Title4");
+            tableMapping.ColumnMappings.Add("Title4Desc", "Title4Desc");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -1179,12 +1887,12 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "dbo.P_Rpt_QuerCalculation";
+            this._commandCollection[0].CommandText = "dbo.P_Rpt_PositionForProposalPrice";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Position_OZ_Table", global::System.Data.SqlDbType.Structured, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProjectID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Type", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LVSection", global::System.Data.SqlDbType.NVarChar, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
@@ -1192,7 +1900,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(dsQuerKalculation.P_Rpt_QuerCalculationDataTable dataTable, object Position_OZ_Table, global::System.Nullable<int> ProjectID, string Type, string LVSection) {
+        public virtual int Fill(dsProposal.P_Rpt_PositionForProposalPriceDataTable dataTable, object Position_OZ_Table, global::System.Nullable<int> ProjectID, string Type, string LVSection) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Position_OZ_Table == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1229,7 +1937,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual dsQuerKalculation.P_Rpt_QuerCalculationDataTable GetData(object Position_OZ_Table, global::System.Nullable<int> ProjectID, string Type, string LVSection) {
+        public virtual dsProposal.P_Rpt_PositionForProposalPriceDataTable GetData(object Position_OZ_Table, global::System.Nullable<int> ProjectID, string Type, string LVSection) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((Position_OZ_Table == null)) {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1255,7 +1963,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
             else {
                 this.Adapter.SelectCommand.Parameters[4].Value = ((string)(LVSection));
             }
-            dsQuerKalculation.P_Rpt_QuerCalculationDataTable dataTable = new dsQuerKalculation.P_Rpt_QuerCalculationDataTable();
+            dsProposal.P_Rpt_PositionForProposalPriceDataTable dataTable = new dsProposal.P_Rpt_PositionForProposalPriceDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1329,7 +2037,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(dsQuerKalculation dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(dsProposal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1339,7 +2047,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(dsQuerKalculation dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(dsProposal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             return result;
         }
@@ -1349,7 +2057,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(dsQuerKalculation dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(dsProposal dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             return result;
         }
@@ -1383,7 +2091,7 @@ namespace OTTOPro.Report_Design.dsQuerKalculationTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(dsQuerKalculation dataSet) {
+        public virtual int UpdateAll(dsProposal dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

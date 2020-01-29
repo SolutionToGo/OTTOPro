@@ -157,6 +157,8 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@NonePos", ObjEReportDesign.NonePos);
                     cmd.Parameters.AddWithValue("@WithDetKZ", ObjEReportDesign.WithDetailKZ);
                     cmd.Parameters.AddWithValue("@WithTitlePrices", ObjEReportDesign.WithTitlePrices);
+                    cmd.Parameters.AddWithValue("@OnheMengeZeroPositions", ObjEReportDesign.OnheMengeZeroPositions);
+                    cmd.Parameters.AddWithValue("@OnheMontagePrice", ObjEReportDesign.OnheMontagePrice);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsReportSetting);
@@ -222,5 +224,30 @@ namespace DataAccess
             return dsReportSetting;
         }
 
+        public DataTable GetProjectCustomerDetails(int ProjectID)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Rpt_ProjectAndCustomerAndOTTODetails]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                        da.Fill(dt);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return dt;
+        }
     }
 }

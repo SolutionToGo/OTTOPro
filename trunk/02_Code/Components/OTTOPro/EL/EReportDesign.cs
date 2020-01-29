@@ -140,5 +140,7 @@ namespace EL
         public bool NonePos;
         public bool WithDetailKZ;
         public bool WithTitlePrices;
+        public bool OnheMengeZeroPositions;
+        public bool OnheMontagePrice;
     }
 }

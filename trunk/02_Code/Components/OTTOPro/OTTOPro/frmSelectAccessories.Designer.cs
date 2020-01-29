@@ -37,6 +37,8 @@
             this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn3 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn4 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -72,7 +74,7 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(725, 415);
+            this.layoutControl1.Size = new System.Drawing.Size(1054, 455);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -81,9 +83,9 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnCancel.Location = new System.Drawing.Point(557, 381);
+            this.btnCancel.Location = new System.Drawing.Point(811, 421);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(80, 22);
+            this.btnCancel.Size = new System.Drawing.Size(119, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 8;
             this.btnCancel.Text = "Abbrechen";
@@ -93,9 +95,9 @@
             // 
             this.btnOK.ImageOptions.Image = global::OTTOPro.Properties.Resources.Apply_16x16;
             this.btnOK.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnOK.Location = new System.Drawing.Point(641, 381);
+            this.btnOK.Location = new System.Drawing.Point(934, 421);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(72, 22);
+            this.btnOK.Size = new System.Drawing.Size(108, 22);
             this.btnOK.StyleController = this.layoutControl1;
             this.btnOK.TabIndex = 7;
             this.btnOK.Text = "Ok";
@@ -108,7 +110,7 @@
             this.gcArticles.Name = "gcArticles";
             this.gcArticles.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.rpMenge});
-            this.gcArticles.Size = new System.Drawing.Size(701, 365);
+            this.gcArticles.Size = new System.Drawing.Size(1030, 405);
             this.gcArticles.TabIndex = 6;
             this.gcArticles.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvArticles,
@@ -125,6 +127,8 @@
             this.gridColumn2,
             this.gridColumn3,
             this.gridColumn4,
+            this.gridColumn10,
+            this.gridColumn9,
             this.gridColumn5,
             this.gridColumn6,
             this.gridColumn7,
@@ -150,6 +154,7 @@
             this.gridColumn2.OptionsColumn.AllowEdit = false;
             this.gridColumn2.Visible = true;
             this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 77;
             // 
             // gridColumn3
             // 
@@ -159,6 +164,7 @@
             this.gridColumn3.OptionsColumn.AllowEdit = false;
             this.gridColumn3.Visible = true;
             this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 83;
             // 
             // gridColumn4
             // 
@@ -168,6 +174,27 @@
             this.gridColumn4.OptionsColumn.AllowEdit = false;
             this.gridColumn4.Visible = true;
             this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 91;
+            // 
+            // gridColumn10
+            // 
+            this.gridColumn10.Caption = "WA Beschreibung";
+            this.gridColumn10.FieldName = "WADescription";
+            this.gridColumn10.Name = "gridColumn10";
+            this.gridColumn10.OptionsColumn.AllowEdit = false;
+            this.gridColumn10.Visible = true;
+            this.gridColumn10.VisibleIndex = 3;
+            this.gridColumn10.Width = 155;
+            // 
+            // gridColumn9
+            // 
+            this.gridColumn9.Caption = "WI Beschreibung";
+            this.gridColumn9.FieldName = "WIDescription";
+            this.gridColumn9.Name = "gridColumn9";
+            this.gridColumn9.OptionsColumn.AllowEdit = false;
+            this.gridColumn9.Visible = true;
+            this.gridColumn9.VisibleIndex = 4;
+            this.gridColumn9.Width = 149;
             // 
             // gridColumn5
             // 
@@ -176,7 +203,8 @@
             this.gridColumn5.Name = "gridColumn5";
             this.gridColumn5.OptionsColumn.AllowEdit = false;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.VisibleIndex = 5;
+            this.gridColumn5.Width = 129;
             // 
             // gridColumn6
             // 
@@ -185,7 +213,8 @@
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.VisibleIndex = 6;
+            this.gridColumn6.Width = 113;
             // 
             // gridColumn7
             // 
@@ -194,7 +223,8 @@
             this.gridColumn7.Name = "gridColumn7";
             this.gridColumn7.OptionsColumn.AllowEdit = false;
             this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 5;
+            this.gridColumn7.VisibleIndex = 7;
+            this.gridColumn7.Width = 96;
             // 
             // gridColumn8
             // 
@@ -203,7 +233,8 @@
             this.gridColumn8.FieldName = "MENGE";
             this.gridColumn8.Name = "gridColumn8";
             this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 6;
+            this.gridColumn8.VisibleIndex = 8;
+            this.gridColumn8.Width = 119;
             // 
             // rpMenge
             // 
@@ -229,7 +260,7 @@
             this.emptySpaceItem1,
             this.layoutControlItem2});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(725, 415);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1054, 455);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -237,33 +268,33 @@
             this.layoutControlItem1.Control = this.gcArticles;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(705, 369);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1034, 409);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(545, 369);
+            this.layoutControlItem3.Location = new System.Drawing.Point(799, 409);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(84, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(123, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 369);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 409);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(545, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(799, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnOK;
-            this.layoutControlItem2.Location = new System.Drawing.Point(629, 369);
+            this.layoutControlItem2.Location = new System.Drawing.Point(922, 409);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(76, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(112, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -272,7 +303,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(725, 415);
+            this.ClientSize = new System.Drawing.Size(1054, 455);
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -320,5 +351,7 @@
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem3;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn10;
+        private DevExpress.XtraGrid.Columns.GridColumn gridColumn9;
     }
 }

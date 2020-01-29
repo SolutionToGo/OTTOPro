@@ -100,6 +100,9 @@ namespace EL
             get { return _dtSupplierMail; }
             set { _dtSupplierMail = value; }
         }
+
+        public DataTable dtSupplier_SP = new DataTable();
+
         public DataTable PID = new DataTable();
         // Article Properties and entities
         public int WGWAID
@@ -127,6 +130,8 @@ namespace EL
             get { return _dtArticle; }
             set { _dtArticle = value; }
         }
+
+        public DataTable dtArticleID = new DataTable();
         public DataSet Article
         {
             get { return _Articles; }
@@ -320,13 +325,21 @@ namespace EL
             get { return _dtAddress; }
             set { _dtAddress = value; }
         }
-        public DataTable dtProposal
-        {
-            get { return _dtProposal; }
-            set { _dtProposal = value; }
-        }
+        public DataSet dsProposal = new DataSet();
+
+        public DataSet dsProposalNumbers = new DataSet();
+
+        public DataTable dtProposalArticles = new DataTable();
 
         public DataTable dtSupplierProposal = null;
+
+        public DataTable dtPositionsToDB = new DataTable();
+
+        public DataTable dtDeletedPositionsToDB = new DataTable();
+
+        public DataTable dtSupplierToDB = new DataTable();
+
+        public DataTable dtProposedArticles = new DataTable();
 
         public DataTable dtPositions
         {

@@ -132,7 +132,7 @@ namespace OTTOPro
             // 
             // gridColumn10
             // 
-            this.gridColumn10.Caption = "WG escription";
+            this.gridColumn10.Caption = "WG Beschreibung";
             this.gridColumn10.FieldName = "WGDescription";
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.OptionsColumn.AllowEdit = false;
@@ -152,7 +152,7 @@ namespace OTTOPro
             // 
             // gridColumn12
             // 
-            this.gridColumn12.Caption = "WA Description";
+            this.gridColumn12.Caption = "WA Beschreibung";
             this.gridColumn12.FieldName = "WADescription";
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.OptionsColumn.AllowEdit = false;
@@ -172,7 +172,7 @@ namespace OTTOPro
             // 
             // gridColumn14
             // 
-            this.gridColumn14.Caption = "WI Description";
+            this.gridColumn14.Caption = "WI Beschreibung";
             this.gridColumn14.FieldName = "WIDescription";
             this.gridColumn14.Name = "gridColumn14";
             this.gridColumn14.OptionsColumn.AllowEdit = false;
@@ -239,7 +239,7 @@ namespace OTTOPro
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "WG Description";
+            this.gridColumn2.Caption = "WG Beschreibung";
             this.gridColumn2.FieldName = "WGDescription";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;
@@ -259,7 +259,7 @@ namespace OTTOPro
             // 
             // gridColumn4
             // 
-            this.gridColumn4.Caption = "WA Description";
+            this.gridColumn4.Caption = "WA Beschreibung";
             this.gridColumn4.FieldName = "WADescription";
             this.gridColumn4.Name = "gridColumn4";
             this.gridColumn4.OptionsColumn.AllowEdit = false;
@@ -279,7 +279,7 @@ namespace OTTOPro
             // 
             // gridColumn6
             // 
-            this.gridColumn6.Caption = "WI Description";
+            this.gridColumn6.Caption = "WI Beschreibung";
             this.gridColumn6.FieldName = "WIDescription";
             this.gridColumn6.Name = "gridColumn6";
             this.gridColumn6.OptionsColumn.AllowEdit = false;

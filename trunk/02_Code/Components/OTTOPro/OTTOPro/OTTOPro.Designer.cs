@@ -755,6 +755,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label1
             // 
@@ -766,7 +767,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(221, 17);
             this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.5.3.1 (19.12.2019)";
+            this.label1.Text = "Version Software 9.5.5.1 (28.01.2020)";
             // 
             // fdImportFile
             // 

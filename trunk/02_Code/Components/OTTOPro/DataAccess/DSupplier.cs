@@ -285,6 +285,106 @@ namespace DataAccess
             return dsWGWA;
         }
 
+        public ESupplier GetPositionsforsupplierProposal(ESupplier ObjESupplier)
+        {
+            DataSet dsPositions = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_PositionsForSsupplierProposal]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@dtArticleID", ObjESupplier.dtArticleID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsPositions);
+                    }
+                    if (dsPositions != null && dsPositions.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtNewPositions = dsPositions.Tables[0];
+                        if (dsPositions.Tables.Count > 1)
+                        {
+                            ObjESupplier.dtSupplier_SP = dsPositions.Tables[1];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der Daten");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving records");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier GetPositionsByProposalID(ESupplier ObjESupplier)
+        {
+            DataSet dsPositions = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_PositionsByProposalID]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.ProposalID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsPositions);
+                    }
+                    if (dsPositions != null && dsPositions.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtNewPositions = dsPositions.Tables[0];
+                        if (dsPositions.Tables.Count > 1)
+                        {
+                            ObjESupplier.dtDeletedPositions = dsPositions.Tables[1];
+                            if (dsPositions.Tables.Count > 2)
+                            {
+                                ObjESupplier.dtProposedPositions = dsPositions.Tables[2];
+                                if (dsPositions.Tables.Count > 3)
+                                {
+                                    ObjESupplier.dtSupplier_SP = dsPositions.Tables[3];
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der Daten");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving records");
+
+                }
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
         public DataSet GetLVSectionforProposal(int _Pid)
         {
             DataSet dsWGWA = new DataSet();
@@ -321,7 +421,7 @@ namespace DataAccess
             return dsWGWA;
         }
 
-        public int SaveSupplierProposal(int _Pid, string _LvSection, string wg, string wa, DataTable _dtPosition, DataTable _dtSupplier, DataTable _dtDeletedPositions)
+        public ESupplier SaveSupplierProposal(ESupplier ObjESupplier)
         {
             DataSet ds = new DataSet();
             int ProposalID = -1;
@@ -331,26 +431,28 @@ namespace DataAccess
                 {
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Ins_SupplierProposal]";
-                    cmd.Parameters.AddWithValue("@ProjectID", _Pid);
-                    cmd.Parameters.AddWithValue("@LVSection", _LvSection);
-                    cmd.Parameters.AddWithValue("@WG", wg);
-                    cmd.Parameters.AddWithValue("@WA", wa);
-                    cmd.Parameters.AddWithValue("@dtPositionID", _dtPosition);
-                    cmd.Parameters.AddWithValue("@dtSupplierID", _dtSupplier);
-                    cmd.Parameters.AddWithValue("@dtDeletedPositions", _dtDeletedPositions);
+                    cmd.CommandText = "[P_Ins_SupplierProposal_1]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.ProposalID);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@dtArticleID", ObjESupplier.dtArticleID);
+                    cmd.Parameters.AddWithValue("@dtPositionID", ObjESupplier.dtPositionsToDB);
+                    cmd.Parameters.AddWithValue("@dtSupplierID", ObjESupplier.dtSupplierToDB);
+                    cmd.Parameters.AddWithValue("@dtDeletedPositions", ObjESupplier. dtDeletedPositionsToDB);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(ds);
                     }
-                    string str = ds.Tables[0].Rows[0][0] == DBNull.Value ? "" : ds.Tables[0].Rows[0][0].ToString();
-                    if (!string.IsNullOrEmpty(str))
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
                     {
-                        if (!int.TryParse(str, out ProposalID))
+                        string str = ds.Tables[0].Rows[0][0] == DBNull.Value ? "" : ds.Tables[0].Rows[0][0].ToString();
+                        if (!string.IsNullOrEmpty(str))
                         {
-                            throw new Exception(str);
+                            if (int.TryParse(str, out ProposalID))
+                                ObjESupplier.ProposalID = ProposalID;
+                            else
+                                throw new Exception(str);
                         }
-                           
                     }
                 }
             }
@@ -375,7 +477,7 @@ namespace DataAccess
             {
                 SQLCon.Sqlconn().Close();
             }
-            return ProposalID;
+            return ObjESupplier;
         }
 
         public ESupplier GetProposalNumber(ESupplier ObjESupplier)
@@ -387,17 +489,15 @@ namespace DataAccess
                 {
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_SupplierProposal]";
+                    cmd.CommandText = "[P_Get_SupplierProposal_1]";
                     cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
                     cmd.Parameters.AddWithValue("@LVSsection", ObjESupplier.LVSection);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsWGWA);
                     }
-                    if(dsWGWA != null && dsWGWA.Tables.Count > 0)
-                    {
-                        ObjESupplier.dtProposal = dsWGWA.Tables[0];
-                    }
+                    if(dsWGWA != null)
+                        ObjESupplier.dsProposalNumbers = dsWGWA;
                 }
             }
             catch (Exception ex)
@@ -410,6 +510,46 @@ namespace DataAccess
                 {
                     throw new Exception("Error Occured While Retreiving records");
                 }                    
+            }
+            finally
+            {
+                SQLCon.Sqlconn().Close();
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier GetArticlesForProposal(ESupplier ObjESupplier)
+        {
+            DataSet dsArticle = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ArticleForProposal]";
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsArticle);
+                    }
+                    if (dsArticle != null && dsArticle.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtProposalArticles = dsArticle.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                {
+                    throw new Exception("Fehler beim Laden der Daten");
+                }
+                else
+                {
+                    throw new Exception("Error Occured While Retreiving records");
+                }
             }
             finally
             {
@@ -436,7 +576,7 @@ namespace DataAccess
                     }
                     if (dsWGWA != null && dsWGWA.Tables.Count > 0)
                     {
-                        ObjESupplier.dtProposal = dsWGWA.Tables[0];
+                        ObjESupplier.dsProposal = dsWGWA;
                     }
                 }
             }
@@ -808,7 +948,7 @@ namespace DataAccess
                     {
                         int IValue = 0;
                         if (int.TryParse(Convert.ToString(dsWGWA.Tables[0].Rows[0][0]), out IValue))
-                            ObjESupplier.dtProposal = dsWGWA.Tables[0];
+                            ObjESupplier.dsProposal = dsWGWA;
                         else
                             throw new Exception(Convert.ToString(dsWGWA.Tables[0].Rows[0][0]));
                     }

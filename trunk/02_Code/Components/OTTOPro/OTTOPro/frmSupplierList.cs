@@ -65,7 +65,8 @@ namespace OTTOPro
                 if (ObjESupplier == null)
                     ObjESupplier = new ESupplier();
                 int IValue = 0;
-                if (int.TryParse(Convert.ToString(gvSupplier.GetFocusedRowCellValue("SupplierID")), out IValue))
+                if (gvSupplier.FocusedRowHandle >= 0 && 
+                    int.TryParse(Convert.ToString(gvSupplier.GetFocusedRowCellValue("SupplierID")), out IValue))
                 {
                     ObjESupplier.SupplierID = IValue;
                     ObjESupplier = ObjBSupplier.CheckSupplierArticle(ObjESupplier);

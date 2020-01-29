@@ -91,5 +91,17 @@ namespace BL
             }
             return dsReportSetting;
         }
+
+        public DataTable GetProjectCustomerDetails(int ProjectID)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ObjDReportDesign.GetProjectCustomerDetails(ProjectID);
+            }
+            catch (Exception ex) { throw ex; }
+            return dt;
+        }
+
     }
 }

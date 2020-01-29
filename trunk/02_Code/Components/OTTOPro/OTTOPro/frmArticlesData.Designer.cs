@@ -896,6 +896,7 @@
             this.gcWGWA.TabIndex = 4;
             this.gcWGWA.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvWGWA});
+            this.gcWGWA.Click += new System.EventHandler(this.gcWGWA_Click);
             // 
             // gvWGWA
             // 

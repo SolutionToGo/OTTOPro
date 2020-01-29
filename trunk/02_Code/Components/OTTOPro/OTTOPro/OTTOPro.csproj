@@ -571,6 +571,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report Design\dsProposal.cs">
+      <DependentUpon>dsProposal.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\dsProposal.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProposal.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Report Design\dsProposalCommon.cs">
       <DependentUpon>dsProposalCommon.xsd</DependentUpon>
     </Compile>
@@ -591,6 +599,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\dsProposalMinutes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsProposalMinutes.xsd</DependentUpon>
     </Compile>
     <Compile Include="Report Design\dsQuerCalcNew.cs">
       <DependentUpon>dsQuerCalcNew.xsd</DependentUpon>
@@ -663,6 +676,42 @@
     </Compile>
     <Compile Include="Report Design\rptProposalCommon.Designer.cs">
       <DependentUpon>rptProposalCommon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalPositionswithminutes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalPositionswithminutes.Designer.cs">
+      <DependentUpon>rptProposalPositionswithminutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalPositionsWithoutMAMO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalPositionsWithoutMAMO.Designer.cs">
+      <DependentUpon>rptProposalPositionsWithoutMAMO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalSummarywithminutes.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalSummarywithminutes.Designer.cs">
+      <DependentUpon>rptProposalSummarywithminutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalSummaryWithoutMAMO.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalSummaryWithoutMAMO.Designer.cs">
+      <DependentUpon>rptProposalSummaryWithoutMAMO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalSummary.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalSummary.Designer.cs">
+      <DependentUpon>rptProposalSummary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report Design\rptProposalPositions.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report Design\rptProposalPositions.Designer.cs">
+      <DependentUpon>rptProposalPositions.cs</DependentUpon>
     </Compile>
     <Compile Include="Report Design\rptProposalwithoutMAMO.cs">
       <SubType>Component</SubType>
@@ -905,6 +954,24 @@
     <EmbeddedResource Include="Report Design\rptProposalCommon.resx">
       <DependentUpon>rptProposalCommon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalPositionswithminutes.resx">
+      <DependentUpon>rptProposalPositionswithminutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalPositionsWithoutMAMO.resx">
+      <DependentUpon>rptProposalPositionsWithoutMAMO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalSummarywithminutes.resx">
+      <DependentUpon>rptProposalSummarywithminutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalSummaryWithoutMAMO.resx">
+      <DependentUpon>rptProposalSummaryWithoutMAMO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalSummary.resx">
+      <DependentUpon>rptProposalSummary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report Design\rptProposalPositions.resx">
+      <DependentUpon>rptProposalPositions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report Design\rptProposalwithoutMAMO.resx">
       <DependentUpon>rptProposalwithoutMAMO.cs</DependentUpon>
     </EmbeddedResource>
@@ -970,6 +1037,17 @@
     <None Include="Report Design\dsFormBlatt_221_2.xss">
       <DependentUpon>dsFormBlatt_221_2.xsd</DependentUpon>
     </None>
+    <None Include="Report Design\dsProposal.xsc">
+      <DependentUpon>dsProposal.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposal.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProposal.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsProposal.xss">
+      <DependentUpon>dsProposal.xsd</DependentUpon>
+    </None>
     <None Include="Report Design\dsProposalCommon.xsc">
       <DependentUpon>dsProposalCommon.xsd</DependentUpon>
     </None>
@@ -1002,6 +1080,17 @@
     </None>
     <None Include="Report Design\dsProposalCoverPage1.xss">
       <DependentUpon>dsProposalCoverPage1.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalMinutes.xsc">
+      <DependentUpon>dsProposalMinutes.xsd</DependentUpon>
+    </None>
+    <None Include="Report Design\dsProposalMinutes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsProposalMinutes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report Design\dsProposalMinutes.xss">
+      <DependentUpon>dsProposalMinutes.xsd</DependentUpon>
     </None>
     <None Include="Report Design\dsQuerCalcNew.xsc">
       <DependentUpon>dsQuerCalcNew.xsd</DependentUpon>

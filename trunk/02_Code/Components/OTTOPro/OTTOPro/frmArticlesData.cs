@@ -640,5 +640,10 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+
+        private void gcWGWA_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

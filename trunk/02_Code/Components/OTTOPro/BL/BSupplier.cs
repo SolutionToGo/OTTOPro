@@ -143,6 +143,18 @@ namespace BL
             return ObjEsupplier;
         }
 
+        public ESupplier GetPositionsforsupplierProposal(ESupplier ObjESupplier)
+        {
+            try
+            {
+                if (ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+                ObjDSupplier.GetPositionsforsupplierProposal(ObjESupplier);
+            }
+            catch (Exception ex){throw ex;}
+            return ObjESupplier;
+        }
+
         public ESupplier GetLVSectionForProposal(ESupplier ObjEsupplier, int _Pid)
         {
             try
@@ -160,24 +172,50 @@ namespace BL
             return ObjEsupplier;
         }
 
-        public int SaveSupplierProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, string wg, string wa, DataTable _dtPosition, DataTable _dtSupplier, DataTable _dtDeletedPositions)
+        public ESupplier SaveSupplierProposal(ESupplier ObjEsupplier)
         {
             try
             {
-                ObjEsupplier.ProposalID = ObjDSupplier.SaveSupplierProposal(_Pid, _LvSection, wg, wa, _dtPosition, _dtSupplier, _dtDeletedPositions);
+                ObjDSupplier.SaveSupplierProposal(ObjEsupplier);
             }
             catch (Exception ex)
             {
                 throw;
             }
-            return ObjEsupplier.ProposalID;
+            return ObjEsupplier;
         }
 
         public ESupplier GetProposalNumber(ESupplier ObjEsupplier)
         {
             try
             {
-                ObjEsupplier = ObjDSupplier.GetProposalNumber(ObjEsupplier);
+                ObjDSupplier.GetProposalNumber(ObjEsupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjEsupplier;
+        }
+
+        public ESupplier GetPositionsByProposalID(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjDSupplier.GetPositionsByProposalID(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier GetArticlesForProposal(ESupplier ObjEsupplier)
+        {
+            try
+            {
+                ObjEsupplier = ObjDSupplier.GetArticlesForProposal(ObjEsupplier);
             }
             catch (Exception ex)
             {
@@ -311,6 +349,7 @@ namespace BL
             }
             return ObjESupplier;
         }
+
         public ESupplier SaveBulkSelection(ESupplier ObjESupplier)
         {
             try
@@ -432,6 +471,7 @@ namespace BL
             }
             return ObjESupplier;
         }
+
         private ESupplier CalculateCheapestValuesCopy(ESupplier ObjESupplier)
         {
             try

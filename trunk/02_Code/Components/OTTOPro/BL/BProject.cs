@@ -419,6 +419,18 @@ namespace BL
             catch (Exception ex) { throw ex; }
             return st;
         }
+
+        public DataTable GetProjectCustomerDetails(int ProjectID)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                dt = ObjDAL.GetProjectCustomerDetails(ProjectID);
+            }
+            catch (Exception ex) { throw ex; }
+            return dt;
+        }
+
     }
 }
     

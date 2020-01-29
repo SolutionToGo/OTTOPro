@@ -1114,7 +1114,6 @@
             this.DetailReport.DataAdapter = this.p_Rpt_PositionForProposalPriceForCommonTableAdapter;
             this.DetailReport.DataMember = "P_Rpt_PositionForProposalPriceForCommon";
             this.DetailReport.DataSource = this.dsProposalCommon1;
-            this.DetailReport.Expanded = false;
             this.DetailReport.Level = 0;
             this.DetailReport.Name = "DetailReport";
             this.DetailReport.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBand;
@@ -1126,8 +1125,7 @@
             this.xrRichText3,
             this.xrTable2,
             this.xrLangText});
-            this.Detail1.Expanded = false;
-            this.Detail1.HeightF = 78.00013F;
+            this.Detail1.HeightF = 79.54343F;
             this.Detail1.Name = "Detail1";
             // 
             // xrTable7
@@ -1410,7 +1408,6 @@
             this.xrLine2,
             this.xrLine1,
             this.lblGroupSum});
-            this.GroupFooter1.Expanded = false;
             this.GroupFooter1.HeightF = 36.97915F;
             this.GroupFooter1.Name = "GroupFooter1";
             this.GroupFooter1.PageBreak = DevExpress.XtraReports.UI.PageBreak.AfterBand;
@@ -1517,7 +1514,6 @@
             this.xrTable9,
             this.xrTable10,
             this.xrTable11});
-            this.GroupHeader1.Expanded = false;
             this.GroupHeader1.GroupFields.AddRange(new DevExpress.XtraReports.UI.GroupField[] {
             new DevExpress.XtraReports.UI.GroupField("Parent", DevExpress.XtraReports.UI.XRColumnSortOrder.None)});
             this.GroupHeader1.HeightF = 116.04F;
@@ -1799,7 +1795,6 @@
             this.DetailReport1.DataAdapter = this.p_Rpt_GetTotalSummeryTableAdapter;
             this.DetailReport1.DataMember = "P_Rpt_GetTotalSummery";
             this.DetailReport1.DataSource = this.dsProposalCommonTotalSummery1;
-            this.DetailReport1.Expanded = false;
             this.DetailReport1.Level = 1;
             this.DetailReport1.Name = "DetailReport1";
             // 
@@ -1808,7 +1803,6 @@
             this.Detail2.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable3,
             this.xrRichText2});
-            this.Detail2.Expanded = false;
             this.Detail2.HeightF = 55.89574F;
             this.Detail2.Name = "Detail2";
             // 
@@ -2149,7 +2143,6 @@
             // 
             this.PageHeader.Controls.AddRange(new DevExpress.XtraReports.UI.XRControl[] {
             this.xrTable1});
-            this.PageHeader.Expanded = false;
             this.PageHeader.HeightF = 42.68729F;
             this.PageHeader.Name = "PageHeader";
             // 
