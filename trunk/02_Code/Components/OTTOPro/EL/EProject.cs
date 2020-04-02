@@ -386,6 +386,8 @@ namespace EL
         public bool MeVisible = true;
 
         public bool ShowVK = false;
+
+        public object LVSectionID = null;
     }
 }
 

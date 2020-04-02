@@ -188,16 +188,23 @@ namespace OTTOPro
 
         private void frmLoadSupplier_Load(object sender, EventArgs e)
         {
-            if (Utility.SupplierDataAccess == "7")
+            try
             {
-                btnAddAddress.Enabled = false;
-                btnAddArticles.Enabled = false;
-                btnAddContact.Enabled = false;
+                if (Utility.SupplierDataAccess == "7")
+                {
+                    btnAddAddress.Enabled = false;
+                    btnAddArticles.Enabled = false;
+                    btnAddContact.Enabled = false;
+                }
+                ObjESupplier = ObjBSupplier.GetSupplier(ObjESupplier);
+                BindSupplierData();
+                if (ObjESupplier.dtSupplier != null && ObjESupplier.dtSupplier.Rows.Count > 0)
+                    cmbSupplier.EditValue = ObjESupplier.dtSupplier.Rows[0][0];
             }
-            ObjESupplier = ObjBSupplier.GetSupplier(ObjESupplier);
-            BindSupplierData();
-            if (ObjESupplier.dtSupplier != null && ObjESupplier.dtSupplier.Rows.Count > 0)
-                cmbSupplier.EditValue = ObjESupplier.dtSupplier.Rows[0][0];
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
 
         private void Setfocus(GridView view, string _id, int _IdValue)

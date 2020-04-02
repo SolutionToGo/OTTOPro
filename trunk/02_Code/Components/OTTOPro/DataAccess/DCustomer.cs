@@ -53,7 +53,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return CustomerID;
         }
@@ -88,7 +88,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsCustomer;
         }
@@ -126,7 +126,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ContactPersonID;
         }
@@ -175,7 +175,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return AddressID;
         }

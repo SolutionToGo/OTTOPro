@@ -990,6 +990,33 @@ namespace OTTOPro
             return stPosKZ;
         }
 
+        public static void SetCheckedComboexitValue(CheckedComboBoxEdit cntrl, string stDisplayValue)
+        {
+            try
+            {
+                DataTable dt = (DataTable)cntrl.Properties.DataSource;
+                DataTable dttemp = dt.Copy();
+                DataView dv = dttemp.DefaultView;
+                dv.RowFilter = cntrl.Properties.DisplayMember +"= '" + stDisplayValue.Trim() + "'";
+                dttemp = dv.ToTable();
+                object obj = dttemp.Rows[0][cntrl.Properties.ValueMember];
+                if (obj != null)
+                    cntrl.SetEditValue(obj);
+            }
+            catch (Exception ex) { }
+        }
+
+        public static void SetLookupEditValue(LookUpEdit cntrl, string stDisplayValue)
+        {
+            try
+            {
+                DataRowView dr = (DataRowView)cntrl.Properties.GetDataSourceRowByDisplayValue(stDisplayValue);
+                if (dr != null)
+                    cntrl.EditValue = dr[cntrl.Properties.ValueMember];
+            }
+            catch (Exception ex) { }
+        }
+
 
         public static int UserID;
         public static string UserName;
@@ -1019,6 +1046,8 @@ namespace OTTOPro
         public static string InvoiceTextModuleAccessEdit = string.Empty;
         public static string FormBlattArticleMappingAccess = string.Empty;
         public static bool Isclose = false;
+        public static string DBVersion = string.Empty;
+        public static DataTable dtLVStatus = null;
+        public static DataTable dtPositionKZ = null;
     }
-
 }

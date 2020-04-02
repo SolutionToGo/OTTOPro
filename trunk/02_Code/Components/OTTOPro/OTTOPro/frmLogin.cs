@@ -58,6 +58,7 @@ namespace OTTOPro
                     Utility.FirstName = ObjEUserInfo.dtUserDetails.Rows[0]["FirstName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["FirstName"]);
                     Utility.LastName = ObjEUserInfo.dtUserDetails.Rows[0]["LastName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["LastName"]);
                     Utility.IsOTP = ObjEUserInfo.dtUserDetails.Rows[0]["IsOTP"] == DBNull.Value ? false : Convert.ToBoolean(ObjEUserInfo.dtUserDetails.Rows[0]["IsOTP"]);
+                    Utility.DBVersion = Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["DBVersion"]);
                 }
                 if(Utility.IsOTP)
                 {

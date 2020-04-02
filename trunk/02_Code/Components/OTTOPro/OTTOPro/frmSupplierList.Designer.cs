@@ -67,7 +67,7 @@
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(543, 342, 450, 400);
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(488, 567);
+            this.layoutControl1.Size = new System.Drawing.Size(484, 563);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
@@ -75,7 +75,7 @@
             // 
             this.btnOk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.ImageOptions.Image")));
             this.btnOk.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
-            this.btnOk.Location = new System.Drawing.Point(397, 533);
+            this.btnOk.Location = new System.Drawing.Point(393, 529);
             this.btnOk.Name = "btnOk";
             this.btnOk.Size = new System.Drawing.Size(79, 22);
             this.btnOk.StyleController = this.layoutControl1;
@@ -88,9 +88,9 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
             this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
-            this.btnCancel.Location = new System.Drawing.Point(220, 533);
+            this.btnCancel.Location = new System.Drawing.Point(218, 529);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(84, 22);
+            this.btnCancel.Size = new System.Drawing.Size(83, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
@@ -100,9 +100,9 @@
             // 
             this.btnAddSupplier.ImageOptions.Image = global::OTTOPro.Properties.Resources.Add_16x16;
             this.btnAddSupplier.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftTop;
-            this.btnAddSupplier.Location = new System.Drawing.Point(308, 533);
+            this.btnAddSupplier.Location = new System.Drawing.Point(305, 529);
             this.btnAddSupplier.Name = "btnAddSupplier";
-            this.btnAddSupplier.Size = new System.Drawing.Size(85, 22);
+            this.btnAddSupplier.Size = new System.Drawing.Size(84, 22);
             this.btnAddSupplier.StyleController = this.layoutControl1;
             this.btnAddSupplier.TabIndex = 9;
             this.btnAddSupplier.Text = "Hinzufügen";
@@ -113,7 +113,7 @@
             this.gcSupplier.Location = new System.Drawing.Point(12, 12);
             this.gcSupplier.MainView = this.gvSupplier;
             this.gcSupplier.Name = "gcSupplier";
-            this.gcSupplier.Size = new System.Drawing.Size(464, 517);
+            this.gcSupplier.Size = new System.Drawing.Size(460, 513);
             this.gcSupplier.TabIndex = 5;
             this.gcSupplier.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvSupplier});
@@ -184,7 +184,7 @@
             this.layoutControlItem4,
             this.layoutControlItem2});
             this.layoutControlGroup1.Name = "Root";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(488, 567);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(484, 563);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -192,31 +192,31 @@
             this.layoutControlItem1.Control = this.gcSupplier;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(468, 521);
+            this.layoutControlItem1.Size = new System.Drawing.Size(464, 517);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnCancel;
-            this.layoutControlItem3.Location = new System.Drawing.Point(208, 521);
+            this.layoutControlItem3.Location = new System.Drawing.Point(206, 517);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(88, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(87, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 521);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 517);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(208, 26);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(206, 26);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnOk;
-            this.layoutControlItem4.Location = new System.Drawing.Point(385, 521);
+            this.layoutControlItem4.Location = new System.Drawing.Point(381, 517);
             this.layoutControlItem4.Name = "layoutControlItem4";
             this.layoutControlItem4.Size = new System.Drawing.Size(83, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
@@ -225,9 +225,9 @@
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnAddSupplier;
-            this.layoutControlItem2.Location = new System.Drawing.Point(296, 521);
+            this.layoutControlItem2.Location = new System.Drawing.Point(293, 517);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(89, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(88, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -236,7 +236,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(488, 567);
+            this.ClientSize = new System.Drawing.Size(484, 563);
             this.ControlBox = false;
             this.Controls.Add(this.layoutControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -245,7 +245,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Supplier List";
+            this.Text = "Lieferant";
             this.Load += new System.EventHandler(this.frmSupplierList_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmSupplierList_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

@@ -15,10 +15,12 @@ namespace OTTOPro
     public partial class frmGAEBFormat : DevExpress.XtraEditors.XtraForm
     {
         private EGAEB ObjEGAEB = null;
+
         public frmGAEBFormat()
         {
             InitializeComponent();
         }
+
         public frmGAEBFormat(EGAEB _ObjEGAEB)
         {
             ObjEGAEB = _ObjEGAEB;
@@ -40,6 +42,8 @@ namespace OTTOPro
             {
                 if (string.IsNullOrEmpty(txtFileName.Text))
                     throw new Exception("Bitte machen Sie eine Eingabe zum Dateinamen");
+                if (!dxValidationProvider1.Validate())
+                    return;
                 ObjEGAEB.IsSave = true;
                 ObjEGAEB.FileNAme = txtFileName.Text;
                 ObjEGAEB.OutputPath = txtFilePath.Text;
@@ -49,6 +53,7 @@ namespace OTTOPro
                     ObjEGAEB.FileFormat = "P83";
                 else if (rgGAEBVersion.SelectedIndex == 2)
                     ObjEGAEB.FileFormat = "X83";
+                ObjEGAEB.DeliveryDeadline = dtpDeliveryDeadline.DateTime;
                 this.Close();
             }
             catch (Exception ex)
@@ -69,6 +74,7 @@ namespace OTTOPro
             {
                 int IValue = 0;
                 IValue = ObjEGAEB.LvRaster.Replace(".",string.Empty).Length;
+                dtpDeliveryDeadline.DateTime = DateTime.Now;
                 if (IValue > 9)
                 {
                     rgGAEBVersion.Properties.Items[0].Enabled = false;
@@ -89,6 +95,8 @@ namespace OTTOPro
                     txtFilePath.Properties.ReadOnly = true;
                     txtFileName.Properties.ReadOnly = true;
                 }
+
+                dtpDeliveryDeadline.Properties.MinValue = DateTime.Now;
             }
             catch (Exception ex)
             {

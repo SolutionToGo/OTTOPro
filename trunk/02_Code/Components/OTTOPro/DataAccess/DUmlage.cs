@@ -40,7 +40,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEUmlage;
         }
@@ -84,7 +84,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEUmlage;
         }
@@ -119,7 +119,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEUmlage;
         }
@@ -159,7 +159,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEUmlage;
         }

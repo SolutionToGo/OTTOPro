@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
+            DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.btnSave = new DevExpress.XtraEditors.SimpleButton();
             this.btnCancel = new DevExpress.XtraEditors.SimpleButton();
@@ -123,6 +123,9 @@
             this.dxValidationProvider1.SetIconAlignment(this.txtWA, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtWA.Location = new System.Drawing.Point(149, 60);
             this.txtWA.Name = "txtWA";
+            this.txtWA.Properties.Mask.EditMask = "[0-9]{0,3}?";
+            this.txtWA.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtWA.Properties.Mask.ShowPlaceHolders = false;
             this.txtWA.Size = new System.Drawing.Size(280, 20);
             this.txtWA.StyleController = this.layoutControl1;
             this.txtWA.TabIndex = 5;
@@ -134,13 +137,16 @@
             this.dxValidationProvider1.SetIconAlignment(this.txtWG, System.Windows.Forms.ErrorIconAlignment.MiddleRight);
             this.txtWG.Location = new System.Drawing.Point(149, 36);
             this.txtWG.Name = "txtWG";
+            this.txtWG.Properties.Mask.EditMask = "[0-9]{0,3}?";
+            this.txtWG.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
+            this.txtWG.Properties.Mask.ShowPlaceHolders = false;
             this.txtWG.Size = new System.Drawing.Size(280, 20);
             this.txtWG.StyleController = this.layoutControl1;
             this.txtWG.TabIndex = 4;
-            conditionValidationRule2.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
-            conditionValidationRule2.ErrorText = "Mandatory";
-            conditionValidationRule2.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
-            this.dxValidationProvider1.SetValidationRule(this.txtWG, conditionValidationRule2);
+            conditionValidationRule1.ConditionOperator = DevExpress.XtraEditors.DXErrorProvider.ConditionOperator.IsNotBlank;
+            conditionValidationRule1.ErrorText = "Mandatory";
+            conditionValidationRule1.ErrorType = DevExpress.XtraEditors.DXErrorProvider.ErrorType.Critical;
+            this.dxValidationProvider1.SetValidationRule(this.txtWG, conditionValidationRule1);
             this.txtWG.Enter += new System.EventHandler(this.txtWG_Enter);
             this.txtWG.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtWG_KeyPress);
             // 

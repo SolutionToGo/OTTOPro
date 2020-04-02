@@ -98,9 +98,9 @@
             this.btbCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btbCancel.ImageOptions.Image = global::OTTOPro.Properties.Resources.Cancel_16x16;
             this.btbCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btbCancel.Location = new System.Drawing.Point(293, 212);
+            this.btbCancel.Location = new System.Drawing.Point(259, 212);
             this.btbCancel.Name = "btbCancel";
-            this.btbCancel.Size = new System.Drawing.Size(82, 22);
+            this.btbCancel.Size = new System.Drawing.Size(98, 22);
             this.btbCancel.StyleController = this.layoutControl1;
             this.btbCancel.TabIndex = 8;
             this.btbCancel.Text = "Abbrechen";
@@ -110,9 +110,9 @@
             // 
             this.btnSave.ImageOptions.Image = global::OTTOPro.Properties.Resources.Save_16x16;
             this.btnSave.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnSave.Location = new System.Drawing.Point(379, 212);
+            this.btnSave.Location = new System.Drawing.Point(361, 212);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(84, 22);
+            this.btnSave.Size = new System.Drawing.Size(102, 22);
             this.btnSave.StyleController = this.layoutControl1;
             this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Speichern";
@@ -203,9 +203,9 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btbCancel;
-            this.layoutControlItem5.Location = new System.Drawing.Point(281, 200);
+            this.layoutControlItem5.Location = new System.Drawing.Point(247, 200);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(86, 26);
+            this.layoutControlItem5.Size = new System.Drawing.Size(102, 26);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -214,7 +214,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(25, 200);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(256, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(222, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlItem6
@@ -261,9 +261,9 @@
             // layoutControlItem4
             // 
             this.layoutControlItem4.Control = this.btnSave;
-            this.layoutControlItem4.Location = new System.Drawing.Point(367, 200);
+            this.layoutControlItem4.Location = new System.Drawing.Point(349, 200);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(88, 26);
+            this.layoutControlItem4.Size = new System.Drawing.Size(106, 26);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 

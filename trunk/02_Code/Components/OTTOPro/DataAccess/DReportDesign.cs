@@ -44,7 +44,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsReportDesign;
         }
@@ -84,7 +84,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsReportDesign;
         }
@@ -121,7 +121,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsReportDesign;
         }
@@ -179,7 +179,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsReportSetting;
         }
@@ -219,7 +219,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsReportSetting;
         }
@@ -245,7 +245,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dt;
         }

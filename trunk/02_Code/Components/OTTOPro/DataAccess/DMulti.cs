@@ -43,7 +43,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEMulti;
         }
@@ -76,7 +76,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEMulti;
         }
@@ -113,7 +113,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEMulti;
         }
@@ -147,7 +147,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEMulti;
         }
@@ -183,7 +183,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEMulti;
         }
@@ -220,7 +220,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEMulti;
         }

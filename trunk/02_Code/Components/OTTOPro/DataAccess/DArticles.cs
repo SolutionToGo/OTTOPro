@@ -69,7 +69,7 @@ namespace DataAccess
                 }
                 finally
                 {
-                    SQLCon.Sqlconn().Close();
+                    SQLCon.Close();
                 }
                 return ObjEArticle;
             }
@@ -102,7 +102,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -157,7 +157,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -211,7 +211,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -245,7 +245,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -311,7 +311,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -343,7 +343,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -395,7 +395,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -430,7 +430,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -482,7 +482,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -515,7 +515,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -550,7 +550,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -589,7 +589,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -626,7 +626,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -664,7 +664,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -695,7 +695,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return dtTyp;
        }
@@ -726,7 +726,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return dtDates;
        }
@@ -758,7 +758,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return dtDates;
        }
@@ -786,7 +786,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -835,7 +835,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -867,7 +867,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -929,7 +929,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -971,7 +971,7 @@ namespace DataAccess
            }
            finally
            {
-               SQLCon.Sqlconn().Close();
+               SQLCon.Close();
            }
            return ObjEArticle;
        }
@@ -1009,7 +1009,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1045,7 +1045,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1073,7 +1073,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1101,7 +1101,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1135,7 +1135,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1163,7 +1163,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1204,7 +1204,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1245,7 +1245,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1277,7 +1277,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1305,7 +1305,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }
@@ -1344,7 +1344,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEArticle;
         }

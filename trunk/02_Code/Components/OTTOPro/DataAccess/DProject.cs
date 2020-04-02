@@ -1,4 +1,5 @@
 ﻿using EL;
+using log4net;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,12 +12,8 @@ namespace DAL
 {
     public class DProject
     {
-        
-        /// <summary>
-        /// Code to save the project details into database
-        /// </summary>
-        /// <param name="ObjEProject"></param>
-        /// <returns></returns>
+        private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+
         public int SaveProjectDetails(EProject ObjEProject)
         {
             int ProjectID = -1;
@@ -99,15 +96,11 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ProjectID;
         }
 
-        /// <summary>
-        /// Code to retreive the project list to populate on load project screen
-        /// </summary>
-        /// <returns></returns>
         public DataTable GetProjectList()
         {
             DataTable dtProjectList = new DataTable();
@@ -115,7 +108,6 @@ namespace DAL
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "P_Get_ProjectList";
@@ -128,27 +120,11 @@ namespace DAL
             catch (Exception ex)
             {
                 throw ex;
-                //if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                //{
-                //    throw new Exception("Fehler beim Laden der Projektliste");
-                //}
-                //else
-                //{
-                //    throw new Exception("Error Occured While Retreiving ProjectList");
-                //}
             }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
+            finally { SQLCon.Close(); }
             return dtProjectList;
         }
 
-        /// <summary>
-        /// Code to retreive the existing project details to show on project screen
-        /// </summary>
-        /// <param name="ObjEProject"></param>
-        /// <returns></returns>
         public DataSet GetProjectDetails(EProject ObjEProject)
         {
             DataSet dsProjectList = new DataSet();
@@ -178,15 +154,10 @@ namespace DAL
 
                 }
             }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
+            finally{SQLCon.Close();}
             return dsProjectList;
         }
 
-
-        //Copy of LVs
         public EProject GetProjectNumber(EProject ObjEProject)
         {
             DataSet dsProjectNo = new DataSet();
@@ -221,7 +192,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEProject;
         }
@@ -258,7 +229,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEProject;
         }
@@ -309,7 +280,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEProject;
         }
@@ -367,7 +338,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEProject;
         }
@@ -400,7 +371,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEProject;
         }
@@ -425,7 +396,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
         }
 
@@ -457,7 +428,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEProject;
         }
@@ -469,7 +440,7 @@ namespace DAL
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.Connection = SQLCon.Sqlconn2();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[p_Get_DBVersion]";
                     object returnObj = cmd.ExecuteScalar();
@@ -483,7 +454,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close2();
             }
             return strVersion;
         }
@@ -620,7 +591,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return strError;
         }
@@ -649,7 +620,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
         }
 
@@ -673,7 +644,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
         }
 
@@ -698,7 +669,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return st;
         }
@@ -723,7 +694,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
         }
 
@@ -748,7 +719,7 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return st;
         }
@@ -774,13 +745,14 @@ namespace DAL
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dt;
         }
 
-
-
-
+        public void CloseDBConnection()
+        {
+            SQLCon.Close();
+        }
     }
 }

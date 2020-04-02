@@ -72,9 +72,9 @@
             // 
             // txtNewOZ
             // 
-            this.txtNewOZ.Location = new System.Drawing.Point(93, 44);
+            this.txtNewOZ.Location = new System.Drawing.Point(97, 44);
             this.txtNewOZ.Name = "txtNewOZ";
-            this.txtNewOZ.Size = new System.Drawing.Size(205, 20);
+            this.txtNewOZ.Size = new System.Drawing.Size(201, 20);
             this.txtNewOZ.StyleController = this.layoutControl1;
             this.txtNewOZ.TabIndex = 4;
             this.txtNewOZ.Enter += new System.EventHandler(this.txtNewOZ_Enter);
@@ -84,21 +84,21 @@
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnCancel.ImageOptions.Image")));
             this.btnCancel.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnCancel.Location = new System.Drawing.Point(156, 68);
+            this.btnCancel.Location = new System.Drawing.Point(114, 68);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(70, 22);
+            this.btnCancel.Size = new System.Drawing.Size(93, 22);
             this.btnCancel.StyleController = this.layoutControl1;
             this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Cancel";
+            this.btnCancel.Text = "Abbrechen";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnOk
             // 
             this.btnOk.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOk.ImageOptions.Image")));
             this.btnOk.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.LeftCenter;
-            this.btnOk.Location = new System.Drawing.Point(230, 68);
+            this.btnOk.Location = new System.Drawing.Point(211, 68);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(68, 22);
+            this.btnOk.Size = new System.Drawing.Size(87, 22);
             this.btnOk.StyleController = this.layoutControl1;
             this.btnOk.TabIndex = 6;
             this.btnOk.Text = "Ok";
@@ -131,15 +131,15 @@
             this.layoutControlItem1.Location = new System.Drawing.Point(32, 32);
             this.layoutControlItem1.Name = "layoutControlItem1";
             this.layoutControlItem1.Size = new System.Drawing.Size(258, 24);
-            this.layoutControlItem1.Text = "New OZ";
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(46, 14);
+            this.layoutControlItem1.Text = "Neue OZ";
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(50, 14);
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.btnCancel;
-            this.layoutControlItem2.Location = new System.Drawing.Point(144, 56);
+            this.layoutControlItem2.Location = new System.Drawing.Point(102, 56);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(74, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(97, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -148,7 +148,7 @@
             this.emptySpaceItem1.AllowHotTrack = false;
             this.emptySpaceItem1.Location = new System.Drawing.Point(32, 56);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(112, 26);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(70, 26);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem2
@@ -186,9 +186,9 @@
             // layoutControlItem3
             // 
             this.layoutControlItem3.Control = this.btnOk;
-            this.layoutControlItem3.Location = new System.Drawing.Point(218, 56);
+            this.layoutControlItem3.Location = new System.Drawing.Point(199, 56);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(72, 26);
+            this.layoutControlItem3.Size = new System.Drawing.Size(91, 26);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
@@ -208,7 +208,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "New OZ";
+            this.Text = "Neue OZ";
             this.Load += new System.EventHandler(this.frmNewOZ_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmNewOZ_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

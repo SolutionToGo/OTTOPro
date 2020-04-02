@@ -114,6 +114,10 @@ namespace EL
             get { return _FileNAme; }
             set { _FileNAme = value; }
         }
+
+        public DateTime DeliveryDeadline = DateTime.Now;
+
+        public string SupplierAddress = string.Empty;
         public string FileFormat
         {
             get { return _FileFormat; }

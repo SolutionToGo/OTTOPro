@@ -27,8 +27,6 @@ namespace OTTOPro
         {
             try
             {
-                if (ObjESupplier == null)
-                    ObjESupplier = new ESupplier();
                 if (ObjBSupplier == null)
                     ObjBSupplier = new BSupplier();
                 BindSupplierData();
@@ -43,10 +41,10 @@ namespace OTTOPro
         {
             try
             {
-                ObjESupplier = ObjBSupplier.GetSupplier(ObjESupplier);
-                if (ObjESupplier.dtSupplier != null)
+                ObjESupplier = ObjBSupplier.GetSuppliersForProposal(ObjESupplier);
+                if (ObjESupplier.dtSupplierForproposal != null)
                 {
-                    gcSupplier.DataSource = ObjESupplier.dtSupplier;
+                    gcSupplier.DataSource = ObjESupplier.dtSupplierForproposal;
                     gvSupplier.BestFitColumns();
                 }
             }
@@ -74,7 +72,7 @@ namespace OTTOPro
                     {
                         var _result = XtraMessageBox.Show("Der Artikel gehört nicht zum ausgewählten Lieferant, wollen Sie ihn dennoch hinzufügen?", "Bestätigen..?", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                         if (Convert.ToString(_result).ToLower() == "ok")
-                            ObjBSupplier.SaveArticle(ObjESupplier);
+                            ObjBSupplier.SaveArticleFromProposal(ObjESupplier);
                         else
                             return;
                     }

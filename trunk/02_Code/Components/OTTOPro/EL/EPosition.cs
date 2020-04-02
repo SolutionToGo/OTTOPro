@@ -207,6 +207,9 @@ namespace EL
             get { return _PositionKZ; }
             set { _PositionKZ = value; }
         }
+
+        public object PositionKZID = null;
+
         public int DetailKZ
         {
             get { return _DetailsKZ; }
@@ -267,6 +270,8 @@ namespace EL
             get { return _LVStatus; }
             set { _LVStatus = value; }
         }
+
+        public object LVStatusID = null;
         public int ProposalNo
         {
             get { return _ProposalNo; }
@@ -524,7 +529,7 @@ namespace EL
             get { return _DocuwareLink3; }
             set { _DocuwareLink3 = value; }
         }
-
+        public object LVSectionID;
         public decimal GrandTotalME
         {
             get { return _GrandTotalME; }
@@ -567,7 +572,6 @@ namespace EL
             get { return _ParentID; }
             set { _ParentID = value; }
         }
-
         public int A
         {
             get { return _A; }
@@ -607,5 +611,11 @@ namespace EL
         public string WADescription { get; set; }
 
         public bool MontageEntry = false;
+
+        public string LVRaster = string.Empty;
+
+        public int RoundOffValue = 2;
+
+        public DataRow drnewrow = null;
     }
 }

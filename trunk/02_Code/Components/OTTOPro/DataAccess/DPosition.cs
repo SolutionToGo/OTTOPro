@@ -17,10 +17,12 @@ namespace DataAccess
 {
     public class DPosition
     {
-        public int SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription, double OZID,
-            string OZ1, string OZ2, string OZ3, string OZ4, string OZ5, string OZ6, string stOZChar,bool MontageEntry)
+        public EPosition SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription, double OZID,
+            string OZ1, string OZ2, string OZ3, string OZ4, string OZ5, string OZ6, string stOZChar,bool MontageEntry,
+            string stLVRaster, int Roundoffvalue, EPosition ObjEPosition)
         {
             int ProjectID = -1;
+            DataTable dtPosition = new DataTable();
             try
             {
                 string innerxml = XmlDoc.InnerXml;
@@ -43,79 +45,66 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@O5", OZ5);
                     cmd.Parameters.AddWithValue("@O6", OZ6);
                     cmd.Parameters.AddWithValue("@MontageEntry", MontageEntry);
-                    object returnObj = cmd.ExecuteScalar();
-                    if (returnObj != null)
+                    cmd.Parameters.AddWithValue("@LVRaster", stLVRaster);
+                    cmd.Parameters.AddWithValue("@RoundOff", Roundoffvalue);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        if (returnObj.ToString().Contains("UNIQUE"))
+                        da.Fill(dtPosition);
+                    }
+                    if(dtPosition != null && dtPosition.Rows.Count > 0)
+                    {
+                        string str = Convert.ToString(dtPosition.Rows[0][0]);
+                        if (!string.IsNullOrEmpty(str))
                         {
-                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                            if (int.TryParse(str, out ProjectID))
                             {
-                                throw new Exception("Diese Ordnungskennzahl existiert bereits");
+                                ObjEPosition.PositionID = ProjectID;
+                                ObjEPosition.drnewrow = dtPosition.Rows[0];
+                            }
+                            else if (str.Contains("UNIQUE"))
+                            {
+                                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                    throw new Exception("Diese Ordnungskennzahl existiert bereits");
+                                else
+                                    throw new Exception("OZ Already Exists");
+                            }
+                            else if (str.Contains("Title"))
+                            {
+                                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                    throw new Exception("Dieser Titel / Untertitel existiert nicht");
+                                else
+                                    throw new Exception(str);
+                            }
+                            else if (str.ToString().Contains("Surcharge"))
+                            {
+                                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                    throw new Exception("Eine Zuschlagsposition kann nicht mehrfach für die gleichen Positionen angelegt werden");
+                                else
+                                    throw new Exception(str);
+                            }
+                            else if (str.Contains("Sum"))
+                            {
+                                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                    throw new Exception("Eine Summe kann nicht mehrfach für die gleichen Positionen angelegt werden");
+                                else
+                                    throw new Exception(str);
+                            }
+                            else if (str.Contains("Base"))
+                            {
+                                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                                    throw new Exception("Es existiert keine Basis-Position für diese Detail KZ Position");
+                                else
+                                    throw new Exception(str);
                             }
                             else
-                            {
-                                throw new Exception("OZ Already Exists");
-                            }
+                                throw new Exception(str);
                         }
-                        
-                        else if (returnObj.ToString().Contains("Title"))
-                        {
-                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
-                                throw new Exception("Dieser Titel / Untertitel existiert nicht");
-                            }
-                            else
-                            {
-                                throw new Exception(returnObj.ToString());
-                            }
-                        }
-                        else if (returnObj.ToString().Contains("Surcharge"))
-                        {
-                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
-                                throw new Exception("Eine Zuschlagsposition kann nicht mehrfach für die gleichen Positionen angelegt werden");
-                           }
-                            else
-                            {
-                                throw new Exception(returnObj.ToString());
-                            }
-                        }
-                        else if (returnObj.ToString().Contains("Sum"))
-                        {
-                           if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
-                                throw new Exception("Eine Summe kann nicht mehrfach für die gleichen Positionen angelegt werden");
-                            }
-                            else
-                            {
-                                throw new Exception(returnObj.ToString());
-                            }
-                        }
-                        else if (returnObj.ToString().Contains("Base"))
-                        {
-                            if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                            {
-                                throw new Exception("Es existiert keine Basis-Position für diese Detail KZ Position");
-                            }
-                            else
-                            {
-                                throw new Exception(returnObj.ToString());
-                            }
-                        }
-                        else if (!int.TryParse(returnObj.ToString(), out ProjectID))
-                            throw new Exception(returnObj.ToString());
                     }
                 }
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
-            return ProjectID;
+            catch (Exception ex){throw;}
+            finally{SQLCon.Close();}
+            return ObjEPosition;
         }
 
         public DataSet GetPsoitionList(int ProjectID)
@@ -149,7 +138,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsPositionsList;
         }
@@ -185,7 +174,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return LongDescription;
         }
@@ -239,10 +228,11 @@ namespace DataAccess
             return strNewLVSection;
         }
 
-        public void InsertLVSection(string strNewLVSecction, int ProjectID)
+        public void InsertLVSection(string strNewLVSecction, int ProjectID,EProject ObjEProject)
         {
             try
             {
+                DataSet dsLVSection = new DataSet();
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
@@ -250,7 +240,16 @@ namespace DataAccess
                     cmd.CommandText = "[P_Ins_LVSection]";
                     cmd.Parameters.AddWithValue("@LVSection", strNewLVSecction);
                     cmd.Parameters.AddWithValue("@ProjectID", ProjectID);
-                    cmd.ExecuteNonQuery();
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsLVSection);
+                    }
+                    if(dsLVSection != null && dsLVSection.Tables.Count > 0 && dsLVSection.Tables[0].Rows.Count > 0)
+                    {
+                        ObjEProject.LVSectionID = dsLVSection.Tables[0].Rows[0][0];
+                        if(dsLVSection.Tables.Count > 1)
+                            ObjEProject.dtLVSection = dsLVSection.Tables[1];
+                    }
                 }
             }
             catch (Exception ex)
@@ -315,7 +314,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsPositionsOZList;
         }
@@ -354,7 +353,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsPositionsOZList;
         }
@@ -396,7 +395,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsPositionsOZList;
         }
@@ -449,7 +448,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsPositionsOZList;
         }
@@ -698,7 +697,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsPositionsList;
         }
@@ -744,7 +743,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ProjectID;
         }
@@ -886,7 +885,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEPosition;
         }
@@ -930,7 +929,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEPosition;
         }

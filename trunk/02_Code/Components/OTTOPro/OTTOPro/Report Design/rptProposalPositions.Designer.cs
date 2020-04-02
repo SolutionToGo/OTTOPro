@@ -175,14 +175,14 @@
             this.xrPictureBox1,
             this.xrLine10,
             this.xrTable1});
-            this.TopMargin.HeightF = 162F;
+            this.TopMargin.HeightF = 181.7917F;
             this.TopMargin.Name = "TopMargin";
             // 
             // xrPictureBox1
             // 
             this.xrPictureBox1.ImageAlignment = DevExpress.XtraPrinting.ImageAlignment.TopRight;
             this.xrPictureBox1.ImageSource = new DevExpress.XtraPrinting.Drawing.ImageSource("img", resources.GetString("xrPictureBox1.ImageSource"));
-            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(535.9114F, 8.999999F);
+            this.xrPictureBox1.LocationFloat = new DevExpress.Utils.PointFloat(535.9114F, 33.79169F);
             this.xrPictureBox1.Name = "xrPictureBox1";
             this.xrPictureBox1.SizeF = new System.Drawing.SizeF(194.0886F, 91F);
             this.xrPictureBox1.Sizing = DevExpress.XtraPrinting.ImageSizeMode.Squeeze;
@@ -192,7 +192,7 @@
             this.xrLine10.BorderWidth = 1F;
             this.xrLine10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
             this.xrLine10.LineWidth = 3F;
-            this.xrLine10.LocationFloat = new DevExpress.Utils.PointFloat(0F, 142F);
+            this.xrLine10.LocationFloat = new DevExpress.Utils.PointFloat(0F, 165.7917F);
             this.xrLine10.Name = "xrLine10";
             this.xrLine10.SizeF = new System.Drawing.SizeF(730F, 6F);
             this.xrLine10.StylePriority.UseBorderWidth = false;
@@ -202,7 +202,7 @@
             // 
             this.xrTable1.Font = new System.Drawing.Font("Trebuchet MS", 9F, System.Drawing.FontStyle.Bold);
             this.xrTable1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(158)))), ((int)(((byte)(224)))));
-            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 10F);
+            this.xrTable1.LocationFloat = new DevExpress.Utils.PointFloat(0F, 33.79169F);
             this.xrTable1.Name = "xrTable1";
             this.xrTable1.Padding = new DevExpress.XtraPrinting.PaddingInfo(5, 5, 0, 0, 100F);
             this.xrTable1.Rows.AddRange(new DevExpress.XtraReports.UI.XRTableRow[] {
@@ -401,7 +401,7 @@
             // 
             // BottomMargin
             // 
-            this.BottomMargin.HeightF = 33F;
+            this.BottomMargin.HeightF = 56.66663F;
             this.BottomMargin.Name = "BottomMargin";
             // 
             // Detail
@@ -1504,7 +1504,7 @@
             this.GroupHeader10,
             this.GroupFooter2});
             this.Font = new System.Drawing.Font("Arial", 9.75F);
-            this.Margins = new System.Drawing.Printing.Margins(75, 22, 162, 33);
+            this.Margins = new System.Drawing.Printing.Margins(75, 22, 182, 57);
             this.PageHeight = 1169;
             this.PageWidth = 827;
             this.PaperKind = System.Drawing.Printing.PaperKind.A4;

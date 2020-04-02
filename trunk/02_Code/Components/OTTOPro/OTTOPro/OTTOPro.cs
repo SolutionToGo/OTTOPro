@@ -31,6 +31,7 @@ namespace OTTOPro
         public static frmOTTOPro ObjOTTOPro;
         BProject ObjBProject = null;
         EProject ObjEProject = null;
+        bool _TriggerFromLogin = false;
 
         private frmOTTOPro()
         {
@@ -154,6 +155,7 @@ namespace OTTOPro
         {
             try
             {
+                _TriggerFromLogin = true;
                 chkAutoSave1.EditValue = Utility.AutoSave;
                 if (Utility.ArticleDataAccess == "9")
                     rpgArticleMaster.Visible = false;
@@ -180,11 +182,10 @@ namespace OTTOPro
                 {
                     btnFormBlattarticles.Enabled = true;
                 }
-                lblUserName.Text = "Nutzername : " + Utility.UserName;
+                txtUsername.Caption = "Nutzername : " + Utility.UserName;
                 if (ObjBProject == null)
                     ObjBProject = new BProject();
-                string strVersion = ObjBProject.GetDBVersion();
-                lblDBVersion.Text = "Version Datenbank: " + strVersion;
+                txtDBVersion.Caption = "Version Datenbank: " + Utility.DBVersion;
             }
             catch (Exception ex){}
         }
@@ -641,6 +642,41 @@ namespace OTTOPro
             finally { SplashScreenManager.CloseForm(false); }
         }
 
+        private void bbProposalLetter_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            try
+            {
+                SplashScreenManager.ShowForm(this, typeof(WaitForm1), true, true, false);
+                SplashScreenManager.Default.SetWaitFormDescription("Bitte warten…");
+
+                if (ObjEProject == null)
+                    ObjEProject = new EProject();
+                if (ObjBProject == null)
+                    ObjBProject = new BProject();
+                ObjEProject = ObjBProject.GetPath(ObjEProject);
+                var FolderPath = new DirectoryInfo(ObjEProject.TemplatePath).GetFiles("V-015*.dotx", SearchOption.AllDirectories).OrderByDescending(d => d.LastWriteTimeUtc).First();
+                Object oTemplatePath = ObjEProject.TemplatePath + "\\" + FolderPath;
+                if (File.Exists(Convert.ToString(oTemplatePath)))
+                {
+                    if (!Utility.fileIsOpen(Convert.ToString(oTemplatePath)))
+                    {
+                        Microsoft.Office.Interop.Word.Application ap = new Microsoft.Office.Interop.Word.Application();
+                        ap.Documents.Open(oTemplatePath);
+                        ap.Visible = true;
+                        ap.Activate();
+                    }
+                    else
+                        throw new Exception("Bitte schließen Sie die Angebots-Dokumente aller Projekte");
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Sequence contains no elements"))
+                    XtraMessageBox.Show("Die erforderliche Dokumentenvorlage ist nicht eingestellt!!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally { SplashScreenManager.CloseForm(false); }
+        }
+
         #endregion
 
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -750,12 +786,16 @@ namespace OTTOPro
         {
             try
             {
-                DUserInfo ObjDUserInfo = new DUserInfo();
-                EUserInfo ObjEUserInfo = new EUserInfo();
-                ObjEUserInfo.UserID = Utility.UserID;
-                ObjEUserInfo.AutoSaveMode = Convert.ToBoolean(chkAutoSave1.EditValue);
-                ObjDUserInfo.UpdateAutoSave(ObjEUserInfo);
-                Utility.AutoSave = ObjEUserInfo.AutoSaveMode;
+                if (!_TriggerFromLogin)
+                {
+                    DUserInfo ObjDUserInfo = new DUserInfo();
+                    EUserInfo ObjEUserInfo = new EUserInfo();
+                    ObjEUserInfo.UserID = Utility.UserID;
+                    ObjEUserInfo.AutoSaveMode = Convert.ToBoolean(chkAutoSave1.EditValue);
+                    ObjDUserInfo.UpdateAutoSave(ObjEUserInfo);
+                    Utility.AutoSave = ObjEUserInfo.AutoSaveMode;
+                }
+                _TriggerFromLogin = false;
             }
             catch (Exception ex) { Utility.ShowError(ex); }
         }
@@ -839,7 +879,7 @@ namespace OTTOPro
                 String sDisplayName = "OTTOPro Log File";
                 int iPosition = (int)oMsg.Body.Length + 1;
                 int iAttachType = (int)Outlook.OlAttachmentType.olByValue;
-                string st = Path.GetTempPath();
+                string st = Environment.ExpandEnvironmentVariables(@"%AppData%");
                 Outlook.Attachment oAttach = oMsg.Attachments.Add(st + "\\OTTOPro.log", iAttachType, iPosition, sDisplayName);
                 oMsg.Subject = "OTTOPro Log File";
                 Outlook.Recipients oRecips = (Outlook.Recipients)oMsg.Recipients;
@@ -860,5 +900,6 @@ namespace OTTOPro
         {
 
         }
+
     }
 }

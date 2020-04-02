@@ -40,12 +40,12 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsTMLData;
         }
 
-        public DataSet GetPositionsDataForTML(int ProjectID, string strLVSection, string _Raster)
+        public DataSet GetPositionsDataForTML(int ProjectID, object strLVSection, string _Raster)
         {
             DataSet dsTMLData = new DataSet();
             try
@@ -78,7 +78,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsTMLData;
         }
@@ -164,7 +164,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dtRaster;
         }
@@ -199,7 +199,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dtLVSecton;
         }
@@ -232,7 +232,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return Old_Raster;
         }
@@ -314,7 +314,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsTMLData;
         }

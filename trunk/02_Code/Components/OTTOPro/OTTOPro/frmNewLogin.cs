@@ -78,6 +78,7 @@ namespace OTTOPro
                     Utility.LastName = ObjEUserInfo.dtUserDetails.Rows[0]["LastName"] == DBNull.Value ? "" : Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["LastName"]);
                     Utility.IsOTP = ObjEUserInfo.dtUserDetails.Rows[0]["IsOTP"] == DBNull.Value ? false : Convert.ToBoolean(ObjEUserInfo.dtUserDetails.Rows[0]["IsOTP"]);
                     Utility.AutoSave = ObjEUserInfo.dtUserDetails.Rows[0]["AutoSavePosition"] == DBNull.Value ? false : Convert.ToBoolean(ObjEUserInfo.dtUserDetails.Rows[0]["AutoSavePosition"]);
+                    Utility.DBVersion = Convert.ToString(ObjEUserInfo.dtUserDetails.Rows[0]["DBVersion"]);
                 }
                 if (Utility.IsOTP)
                 {
@@ -131,6 +132,9 @@ namespace OTTOPro
                 }
                 else
                     throw new Exception("Für den ausgewählten Nutzer wurden keine Berechtigungsangaben vorgenommen");
+
+                Utility.dtLVStatus = ObjEUserInfo.dtLVStatus;
+                Utility.dtPositionKZ = ObjEUserInfo.dtPositionKZ;
 
                 RegistryKey RGkey = Registry.CurrentUser.OpenSubKey(RegPath, true);
                 if (RGkey == null)

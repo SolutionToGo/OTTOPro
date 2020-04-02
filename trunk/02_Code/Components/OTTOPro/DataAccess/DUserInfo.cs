@@ -64,7 +64,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return UserID;
         }
@@ -99,7 +99,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsUser;
         }
@@ -143,7 +143,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return RoleID;
         }
@@ -178,7 +178,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsUserRole;
         }
@@ -218,7 +218,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEUserInfo;
         }
@@ -257,7 +257,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEUserInfo;
         }
@@ -298,7 +298,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEUserInfo;
         }
@@ -310,7 +310,7 @@ namespace DataAccess
             {
                 using (SqlCommand cmd = new SqlCommand())
                 {
-                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.Connection = SQLCon.Sqlconn2();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_CheckUserCredentials]";
                     cmd.Parameters.Add("@UserName", ObjEUserInfo.UserName);
@@ -327,7 +327,17 @@ namespace DataAccess
                         {
                             ObjEUserInfo.dtUserDetails = dsFeature.Tables[0];
                             if (dsFeature.Tables.Count > 1)
+                            {
                                 ObjEUserInfo.dtFeature = dsFeature.Tables[1];
+                                if (dsFeature.Tables.Count > 2)
+                                {
+                                    ObjEUserInfo.dtLVStatus = dsFeature.Tables[2];
+                                    if (dsFeature.Tables.Count > 3)
+                                    {
+                                        ObjEUserInfo.dtPositionKZ = dsFeature.Tables[3];
+                                    }
+                                }
+                            }
                         }
                         else
                         {
@@ -340,10 +350,7 @@ namespace DataAccess
             {
                 throw new Exception("Der Login konnte nicht erfolgen");
             }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
+            finally { SQLCon.Close2(); }
             return ObjEUserInfo;
         }
 
@@ -385,7 +392,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEUserInfo;
         }
@@ -411,10 +418,6 @@ namespace DataAccess
             catch (Exception ex)
             {
                     throw new Exception("Error While updating AutoSave Mode");
-            }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
             }
             return ObjEUserInfo;
         }

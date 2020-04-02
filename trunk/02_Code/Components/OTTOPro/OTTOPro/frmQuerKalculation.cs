@@ -274,22 +274,26 @@ namespace OTTOPro
 
         private void frmQuerKalculation_Load(object sender, EventArgs e)
         {
-            if (objBGAEB == null)
-                objBGAEB = new BGAEB();
-            DataTable dtLVSection = new DataTable();
-            cmbLVSection.Properties.Items.Clear();
-            dtLVSection = objBGAEB.GetLVSection(ProjectID);
-            foreach (DataRow dr in dtLVSection.Rows)
+            try
             {
+                if (objBGAEB == null)
+                    objBGAEB = new BGAEB();
+                DataTable dtLVSection = new DataTable();
+                dtLVSection = objBGAEB.GetLVSection(ProjectID);
                 if (Utility.LVSectionEditAccess == "7")
                 {
-                    if (Convert.ToString(dr["LVSection"]).ToLower() == "ha")
-                        cmbLVSection.Properties.Items.Add(dr["LVSection"]);
+                    DataTable dttemp = dtLVSection.Copy();
+                    DataView dv = dttemp.DefaultView;
+                    dv.RowFilter = "LVSectionName = 'HA'";
+                    dtLVSection = new DataTable();
+                    dtLVSection = dv.ToTable();
                 }
-                else
-                    cmbLVSection.Properties.Items.Add(dr["LVSection"]);
+                cmbLVSection.Properties.DataSource = dtLVSection;
+                cmbLVSection.Properties.DisplayMember = "LVSectionName";
+                cmbLVSection.Properties.ValueMember = "LVSectionID";
+                Utility.SetCheckedComboexitValue(cmbLVSection, "HA");
             }
-            cmbLVSection.SetEditValue("HA");
+            catch (Exception ex){}
         }
 
         private void simpleButton2_Click(object sender, EventArgs e)

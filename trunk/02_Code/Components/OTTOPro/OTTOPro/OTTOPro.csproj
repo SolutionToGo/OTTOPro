@@ -385,6 +385,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMergeArticle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMergeArticle.Designer.cs">
+      <DependentUpon>frmMergeArticle.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNewLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -764,12 +770,15 @@
     </Compile>
     <EmbeddedResource Include="frmAddAccessory.resx">
       <DependentUpon>frmAddAccessory.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddDimension.resx">
       <DependentUpon>frmAddDimension.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddDiscount.resx">
       <DependentUpon>frmAddDiscount.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddProjectArticles.resx">
       <DependentUpon>frmAddProjectArticles.cs</DependentUpon>
@@ -839,6 +848,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMergeArticle.resx">
+      <DependentUpon>frmMergeArticle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmNewLogin.resx">
       <DependentUpon>frmNewLogin.cs</DependentUpon>

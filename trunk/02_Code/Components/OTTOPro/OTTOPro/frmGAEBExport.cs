@@ -77,12 +77,12 @@ namespace OTTOPro
                 if (rtnOldRaster)
                 {
                     DataView dvLVSection = dtLVSection.DefaultView;
-                    dvLVSection.RowFilter = "LVSection =  'HA'";
+                    dvLVSection.RowFilter = "LVSectionName =  'HA'";
                 }
                 cmbLVSection.Properties.DataSource = dtLVSection;
-                cmbLVSection.Properties.DisplayMember = "LVSection";
-                cmbLVSection.Properties.ValueMember = "LVSection";
-                cmbLVSection.SetEditValue("HA");
+                cmbLVSection.Properties.DisplayMember = "LVSectionName";
+                cmbLVSection.Properties.ValueMember = "LVSectionID";
+                Utility.SetCheckedComboexitValue(cmbLVSection, "HA");
             }
             catch (Exception ex)
             {
@@ -115,7 +115,7 @@ namespace OTTOPro
                         ObjEGAEB = new EGAEB();
                     ObjEGAEB.ProjectNumber = txtProjectName.Text;
                     string strOTTOFilePath = ObjEGAEB.DirPath = Application.UserAppDataPath + "\\";
-                    XMLDoc = ObjBGAEB.Export(_ProjectID, cmbLVSection.Text, cmbFormatType.Text, _NewRaster,ObjEGAEB);
+                    XMLDoc = ObjBGAEB.Export(_ProjectID, cmbLVSection.EditValue, cmbFormatType.Text, _NewRaster,ObjEGAEB);
                     if (!Directory.Exists(strOTTOFilePath))
                         Directory.CreateDirectory(strOTTOFilePath);
                     string strOutputFilePath = string.Empty;

@@ -217,7 +217,7 @@
             // 
             // gridColumn1
             // 
-            this.gridColumn1.Caption = "WG Description";
+            this.gridColumn1.Caption = "WG Beschreibung";
             this.gridColumn1.FieldName = "WGDescription";
             this.gridColumn1.Name = "gridColumn1";
             this.gridColumn1.OptionsColumn.AllowEdit = false;
@@ -227,7 +227,7 @@
             // 
             // gridColumn2
             // 
-            this.gridColumn2.Caption = "WA Description";
+            this.gridColumn2.Caption = "WA Beschreibung";
             this.gridColumn2.FieldName = "WADescription";
             this.gridColumn2.Name = "gridColumn2";
             this.gridColumn2.OptionsColumn.AllowEdit = false;

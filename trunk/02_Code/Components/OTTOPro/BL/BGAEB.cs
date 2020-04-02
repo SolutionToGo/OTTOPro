@@ -18,16 +18,17 @@ namespace BL
     public class BGAEB
     {   
         DGAEB ObjGAEB = new DGAEB();
-        public XmlDocument Export(int ProjectID, string strLVSection, string strFormat, string _Raster, EGAEB ObjEGAEB)
+        public XmlDocument Export(int ProjectID, object strLVSection, string strFormat, string _Raster, EGAEB ObjEGAEB)
         {
             XmlDocument xmldoc = new XmlDocument();
             try
             {
                 DataSet dsTMLData = null;
+                DataSet dsTMLPositionsDataTemp = null;
                 DataSet dsTMLPositionsData = null;
                 dsTMLData = ObjGAEB.Export(ProjectID, _Raster);
-                dsTMLPositionsData = ObjGAEB.GetPositionsDataForTML(ProjectID, strLVSection, _Raster);
-                
+                dsTMLPositionsDataTemp = ObjGAEB.GetPositionsDataForTML(ProjectID, strLVSection, _Raster);
+
                 dsTMLData.DataSetName = "Generic";
                 dsTMLData.Tables[0].TableName = "DateiInfo";
                 dsTMLData.Tables[1].TableName = "AG";
@@ -38,7 +39,14 @@ namespace BL
                 dsTMLData.Tables[6].TableName = "ReInfo";
                 dsTMLData.Tables[7].TableName = "BestInfo";
                 dsTMLData.Tables[8].TableName = "LVInfo";
-               
+
+                DataTable dttemp = new DataTable();
+                dsTMLPositionsData = new DataSet();
+                for(int i = dsTMLPositionsDataTemp.Tables.Count - 1; i >= 0;i--)
+                {
+                    dttemp = dsTMLPositionsDataTemp.Tables[i].Copy();
+                    dsTMLPositionsData.Tables.Add(dttemp);
+                }
                 dsTMLPositionsData.DataSetName = "LV";
                 dsTMLPositionsData.Locale = CultureInfo.CreateSpecificCulture("de-DE");
                 if (dsTMLPositionsData != null && dsTMLPositionsData.Tables.Count > 1)
@@ -642,10 +650,10 @@ namespace BL
             try
             {
                 DataSet dsTMLData = null;
+                DataSet dsTMLPositionsDataTemp = null;
                 DataSet dsTMLPositionsData = null;
                 dsTMLData = ObjGAEB.Export(ProjectID, _Raster);
-                dsTMLPositionsData = ObjGAEB.GetSupplierProposalExport(SupplierProposalID);
-
+                dsTMLPositionsDataTemp = ObjGAEB.GetSupplierProposalExport(SupplierProposalID);
                 dsTMLData.DataSetName = "Generic";
                 dsTMLData.Tables[0].TableName = "DateiInfo";
                 dsTMLData.Tables[1].TableName = "AG";
@@ -656,7 +664,13 @@ namespace BL
                 dsTMLData.Tables[6].TableName = "ReInfo";
                 dsTMLData.Tables[7].TableName = "BestInfo";
                 dsTMLData.Tables[8].TableName = "LVInfo";
-
+                DataTable dttemp = new DataTable();
+                dsTMLPositionsData = new DataSet();
+                for (int i = dsTMLPositionsDataTemp.Tables.Count - 1; i >= 0; i--)
+                {
+                    dttemp = dsTMLPositionsDataTemp.Tables[i].Copy();
+                    dsTMLPositionsData.Tables.Add(dttemp);
+                }
                 dsTMLPositionsData.DataSetName = "LV";
                 dsTMLPositionsData.Locale = CultureInfo.CreateSpecificCulture("de-DE");
                 if (dsTMLPositionsData != null && dsTMLPositionsData.Tables.Count > 1)

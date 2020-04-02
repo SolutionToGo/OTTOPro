@@ -99,11 +99,11 @@
             // cmbLVSection
             // 
             this.cmbLVSection.Enabled = false;
-            this.cmbLVSection.Location = new System.Drawing.Point(76, 88);
+            this.cmbLVSection.Location = new System.Drawing.Point(81, 88);
             this.cmbLVSection.Name = "cmbLVSection";
             this.cmbLVSection.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbLVSection.Size = new System.Drawing.Size(333, 20);
+            this.cmbLVSection.Size = new System.Drawing.Size(328, 20);
             this.cmbLVSection.StyleController = this.layoutControl1;
             this.cmbLVSection.TabIndex = 54;
             // 
@@ -231,8 +231,8 @@
             this.cmbLVSectionFilter.Location = new System.Drawing.Point(0, 76);
             this.cmbLVSectionFilter.Name = "cmbLVSectionFilter";
             this.cmbLVSectionFilter.Size = new System.Drawing.Size(401, 24);
-            this.cmbLVSectionFilter.Text = "LVSection";
-            this.cmbLVSectionFilter.TextSize = new System.Drawing.Size(61, 14);
+            this.cmbLVSectionFilter.Text = "LV Sektion";
+            this.cmbLVSectionFilter.TextSize = new System.Drawing.Size(66, 14);
             // 
             // layoutControlItem3
             // 

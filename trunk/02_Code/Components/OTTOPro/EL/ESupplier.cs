@@ -132,11 +132,11 @@ namespace EL
         }
 
         public DataTable dtArticleID = new DataTable();
-        public DataSet Article
-        {
-            get { return _Articles; }
-            set { _Articles = value; }
-        }
+
+        public DataTable dtArticlesMerge = null;
+
+        public DataTable dtLVSection = null;
+
         public DataSet SupplierProposal
         {
             get { return _SupplierProposal; }
@@ -351,6 +351,8 @@ namespace EL
 
         public DataTable dtSuppliers = null;
 
+        public DataTable dtSupplierForproposal = new DataTable();
+
         //Supplier Proposal
         private int _ProposalID = -1;
         public int ProposalID
@@ -479,11 +481,9 @@ namespace EL
             get { return _strSupplierExists; }
             set { _strSupplierExists = value; }
         }
-        public string LVSection
-        {
-            get { return _LVSection; }
-            set { _LVSection = value; }
-        }
+
+        public string LVSection = string.Empty;
+        public object LVSectionID = null;
 
         public object PSupplierID = null;
         public object NotSelectedPSupplierID = null;

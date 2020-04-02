@@ -49,9 +49,9 @@
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController(this.components);
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.richEditBarController1 = new DevExpress.XtraRichEdit.UI.RichEditBarController(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtShortDescription.Properties)).BeginInit();
@@ -67,9 +67,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -109,19 +109,19 @@
             // 
             // txtShortDescription
             // 
-            this.txtShortDescription.Location = new System.Drawing.Point(416, 14);
+            this.txtShortDescription.Location = new System.Drawing.Point(442, 14);
             this.txtShortDescription.Name = "txtShortDescription";
             this.txtShortDescription.Properties.ReadOnly = true;
-            this.txtShortDescription.Size = new System.Drawing.Size(378, 22);
+            this.txtShortDescription.Size = new System.Drawing.Size(319, 22);
             this.txtShortDescription.StyleController = this.layoutControl1;
             this.txtShortDescription.TabIndex = 8;
             // 
             // txtLVPosition
             // 
-            this.txtLVPosition.Location = new System.Drawing.Point(243, 14);
+            this.txtLVPosition.Location = new System.Drawing.Point(291, 14);
             this.txtLVPosition.Name = "txtLVPosition";
             this.txtLVPosition.Properties.ReadOnly = true;
-            this.txtLVPosition.Size = new System.Drawing.Size(95, 22);
+            this.txtLVPosition.Size = new System.Drawing.Size(73, 22);
             this.txtLVPosition.StyleController = this.layoutControl1;
             this.txtLVPosition.TabIndex = 7;
             // 
@@ -129,12 +129,12 @@
             // 
             this.btnNext.ImageOptions.ImageToTextAlignment = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
             this.btnNext.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnNext.ImageOptions.SvgImage")));
-            this.btnNext.Location = new System.Drawing.Point(808, 4);
+            this.btnNext.Location = new System.Drawing.Point(775, 4);
             this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(161, 38);
+            this.btnNext.Size = new System.Drawing.Size(194, 38);
             this.btnNext.StyleController = this.layoutControl1;
             this.btnNext.TabIndex = 5;
-            this.btnNext.Text = "Page Up - Next ";
+            this.btnNext.Text = "Nächste Seite / nach oben";
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // btnPrevious
@@ -143,10 +143,10 @@
             this.btnPrevious.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPrevious.ImageOptions.SvgImage")));
             this.btnPrevious.Location = new System.Drawing.Point(4, 4);
             this.btnPrevious.Name = "btnPrevious";
-            this.btnPrevious.Size = new System.Drawing.Size(161, 38);
+            this.btnPrevious.Size = new System.Drawing.Size(209, 38);
             this.btnPrevious.StyleController = this.layoutControl1;
             this.btnPrevious.TabIndex = 2;
-            this.btnPrevious.Text = "Previous-Page Down";
+            this.btnPrevious.Text = "Vorherige Seite / nach unten";
             this.btnPrevious.Click += new System.EventHandler(this.btnPrevious_Click);
             // 
             // btnOK
@@ -233,9 +233,9 @@
             // layoutControlItem5
             // 
             this.layoutControlItem5.Control = this.btnNext;
-            this.layoutControlItem5.Location = new System.Drawing.Point(804, 0);
+            this.layoutControlItem5.Location = new System.Drawing.Point(771, 0);
             this.layoutControlItem5.Name = "layoutControlItem5";
-            this.layoutControlItem5.Size = new System.Drawing.Size(165, 46);
+            this.layoutControlItem5.Size = new System.Drawing.Size(198, 46);
             this.layoutControlItem5.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem5.TextVisible = false;
             // 
@@ -244,7 +244,7 @@
             this.layoutControlItem4.Control = this.btnPrevious;
             this.layoutControlItem4.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(165, 46);
+            this.layoutControlItem4.Size = new System.Drawing.Size(213, 46);
             this.layoutControlItem4.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem4.TextVisible = false;
             // 
@@ -259,48 +259,48 @@
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.txtLVPosition;
-            this.layoutControlItem6.Location = new System.Drawing.Point(165, 10);
+            this.layoutControlItem6.Location = new System.Drawing.Point(213, 10);
             this.layoutControlItem6.Name = "layoutControlItem6";
-            this.layoutControlItem6.Size = new System.Drawing.Size(173, 26);
+            this.layoutControlItem6.Size = new System.Drawing.Size(151, 26);
             this.layoutControlItem6.Text = "LV Position";
             this.layoutControlItem6.TextSize = new System.Drawing.Size(71, 16);
             // 
             // layoutControlItem7
             // 
             this.layoutControlItem7.Control = this.txtShortDescription;
-            this.layoutControlItem7.Location = new System.Drawing.Point(338, 10);
+            this.layoutControlItem7.Location = new System.Drawing.Point(364, 10);
             this.layoutControlItem7.Name = "layoutControlItem7";
-            this.layoutControlItem7.Size = new System.Drawing.Size(456, 26);
+            this.layoutControlItem7.Size = new System.Drawing.Size(397, 26);
             this.layoutControlItem7.Text = "Kurz Text";
             this.layoutControlItem7.TextSize = new System.Drawing.Size(71, 16);
             // 
             // emptySpaceItem3
             // 
             this.emptySpaceItem3.AllowHotTrack = false;
-            this.emptySpaceItem3.Location = new System.Drawing.Point(794, 0);
+            this.emptySpaceItem3.Location = new System.Drawing.Point(761, 0);
             this.emptySpaceItem3.Name = "emptySpaceItem3";
             this.emptySpaceItem3.Size = new System.Drawing.Size(10, 46);
             this.emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // richEditBarController1
-            // 
-            this.richEditBarController1.Control = this.txtLongdescription;
-            // 
             // emptySpaceItem5
             // 
             this.emptySpaceItem5.AllowHotTrack = false;
-            this.emptySpaceItem5.Location = new System.Drawing.Point(165, 0);
+            this.emptySpaceItem5.Location = new System.Drawing.Point(213, 0);
             this.emptySpaceItem5.Name = "emptySpaceItem5";
-            this.emptySpaceItem5.Size = new System.Drawing.Size(629, 10);
+            this.emptySpaceItem5.Size = new System.Drawing.Size(548, 10);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
             // emptySpaceItem6
             // 
             this.emptySpaceItem6.AllowHotTrack = false;
-            this.emptySpaceItem6.Location = new System.Drawing.Point(165, 36);
+            this.emptySpaceItem6.Location = new System.Drawing.Point(213, 36);
             this.emptySpaceItem6.Name = "emptySpaceItem6";
-            this.emptySpaceItem6.Size = new System.Drawing.Size(629, 10);
+            this.emptySpaceItem6.Size = new System.Drawing.Size(548, 10);
             this.emptySpaceItem6.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // richEditBarController1
+            // 
+            this.richEditBarController1.Control = this.txtLongdescription;
             // 
             // frmViewdescription
             // 
@@ -335,9 +335,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.richEditBarController1)).EndInit();
             this.ResumeLayout(false);
 
         }

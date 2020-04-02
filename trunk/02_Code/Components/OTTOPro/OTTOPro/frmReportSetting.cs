@@ -157,10 +157,7 @@ namespace OTTOPro
                 dtpReportDate.DateTime = DateTime.Now;
                 cmbLVSection.EditValue = null;
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex){Utility.ShowError(ex);}
         }
 
         private void FillLVSection()
@@ -170,24 +167,21 @@ namespace OTTOPro
                 if (objBGAEB == null)
                     objBGAEB = new BGAEB();
                 DataTable dtLVSection = new DataTable();
-                cmbLVSection.Properties.Items.Clear();
                 dtLVSection = objBGAEB.GetLVSection(_ProjectID);
-                foreach (DataRow dr in dtLVSection.Rows)
+                if (Utility.LVSectionEditAccess == "7")
                 {
-                    if (Utility.LVSectionEditAccess == "7")
-                    {
-                        if (Convert.ToString(dr["LVSection"]).ToLower() == "ha")
-                            cmbLVSection.Properties.Items.Add(dr["LVSection"]);
-                    }
-                    else
-                        cmbLVSection.Properties.Items.Add(dr["LVSection"]);
+                    DataTable dttemp = dtLVSection.Copy();
+                    DataView dv = dttemp.DefaultView;
+                    dv.RowFilter = "LVSectionName = 'HA'";
+                    dtLVSection = new DataTable();
+                    dtLVSection = dv.ToTable();
                 }
-                cmbLVSection.SetEditValue("HA");
+                cmbLVSection.Properties.DataSource = dtLVSection;
+                cmbLVSection.Properties.DisplayMember = "LVSectionName";
+                cmbLVSection.Properties.ValueMember = "LVSectionID";
+                Utility.SetCheckedComboexitValue(cmbLVSection, "HA");
             }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
+            catch (Exception ex){ throw ex; }
         }
 
         private void ParseReportSettings()

@@ -57,7 +57,7 @@ namespace DataAccess
                 }
             }
             catch (Exception ex){throw;}
-            finally{SQLCon.Sqlconn().Close();}
+            finally{SQLCon.Close();}
             return ObjEOTTO;
         }
 
@@ -92,7 +92,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjEOTTO;
         }
@@ -129,7 +129,7 @@ namespace DataAccess
                 }
             }
             catch (Exception ex){throw;}
-            finally{SQLCon.Sqlconn().Close();}
+            finally{SQLCon.Close();}
             return ObjEOTTO;
         }
 

@@ -42,7 +42,7 @@ namespace OTTOPro
                 {
                     int _Length = Levels[Count - 2].Length;
                     txtNewOZ.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx;
-                    txtNewOZ.Properties.Mask.EditMask = "[A-Z0-9]{1," + _Length + "}((\\.)\\d{0,1})?";
+                    txtNewOZ.Properties.Mask.EditMask = "[A-Z0-9]{1," + _Length + "}((\\.)[A-Za-z0-9]{0,1})?";
                     txtNewOZ.Properties.Mask.UseMaskAsDisplayFormat = true;
                 }
 

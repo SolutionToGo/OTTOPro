@@ -56,7 +56,7 @@ namespace DataAccess
                 }
             }
             catch (Exception ex) { throw; }
-            finally { SQLCon.Sqlconn().Close(); }
+            finally { SQLCon.Close(); }
             return ObjESupplier;
         }
 
@@ -85,7 +85,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsSupplier;
         }
@@ -131,7 +131,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -186,7 +186,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -241,7 +241,32 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier SaveArticleFromProposal(ESupplier ObjESupplier)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_WGWAInUpdateSupplierProposal]";
+                    cmd.Parameters.AddWithValue("@SupplierID", ObjESupplier.SupplierID);
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier. SupplierProposalID);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -280,7 +305,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return dsWGWA;
         }
@@ -297,6 +322,7 @@ namespace DataAccess
                     cmd.CommandText = "[P_Get_PositionsForSsupplierProposal]";
                     cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
                     cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@LVSectionID", ObjESupplier.LVSectionID);
                     cmd.Parameters.AddWithValue("@dtArticleID", ObjESupplier.dtArticleID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
@@ -326,7 +352,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -343,7 +369,9 @@ namespace DataAccess
                     cmd.CommandText = "[P_Get_PositionsByProposalID]";
                     cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
                     cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@LVSectionID", ObjESupplier.LVSectionID);
                     cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.ProposalID);
+                    cmd.Parameters.AddWithValue("@dtArticleID", ObjESupplier.dtArticleID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsPositions);
@@ -369,56 +397,43 @@ namespace DataAccess
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
                     throw new Exception("Fehler beim Laden der Daten");
-                }
                 else
-                {
                     throw new Exception("Error Occured While Retreiving records");
-
-                }
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
 
-        public DataSet GetLVSectionforProposal(int _Pid)
+        public ESupplier GetLVSectionforProposal(ESupplier ObjEsupplier)
         {
-            DataSet dsWGWA = new DataSet();
             try
             {
+                ObjEsupplier.dtLVSection = new DataTable();
                 using (SqlCommand cmd = new SqlCommand())
                 {
                     cmd.Connection = SQLCon.Sqlconn();
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_LVSectionForProposal]";
-                    cmd.Parameters.AddWithValue("@ProjectID", _Pid);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjEsupplier.ProjectID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
-                        da.Fill(dsWGWA);
+                        da.Fill(ObjEsupplier.dtLVSection);
                     }
                 }
             }
             catch (Exception ex)
             {
                 if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
                     throw new Exception("Fehler beim Laden der Daten");
-                }
                 else
-                {
                     throw new Exception("Error Occured While Retreiving records");
-
-                }
             }
-            finally
-            {
-                SQLCon.Sqlconn().Close();
-            }
-            return dsWGWA;
+            finally{SQLCon.Close();}
+            return ObjEsupplier;
         }
 
         public ESupplier SaveSupplierProposal(ESupplier ObjESupplier)
@@ -439,6 +454,7 @@ namespace DataAccess
                     cmd.Parameters.AddWithValue("@dtPositionID", ObjESupplier.dtPositionsToDB);
                     cmd.Parameters.AddWithValue("@dtSupplierID", ObjESupplier.dtSupplierToDB);
                     cmd.Parameters.AddWithValue("@dtDeletedPositions", ObjESupplier. dtDeletedPositionsToDB);
+                    cmd.Parameters.AddWithValue("@LVSectionID", ObjESupplier.LVSectionID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(ds);
@@ -475,7 +491,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -491,7 +507,8 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_SupplierProposal_1]";
                     cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
-                    cmd.Parameters.AddWithValue("@LVSsection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@LVSectionID", ObjESupplier.LVSectionID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsWGWA);
@@ -513,7 +530,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -529,7 +546,7 @@ namespace DataAccess
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.CommandText = "[P_Get_ArticleForProposal]";
                     cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
-                    cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@LVSectionID", ObjESupplier.LVSectionID);
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))
                     {
                         da.Fill(dsArticle);
@@ -553,7 +570,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -593,7 +610,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -634,7 +651,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -670,7 +687,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -699,7 +716,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -749,7 +766,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -791,7 +808,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -821,7 +838,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -847,7 +864,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -880,7 +897,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -922,7 +939,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -973,7 +990,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -1028,7 +1045,7 @@ namespace DataAccess
             }
             finally
             {
-                SQLCon.Sqlconn().Close();
+                SQLCon.Close();
             }
             return ObjESupplier;
         }
@@ -1084,5 +1101,137 @@ namespace DataAccess
             }
             return ObjESupplier;
         }
+
+        public ESupplier GetSuppliersForProposal(ESupplier ObjESupplier)
+        {
+            try
+            {
+                DataSet dsSupplier = new DataSet();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_SuppliersForProposal]";
+                    cmd.Parameters.Add("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.Add("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsSupplier);
+                    }
+                    if(dsSupplier != null && dsSupplier.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtSupplierForproposal = dsSupplier.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler beim Laden des Kunden");
+                else
+                    throw new Exception("Error Occured While Retreiving Suppliers");
+            }
+            finally
+            {
+                SQLCon.Close();
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier GetSuppliersForProposalMerge(ESupplier ObjESupplier)
+        {
+            try
+            {
+                DataSet dsSupplier = new DataSet();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_SuppliersForProposalMerge]";
+                    cmd.Parameters.Add("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.Add("@dtArticles", ObjESupplier.dtArticlesMerge);
+                    cmd.Parameters.Add("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsSupplier);
+                    }
+                    if (dsSupplier != null && dsSupplier.Tables.Count > 0)
+                    {
+                        ObjESupplier.dtSupplierForproposal = dsSupplier.Tables[0];
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                    throw new Exception("Fehler beim Laden des Kunden");
+                else
+                    throw new Exception("Error Occured While Retreiving Suppliers");
+            }
+            finally
+            {
+                SQLCon.Close();
+            }
+            return ObjESupplier;
+        }
+
+        public ESupplier SupplierProposalMerge(ESupplier ObjESupplier)
+        {
+            DataSet ds = new DataSet();
+            int ProposalID = -1;
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Ins_ProposalMerge]";
+                    cmd.Parameters.AddWithValue("@SupplierProposalID", ObjESupplier.SupplierProposalID);
+                    cmd.Parameters.AddWithValue("@ProjectID", ObjESupplier.ProjectID);
+                    cmd.Parameters.AddWithValue("@LVSection", ObjESupplier.LVSection);
+                    cmd.Parameters.AddWithValue("@dtArticleID", ObjESupplier.dtArticlesMerge);
+                    cmd.Parameters.AddWithValue("@dtSupplierID", ObjESupplier.dtSupplierToDB);
+                    cmd.Parameters.AddWithValue("@LVSectionID", ObjESupplier.LVSectionID);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(ds);
+                    }
+                    if (ds != null && ds.Tables.Count > 0 && ds.Tables[0].Rows.Count > 0)
+                    {
+                        string str = ds.Tables[0].Rows[0][0] == DBNull.Value ? "" : ds.Tables[0].Rows[0][0].ToString();
+                        if (!string.IsNullOrEmpty(str))
+                        {
+                            if (int.TryParse(str, out ProposalID))
+                                ObjESupplier.SupplierProposalID = ProposalID;
+                            else
+                                throw new Exception(str);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                if (ex.Message.Contains("Cannot"))
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Die Preisanfrage ist auf 8 Lieferanten begrenzt");
+                    else
+                        throw new Exception("Cannot send proposal to more than 8 suppliers");
+                }
+                else
+                {
+                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
+                        throw new Exception("Fehler beim Laden der Daten");
+                    else
+                        throw new Exception("Error occured while saving suplier proposal");
+                }
+            }
+            finally
+            {
+                SQLCon.Close();
+            }
+            return ObjESupplier;
+        }
+
     }
 }

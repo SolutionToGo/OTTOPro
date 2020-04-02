@@ -17,12 +17,11 @@ namespace BL
     {
         DPosition ObjDPosition = new DPosition();
 
-        public int SavePositionDetails(EPosition ObjEPosition,string strRaster, int LVSprunge,bool _IsCopy = false)
+        public EPosition SavePositionDetails(EPosition ObjEPosition,string strRaster, int LVSprunge,bool _IsCopy = false)
         {
             try
             {
                 CultureInfo CInfo = new CultureInfo("en-US");
-                int PositionID = -1;
                 XmlDocument Xdoc = new XmlDocument();
                 if (!_IsCopy)
                     PrepareOZ(ObjEPosition, strRaster);
@@ -30,7 +29,7 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionID", Convert.ToString(ObjEPosition.PositionID));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ProjectID", Convert.ToString(ObjEPosition.ProjectID));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionOZ", PrepareOZ(ObjEPosition.Position_OZ, strRaster));
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ParentOZ", ObjEPosition.Parent_OZ);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ParentOZ", PrepareOZ(ObjEPosition.Parent_OZ,strRaster));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Title", ObjEPosition.Title);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ShortDescription", ObjEPosition.ShortDescription);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionKZ", ObjEPosition.PositionKZ);
@@ -46,14 +45,11 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Type", ObjEPosition.Type);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LVStatus", ObjEPosition.LVStatus);
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ProposalNo", ObjEPosition.ProposalNo.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SurchargeFrom", string.IsNullOrEmpty(ObjEPosition.Surcharge_From) ? "" : 
-                    ObjEPosition.Surcharge_From);
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SurchargeTO", string.IsNullOrEmpty(ObjEPosition.Surcharge_To)? "" : 
-                    ObjEPosition.Surcharge_To);
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SurchargeFrom", PrepareOZ(ObjEPosition.Surcharge_From, strRaster));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SurchargeTO", PrepareOZ(ObjEPosition.Surcharge_To, strRaster));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SurchargePer", ObjEPosition.Surcharge_Per.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "surchargePercentageMO", ObjEPosition.surchargePercentage_MO.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "UserID", ObjEPosition.UserID.ToString());
-
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "ValidityDate", ObjEPosition.ValidityDate.ToString("yyyy-MM-dd"));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "KalkMenge", ObjEPosition.KalkMenge.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "MECost", ObjEPosition.MECost.ToString());
@@ -104,6 +100,9 @@ namespace BL
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "EP", ObjEPosition.EP.ToString(CInfo));
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "SNO", ObjEPosition.SNO.ToString());
                 Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "Discount", ObjEPosition.Discount.ToString(CInfo));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LVSectionID", Convert.ToString(ObjEPosition.LVSectionID));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "LVStatusID", Convert.ToString(ObjEPosition.LVStatusID));
+                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "PositionKZID", Convert.ToString(ObjEPosition.PositionKZID));
 
                 double OZID = 0;
                 string stOZChar = "";
@@ -150,25 +149,15 @@ namespace BL
                         }
                     }
                 }
-                PositionID = ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription, 
-                    OZID, OZ1, OZ2, OZ3, OZ4, OZ5, OZ6, stOZChar,ObjEPosition.MontageEntry);
-                if (PositionID < 0)
-                {
-                    if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                    {
-                        throw new Exception("Fehler beim Speichern der LV Angaben");
-                    }
-                    else
-                    {
-                        throw new Exception("Failed to Save LV Details");
-                    }
-                }
-                return PositionID;
+                ObjDPosition.SavePositionDetails(Xdoc,ObjEPosition.ProjectID, ObjEPosition.LongDescription, 
+                    OZID, OZ1, OZ2, OZ3, OZ4, OZ5, OZ6, stOZChar,ObjEPosition.MontageEntry, strRaster,
+                    ObjEPosition.RoundOffValue,ObjEPosition);
             }
             catch (Exception ex)
             {
                 throw;
             }
+            return ObjEPosition;
         }
 
         public void GetPositionList(EPosition ObjEPosition,int ProjectID)
@@ -321,19 +310,14 @@ namespace BL
             return strnewLVSection;
         }
 
-        public void InsertNewLVSection(string strNewLVSection, int ProjectID) 
+        public void InsertNewLVSection(string strNewLVSection, int ProjectID,EProject ObjEProject) 
         {
             try
             {
-                ObjDPosition.InsertLVSection(strNewLVSection, ProjectID);
+                ObjDPosition.InsertLVSection(strNewLVSection, ProjectID, ObjEProject);
             }
-            catch (Exception ex)
-            {
-                
-                throw;
-            }
+            catch (Exception ex){throw;}
         }
-
 
         public void GetPositionOZList(EPosition ObjEPosition, int ProjectID, string Position_Type,DataTable dt)
         {

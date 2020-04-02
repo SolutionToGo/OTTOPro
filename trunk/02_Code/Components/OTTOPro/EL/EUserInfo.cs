@@ -57,6 +57,9 @@ namespace EL
             set { _dtFeature = value; }
         }
 
+        public DataTable dtLVStatus = null;
+        public DataTable dtPositionKZ = null;
+
         //To hold the UserRole Details
         private int _RoleID = -1;
         private string _RoleName;

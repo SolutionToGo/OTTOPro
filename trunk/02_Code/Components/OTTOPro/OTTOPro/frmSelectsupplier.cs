@@ -38,13 +38,9 @@ namespace OTTOPro
                         }
                         cmbSupplierList.SelectedItem = strTemp;
                     }
-
                 }
             }
-            catch (Exception ex)
-            {
-
-            }
+            catch (Exception ex){}
         }
 
         private void btnOk_Click(object sender, EventArgs e)

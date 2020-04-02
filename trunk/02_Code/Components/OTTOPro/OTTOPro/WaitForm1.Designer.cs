@@ -54,7 +54,7 @@
             this.progressPanel1.Location = new System.Drawing.Point(0, 0);
             this.progressPanel1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
             this.progressPanel1.Name = "progressPanel1";
-            this.progressPanel1.Size = new System.Drawing.Size(288, 69);
+            this.progressPanel1.Size = new System.Drawing.Size(371, 69);
             this.progressPanel1.TabIndex = 0;
             this.progressPanel1.Text = "progressPanel1";
             this.progressPanel1.WaitAnimationType = DevExpress.Utils.Animation.WaitingAnimatorType.Ring;
@@ -78,7 +78,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(288, 69);
+            this.ClientSize = new System.Drawing.Size(371, 69);
             this.Controls.Add(this.progressPanel1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "WaitForm1";

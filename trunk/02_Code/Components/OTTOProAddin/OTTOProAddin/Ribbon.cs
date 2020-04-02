@@ -88,5 +88,25 @@ namespace OTTOProAddin
             catch (Exception ex){}
             finally { SplashScreenManager.CloseForm(false); }
         }
+
+        private void btnSupplierName_Click(object sender, RibbonControlEventArgs e)
+        {
+            AddMergeField("LieferantName");
+        }
+
+        private void btnSupplierAddress_Click(object sender, RibbonControlEventArgs e)
+        {
+            AddMergeField("LieferantAddress");
+        }
+
+        private void btnProposalDate_Click(object sender, RibbonControlEventArgs e)
+        {
+            AddMergeField("ProposalDate");
+        }
+
+        private void btnDeliveryDeadLine_Click(object sender, RibbonControlEventArgs e)
+        {
+            AddMergeField("DeliveryDeadline");
+        }
     }
 }

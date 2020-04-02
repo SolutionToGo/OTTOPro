@@ -30,20 +30,20 @@ namespace OTTOPro
                     if (culture.ToString() == "de-DE")
                         Utility._IsGermany = true;
                 }
-                // The following line provides localization for the application's user interface.  
                 Thread.CurrentThread.CurrentUICulture = culture;
-                // The following line provides localization for data formats.  
                 Thread.CurrentThread.CurrentCulture = culture;
-                // Set this culture as the default culture for all threads in this application.  
-                // Note: The following properties are supported in the .NET Framework 4.5+ 
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
-                UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
+                UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+
+                log4net.Config.XmlConfigurator.Configure();
+
                 AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>
                 {
                     System.Text.StringBuilder msg = new System.Text.StringBuilder();
+                    msg.AppendLine("Version 9.5.8 - UAT  ");
                     msg.AppendLine(e.Exception.GetType().FullName);
                     msg.AppendLine(e.Exception.Message);
                     System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();

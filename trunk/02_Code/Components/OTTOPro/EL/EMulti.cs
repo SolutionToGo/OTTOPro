@@ -9,12 +9,12 @@ namespace EL
 {
     public class EMulti
     {
-        private string _LVSection = string.Empty;
+        private object _LVSection = string.Empty;
         private int _ProjectID = -1;
         private DataTable _dtArticles = null;
         private string _Type = string.Empty;
 
-        public string LVSection
+        public object LVSection
         {
             get { return _LVSection; }
             set { _LVSection = value; }
@@ -40,5 +40,7 @@ namespace EL
         public DataTable dtSoldMultis;
         public DataTable dtVoldMultis;
         public bool ISMaterial = false;
+
+        public DataTable dtLVSectionID = new DataTable();
     }
 }

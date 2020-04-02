@@ -113,6 +113,18 @@ namespace BL
             }
             return ObjEsupplier;
         }
+        public ESupplier SaveArticleFromProposal(ESupplier ObjESupplier)
+        {
+            try
+            {
+                ObjESupplier = ObjDSupplier.SaveArticleFromProposal(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            return ObjESupplier;
+        }
 
         public ESupplier GetWGWAForProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, string wg, string wa)
         {
@@ -155,20 +167,13 @@ namespace BL
             return ObjESupplier;
         }
 
-        public ESupplier GetLVSectionForProposal(ESupplier ObjEsupplier, int _Pid)
+        public ESupplier GetLVSectionForProposal(ESupplier ObjEsupplier)
         {
             try
             {
-                if (ObjEsupplier != null)
-                {
-                    ObjEsupplier.Article = ObjDSupplier.GetLVSectionforProposal(_Pid);
-
-                }
+                ObjDSupplier.GetLVSectionforProposal(ObjEsupplier);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
+            catch (Exception ex){throw ex;}
             return ObjEsupplier;
         }
 
@@ -594,6 +599,45 @@ namespace BL
                 ObjDSupplier.DeleteSuipplierProposal(ObjESupplier);
             }
             catch (Exception ex){ throw; }
+            return ObjESupplier;
+        }
+
+        public ESupplier GetSuppliersForProposal(ESupplier ObjESupplier)
+        {
+            try
+            {
+                if (ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+                ObjDSupplier.GetSuppliersForProposal(ObjESupplier);
+            }
+            catch (Exception ex){throw ex;}
+            return ObjESupplier;
+        }
+
+        public ESupplier GetSuppliersForProposalMerge(ESupplier ObjESupplier)
+        {
+            try
+            {
+                if (ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+                ObjDSupplier.GetSuppliersForProposalMerge(ObjESupplier);
+            }
+            catch (Exception ex) { throw ex; }
+            return ObjESupplier;
+        }
+
+        public ESupplier SupplierProposalMerge(ESupplier ObjESupplier)
+        {
+            try
+            {
+                if (ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+                ObjDSupplier.SupplierProposalMerge(ObjESupplier);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             return ObjESupplier;
         }
     }

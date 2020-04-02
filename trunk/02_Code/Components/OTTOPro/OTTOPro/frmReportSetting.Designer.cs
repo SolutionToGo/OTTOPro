@@ -31,8 +31,8 @@
             this.components = new System.ComponentModel.Container();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule1 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
             DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule conditionValidationRule2 = new DevExpress.XtraEditors.DXErrorProvider.ConditionValidationRule();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.chkOnheMontagePrice = new DevExpress.XtraEditors.CheckEdit();
             this.chkOnheMengePositions = new DevExpress.XtraEditors.CheckEdit();
@@ -211,7 +211,7 @@
             // 
             this.chkOnheMontagePrice.Location = new System.Drawing.Point(9, 339);
             this.chkOnheMontagePrice.Name = "chkOnheMontagePrice";
-            this.chkOnheMontagePrice.Properties.Caption = "Angebotstruck ohne Mat./Mont.-EP mit Minuten";
+            this.chkOnheMontagePrice.Properties.Caption = "Angebotsdruck ohne Mat/Mont-EP, mit Minuten";
             this.chkOnheMontagePrice.Size = new System.Drawing.Size(390, 22);
             this.chkOnheMontagePrice.StyleController = this.layoutControl1;
             this.chkOnheMontagePrice.TabIndex = 74;
@@ -220,7 +220,7 @@
             // 
             this.chkOnheMengePositions.Location = new System.Drawing.Point(417, 226);
             this.chkOnheMengePositions.Name = "chkOnheMengePositions";
-            this.chkOnheMengePositions.Properties.Caption = "Angebotsdruck Onhe Menge-Null-Positionen";
+            this.chkOnheMengePositions.Properties.Caption = "Angebotsdruck ohne Positionen mit Null-Menge";
             this.chkOnheMengePositions.Size = new System.Drawing.Size(407, 22);
             this.chkOnheMengePositions.StyleController = this.layoutControl1;
             this.chkOnheMengePositions.TabIndex = 73;
@@ -229,7 +229,7 @@
             // 
             this.chkTitlesPreises.Location = new System.Drawing.Point(9, 307);
             this.chkTitlesPreises.Name = "chkTitlesPreises";
-            this.chkTitlesPreises.Properties.Caption = "Angebotstruck ohne Positionspreise mit Titelsummen";
+            this.chkTitlesPreises.Properties.Caption = "Angebotsdruck ohne Positionspreis, mit Titelsummen";
             this.chkTitlesPreises.Size = new System.Drawing.Size(390, 22);
             this.chkTitlesPreises.StyleController = this.layoutControl1;
             this.chkTitlesPreises.TabIndex = 72;
@@ -247,7 +247,7 @@
             // 
             this.chkEP.Location = new System.Drawing.Point(9, 243);
             this.chkEP.Name = "chkEP";
-            this.chkEP.Properties.Caption = "Angebotstruck ohne Einzelpreisen";
+            this.chkEP.Properties.Caption = "Angebotsdruck ohne Einzelpreise";
             this.chkEP.Size = new System.Drawing.Size(390, 22);
             this.chkEP.StyleController = this.layoutControl1;
             this.chkEP.TabIndex = 70;
@@ -420,17 +420,17 @@
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "Von";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn2.HeaderText = "Bis";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
@@ -654,7 +654,7 @@
             this.layoutControlGroup2.Name = "layoutControlGroup2";
             this.layoutControlGroup2.OptionsItemText.TextToControlDistance = 5;
             this.layoutControlGroup2.Size = new System.Drawing.Size(408, 230);
-            this.layoutControlGroup2.Text = "Text Positionen im Angebotreport";
+            this.layoutControlGroup2.Text = "Text Positionen im Angebotsbericht";
             // 
             // layoutControlItem11
             // 

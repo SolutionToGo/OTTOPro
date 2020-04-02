@@ -81,6 +81,7 @@
             this.btnAngebot3 = new DevExpress.XtraBars.BarButtonItem();
             this.bbAufmass = new DevExpress.XtraBars.BarButtonItem();
             this.bbRechnung = new DevExpress.XtraBars.BarButtonItem();
+            this.bbProposalLetter = new DevExpress.XtraBars.BarButtonItem();
             this.chkAutoSave1 = new DevExpress.XtraBars.BarEditItem();
             this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
             this.nbDeletePosition = new DevExpress.XtraBars.BarButtonItem();
@@ -88,6 +89,9 @@
             this.nbCopyDetailKZ = new DevExpress.XtraBars.BarButtonItem();
             this.btnRefreshProject = new DevExpress.XtraBars.BarButtonItem();
             this.btnSendLogfile = new DevExpress.XtraBars.BarButtonItem();
+            this.txtAppVersion = new DevExpress.XtraBars.BarStaticItem();
+            this.txtDBVersion = new DevExpress.XtraBars.BarStaticItem();
+            this.txtUsername = new DevExpress.XtraBars.BarStaticItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -95,6 +99,7 @@
             this.rpgArticleMaster = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rpSetting = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.rpgTextModule = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -108,7 +113,6 @@
             this.tmrStatus = new System.Windows.Forms.Timer(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.fdImportFile = new System.Windows.Forms.OpenFileDialog();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblDBVersion = new System.Windows.Forms.Label();
@@ -174,9 +178,13 @@
             this.nbCopyPosition,
             this.nbCopyDetailKZ,
             this.btnRefreshProject,
-            this.btnSendLogfile});
+            this.btnSendLogfile,
+            this.txtAppVersion,
+            this.txtDBVersion,
+            this.txtUsername,
+            this.bbProposalLetter});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 66;
+            this.ribbon.MaxItemId = 75;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -185,6 +193,7 @@
             this.ribbon.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.chkAutoSave,
             this.repositoryItemCheckEdit1});
+            this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
             this.ribbon.Size = new System.Drawing.Size(1230, 143);
             // 
             // btnNewProject
@@ -480,7 +489,8 @@
             new DevExpress.XtraBars.LinkPersistInfo(this.btnAngebot2),
             new DevExpress.XtraBars.LinkPersistInfo(this.btnAngebot3),
             new DevExpress.XtraBars.LinkPersistInfo(this.bbAufmass),
-            new DevExpress.XtraBars.LinkPersistInfo(this.bbRechnung)});
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbRechnung),
+            new DevExpress.XtraBars.LinkPersistInfo(this.bbProposalLetter)});
             this.bbTitleBlattEdit.Name = "bbTitleBlattEdit";
             // 
             // bbAngebot
@@ -526,6 +536,13 @@
             this.bbRechnung.Name = "bbRechnung";
             this.bbRechnung.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
             this.bbRechnung.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbRechnung_ItemClick);
+            // 
+            // bbProposalLetter
+            // 
+            this.bbProposalLetter.Caption = "Anfragedeckblatt V-015";
+            this.bbProposalLetter.Id = 74;
+            this.bbProposalLetter.Name = "bbProposalLetter";
+            this.bbProposalLetter.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbProposalLetter_ItemClick);
             // 
             // chkAutoSave1
             // 
@@ -586,6 +603,30 @@
             this.btnSendLogfile.Name = "btnSendLogfile";
             this.btnSendLogfile.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSendLogfile_ItemClick);
             // 
+            // txtAppVersion
+            // 
+            this.txtAppVersion.Caption = "Version Software 9.5.8 (02.04.2020) - UAT";
+            this.txtAppVersion.Id = 69;
+            this.txtAppVersion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Blue;
+            this.txtAppVersion.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.txtAppVersion.Name = "txtAppVersion";
+            // 
+            // txtDBVersion
+            // 
+            this.txtDBVersion.Caption = "barStaticItem3";
+            this.txtDBVersion.Id = 70;
+            this.txtDBVersion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Blue;
+            this.txtDBVersion.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.txtDBVersion.Name = "txtDBVersion";
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Caption = "barStaticItem4";
+            this.txtUsername.Id = 73;
+            this.txtUsername.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Blue;
+            this.txtUsername.ItemAppearance.Normal.Options.UseForeColor = true;
+            this.txtUsername.Name = "txtUsername";
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -594,7 +635,8 @@
             this.ribbonPageGroup5,
             this.rpgArticleMaster,
             this.ribbonPageGroup2,
-            this.ribbonPageGroup4});
+            this.ribbonPageGroup4,
+            this.ribbonPageGroup9});
             this.miHome.Name = "miHome";
             this.miHome.Text = "OTTOPro";
             // 
@@ -645,6 +687,16 @@
             // 
             this.ribbonPageGroup4.ItemLinks.Add(this.barMdiChildrenListItemProject);
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
+            // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.Alignment = DevExpress.XtraBars.Ribbon.RibbonPageGroupAlignment.Far;
+            this.ribbonPageGroup9.ItemLinks.Add(this.txtAppVersion);
+            this.ribbonPageGroup9.ItemLinks.Add(this.txtDBVersion);
+            this.ribbonPageGroup9.ItemLinks.Add(this.txtUsername);
+            this.ribbonPageGroup9.ItemsLayout = DevExpress.XtraBars.Ribbon.RibbonPageGroupItemsLayout.ThreeRows;
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.ShowCaptionButton = false;
             // 
             // rpSetting
             // 
@@ -757,18 +809,6 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(1003, 120);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(221, 17);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "Version Software 9.5.5.1 (28.01.2020)";
-            // 
             // fdImportFile
             // 
             this.fdImportFile.FileName = "openFileDialog1";
@@ -826,12 +866,10 @@
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.lblDBVersion);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.ribbon);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.KeyPreview = true;
@@ -878,7 +916,6 @@
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem5;
         private DevExpress.XtraBars.BarButtonItem btnShortCuts;
-        private System.Windows.Forms.Label label1;
         private DevExpress.XtraBars.BarButtonItem barButtonItem6;
         private DevExpress.XtraBars.BarButtonItem barButtonItemExitProject;
         private DevExpress.XtraBars.BarButtonItem btnCustomer;
@@ -931,5 +968,10 @@
         private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
         private DevExpress.XtraBars.BarButtonItem btnRefreshProject;
         private DevExpress.XtraBars.BarButtonItem btnSendLogfile;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
+        private DevExpress.XtraBars.BarStaticItem txtAppVersion;
+        private DevExpress.XtraBars.BarStaticItem txtDBVersion;
+        private DevExpress.XtraBars.BarStaticItem txtUsername;
+        private DevExpress.XtraBars.BarButtonItem bbProposalLetter;
     }
 }
