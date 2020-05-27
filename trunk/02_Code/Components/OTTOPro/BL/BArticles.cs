@@ -16,6 +16,12 @@ namespace BL
     {
         DArticles ObjDArticles = null;
         CultureInfo CInfo = new CultureInfo("en-US");
+
+       /// <summary>
+       /// Code to add or edit an article from article master
+       /// </summary>
+       /// <param name="ObjEArticle"></param>
+       /// <returns></returns>
         public EArticles SaveArticle(EArticles ObjEArticle)
         {
             try
@@ -56,6 +62,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to getch article data from base i.e. Article data, dimensiions, typ and Rabatt mappings
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetArticle(EArticles ObjEArticle)
         {
             try
@@ -71,6 +82,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to Add dimensions of article
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles SaveDimension(EArticles ObjEArticle)
         {
             try
@@ -100,6 +116,12 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to add ot edit typ from Typ master
+        /// </summary>
+        /// <param name="xml"></param>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles SaveTyp(EArticles ObjEArticle)
         {
             try
@@ -123,6 +145,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to fetch list of Typ 
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetTyp(EArticles ObjEArticle)
         {
             try
@@ -138,6 +165,12 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to add or edit rabatt from rabatt master
+        /// </summary>
+        /// <param name="xml"></param>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles SaveRabatt(EArticles ObjEArticle)
         {
             try
@@ -165,6 +198,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to Fetch Rabatt list along with Typ mapping from database
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetRabatt(EArticles ObjEArticle)
         {
             try
@@ -180,6 +218,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to Save new set of Dimesions with new validity date from Article master
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles SaveDimensionCopy(EArticles ObjEArticle)
         {
             try
@@ -195,6 +238,12 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to import article data
+        /// </summary>
+        /// <param name="FilePath"></param>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles ImportExcelXLS(string FilePath, EArticles ObjEArticle)
         {
             try
@@ -296,6 +345,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to import article data i.e. data migration
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles ImportArticleData(EArticles ObjEArticle)
         {
             try
@@ -311,6 +365,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to save Article mapping with accesories
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles SaveArticleMapping(EArticles ObjEArticle)
         {
             try
@@ -326,6 +385,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to get list of accessories
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetAccessories(EArticles ObjEArticle)
         {
             try
@@ -339,6 +403,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to get accessories list while adding accessories to positions
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetAccessoriesForLVs(EArticles ObjEArticle)
         {
             try
@@ -354,6 +423,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to get article details of based on accessory
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetArticleDetailsForAccessories(EArticles ObjEArticle)
         {
             try
@@ -369,6 +443,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to fetch article details by Typ
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetArticleBytyp(EArticles ObjEArticle)
         {
             try
@@ -384,6 +463,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to fetch article details by WG
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetArticleByWG(EArticles ObjEArticle)
         {
             try
@@ -399,6 +483,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to get mapped Typs based on article ID
+        /// </summary>
+        /// <param name="_ID"></param>
+        /// <returns></returns>
         public DataTable GetMultipleTyp(int _ID)
         {
             DataTable dt = new DataTable();
@@ -415,6 +504,11 @@ namespace BL
             return dt;
         }
 
+        /// <summary>
+        /// Code to get available validity dates based on article ID
+        /// </summary>
+        /// <param name="_ID"></param>
+        /// <returns></returns>
         public DataTable GetValidityDates(int _ID)
         {
             DataTable _dt = new DataTable();
@@ -431,6 +525,12 @@ namespace BL
             return _dt;
         }
 
+        /// <summary>
+        /// Code to get validity dates of dimensions
+        /// </summary>
+        /// <param name="_ID"></param>
+        /// <param name="_date"></param>
+        /// <returns></returns>
         public DataTable GetValidityDatesDimensions(int _ID, DateTime _date)
         {
             DataTable _dt = new DataTable();
@@ -447,6 +547,11 @@ namespace BL
             return _dt;
         }
 
+        /// <summary>
+        /// Code to get mapped Typs based on Rabatt ID
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetTypByRabatt(EArticles ObjEArticle)
         {
             try
@@ -460,6 +565,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to get Articles for accessories mapping
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetArticleForAccessories(EArticles ObjEArticle)
         {
             try
@@ -471,6 +581,12 @@ namespace BL
             catch (Exception ex){ throw ex; }
             return ObjEArticle;
         }
+
+        /// <summary>
+        /// Code to delete accessory mapping
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles DeleteAccessory(EArticles ObjEArticle)
         {
             try
@@ -483,6 +599,11 @@ namespace BL
             return ObjEArticle;
         }
 
+        /// <summary>
+        /// Code to get dimensions while mapping accessories
+        /// </summary>
+        /// <param name="ObjEArticle"></param>
+        /// <returns></returns>
         public EArticles GetAccessoryDimension(EArticles ObjEArticle)
         {
             try

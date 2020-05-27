@@ -16,7 +16,17 @@ namespace BL
     public class BPosition
     {
         DPosition ObjDPosition = new DPosition();
-
+        
+        /// <summary>
+        ///  Code to Add or edit Positions
+        ///  Prepare XML object with given values
+        ///  prepare Position OZ and ParentOZ into Project raster format
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <param name="strRaster"></param>
+        /// <param name="LVSprunge"></param>
+        /// <param name="_IsCopy"></param>
+        /// <returns></returns>
         public EPosition SavePositionDetails(EPosition ObjEPosition,string strRaster, int LVSprunge,bool _IsCopy = false)
         {
             try
@@ -160,6 +170,11 @@ namespace BL
             return ObjEPosition;
         }
 
+        /// <summary>
+        /// Code to fetch Position list from database
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <param name="ProjectID"></param>
         public void GetPositionList(EPosition ObjEPosition,int ProjectID)
         {
             try
@@ -175,6 +190,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to fetch lang description of positons
+        /// </summary>
+        /// <param name="PositionID"></param>
+        /// <returns></returns>
         public string GetLongDescription(int PositionID)
         {
             string LongDescription = string.Empty;
@@ -189,6 +209,11 @@ namespace BL
             return LongDescription;
         }
 
+        /// <summary>
+        /// Code to convert PositionOZ and parent OZ as per the Raster format
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <param name="strLVRaster"></param>
         public void PrepareOZ(EPosition ObjEPosition,string strLVRaster)
         {
             try
@@ -282,20 +307,12 @@ namespace BL
             }
         }
 
-        public DataTable GetPositionKZ()
-        {
-            DataTable dt = null;
-            try
-            {
-                dt = ObjDPosition.GetPositionKZ();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return dt;
-        }
-
+        /// <summary>
+        /// Code to fetch next availbale LV section availble under selected project
+        /// </summary>
+        /// <param name="strLVSection"></param>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public string GetNewLVSection(string strLVSelection, int ProjectID)
         {
             string strnewLVSection = string.Empty;
@@ -310,6 +327,12 @@ namespace BL
             return strnewLVSection;
         }
 
+        /// <summary>
+        /// Code to insert new LV section into database after user apporval
+        /// </summary>
+        /// <param name="strNewLVSection"></param>
+        /// <param name="ProjectID"></param>
+        /// <param name="ObjEProject"></param>
         public void InsertNewLVSection(string strNewLVSection, int ProjectID,EProject ObjEProject) 
         {
             try
@@ -319,6 +342,13 @@ namespace BL
             catch (Exception ex){throw;}
         }
 
+        /// <summary>
+        /// Code to fetch Positions from database for bulk proccess module by filtering Titles, Subtitles and Positions
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="tType"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public void GetPositionOZList(EPosition ObjEPosition, int ProjectID, string Position_Type,DataTable dt)
         {
             try
@@ -334,6 +364,13 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to fetch Positions from database for bulk proccess module by filtering with article
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="tType"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public void GetPositionOZListByWGWA(EPosition ObjEPosition, int ProjectID, string Position_Type, string WG, string WA)
         {
             try
@@ -349,6 +386,17 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to update values to position from Bulk proccess Section A
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="tType"></param>
+        /// <param name="MA_Selbstkosten"></param>
+        /// <param name="MO_Selbstkosten"></param>
+        /// <param name="MA_Verkaufspreis"></param>
+        /// <param name="MO_Verkaufspreis"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public void UpdateBulkProcess_ActionA(EPosition ObjEPosition, int ProjectID, string Position_Type, decimal MA_Selbstkosten, decimal MO_Selbstkosten, decimal MA_Verkaufspreis, decimal MO_Verkaufspreis, DataTable dt)
         {
             try
@@ -364,6 +412,17 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to update values to position from Bulk proccess Section B
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="tType"></param>
+        /// <param name="MA_Selbstkosten"></param>
+        /// <param name="MO_Selbstkosten"></param>
+        /// <param name="MA_Verkaufspreis"></param>
+        /// <param name="MO_Verkaufspreis"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public void UpdateBulkProcess_ActionB(EPosition ObjEPosition, int ProjectID, string Position_Type, string Menge, string MA, string MO, string PeriesText, string Fabricat, string Typ, string LieferantMA, string wg, string wa, string wi, string tLVSection, DataTable dt)
         {
             try
@@ -379,6 +438,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to update long description of position
+        /// </summary>
+        /// <param name="PositionID"></param>
+        /// <param name="strLongDescription"></param>
         public void UpdateLongDescription(int PositionID,string LongDescription)
         {
             try
@@ -391,6 +455,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to delete a Position from project
+        /// </summary>
+        /// <param name="PositionID"></param>
+        /// <param name="_PosKZ"></param>
         public void Deleteposition(int PositionID, string _PosKZ)
         {
             try
@@ -403,6 +472,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to fetch article details and dimensions list from database by  using typ
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetArticleByTyp(EPosition ObjEPositon)
         {
             try
@@ -416,6 +490,11 @@ namespace BL
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch article details and dimensions list from database by  using Article Numbers
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetArticleByWI(EPosition ObjEPositon)
         {
             try
@@ -429,6 +508,11 @@ namespace BL
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch article details and dimensions list from database by  using WG WA combination
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetArticleByWGWA(EPosition ObjEPositon)
         {
             try
@@ -442,6 +526,11 @@ namespace BL
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch article Prices from database by  using Article number and Dimenstions
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetArticleByDimension(EPosition ObjEPositon)
         {
             try
@@ -455,6 +544,11 @@ namespace BL
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch position list from database for Copy LVs module
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public DataSet GetOldPositionList(int ProjectID)
         {
             DataSet ds = new DataSet();
@@ -469,6 +563,12 @@ namespace BL
             return ds;
         }
 
+        /// <summary>
+        /// Code to Copy a Position from Copy LVs modules
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <param name="stOZChar"></param>
+        /// <returns></returns>
         public int CopyPosition(EPosition ObjEPosition,string stOZChar)
         {
             int NewPositionID = 0;
@@ -483,6 +583,12 @@ namespace BL
             return NewPositionID;
         }
 
+        /// <summary>
+        /// Code to fetch corresponding dimensions by Dimension A
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <param name="_DimType"></param>
+        /// <returns></returns>
         public EPosition GetArticleByA(EPosition ObjEPositon, string _DimType)
         {
             try
@@ -496,6 +602,12 @@ namespace BL
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch corresponding dimensions by Dimension B
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <param name="_DimType"></param>
+        /// <returns></returns>
         public EPosition GetArticleByB(EPosition ObjEPositon, string _DimType)
         {
             try
@@ -509,6 +621,12 @@ namespace BL
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to format Position OZ ot PArent OZ based on it project's raster
+        /// </summary>
+        /// <param name="strOZ"></param>
+        /// <param name="strRaster"></param>
+        /// <returns></returns>
         public string PrepareOZ(string strOZ, string strRaster)
         {
             string str = string.Empty;

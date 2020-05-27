@@ -15,12 +15,24 @@ namespace OTTOPro
 {
     public partial class frmCoverSheetPath : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to Saving the path for Title Blatts and Templates
+        /// </summary>
+
+        #region Variables
+
         BProject ObjBProject = null;
         EProject ObjEProject = null;
+        #endregion
+
+        #region Constructors
         public frmCoverSheetPath()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region Events
 
         private void frmCoverSheetPath_Load(object sender, EventArgs e)
         {
@@ -101,5 +113,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
     }
 }

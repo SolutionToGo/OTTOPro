@@ -9,6 +9,11 @@ namespace EL
 {
     public class EUserInfo
     {
+        /// <summary>
+        /// It contains Variables and Entities of User master, Roles and Access features 
+        /// </summary>
+
+
         //To hold the UserInfo Details
         private int _UserID = -1;
         private string _UserName;

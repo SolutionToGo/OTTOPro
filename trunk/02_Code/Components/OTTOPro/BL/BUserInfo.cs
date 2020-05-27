@@ -13,7 +13,12 @@ namespace BL
     public class BUserInfo
     {
         DUserInfo ObjDUserInfo = new DUserInfo();
-
+        
+        /// <summary>
+        ///  Code to send request to DL to add and edit user details
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public int SaveUserDetails(EUserInfo ObjEUserInfo)
         {
             try
@@ -39,6 +44,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        ///  Code to Get User list from DL
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo GetUser(EUserInfo ObjEUserInfo)
         {
             try
@@ -55,26 +65,11 @@ namespace BL
             return ObjEUserInfo;
         }
 
-        public int SaveUserRoles(EUserInfo ObjEUserInfo)
-        {
-            try
-            {
-                int RoleID = -1;
-                XmlDocument Xdoc = new XmlDocument();
-                string XPath = "/Nouns/UserRole";
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RoleID", ObjEUserInfo.RoleID.ToString());
-                Xdoc = XMLBuilder.XmlConstruct(Xdoc, XPath, "RoleName", ObjEUserInfo.RoleName);
-
-
-                RoleID = ObjDUserInfo.SaveUserRoles(Xdoc, ObjEUserInfo);
-                return RoleID;
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
+        /// <summary>
+        ///  Code to fetch User Roles from DL
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo GetUserRoles(EUserInfo ObjEUserInfo)
         {
             try
@@ -91,6 +86,11 @@ namespace BL
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        /// Code to get access features list from DL
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo GetFeatureData(EUserInfo ObjEUserInfo)
         {
             try
@@ -107,6 +107,11 @@ namespace BL
             return ObjEUserInfo;
         }
 
+       /// <summary>
+       /// Code to fetch user access levels from DL
+       /// </summary>
+       /// <param name="ObjEUserInfo"></param>
+       /// <returns></returns>
         public EUserInfo GetAceesLevels(EUserInfo ObjEUserInfo)
         {
             try
@@ -123,6 +128,12 @@ namespace BL
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        /// Code to send request to DL while saving Role feature map
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public EUserInfo SaveFeatureMap(EUserInfo ObjEUserInfo,DataTable dt)
         {
             try
@@ -139,6 +150,11 @@ namespace BL
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        /// Code to send request to DL while check userinformation while logging in.
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo CheckUserCredentials(EUserInfo ObjEUserInfo)
         {
             try
@@ -152,6 +168,11 @@ namespace BL
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        ///  Code to send request to DL while changing the USer's Password
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo ResetPassword(EUserInfo ObjEUserInfo)
         {
             try

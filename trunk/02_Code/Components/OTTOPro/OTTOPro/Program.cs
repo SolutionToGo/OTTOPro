@@ -1,5 +1,6 @@
 ﻿using BL;
 using DevExpress.LookAndFeel;
+using DevExpress.UserSkins;
 using log4net;
 using System;
 using System.Collections.Generic;
@@ -37,19 +38,22 @@ namespace OTTOPro
                 UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
+                BonusSkins.Register();
 
                 log4net.Config.XmlConfigurator.Configure();
 
                 AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>
                 {
                     System.Text.StringBuilder msg = new System.Text.StringBuilder();
-                    msg.AppendLine("Version 9.5.8 - UAT  ");
+                    msg.AppendLine("Version 9.5.8 - PROD  ");
                     msg.AppendLine(e.Exception.GetType().FullName);
                     msg.AppendLine(e.Exception.Message);
                     System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
                     msg.AppendLine(st.ToString());
                     msg.AppendLine();
                     Log.Error(msg);
+                    Log.Debug(msg);
+                    Log.Info(msg);
                 };
                 Application.Run(new frmNewLogin());
             }

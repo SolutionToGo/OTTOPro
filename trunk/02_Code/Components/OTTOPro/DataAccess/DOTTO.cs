@@ -13,6 +13,11 @@ namespace DataAccess
 {
     public class DOTTO
     {
+        /// <summary>
+        /// Code to get save Organization details
+        /// </summary>
+        /// <param name="ObjEOTTO"></param>
+        /// <returns></returns>
         public EOTTO SaveOTTODetails(XmlDocument XmlDoc, EOTTO ObjEOTTO)
         {
             int OTTOID = -1;
@@ -61,6 +66,11 @@ namespace DataAccess
             return ObjEOTTO;
         }
 
+        /// <summary>
+        /// Code to get Organization details
+        /// </summary>
+        /// <param name="ObjEOTTO"></param>
+        /// <returns></returns>
         public EOTTO GetOTTODetails(EOTTO ObjEOTTO)
         {
             DataSet dsOTTO = new DataSet();
@@ -97,6 +107,11 @@ namespace DataAccess
             return ObjEOTTO;
         }
 
+        /// <summary>
+        /// Code to save Organzition contacts
+        /// </summary>
+        /// <param name="ObjEOTTO"></param>
+        /// <returns></returns>
         public EOTTO SaveOTTOContactDetails(XmlDocument XmlDoc, EOTTO ObjEOTTO)
         {
             int ContactID = -1;
@@ -133,6 +148,11 @@ namespace DataAccess
             return ObjEOTTO;
         }
 
+        /// <summary>
+        /// Code to import customer data
+        /// Not using now but we can use in future
+        /// </summary>
+        /// <param name="dt"></param>
         public void ImportCustomerData(DataTable dt)
         {
             try

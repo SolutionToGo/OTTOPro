@@ -13,6 +13,12 @@ namespace DataAccess
 {
     public class DUserInfo
     {
+        /// <summary>
+        /// Code to save User details while adding or editing from user master
+        /// </summary>
+        /// <param name="XmlDoc"></param>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public int SaveUserDetails(XmlDocument XmlDoc, EUserInfo ObjEUserInfo)
         {
             int UserID = -1;
@@ -69,6 +75,10 @@ namespace DataAccess
             return UserID;
         }
 
+        /// <summary>
+        /// Code to get user list from database
+        /// </summary>
+        /// <returns></returns>
         public DataSet GetUser()
         {
             DataSet dsUser = new DataSet();
@@ -104,50 +114,10 @@ namespace DataAccess
             return dsUser;
         }
 
-        public int SaveUserRoles(XmlDocument XmlDoc, EUserInfo ObjEUserInfo)
-        {
-            int RoleID = -1;
-            DataSet ds = new DataSet();
-            try
-            {
-                string innerxml = XmlDoc.InnerXml;
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = SQLCon.Sqlconn();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Ins_UserRole]";
-                    SqlParameter param = new SqlParameter("@XMLUserRole", SqlDbType.Xml);
-                    param.Value = innerxml;
-                    cmd.Parameters.Add(param);
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(ds);
-                    }
-                    string str = ds.Tables[0].Rows[0][0] == DBNull.Value ? "" : ds.Tables[0].Rows[0][0].ToString();
-                    if (!string.IsNullOrEmpty(str))
-                    {
-                        if (int.TryParse(str, out RoleID))
-                        {
-                            ObjEUserInfo.RoleID = RoleID;
-                            ObjEUserInfo.dtUserRole = ds.Tables[0];
-                        }                      
-                        else
-                            throw new Exception(str);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                SQLCon.Close();
-            }
-            return RoleID;
-        }
-
+        /// <summary>
+        /// Code to fetch User Roles list for user master
+        /// </summary>
+        /// <returns></returns>
         public DataSet GetUserRoles()
         {
             DataSet dsUserRole = new DataSet();
@@ -183,6 +153,11 @@ namespace DataAccess
             return dsUserRole;
         }
 
+        /// <summary>
+        /// Code to fetch feature list from database
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo GetFeatureDetails(EUserInfo ObjEUserInfo)
         {
             DataSet dsFeature = new DataSet();
@@ -223,6 +198,11 @@ namespace DataAccess
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        /// Code to fetch access levels for selected role
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo GetAceesLevels(EUserInfo ObjEUserInfo)
         {
             DataSet dsAccessLevels = new DataSet();
@@ -262,6 +242,12 @@ namespace DataAccess
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        /// Code to save Role and feature mapping
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public EUserInfo SaveFeatureMap(EUserInfo ObjEUserInfo,DataTable dt)
         {
             DataSet dsFeature = new DataSet();
@@ -303,6 +289,11 @@ namespace DataAccess
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        /// Code to validate user details while logging in
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo CheckUserCredentials(EUserInfo ObjEUserInfo)
         {
             DataSet dsFeature = new DataSet();
@@ -347,13 +338,18 @@ namespace DataAccess
                 }
             }
             catch (Exception ex)
-            {
+                 {
                 throw new Exception("Der Login konnte nicht erfolgen");
             }
             finally { SQLCon.Close2(); }
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        /// Code to Change the user password from Profile
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo ResetPassword(EUserInfo ObjEUserInfo)
         {
             DataSet dsFeature = new DataSet();
@@ -397,6 +393,11 @@ namespace DataAccess
             return ObjEUserInfo;
         }
 
+        /// <summary>
+        /// Code to save Auto save checkbox status in database
+        /// </summary>
+        /// <param name="ObjEUserInfo"></param>
+        /// <returns></returns>
         public EUserInfo UpdateAutoSave(EUserInfo ObjEUserInfo)
         {
             DataSet dsFeature = new DataSet();

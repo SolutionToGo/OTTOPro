@@ -12,8 +12,16 @@ namespace DAL
 {
     public class DProject
     {
+        /// <summary>
+        /// Log4net object for logging in data layer
+        /// </summary>
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        /// <summary>
+        /// Business Logic for Saving the project details
+        /// </summary>
+        /// <param name="ObjEObject"></param>
+        /// <returns></returns>
         public int SaveProjectDetails(EProject ObjEProject)
         {
             int ProjectID = -1;
@@ -101,6 +109,10 @@ namespace DAL
             return ProjectID;
         }
 
+        /// <summary>
+        /// /// Business Logic for retreiving the project list to show on load project screen
+        /// </summary>
+        /// <param name="ObjEObject"></param>
         public DataTable GetProjectList()
         {
             DataTable dtProjectList = new DataTable();
@@ -125,6 +137,10 @@ namespace DAL
             return dtProjectList;
         }
 
+        /// <summary>
+        /// /// Business Logic for retreiving the existing project details to show on project screen
+        /// </summary>
+        /// <param name="ObjEProject"></param>
         public DataSet GetProjectDetails(EProject ObjEProject)
         {
             DataSet dsProjectList = new DataSet();
@@ -158,6 +174,11 @@ namespace DAL
             return dsProjectList;
         }
 
+        /// <summary>
+        /// Code to fetch list of project numbers for Copy LV Positions from another project module
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <returns></returns>
         public EProject GetProjectNumber(EProject ObjEProject)
         {
             DataSet dsProjectNo = new DataSet();
@@ -197,6 +218,11 @@ namespace DAL
             return ObjEProject;
         }
 
+        /// <summary>
+        /// Code to update the status of project
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <returns></returns>
         public EProject UpdateStatus(EProject ObjEProject)
         {
             DataSet dsProjectNo = new DataSet();
@@ -234,6 +260,20 @@ namespace DAL
             return ObjEProject;
         }
 
+        /// <summary>
+        ///  Code to compare article prices with in project and acrossthe projects
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <param name="_wg"></param>
+        /// <param name="_wa"></param>
+        /// <param name="_wi"></param>
+        /// <param name="_a"></param>
+        /// <param name="_b"></param>
+        /// <param name="_l"></param>
+        /// <param name="_typ"></param>
+        /// <param name="_Type"></param>
+        /// <param name="_PosID"></param>
+        /// <returns></returns>
         public EProject GetComparePrice(EProject ObjEProject, string _wg, string _wa, string _wi, string _a, string _b, string _l, string _typ, string _Type, int _PosID)
         {
             DataSet dsComnparePrice = new DataSet();
@@ -285,6 +325,11 @@ namespace DAL
             return ObjEProject;
         }
 
+        /// <summary>
+        /// Code to save Discount positions
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <returns></returns>
         public EProject SaveDiscount(EProject ObjEProject)
         {
             DataSet dsDiscount = new DataSet();
@@ -343,6 +388,11 @@ namespace DAL
             return ObjEProject;
         }
 
+        /// <summary>
+        /// Code to delete discount positions
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <returns></returns> 
         public EProject DeleteDiscount(EProject ObjEProject)
         {
             DataSet dsDiscount = new DataSet();
@@ -376,6 +426,11 @@ namespace DAL
             return ObjEProject;
         }
 
+        /// <summary>
+        /// Code to save the Cover sheets and template path
+        /// </summary>
+        /// <param name="strPath"></param>
+        /// <param name="TemplatePath"></param>
         public void SavePath(string strPath,string TemplatePath)
         {
             try
@@ -400,6 +455,11 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Code to get Cover sheets and template paths
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <returns></returns>
         public EProject GetPath(EProject ObjEProject)
         {
             DataSet dsPath = new DataSet();
@@ -433,32 +493,10 @@ namespace DAL
             return ObjEProject;
         }
 
-        public string GetDBVersion()
-        {
-            string strVersion = string.Empty;
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = SQLCon.Sqlconn2();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[p_Get_DBVersion]";
-                    object returnObj = cmd.ExecuteScalar();
-                    if (returnObj != null)
-                        strVersion = Convert.ToString(returnObj);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                SQLCon.Close2();
-            }
-            return strVersion;
-        }
-
+        /// <summary>
+        /// Code to delete a project
+        /// </summary>
+        /// <param name="ProjectID"></param>
         public void DeleteProject(int ProjectID)
         {
             try
@@ -481,6 +519,11 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Code to Copy a project
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <returns></returns>
         public EProject CopyProject(EProject ObjEProject)
         {
             try
@@ -519,6 +562,11 @@ namespace DAL
             return ObjEProject;
         }
 
+        /// <summary>
+        /// Code to fatch data from data to transfer to OTTOPRO projects
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <returns></returns>
         public EProject GetCockpitData(EProject ObjEProject)
         {
             try
@@ -561,6 +609,11 @@ namespace DAL
             return ObjEProject;
         }
 
+        /// <summary>
+        /// Code to Insert data to OTTO Projects
+        /// </summary>
+        /// <param name="ObjEProject"></param>
+        /// <returns></returns>
         public string InssertCockpitData(EProject ObjEProject)
         {
             string strError = string.Empty;
@@ -596,6 +649,10 @@ namespace DAL
             return strError;
         }
 
+        /// <summary>
+        /// Code to update article setting of a project
+        /// </summary>
+        /// <param name="ObjEProject"></param>
         public void UpdateArticleSettings(EProject ObjEProject)
         {
             try
@@ -624,6 +681,11 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Code to save PRoject COmmentary
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="CommentaryDescription"></param>
         public void SaveProjectCommentary(int ProjectID, string CommentaryDescription)
         {
             try
@@ -648,6 +710,11 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Code to fetch project commentary
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public string GetProjectCommentary(int ProjectID)
         {
             string st = string.Empty;
@@ -674,6 +741,11 @@ namespace DAL
             return st;
         }
 
+        /// <summary>
+        /// Code to save angebot commentary
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="CommentaryDescription"></param>
         public void SaveAngebotCommentary(int ProjectID, string CommentaryDescription)
         {
             try
@@ -698,6 +770,11 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Code to fetch Angebot commentary
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public string GetAngebotCommentary(int ProjectID)
         {
             string st = string.Empty;
@@ -724,6 +801,11 @@ namespace DAL
             return st;
         }
 
+        /// <summary>
+        /// code to Get PRoject and customer details
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public DataTable GetProjectCustomerDetails(int ProjectID)
         {
             DataTable dt = new DataTable();
@@ -750,6 +832,9 @@ namespace DAL
             return dt;
         }
 
+        /// <summary>
+        ///  Code to Close DBconnection on application exit
+        /// </summary>
         public void CloseDBConnection()
         {
             SQLCon.Close();

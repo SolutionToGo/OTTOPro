@@ -20,6 +20,11 @@ namespace OTTOPro
 {
     public partial class frmGAEBExport : Form
     {
+        /// <summary>
+        /// This form is to exporting a project to GAEB file
+        /// </summary>
+        #region variables
+
         private int _ProjectID = 0;
         private int _Raster = 0;
         private string ProjectNumber = string.Empty;
@@ -29,7 +34,9 @@ namespace OTTOPro
         EGAEB ObjEGAEB = null;
         private string _NewRaster=string.Empty;
         private bool rtnOldRaster = false;
+        #endregion
 
+        #region Constructor
         public frmGAEBExport(string tProjectNo, int ProjectID, int Raster_Count, string _raster, bool _rtnOldRaster)
         {
             InitializeComponent();
@@ -41,6 +48,9 @@ namespace OTTOPro
             _NewRaster = _raster;
             rtnOldRaster = _rtnOldRaster;
         }
+        #endregion
+
+        #region Events
 
         private void frmGAEBExport_Load(object sender, EventArgs e)
         {
@@ -151,5 +161,7 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+
+        #endregion
     }
 }

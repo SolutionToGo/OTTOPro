@@ -13,11 +13,18 @@ namespace OTTOPro
 {
     public partial class frmShortCuts : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to show application shortcuts with static data
+        /// </summary>
+
+        #region Constructors
         public frmShortCuts()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmShortCuts_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -27,5 +34,7 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+
+        #endregion
     }
 }

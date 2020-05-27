@@ -13,6 +13,12 @@ namespace DataAccess
 {
     public class DProposal
     {
+
+        /// <summary>
+        /// Code to save Text areas which are used in Title blatt template design
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
+        /// <returns></returns>
         public int SaveTextModuleDetails(XmlDocument XmlDoc)
         {
             int TextID = -1;
@@ -50,7 +56,12 @@ namespace DataAccess
             return TextID;
         }
 
-
+        /// <summary>
+        /// Code to save Text Modules Category
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
+        /// <param name="_textID"></param>
+        /// <returns></returns> 
         public int SaveCategory(XmlDocument XmlDoc)
         {
             int CategoryID = -1;
@@ -89,6 +100,10 @@ namespace DataAccess
             return CategoryID;
         }
 
+        /// <summary>
+        /// Code to fetch text areas to show in a grid contol
+        /// </summary>
+        /// <param name="ObjEProposal"></param> 
         public DataSet GetTextModuleAreas()
         {
             DataSet dsTextModuleAreas = new DataSet();
@@ -124,6 +139,11 @@ namespace DataAccess
             return dsTextModuleAreas;
         }
 
+        /// <summary>
+        /// Code to get text areas categories
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
+        /// <param name="_textID"></param>
         public DataSet GetCategories(int _textID)
         {
             DataSet dsCategory = new DataSet();
@@ -160,6 +180,11 @@ namespace DataAccess
             return dsCategory;
         }
 
+        /// <summary>
+        /// Code to delete text areas
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
+        /// <param name="ID"></param>
         public DataSet DeleteTextModuleAreas(EProposal ObjEProposal,int ID)
         {
             DataSet dsTextModuleAreas = new DataSet();

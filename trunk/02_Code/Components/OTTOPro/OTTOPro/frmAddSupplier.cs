@@ -15,15 +15,25 @@ namespace OTTOPro
 {
     public partial class frmAddSupplier : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to adding suppliers from supplier proposal form while adding a new supplier to existing proposal
+        /// This form can also be opened from Supplier master screen for adding a new supplier.
+        /// </summary>
+        #region Varibales
         ESupplier ObjESupplier =  null;
         BSupplier ObjBSupplier = new BSupplier();
         public bool _IsContinue = false;
+        #endregion
+
+        #region Constructors
         public frmAddSupplier(ESupplier _ObjESupplier)
         {
             InitializeComponent();
             ObjESupplier = _ObjESupplier;
         }
+        #endregion
 
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -44,6 +54,23 @@ namespace OTTOPro
             }
         }
 
+        private void btnCancelContact_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void frmAddSupplier_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        ///  It contains code for parsing the new supplier details binding with properties in entiry layer
+        /// </summary>
         private void ParseSupplierDetails()
         {
             try
@@ -59,15 +86,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { throw; }
         }
-
-        private void btnCancelContact_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void frmAddSupplier_Load(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
     }
 }

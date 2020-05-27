@@ -18,15 +18,24 @@ namespace OTTOPro
 {
     public partial class frmTypList : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to show the Typ list while mapping Typ to Rabbat
+        /// </summary>
+        #region Local and Global variables
         EArticles ObjEArticles = null;
         DArticles ObjDArticles = null;
         public int TypID = 0;
         public bool IScontinue = false;
+        #endregion
+
+        #region Constructors
         public frmTypList()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmTypList_Load(object sender, EventArgs e)
         {
             ObjEArticles = new EArticles();
@@ -81,5 +90,6 @@ namespace OTTOPro
                     btnOk_Click(null, null);
                 }
         }
+#endregion
     }
 }

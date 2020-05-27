@@ -20,17 +20,30 @@ namespace OTTOPro
 {
     public partial class frmArticlesData : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to Add, edit and view articels, dimensions and mappings
+        /// </summary>
+
+        #region Local Variables
+
         EArticles ObjEArticle = null;
         BArticles ObjBArticle = null;
 
         DArticles ObjDArticle = null;
         private bool _IsNew = false;
+        private bool _IsSaveDimension = false;
+        int _WIIDValue = 0;
+        #endregion
+
+        #region Constructor
+
         public frmArticlesData()
         {
             InitializeComponent();
         }
-        private bool _IsSaveDimension = false;
-        
+        #endregion
+
+        #region Events
 
         private void btnNew_Click(object sender, EventArgs e)
         {
@@ -125,7 +138,7 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
-        int _WIIDValue = 0;
+        
         private void gvWI_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
         {
             try
@@ -168,37 +181,6 @@ namespace OTTOPro
             }
         }
 
-        private void ParsearticleDetails()
-        {
-            if (ObjEArticle == null)
-                ObjEArticle = new EArticles();
-            if (!string.IsNullOrEmpty(txtWG.Text.Trim()) && txtWG.Text != "0")
-                ObjEArticle.WG = txtWG.Text;
-            else
-            {
-                if(!Utility._IsGermany)
-                    throw new Exception("Please Enter Valid WG Value");
-                else
-                    throw new Exception("Bitte geben Sie einen zulässigen Wert an für WG");
-            }
-
-            if (!string.IsNullOrEmpty(txtWA.Text.Trim()))
-                ObjEArticle.WA = txtWA.Text;
-            else
-                ObjEArticle.WA = "0";
-            ObjEArticle.WI = txtWI.Text.Trim();
-            ObjEArticle.WGDescription = txtWGDescription.Text;
-            ObjEArticle.WADescription = txtWADescription.Text;
-            ObjEArticle.WIDescription = txtWIDescription.Text;
-            ObjEArticle.Fabrikate = txtFabrikat.Text;
-            ObjEArticle.Dimension = txtDimension.Text;
-            ObjEArticle.Menegenheit = cmbME.Text;
-            ObjEArticle.Masseinheit = txtMasseinheit.Text;
-            ObjEArticle.TextKZ = txtTextKZ.Text;
-            ObjEArticle.Remarks = txtremark.Text;
-            ObjEArticle.DataNormNumber = txtDatanormNr.Text;
-        }
-
         private void frmArticlesData_Load(object sender, EventArgs e)
         {
             try
@@ -223,70 +205,6 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        private void BindWGdata()
-        {
-            try
-            {
-                gcWGWA.DataSource = ObjEArticle.dtWG;
-                gvWGWA.BestFitColumns();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void BindWIData(int WGID)
-        {
-            try
-            {
-                if (ObjEArticle.dtWI != null)
-                {
-                    DataView dvWI = ObjEArticle.dtWI.DefaultView;
-                    dvWI.RowFilter = "WGID = '" + WGID + "'";
-                    gcWI.DataSource = dvWI;
-                    gvWI.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void BindDimensions(int WIID)
-        {
-            try
-            {
-
-                DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
-                dvDimensions.RowFilter = "WIID = '" + WIID + "'";
-                gcDimensions.DataSource = dvDimensions;
-                gvDimensions.BestFitColumns();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void Setfocus(GridView view, string _id, int _IdValue)
-        {
-            try
-            {
-                if (_IdValue > -1)
-                {
-                    int rowHandle = view.LocateByValue(_id, _IdValue);
-                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                        view.FocusedRowHandle = rowHandle;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -444,30 +362,6 @@ namespace OTTOPro
             //{
             //    Utility.ShowError(ex);
             //}
-        }
-
-        private void GetDimensionDetails()
-        {
-            try
-            {
-                ObjEArticle.DimensionID = Convert.ToInt32(gvDimensions.GetFocusedRowCellValue("DimensionID"));
-                ObjEArticle.A = gvDimensions.GetFocusedRowCellValue("A") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("A").ToString();
-                ObjEArticle.B = gvDimensions.GetFocusedRowCellValue("B") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("B").ToString();
-                ObjEArticle.L = gvDimensions.GetFocusedRowCellValue("L") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("L").ToString();
-                ObjEArticle.ListPrice = Convert.ToDecimal(gvDimensions.GetFocusedRowCellValue("ListPrice") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("ListPrice"));
-                ObjEArticle.Minuten = Convert.ToDecimal(gvDimensions.GetFocusedRowCellValue("Minuten") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("Minuten"));
-                ObjEArticle.GMulti = Convert.ToDecimal(gvDimensions.GetFocusedRowCellValue("GMulti") == DBNull.Value ? "" : gvDimensions.GetFocusedRowCellValue("GMulti"));
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            finally
-            {
-                ObjBArticle.GetArticle(ObjEArticle);
-                BindDimensions(ObjEArticle.WIID);
-                Setfocus(gvDimensions, "DimensionID", ObjEArticle.DimensionID);
-            }
         }
 
         private void btnValidityDate_Click(object sender, EventArgs e)
@@ -645,5 +539,124 @@ namespace OTTOPro
         {
 
         }
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// It contains code to parse the article values while adding new or editing an existing article.
+        /// </summary>
+        private void ParsearticleDetails()
+        {
+            if (ObjEArticle == null)
+                ObjEArticle = new EArticles();
+            if (!string.IsNullOrEmpty(txtWG.Text.Trim()) && txtWG.Text != "0")
+                ObjEArticle.WG = txtWG.Text;
+            else
+            {
+                if (!Utility._IsGermany)
+                    throw new Exception("Please Enter Valid WG Value");
+                else
+                    throw new Exception("Bitte geben Sie einen zulässigen Wert an für WG");
+            }
+
+            if (!string.IsNullOrEmpty(txtWA.Text.Trim()))
+                ObjEArticle.WA = txtWA.Text;
+            else
+                ObjEArticle.WA = "0";
+            ObjEArticle.WI = txtWI.Text.Trim();
+            ObjEArticle.WGDescription = txtWGDescription.Text;
+            ObjEArticle.WADescription = txtWADescription.Text;
+            ObjEArticle.WIDescription = txtWIDescription.Text;
+            ObjEArticle.Fabrikate = txtFabrikat.Text;
+            ObjEArticle.Dimension = txtDimension.Text;
+            ObjEArticle.Menegenheit = cmbME.Text;
+            ObjEArticle.Masseinheit = txtMasseinheit.Text;
+            ObjEArticle.TextKZ = txtTextKZ.Text;
+            ObjEArticle.Remarks = txtremark.Text;
+            ObjEArticle.DataNormNumber = txtDatanormNr.Text;
+        }
+
+        /// <summary>
+        /// It contains code to fetch WG and WA list from database and bind to a gridcontrol
+        /// </summary>
+        private void BindWGdata()
+        {
+            try
+            {
+                gcWGWA.DataSource = ObjEArticle.dtWG;
+                gvWGWA.BestFitColumns();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// it contains code to fetch WI list from database based on WG and WA Combination and Bind to a grid control
+        /// </summary>
+        /// <param name="WGID"></param>
+        private void BindWIData(int WGID)
+        {
+            try
+            {
+                if (ObjEArticle.dtWI != null)
+                {
+                    DataView dvWI = ObjEArticle.dtWI.DefaultView;
+                    dvWI.RowFilter = "WGID = '" + WGID + "'";
+                    gcWI.DataSource = dvWI;
+                    gvWI.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// It contains code to fetch dimensions from database of selected WG, WA and WI combination and bindto a grid control
+        /// </summary>
+        /// <param name="WIID"></param>
+        private void BindDimensions(int WIID)
+        {
+            try
+            {
+
+                DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
+                dvDimensions.RowFilter = "WIID = '" + WIID + "'";
+                gcDimensions.DataSource = dvDimensions;
+                gvDimensions.BestFitColumns();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// It contains code set focus ona grid control with a unique key value
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="_id"></param>
+        /// <param name="_IdValue"></param>
+        private void Setfocus(GridView view, string _id, int _IdValue)
+        {
+            try
+            {
+                if (_IdValue > -1)
+                {
+                    int rowHandle = view.LocateByValue(_id, _IdValue);
+                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                        view.FocusedRowHandle = rowHandle;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

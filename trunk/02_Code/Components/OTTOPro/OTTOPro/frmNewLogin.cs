@@ -17,12 +17,21 @@ namespace OTTOPro
 {
     public partial class frmNewLogin : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to login to application
+        /// </summary>
+        #region Varibales
         public string RegPath = @"Software\Categis\OTTOPro\";
+        #endregion
+
+        #region Constructors
         public frmNewLogin()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -149,5 +158,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+        #endregion
     }
 }

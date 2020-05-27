@@ -15,16 +15,16 @@ namespace OTTOPro
 {
     public partial class frmTextDialog : DevExpress.XtraEditors.XtraForm
     {
-        private EProposal _ObjEProposal = null;        
+        /// <summary>
+        /// This is a textdialog for single value entries
+        /// </summary>
+        #region Varibales
         public string strName = string.Empty;
         private string _NewLVSection = string.Empty;
         private bool _IsSave = false;
         private bool _isFirstTime = true;
-        private bool _ISUpdated = false;
-        private string _FormType;
         bool _isValidate = false;
-
-
+        bool _ISUpdated = false;
         public string NewLVSection
         {
             get { return _NewLVSection; }
@@ -35,10 +35,16 @@ namespace OTTOPro
             get { return _IsSave; }
             set { _IsSave = value; } 
         }
+        #endregion
+        
+        #region Constructors
         public frmTextDialog()
         {
             InitializeComponent();
-        }       
+        }
+        #endregion
+
+        #region Events
         private void btnOK_Click(object sender, EventArgs e)
         {
             try
@@ -117,6 +123,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
-        
+        #endregion
     }
 }

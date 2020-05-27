@@ -15,14 +15,23 @@ namespace OTTOPro
 {
     public partial class frmMergeArticle : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        ///  This form is to Merge an article with existing supplier proposal
+        /// </summary>
+        #region Varibales
         ESupplier ObjESupplier = null;
         BSupplier ObjBSupplier = null;
+        #endregion
+
+        #region Constructors
         public frmMergeArticle(ESupplier _ObjESupplier)
         {
             InitializeComponent();
             ObjESupplier = _ObjESupplier;
         }
+        #endregion
 
+        #region Events
         private void frmMergeArticle_Load(object sender, EventArgs e)
         {
             try
@@ -129,5 +138,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+        #endregion
     }
 }

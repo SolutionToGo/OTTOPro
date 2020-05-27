@@ -12,47 +12,11 @@ namespace DataAccess
 {
     public class DFormBlatt
     {
-        public EFormBlatt Get_tbl221_1(EFormBlatt ObjEFormBlatt)
-        {
-            try
-            {
-                DataSet ds = new DataSet();
-                ObjEFormBlatt.dtBlatt221_1 = new DataTable();
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = SQLCon.Sqlconn();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_tbl221_1]";
-                    cmd.Parameters.Add("@ProjectID", ObjEFormBlatt.ProjectID);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(ds);
-                    }
-                    if (ds != null && ds.Tables.Count > 0)
-                    {
-                        ObjEFormBlatt.dtBlatt221_1=ds.Tables[0];
-                        ObjEFormBlatt.dtProjectDetails = ds.Tables[1];
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Laden des Formblatts");
-                }
-                else
-                {
-                    throw new Exception("Error while retrieving form blatt");
-                }
-            }
-            finally
-            {
-                SQLCon.Close();
-            }
-            return ObjEFormBlatt;
-        }
-
+        /// <summary>
+        ///  Code to get Formblatt 221 table 2 values
+        /// </summary>
+        /// <param name="ObjEFormBlatt"></param>
+        /// <returns></returns>
         public EFormBlatt Get_tbl221_2(EFormBlatt ObjEFormBlatt)
         {
             try
@@ -93,6 +57,11 @@ namespace DataAccess
             return ObjEFormBlatt;
         }
 
+        /// <summary>
+        /// Code to get Cost types
+        /// </summary>
+        /// <param name="ObjEFormBlatt"></param>
+        /// <returns></returns>
         public EFormBlatt GetFormBlatttype(EFormBlatt ObjEFormBlatt)
         {
             DataSet dsFormBlatt = new DataSet();
@@ -132,6 +101,11 @@ namespace DataAccess
             return ObjEFormBlatt;
         }
 
+        /// <summary>
+        /// Code to get Articles based on cost type mapping
+        /// </summary>
+        /// <param name="ObjEFormBlatt"></param>
+        /// <returns></returns>
         public EFormBlatt Get_FormBlattArticles(EFormBlatt ObjEFormBlatt)
         {
             DataSet dsFormBlattArticle = new DataSet();
@@ -174,6 +148,12 @@ namespace DataAccess
             return ObjEFormBlatt;
         }
 
+        /// <summary>
+        /// Code to save Cost type mapping with articles
+        /// </summary>
+        /// <param name="ObjEFormBlatt"></param>
+        /// <param name="_dt"></param>
+        /// <returns></returns>
         public EFormBlatt Save_FormBlattArticles(EFormBlatt ObjEFormBlatt,DataTable _dt)
         {
             DataSet dsFormBlattArticle = new DataSet();
@@ -212,6 +192,11 @@ namespace DataAccess
             return ObjEFormBlatt;
         }
 
+        /// <summary>
+        /// Code to Get Form blatt articles mapping
+        /// </summary>
+        /// <param name="ObjEFormBlatt"></param>
+        /// <returns></returns>
         public EFormBlatt GetFormBlattMapping(EFormBlatt ObjEFormBlatt)
         {
             try

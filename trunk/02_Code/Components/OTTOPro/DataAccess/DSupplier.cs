@@ -14,6 +14,11 @@ namespace DataAccess
 {
     public class DSupplier
     {
+        /// <summary>
+        /// Code to add or edit supplier details from supplier master to database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierDetails(XmlDocument XmlDoc, ESupplier ObjESupplier)
         {
             int SupplierID = -1;
@@ -60,6 +65,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch supplier list from database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public DataSet GetSupplier()
         {
             DataSet dsSupplier = new DataSet();
@@ -90,6 +100,11 @@ namespace DataAccess
             return dsSupplier;
         }
 
+        /// <summary>
+        /// Code to Add or Edit supplier contact details from Supplier master to database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SavedsSupplierContactDetails(XmlDocument XmlDoc,ESupplier ObjESupplier)
         {
             DataSet ds = new DataSet();
@@ -136,6 +151,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to Add or Edit Supplier address details from Supplier master to database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierAddressDetails(XmlDocument XmlDoc, ESupplier ObjESupplier)
         {
             DataSet ds = new DataSet();
@@ -191,6 +211,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save Supplier articles from Supplier master to database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveArticle(ESupplier ObjESupplier)
         {
              DataSet ds = new DataSet();
@@ -246,6 +271,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        ///  Code to save Supplier and Article mapping form Price comparision module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveArticleFromProposal(ESupplier ObjESupplier)
         {
             try
@@ -271,45 +301,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
-        public DataSet GetWGWaforProposal(int _Pid, string _LvSection, string wg, string wa)
-        {
-            DataSet dsWGWA = new DataSet();
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = SQLCon.Sqlconn();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_WGWAForProposal]";
-                    cmd.Parameters.AddWithValue("@ProjectID", _Pid);
-                    cmd.Parameters.AddWithValue("@LVSection", _LvSection);
-                    cmd.Parameters.AddWithValue("@WG", wg);
-                    cmd.Parameters.AddWithValue("@WA", wa);
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dsWGWA);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Laden der Daten");
-                }
-                else
-                {
-                    throw new Exception("Error Occured While Retreiving records");
-
-                }
-            }
-            finally
-            {
-                SQLCon.Close();
-            }
-            return dsWGWA;
-        }
-
+        /// <summary>
+        /// Code fetch positions from database for not saved supplier propsoal by passing ProjectID, LVSection, Articles as imput parameters
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier GetPositionsforsupplierProposal(ESupplier ObjESupplier)
         {
             DataSet dsPositions = new DataSet();
@@ -357,6 +353,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch positions from database based on supplier proposalID
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier GetPositionsByProposalID(ESupplier ObjESupplier)
         {
             DataSet dsPositions = new DataSet();
@@ -408,6 +409,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch project LV sections using projectid for supplier proposal module
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetLVSectionforProposal(ESupplier ObjEsupplier)
         {
             try
@@ -436,6 +442,11 @@ namespace DataAccess
             return ObjEsupplier;
         }
 
+        /// <summary>
+        /// Code to save Supplier proposal
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierProposal(ESupplier ObjESupplier)
         {
             DataSet ds = new DataSet();
@@ -496,6 +507,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch saved adn not saved supplier proposal Numbers
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetProposalNumber(ESupplier ObjESupplier)
         {
             DataSet dsWGWA = new DataSet();
@@ -535,6 +551,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch not saved articles for supplier proposal module while merging articles with proposals
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetArticlesForProposal(ESupplier ObjESupplier)
         {
             DataSet dsArticle = new DataSet();
@@ -575,6 +596,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        ///  Code to fetch Supplier proposals for proce comparision module
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetUpdateSupplierProposal(ESupplier ObjESupplier)
         {
             DataSet dsWGWA = new DataSet();
@@ -615,6 +641,12 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch positions based on supplier proposalID for price comparision module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <param name="_IsCalculate"></param>
+        /// <returns></returns>
         public ESupplier GetProposalPostions(ESupplier ObjESupplier)
         {
             DataSet dsPositions = new DataSet();
@@ -656,6 +688,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to update price to postions from price comparision module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier UpdateSupplierPrice(ESupplier ObjESupplier)
         {
             try
@@ -692,6 +729,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save deleted positions from supplier proposal module
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveDeletePosition(ESupplier ObjESupplier)
         {
             DataSet ds = new DataSet();
@@ -721,6 +763,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to update proposal values to positions from price comparision module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveProposaleValues(ESupplier ObjESupplier)
         {
             try
@@ -770,6 +817,12 @@ namespace DataAccess
             }
             return ObjESupplier;
         }
+
+        /// <summary>
+        /// Code to save Supplier price to proposal positions from supplier proposal module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierPrice(ESupplier ObjESupplier)
         {
             try
@@ -813,6 +866,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save Supplier selection to position
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSelection(ESupplier ObjESupplier)
         {
             try
@@ -843,6 +901,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save supplier selection for all positions
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveBulkSelection(ESupplier ObjESupplier)
         {
             try
@@ -869,6 +932,13 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch Supplier details along with EMails
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <param name="ProposalID"></param>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public ESupplier GetSupplierMail(ESupplier ObjESupplier,int ProposalID,int ProjectID)
         {
             DataSet dsMail = new DataSet();
@@ -902,6 +972,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to chcek supplier and article mapping
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier CheckSupplierArticle(ESupplier ObjESupplier)
         {
             DataSet dsCheckSupplier = new DataSet();
@@ -944,6 +1019,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to add new supplier to existing proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier UpdateSupplierProposal(ESupplier ObjESupplier)
         {
             DataSet dsWGWA = new DataSet();
@@ -995,6 +1075,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to Delete Supplier and article mapping
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier DeleteSupplierArticleMap(ESupplier ObjESupplier)
         {
             DataSet dsArticle = new DataSet();
@@ -1026,6 +1111,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to Update proposal date to supplier proposal after sending to Supplier
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier UpdateProposalDate(ESupplier ObjESupplier)
         {
             try
@@ -1050,6 +1140,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to Delete positions from existsing proposal
+        /// </summary>
+        /// <param name="SupplierProposalID"></param>
+        /// <param name="PositionID"></param>
         public void DeleteProposalPositions(int SupplierProposalID, int PositionID)
         {
             try
@@ -1073,6 +1168,11 @@ namespace DataAccess
             }
         }
 
+        /// <summary>
+        /// Code to delete suppliers from supplier proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier DeleteSuipplierProposal(ESupplier ObjESupplier)
         {
             DataSet dsArticle = new DataSet();
@@ -1102,6 +1202,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch suppliers based on articles while adding new supplier to existing proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier GetSuppliersForProposal(ESupplier ObjESupplier)
         {
             try
@@ -1138,6 +1243,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch suppliers while merging new article with existing proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier GetSuppliersForProposalMerge(ESupplier ObjESupplier)
         {
             try
@@ -1175,6 +1285,11 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save new article with existsing proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SupplierProposalMerge(ESupplier ObjESupplier)
         {
             DataSet ds = new DataSet();

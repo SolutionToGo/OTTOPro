@@ -12,6 +12,11 @@ namespace DataAccess
 {
     public class DCustomer
     {
+        /// <summary>
+        /// Code to save customer details from customer master
+        /// </summary>
+        /// <param name="ObjECustomer"></param>
+        /// <returns></returns>
         public int SaveCustomerDetails(XmlDocument XmlDoc)
         {
             int CustomerID = -1;
@@ -58,6 +63,10 @@ namespace DataAccess
             return CustomerID;
         }
 
+        /// <summary>
+        /// Code to get Customer List
+        /// </summary>
+        /// <returns></returns>
         public DataSet GetCustomers()
         {
             DataSet dsCustomer = new DataSet();
@@ -93,6 +102,11 @@ namespace DataAccess
             return dsCustomer;
         }
 
+        /// <summary>
+        /// Code to customer contact details
+        /// </summary>
+        /// <param name="ObjECustomer"></param>
+        /// <returns></returns>
         public int SaveCustomerContactDetails(XmlDocument XmlDoc)
         {
             int ContactPersonID = -1;
@@ -131,6 +145,11 @@ namespace DataAccess
             return ContactPersonID;
         }
 
+        /// <summary>
+        /// Code to save customer address details
+        /// </summary>
+        /// <param name="XmlDoc"></param>
+        /// <returns></returns>
         public int SaveCustomerAddressDetails(XmlDocument XmlDoc)
         {
             int AddressID = -1;

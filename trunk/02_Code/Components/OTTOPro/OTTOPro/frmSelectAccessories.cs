@@ -15,6 +15,11 @@ namespace OTTOPro
 {
     public partial class frmSelectAccessories : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to show and enter quantities for accessories while assigning to positions
+        /// </summary>
+
+        #region Varibales
         private BArticles ObjBArticle = null;
         private EArticles _ObjEArticle = null;
         public bool _ISSave = false;
@@ -23,12 +28,16 @@ namespace OTTOPro
             get { return _ObjEArticle; }
             set { _ObjEArticle = value; }
         }
+        #endregion
 
+        #region Constructors
         public frmSelectAccessories()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmSelectAccessories_Load(object sender, EventArgs e)
         {
             try
@@ -118,5 +127,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
     }
 }

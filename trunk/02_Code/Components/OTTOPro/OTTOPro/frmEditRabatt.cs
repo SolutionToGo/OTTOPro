@@ -15,8 +15,16 @@ namespace OTTOPro
 {
     public partial class frmEditRabatt : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is for editing existing rabatt
+        /// </summary>
+
+        #region Variables
         private EArticles ObjEArticle = null;
         private bool IsCopy = false;
+        #endregion
+
+        #region Constructor
 
         public frmEditRabatt(EArticles _ObjEArticle, bool _IsCopy)
         {
@@ -27,6 +35,9 @@ namespace OTTOPro
             IsCopy = _IsCopy;
         }
 
+        #endregion
+
+        #region Events
         private void frmEditRabatt_Load(object sender, EventArgs e)
         {
             if (IsCopy)
@@ -101,5 +112,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
     }
 }

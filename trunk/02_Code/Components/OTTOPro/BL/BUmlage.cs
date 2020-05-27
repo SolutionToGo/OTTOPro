@@ -12,6 +12,11 @@ namespace BL
     {
         DUmlage ObjDUmlage = new DUmlage();
 
+        /// <summary>
+        /// Code to update special cost to positions
+        /// </summary>
+        /// <param name="ObjEUmlage"></param>
+        /// <returns></returns>
         public EUmlage UpdateSpecialCost(EUmlage ObjEUmlage)
         {
             try
@@ -25,6 +30,11 @@ namespace BL
             return ObjEUmlage;
         }
 
+        /// <summary>
+        /// Code to fetch special cost details from database
+        /// </summary>
+        /// <param name="ObjEUmlage"></param>
+        /// <returns></returns>
         public EUmlage GetSpecialCost(EUmlage ObjEUmlage)
         {
             try
@@ -38,6 +48,11 @@ namespace BL
             return ObjEUmlage;
         }
 
+        /// <summary>
+        /// Code to calculate estimated special cost
+        /// </summary>
+        /// <param name="ObjEUmlage"></param>
+        /// <returns></returns>
         public EUmlage ShowUmlage(EUmlage ObjEUmlage)
         {
             try
@@ -51,6 +66,11 @@ namespace BL
             return ObjEUmlage;
         }
 
+        /// <summary>
+        ///  Code to save special cost on database
+        /// </summary>
+        /// <param name="ObjEUmlage"></param>
+        /// <returns></returns>
         public EUmlage SaveSpecialCost(EUmlage ObjEUmlage)
         {
             try

@@ -13,6 +13,12 @@ namespace DataAccess
 {
     public class DGAEB
     {
+        /// <summary>
+        /// Code to get GAEB information for GEAB export
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="_Raster"></param>
+        /// <returns></returns>
         public DataSet Export(int ProjectID, string _Raster)
         {
             DataSet dsTMLData = new DataSet();
@@ -45,6 +51,13 @@ namespace DataAccess
             return dsTMLData;
         }
 
+        /// <summary>
+        /// Code to fetch Positions for GAEB export
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="strLVSection"></param>
+        /// <param name="_Raster"></param>
+        /// <returns></returns>
         public DataSet GetPositionsDataForTML(int ProjectID, object strLVSection, string _Raster)
         {
             DataSet dsTMLData = new DataSet();
@@ -83,6 +96,13 @@ namespace DataAccess
             return dsTMLData;
         }
 
+        /// <summary>
+        /// Code to import a GAEB file
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="dsTMLData"></param>
+        /// <param name="strRaster"></param>
+        /// <returns></returns>
         public int Import(int ProjectID,DataSet dsTMLData,string strRaster)
         {
             int iValue = 0;
@@ -135,6 +155,10 @@ namespace DataAccess
             return iValue;
         }
 
+        /// <summary>
+        /// Code to get LV rasters related to project
+        /// </summary>
+        /// <returns></returns>
         public DataTable Get_LVRaster()
         {
             DataTable dtRaster = new DataTable();
@@ -169,6 +193,11 @@ namespace DataAccess
             return dtRaster;
         }
 
+        /// <summary>
+        /// Code to get LV sections for import
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public DataTable GetLVSection(int ProjectID)
         {
             DataTable dtLVSecton = new DataTable();
@@ -204,6 +233,11 @@ namespace DataAccess
             return dtLVSecton;
         }
 
+        /// <summary>
+        /// Code to get old raster  if old raster if raster got changed
+        /// </summary>
+        /// <param name="_ProjectID"></param>
+        /// <returns></returns>
         public string GetOld_LVRaster(int _ProjectID)
         {
             string Old_Raster = string.Empty;
@@ -237,6 +271,11 @@ namespace DataAccess
             return Old_Raster;
         }
 
+        /// <summary>
+        /// Code import a project as new project
+        /// </summary>
+        /// <param name="ObjEGAEB"></param>
+        /// <returns></returns>
         public int ProjectImport(EGAEB ObjEGAEB)
         {
             int iValue = 0;
@@ -283,6 +322,11 @@ namespace DataAccess
             return iValue;
         }
 
+        /// <summary>
+        /// Code to export positions from supplier proposal
+        /// </summary>
+        /// <param name="SupplierProposalID"></param>
+        /// <returns></returns>
         public DataSet GetSupplierProposalExport(int SupplierProposalID)
         {
             DataSet dsTMLData = new DataSet();
@@ -319,6 +363,11 @@ namespace DataAccess
             return dsTMLData;
         }
 
+        /// <summary>
+        /// Code to import GAEB file on supplier proposal
+        /// </summary>
+        /// <param name="ObjEGAEB"></param>
+        /// <returns></returns>
         public EGAEB SupplierProposalImport(EGAEB ObjEGAEB)
         {
             int iValue = 0;

@@ -21,6 +21,10 @@ namespace OTTOPro
 {
     public partial class frmReportSetting : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to save the report settings of angebot report and generate a Angebot report when it is opened from project form
+        /// </summary>
+        #region Varibales
         EReportDesign ObjEReport = null;
         BReportDesign ObjBReport = null;
         public bool _ISave = false;
@@ -29,8 +33,9 @@ namespace OTTOPro
         int _ProjectID = 0;
         string stRaster = string.Empty;
         string stProjectNumber = string.Empty;
+        #endregion
 
-
+        #region Constructors
         public frmReportSetting()
         {
             InitializeComponent();
@@ -43,7 +48,9 @@ namespace OTTOPro
             stRaster = _stRaster;
             stProjectNumber = _stProjectNumber;
         }
+        #endregion
 
+        #region Events
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -160,205 +167,6 @@ namespace OTTOPro
             catch (Exception ex){Utility.ShowError(ex);}
         }
 
-        private void FillLVSection()
-        {
-            try
-            {
-                if (objBGAEB == null)
-                    objBGAEB = new BGAEB();
-                DataTable dtLVSection = new DataTable();
-                dtLVSection = objBGAEB.GetLVSection(_ProjectID);
-                if (Utility.LVSectionEditAccess == "7")
-                {
-                    DataTable dttemp = dtLVSection.Copy();
-                    DataView dv = dttemp.DefaultView;
-                    dv.RowFilter = "LVSectionName = 'HA'";
-                    dtLVSection = new DataTable();
-                    dtLVSection = dv.ToTable();
-                }
-                cmbLVSection.Properties.DataSource = dtLVSection;
-                cmbLVSection.Properties.DisplayMember = "LVSectionName";
-                cmbLVSection.Properties.ValueMember = "LVSectionID";
-                Utility.SetCheckedComboexitValue(cmbLVSection, "HA");
-            }
-            catch (Exception ex){ throw ex; }
-        }
-
-        private void ParseReportSettings()
-        {
-            try
-            {
-                if(radioGroupSorting.SelectedIndex==0)
-                {
-                    ObjEReport.LVPosition = true;
-                }
-                if (radioGroupSorting.SelectedIndex == 1)
-                {
-                    ObjEReport.ArticlNr = true;
-                }
-                if (radioGroupSorting.SelectedIndex == 2)
-                {
-                    ObjEReport.Lieferant = true;
-                }
-                if (radioGroupSorting.SelectedIndex == 3)
-                {
-                    ObjEReport.Fabrikat = true;
-                }
-                if (radioGroupShowText.SelectedIndex==0)
-                {
-                    ObjEReport.LangText = true;
-                }
-                if (radioGroupShowText.SelectedIndex == 1)
-                {
-                    ObjEReport.KurzText = true;
-                }
-                if (radioGroupShowText.SelectedIndex == 2)
-                {
-                    ObjEReport.KurzAnLangText = true;
-                }
-
-
-                if (chksender.Checked)
-                    ObjEReport.Sender = true;
-                else
-                    ObjEReport.Sender = false;
-                if (chkmenge.Checked)
-                        ObjEReport.Menge = true;
-                else
-                    ObjEReport.Menge = false;
-                if (chkGB.Checked)
-                        ObjEReport.GB = true;
-                else
-                    ObjEReport.GB =  false;
-                if (chkprices.Checked)
-                        ObjEReport.Prices = true;
-                else
-                    ObjEReport.Prices = false;
-                if (chkEP.Checked)
-                        ObjEReport.EP = true;
-                else
-                    ObjEReport.EP = false;
-                if (chkTitlesPreises.Checked)
-                    ObjEReport.WithTitlePrices = true;
-                else
-                    ObjEReport.WithTitlePrices = false;
-                if (chkMAMO.Checked)
-                {
-                    ObjEReport.MAMO = true;
-                    _ISMAMOChecked = true;
-                }
-                else
-                {
-                    ObjEReport.MAMO = false;
-                    _ISMAMOChecked = false;
-                }
-                if(chkH.Checked)
-                    ObjEReport.HPos = true;
-                else
-                    ObjEReport.HPos = false;
-                if (chkAB.Checked)
-                    ObjEReport.ABPos = true;
-                else
-                    ObjEReport.ABPos = false;
-                if (chkBA.Checked)
-                    ObjEReport.BAPos = true;
-                else
-                    ObjEReport.BAPos = false;
-                if (chkVR.Checked)
-                    ObjEReport.VRPos = true;
-                else
-                    ObjEReport.VRPos = false;
-                if (chkUB.Checked)
-                    ObjEReport.UBPos = true;
-                else
-                    ObjEReport.UBPos = false;
-                if (chkNone.Checked)
-                    ObjEReport.NonePos = true;
-                else
-                    ObjEReport.NonePos = false;
-                if(chkWithDetailKZ.Checked)
-                    ObjEReport.WithDetailKZ = true;
-                else
-                    ObjEReport.WithDetailKZ = false;
-
-                if (chkOnheMengePositions.Checked)
-                    ObjEReport.OnheMengeZeroPositions = true;
-                else
-                    ObjEReport.OnheMengeZeroPositions = false;
-
-                if (chkOnheMontagePrice.Checked)
-                    ObjEReport.OnheMontagePrice = true;
-                else
-                    ObjEReport.OnheMontagePrice = false;
-
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void BindData()
-        {
-            try
-            {
-                bool _values = false;
-                foreach (DataRow row in ObjEReport.dtReportSettings.Rows)
-                {
-                    //Sorting
-                    if (bool.TryParse(row["LVPosition"].ToString(), out _values) && _values)
-                            radioGroupSorting.SelectedIndex = 0;
-                    if (bool.TryParse(row["Fabrikat"].ToString(), out _values) && _values)
-                            radioGroupSorting.SelectedIndex = 3;
-                    if (bool.TryParse(row["ArticleNr"].ToString(), out _values) && _values)
-                            radioGroupSorting.SelectedIndex = 1;
-                    if (bool.TryParse(row["LieferantMA"].ToString(), out _values) && _values)
-                            radioGroupSorting.SelectedIndex = 2;
-                    //Select Text
-                    if (bool.TryParse(row["LangText"].ToString(), out _values) && _values)
-                            radioGroupShowText.SelectedIndex = 0;
-                    if (bool.TryParse(row["KurzText"].ToString(), out _values) && _values)
-                            radioGroupShowText.SelectedIndex = 1;
-                    if (bool.TryParse(row["KurzAndLangText"].ToString(), out _values) && _values)
-                            radioGroupShowText.SelectedIndex = 2;
-                    //Selection Option
-                    if (bool.TryParse(row["Sender"].ToString(), out _values) && _values)
-                        chksender.Checked = true;
-                    if (bool.TryParse(row["Menge"].ToString(), out _values) && _values)
-                        chkmenge.Checked = true;
-                    if (bool.TryParse(row["GB"].ToString(), out _values) && _values)
-                        chkGB.Checked = true;
-                    if (bool.TryParse(row["EP"].ToString(), out _values) && _values)
-                        chkEP.Checked = true;
-                    if (bool.TryParse(row["Prices"].ToString(), out _values) && _values)
-                        chkprices.Checked = true;
-                    if (bool.TryParse(row["MAMO"].ToString(), out _values) && _values)
-                        chkMAMO.Checked = true;
-                    if (bool.TryParse(row["WithTitlePrices"].ToString(), out _values) && _values)
-                        chkTitlesPreises.Checked = true;
-                    if (bool.TryParse(row["NonePos"].ToString(), out _values))
-                        chkNone.Checked = _values;
-                    if (bool.TryParse(row["HPos"].ToString(), out _values))
-                        chkH.Checked = _values;
-                    if (bool.TryParse(row["ABPos"].ToString(), out _values))
-                        chkAB.Checked = _values;
-                    if (bool.TryParse(row["BAPos"].ToString(), out _values))
-                        chkBA.Checked = _values;
-                    if (bool.TryParse(row["VRPos"].ToString(), out _values))
-                        chkVR.Checked = _values;
-                    if (bool.TryParse(row["UBPos"].ToString(), out _values))
-                        chkUB.Checked = _values;
-                    if (bool.TryParse(row["WithDetKZ"].ToString(), out _values))
-                        chkWithDetailKZ.Checked = _values;
-                    if (bool.TryParse(row["OnheMengeZeroPositions"].ToString(), out _values))
-                        chkOnheMengePositions.Checked = _values;
-                    if (bool.TryParse(row["OnheMontagePrice"].ToString(), out _values))
-                        chkOnheMontagePrice.Checked = _values;
-                }
-            }
-            catch (Exception ex){throw ex;}
-        }
-
         private void radioGroupSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -458,6 +266,16 @@ namespace OTTOPro
             }
         }
 
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Code to generate complete angebot report
+        /// </summary>
+        /// <param name="stType"></param>
+        /// <param name="dtPos"></param>
+        /// <param name="LVSection"></param>
         private void GenerateReport(string stType,DataTable dtPos,string LVSection)
         {
             try
@@ -563,6 +381,12 @@ namespace OTTOPro
             catch (Exception ex){}
         }
 
+        /// <summary>
+        /// Code to generate angebot report with material and montage prices
+        /// </summary>
+        /// <param name="stType"></param>
+        /// <param name="dtPos"></param>
+        /// <param name="LVSection"></param>
         private void GenerateReportWithputMAMO(string stType, DataTable dtPos, string LVSection)
         {
             try
@@ -667,6 +491,12 @@ namespace OTTOPro
             catch (Exception ex) { }
         }
 
+        /// <summary>
+        /// Code to generate angebot report with minutes
+        /// </summary>
+        /// <param name="stType"></param>
+        /// <param name="dtPos"></param>
+        /// <param name="LVSection"></param>
         private void GenerateReportWithMinutes(string stType, DataTable dtPos, string LVSection)
         {
             try
@@ -771,5 +601,214 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+
+        /// <summary>
+        /// Code to fetch Lv Sections from database and bind to combobox
+        /// </summary>
+        private void FillLVSection()
+        {
+            try
+            {
+                if (objBGAEB == null)
+                    objBGAEB = new BGAEB();
+                DataTable dtLVSection = new DataTable();
+                dtLVSection = objBGAEB.GetLVSection(_ProjectID);
+                if (Utility.LVSectionEditAccess == "7")
+                {
+                    DataTable dttemp = dtLVSection.Copy();
+                    DataView dv = dttemp.DefaultView;
+                    dv.RowFilter = "LVSectionName = 'HA'";
+                    dtLVSection = new DataTable();
+                    dtLVSection = dv.ToTable();
+                }
+                cmbLVSection.Properties.DataSource = dtLVSection;
+                cmbLVSection.Properties.DisplayMember = "LVSectionName";
+                cmbLVSection.Properties.ValueMember = "LVSectionID";
+                Utility.SetCheckedComboexitValue(cmbLVSection, "HA");
+            }
+            catch (Exception ex) { throw ex; }
+        }
+
+        /// <summary>
+        /// /Code to parse report settings while saving into database
+        /// </summary>
+        private void ParseReportSettings()
+        {
+            try
+            {
+                if (radioGroupSorting.SelectedIndex == 0)
+                {
+                    ObjEReport.LVPosition = true;
+                }
+                if (radioGroupSorting.SelectedIndex == 1)
+                {
+                    ObjEReport.ArticlNr = true;
+                }
+                if (radioGroupSorting.SelectedIndex == 2)
+                {
+                    ObjEReport.Lieferant = true;
+                }
+                if (radioGroupSorting.SelectedIndex == 3)
+                {
+                    ObjEReport.Fabrikat = true;
+                }
+                if (radioGroupShowText.SelectedIndex == 0)
+                {
+                    ObjEReport.LangText = true;
+                }
+                if (radioGroupShowText.SelectedIndex == 1)
+                {
+                    ObjEReport.KurzText = true;
+                }
+                if (radioGroupShowText.SelectedIndex == 2)
+                {
+                    ObjEReport.KurzAnLangText = true;
+                }
+
+
+                if (chksender.Checked)
+                    ObjEReport.Sender = true;
+                else
+                    ObjEReport.Sender = false;
+                if (chkmenge.Checked)
+                    ObjEReport.Menge = true;
+                else
+                    ObjEReport.Menge = false;
+                if (chkGB.Checked)
+                    ObjEReport.GB = true;
+                else
+                    ObjEReport.GB = false;
+                if (chkprices.Checked)
+                    ObjEReport.Prices = true;
+                else
+                    ObjEReport.Prices = false;
+                if (chkEP.Checked)
+                    ObjEReport.EP = true;
+                else
+                    ObjEReport.EP = false;
+                if (chkTitlesPreises.Checked)
+                    ObjEReport.WithTitlePrices = true;
+                else
+                    ObjEReport.WithTitlePrices = false;
+                if (chkMAMO.Checked)
+                {
+                    ObjEReport.MAMO = true;
+                    _ISMAMOChecked = true;
+                }
+                else
+                {
+                    ObjEReport.MAMO = false;
+                    _ISMAMOChecked = false;
+                }
+                if (chkH.Checked)
+                    ObjEReport.HPos = true;
+                else
+                    ObjEReport.HPos = false;
+                if (chkAB.Checked)
+                    ObjEReport.ABPos = true;
+                else
+                    ObjEReport.ABPos = false;
+                if (chkBA.Checked)
+                    ObjEReport.BAPos = true;
+                else
+                    ObjEReport.BAPos = false;
+                if (chkVR.Checked)
+                    ObjEReport.VRPos = true;
+                else
+                    ObjEReport.VRPos = false;
+                if (chkUB.Checked)
+                    ObjEReport.UBPos = true;
+                else
+                    ObjEReport.UBPos = false;
+                if (chkNone.Checked)
+                    ObjEReport.NonePos = true;
+                else
+                    ObjEReport.NonePos = false;
+                if (chkWithDetailKZ.Checked)
+                    ObjEReport.WithDetailKZ = true;
+                else
+                    ObjEReport.WithDetailKZ = false;
+
+                if (chkOnheMengePositions.Checked)
+                    ObjEReport.OnheMengeZeroPositions = true;
+                else
+                    ObjEReport.OnheMengeZeroPositions = false;
+
+                if (chkOnheMontagePrice.Checked)
+                    ObjEReport.OnheMontagePrice = true;
+                else
+                    ObjEReport.OnheMontagePrice = false;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Code to Bind report settings to controls
+        /// </summary>
+        private void BindData()
+        {
+            try
+            {
+                bool _values = false;
+                foreach (DataRow row in ObjEReport.dtReportSettings.Rows)
+                {
+                    //Sorting
+                    if (bool.TryParse(row["LVPosition"].ToString(), out _values) && _values)
+                        radioGroupSorting.SelectedIndex = 0;
+                    if (bool.TryParse(row["Fabrikat"].ToString(), out _values) && _values)
+                        radioGroupSorting.SelectedIndex = 3;
+                    if (bool.TryParse(row["ArticleNr"].ToString(), out _values) && _values)
+                        radioGroupSorting.SelectedIndex = 1;
+                    if (bool.TryParse(row["LieferantMA"].ToString(), out _values) && _values)
+                        radioGroupSorting.SelectedIndex = 2;
+                    //Select Text
+                    if (bool.TryParse(row["LangText"].ToString(), out _values) && _values)
+                        radioGroupShowText.SelectedIndex = 0;
+                    if (bool.TryParse(row["KurzText"].ToString(), out _values) && _values)
+                        radioGroupShowText.SelectedIndex = 1;
+                    if (bool.TryParse(row["KurzAndLangText"].ToString(), out _values) && _values)
+                        radioGroupShowText.SelectedIndex = 2;
+                    //Selection Option
+                    if (bool.TryParse(row["Sender"].ToString(), out _values) && _values)
+                        chksender.Checked = true;
+                    if (bool.TryParse(row["Menge"].ToString(), out _values) && _values)
+                        chkmenge.Checked = true;
+                    if (bool.TryParse(row["GB"].ToString(), out _values) && _values)
+                        chkGB.Checked = true;
+                    if (bool.TryParse(row["EP"].ToString(), out _values) && _values)
+                        chkEP.Checked = true;
+                    if (bool.TryParse(row["Prices"].ToString(), out _values) && _values)
+                        chkprices.Checked = true;
+                    if (bool.TryParse(row["MAMO"].ToString(), out _values) && _values)
+                        chkMAMO.Checked = true;
+                    if (bool.TryParse(row["WithTitlePrices"].ToString(), out _values) && _values)
+                        chkTitlesPreises.Checked = true;
+                    if (bool.TryParse(row["NonePos"].ToString(), out _values))
+                        chkNone.Checked = _values;
+                    if (bool.TryParse(row["HPos"].ToString(), out _values))
+                        chkH.Checked = _values;
+                    if (bool.TryParse(row["ABPos"].ToString(), out _values))
+                        chkAB.Checked = _values;
+                    if (bool.TryParse(row["BAPos"].ToString(), out _values))
+                        chkBA.Checked = _values;
+                    if (bool.TryParse(row["VRPos"].ToString(), out _values))
+                        chkVR.Checked = _values;
+                    if (bool.TryParse(row["UBPos"].ToString(), out _values))
+                        chkUB.Checked = _values;
+                    if (bool.TryParse(row["WithDetKZ"].ToString(), out _values))
+                        chkWithDetailKZ.Checked = _values;
+                    if (bool.TryParse(row["OnheMengeZeroPositions"].ToString(), out _values))
+                        chkOnheMengePositions.Checked = _values;
+                    if (bool.TryParse(row["OnheMontagePrice"].ToString(), out _values))
+                        chkOnheMontagePrice.Checked = _values;
+                }
+            }
+            catch (Exception ex) { throw ex; }
+        }
+        #endregion
     }
 }

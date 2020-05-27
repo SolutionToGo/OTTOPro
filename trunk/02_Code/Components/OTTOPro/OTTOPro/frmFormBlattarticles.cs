@@ -15,45 +15,32 @@ namespace OTTOPro
 {
     public partial class frmFormBlattarticles : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        ///  This form is to show and map articles to costtypes for formblatt reports
+        /// </summary>
+        #region Variables
         BFormBlatt ObjBFormBlatt = null;
         EFormBlatt ObjEFormBlatt = null;
         int _FormBlattTyPeID = 0;
         EPosition ObjEPosition = null;
+        #endregion
 
+        #region Constructor
         public frmFormBlattarticles(EPosition _ObjEPosition)
         {
             InitializeComponent();
             ObjEPosition = _ObjEPosition;
         }
 
+        #endregion
+
+        #region Events
+
         private void frmFormBlattarticles_Load(object sender, EventArgs e)
         {
             try
             {
                 BindBlattType();
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void BindBlattType()
-        {
-            try
-            {
-                if (ObjEFormBlatt == null)
-                    ObjEFormBlatt = new EFormBlatt();
-                if (ObjBFormBlatt == null)
-                    ObjBFormBlatt = new BFormBlatt();
-                ObjBFormBlatt.Get_FormBlattTypes(ObjEFormBlatt);
-                if (ObjEFormBlatt.dtBlattTypes != null)
-                {
-                    cmbFormBlatttypes.DataSource = ObjEFormBlatt.dtBlattTypes;
-                    cmbFormBlatttypes.ValueMember = "LookupID";
-                    cmbFormBlatttypes.DisplayMember = "Value";
-                    cmbFormBlatttypes.SelectedIndex = -1;
-                }
             }
             catch (Exception ex)
             {
@@ -125,5 +112,35 @@ namespace OTTOPro
         {
             this.Close();
         }
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Code to fetch cost types from database and Bind to combobox
+        /// </summary>
+        private void BindBlattType()
+        {
+            try
+            {
+                if (ObjEFormBlatt == null)
+                    ObjEFormBlatt = new EFormBlatt();
+                if (ObjBFormBlatt == null)
+                    ObjBFormBlatt = new BFormBlatt();
+                ObjBFormBlatt.Get_FormBlattTypes(ObjEFormBlatt);
+                if (ObjEFormBlatt.dtBlattTypes != null)
+                {
+                    cmbFormBlatttypes.DataSource = ObjEFormBlatt.dtBlattTypes;
+                    cmbFormBlatttypes.ValueMember = "LookupID";
+                    cmbFormBlatttypes.DisplayMember = "Value";
+                    cmbFormBlatttypes.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+        #endregion
     }
 }

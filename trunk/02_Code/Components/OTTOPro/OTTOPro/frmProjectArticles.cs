@@ -15,14 +15,22 @@ namespace OTTOPro
 {
     public partial class frmProjectArticles : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to show list of project specific articles
+        /// </summary>
+        #region Varibales
         private EPosition ObjEPosition = null;
+        #endregion
 
+        #region Constructors
         public frmProjectArticles(EPosition _ObjEPosition)
         {
             InitializeComponent();
             ObjEPosition = _ObjEPosition;
         }
+        #endregion
 
+        #region Events
         private void frmProjectArticles_Load(object sender, EventArgs e)
         {
             try
@@ -39,5 +47,6 @@ namespace OTTOPro
         {
             this.Close();
         }
+        #endregion
     }
 }

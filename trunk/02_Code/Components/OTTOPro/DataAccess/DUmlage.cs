@@ -12,6 +12,11 @@ namespace DataAccess
 {
     public class DUmlage
     {
+        /// <summary>
+        /// Code to distribute special cost to all positions based on business logiv
+        /// </summary>
+        /// <param name="ObjEUmlage"></param>
+        /// <returns></returns>
         public EUmlage UpdateSpecialCost(EUmlage ObjEUmlage)
         {
             try
@@ -45,6 +50,11 @@ namespace DataAccess
             return ObjEUmlage;
         }
 
+        /// <summary>
+        /// Code to fetch special cost of a project
+        /// </summary>
+        /// <param name="ObjEUmlage"></param>
+        /// <returns></returns>
         public EUmlage GetSpecialCost(EUmlage ObjEUmlage)
         {
             try
@@ -89,6 +99,11 @@ namespace DataAccess
             return ObjEUmlage;
         }
 
+        /// <summary>
+        /// Code to calculate estimated special cost
+        /// </summary>
+        /// <param name="ObjEUmlage"></param>
+        /// <returns></returns>
         public EUmlage ShowUmlage(EUmlage ObjEUmlage)
         {
             try
@@ -124,6 +139,11 @@ namespace DataAccess
             return ObjEUmlage;
         }
 
+        /// <summary>
+        /// Code to save special cost in database
+        /// </summary>
+        /// <param name="ObjEUmlage"></param>
+        /// <returns></returns>
         public EUmlage SaveSpecialCost(EUmlage ObjEUmlage)
         {
             try

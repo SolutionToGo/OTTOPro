@@ -12,11 +12,29 @@ namespace DAL
 {
     public static class SQLCon
     {
+        /// <summary>
+        /// Log4net object for error and exception logging
+        /// </summary>
         private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        /// <summary>
+        /// Sql connection object for login
+        /// </summary>
+        static SqlConnection ObjCon2 = new SqlConnection();
+
+        /// <summary>
+        /// Sql connection for other transactions after logging in
+        /// </summary>
         static SqlConnection ObjCon = new SqlConnection();
+
+        /// <summary>
+        /// Sql connection for transfering data to OTTOProjects
+        /// </summary>
         static SqlConnection ObjCockpitConn = new SqlConnection();
 
+        /// <summary>
+        /// Sql connection for other transactions after logging in
+        /// </summary>
         public static SqlConnection Sqlconn()
         {
             try
@@ -33,11 +51,18 @@ namespace DAL
             return ObjCon;
         }
 
+        /// <summary>
+        /// Connection string for Reports
+        /// </summary>
+        /// <returns></returns>
         public static string ConnectionString()
         {
             return ConfigurationManager.ConnectionStrings["OTTOPro"].ToString();
         }
 
+        /// <summary>
+        /// Sql connection for transfering data to OTTOProjects
+        /// </summary>
         public static SqlConnection CockpitConnection()
         {
             if (ObjCockpitConn.State == ConnectionState.Open)
@@ -52,6 +77,9 @@ namespace DAL
             }
         }
 
+        /// <summary>
+        /// Closing database connection
+        /// </summary>
         public static void Close()
         {
             try
@@ -64,8 +92,9 @@ namespace DAL
             catch (Exception ex) { Log.Error(ex.Message, ex); }
         }
 
-        static SqlConnection ObjCon2 = new SqlConnection();
-
+        /// <summary>
+        /// Sql connection object for login
+        /// </summary>
         public static SqlConnection Sqlconn2()
         {
             try
@@ -82,6 +111,9 @@ namespace DAL
             return ObjCon2;
         }
 
+        /// <summary>
+        /// Closing database connection
+        /// </summary>
         public static void Close2()
         {
             try

@@ -11,6 +11,9 @@ namespace OTTOPro
 {
     public partial class WaitForm1 : WaitForm
     {
+        /// <summary>
+        /// This form is to show progress bar throughout application
+        /// </summary>
         public WaitForm1()
         {
             InitializeComponent();
@@ -39,6 +42,7 @@ namespace OTTOPro
 
         public enum WaitFormCommand
         {
+
         }
     }
 }

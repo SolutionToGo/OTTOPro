@@ -12,6 +12,11 @@ namespace DataAccess
 {
     public class DDeliveryNotes
     {
+        /// <summary>
+        ///  Code to fetch positions for delivery notes module
+        /// </summary>
+        /// <param name="ObjEDeliveryNotes"></param>
+        /// <returns></returns>
         public EDeliveryNotes GetPositions(EDeliveryNotes ObjEDeliveryNotes)
         {
             DataSet dsPositions = new DataSet();
@@ -44,6 +49,11 @@ namespace DataAccess
             return ObjEDeliveryNotes;
         }
 
+        /// <summary>
+        /// Code to save a delivery
+        /// </summary>
+        /// <param name="ObjEDeliveryNotes"></param>
+        /// <returns></returns>
         public EDeliveryNotes SaveDelivery(EDeliveryNotes ObjEDeliveryNotes)
         {
             DataSet dsBlattDetails = new DataSet();
@@ -96,6 +106,11 @@ namespace DataAccess
             return ObjEDeliveryNotes;
         }
 
+        /// <summary>
+        /// Code to fetch non active deliveries from database
+        /// </summary>
+        /// <param name="ObjEDeliveryNotes"></param>
+        /// <returns></returns>
         public EDeliveryNotes GetNonActiveDelivery(EDeliveryNotes ObjEDeliveryNotes)
         {
             DataSet dsPositions = new DataSet();
@@ -135,6 +150,11 @@ namespace DataAccess
             return ObjEDeliveryNotes;
         }
 
+        /// <summary>
+        /// Code to get Saved blatt numbers from database
+        /// </summary>
+        /// <param name="ObjEDeliveryNotes"></param>
+        /// <returns></returns>
         public EDeliveryNotes GetBlattNumbers(EDeliveryNotes ObjEDeliveryNotes)
         {
             DataSet dsBlattNumbers = new DataSet();
@@ -167,6 +187,11 @@ namespace DataAccess
             return ObjEDeliveryNotes;
         }
 
+        /// <summary>
+        /// Code to get next available Blatt Number
+        /// </summary>
+        /// <param name="ObjEDeliveryNotes"></param>
+        /// <returns></returns>
         public EDeliveryNotes GetNewBlattNumber(EDeliveryNotes ObjEDeliveryNotes)
         {
             DataSet dsDeliveryNumbers = new DataSet();
@@ -197,6 +222,11 @@ namespace DataAccess
             return ObjEDeliveryNotes;
         }
 
+        /// <summary>
+        /// Code to get Blatt details after saving
+        /// </summary>
+        /// <param name="ObjEDeliveryNotes"></param>
+        /// <returns></returns>
         public EDeliveryNotes GetBlattDetails(EDeliveryNotes ObjEDeliveryNotes)
         {
             DataSet dsPositions = new DataSet();

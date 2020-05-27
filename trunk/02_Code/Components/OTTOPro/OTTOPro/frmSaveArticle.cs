@@ -15,20 +15,27 @@ namespace OTTOPro
 {
     public partial class frmSaveArticle : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This is form is to map ana article with supplier from supplier master
+        /// </summary>
+        #region Varibales
         BSupplier ObjBSupplier = null;
         private ESupplier _ObjEsupplier = null;
+        public ESupplier ObjEsupplier
+        {
+            get { return _ObjEsupplier; }
+            set { _ObjEsupplier = value; }
+        }
+        #endregion
 
+        #region Constructors
         public frmSaveArticle()
         {
             InitializeComponent();
         }
+        #endregion
 
-        public ESupplier ObjEsupplier
-        {
-            get{return _ObjEsupplier;}
-            set{_ObjEsupplier = value;}
-        }
-
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -45,34 +52,9 @@ namespace OTTOPro
             catch (Exception ex) { Utility.ShowError(ex); }
         }
 
-        private void ParseSupplierDetails()
-        {
-            try
-            {
-                _ObjEsupplier.WG = txtWG.Text;
-                if (string.IsNullOrEmpty(txtWA.Text))
-                    _ObjEsupplier.WA = "0";
-                else
-                    _ObjEsupplier.WA = txtWA.Text;
-                _ObjEsupplier.WGDescription = txtDescription.Text;
-            }
-            catch (Exception ex){throw;}
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void BindSupplierDetails()
-        {
-            try
-            {
-                txtWG.Text = _ObjEsupplier.WG;
-                txtWA.Text = _ObjEsupplier.WA;
-                txtDescription.Text = _ObjEsupplier.WGDescription;
-            }
-            catch (Exception ex){throw;}
         }
 
         private void frmSaveArticle_Load(object sender, EventArgs e)
@@ -116,6 +98,40 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
 
+        #region Functions
+        
+        /// <summary>
+        /// Code to parse supplier articles details while mapping with supplier
+        /// </summary>
+        private void ParseSupplierDetails()
+        {
+            try
+            {
+                _ObjEsupplier.WG = txtWG.Text;
+                if (string.IsNullOrEmpty(txtWA.Text))
+                    _ObjEsupplier.WA = "0";
+                else
+                    _ObjEsupplier.WA = txtWA.Text;
+                _ObjEsupplier.WGDescription = txtDescription.Text;
+            }
+            catch (Exception ex) { throw; }
+        }
+
+        /// <summary>
+        /// Code to bind supplier articles in supplier master
+        /// </summary>
+        private void BindSupplierDetails()
+        {
+            try
+            {
+                txtWG.Text = _ObjEsupplier.WG;
+                txtWA.Text = _ObjEsupplier.WA;
+                txtDescription.Text = _ObjEsupplier.WGDescription;
+            }
+            catch (Exception ex) { throw; }
+        }
+        #endregion
     }
 }

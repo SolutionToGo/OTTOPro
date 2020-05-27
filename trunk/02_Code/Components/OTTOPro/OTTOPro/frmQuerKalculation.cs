@@ -16,11 +16,18 @@ namespace OTTOPro
 {
     public partial class frmQuerKalculation : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to show filter for positions while generating querclaculation report
+        /// </summary>
+        #region Varibales
         int ProjectID = 0;
         int version = 1;
         BGAEB objBGAEB = null;
         public string stRaster = string.Empty;
         string stProjectNumber = string.Empty;
+        #endregion
+
+        #region Constructors
         public frmQuerKalculation()
         {
             InitializeComponent();
@@ -33,7 +40,9 @@ namespace OTTOPro
             version = _version;
             stProjectNumber = _stProjectNumber;
         }
+        #endregion
 
+        #region Events
         private void gvAddRemovePositions_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
         {
             try
@@ -300,5 +309,6 @@ namespace OTTOPro
         {
             this.Close();
         }
+        #endregion
     }
 }

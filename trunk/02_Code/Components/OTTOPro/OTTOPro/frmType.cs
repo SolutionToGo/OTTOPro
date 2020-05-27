@@ -17,16 +17,24 @@ namespace OTTOPro
 {
     public partial class frmType : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to show the list of typs and save typ information
+        /// </summary>
+        #region Varibales
         EArticles ObjEArticle = null;
         BArticles ObjBArticle = null;
         DArticles ObjDArticle = null;
         List<Control> ReqFields = new List<Control>();
+        #endregion
 
+        #region Constructors
         public frmType()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmType_Load(object sender, EventArgs e)
         {
             try
@@ -64,18 +72,6 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        private void BindTypeData()
-        {
-            try
-            {
-                gcTyp.DataSource = ObjEArticle.dtTyp;
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -158,5 +154,23 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+        #endregion
+
+        #region Functions
+        /// <summary>
+        /// Code to Bind Typ List to a grid control
+        /// </summary>
+        private void BindTypeData()
+        {
+            try
+            {
+                gcTyp.DataSource = ObjEArticle.dtTyp;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 } 

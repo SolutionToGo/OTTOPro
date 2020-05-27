@@ -15,18 +15,29 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace OTTOPro
-{
-    public partial class frmGAEBImport : Form
+{    public partial class frmGAEBImport : Form
     {
+        /// <summary>
+        /// This form is to import GAEB file on a project
+        /// </summary>
+        /// 
+        #region Variables
         public string KNr = string.Empty;
         public BGAEB ObjBGAEB = new BGAEB();
         public int ProjectID = 0;
         public bool isbuild = false;
+        #endregion
+
+        #region Constructors
         public frmGAEBImport()
         {
             InitializeComponent();
         }
 
+        #endregion
+
+        
+        #region Events
         private void frmGAEBImport_Load(object sender, EventArgs e)
         {
             try
@@ -49,7 +60,7 @@ namespace OTTOPro
             try
             {
                 string strInputFilePath = string.Empty;
-                OpenFileDialog dlg = new OpenFileDialog();
+                XtraOpenFileDialog dlg = new XtraOpenFileDialog();
 
                 dlg.InitialDirectory = @"C:\";
                 dlg.Title = "Dateiauswahl für GAEB Import";
@@ -60,8 +71,6 @@ namespace OTTOPro
                 dlg.Filter = "GAEB Files(*.D81;*.D83;*.D86;*.P81;*.P83;*.P86;*.X81;*.X83;*.X86) | *.D81;*.D83;*.D86;*.P81;*.P83;*.P86;*.X81;*.X83;*.X86";
                 dlg.RestoreDirectory = true;
 
-                dlg.ReadOnlyChecked = true;
-                dlg.ShowReadOnly = true;
                 if (dlg.ShowDialog() == DialogResult.OK)
                 {
                     txtImportFilePath.Text = dlg.FileName;
@@ -121,6 +130,7 @@ namespace OTTOPro
         {
             SplashScreenManager.CloseForm(false);
         }
-        
+
+        #endregion
     }
 }

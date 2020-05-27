@@ -15,8 +15,17 @@ namespace OTTOPro
 {
     public partial class frmAddProjectArticles : DevExpress.XtraEditors.XtraForm
     {
+
+        /// <summary>
+        /// This Form is to saving project specific articles While assigning
+        /// </summary>
+        
+        #region Varibales
         private EPosition ObjEPosition = null;
         public bool IsContinue = false;
+        #endregion
+
+        #region Constructors
         public frmAddProjectArticles(EPosition _ObjEPosition)
         {
             InitializeComponent();
@@ -26,7 +35,9 @@ namespace OTTOPro
             txtWG.Enabled = false;
             txtWA.Enabled = false;
         }
+        #endregion
 
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -49,5 +60,6 @@ namespace OTTOPro
         {
             this.Close();
         }
+        #endregion
     }
 }

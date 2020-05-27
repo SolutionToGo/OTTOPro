@@ -14,6 +14,10 @@ namespace OTTOPro
 {
     public partial class frmViewdescription : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is for view the long description of a project.
+        /// </summary>
+        #region Local Variables and Properties
         private string _LongDescription = null;
         public bool _IsSave = false;
         private bool _ISUpdated = false;
@@ -22,7 +26,14 @@ namespace OTTOPro
         frmProject frmParent = null;
         BPosition ObjBPosition = new BPosition();
         private int PositionID = 0;
+        public string LongDescription
+        {
+            get { return _LongDescription; }
+            set { _LongDescription = value; }
+        }
+        #endregion
 
+        #region Constructors
         public frmViewdescription()
         {
             InitializeComponent();
@@ -38,13 +49,9 @@ namespace OTTOPro
             frmParent = _frmParent;
             PositionID = _PositionID;
         }
+        #endregion
 
-        public string LongDescription
-        {
-            get { return _LongDescription; }
-            set { _LongDescription = value; }
-        }
-
+        #region Events
         private void frmViewdescription_FormClosing(object sender, FormClosingEventArgs e)
         {
             string _dlgResult = "";
@@ -172,5 +179,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { Utility.ShowError(ex); }
         }
+        #endregion
     }
 }

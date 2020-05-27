@@ -23,8 +23,16 @@ namespace OTTOPro
 {
     class Utility
     {
-        public static bool _IsGermany = false;
+        /// <summary>
+        /// This is a utility class to hold static functions nad variables
+        /// </summary>
 
+        #region Functions
+        /// <summary>
+        /// Code to validate controls on any form
+        /// </summary>
+        /// <param name="requiredFields"></param>
+        /// <returns></returns>
         public static bool ValidateRequiredFields(List<Control> requiredFields)
         {
             
@@ -76,6 +84,10 @@ namespace OTTOPro
             return IsValid;
         }
 
+        /// <summary>
+        /// Code to show error message to user
+        /// </summary>
+        /// <param name="ex"></param>
         public static void ShowError(Exception ex)
         {
             try
@@ -85,65 +97,20 @@ namespace OTTOPro
             catch (Exception ex1){}
         }
 
+        /// <summary>
+        /// Code to show success message to user
+        /// </summary>
+        /// <param name="Status"></param>
         public static void ShowSucces(string Status)
         {
             XtraMessageBox.Show(Status, "abgeschlossen", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         
-        public static string CreateVBSFile(string strInputfile,string strOutPutfile ,string strVBSFilePath)
-        {
-            string strFilepath = string.Empty;
-            try
-            {
-                string ApplicationPath = ConfigurationManager.AppSettings["ApplicationPath"].ToString();
-                string ProductFilePath = ConfigurationManager.AppSettings["ProductFilePath"].ToString();
-                string ClientFilePath = ConfigurationManager.AppSettings["ClientFilePath"].ToString();
-                string LicenseKey = ConfigurationManager.AppSettings["LicenseKey"].ToString();
-
-                StreamWriter sw = null;
-                strFilepath = strVBSFilePath;
-                sw = File.CreateText(strFilepath);
-                StringBuilder strContent = new StringBuilder();
-                strContent.Append("Set objExcel = CreateObject(" + "\"Excel.Application\"" + ")");
-                strContent.Append("\n objExcel.Application.Run ");
-                strContent.Append("\"'" + ApplicationPath + "'!mMain.RunwithParam\",");
-                strContent.Append("\"" + strInputfile + "\",");
-                strContent.Append("\"" + strOutPutfile + "\",");
-                strContent.Append("\"" + ProductFilePath + "\",");
-                strContent.Append("\"" + ClientFilePath + "\",");
-                strContent.Append("\"" + LicenseKey + "\"");
-                strContent.Append("\n objExcel.DisplayAlerts = False");
-                strContent.Append("\n objExcel.Application.Quit");
-                strContent.Append("\n Set objExcel = Nothing");
-                sw.Write(strContent.ToString());
-                sw.Close();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return strFilepath;
-        }
-
-        public static void RunVBSScript(string strOTTOFilePath,string strProjectNumber)
-        {
-            try
-            {
-                Process scriptProc = new Process();
-                scriptProc.StartInfo.FileName = @"cscript";
-                scriptProc.StartInfo.WorkingDirectory = strOTTOFilePath; //<---very important 
-                scriptProc.StartInfo.Arguments = "//B //Nologo " + strProjectNumber + ".vbs";
-                scriptProc.StartInfo.WindowStyle = ProcessWindowStyle.Hidden; //prevent console window from popping up
-                scriptProc.Start();
-                scriptProc.WaitForExit(); // <-- Optional if you want program running until your script exit
-                scriptProc.Close();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
+        /// <summary>
+        ///  Code to convert a xml file to GAEB abd Vice versa
+        /// </summary>
+        /// <param name="strInputFile"></param>
+        /// <param name="strOututFile"></param>
         public static void ProcesssFile(string strInputFile, string strOututFile)
         {
             try
@@ -161,6 +128,12 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// Code to transaform Position OZ to its ratser format
+        /// </summary>
+        /// <param name="strOZ"></param>
+        /// <param name="strRaster"></param>
+        /// <returns></returns>
         public static string PrepareOZ(string strOZ, string strRaster)
         {
             string str = string.Empty;
@@ -215,6 +188,12 @@ namespace OTTOPro
             return str;
         }
 
+       /// <summary>
+       /// Code to set focus on grid control's row based on column name and keyvalue
+       /// </summary>
+       /// <param name="view"></param>
+       /// <param name="_id"></param>
+       /// <param name="_IdValue"></param>
         public static void Setfocus(GridView view, string _id, int _IdValue)
         {
             try
@@ -232,11 +211,21 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// Code to generate encypted text from a plain text
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private string EncryptInner(string input)
         {
             return Convert.ToBase64String(Encrypt(Encoding.UTF8.GetBytes(input)));
         }
 
+        /// <summary>
+        /// Code to generate encypted text from a plain text
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private byte[] Encrypt(byte[] input)
         {
             PasswordDeriveBytes pdb = new PasswordDeriveBytes("CategisOTTO", new byte[] { 0x43, 0x87, 0x23, 0x72, 0x45, 0x56, 0x68, 0x14, 0x62, 0x84 });
@@ -250,11 +239,21 @@ namespace OTTOPro
             return ms.ToArray();
         }
 
+        /// <summary>
+        /// Code to generate Plain text from encrypted text
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string Decrypt(string input)
         {
             return Encoding.UTF8.GetString(Decrypt(Convert.FromBase64String(input)));
         }
 
+        /// <summary>
+        /// Code to generate Plain text from encrypted text
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         private static byte[] Decrypt(byte[] input)
         {
             PasswordDeriveBytes pdb = new PasswordDeriveBytes("CategisOTTO", new byte[] { 0x43, 0x87, 0x23, 0x72, 0x45, 0x56, 0x68, 0x14, 0x62, 0x84 });
@@ -268,12 +267,22 @@ namespace OTTOPro
             return ms.ToArray();
         }
 
+        /// <summary>
+        ///  Global method exposed to generate encrypted text form plain text
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public static string Encrypt(string input)
         {
             Utility sec = new Utility();
             return sec.EncryptInner(input);
         }
 
+        /// <summary>
+        /// Code to convert plaintext to richtext format
+        /// </summary>
+        /// <param name="Plaintext"></param>
+        /// <returns></returns>
         public static string GetRTFFormat(string Plaintext)
         {
             string st = string.Empty;
@@ -295,6 +304,11 @@ namespace OTTOPro
             return st;
         }
 
+        /// <summary>
+        /// Code to convert RTF text to plain text
+        /// </summary>
+        /// <param name="RTFText"></param>
+        /// <returns></returns>
         public static string GetPlaintext(string RTFText)
         {
 
@@ -317,6 +331,14 @@ namespace OTTOPro
             return st;
         }
 
+        /// <summary>
+        /// Code to create dataset of positions from XML file while  importing GAEB
+        /// </summary>
+        /// <param name="strFilePath"></param>
+        /// <param name="strLVSection"></param>
+        /// <param name="Raster"></param>
+        /// <param name="ObjEGAEB"></param>
+        /// <returns></returns>
         public static DataSet CreateDatasetSchema(string strFilePath, string strLVSection, string Raster, EGAEB ObjEGAEB)
         {
             DataSet dsXmlData = new DataSet("Generic");
@@ -717,6 +739,11 @@ namespace OTTOPro
             return dsXmlData;
         }
 
+        /// <summary>
+        /// Code to extract raster from xml file while importing
+        /// </summary>
+        /// <param name="strFilePath"></param>
+        /// <returns></returns>
         public static string GetRaster(string strFilePath)
         {
             StringBuilder strRaster = new StringBuilder();
@@ -804,6 +831,11 @@ namespace OTTOPro
             return strRaster.ToString();
         }
 
+        /// <summary>
+        /// Code to check weather file open or not
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public static bool fileIsOpen(string path)
         {
             System.IO.FileStream a = null;
@@ -827,6 +859,12 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// Code to read excel file while transfering the data from OTTOPro to OTTO Projects
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="fileExt"></param>
+        /// <returns></returns>
         public static DataTable ReadExcel(string fileName, string fileExt)
         {
             string conn = string.Empty;
@@ -850,6 +888,11 @@ namespace OTTOPro
             return dtexcel;
         }
 
+        /// <summary>
+        /// Code to Check input string is RTFtext or not
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public static bool IsRtfText(string text)
         {
             bool _ISRTF = false;
@@ -867,6 +910,12 @@ namespace OTTOPro
             }
             return _ISRTF;
         }
+
+        /// <summary>
+        /// Code to check Input string is RTF or not
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         private static bool IsValidRtf(string text)
         {
             try
@@ -886,6 +935,12 @@ namespace OTTOPro
             }
             return true;
         }
+
+       /// <summary>
+       /// Code to extract ParentOZ from Position OZ
+       /// </summary>
+       /// <param name="strPositionOZ"></param>
+       /// <returns></returns>
         private static string GetParentOZ(string strPositionOZ)
         {
             string[] strOZ = strPositionOZ.Split('.');
@@ -921,6 +976,11 @@ namespace OTTOPro
             return strParentOZ.ToString();
         }
 
+        /// <summary>
+        /// Code to get Position KZ description based on position KZ Character
+        /// </summary>
+        /// <param name="stPKZ"></param>
+        /// <returns></returns>
         public static string GetKZDescription(string stPKZ)
         {
             string stDescription = string.Empty;
@@ -977,6 +1037,11 @@ namespace OTTOPro
             return stDescription;
         }
 
+        /// <summary>
+        /// Code to get Position KZ Character based on description
+        /// </summary>
+        /// <param name="stDescription"></param>
+        /// <returns></returns>
         public static string GetPosKZ(string stDescription)
         {
             string stPosKZ = string.Empty;
@@ -990,6 +1055,11 @@ namespace OTTOPro
             return stPosKZ;
         }
 
+        /// <summary>
+        /// Code to Set Combobox edit value
+        /// </summary>
+        /// <param name="cntrl"></param>
+        /// <param name="stDisplayValue"></param>
         public static void SetCheckedComboexitValue(CheckedComboBoxEdit cntrl, string stDisplayValue)
         {
             try
@@ -1006,6 +1076,11 @@ namespace OTTOPro
             catch (Exception ex) { }
         }
 
+        /// <summary>
+        /// Code to Set lookup edit value
+        /// </summary>
+        /// <param name="cntrl"></param>
+        /// <param name="stDisplayValue"></param>
         public static void SetLookupEditValue(LookUpEdit cntrl, string stDisplayValue)
         {
             try
@@ -1017,7 +1092,10 @@ namespace OTTOPro
             catch (Exception ex) { }
         }
 
+        #endregion
 
+        #region Variables
+        public static bool _IsGermany = false;
         public static int UserID;
         public static string UserName;
         public static string FirstName;
@@ -1047,7 +1125,11 @@ namespace OTTOPro
         public static string FormBlattArticleMappingAccess = string.Empty;
         public static bool Isclose = false;
         public static string DBVersion = string.Empty;
+        public static string Appversion = "9.5.8 - PROD";
+        //public static string Appversion = "9.5.8 - UAT";
+        //public static string Appversion = "9.5.8 - QA";
         public static DataTable dtLVStatus = null;
         public static DataTable dtPositionKZ = null;
+        #endregion
     }
 }

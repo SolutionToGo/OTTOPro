@@ -12,6 +12,11 @@ namespace DataAccess
 {
     public class DInvoice
     {
+        /// <summary>
+        /// Code to get invoice next blatt numbers
+        /// </summary>
+        /// <param name="ObjEInvoice"></param>
+        /// <returns></returns>
         public EInvoice GeTBlattNumbers(EInvoice ObjEInvoice)
         {
             try
@@ -55,6 +60,11 @@ namespace DataAccess
             return ObjEInvoice;
         }
 
+        /// <summary>
+        /// Code to save invoice 
+        /// </summary>
+        /// <param name="ObjEInvoice"></param>
+        /// <returns></returns>
         public EInvoice SaveInvoice(EInvoice ObjEInvoice)
         {
             DataSet dsInvoices = new DataSet();
@@ -115,6 +125,11 @@ namespace DataAccess
             return ObjEInvoice;
         }
 
+        /// <summary>
+        /// Code to get list of invoices
+        /// </summary>
+        /// <param name="ObjEInvoice"></param>
+        /// <returns></returns>
         public EInvoice GetInvoices(EInvoice ObjEInvoice)
         {
             try

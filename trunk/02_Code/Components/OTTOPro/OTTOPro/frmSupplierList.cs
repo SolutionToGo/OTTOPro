@@ -15,14 +15,24 @@ namespace OTTOPro
 {
     public partial class frmSupplierList : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to show the suplier list while adding new supplier to existing proposal
+        /// </summary>
+
+        #region Varibales
         public ESupplier ObjESupplier = null;
         BSupplier ObjBSupplier = null;
         public bool _IsSave = false;
+        #endregion
+
+        #region Constructors
         public frmSupplierList()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmSupplierList_Load(object sender, EventArgs e)
         {
             try
@@ -34,23 +44,6 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        public void BindSupplierData()
-        {
-            try
-            {
-                ObjESupplier = ObjBSupplier.GetSuppliersForProposal(ObjESupplier);
-                if (ObjESupplier.dtSupplierForproposal != null)
-                {
-                    gcSupplier.DataSource = ObjESupplier.dtSupplierForproposal;
-                    gvSupplier.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -125,5 +118,29 @@ namespace OTTOPro
             }
             catch (Exception ex){}
         }
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Code to fetch supplier list from database and bind to grid control
+        /// </summary>
+        public void BindSupplierData()
+        {
+            try
+            {
+                ObjESupplier = ObjBSupplier.GetSuppliersForProposal(ObjESupplier);
+                if (ObjESupplier.dtSupplierForproposal != null)
+                {
+                    gcSupplier.DataSource = ObjESupplier.dtSupplierForproposal;
+                    gvSupplier.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

@@ -71,7 +71,6 @@
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.btnAddAccessories = new DevExpress.XtraBars.BarButtonItem();
             this.skinRibbonGalleryBarItem2 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
-            this.btnFormBlattarticles = new DevExpress.XtraBars.BarButtonItem();
             this.btnReportSetting = new DevExpress.XtraBars.BarButtonItem();
             this.bbCoverSheetPath = new DevExpress.XtraBars.BarButtonItem();
             this.bbTitleBlattEdit = new DevExpress.XtraBars.BarSubItem();
@@ -92,6 +91,8 @@
             this.txtAppVersion = new DevExpress.XtraBars.BarStaticItem();
             this.txtDBVersion = new DevExpress.XtraBars.BarStaticItem();
             this.txtUsername = new DevExpress.XtraBars.BarStaticItem();
+            this.skinRibbonGalleryBarItem3 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
+            this.btnDataNormImport = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -163,7 +164,6 @@
             this.barButtonItem7,
             this.btnAddAccessories,
             this.skinRibbonGalleryBarItem2,
-            this.btnFormBlattarticles,
             this.btnReportSetting,
             this.bbCoverSheetPath,
             this.bbTitleBlattEdit,
@@ -182,9 +182,11 @@
             this.txtAppVersion,
             this.txtDBVersion,
             this.txtUsername,
-            this.bbProposalLetter});
+            this.bbProposalLetter,
+            this.skinRibbonGalleryBarItem3,
+            this.btnDataNormImport});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 75;
+            this.ribbon.MaxItemId = 80;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -447,17 +449,6 @@
             this.skinRibbonGalleryBarItem2.Id = 41;
             this.skinRibbonGalleryBarItem2.Name = "skinRibbonGalleryBarItem2";
             // 
-            // btnFormBlattarticles
-            // 
-            this.btnFormBlattarticles.Caption = "Formblatt Artikel";
-            this.btnFormBlattarticles.Enabled = false;
-            this.btnFormBlattarticles.Id = 42;
-            this.btnFormBlattarticles.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnFormBlattarticles.ImageOptions.Image")));
-            this.btnFormBlattarticles.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnFormBlattarticles.ImageOptions.LargeImage")));
-            this.btnFormBlattarticles.Name = "btnFormBlattarticles";
-            this.btnFormBlattarticles.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-            this.btnFormBlattarticles.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnFormBlattarticles_ItemClick);
-            // 
             // btnReportSetting
             // 
             this.btnReportSetting.Caption = "Berichtseinstellungen";
@@ -605,7 +596,7 @@
             // 
             // txtAppVersion
             // 
-            this.txtAppVersion.Caption = "Version Software 9.5.8 (02.04.2020) - UAT";
+            this.txtAppVersion.Caption = "Version Software 9.5.8 (06.04.2020) - PROD";
             this.txtAppVersion.Id = 69;
             this.txtAppVersion.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Blue;
             this.txtAppVersion.ItemAppearance.Normal.Options.UseForeColor = true;
@@ -626,6 +617,20 @@
             this.txtUsername.ItemAppearance.Normal.ForeColor = System.Drawing.Color.Blue;
             this.txtUsername.ItemAppearance.Normal.Options.UseForeColor = true;
             this.txtUsername.Name = "txtUsername";
+            // 
+            // skinRibbonGalleryBarItem3
+            // 
+            this.skinRibbonGalleryBarItem3.Caption = "skinRibbonGalleryBarItem3";
+            this.skinRibbonGalleryBarItem3.Id = 78;
+            this.skinRibbonGalleryBarItem3.Name = "skinRibbonGalleryBarItem3";
+            // 
+            // btnDataNormImport
+            // 
+            this.btnDataNormImport.Caption = "DATANORM Import";
+            this.btnDataNormImport.Id = 79;
+            this.btnDataNormImport.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDataNormImport.ImageOptions.SvgImage")));
+            this.btnDataNormImport.Name = "btnDataNormImport";
+            this.btnDataNormImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDataNormImport_ItemClick);
             // 
             // miHome
             // 
@@ -672,7 +677,7 @@
             this.rpgArticleMaster.ItemLinks.Add(this.btnRabatt, true, "", "", true);
             this.rpgArticleMaster.ItemLinks.Add(this.btnImportArticleData);
             this.rpgArticleMaster.ItemLinks.Add(this.btnAddAccessories);
-            this.rpgArticleMaster.ItemLinks.Add(this.btnFormBlattarticles);
+            this.rpgArticleMaster.ItemLinks.Add(this.btnDataNormImport);
             this.rpgArticleMaster.Name = "rpgArticleMaster";
             this.rpgArticleMaster.Text = "Artikels";
             // 
@@ -709,10 +714,11 @@
             // 
             // rpgTextModule
             // 
-            this.rpgTextModule.ItemLinks.Add(this.btnTextModule, true);
+            this.rpgTextModule.ItemLinks.Add(this.btnTextModule);
             this.rpgTextModule.ItemLinks.Add(this.btnShortCuts, true);
             this.rpgTextModule.ItemLinks.Add(this.btnReportSetting, true);
             this.rpgTextModule.ItemLinks.Add(this.btnSendLogfile);
+            this.rpgTextModule.ItemLinks.Add(this.skinRibbonGalleryBarItem3);
             this.rpgTextModule.Name = "rpgTextModule";
             this.rpgTextModule.Text = "Datenerfassung Textmodul";
             // 
@@ -944,7 +950,6 @@
         private System.Windows.Forms.Label lblUserName;
         private DevExpress.XtraBars.BarButtonItem btnAddAccessories;
         private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem2;
-        private DevExpress.XtraBars.BarButtonItem btnFormBlattarticles;
         private DevExpress.XtraBars.BarButtonItem btnReportSetting;
         private DevExpress.XtraBars.BarButtonItem bbCoverSheetPath;
         private System.Windows.Forms.Label lblDBVersion;
@@ -973,5 +978,7 @@
         private DevExpress.XtraBars.BarStaticItem txtDBVersion;
         private DevExpress.XtraBars.BarStaticItem txtUsername;
         private DevExpress.XtraBars.BarButtonItem bbProposalLetter;
+        private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem3;
+        private DevExpress.XtraBars.BarButtonItem btnDataNormImport;
     }
 }

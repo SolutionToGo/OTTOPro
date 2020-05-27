@@ -17,11 +17,22 @@ namespace OTTOPro
 {
     public partial class frmSupplierMaster : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to add, edit suppliers, supplier contacts and supplier address
+        /// </summary>
+        #region Varibales
         BSupplier ObjBSupplier = null;
         string _SupplierType = null;
         private ESupplier _ObjEsupplier = null;
         XtraTabPage ObjTabDetails = null;
+        public ESupplier ObjEsupplier
+        {
+            get { return _ObjEsupplier; }
+            set { _ObjEsupplier = value; }
+        }
+        #endregion
 
+        #region Constructors
         public frmSupplierMaster()
         {
             InitializeComponent();
@@ -31,14 +42,10 @@ namespace OTTOPro
         {
             InitializeComponent();
             _SupplierType = _Type;
-        } 
-
-        public ESupplier ObjEsupplier
-        {
-            get{return _ObjEsupplier;}
-            set{_ObjEsupplier = value;}
         }
+        #endregion
 
+        #region Events
         private void frmSupplierMaster_Load(object sender, EventArgs e)
         {
             try
@@ -103,90 +110,11 @@ namespace OTTOPro
             catch (Exception ex) { Utility.ShowError(ex); }
         }
 
-        private void BindContactsDetails()
-        {
-            try
-            {
-                cmbSalutation.Text = _ObjEsupplier.Salutation;
-                txtContactName.Text = _ObjEsupplier.ContactName;
-                txtDesignation.Text = _ObjEsupplier.Designation;
-                txtContactemail.Text = _ObjEsupplier.ContEmailID;
-                txtContacttelephone.Text = _ObjEsupplier.ContTelephone;
-                txtContactFax.Text = _ObjEsupplier.ContFax;
-                chkDefaultContact.EditValue = _ObjEsupplier.DefaultContact;
-            }
-            catch (Exception ex){throw;}
-        }
-
-        private void BindAddressDetails()
-        {
-            try
-            {
-                txtAddrShortName.Text = _ObjEsupplier.AddressShortName;
-                txtAddrStreetNo.Text = _ObjEsupplier.StreetNo;
-                txtAddrPostalCode.Text = _ObjEsupplier.AddrPostalCode;
-                txtAddrcity.Text = _ObjEsupplier.AddrCity;
-                txtAddrCountry.Text = _ObjEsupplier.AddrCountry;
-                chkDefaultAddress.EditValue = _ObjEsupplier.DefaultAddress;
-            }
-            catch (Exception ex){throw;}
-        }
-
-        private void TabChange(XtraTabPage ObjTabDetails)
-        {
-            try
-            {
-                if (ObjTabDetails != null)
-                {
-                    if (ObjTabDetails.PageVisible == true)
-                        tcSupplier.SelectedTabPage = ObjTabDetails;
-                    else
-                    {
-                        ObjTabDetails.PageVisible = true;
-                        tcSupplier.SelectedTabPage = ObjTabDetails;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void ParseSupplierContactsDetails()
-        {
-            try
-            {
-                _ObjEsupplier.Salutation = cmbSalutation.Text;
-                _ObjEsupplier.ContactName = txtContactName.Text;
-                _ObjEsupplier.Designation = txtDesignation.Text;
-                _ObjEsupplier.ContEmailID = txtContactemail.Text;
-                _ObjEsupplier.ContTelephone = txtContacttelephone.Text;
-                _ObjEsupplier.ContFax = txtContactFax.Text;
-                _ObjEsupplier.DefaultContact = Convert.ToBoolean(chkDefaultContact.CheckState);
-            }
-            catch (Exception ex){throw;}
-        }
-
-        private void ParseSupplierAddressDetails()
-        {
-            try
-            {
-                _ObjEsupplier.AddressShortName = txtAddrShortName.Text;
-                _ObjEsupplier.StreetNo = txtAddrStreetNo.Text;
-                _ObjEsupplier.AddrPostalCode = txtAddrPostalCode.Text;
-                _ObjEsupplier.AddrCity = txtAddrcity.Text;
-                _ObjEsupplier.AddrCountry = txtAddrCountry.Text;
-                _ObjEsupplier.DefaultAddress = Convert.ToBoolean(chkDefaultAddress.CheckState);
-            }
-            catch (Exception ex){throw;}
-        }
-
         private void txtAddrStreetNo_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
-                RichTextBox txt=(RichTextBox)sender;
+                RichTextBox txt = (RichTextBox)sender;
                 if (e.KeyCode == Keys.Enter && txt.Lines.Length >= 2)
                 {
                     e.Handled = true;
@@ -216,5 +144,106 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Code to navigate between cusomter, address and contacts
+        /// </summary>
+        /// <param name="ObjTabDetails"></param>
+        private void TabChange(XtraTabPage ObjTabDetails)
+        {
+            try
+            {
+                if (ObjTabDetails != null)
+                {
+                    if (ObjTabDetails.PageVisible == true)
+                        tcSupplier.SelectedTabPage = ObjTabDetails;
+                    else
+                    {
+                        ObjTabDetails.PageVisible = true;
+                        tcSupplier.SelectedTabPage = ObjTabDetails;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Code to populate contact details
+        /// </summary>
+        private void BindContactsDetails()
+        {
+            try
+            {
+                cmbSalutation.Text = _ObjEsupplier.Salutation;
+                txtContactName.Text = _ObjEsupplier.ContactName;
+                txtDesignation.Text = _ObjEsupplier.Designation;
+                txtContactemail.Text = _ObjEsupplier.ContEmailID;
+                txtContacttelephone.Text = _ObjEsupplier.ContTelephone;
+                txtContactFax.Text = _ObjEsupplier.ContFax;
+                chkDefaultContact.EditValue = _ObjEsupplier.DefaultContact;
+            }
+            catch (Exception ex){throw;}
+        }
+
+        /// <summary>
+        /// Code to populate address details
+        /// </summary>
+        private void BindAddressDetails()
+        {
+            try
+            {
+                txtAddrShortName.Text = _ObjEsupplier.AddressShortName;
+                txtAddrStreetNo.Text = _ObjEsupplier.StreetNo;
+                txtAddrPostalCode.Text = _ObjEsupplier.AddrPostalCode;
+                txtAddrcity.Text = _ObjEsupplier.AddrCity;
+                txtAddrCountry.Text = _ObjEsupplier.AddrCountry;
+                chkDefaultAddress.EditValue = _ObjEsupplier.DefaultAddress;
+            }
+            catch (Exception ex){throw;}
+        }
+
+        /// <summary>
+        /// Code to parse supplier contact details while adding and editing
+        /// </summary>
+        private void ParseSupplierContactsDetails()
+        {
+            try
+            {
+                _ObjEsupplier.Salutation = cmbSalutation.Text;
+                _ObjEsupplier.ContactName = txtContactName.Text;
+                _ObjEsupplier.Designation = txtDesignation.Text;
+                _ObjEsupplier.ContEmailID = txtContactemail.Text;
+                _ObjEsupplier.ContTelephone = txtContacttelephone.Text;
+                _ObjEsupplier.ContFax = txtContactFax.Text;
+                _ObjEsupplier.DefaultContact = Convert.ToBoolean(chkDefaultContact.CheckState);
+            }
+            catch (Exception ex){throw;}
+        }
+
+        /// <summary>
+        /// Code to parse supplier Address details while adding and editing
+        /// </summary>
+        private void ParseSupplierAddressDetails()
+        {
+            try
+            {
+                _ObjEsupplier.AddressShortName = txtAddrShortName.Text;
+                _ObjEsupplier.StreetNo = txtAddrStreetNo.Text;
+                _ObjEsupplier.AddrPostalCode = txtAddrPostalCode.Text;
+                _ObjEsupplier.AddrCity = txtAddrcity.Text;
+                _ObjEsupplier.AddrCountry = txtAddrCountry.Text;
+                _ObjEsupplier.DefaultAddress = Convert.ToBoolean(chkDefaultAddress.CheckState);
+            }
+            catch (Exception ex){throw;}
+        }
+        #endregion
+
     }
 }

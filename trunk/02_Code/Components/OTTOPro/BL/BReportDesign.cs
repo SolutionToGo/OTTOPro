@@ -11,55 +11,13 @@ namespace BL
 {
     public class BReportDesign
     {
+        
         DReportDesign ObjDReportDesign = new DReportDesign();
 
-        public void GetReportDesignTypes(EReportDesign ObjEReportDesign,string _TYPE)
-        {
-            try
-            {
-                if (ObjEReportDesign != null)
-                {
-                    ObjEReportDesign.dsReportDesign = ObjDReportDesign.GetReportDesignTypes(_TYPE);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        public void SaveReportDesign(EReportDesign ObjEObject,string _type)
-        {
-            try
-            {
-                if (ObjEObject != null)
-                {
-                    ObjDReportDesign.SaveReportDesignTypes(ObjEObject, _type);                    
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        public DataSet  GetExistingReportDesignData(EReportDesign ObjEObject, string _type)
-        {
-            DataSet dsReportDesign = new DataSet();
-            try
-            {
-                if (ObjEObject != null)
-                {
-                   dsReportDesign= ObjDReportDesign.GetExistingReportDesignData(ObjEObject, _type);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return dsReportDesign;
-        }
-
+        /// <summary>
+        /// Code to Save report settings
+        /// </summary>
+        /// <param name="ObjEObject"></param>
         public void SaveReportSetting(EReportDesign ObjEObject)
         {
             try
@@ -75,6 +33,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to fetch report settings from database
+        /// </summary>
+        /// <param name="ObjEObject"></param>
+        /// <returns></returns>
         public DataSet GetReportSettings(EReportDesign ObjEObject)
         {
             DataSet dsReportSetting = new DataSet();
@@ -92,6 +55,11 @@ namespace BL
             return dsReportSetting;
         }
 
+       /// <summary>
+       /// Code to fetch PRoject, Organization and customer details at once
+       /// </summary>
+       /// <param name="ProjectID"></param>
+       /// <returns></returns>
         public DataTable GetProjectCustomerDetails(int ProjectID)
         {
             DataTable dt = new DataTable();

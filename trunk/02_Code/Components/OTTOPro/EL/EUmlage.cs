@@ -9,6 +9,10 @@ namespace EL
 {
     public class EUmlage
     {
+        /// <summary>
+        ///  It Contains entities of  special cost module
+        /// </summary>
+
         private int _ProjectID = -1;
         private DataTable _dtSpecialCost = null;
         private DataTable _dtUmlage = null;

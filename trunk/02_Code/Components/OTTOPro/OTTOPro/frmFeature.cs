@@ -16,13 +16,22 @@ namespace OTTOPro
 {
     public partial class frmFeature : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to mapping access levels to role
+        /// </summary>
+        #region Variables
         EUserInfo ObjEUserInfo = new EUserInfo();
         BUserInfo ObjBUserInfo = new BUserInfo();
+        #endregion
+
+        #region Constructor
         public frmFeature()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmFeature_Load(object sender, EventArgs e)
         {
             try
@@ -36,62 +45,6 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        public void BindFeatureData()
-        {
-            try
-            {
-                ObjBUserInfo.GetFeatureData(ObjEUserInfo);
-                if (ObjEUserInfo.dtFeature != null)
-                {
-                    gcFeature.DataSource = ObjEUserInfo.dtFeature;
-                    gvFeature.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        public void BindRoleData()
-        {
-            try
-            {
-                ObjBUserInfo.GetUserRoles(ObjEUserInfo);
-                if (ObjEUserInfo.dsUserRole != null)
-                {
-                    cmbRole.Properties.DataSource = ObjEUserInfo.dsUserRole.Tables[0];
-                    cmbRole.Properties.DisplayMember = "RoleName";
-                    cmbRole.Properties.ValueMember = "RoleID";
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void BindAccessLevels()
-        {
-            try
-            {
-                ObjBUserInfo.GetAceesLevels(ObjEUserInfo);
-                if (ObjEUserInfo.dtAccessLevels != null)
-                {
-                    rpiAccessLevels.DataSource = null;
-                    rpiAccessLevels.DataSource=ObjEUserInfo.dtAccessLevels;
-                    rpiAccessLevels.DisplayMember = "Value";
-                    rpiAccessLevels.ValueMember = "LookupID";
-                    rpiAccessLevels.PopulateColumns();
-                    rpiAccessLevels.Columns[0].Visible = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -153,5 +106,73 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
+
+        #region Functions
+        /// <summary>
+        /// Code to fetch accesslevels from database and bind to grid control
+        /// </summary>
+        public void BindFeatureData()
+        {
+            try
+            {
+                ObjBUserInfo.GetFeatureData(ObjEUserInfo);
+                if (ObjEUserInfo.dtFeature != null)
+                {
+                    gcFeature.DataSource = ObjEUserInfo.dtFeature;
+                    gvFeature.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Code to fetch list of Roles to combo box
+        /// </summary>
+        public void BindRoleData()
+        {
+            try
+            {
+                ObjBUserInfo.GetUserRoles(ObjEUserInfo);
+                if (ObjEUserInfo.dsUserRole != null)
+                {
+                    cmbRole.Properties.DataSource = ObjEUserInfo.dsUserRole.Tables[0];
+                    cmbRole.Properties.DisplayMember = "RoleName";
+                    cmbRole.Properties.ValueMember = "RoleID";
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Code to fetch accesslevels from database based on roleid and bind to grid control
+        /// </summary>
+        private void BindAccessLevels()
+        {
+            try
+            {
+                ObjBUserInfo.GetAceesLevels(ObjEUserInfo);
+                if (ObjEUserInfo.dtAccessLevels != null)
+                {
+                    rpiAccessLevels.DataSource = null;
+                    rpiAccessLevels.DataSource = ObjEUserInfo.dtAccessLevels;
+                    rpiAccessLevels.DisplayMember = "Value";
+                    rpiAccessLevels.ValueMember = "LookupID";
+                    rpiAccessLevels.PopulateColumns();
+                    rpiAccessLevels.Columns[0].Visible = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

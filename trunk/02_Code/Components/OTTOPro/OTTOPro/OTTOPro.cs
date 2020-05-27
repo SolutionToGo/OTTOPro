@@ -28,11 +28,19 @@ namespace OTTOPro
 {
     public partial class frmOTTOPro : DevExpress.XtraBars.Ribbon.RibbonForm
     {
+        /// <summary>
+        /// This is main and parent form where all other forms opned as child s 
+        /// </summary>
+        #region Varibales
         public static frmOTTOPro ObjOTTOPro;
         BProject ObjBProject = null;
         EProject ObjEProject = null;
         bool _TriggerFromLogin = false;
+        bool CloseFromVersionMismatch = false;
+        private static frmOTTOPro frmObject;
+        #endregion
 
+        #region Constructors
         private frmOTTOPro()
         {
             InitializeComponent();
@@ -42,35 +50,9 @@ namespace OTTOPro
         {
             frmObject = new frmOTTOPro();
         }
+        #endregion
 
-        private static frmOTTOPro frmObject;
-
-        public static frmOTTOPro Instance
-        {
-            get { return frmObject; }
-        }       
-
-        public static void LoadParentForm()
-        {
-            Instance.Show();
-        }
-
-        public void SetPictureBoxVisible(bool _result)
-        {
-            this.pictureBox1.Visible = _result;
-        }
-
-        public void SetLableVisible(bool _result)
-        {
-            this.label2.Visible = _result;
-        }
-
-        public  BarMdiChildrenListItem ChildItems
-        {
-            get { return barMdiChildrenListItemProject; }
-            set { barMdiChildrenListItemProject = value; }
-        }
-
+        #region Events
         private void btnNewProject_ItemClick(object sender, ItemClickEventArgs e)
         {
             try
@@ -127,12 +109,6 @@ namespace OTTOPro
             }
         }
 
-        public static void UpdateStatus(string Status)
-        {
-            frmOTTOPro.Instance.tsStatus.Text = Status;
-            frmOTTOPro.Instance.tmrStatus.Start();
-        }
-
         public void tmrStatus_Tick(object sender, EventArgs e)
         {
             try
@@ -155,6 +131,16 @@ namespace OTTOPro
         {
             try
             {
+                txtAppVersion.Caption = "Version Software : " + Utility.Appversion + " (" + DateTime.Now.ToString("dd.MM.yyyy") + ")";
+                txtDBVersion.Caption = "Version Datenbank : " + Utility.DBVersion;
+                txtUsername.Caption = "Nutzername : " + Utility.UserName;
+                if (Utility.Appversion != Utility.DBVersion)
+                {
+                    CloseFromVersionMismatch = true;
+                    XtraMessageBox.Show("Sie nutzen eine veraltete Softwareversion. \r\nBitte kontaktieren Sie Ihren Administrator.", "Versionsangabe", MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                    Application.Exit();
+                }
+
                 _TriggerFromLogin = true;
                 chkAutoSave1.EditValue = Utility.AutoSave;
                 if (Utility.ArticleDataAccess == "9")
@@ -178,14 +164,6 @@ namespace OTTOPro
                 {
                     btnTextModule.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
                 }
-                if (Utility.RoleID == 8)
-                {
-                    btnFormBlattarticles.Enabled = true;
-                }
-                txtUsername.Caption = "Nutzername : " + Utility.UserName;
-                if (ObjBProject == null)
-                    ObjBProject = new BProject();
-                txtDBVersion.Caption = "Version Datenbank: " + Utility.DBVersion;
             }
             catch (Exception ex){}
         }
@@ -347,19 +325,12 @@ namespace OTTOPro
             try
             {
                 string strFilePath = string.Empty;
-                OpenFileDialog dlg = new OpenFileDialog();
-
-                dlg.InitialDirectory = @"C:\";
+                XtraOpenFileDialog  dlg = new XtraOpenFileDialog();
                 dlg.Title = "Dateiauswahl für GAEB Import";
-
                 dlg.CheckFileExists = true;
                 dlg.CheckPathExists = true;
-
                 dlg.Filter = "GAEB Files(*.D81;*.D83;*.D86;*.P81;*.P83;*.P86;*.X81;*.X83;*.X86) | *.D81;*.D83;*.D86;*.P81;*.P83;*.P86;*.X81;*.X83;*.X86";
                 dlg.RestoreDirectory = true;
-
-                dlg.ReadOnlyChecked = true;
-                dlg.ShowReadOnly = true;
                 if (dlg.ShowDialog() == DialogResult.OK)
                     strFilePath = dlg.FileName;
                 if (!string.IsNullOrEmpty(strFilePath))
@@ -820,30 +791,16 @@ namespace OTTOPro
             catch (Exception ex) { }
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (keyData == (Keys.Alt | Keys.F5))
-            {
-                nbDeletePosition_ItemClick(null, null);
-                return true;
-            }
-            else if (keyData == Keys.F4)
-            {
-                nbCopyPosition_ItemClick(null, null);
-                return true;
-            }
-            else if (keyData == (Keys.F5))
-                btnRefreshProject_ItemClick(null, null);
-            return base.ProcessCmdKey(ref msg, keyData);
-        }
-
         private void frmOTTOPro_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
-               var dlgrslt = XtraMessageBox.Show("Wollen Sie das Programm OTTO PRO jetzt beenden?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (Convert.ToString(dlgrslt) == "No")
-                    e.Cancel = true;
+                if (!CloseFromVersionMismatch)
+                {
+                    var dlgrslt = XtraMessageBox.Show("Wollen Sie das Programm OTTO PRO jetzt beenden?", "Question", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (Convert.ToString(dlgrslt) == "No")
+                        e.Cancel = true;
+                }
             }
             catch (Exception ex){}
         }
@@ -867,6 +824,22 @@ namespace OTTOPro
             sendEMailThroughOUTLOOK();
         }
 
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDataNormImport_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            frmDataNormImport Obj = new frmDataNormImport();
+            Obj.ShowDialog();
+        }
+        #endregion
+
+        #region Functions
+        /// <summary>
+        /// Code to send a mail by attaching log file using log4net
+        /// </summary>
         public void sendEMailThroughOUTLOOK()
         {
             try
@@ -896,10 +869,73 @@ namespace OTTOPro
             catch (Exception ex){}
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Code to expose a static object of form
+        /// </summary>
+        public static frmOTTOPro Instance
         {
-
+            get { return frmObject; }
         }
+
+        /// <summary>
+        /// Code to view parent form 
+        /// </summary>
+        public static void LoadParentForm()
+        {
+            Instance.Show();
+        }
+
+        /// <summary>
+        /// code to set visible property of picture box
+        /// </summary>
+        /// <param name="_result"></param>
+        public void SetPictureBoxVisible(bool _result)
+        {
+            this.pictureBox1.Visible = _result;
+        }
+
+        /// <summary>
+        /// code to set visible property of label
+        /// </summary>
+        /// <param name="_result"></param>
+        public void SetLableVisible(bool _result)
+        {
+            this.label2.Visible = _result;
+        }
+
+        /// <summary>
+        /// Code to show status of messages on status bar
+        /// </summary>
+        /// <param name="Status"></param>
+        public static void UpdateStatus(string Status)
+        {
+            frmOTTOPro.Instance.tsStatus.Text = Status;
+            frmOTTOPro.Instance.tmrStatus.Start();
+        }
+
+        /// <summary>
+        /// Overrided method to handle keys on parent form
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == (Keys.Alt | Keys.F5))
+            {
+                nbDeletePosition_ItemClick(null, null);
+                return true;
+            }
+            else if (keyData == Keys.F4)
+            {
+                nbCopyPosition_ItemClick(null, null);
+                return true;
+            }
+            else if (keyData == (Keys.F5))
+                btnRefreshProject_ItemClick(null, null);
+            return base.ProcessCmdKey(ref msg, keyData);
+        }
+        #endregion
 
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDocuwareLink));
             this.txtLink1 = new DevExpress.XtraEditors.TextEdit();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
@@ -60,7 +61,7 @@
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItem11 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem7 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.ofd = new System.Windows.Forms.OpenFileDialog();
+            this.ofd = new DevExpress.XtraEditors.XtraOpenFileDialog(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.txtLink1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -425,7 +426,7 @@
             // 
             // ofd
             // 
-            this.ofd.FileName = "openFileDialog1";
+            this.ofd.FileName = "xtraOpenFileDialog1";
             // 
             // frmDocuwareLink
             // 
@@ -484,7 +485,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         private DevExpress.XtraEditors.SimpleButton btnOK;
         private DevExpress.XtraEditors.SimpleButton btnCancel;
-        private System.Windows.Forms.OpenFileDialog ofd;
         private DevExpress.XtraEditors.SimpleButton btnOpenLink1;
         private DevExpress.XtraEditors.SimpleButton btnOpenLink2;
         private DevExpress.XtraEditors.SimpleButton btnOpenLink3;
@@ -508,6 +508,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem5;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem6;
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem7;
-
+        private DevExpress.XtraEditors.XtraOpenFileDialog ofd;
     }
 }

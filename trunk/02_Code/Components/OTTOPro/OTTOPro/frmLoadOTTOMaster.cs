@@ -17,13 +17,22 @@ namespace OTTOPro
 {
     public partial class frmLoadOTTOMaster : DevExpress.XtraEditors.XtraForm
     {
+       /// <summary>
+       /// This form is to add , edit and view Organization's details and its contacts
+       /// </summary>
+        #region variables
         EOTTO ObjEOTTO = new EOTTO();
         BOTTO ObjBOTTO = new BOTTO();
+        #endregion
 
+        #region Constructors
         public frmLoadOTTOMaster()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region Events
 
         private void btnAddContact_Click(object sender, EventArgs e)
         {
@@ -91,67 +100,6 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
-        }
-
-        public void BindOTTOData()
-        {
-            try
-            {
-                if (ObjEOTTO.dtOTTO != null)
-                {
-                    cmbOTTO.Properties.DataSource = ObjEOTTO.dtOTTO;
-                    cmbOTTO.Properties.DisplayMember = "FullName";
-                    cmbOTTO.Properties.ValueMember = "OttoID";
-                }
-            }
-            catch (Exception ex){throw;}
-        }
-
-        public void BindContactData()
-        {
-            try
-            {
-                DataView dvContact = ObjEOTTO.dtContact.DefaultView;
-                dvContact.RowFilter = "OttoID = '" + ObjEOTTO.OTTOID + "'";
-                gcOTTOContact.DataSource = dvContact;
-            }
-            catch (Exception ex){throw;}
-        }
-
-        private void Setfocus(GridView view, string _id, int _IdValue)
-        {
-            try
-            {
-                if (_IdValue > -1)
-                {
-                    int rowHandle = view.LocateByValue(_id, _IdValue);
-                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                        view.FocusedRowHandle = rowHandle;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void GetContactDetails()
-        {
-            try
-            {
-                int IValue = 0;
-                if (int.TryParse(gvOTTOContact.GetFocusedRowCellValue("ContactID").ToString(), out IValue))
-                {
-                    ObjEOTTO.ContactID = IValue;
-                    ObjEOTTO.ContactPerson = gvOTTOContact.GetFocusedRowCellValue("ContactPerson") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("ContactPerson").ToString();
-                    ObjEOTTO.Cont_Telephone = gvOTTOContact.GetFocusedRowCellValue("Telephone") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("Telephone").ToString();
-                    ObjEOTTO.Fax = gvOTTOContact.GetFocusedRowCellValue("Fax") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("Fax").ToString();
-                    ObjEOTTO.EmailID = gvOTTOContact.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("EmailID").ToString();
-                    ObjEOTTO.TaxNo = gvOTTOContact.GetFocusedRowCellValue("TaxNo") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("TaxNo").ToString();
-                    ObjEOTTO.DefaultContact = Convert.ToBoolean(gvOTTOContact.GetFocusedRowCellValue("DefaultContact") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("DefaultContact"));
-                }
-            }
-            catch (Exception ex){throw;}
         }
 
         private void cmbOTTO_EditValueChanged(object sender, EventArgs e)
@@ -268,6 +216,103 @@ namespace OTTOPro
             cmbOTTO_EditValueChanged(null, null);
         }
 
+        private void txtFullName_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    edit.SelectionStart = 0;
+                    edit.SelectionLength = edit.Text.Length;
+                }));
+            }
+            catch (Exception ex) { }
+        }
+
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Code to Bind Organizations list to combobox
+        /// </summary>
+        public void BindOTTOData()
+        {
+            try
+            {
+                if (ObjEOTTO.dtOTTO != null)
+                {
+                    cmbOTTO.Properties.DataSource = ObjEOTTO.dtOTTO;
+                    cmbOTTO.Properties.DisplayMember = "FullName";
+                    cmbOTTO.Properties.ValueMember = "OttoID";
+                }
+            }
+            catch (Exception ex) { throw; }
+        }
+
+        /// <summary>
+        /// Code to bind organization contacts to grid control
+        /// </summary>
+        public void BindContactData()
+        {
+            try
+            {
+                DataView dvContact = ObjEOTTO.dtContact.DefaultView;
+                dvContact.RowFilter = "OttoID = '" + ObjEOTTO.OTTOID + "'";
+                gcOTTOContact.DataSource = dvContact;
+            }
+            catch (Exception ex) { throw; }
+        }
+
+        /// <summary>
+        /// Code to set focus on a grid control using column name and key value
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="_id"></param>
+        /// <param name="_IdValue"></param>
+        private void Setfocus(GridView view, string _id, int _IdValue)
+        {
+            try
+            {
+                if (_IdValue > -1)
+                {
+                    int rowHandle = view.LocateByValue(_id, _IdValue);
+                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                        view.FocusedRowHandle = rowHandle;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        
+        /// <summary>
+        /// Code to bind org contacts to controls
+        /// </summary>
+        private void GetContactDetails()
+        {
+            try
+            {
+                int IValue = 0;
+                if (int.TryParse(gvOTTOContact.GetFocusedRowCellValue("ContactID").ToString(), out IValue))
+                {
+                    ObjEOTTO.ContactID = IValue;
+                    ObjEOTTO.ContactPerson = gvOTTOContact.GetFocusedRowCellValue("ContactPerson") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("ContactPerson").ToString();
+                    ObjEOTTO.Cont_Telephone = gvOTTOContact.GetFocusedRowCellValue("Telephone") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("Telephone").ToString();
+                    ObjEOTTO.Fax = gvOTTOContact.GetFocusedRowCellValue("Fax") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("Fax").ToString();
+                    ObjEOTTO.EmailID = gvOTTOContact.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("EmailID").ToString();
+                    ObjEOTTO.TaxNo = gvOTTOContact.GetFocusedRowCellValue("TaxNo") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("TaxNo").ToString();
+                    ObjEOTTO.DefaultContact = Convert.ToBoolean(gvOTTOContact.GetFocusedRowCellValue("DefaultContact") == DBNull.Value ? "" : gvOTTOContact.GetFocusedRowCellValue("DefaultContact"));
+                }
+            }
+            catch (Exception ex) { throw; }
+        }
+
+        /// <summary>
+        /// Code to Parse Org details while adding or editing
+        /// </summary>
         private void ParseOTTODetails()
         {
             try
@@ -304,21 +349,8 @@ namespace OTTOPro
                 ObjEOTTO.Complementary = txtComplementary.Text;
                 ObjEOTTO.IsBranch = Convert.ToBoolean(checkEditIsBranch.CheckState);
             }
-            catch (Exception ex){throw;}
+            catch (Exception ex) { throw; }
         }
-
-        private void txtFullName_Enter(object sender, EventArgs e)
-        {
-            try
-            {
-                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
-                BeginInvoke(new MethodInvoker(() =>
-                {
-                    edit.SelectionStart = 0;
-                    edit.SelectionLength = edit.Text.Length;
-                }));
-            }
-            catch (Exception ex) { }
-        }
+        #endregion
     }
 }

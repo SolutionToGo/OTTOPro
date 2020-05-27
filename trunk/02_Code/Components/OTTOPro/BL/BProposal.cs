@@ -13,6 +13,11 @@ namespace BL
     {
         DProposal ObjDProposal = new DProposal();
 
+        /// <summary>
+        /// Code to save Text areas which are used in Title blatt template design
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
+        /// <returns></returns>
         public int SaveTextModule(EProposal ObjEProposal)
         {
             try
@@ -48,6 +53,12 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to save Text Modules Category
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
+        /// <param name="_textID"></param>
+        /// <returns></returns>
         public int SaveCategory(EProposal ObjEProposal,int _textID)
         {
             try
@@ -79,6 +90,10 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to fetch text areas to show in a grid contol
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
         public void GetTextModuleAreas(EProposal ObjEProposal)
         {
             try
@@ -94,6 +109,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to get text areas categories
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
+        /// <param name="_textID"></param>
         public void GetCategories(EProposal ObjEProposal,int _textID)
         {
             try
@@ -109,6 +129,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to delete text areas
+        /// </summary>
+        /// <param name="ObjEProposal"></param>
+        /// <param name="ID"></param>
         public void DeleteTextModuleAreas(EProposal ObjEProposal,int ID)
         {
             try

@@ -17,74 +17,26 @@ namespace OTTOPro
 {
     public partial class frmLoadUsers : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        ///  This form is to add, edit and view user
+        /// </summary>
+        #region Varibales
         EUserInfo ObjEUserInfo = new EUserInfo();
         BUserInfo ObjBUserInfo = new BUserInfo();
         List<Control> RequiredFields = new List<Control>();
         int _IDValue = -1;
         int _RoleID = -1;
+        #endregion
+
+        #region Constructors
         public frmLoadUsers()
         {
             InitializeComponent();
         }
 
+        #endregion
 
-        private void Setfocus(GridView view, string _id, int _IdValue)
-        {
-            try
-            {
-                if (_IdValue > -1)
-                {
-                    int rowHandle = view.LocateByValue(_id, _IdValue);
-                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
-                        view.FocusedRowHandle = rowHandle;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        public void BindUserData()
-        {
-            try
-            {
-                ObjBUserInfo.GetUser(ObjEUserInfo);
-                if (ObjEUserInfo.dsUserInfo != null)
-                {
-                    gcUser.DataSource = ObjEUserInfo.dsUserInfo.Tables[0];
-                    gvUser.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void GetUserDetails()
-        {
-            try
-            {
-                if (gvUser.GetFocusedRowCellValue("UserID") != DBNull.Value)
-                {
-                    if (int.TryParse(gvUser.GetFocusedRowCellValue("UserID").ToString(), out _IDValue))
-                        ObjEUserInfo.UserID = _IDValue;
-                    if (int.TryParse(gvUser.GetFocusedRowCellValue("RoleID").ToString(), out _RoleID))
-                        cmbRoleName.SelectedValue = _RoleID;
-                    txtUserName.Text = gvUser.GetFocusedRowCellValue("UserName") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("UserName").ToString();
-                    txtFName.Text = gvUser.GetFocusedRowCellValue("FirstName") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("FirstName").ToString();
-                    txtLName.Text = gvUser.GetFocusedRowCellValue("LastName") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("LastName").ToString();
-                    txtMobileNo.Text = gvUser.GetFocusedRowCellValue("MobileNo") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("MobileNo").ToString();
-                    txtMailId.Text = gvUser.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("EmailID").ToString();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
+        #region Events
         private void frmLoadUsers_Load(object sender, EventArgs e)
         {
             try
@@ -133,44 +85,6 @@ namespace OTTOPro
             }
         }
 
-        private void ParseUserDetails()
-        {
-            try
-            {
-                ObjEUserInfo.RoleID = _RoleID;
-                ObjEUserInfo.UserName = txtUserName.Text;
-                ObjEUserInfo.FirstName = txtFName.Text;
-                ObjEUserInfo.LastName = txtLName.Text;
-                ObjEUserInfo.MobileNo = txtMobileNo.Text;
-                ObjEUserInfo.EmailID = txtMailId.Text;
-                ObjEUserInfo.Password = Utility.Encrypt("Password@1234");
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void BindUserRoles()
-        {
-            try
-            {
-                ObjBUserInfo.GetUserRoles(ObjEUserInfo);
-                if (ObjEUserInfo.dsUserRole != null)
-                {
-                    cmbRoleName.DataSource = null;
-                    cmbRoleName.DataSource = ObjEUserInfo.dsUserRole.Tables[0];
-                    cmbRoleName.DisplayMember = "RoleName";
-                    cmbRoleName.ValueMember = "RoleID";
-                    cmbRoleName.SelectedIndex = -1;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
         private void cmbRoleName_SelectionChangeCommitted(object sender, EventArgs e)
         {
             try
@@ -210,33 +124,6 @@ namespace OTTOPro
             try
             {
                 ClearData();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void ClearData()
-        {
-            ObjEUserInfo.UserID = -1;
-            cmbRoleName.SelectedIndex = -1;
-            txtUserName.Text=string.Empty;
-            txtFName.Text=string.Empty;
-            txtLName.Text=string.Empty;
-            txtMobileNo.Text=string.Empty;
-            txtMailId.Text = string.Empty;
-        }
-
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            try
-            {
-                if (keyData == (Keys.Escape))
-                {
-                    btnCancel_Click(null, null);
-                }
-                return base.ProcessCmdKey(ref msg, keyData);
             }
             catch (Exception ex)
             {
@@ -303,6 +190,158 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
 
+        #region Functions
+        
+        /// <summary>
+        /// Code to focus a perticular row using column name and key value
+        /// </summary>
+        /// <param name="view"></param>
+        /// <param name="_id"></param>
+        /// <param name="_IdValue"></param>
+        private void Setfocus(GridView view, string _id, int _IdValue)
+        {
+            try
+            {
+                if (_IdValue > -1)
+                {
+                    int rowHandle = view.LocateByValue(_id, _IdValue);
+                    if (rowHandle != DevExpress.XtraGrid.GridControl.InvalidRowHandle)
+                        view.FocusedRowHandle = rowHandle;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Code to fetch user list from database and bind to grid control
+        /// </summary>
+        public void BindUserData()
+        {
+            try
+            {
+                ObjBUserInfo.GetUser(ObjEUserInfo);
+                if (ObjEUserInfo.dsUserInfo != null)
+                {
+                    gcUser.DataSource = ObjEUserInfo.dsUserInfo.Tables[0];
+                    gvUser.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+       /// <summary>
+       /// Code to bind controls from grid control selected row
+       /// </summary>
+        private void GetUserDetails()
+        {
+            try
+            {
+                if (gvUser.GetFocusedRowCellValue("UserID") != DBNull.Value)
+                {
+                    if (int.TryParse(gvUser.GetFocusedRowCellValue("UserID").ToString(), out _IDValue))
+                        ObjEUserInfo.UserID = _IDValue;
+                    if (int.TryParse(gvUser.GetFocusedRowCellValue("RoleID").ToString(), out _RoleID))
+                        cmbRoleName.SelectedValue = _RoleID;
+                    txtUserName.Text = gvUser.GetFocusedRowCellValue("UserName") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("UserName").ToString();
+                    txtFName.Text = gvUser.GetFocusedRowCellValue("FirstName") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("FirstName").ToString();
+                    txtLName.Text = gvUser.GetFocusedRowCellValue("LastName") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("LastName").ToString();
+                    txtMobileNo.Text = gvUser.GetFocusedRowCellValue("MobileNo") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("MobileNo").ToString();
+                    txtMailId.Text = gvUser.GetFocusedRowCellValue("EmailID") == DBNull.Value ? "" : gvUser.GetFocusedRowCellValue("EmailID").ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+       /// <summary>
+       /// Code to parse user details while adding or editing the user details
+       /// </summary>
+        private void ParseUserDetails()
+        {
+            try
+            {
+                ObjEUserInfo.RoleID = _RoleID;
+                ObjEUserInfo.UserName = txtUserName.Text;
+                ObjEUserInfo.FirstName = txtFName.Text;
+                ObjEUserInfo.LastName = txtLName.Text;
+                ObjEUserInfo.MobileNo = txtMobileNo.Text;
+                ObjEUserInfo.EmailID = txtMailId.Text;
+                ObjEUserInfo.Password = Utility.Encrypt("Password@1234");
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+       /// <summary>
+       /// Code to fetch Roles from database and bind to combobox
+       /// </summary>
+        private void BindUserRoles()
+        {
+            try
+            {
+                ObjBUserInfo.GetUserRoles(ObjEUserInfo);
+                if (ObjEUserInfo.dsUserRole != null)
+                {
+                    cmbRoleName.DataSource = null;
+                    cmbRoleName.DataSource = ObjEUserInfo.dsUserRole.Tables[0];
+                    cmbRoleName.DisplayMember = "RoleName";
+                    cmbRoleName.ValueMember = "RoleID";
+                    cmbRoleName.SelectedIndex = -1;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Code to clear the textboxes 
+        /// </summary>
+        private void ClearData()
+        {
+            ObjEUserInfo.UserID = -1;
+            cmbRoleName.SelectedIndex = -1;
+            txtUserName.Text=string.Empty;
+            txtFName.Text=string.Empty;
+            txtLName.Text=string.Empty;
+            txtMobileNo.Text=string.Empty;
+            txtMailId.Text = string.Empty;
+        }
+
+        /// <summary>
+        /// Overrided method for proccessing keys
+        /// </summary>
+        /// <param name="msg"></param>
+        /// <param name="keyData"></param>
+        /// <returns></returns>
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            try
+            {
+                if (keyData == (Keys.Escape))
+                {
+                    btnCancel_Click(null, null);
+                }
+                return base.ProcessCmdKey(ref msg, keyData);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

@@ -14,12 +14,21 @@ namespace OTTOPro
 {
     public partial class frmSelectDimension : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to show list of dimensions if a article is having more than one dimension while assigning an article to position
+        /// </summary>
+        #region Varibales
         public EPosition ObjEPosition = null;
+        #endregion
+
+        #region Constructors
         public frmSelectDimension()
         {
             InitializeComponent();
         }
-            
+        #endregion
+
+        #region Events
         private void frmSelectDimension_Load(object sender, EventArgs e)
         {
             try
@@ -71,5 +80,6 @@ namespace OTTOPro
             else if (e.KeyChar == (char)Keys.Escape)
                 btnCancel_Click(null, null);
         }
+        #endregion
     }
 }

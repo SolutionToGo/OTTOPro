@@ -38,6 +38,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -86,6 +88,7 @@
     <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Dialogs.v18.2.Core, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -141,6 +144,7 @@
     <Reference Include="DevExpress.XtraCharts.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraDialogs.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraEditors.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -313,6 +317,12 @@
     <Compile Include="frmCustomerMaster.Designer.cs">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDataNormImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDataNormImport.Designer.cs">
+      <DependentUpon>frmDataNormImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDocuwareLink.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -378,12 +388,6 @@
     </Compile>
     <Compile Include="frmLoadUsers.Designer.cs">
       <DependentUpon>frmLoadUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMergeArticle.cs">
       <SubType>Form</SubType>
@@ -481,12 +485,6 @@
     <Compile Include="frmSelectsupplier.Designer.cs">
       <DependentUpon>frmSelectsupplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmSelectTextModuleDetails.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSelectTextModuleDetails.Designer.cs">
-      <DependentUpon>frmSelectTextModuleDetails.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmShortCuts.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -504,6 +502,12 @@
     </Compile>
     <Compile Include="frmSupplierMaster.Designer.cs">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
     </Compile>
     <Compile Include="frmTextModule.cs">
       <SubType>Form</SubType>
@@ -813,6 +817,9 @@
     <EmbeddedResource Include="frmCustomerMaster.resx">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmDataNormImport.resx">
+      <DependentUpon>frmDataNormImport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDocuwareLink.resx">
       <DependentUpon>frmDocuwareLink.cs</DependentUpon>
     </EmbeddedResource>
@@ -845,9 +852,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoadUsers.resx">
       <DependentUpon>frmLoadUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMergeArticle.resx">
       <DependentUpon>frmMergeArticle.cs</DependentUpon>
@@ -897,9 +901,6 @@
     <EmbeddedResource Include="frmSelectsupplier.resx">
       <DependentUpon>frmSelectsupplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmSelectTextModuleDetails.resx">
-      <DependentUpon>frmSelectTextModuleDetails.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmShortCuts.resx">
       <DependentUpon>frmShortCuts.cs</DependentUpon>
     </EmbeddedResource>
@@ -908,6 +909,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupplierMaster.resx">
       <DependentUpon>frmSupplierMaster.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest.resx">
+      <DependentUpon>frmTest.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmTextModule.resx">
       <DependentUpon>frmTextModule.cs</DependentUpon>
@@ -1153,6 +1157,10 @@
     <ProjectReference Include="..\DataAccess\DAL.csproj">
       <Project>{5b5ed23c-d2d6-4720-96bb-ca197e4d048f}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DATANORMUtility\DATANORMUtility.csproj">
+      <Project>{c069837f-9688-4a71-90da-b106ecb9a56a}</Project>
+      <Name>DATANORMUtility</Name>
     </ProjectReference>
     <ProjectReference Include="..\EL\EL.csproj">
       <Project>{fb99b4cf-8ff8-44a8-bb92-2bd32f222925}</Project>

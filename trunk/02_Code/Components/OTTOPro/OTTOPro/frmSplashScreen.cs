@@ -11,10 +11,17 @@ namespace OTTOPro
 {
     public partial class frmSplashScreen : SplashScreen
     {
+        /// <summary>
+        /// This from is to show progress while opening application
+        /// </summary>
+
+        #region Constructors
         public frmSplashScreen()
         {
             InitializeComponent();
         }
+
+        #endregion
 
         #region Overrides
 
@@ -24,10 +31,6 @@ namespace OTTOPro
         }
 
         #endregion
-
-        public enum SplashScreenCommand
-        {
-        }
 
     }
 }

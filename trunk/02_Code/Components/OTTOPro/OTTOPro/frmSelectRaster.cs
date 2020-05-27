@@ -14,8 +14,20 @@ namespace OTTOPro
 {
     public partial class frmSelectRaster : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This Form is to show available raster in a project while exporting to GAEB file
+        /// </summary>
+        #region Varibales
         EGAEB objEGAEB = null;
         private string _LVRaster = string.Empty;
+        public string LVRaster
+        {
+            get { return _LVRaster; }
+            set { _LVRaster = value; }
+        }
+        #endregion
+
+        #region Constructors
         public frmSelectRaster()
         {
             InitializeComponent();
@@ -25,13 +37,9 @@ namespace OTTOPro
             InitializeComponent();
             objEGAEB = _objEGAEB;
         }
+        #endregion
 
-        public string LVRaster
-        {
-            get { return _LVRaster; }
-            set { _LVRaster = value; }
-        }
-
+        #region Events
         private void frmSelectRaster_Load(object sender, EventArgs e)
         {
             try
@@ -99,5 +107,6 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+        #endregion
     }
 }

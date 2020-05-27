@@ -14,13 +14,23 @@ namespace OTTOPro
 {
     public partial class frmAddAccessory : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This is a popup form for adding accesories
+        /// </summary>
+
+        #region Varibales
         EArticles ObjEArticles = null;
+        #endregion
+
+        #region Constructors
         public frmAddAccessory(EArticles _ObjEArticles)
         {
             InitializeComponent();
             ObjEArticles = _ObjEArticles;
         }
+        #endregion
 
+        #region Events
         private void frmAddAccessory_Load(object sender, EventArgs e)
         {
         }
@@ -44,5 +54,6 @@ namespace OTTOPro
             }
             catch (Exception ex){}
         }
+        #endregion
     }
 }

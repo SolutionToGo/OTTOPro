@@ -14,6 +14,11 @@ namespace OTTOPro
 {
     public partial class frmDocuwareLink : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is for saving docuware links of position
+        /// </summary>
+        #region Variables and properties
+
         private bool _IsSave = false;
         private bool _ISUpdated = false;
         private bool _isFirstTime1 = true;
@@ -43,6 +48,9 @@ namespace OTTOPro
             InitializeComponent();
         }
 
+        #endregion
+
+        #region Events
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             DialogResult result = ofd.ShowDialog();
@@ -256,6 +264,7 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
 
     }
 }

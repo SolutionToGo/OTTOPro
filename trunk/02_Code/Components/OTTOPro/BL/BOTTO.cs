@@ -14,6 +14,11 @@ namespace BL
     {
         DOTTO ObjDOTTO = new DOTTO();
 
+        /// <summary>
+        /// Code to get save Organization details
+        /// </summary>
+        /// <param name="ObjEOTTO"></param>
+        /// <returns></returns>
         public EOTTO SaveOTTODetails(EOTTO ObjEOTTO)
         {
             try
@@ -58,6 +63,11 @@ namespace BL
             return ObjEOTTO;
         }
 
+        /// <summary>
+        /// Code to get Organization details
+        /// </summary>
+        /// <param name="ObjEOTTO"></param>
+        /// <returns></returns>
         public EOTTO GetOTTODetails(EOTTO ObjEOTTO)
         {
             try
@@ -71,6 +81,11 @@ namespace BL
             return ObjEOTTO;
         }
 
+        /// <summary>
+        /// Code to save Organzition contacts
+        /// </summary>
+        /// <param name="ObjEOTTO"></param>
+        /// <returns></returns>
         public EOTTO SaveOTTOContactDetails(EOTTO ObjEOTTO)
         {
             try
@@ -91,6 +106,11 @@ namespace BL
             return ObjEOTTO;
         }
 
+        /// <summary>
+        /// Code to import customer data
+        /// Not using now but we can use in future
+        /// </summary>
+        /// <param name="dt"></param>
         public void ImportCustomerData(DataTable dt)
         {
             try

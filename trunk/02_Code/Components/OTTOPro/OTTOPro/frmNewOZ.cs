@@ -13,14 +13,23 @@ namespace OTTOPro
 {
     public partial class frmNewOZ : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        ///  This form is to suggest and enter new oz while copying a positions
+        /// </summary>
+        #region Varibales
         public string strNewOZ = string.Empty;
         public string LVRaster = string.Empty;
         public bool IsSave = false;
+        #endregion
+
+        #region Constructors
         public frmNewOZ()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmNewOZ_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Escape)
@@ -79,5 +88,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
     }
 }

@@ -16,13 +16,22 @@ namespace OTTOPro
 {
     public partial class frmViewProject : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This is a popup form view imported project before saving into database
+        /// </summary>
+        #region Varibales
         private EGAEB ObjEGAEB = null;
+        #endregion
+
+        #region Constructors
         public frmViewProject(EGAEB _ObjEGAEB)
         {
             InitializeComponent();
             ObjEGAEB = _ObjEGAEB;
         }
+        #endregion
 
+        #region Events
         private void frmViewProject_Load(object sender, EventArgs e)
         {
             try
@@ -34,12 +43,12 @@ namespace OTTOPro
                 tlLVDetails.ForceInitialize();
                 tlLVDetails.ExpandAll();
 
-                txtProjectNumber.Text = ObjEGAEB.ProjectNumber.Replace("OTTO","");
+                txtProjectNumber.Text = ObjEGAEB.ProjectNumber.Replace("OTTO", "");
                 txtProjectDescription.Text = ObjEGAEB.ProjectDescription;
                 txtLVRaster.Text = ObjEGAEB.LvRaster;
                 txtLVSprunge.Text = ObjEGAEB.LVSprunge.ToString();
                 txtKundeName.Text = ObjEGAEB.CustomerName;
-           }
+            }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
@@ -89,5 +98,6 @@ namespace OTTOPro
         {
             this.Close();
         }
+        #endregion
     }
 }

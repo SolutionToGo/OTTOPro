@@ -15,6 +15,11 @@ namespace BL
     {
         DSupplier ObjDSupplier = new DSupplier();
 
+        /// <summary>
+        /// Code to add or edit supplier details from supplier master to database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierDetails(ESupplier ObjEsupplier)
         {
             try
@@ -40,6 +45,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to fetch supplier list from database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetSupplier(ESupplier ObjEsupplier)
         {
             try
@@ -57,6 +67,11 @@ namespace BL
             return ObjEsupplier;
         }
 
+        /// <summary>
+        /// Code to Add or Edit supplier contact details from Supplier master to database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierContactDetails(ESupplier ObjEsupplier)
         {
             try
@@ -78,6 +93,11 @@ namespace BL
             catch (Exception ex){throw;}
         }
 
+        /// <summary>
+        /// Code to Add or Edit Supplier address details from Supplier master to database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierAddressDetails(ESupplier ObjEsupplier)
         {
             try
@@ -101,6 +121,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to save Supplier articles from Supplier master to database
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveArticle(ESupplier ObjEsupplier)
         {
             try
@@ -113,6 +138,12 @@ namespace BL
             }
             return ObjEsupplier;
         }
+
+        /// <summary>
+        ///  Code to save Supplier and Article mapping form Price comparision module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveArticleFromProposal(ESupplier ObjESupplier)
         {
             try
@@ -126,35 +157,11 @@ namespace BL
             return ObjESupplier;
         }
 
-        public ESupplier GetWGWAForProposal(ESupplier ObjEsupplier, int _Pid, string _LvSection, string wg, string wa)
-        {
-            try
-            {
-                if (ObjEsupplier != null)
-                {
-                    ObjEsupplier.dsSupplier = ObjDSupplier.GetWGWaforProposal(_Pid, _LvSection, wg, wa);
-                    if (ObjEsupplier.dsSupplier != null && ObjEsupplier.dsSupplier.Tables.Count > 0)
-                    {
-                        ObjEsupplier.dtNewPositions = ObjEsupplier.dsSupplier.Tables[0];
-                        if (ObjEsupplier.dsSupplier.Tables.Count > 1)
-                        {
-                            ObjEsupplier.dtDeletedPositions = ObjEsupplier.dsSupplier.Tables[1];
-                            if (ObjEsupplier.dsSupplier.Tables.Count > 2)
-                            {
-                                ObjEsupplier.dtProposedPositions = ObjEsupplier.dsSupplier.Tables[2];
-                            }
-                        }
-
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return ObjEsupplier;
-        }
-
+        /// <summary>
+        /// Code fetch positions from database for not saved supplier propsoal by passing ProjectID, LVSection, Articles as imput parameters
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier GetPositionsforsupplierProposal(ESupplier ObjESupplier)
         {
             try
@@ -167,6 +174,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch project LV sections using projectid for supplier proposal module
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetLVSectionForProposal(ESupplier ObjEsupplier)
         {
             try
@@ -177,6 +189,11 @@ namespace BL
             return ObjEsupplier;
         }
 
+        /// <summary>
+        /// Code to save Supplier proposal
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierProposal(ESupplier ObjEsupplier)
         {
             try
@@ -190,6 +207,11 @@ namespace BL
             return ObjEsupplier;
         }
 
+        /// <summary>
+        /// Code to fetch saved adn not saved supplier proposal Numbers
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetProposalNumber(ESupplier ObjEsupplier)
         {
             try
@@ -203,6 +225,11 @@ namespace BL
             return ObjEsupplier;
         }
 
+        /// <summary>
+        /// Code to fetch positions from database based on supplier proposalID
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier GetPositionsByProposalID(ESupplier ObjESupplier)
         {
             try
@@ -216,6 +243,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch not saved articles for supplier proposal module while merging articles with proposals
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetArticlesForProposal(ESupplier ObjEsupplier)
         {
             try
@@ -229,6 +261,11 @@ namespace BL
             return ObjEsupplier;
         }
 
+        /// <summary>
+        ///  Code to fetch Supplier proposals for proce comparision module
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier GetUpdateSupplierProposal(ESupplier ObjEsupplier)
         {
             try
@@ -242,6 +279,11 @@ namespace BL
             return ObjEsupplier;
         }
 
+        /// <summary>
+        /// Code to save deleted positions from supplier proposal module
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveDeletePosition(ESupplier ObjEsupplier)
         {
             try
@@ -255,6 +297,12 @@ namespace BL
             return ObjEsupplier;
         }
 
+        /// <summary>
+        /// Code to fetch positions based on supplier proposalID for price comparision module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <param name="_IsCalculate"></param>
+        /// <returns></returns>
         public ESupplier GetProposalPostions(ESupplier ObjESupplier, bool _IsCalculate = true)
         {
             try
@@ -303,6 +351,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to update price to postions from price comparision module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier UpdateSupplierPrice(ESupplier ObjESupplier)
         {
             try
@@ -316,6 +369,11 @@ namespace BL
             return ObjESupplier;
         }
 
+       /// <summary>
+       /// Code to update proposal values to positions from price comparision module
+       /// </summary>
+       /// <param name="ObjESupplier"></param>
+       /// <returns></returns>
         public ESupplier SaveProposaleValues(ESupplier ObjESupplier)
         {
             try
@@ -329,6 +387,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save Supplier price to proposal positions from supplier proposal module
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSupplierPrice(ESupplier ObjESupplier)
         {
             try
@@ -342,6 +405,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save Supplier selection to position
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveSelection(ESupplier ObjESupplier)
         {
             try
@@ -355,6 +423,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save supplier selection for all positions
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SaveBulkSelection(ESupplier ObjESupplier)
         {
             try
@@ -368,6 +441,12 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to change the view of positions
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <param name="ViewMode"></param>
+        /// <returns></returns>
         public ESupplier ChangeProposalView(ESupplier ObjESupplier, int ViewMode)
         {
             try
@@ -439,6 +518,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to calculate Cheapest supplier value for each position in selected proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         private ESupplier CalculateCheapestValues(ESupplier ObjESupplier)
         {
             try
@@ -477,6 +561,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to calculate Cheapest supplier value for each position in selected proposal while changing the proposal view
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         private ESupplier CalculateCheapestValuesCopy(ESupplier ObjESupplier)
         {
             try
@@ -515,12 +604,23 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to change the cutlure of a datatable
+        /// </summary>
+        /// <param name="table"></param>
         private void ChangeCultureInfo(DataTable table)
         {
             CultureInfo myCultureInfo = new CultureInfo("en-gb");
             table.Locale = myCultureInfo;
         }
 
+        /// <summary>
+        /// Code to fetch Supplier details along with EMails
+        /// </summary>
+        /// <param name="ObjEsupplier"></param>
+        /// <param name="ProposalID"></param>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public ESupplier GetSupplierMail(ESupplier ObjEsupplier, int ProposalID, int ProjectID)
         {
             try
@@ -534,6 +634,11 @@ namespace BL
             return ObjEsupplier;
         }
 
+        /// <summary>
+        /// Code to chcek supplier and article mapping
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier CheckSupplierArticle(ESupplier ObjESupplier)
         {
             try
@@ -547,6 +652,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to add new supplier to existing proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier UpdateSupplierProposal(ESupplier ObjESupplier)
         {
             try
@@ -562,6 +672,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to Delete Supplier and article mapping
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier DeleteSupplierArticleMap(ESupplier ObjESupplier)
         {
             try
@@ -577,6 +692,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to Update proposal date to supplier proposal after sending to Supplier
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier UpdateProposalDate(ESupplier ObjESupplier)
         {
             try
@@ -592,6 +712,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to delete suppliers from supplier proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier DeleteSuipplierProposal(ESupplier ObjESupplier)
         {
             try
@@ -602,6 +727,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch suppliers based on articles while adding new supplier to existing proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier GetSuppliersForProposal(ESupplier ObjESupplier)
         {
             try
@@ -614,6 +744,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to fetch suppliers while merging new article with existing proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier GetSuppliersForProposalMerge(ESupplier ObjESupplier)
         {
             try
@@ -626,6 +761,11 @@ namespace BL
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to save new article with existsing proposal
+        /// </summary>
+        /// <param name="ObjESupplier"></param>
+        /// <returns></returns>
         public ESupplier SupplierProposalMerge(ESupplier ObjESupplier)
         {
             try

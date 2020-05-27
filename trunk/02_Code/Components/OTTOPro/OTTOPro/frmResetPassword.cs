@@ -15,11 +15,18 @@ namespace OTTOPro
 {
     public partial class frmResetPassword : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to reset the user password by himself
+        /// </summary>
+
+        #region Constructors
         public frmResetPassword()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -85,5 +92,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
     }
 }

@@ -12,120 +12,10 @@ namespace DataAccess
 {
     public class DReportDesign
     {
-        public DataSet GetReportDesignTypes(string _TYPE)
-        {
-            DataSet dsReportDesign = new DataSet();
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = SQLCon.Sqlconn();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_ReportDesignTypes]";
-                    cmd.Parameters.AddWithValue("@Type", _TYPE);
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dsReportDesign);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Laden der Daten");
-                }
-                else
-                {
-                    throw new Exception("Error Occured While Retreiving the data");
-
-                }
-            }
-            finally
-            {
-                SQLCon.Close();
-            }
-            return dsReportDesign;
-        }
-
-        public DataSet SaveReportDesignTypes(EReportDesign ObjEReportDesign, string _TYPE)
-        {
-            DataSet dsReportDesign = new DataSet();
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = SQLCon.Sqlconn();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Ins_ReportDesign]";
-                    cmd.Parameters.AddWithValue("@Type", _TYPE);
-                    cmd.Parameters.AddWithValue("@col1", ObjEReportDesign.Col1);
-                    cmd.Parameters.AddWithValue("@col2", ObjEReportDesign.Col2);
-                    cmd.Parameters.AddWithValue("@col3", ObjEReportDesign.Col3);
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dsReportDesign);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Speichern der Daten");
-                }
-                else
-                {
-                    throw new Exception("Error while saving the data");
-
-                }
-            }
-            finally
-            {
-                SQLCon.Close();
-            }
-            return dsReportDesign;
-        }
-
-        public DataSet GetExistingReportDesignData(EReportDesign ObjEReportDesign, string _TYPE)
-        {
-            DataSet dsReportDesign = new DataSet();
-            try
-            {
-                using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = SQLCon.Sqlconn();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_ReportDesign]";
-                    cmd.Parameters.AddWithValue("@Type", _TYPE);                   
-
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dsReportDesign);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Laden der Daten");
-                }
-                else
-                {
-                    throw new Exception("Error Occured While Retreiving the data");
-
-                }
-            }
-            finally
-            {
-                SQLCon.Close();
-            }
-            return dsReportDesign;
-        }
-
+        /// <summary>
+        /// Code to Save report settings
+        /// </summary>
+        /// <param name="ObjEObject"></param>
         public DataSet SaveReportSetting(EReportDesign ObjEReportDesign)
         {
             DataSet dsReportSetting = new DataSet();
@@ -184,6 +74,11 @@ namespace DataAccess
             return dsReportSetting;
         }
 
+        /// <summary>
+        /// Code to fetch report settings from database
+        /// </summary>
+        /// <param name="ObjEObject"></param>
+        /// <returns></returns>
         public DataSet GetReportSettings(EReportDesign ObjEReportDesign)
         {
             DataSet dsReportSetting = new DataSet();
@@ -224,6 +119,11 @@ namespace DataAccess
             return dsReportSetting;
         }
 
+        /// <summary>
+        /// Code to fetch PRoject, Organization and customer details at once
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public DataTable GetProjectCustomerDetails(int ProjectID)
         {
             DataTable dt = new DataTable();

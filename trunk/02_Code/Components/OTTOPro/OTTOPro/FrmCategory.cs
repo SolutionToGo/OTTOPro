@@ -15,6 +15,10 @@ namespace OTTOPro
 {
     public partial class FrmCategory : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to creating categories under text modules
+        /// </summary>
+        #region Variables
         private EProposal _ObjEProposal = null;
         private BProposal _ObjBProposal = null;
         private string _NewCategory = string.Empty;
@@ -24,6 +28,9 @@ namespace OTTOPro
             get { return _ObjEProposal; }
             set { _ObjEProposal = value; }
         }
+        #endregion
+
+        #region Constructors
         public FrmCategory()
         {
             InitializeComponent();
@@ -35,6 +42,10 @@ namespace OTTOPro
             _TextID = _textID;
             ObjEProposal = ObjEP;
         }
+
+        #endregion
+
+        #region Events
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -90,5 +101,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
     }
 }

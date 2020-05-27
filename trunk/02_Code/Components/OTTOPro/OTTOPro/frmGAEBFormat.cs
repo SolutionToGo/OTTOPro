@@ -14,7 +14,14 @@ namespace OTTOPro
 {
     public partial class frmGAEBFormat : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to select GAEB file format while exporting a supplier proposal
+        /// </summary>
+        #region  Variables
         private EGAEB ObjEGAEB = null;
+        #endregion
+
+        #region Constructors
 
         public frmGAEBFormat()
         {
@@ -26,6 +33,9 @@ namespace OTTOPro
             ObjEGAEB = _ObjEGAEB;
             InitializeComponent();
         }
+        #endregion
+
+        #region Events
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
@@ -103,5 +113,6 @@ namespace OTTOPro
                 
             }
         }
+        #endregion
     }
 }

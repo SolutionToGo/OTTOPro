@@ -13,13 +13,22 @@ namespace OTTOPro
 {
     public partial class frmViewcommentory : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to view the project commentary section 
+        /// </summary>
+        #region Global variables 
         public string LongDescription = string.Empty;
         public bool _IsSave = false;
+        #endregion
+
+        #region Constructors
         public frmViewcommentory()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -54,5 +63,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
     }
 }

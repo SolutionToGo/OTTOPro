@@ -18,6 +18,17 @@ namespace BL
     public class BGAEB
     {   
         DGAEB ObjGAEB = new DGAEB();
+        
+        /// <summary>
+        /// Code to get positions and GAEB data for GAEB export
+        /// Preparing XML file for GAEB export
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="strLVSection"></param>
+        /// <param name="strFormat"></param>
+        /// <param name="_Raster"></param>
+        /// <param name="ObjEGAEB"></param>
+        /// <returns></returns>
         public XmlDocument Export(int ProjectID, object strLVSection, string strFormat, string _Raster, EGAEB ObjEGAEB)
         {
             XmlDocument xmldoc = new XmlDocument();
@@ -288,6 +299,13 @@ namespace BL
             return xmldoc;
         }
 
+        /// <summary>
+        /// Code to import a GAEB file
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="dsTMLData"></param>
+        /// <param name="strRaster"></param>
+        /// <returns></returns>
         public int Import(int ProjectID, DataSet dsTMLData, string Raster)
         {
 
@@ -303,6 +321,10 @@ namespace BL
             return iValue;
         }
 
+        /// <summary>
+        /// Code to get LV rasters related to project
+        /// </summary>
+        /// <returns></returns>
         public DataTable Get_LVRasters()
         {
             DataTable dt_raster = new DataTable();
@@ -319,6 +341,12 @@ namespace BL
 
         }
 
+        /// <summary>
+        /// Code to delete nodes from xml file
+        /// </summary>
+        /// <param name="Xdoc"></param>
+        /// <param name="strName"></param>
+        /// <returns></returns>
         private XmlDocument DeleteNodes(XmlDocument Xdoc,string strName)
         {
             try
@@ -336,6 +364,11 @@ namespace BL
             return Xdoc;
         }
 
+        /// <summary>
+        /// Code to get LV sections for import
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public DataTable GetLVSection(int ProjectID)
         {
             DataTable dtLVSection = null;
@@ -350,58 +383,11 @@ namespace BL
             return dtLVSection;
         }
 
-        public bool IsRtfText(string text)
-        {
-            bool _ISRTF = false;
-            try
-            {
-                if (text.TrimStart().StartsWith("{\\rtf1", StringComparison.Ordinal))
-                {
-                    if (IsValidRtf(text))
-                        _ISRTF = true;
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return _ISRTF;
-        }
-
-        private bool IsValidRtf(string text)
-        {
-            try
-            {
-                new RichTextBox().Rtf = text;
-            }
-            catch (ArgumentException)
-            {
-                return false;
-            }
-            return true;
-        }
-
-        private string GetRTFFormat(string Plaintext)
-        {
-            try
-            {
-                System.Windows.Forms.RichTextBox rtf = new System.Windows.Forms.RichTextBox();
-                rtf.Text = Plaintext;
-                return rtf.Rtf;
-            }
-            catch (Exception ex)
-            {
-                if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                {
-                    throw new Exception("Fehler beim Datenimport langtext");
-                }
-                else
-                {
-                    throw new Exception("Error while importing langtext");
-                }
-            }
-        }
-
+        /// <summary>
+        /// Code to convert RTF text to plain text
+        /// </summary>
+        /// <param name="RTFText"></param>
+        /// <returns></returns>
         private string GetPlaintext(string RTFText)
         {
             try
@@ -423,6 +409,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to get old raster  if old raster if raster got changed
+        /// </summary>
+        /// <param name="_ProjectID"></param>
+        /// <returns></returns>
         public string GetOld_Raster(int _ProjectID)
         {
             string Old_raster = string.Empty;
@@ -438,51 +429,11 @@ namespace BL
             return Old_raster;
         }
 
-        public string PrepareOZ(string strOZ, string strRaster)
-        {
-            string str = string.Empty;
-            try
-            {
-                string[] strPOZ = strOZ.Split('.');
-                string[] strPRaster = strRaster.Split('.');
-                int Count = -1;
-                int i = -1;
-                Count = strPOZ.Count();
-                while (Count > 0)
-                {
-                    i = i + 1;
-                    Count = Count - 1;
-                    string OZ = string.Empty;
-                    int OZLength = 0;
-                    int RasterLength = 0;
-
-                    OZ = strPOZ[i].Trim();
-                    RasterLength = strPRaster[i].Length;
-                    OZLength = OZ.Length;
-                    if (Count == 0)
-                    {
-                        if (RasterLength == 1 && OZLength > 0)
-                        {
-                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ;
-                        }
-                        else if (OZLength > 0)
-                        {
-                            str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
-                        }
-                    }
-                    else
-                    {
-                        str = str + string.Concat(Enumerable.Repeat("0", RasterLength - OZLength)) + OZ + ".";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return str;
-        }
-
+        /// <summary>
+        /// Code import a project as new project
+        /// </summary>
+        /// <param name="ObjEGAEB"></param>
+        /// <returns></returns>
         public EGAEB ProjectImport(EGAEB objEGAEB)
         {
             try
@@ -543,6 +494,11 @@ namespace BL
             return objEGAEB;
         }
         
+        /// <summary>
+        /// Code to save project after import
+        /// </summary>
+        /// <param name="objEGAEB"></param>
+        /// <returns></returns>
         public EGAEB SaveeProject(EGAEB objEGAEB)
         {
             try
@@ -556,6 +512,14 @@ namespace BL
             return objEGAEB;
         }
 
+        /// <summary>
+        /// Code to extract images from RTF text while Exporting
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="strRtf"></param>
+        /// <param name="PositionID"></param>
+        /// <param name="ObjEGAEB"></param>
+        /// <returns></returns>
         private DataTable ExtractImages(DataTable dt, string strRtf, int PositionID, EGAEB ObjEGAEB)
         {
             try
@@ -604,6 +568,11 @@ namespace BL
             return dt;
         }
 
+        /// <summary>
+        /// Code to convert image Hex data to Binary format
+        /// </summary>
+        /// <param name="imageDataHex"></param>
+        /// <returns></returns>
         public static byte[] ToBinary(string imageDataHex)
         {
             byte[] imageDataBinary = null;
@@ -644,6 +613,11 @@ namespace BL
             return imageDataBinary;
         }
 
+        /// <summary>
+        /// Code to export positions from supplier proposal
+        /// </summary>
+        /// <param name="SupplierProposalID"></param>
+        /// <returns></returns>
         public XmlDocument ExportSupplierproposal(int SupplierProposalID, int ProjectID,string strFormat, string _Raster, EGAEB ObjEGAEB)
         {
             XmlDocument xmldoc = new XmlDocument();
@@ -903,6 +877,11 @@ namespace BL
             return xmldoc;
         }
 
+        /// <summary>
+        /// Code to import GAEB file on supplier proposal
+        /// </summary>
+        /// <param name="ObjEGAEB"></param>
+        /// <returns></returns>
         public EGAEB SupplierProposalImport(EGAEB ObjEGAEB)
         {
             try

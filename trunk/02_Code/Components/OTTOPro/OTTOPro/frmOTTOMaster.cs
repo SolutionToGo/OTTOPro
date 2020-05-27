@@ -17,22 +17,29 @@ namespace OTTOPro
 {
     public partial class frmOTTOMaster : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        ///  This form is to add, edit Organization and its Contact details
+        /// </summary>
+        #region Varibales
         EOTTO ObjEOTTO = null;
         BOTTO ObjBOTTO = null;
         private EOTTO _ObjEOTTO = null;
-         
         public EOTTO ObjEOtto
         {
             get{return _ObjEOTTO;}
             set{_ObjEOTTO = value;}
         }
+        #endregion
 
+        #region Constructors
         public frmOTTOMaster(EOTTO ObjEOTTO1)
         {
             InitializeComponent();
             ObjEOTTO = ObjEOTTO1;
-        } 
+        }
+        #endregion
 
+        #region Events
         private void frmOTTOMaster_Load(object sender, EventArgs e)
         {
             try
@@ -65,6 +72,26 @@ namespace OTTOPro
             catch (Exception ex){Utility.ShowError(ex);}
         }
 
+        private void txtContactPerson_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    edit.SelectionStart = 0;
+                    edit.SelectionLength = edit.Text.Length;
+                }));
+            }
+            catch (Exception ex) { }
+        }
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        ///  Code to parse Contact details while saving Org contacts
+        /// </summary>
         private void ParseOTTOContactsDetails()
         {
             try
@@ -79,6 +106,9 @@ namespace OTTOPro
             catch (Exception ex){throw;}
         }
 
+        /// <summary>
+        /// Code to bind contact details to controls
+        /// </summary>
         private void BindContactsDetails()
         {
             try
@@ -95,19 +125,6 @@ namespace OTTOPro
             }
             catch (Exception ex){throw;}
         }
-
-        private void txtContactPerson_Enter(object sender, EventArgs e)
-        {
-            try
-            {
-                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
-                BeginInvoke(new MethodInvoker(() =>
-                {
-                    edit.SelectionStart = 0;
-                    edit.SelectionLength = edit.Text.Length;
-                }));
-            }
-            catch (Exception ex) { }
-        }
+        #endregion
     }
 }

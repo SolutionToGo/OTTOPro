@@ -14,13 +14,23 @@ namespace OTTOPro
 {
     public partial class frmAddDiscount : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is for adding discount positions and popup when user clicks on project meta data
+        /// </summary>
+
+        #region Varibales
         EProject ObjEProject = null;
+        #endregion
+
+        #region Constructors
         public frmAddDiscount(EProject _ObjEProject)
         {
             ObjEProject = _ObjEProject;
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -94,6 +104,6 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
-
+        #endregion
     }
 }

@@ -15,13 +15,25 @@ namespace OTTOPro
 {
     public partial class frmArticleAccessories : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form contains article accessories information
+        /// </summary>
+
+        #region Variables
+
         BArticles ObjBArticles = null;
         EArticles ObjEArticles = null;
+
+        #endregion
+
+        #region Constructors
         public frmArticleAccessories()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmArticleAccessories_Load(object sender, EventArgs e)
         {
             try
@@ -119,5 +131,6 @@ namespace OTTOPro
             else if (e.KeyData == Keys.Escape)
                 this.Close();
         }
+        #endregion
     }
 }

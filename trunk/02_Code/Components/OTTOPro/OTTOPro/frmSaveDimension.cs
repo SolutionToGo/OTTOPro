@@ -15,6 +15,10 @@ namespace OTTOPro
 {
     public partial class frmSaveDimension : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to Save list of dimensions with new validity date and new values
+        /// </summary>
+        #region Varibales
         public EArticles ObjEArticle = null;
         public BArticles ObjBArticle = null;
         public string strArticle = string.Empty;
@@ -22,7 +26,9 @@ namespace OTTOPro
         string _ValidDate = string.Empty;
         int _Wiid = 0;
         bool Iscopy = false;
+        #endregion
 
+        #region Constructors
         public frmSaveDimension()
         {
             InitializeComponent();
@@ -42,7 +48,9 @@ namespace OTTOPro
             _ValidDate = _validityDate;
             _Wiid = _id;
         }
+        #endregion
 
+        #region Events
         private void frmSaveDimension_Load(object sender, EventArgs e)
         {
             try
@@ -105,21 +113,6 @@ namespace OTTOPro
             this.Close();
         }
 
-        private void BindDimensions(int WIID)
-        {
-            try
-            {
-                DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
-                dvDimensions.RowFilter = "WIID = '" + WIID + "'";
-                gcDimensions.DataSource = dvDimensions.ToTable();
-                gvDimensions.BestFitColumns();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
         private void BindDimensionsValidityDate(int WIID,DateTime _Validity)
         {
             try
@@ -139,5 +132,28 @@ namespace OTTOPro
                 throw;
             }
         }
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Code to bind dimensions send of selected article
+        /// </summary>
+        /// <param name="WIID"></param>
+        private void BindDimensions(int WIID)
+        {
+            try
+            {
+                DataView dvDimensions = ObjEArticle.dtDimenstions.DefaultView;
+                dvDimensions.RowFilter = "WIID = '" + WIID + "'";
+                gcDimensions.DataSource = dvDimensions.ToTable();
+                gvDimensions.BestFitColumns();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

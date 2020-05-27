@@ -17,6 +17,14 @@ namespace DataAccess
 {
     public class DPosition
     {
+        /// <summary>
+        ///  Code to Add or edit Positions
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <param name="strRaster"></param>
+        /// <param name="LVSprunge"></param>
+        /// <param name="_IsCopy"></param>
+        /// <returns></returns> 
         public EPosition SavePositionDetails(XmlDocument XmlDoc,int iProjectID, string LongDescription, double OZID,
             string OZ1, string OZ2, string OZ3, string OZ4, string OZ5, string OZ6, string stOZChar,bool MontageEntry,
             string stLVRaster, int Roundoffvalue, EPosition ObjEPosition)
@@ -107,6 +115,11 @@ namespace DataAccess
             return ObjEPosition;
         }
 
+        /// <summary>
+        /// Code to fetch Position list from database
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <param name="ProjectID"></param>
         public DataSet GetPsoitionList(int ProjectID)
         {
             DataSet dsPositionsList = new DataSet();
@@ -143,6 +156,11 @@ namespace DataAccess
             return dsPositionsList;
         }
 
+        /// <summary>
+        /// Code to fetch lang description of positons
+        /// </summary>
+        /// <param name="PositionID"></param>
+        /// <returns></returns>
         public string GetLongDescription(int PositionID)
         {
             string LongDescription = string.Empty;
@@ -179,29 +197,12 @@ namespace DataAccess
             return LongDescription;
         }
 
-        public DataTable GetPositionKZ()
-        {
-            DataTable dt = null;
-            try
-            {
-                 using (SqlCommand cmd = new SqlCommand())
-                {
-                    cmd.Connection = SQLCon.Sqlconn();
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.CommandText = "[P_Get_PositionList]";
-                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
-                    {
-                        da.Fill(dt);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return dt;
-        }
-
+        /// <summary>
+        /// Code to fetch next availbale LV section availble under selected project
+        /// </summary>
+        /// <param name="strLVSection"></param>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public string GetLVSection(string strLVSection, int ProjectID)
         {
             string strNewLVSection = string.Empty;
@@ -228,6 +229,12 @@ namespace DataAccess
             return strNewLVSection;
         }
 
+        /// <summary>
+        /// Code to insert new LV section into database after user apporval
+        /// </summary>
+        /// <param name="strNewLVSection"></param>
+        /// <param name="ProjectID"></param>
+        /// <param name="ObjEProject"></param>
         public void InsertLVSection(string strNewLVSecction, int ProjectID,EProject ObjEProject)
         {
             try
@@ -258,6 +265,13 @@ namespace DataAccess
             }
         }
 
+        /// <summary>
+        /// Code to fetch Positions from database for bulk proccess module by filtering Titles, Subtitles and Positions
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="tType"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public DataSet GetPsoitionOZList(int ProjectID,string tType,DataTable dt)
         {
             DataSet dsPositionsOZList = new DataSet();
@@ -319,6 +333,13 @@ namespace DataAccess
             return dsPositionsOZList;
         }
 
+        /// <summary>
+        /// Code to fetch Positions from database for bulk proccess module by filtering with article
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="tType"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public DataSet GetPsoitionOZByWGWA(int ProjectID, string tType, string WG, string WA)
         {
             DataSet dsPositionsOZList = new DataSet();
@@ -358,6 +379,17 @@ namespace DataAccess
             return dsPositionsOZList;
         }
 
+        /// <summary>
+        /// Code to update values to position from Bulk proccess Section A
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="tType"></param>
+        /// <param name="MA_Selbstkosten"></param>
+        /// <param name="MO_Selbstkosten"></param>
+        /// <param name="MA_Verkaufspreis"></param>
+        /// <param name="MO_Verkaufspreis"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public DataSet UpdateBulkProcess_ActionA(int ProjectID, string tType, decimal MA_Selbstkosten, decimal MO_Selbstkosten, decimal MA_Verkaufspreis, decimal MO_Verkaufspreis, DataTable dt)
         {
             DataSet dsPositionsOZList = new DataSet();
@@ -400,6 +432,17 @@ namespace DataAccess
             return dsPositionsOZList;
         }
 
+        /// <summary>
+        /// Code to update values to position from Bulk proccess Section B
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <param name="tType"></param>
+        /// <param name="MA_Selbstkosten"></param>
+        /// <param name="MO_Selbstkosten"></param>
+        /// <param name="MA_Verkaufspreis"></param>
+        /// <param name="MO_Verkaufspreis"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
         public DataSet UpdateBulkProcess_ActionB(int ProjectID, string tType, string Menge, string MA, string MO, string PeriesText, string Fabricat, string Typ, string LieferantMA, string wg, string wa, string wi, string tLVSection, DataTable dt)
         {
             DataSet dsPositionsOZList = new DataSet();
@@ -453,6 +496,11 @@ namespace DataAccess
             return dsPositionsOZList;
         }
 
+        /// <summary>
+        /// Code to update long description of position
+        /// </summary>
+        /// <param name="PositionID"></param>
+        /// <param name="strLongDescription"></param>
         public void UpdateLongDescription(int PositionID,string strLongDescription)
         {
             try
@@ -473,6 +521,11 @@ namespace DataAccess
             }
         }
 
+        /// <summary>
+        /// Code to delete a Position from project
+        /// </summary>
+        /// <param name="PositionID"></param>
+        /// <param name="_PosKZ"></param>
         public void DeletePosition(int PositionID,string _PosKZ)
         {
             string strError = string.Empty;
@@ -511,6 +564,11 @@ namespace DataAccess
             }
         }
 
+        /// <summary>
+        /// Code to fetch article details and dimensions list from database by  using typ
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetArticleByTyp(EPosition ObjEPositon)
         {
             DataSet ds = new DataSet();
@@ -551,6 +609,11 @@ namespace DataAccess
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch article details and dimensions list from database by  using Article Numbers
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetArticleByWI(EPosition ObjEPositon)
         {
             DataSet ds = new DataSet();
@@ -601,6 +664,11 @@ namespace DataAccess
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch article details and dimensions list from database by  using WG WA combination
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetArticleByWGWA(EPosition ObjEPositon)
         {
             DataSet ds = new DataSet();
@@ -631,6 +699,11 @@ namespace DataAccess
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch article Prices from database by  using Article number and Dimenstions
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetArticleByDimension(EPosition ObjEPositon)
         {
             DataTable dt = new DataTable();
@@ -671,6 +744,11 @@ namespace DataAccess
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch position list from database for Copy LVs module
+        /// </summary>
+        /// <param name="ProjectID"></param>
+        /// <returns></returns>
         public DataSet GetOldPositionList(int ProjectID)
         {
             DataSet dsPositionsList = new DataSet();
@@ -702,6 +780,12 @@ namespace DataAccess
             return dsPositionsList;
         }
 
+        /// <summary>
+        /// Code to Copy a Position from Copy LVs modules
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <param name="stOZChar"></param>
+        /// <returns></returns>
         public int CopyPosition(EPosition ObjEPosition,string stOZChar)
         {
             int ProjectID = -1;
@@ -748,6 +832,12 @@ namespace DataAccess
             return ProjectID;
         }
 
+        /// <summary>
+        /// Code to fetch corresponding dimensions by Dimension A
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <param name="_DimType"></param>
+        /// <returns></returns>
         public EPosition GetArticleByA(EPosition ObjEPositon,string _DimType)
         {
             DataTable dt = new DataTable();
@@ -785,6 +875,12 @@ namespace DataAccess
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to fetch corresponding dimensions by Dimension B
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <param name="_DimType"></param>
+        /// <returns></returns>
         public EPosition GetArticleByB(EPosition ObjEPositon, string _DimType)
         {
             DataTable dt = new DataTable();
@@ -821,6 +917,11 @@ namespace DataAccess
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to get Project specific Articles
+        /// </summary>
+        /// <param name="ObjEPositon"></param>
+        /// <returns></returns>
         public EPosition GetProjectArticles(EPosition ObjEPositon)
         {
             try
@@ -845,6 +946,11 @@ namespace DataAccess
             return ObjEPositon;
         }
 
+        /// <summary>
+        /// Code to Save Project Specific Articles
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <returns></returns>
         public EPosition SaveProjectArticle(EPosition ObjEPosition)
         {
             try
@@ -890,6 +996,11 @@ namespace DataAccess
             return ObjEPosition;
         }
 
+        /// <summary>
+        /// Code to save Position Specific Articles
+        /// </summary>
+        /// <param name="ObjEPosition"></param>
+        /// <returns></returns>
         public EPosition SavePositionArticle(EPosition ObjEPosition)
         {
             try

@@ -13,13 +13,23 @@ namespace OTTOPro
 {
     public partial class frmCopyProject : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to Creating a copy of selected project
+        /// </summary>
+
+        #region Variables
         private bool _IsSave = false;
         public string _NewProjectNumber = string.Empty;
-        
+        #endregion
+
+        #region Constrctors
         public frmCopyProject()
         {
             InitializeComponent();
         }
+        #endregion
+
+        #region Events
 
         private void btnOk_Click(object sender, EventArgs e)
         {
@@ -68,5 +78,7 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+
+        #endregion
     }
 }

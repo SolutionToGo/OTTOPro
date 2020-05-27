@@ -16,7 +16,11 @@ namespace OTTOPro
 {
     public partial class frmAddType : DevExpress.XtraEditors.XtraForm
     {
-        EArticles ObjEArticle = null;
+        /// <summary>
+        /// This is a dynamic form which contains a grid control to show a list. We are using this in multiple places
+        /// </summary>
+
+        #region Varibales
         BArticles ObjBArticle = null;
         private string _Typ = null;
         private string _FullName = null;
@@ -27,18 +31,10 @@ namespace OTTOPro
         public int DimensionID = 0;
         public bool _IsSave = false;
 
-        public frmAddType()
-        {
-            InitializeComponent();
-        }
-
-        public frmAddType(int _id,string _type)
-        {
-            InitializeComponent();
-            _WIID = _id;
-            _FormType = _type;
-        }
-
+        #region 'Properties'
+        /// <summary>
+        /// Properties tobe binded with data while calling form.
+        /// </summary>
         public string Typ
         {
             get { return _Typ; }
@@ -62,7 +58,25 @@ namespace OTTOPro
             get { return _dtDates; }
             set { _dtDates = value; }
         }
+        #endregion
 
+        #endregion
+
+        #region Constructors
+        public frmAddType()
+        {
+            InitializeComponent();
+        }
+
+        public frmAddType(int _id,string _type)
+        {
+            InitializeComponent();
+            _WIID = _id;
+            _FormType = _type;
+        }
+        #endregion
+
+        #region Events
         private void frmAddType_Load(object sender, EventArgs e)
         {
             try
@@ -85,48 +99,6 @@ namespace OTTOPro
                 }
             }
             catch (Exception ex){}
-        }
-
-        private void FillTypeData()
-        {
-            try
-            {
-                DataTable _dtType = new DataTable();
-                if (ObjBArticle == null)
-                    ObjBArticle = new BArticles();
-               _dtType= ObjBArticle.GetMultipleTyp(_WIID);
-               if (_dtType != null)
-                {
-                    gcAddTyp.DataSource = _dtType;
-                    gvAddTyp.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
-        }
-
-        private void FillValidityDates()
-        {
-            try
-            {
-                DataTable _dtyDates=new DataTable();
-                if (ObjBArticle == null)
-                    ObjBArticle = new BArticles();
-               _dtyDates= ObjBArticle.GetValidityDates(_WIID);
-               if (_dtyDates != null)
-                {
-                    gcAddTyp.DataSource = _dtyDates;
-                    gvAddTyp.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-
-                throw;
-            }
         }
 
         private void gvAddTyp_KeyPress(object sender, KeyPressEventArgs e)
@@ -159,6 +131,69 @@ namespace OTTOPro
             }
         }
 
+        private void frmAddType_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyData == Keys.Escape)
+                    this.Close();
+            }
+            catch (Exception ex) { }
+        }
+        #endregion
+
+        #region Functions
+        /// <summary>
+        /// Function to fill list of typ from article data linked to perticular article
+        /// </summary>
+        private void FillTypeData()
+        {
+            try
+            {
+                DataTable _dtType = new DataTable();
+                if (ObjBArticle == null)
+                    ObjBArticle = new BArticles();
+                _dtType = ObjBArticle.GetMultipleTyp(_WIID);
+                if (_dtType != null)
+                {
+                    gcAddTyp.DataSource = _dtType;
+                    gvAddTyp.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Function to fill validity dates available for dimensions.
+        /// </summary>
+        private void FillValidityDates()
+        {
+            try
+            {
+                DataTable _dtyDates = new DataTable();
+                if (ObjBArticle == null)
+                    ObjBArticle = new BArticles();
+                _dtyDates = ObjBArticle.GetValidityDates(_WIID);
+                if (_dtyDates != null)
+                {
+                    gcAddTyp.DataSource = _dtyDates;
+                    gvAddTyp.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Function to get selected typ information
+        /// </summary>
         private void GetValues()
         {
             try
@@ -175,6 +210,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// Function to get selected validity date
+        /// </summary>
         private void GetDates()
         {
             try
@@ -189,15 +227,6 @@ namespace OTTOPro
                 throw;
             }
         }
-
-        private void frmAddType_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyData == Keys.Escape)
-                    this.Close();
-            }
-            catch (Exception ex) { }
-        }
+        #endregion
     }
 }

@@ -8,6 +8,10 @@ namespace OTTOPro
 {
     public static class Position
     {
+
+        /// <summary>
+        /// Variables to hold position's actual values
+        /// </summary>
         public static decimal MA_ListPrice = 0;
         public static decimal MO_ListPrice = 0;
         public static decimal MA_EP = 0;

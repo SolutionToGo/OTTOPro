@@ -9,6 +9,9 @@ namespace EL
 {
     public class EArticles
     {
+        /// <summary>
+        /// It contains variables and properties of Article module i.e/ Article data, Typ , Rabatt, Accessories
+        /// </summary>
         private int _WGID = -1;
         private string _WG = string.Empty;
         private string _WA = string.Empty;
@@ -35,7 +38,6 @@ namespace EL
         private DataTable _dtWG;
         private DataTable _dtWI;
         private DataTable _dtDimenstions;
-
 
         private int _DimensionID;
 	    private string _A;

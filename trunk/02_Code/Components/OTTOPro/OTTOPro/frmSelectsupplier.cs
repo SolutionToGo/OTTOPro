@@ -14,13 +14,23 @@ namespace OTTOPro
 {
     public partial class frmSelectsupplier : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to select a supplier while importing a GAEB file on supplier proposal
+        /// </summary>
+
+        #region Varibales
         private EGAEB ObjEGAEB = null;
+        #endregion
+
+        #region Constructors
         public frmSelectsupplier(EGAEB _ObjEGAEB)
         {
             ObjEGAEB = _ObjEGAEB;
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void frmSelectsupplier_Load(object sender, EventArgs e)
         {
             try
@@ -40,7 +50,7 @@ namespace OTTOPro
                     }
                 }
             }
-            catch (Exception ex){}
+            catch (Exception ex) { }
         }
 
         private void btnOk_Click(object sender, EventArgs e)
@@ -56,5 +66,6 @@ namespace OTTOPro
             ObjEGAEB.IsSave = false;
             this.Close();
         }
+        #endregion
     }
 }

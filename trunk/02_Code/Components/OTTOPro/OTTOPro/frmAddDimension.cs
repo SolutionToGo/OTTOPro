@@ -15,15 +15,15 @@ namespace OTTOPro
 {
     public partial class frmAddDimension : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to add new dimensions to article
+        /// </summary>
+
+        #region Varibales
         List<Control> Requirefields = new List<Control>();
         BArticles ObjBArticle = null;
         private EArticles _ObjEArticle = null;
         bool _isValidate = false;
-
-        public frmAddDimension()
-        {
-            InitializeComponent();
-        }
 
         #region PROPERTY SETTING
 
@@ -40,7 +40,16 @@ namespace OTTOPro
         }
 
         #endregion
+        #endregion
 
+        #region Constructors
+        public frmAddDimension()
+        {
+            InitializeComponent();
+        }
+        #endregion
+
+        #region Events
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
@@ -52,30 +61,11 @@ namespace OTTOPro
                 ParseSDimensionDetails();
                 ObjBArticle = new BArticles();
                 ObjBArticle.SaveDimension(_ObjEArticle);
-                _isValidate = true; 
+                _isValidate = true;
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }            
-        }
-
-        private void ParseSDimensionDetails()
-        {
-            try
-            {
-                decimal dValue = 0;
-                _ObjEArticle.A = txtA.Text;
-                _ObjEArticle.B = txtB.Text;
-                _ObjEArticle.L = txtL.Text;
-                if (decimal.TryParse(txtListenPrice.Text, out dValue))
-                    _ObjEArticle.ListPrice = dValue;
-                if (decimal.TryParse(txtMinuten.Text, out dValue))
-                    _ObjEArticle.Minuten = dValue;
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -87,30 +77,11 @@ namespace OTTOPro
                 Requirefields.Add(txtB);
                 Requirefields.Add(txtListenPrice);
                 Requirefields.Add(txtMinuten);
-                if (_ObjEArticle.DimensionID > 0)
-                    BindDimensionDetails();
             }
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
             }
-        }
-
-        private void BindDimensionDetails()
-        {
-            try
-            {
-                txtA.Text = _ObjEArticle.A;
-                txtB.Text = _ObjEArticle.B;
-                txtL.Text = _ObjEArticle.L;
-                txtListenPrice.Text = _ObjEArticle.ListPrice.ToString();
-                txtMinuten.Text = _ObjEArticle.Minuten.ToString();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -155,5 +126,30 @@ namespace OTTOPro
             }
             catch (Exception ex) { }
         }
+        #endregion
+
+        #region Functions
+        /// <summary>
+        /// Assigning Dimension values from controls to properties in Entity layer
+        /// </summary>
+        private void ParseSDimensionDetails()
+        {
+            try
+            {
+                decimal dValue = 0;
+                _ObjEArticle.A = txtA.Text;
+                _ObjEArticle.B = txtB.Text;
+                _ObjEArticle.L = txtL.Text;
+                if (decimal.TryParse(txtListenPrice.Text, out dValue))
+                    _ObjEArticle.ListPrice = dValue;
+                if (decimal.TryParse(txtMinuten.Text, out dValue))
+                    _ObjEArticle.Minuten = dValue;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

@@ -18,22 +18,12 @@ namespace OTTOPro
         /// <summary>
         /// private variables to save temp data
         /// </summary>
+
+        #region Varibales
         ECustomer ObjECustomer = new ECustomer();
         BCustomer ObjBCustomer = new BCustomer();
         private string _CustomerID = null;
         private string _FullName = null;
-
-        /// <summary>
-        /// default constructor
-        /// </summary>
-        public frmSelectCustomer()
-        {
-            InitializeComponent();
-        }
-
-        /// <summary>
-        /// to get and set ID and name 
-        /// </summary>
         public string CustomerID
         {
             get { return _CustomerID; }
@@ -44,7 +34,19 @@ namespace OTTOPro
             get { return _FullName; }
             set { _FullName = value; }
         }
+        #endregion
 
+        #region Constructors
+        /// <summary>
+        /// default constructor
+        /// </summary>
+        public frmSelectCustomer()
+        {
+            InitializeComponent();
+        }
+        #endregion
+
+        #region Events
         /// <summary>
         /// form load event to bind all customer details
         /// </summary>
@@ -53,26 +55,6 @@ namespace OTTOPro
         private void frmSelectCustomer_Load(object sender, EventArgs e)
         {
             BindCustomerData();
-        }
-
-        /// <summary>
-        /// to bind customer details to gridview
-        /// </summary>
-        public void BindCustomerData()
-        {
-            try
-            {
-                ObjBCustomer.GetCustomers(ObjECustomer);
-                if (ObjECustomer.dsCustomer != null)
-                {
-                    gcCustomer.DataSource = ObjECustomer.dsCustomer.Tables[0];
-                    gvCustomer.BestFitColumns();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
         }
 
         /// <summary>
@@ -140,6 +122,28 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+        #endregion
 
+        #region Functions
+        /// <summary>
+        /// to bind customer details to gridview
+        /// </summary>
+        public void BindCustomerData()
+        {
+            try
+            {
+                ObjBCustomer.GetCustomers(ObjECustomer);
+                if (ObjECustomer.dsCustomer != null)
+                {
+                    gcCustomer.DataSource = ObjECustomer.dsCustomer.Tables[0];
+                    gvCustomer.BestFitColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

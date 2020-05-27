@@ -15,12 +15,25 @@ namespace OTTOPro
 {
     public partial class frmArticleSettings : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to saving the article settings ot definations for each and every project.
+        /// </summary>
+
+        #region Variables
+
         EProject ObjEProject = null;
+        #endregion
+
+        #region Constructors
+
         public frmArticleSettings(EProject _ObjEProject)
         {
             InitializeComponent();
             ObjEProject = _ObjEProject;
         }
+        #endregion
+
+        #region Events
 
         private void frmArticleSettings_Load(object sender, EventArgs e)
         {
@@ -70,5 +83,7 @@ namespace OTTOPro
         {
             this.Close();
         }
+
+        #endregion
     }
 }

@@ -19,13 +19,17 @@ namespace OTTOPro
 {
     public partial class frmCustomerMaster : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to add or edit customer, contacts and address details
+        /// </summary>
+
+        #region Variables
         ECustomer ObjECustomer =null;
         BCustomer ObjBCustomer = null;
         string _CustomerType = null;
         private ECustomer _ObjEcustomer = null;
         bool _isValidate = false;
         XtraTabPage ObjTabDetails = null;
-
         public ECustomer ObjEcustomer
         {
             get
@@ -37,6 +41,9 @@ namespace OTTOPro
                 _ObjEcustomer = value;
             }
         }
+        #endregion
+
+        #region Constructors
 
         public frmCustomerMaster()
         {
@@ -49,8 +56,11 @@ namespace OTTOPro
             _CustomerType = _Type;
             ObjECustomer = ObjECustomer1;
         }
+        #endregion
 
-        private void frmCustomerMaster_Load(object sender, EventArgs e)
+        #region Events
+
+       private void frmCustomerMaster_Load(object sender, EventArgs e)
         {
             try
             {
@@ -174,6 +184,27 @@ namespace OTTOPro
             }
         }
 
+        private void txtContactName_Enter(object sender, EventArgs e)
+        {
+            try
+            {
+                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
+                BeginInvoke(new MethodInvoker(() =>
+                {
+                    edit.SelectionStart = 0;
+                    edit.SelectionLength = edit.Text.Length;
+                }));
+            }
+            catch (Exception ex) { }
+        }
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// It contains code to change the tabs between Customer master, Address and Contacts
+        /// </summary>
+        /// <param name="ObjTabDetails"></param>
         private void TabChange(XtraTabPage ObjTabDetails)
         {
             try
@@ -195,6 +226,9 @@ namespace OTTOPro
             }
         }
 
+        /// <summary>
+        /// It contains code to parsing new customer contact details or existing customer contact details to bind with properties in entity layer
+        /// </summary>
         private void ParseCustomerContactsDetails()
         {
             try
@@ -214,6 +248,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        ///  It contains code to fetch Contact details based on customerID and bind to grid control
+        /// </summary>
         private void BindContactsDetails()
         {
             try
@@ -233,6 +270,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        ///  It contains code to parse the customer address details while adding or editing new address
+        /// </summary>
         private void ParseCustomerAddressDetails()
         {
             try
@@ -251,6 +291,9 @@ namespace OTTOPro
 
         }
 
+        /// <summary>
+        /// It contains code to Bind address details based on customer ID and bind to grid control
+        /// </summary>
         private void BindAddressDetails()
         {
             try
@@ -269,19 +312,6 @@ namespace OTTOPro
 
         }
 
-        private void txtContactName_Enter(object sender, EventArgs e)
-        {
-            try
-            {
-                var edit = ((DevExpress.XtraEditors.TextEdit)sender);
-                BeginInvoke(new MethodInvoker(() =>
-                {
-                    edit.SelectionStart = 0;
-                    edit.SelectionLength = edit.Text.Length;
-                }));
-            }
-            catch (Exception ex) { }
-        }
-
+        #endregion
     }
 }

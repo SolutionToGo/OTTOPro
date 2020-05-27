@@ -19,14 +19,25 @@ namespace OTTOPro
 {
     public partial class frmRabattGroup : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// This form is to add , edit and view the rabatt
+        /// User can map typ with rabatt
+        /// user can save rabatt with multiple validity dates
+        /// </summary>
+        #region Varibales
         BArticles ObjBArticle = null;
         EArticles ObjEArticle = null;
         DArticles ObjDArticle = null;
+        #endregion
+
+        #region Constructors
         public frmRabattGroup()
         {
             InitializeComponent();
         }
+        #endregion
 
+        #region Events
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -55,58 +66,6 @@ namespace OTTOPro
             catch (Exception ex)
             {
                 Utility.ShowError(ex);
-            }
-        }
-
-        private void BindRabattData()
-        {
-            try
-            {
-                if (ObjEArticle == null)
-                    ObjEArticle = new EArticles();
-                gcRabatt.DataSource = ObjEArticle.dtRabatt;
-                gvRabatt.Columns["RabattID"].Visible = false;
-                gvRabatt.BestFitColumns();
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-        }
-
-        private void ParseRabattDetails()
-        {
-            try
-            {
-                decimal DValue = 1;
-                DateTime dtTime = DateTime.Now;
-                ObjEArticle.Rabatt = txtRabatt.Text;
-               
-                if(decimal.TryParse(txtMulti1.Text,out DValue))
-                    ObjEArticle.Multi1 = DValue;
-                else
-                    ObjEArticle.Multi1 = 1;
-                
-                if (decimal.TryParse(txtMulti2.Text, out DValue))
-                    ObjEArticle.Multi2 = DValue;
-                else
-                    ObjEArticle.Multi2 = 1;
-                
-                if (decimal.TryParse(txtMulti3.Text, out DValue))
-                    ObjEArticle.Multi3 = DValue;
-                else
-                    ObjEArticle.Multi3 = 1;
-                
-                if (decimal.TryParse(txtMulti4.Text, out DValue))
-                    ObjEArticle.Multi4 = DValue;
-                else
-                    ObjEArticle.Multi4 = 1;
-
-                ObjEArticle.ValidityDate = dateEditValidityDate.DateTime;
-            }
-            catch (Exception ex)
-            {
-                throw;
             }
         }
 
@@ -386,5 +345,67 @@ namespace OTTOPro
                 Utility.ShowError(ex);
             }
         }
+        #endregion
+
+        #region Functions
+
+        /// <summary>
+        /// Code to fetch Rabatt and typ list form database and bind to grid controls
+        /// </summary>
+        private void BindRabattData()
+        {
+            try
+            {
+                if (ObjEArticle == null)
+                    ObjEArticle = new EArticles();
+                gcRabatt.DataSource = ObjEArticle.dtRabatt;
+                gvRabatt.Columns["RabattID"].Visible = false;
+                gvRabatt.BestFitColumns();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Code to parse rabatt and typ details while adding or editing rabatt
+        /// </summary>
+        private void ParseRabattDetails()
+        {
+            try
+            {
+                decimal DValue = 1;
+                DateTime dtTime = DateTime.Now;
+                ObjEArticle.Rabatt = txtRabatt.Text;
+
+                if (decimal.TryParse(txtMulti1.Text, out DValue))
+                    ObjEArticle.Multi1 = DValue;
+                else
+                    ObjEArticle.Multi1 = 1;
+
+                if (decimal.TryParse(txtMulti2.Text, out DValue))
+                    ObjEArticle.Multi2 = DValue;
+                else
+                    ObjEArticle.Multi2 = 1;
+
+                if (decimal.TryParse(txtMulti3.Text, out DValue))
+                    ObjEArticle.Multi3 = DValue;
+                else
+                    ObjEArticle.Multi3 = 1;
+
+                if (decimal.TryParse(txtMulti4.Text, out DValue))
+                    ObjEArticle.Multi4 = DValue;
+                else
+                    ObjEArticle.Multi4 = 1;
+
+                ObjEArticle.ValidityDate = dateEditValidityDate.DateTime;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        #endregion
     }
 }

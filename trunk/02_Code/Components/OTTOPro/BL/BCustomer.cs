@@ -12,6 +12,11 @@ namespace BL
     {
         DCustomer ObjDCustomer = new DCustomer();
 
+        /// <summary>
+        /// Code to save customer details from customer master
+        /// </summary>
+        /// <param name="ObjECustomer"></param>
+        /// <returns></returns>
         public int SaveCustomerDetails(ECustomer ObjECustomer)
         {
             try
@@ -62,6 +67,10 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to get Customer List
+        /// </summary>
+        /// <returns></returns>
         public void GetCustomers(ECustomer ObjECustomer)
         {
             try
@@ -77,6 +86,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to customer contact details
+        /// </summary>
+        /// <param name="ObjECustomer"></param>
+        /// <returns></returns>
         public int SaveCustomerContactDetails(ECustomer ObjECustomer)
         {
             try
@@ -115,6 +129,11 @@ namespace BL
             }
         }
 
+        /// <summary>
+        /// Code to save customer address details
+        /// </summary>
+        /// <param name="XmlDoc"></param>
+        /// <returns></returns>
         public int SaveCustomerAddressDetails(ECustomer ObjECustomer)
         {
             try

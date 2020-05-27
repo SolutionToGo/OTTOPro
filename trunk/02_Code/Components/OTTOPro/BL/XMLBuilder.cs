@@ -9,6 +9,14 @@ namespace BL
 {
     public class XMLBuilder
     {
+        /// <summary>
+        /// Code to add an attribute in XML file
+        /// </summary>
+        /// <param name="xmlDocument"></param>
+        /// <param name="xpath"></param>
+        /// <param name="Name"></param>
+        /// <param name="Value"></param>
+        /// <returns></returns>
         public static XmlDocument XmlConstruct(XmlDocument xmlDocument, string xpath, string Name, string Value)
         {
             try
@@ -43,38 +51,5 @@ namespace BL
             return xmlDocument;
         }
 
-        public static XmlDocument XmlConstructWithIndex(XmlDocument XMLDoc,string XPath,string Name,string Value,int Index)
-        {
-            try
-            {
-                XmlNode parentNode = XMLDoc;
-                XPath += "/" + Name;
-                if (XMLDoc != null && !string.IsNullOrEmpty(XPath))
-                {
-                    string[] partsOfXPath = XPath.Split('/');
-                    string xPathSoFar = string.Empty;
-                    foreach (string xPathElement in partsOfXPath)
-                    {
-                        if (string.IsNullOrEmpty(xPathElement))
-                            continue;
-                        xPathSoFar += "/" + xPathElement.Trim();
-                        XmlNode childNode = XMLDoc.SelectSingleNode(xPathSoFar);
-                        if (childNode == null)
-                        {
-                            childNode = XMLDoc.CreateElement(xPathElement);
-                        }
-                        parentNode.AppendChild(childNode);
-                        parentNode = childNode;
-                    }
-                    XmlText text1 = XMLDoc.CreateTextNode(Value);
-                    parentNode.AppendChild(text1);
-                }
-            }
-            catch (Exception ex)
-            {
-                throw;
-            }
-            return XMLDoc;
-        }
     }
 }

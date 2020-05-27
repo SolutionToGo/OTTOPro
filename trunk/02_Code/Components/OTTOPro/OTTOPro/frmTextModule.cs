@@ -18,19 +18,19 @@ namespace OTTOPro
     public partial class frmTextModule : DevExpress.XtraEditors.XtraForm
     {
         /// <summary>
-        /// private variables to save temp data
+        /// This form is to create and view text modules for title blatt
         /// </summary>
+
+        #region Variables
+
         EProposal ObjEProposal = new EProposal();
         BProposal ObjBProposal = new BProposal();
         DataTable _dtContents = new DataTable();
         int _TextAreaID;
         int _CategoryID;
-        bool _isValidate = true;
         int _IDValue = -1;
+        #endregion
 
-        /// <summary>
-        /// default constructor
-        /// </summary>
         #region CONSTRUCTOR
 
         public frmTextModule()
@@ -251,6 +251,46 @@ namespace OTTOPro
             }
         }
 
+        private void gvContentDetails_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
+        {
+            try
+            {
+                if (e.HitInfo.InRow)
+                {
+                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteContent_Click));
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
+        private void gvDeleteContent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (gvContentDetails.FocusedRowHandle != null)
+                {
+                    int IVlaue = 0;
+                    if (int.TryParse(Convert.ToString(gvContentDetails.GetFocusedRowCellValue("TextID")), out IVlaue))
+                    {
+                        if (ObjEProposal == null)
+                            ObjEProposal = new EProposal();
+                        ObjBProposal = new BProposal();
+                        ObjBProposal.DeleteTextModuleAreas(ObjEProposal, IVlaue);
+                        cmbCategory_SelectionChangeCommitted(null, null);
+
+                        gvContentDetails.FocusedRowHandle = IVlaue;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
+        }
+
         #endregion
 
         #region METHODS
@@ -407,47 +447,6 @@ namespace OTTOPro
         }
 
         #endregion
-
-        private void gvContentDetails_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
-        {
-            try
-            {
-                if (e.HitInfo.InRow)
-                {
-                    e.Menu.Items.Add(new DevExpress.Utils.Menu.DXMenuItem("Löschen", gvDeleteContent_Click));
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
-        private void gvDeleteContent_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (gvContentDetails.FocusedRowHandle != null)
-                {
-                        int IVlaue = 0;
-                        if (int.TryParse(Convert.ToString(gvContentDetails.GetFocusedRowCellValue("TextID")), out IVlaue))
-                        {
-                            if (ObjEProposal == null)
-                                ObjEProposal = new EProposal();
-                            ObjBProposal = new BProposal();
-                            ObjBProposal.DeleteTextModuleAreas(ObjEProposal,IVlaue);
-                            cmbCategory_SelectionChangeCommitted(null,null);
-
-                            gvContentDetails.FocusedRowHandle = IVlaue;
-                        }
-                }
-            }
-            catch (Exception ex)
-            {
-                Utility.ShowError(ex);
-            }
-        }
-
 
     }
 }
