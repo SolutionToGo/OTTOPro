@@ -1,0 +1,6 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_2" tag="Element1">
+  <path d="M2, 32L32, 32L32, 0L2, 0C0.9, 0 0, 0.9 0, 2L0, 30C0, 31.1 0.9, 32 2, 32z" fill="#AFAFAF" class="st0" tag="st00" />
+  <path d="M2, 32L32, 32L32, 31L2, 31C1.4, 31 1, 30.6 1, 30L1, 2C1, 1.4 1.4, 1 2, 1L32, 1L32, 0L2, 0C0.9, 0 0, 0.9 0, 2L0, 30C0, 31.1 0.9, 32 2, 32z" fill="#707070" class="st1" tag="st10" />
+  <rect x="31" y="1" width="1" height="29.9" rx="0" ry="0" tag="Element0" />
+</svg>

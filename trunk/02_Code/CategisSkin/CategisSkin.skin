@@ -1,0 +1,8 @@
+﻿<SkinItems version="1.0" application="SkinEditor.v2" assembly="CategisSkin" class="" extranamespace="">
+  <Item>
+    <ItemName>CategisSkin</ItemName>
+    <TemplateName>Office 2019 Colorful</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+</SkinItems>
