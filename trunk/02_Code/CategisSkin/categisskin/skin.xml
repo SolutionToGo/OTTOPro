@@ -13504,11 +13504,7 @@
             <SvgImage Index="0" Name="form\formbuttonclose[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" SvgImageSize="Width=12,Height=12" ImageName="form\formbuttonclose_glyph.png">
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\formbuttonclose_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" SvgImageSize="Width=12,Height=12" ImageName="form\formbuttonclose_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0xFFED3D3B;2:W=0xBFED3D39;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
