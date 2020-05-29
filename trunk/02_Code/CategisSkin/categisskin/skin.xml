@@ -13963,38 +13963,43 @@
         </ScaleInfo>
       </FormDecoratorFrameTop>
       <FormFrameBottom>
-        <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\formframebottom.png" />
+        <Image ImageSize="Width=32,Height=64" ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\formframebottom.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <Size MinSize="Width=0,Height=1" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=8,Height=0" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formframebottom.png" />
+            <Image ImageSize="Width=64,Height=128" ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formframebottom.png" />
           </ScaleInfo>
         </ScaleInfo>
       </FormFrameBottom>
       <FormFrameLeft>
-        <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\formframeleft.png" />
+        <Image ImageSize="Width=32,Height=64" ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\formframeleft.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <Size MinSize="Width=1,Height=0" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=8,Height=0" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formframeleft.png" />
+            <Image ImageSize="Width=64,Height=128" ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formframeleft.png" />
           </ScaleInfo>
         </ScaleInfo>
       </FormFrameLeft>
       <FormFrameRight>
-        <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\formframeright.png" />
+        <Image ImageSize="Width=32,Height=64" ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\formframeright.png" />
+        <Properties>
+          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;All" ValueType="System.String" />
+        </Properties>
         <Size MinSize="Width=1,Height=0" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=8,Height=0" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formframeright.png" />
+            <Image ImageSize="Width=64,Height=128" ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formframeright.png" />
           </ScaleInfo>
         </ScaleInfo>
       </FormFrameRight>
@@ -17588,266 +17593,58 @@
       </FormButtonClose>
       <FormButtonFullScreen>
         <ContentMargins Bottom="10" Top="10" Left="18" Right="18" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonfullscreen.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonfullscreen[0].svg" />
-          </SvgImageNames>
-        </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonfullscreen_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask3" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask4" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask3" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask4" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask3" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask4" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.15">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask3" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask4" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.3">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask3" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask4" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonfullscreen_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonfullscreen.png" />
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonfullscreen_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formbuttonfullscreen.png" />
+            <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formbuttonfullscreen.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\200dpi_formbuttonfullscreen_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </FormButtonFullScreen>
       <FormButtonHelp>
         <ContentMargins Bottom="10" Top="10" Left="18" Right="18" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonhelp.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonhelp[0].svg" />
-          </SvgImageNames>
-        </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonhelp_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.15">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.3">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Accent Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonhelp_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonhelp.png" />
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonhelp_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0x0;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formbuttonhelp.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\200dpi_formbuttonhelp_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </FormButtonHelp>
       <FormButtonMaximize>
         <ContentMargins Bottom="10" Top="10" Left="18" Right="18" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonmaximize.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonmaximize[0].svg" />
-          </SvgImageNames>
-        </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonmaximize_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.15">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.3">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonmaximize_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonmaximize.png" />
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonmaximize_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0x0;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formbuttonmaximize.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\200dpi_formbuttonmaximize_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </FormButtonMaximize>
       <FormButtonMinimize>
         <ContentMargins Bottom="10" Top="10" Left="18" Right="18" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonminimize.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonminimize[0].svg" />
-          </SvgImageNames>
-        </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonminimize_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.15">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.3">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonminimize_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonminimize.png" />
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonminimize_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0x0;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
@@ -17859,62 +17656,17 @@
       </FormButtonMinimize>
       <FormButtonRestore>
         <ContentMargins Bottom="10" Top="10" Left="18" Right="18" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonrestore.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonrestore[0].svg" />
-          </SvgImageNames>
-        </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonrestore_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.15">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.3">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\formbuttonrestore_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\formbuttonrestore.png" />
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\formbuttonrestore_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0x0;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formbuttonrestore.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="ribbon\200dpi_formbuttonrestore_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </FormButtonRestore>
