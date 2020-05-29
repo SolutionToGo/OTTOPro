@@ -13504,7 +13504,11 @@
             <SvgImage Index="0" Name="form\formbuttonclose[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" SvgImageSize="Width=12,Height=12" ImageName="form\formbuttonclose_glyph.png" />
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" SvgImageSize="Width=12,Height=12" ImageName="form\formbuttonclose_glyph.png">
+          <SvgImageNames>
+            <SvgImage Index="0" Name="form\formbuttonclose_glyph[0].svg" />
+          </SvgImageNames>
+        </Glyph>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0xFFED3D3B;2:W=0xBFED3D39;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -13587,7 +13591,7 @@
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="form\formbuttonhelp.png" />
+            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formbuttonhelp.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\200dpi_formbuttonhelp_glyph.png" />
           </ScaleInfo>
         </ScaleInfo>
@@ -13616,28 +13620,7 @@
             <SvgImage Index="0" Name="form\formbuttonmaximize[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\formbuttonmaximize_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.5">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\formbuttonmaximize_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\formbuttonmaximize_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -13645,7 +13628,7 @@
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="form\formbuttonmaximize.png" />
+            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formbuttonmaximize.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\200dpi_formbuttonmaximize_glyph.png" />
           </ScaleInfo>
         </ScaleInfo>
@@ -13830,28 +13813,7 @@
             <SvgImage Index="0" Name="form\formbuttonminimize[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\formbuttonminimize_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.5">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\formbuttonminimize_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\formbuttonminimize_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -13888,28 +13850,7 @@
             <SvgImage Index="0" Name="form\formbuttonrestore[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\formbuttonrestore_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.5">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\formbuttonrestore_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\formbuttonrestore_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -14143,38 +14084,7 @@
             <SvgImage Index="0" Name="form\smallformbuttonhelp[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\smallformbuttonhelp_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.5">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Brush" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\smallformbuttonhelp_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\smallformbuttonhelp_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -14184,9 +14094,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_smallformbuttonhelp.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\200dpi_smallformbuttonhelp_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SmallFormButtonHelp>
@@ -14214,28 +14121,7 @@
             <SvgImage Index="0" Name="form\smallformbuttonmaximize[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\smallformbuttonmaximize_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.5">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\smallformbuttonmaximize_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\smallformbuttonmaximize_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -14245,9 +14131,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_smallformbuttonmaximize.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\200dpi_smallformbuttonmaximize_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SmallFormButtonMaximize>
@@ -14275,28 +14158,7 @@
             <SvgImage Index="0" Name="form\smallformbuttonminimize[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\smallformbuttonminimize_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.5">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\smallformbuttonminimize_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\smallformbuttonminimize_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -14306,9 +14168,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_smallformbuttonminimize.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\200dpi_smallformbuttonminimize_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SmallFormButtonMinimize>
@@ -14336,28 +14195,7 @@
             <SvgImage Index="0" Name="form\smallformbuttonrestore[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\smallformbuttonrestore_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.5">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\smallformbuttonrestore_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\smallformbuttonrestore_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -14367,9 +14205,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_smallformbuttonrestore.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" ImageName="form\200dpi_smallformbuttonrestore_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SmallFormButtonRestore>
