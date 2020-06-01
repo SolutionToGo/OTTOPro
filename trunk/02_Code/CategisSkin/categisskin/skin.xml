@@ -3244,9 +3244,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="editors\200dpi_clearbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </ClearButton>
@@ -3336,72 +3333,27 @@
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="editors\200dpi_closebutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </CloseButton>
       <ComboButton>
         <ContentMargins Bottom="3" Top="3" Left="3" Right="2" />
-        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="editors\combobutton.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Brush High" Opacity="0.22" />
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Brush High" Opacity="0.22" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Brush High" Opacity="0.32" />
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Brush High" Opacity="0.32" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="editors\combobutton[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="editors\combobutton.png">
           <SizingMargins Bottom="1" Top="1" Left="1" Right="1" />
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" ImageName="editors\combobutton_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0.65">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Brush High" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.65">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Brush High" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2" Opacity="0.65">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Brush High" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Brush High" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="editors\combobutton_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" ImageName="editors\combobutton_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0xFFABABAB;1:4=0x374A4545;2:W=0xFFABABAB;2:4=0x50494646;3:W=0x0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:0=0xFFE49341;0:1=0xFFE49341;0:2=0xFFE49341;0:3=0xFFE49341;0:5=0xFFE49341;0:6=0xFEE39241;0:8=0xFFE49341;1:0=0xFFE4BA90;1:2=0xFFE2B990;1:3=0xFFE5BA8F;1:6=0xFFE3B990;1:8=0xFFE4BA8F;2:0=0xFF211D1D;2:2=0xFF242020;2:3=0xFF211D1D;2:4=0xFF211D1D;2:5=0xFF211D1D;2:6=0xFF211D1D;2:8=0xFF252222;3:0=0x0;3:2=0x0;3:3=0x0;3:4=0x0;3:5=0x0;3:6=0x0;3:7=0x0;3:8=0x0;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush High" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=16,Height=16" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="editors\200dpi_combobutton.png">
+            <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="editors\200dpi_combobutton.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" ImageName="editors\200dpi_combobutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
@@ -3857,9 +3809,6 @@
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="editors\200dpi_editorbutton.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
@@ -4685,9 +4634,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="5" Layout="Vertical" Stretch="NoResize" ImageName="editors\200dpi_rangetrackbarleftthumb.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </RangeTrackBarLeftThumb>
@@ -4870,9 +4816,6 @@
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" ImageName="editors\200dpi_searchbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SearchButton>
@@ -5009,9 +4952,6 @@
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" ImageName="editors\200dpi_spindown_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SpinDown>
@@ -5071,9 +5011,6 @@
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" ImageName="editors\200dpi_spinleft_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SpinLeft>
@@ -5133,9 +5070,6 @@
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" ImageName="editors\200dpi_spinright_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SpinRight>
@@ -5196,14 +5130,11 @@
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Vertical" ImageName="editors\200dpi_spinup_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SpinUp>
       <SplashForm>
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="editors\splashform.png">
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="editors\splashform.png">
           <SvgPalette>
             <SvgPalette Name="" Index="0">
               <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Major" />
@@ -5224,11 +5155,10 @@
         <Color ForeColor="@Brush High" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="editors\200dpi_splashform.png">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="editors\200dpi_splashform.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <CornerRadius Value="0" ValueType="System.Int32" />
             </Properties>
             <Color ForeColor="@Brush High" />
@@ -5256,9 +5186,6 @@
             <Image ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="editors\200dpi_tileitemchecked.png">
               <SizingMargins Top="90" Right="90" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </TileItemChecked>
@@ -5277,7 +5204,6 @@
               <SizingMargins Bottom="4" Top="4" Left="4" Right="4" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <Indent Value="4" ValueType="System.Int32" />
             </Properties>
           </ScaleInfo>
@@ -5291,28 +5217,11 @@
       </TileItemSelected>
       <ToggleSwitch>
         <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=20,Height=14" ImageName="editors\toggleswitch.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Paint High" />
-              <SvgColor Name="Element0" Value="Black" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Accent Paint" />
-              <SvgColor Name="Element0" Value="Black" SkinColorId="Accent Paint" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Paint High" />
-              <SvgColor Name="Element0" Value="Black" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="editors\toggleswitch[0].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="6" Top="6" Left="8" Right="8" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFFFFFFF;1:1=0xFF106EBE;1:4=0xFF106EBE;1:7=0xFF106EBE;2:4=0xFFFFFFFF;" ValueType="System.String" />
+          <DxSolidColor Value="0:4=0xFFE49341;1:4=0xFF211D1D;1:7=0xFF211D1D;2:4=0xFFFFFFFF;" ValueType="System.String" />
           <SwitchWidth Value="32" ValueType="System.Int32" />
           <TextMargin Value="0" ValueType="System.Int32" />
         </Properties>
@@ -5322,47 +5231,19 @@
               <SizingMargins Bottom="12" Top="12" Left="16" Right="16" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <TextMargin Value="0" ValueType="System.Int32" />
             </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </ToggleSwitch>
       <ToggleSwitchThumb>
-        <Image ImageCount="6" Layout="Vertical" Stretch="NoResize" SvgImageSize="Width=10,Height=10" ImageName="editors\toggleswitchthumb.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Accent Paint" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Accent Paint" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Accent Paint" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Accent Paint" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="editors\toggleswitchthumb[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageCount="6" Layout="Vertical" Stretch="NoResize" SvgImageSize="Width=10,Height=10" ImageName="editors\toggleswitchthumb.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="6" Layout="Vertical" Stretch="NoResize" SvgImageSize="Width=10,Height=10" ImageName="editors\200dpi_toggleswitchthumb.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </ToggleSwitchThumb>
@@ -5394,9 +5275,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="3" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="editors\200dpi_tokeneditclosebutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </TokenEditCloseButton>
@@ -5428,9 +5306,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="3" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="editors\200dpi_tokeneditclosebuttonselected_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </TokenEditCloseButtonSelected>
@@ -5475,9 +5350,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="5" Layout="Vertical" Stretch="NoResize" ImageName="editors\200dpi_trackbarthumb.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </TrackBarThumb>
