@@ -15518,9 +15518,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="4" Layout="Vertical" Stretch="NoResize" SvgImageSize="Width=10,Height=10" ImageName="ribbon\200dpi_buttonarrowinabovequickaccesstoolbar.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </ButtonArrowInAboveQuickAccessToolbar>
@@ -15550,9 +15547,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="4" Layout="Vertical" Stretch="NoResize" SvgImageSize="Width=10,Height=10" ImageName="ribbon\200dpi_buttonarrowinbelowquickaccesstoolbar.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </ButtonArrowInBelowQuickAccessToolbar>
@@ -15699,32 +15693,9 @@
       </ButtonGroupButton>
       <ButtonGroupButtonInAboveQuickAccessToolbar>
         <ContentMargins Bottom="4" Top="4" Left="4" Right="4" />
-        <Image ImageSize="Width=32,Height=192" ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\buttongroupbuttoninabovequickaccesstoolbar.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0" />
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5" Opacity="0.15">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\buttongroupbuttoninabovequickaccesstoolbar[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\buttongroupbuttoninabovequickaccesstoolbar.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:W=0xFFFFFFFF;4:W=0xFFFFFFFF;5:W=0x26FEFEFE;All" ValueType="System.String" />
           <ForeColor Value="@Accent Brush" ValueType="System.Drawing.Color" />
           <ForeColorChecked Value="@Accent Paint" ValueType="System.Drawing.Color" />
           <ForeColorDisabled Value="@Accent Brush Light" ValueType="System.Drawing.Color" />
@@ -15764,10 +15735,7 @@
         </SvgPalette>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=384" ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupbuttoninabovequickaccesstoolbar.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
+            <Image ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupbuttoninabovequickaccesstoolbar.png" />
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -15840,9 +15808,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=384" ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupbuttoninbelowquickaccesstoolbar.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -16076,34 +16041,12 @@
       </ButtonGroupSplitButton2>
       <ButtonGroupSplitButton2InAboveQuickAccessToolbar>
         <ContentMargins Bottom="4" Top="4" Left="3" Right="3" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\buttongroupsplitbutton2inabovequickaccesstoolbar.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0" />
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.2">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5" Opacity="0.15">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\buttongroupsplitbutton2inabovequickaccesstoolbar[0].svg" />
-            <SvgImage Index="3" Name="ribbon\buttongroupsplitbutton2inabovequickaccesstoolbar[3].svg" />
-          </SvgImageNames>
+        <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\buttongroupsplitbutton2inabovequickaccesstoolbar.png">
           <SizingMargins Bottom="1" Top="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:W=0x33FFFFFF;3:4=0x0;4:W=0xFFFFFFFF;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:0=0xFF211D1E;2:2=0xFF202024;2:5=0xFF211D1D;2:6=0xFF211E1E;2:8=0xFF212125;3:W=0x33FFFFFF;3:4=0x0;4:W=0xFFFFFFFF;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Accent Brush" />
         <SvgPalette>
@@ -16137,12 +16080,9 @@
         </SvgPalette>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupsplitbutton2inabovequickaccesstoolbar.png">
+            <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupsplitbutton2inabovequickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -16213,9 +16153,6 @@
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupsplitbutton2inbelowquickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -16416,34 +16353,12 @@
       </ButtonGroupSplitButton2InStatusBar>
       <ButtonGroupSplitButtonInAboveQuickAccessToolbar>
         <ContentMargins Bottom="4" Top="4" Left="4" Right="4" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\buttongroupsplitbuttoninabovequickaccesstoolbar.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0" />
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.2">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5" Opacity="0.15">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\buttongroupsplitbuttoninabovequickaccesstoolbar[0].svg" />
-            <SvgImage Index="3" Name="ribbon\buttongroupsplitbuttoninabovequickaccesstoolbar[3].svg" />
-          </SvgImageNames>
+        <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\buttongroupsplitbuttoninabovequickaccesstoolbar.png">
           <SizingMargins Bottom="1" Top="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:0=0x33FFFFFF;3:1=0x33FFFFFF;3:2=0x33FFFFFF;3:3=0x33FFFFFF;3:4=0x0;3:5=0x0;3:6=0x33FFFFFF;3:7=0x33FFFFFF;3:8=0x33FFFFFF;4:W=0xFFFFFFFF;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0x0;1:0=0x33FFFFFF;1:1=0x33FFFFFF;1:2=0x33FFFFFF;1:3=0x33FFFFFF;1:4=0x33FFFFFF;1:5=0x33FFFFFF;1:6=0x33FFFFFF;1:8=0x33FFFFFF;2:0=0xFF211F21;2:2=0xFF211D1D;2:5=0xFF211D1D;2:6=0xFF211D1D;2:8=0xFF211E1E;3:0=0x33FFFFFF;3:1=0x33FFFFFF;3:2=0x33FFFFFF;3:3=0x33FFFFFF;3:4=0x0;3:5=0x0;3:6=0x33FFFFFF;3:7=0x33FFFFFF;3:8=0x33FFFFFF;4:W=0xFFFFFFFF;" ValueType="System.String" />
           <ForeColor Value="@Accent Brush" ValueType="System.Drawing.Color" />
           <ForeColorChecked Value="@Accent Paint" ValueType="System.Drawing.Color" />
           <ForeColorDisabled Value="@Accent Brush Light" ValueType="System.Drawing.Color" />
@@ -16483,12 +16398,9 @@
         </SvgPalette>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupsplitbuttoninabovequickaccesstoolbar.png">
+            <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupsplitbuttoninabovequickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -16565,9 +16477,6 @@
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupsplitbuttoninbelowquickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -16850,32 +16759,9 @@
       </ButtonInAboveMacQuickAccessToolbar>
       <ButtonInAboveQuickAccessToolbar>
         <ContentMargins Bottom="4" Top="4" Left="4" Right="4" />
-        <Image ImageSize="Width=32,Height=192" ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\buttoninabovequickaccesstoolbar.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0" />
-            <SvgPalette Name="" Index="1" Opacity="0.2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Dark" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5" Opacity="0.15">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\buttoninabovequickaccesstoolbar[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\buttoninabovequickaccesstoolbar.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0xFF1664A7;3:W=0xFFFFFFFF;4:W=0xFFFFFFFF;5:W=0x26FEFEFE;All" ValueType="System.String" />
           <ForeColor Value="@Accent Brush" ValueType="System.Drawing.Color" />
           <ForeColorChecked Value="@Accent Paint" ValueType="System.Drawing.Color" />
           <ForeColorDisabled Value="@Accent Brush Light" ValueType="System.Drawing.Color" />
@@ -16915,10 +16801,7 @@
         </SvgPalette>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=384" ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttoninabovequickaccesstoolbar.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
+            <Image ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttoninabovequickaccesstoolbar.png" />
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -17058,9 +16941,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=384" ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttoninbelowquickaccesstoolbar.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18908,9 +18788,11 @@
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=16" />
       </PopupGallerySizerPanel>
       <QuickToolbarAboveBackground>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\quicktoolbarabovebackground.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <CustomizeItemOutsideToolbar Value="True" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0xFFE49341;All" ValueType="System.String" />
           <IndentBeforeCustomizeItem Value="12" ValueType="System.Int32" />
         </Properties>
         <Color BackColor="@Accent Paint" />
@@ -18926,8 +18808,8 @@
         </SvgPalette>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_quicktoolbarabovebackground.png" />
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <IndentBeforeCustomizeItem Value="24" ValueType="System.Int32" />
             </Properties>
             <Color BackColor="@Accent Paint" />
@@ -18935,27 +18817,15 @@
         </ScaleInfo>
       </QuickToolbarAboveBackground>
       <QuickToolbarAboveBackground2>
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\quicktoolbarabovebackground2.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Accent Paint" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\quicktoolbarabovebackground2[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\quicktoolbarabovebackground2.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFF106EBE;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Accent Paint" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\200dpi_quicktoolbarabovebackground2.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Accent Paint" />
           </ScaleInfo>
         </ScaleInfo>
@@ -19019,9 +18889,6 @@
             <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\200dpi_quicktoolbardropdown.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -19065,9 +18932,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Vertical" ImageName="ribbon\200dpi_quicktoolbarglyph_glyph.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </QuickToolbarGlyph>
@@ -19111,7 +18975,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <IndentBeforeCustomizeItem Value="0" ValueType="System.Int32" />
             </Properties>
             <Color BackColor="@Accent Paint" ForeColor="@Accent Brush" />
