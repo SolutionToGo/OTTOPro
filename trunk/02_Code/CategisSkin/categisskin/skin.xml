@@ -553,9 +553,6 @@
             <Image ImageCount="8" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\200dpi_button.png">
               <SizingMargins Bottom="4" Top="4" Left="4" Right="4" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
@@ -598,9 +595,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="6" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_droparrows.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </DropArrows>
@@ -665,9 +659,6 @@
             <Image ImageCount="8" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\200dpi_dropdownbutton1.png">
               <SizingMargins Bottom="4" Top="4" Left="4" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
@@ -761,9 +752,6 @@
               <SizingMargins Bottom="4" Top="4" Left="4" Right="4" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="8" Layout="Vertical" ImageName="common\200dpi_dropdownbutton2_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1041,9 +1029,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="11" Layout="Horizontal" Stretch="NoResize" ImageName="common\200dpi_glyph.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </Glyph>
@@ -1086,9 +1071,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_groupcustombutton.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Paint" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1159,9 +1141,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=384" ImageCount="6" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_groupexpandbutton.png" />
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Vertical" ImageName="common\200dpi_groupexpandbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1205,9 +1184,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_grouplightcustombutton.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Paint" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1278,9 +1254,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=384" ImageCount="6" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_grouplightexpandbutton.png" />
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Vertical" ImageName="common\200dpi_grouplightexpandbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1288,29 +1261,18 @@
       <GroupPanel>
         <ContentMargins Bottom="1" Top="1" Left="1" Right="1" />
         <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\grouppanel.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\grouppanel[0].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="1" Top="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFD2D2D2;0:4=0xFFF8F8F8;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush" SolidImageCenterColor="@Paint" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_grouppanel.png">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_grouppanel1.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" SolidImageCenterColor="@Paint" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1318,21 +1280,12 @@
       <GroupPanelCaptionTop>
         <ContentMargins Left="12" Right="12" />
         <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\grouppanelcaptiontop.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Deep Shadow" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" ToneDelta="-0.25" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\grouppanelcaptiontop[0].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="1" Top="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <ButtonToBorderInterval Value="0" ValueType="System.Int32" />
-          <DxSolidColor Value="0:W=0xFFD2D2D2;0:4=0xFFE6E6E6;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;All" ValueType="System.String" />
           <FontDelta Value="0" ValueType="System.Int32" />
           <GroupPanelButtonInterval Value="0" ValueType="System.Int32" />
         </Properties>
@@ -1345,7 +1298,6 @@
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <ButtonToBorderInterval Value="0" ValueType="System.Int32" />
               <GroupPanelButtonInterval Value="0" ValueType="System.Int32" />
             </Properties>
@@ -1355,31 +1307,19 @@
       </GroupPanelCaptionTop>
       <GroupPanelLight>
         <ContentMargins Bottom="1" Left="1" Right="1" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\grouppanellight.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-              <SvgColor Name="Brush" Value="80,80,80" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\grouppanellight[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\grouppanellight.png">
           <SizingMargins Bottom="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:3=0xFFD2D2D2;0:4=0xFFF8F8F8;0:5=0xFFD2D2D2;0:6=0xFFD2D2D2;0:7=0xFFD2D2D2;0:8=0xFFD2D2D2;All" ValueType="System.String" />
+          <DxSolidColor Value="0:6=0xFFE49341;0:7=0xFFE49341;0:8=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint" ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_grouppanellight.png">
+            <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_grouppanellight.png">
               <SizingMargins Bottom="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Paint" ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1387,23 +1327,12 @@
       <GroupPanelLightCaption>
         <ContentMargins Left="12" Right="12" />
         <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\grouppanellightcaption.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st0" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-              <SvgColor Name="st1" Value="112,112,112" SkinColorId="Paint" UseToneDelta="False" />
-              <SvgColor Name="st2" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\grouppanellightcaption[0].svg" />
-          </SvgImageNames>
           <SizingMargins Top="13" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <ButtonToBorderInterval Value="6" ValueType="System.Int32" />
           <CustomDrawCaptionOffset Value="0" ValueType="System.Int32" />
-          <DxSolidColor Value="0:3=0xFFD2D2D2;0:4=0xFFF8F8F8;0:5=0xFFD2D2D2;" ValueType="System.String" />
           <FontDelta Value="0" ValueType="System.Int32" />
           <GroupCaptionTextPadding Value="5" ValueType="System.Int32" />
           <GroupPanelButtonInterval Value="0" ValueType="System.Int32" />
@@ -1417,7 +1346,6 @@
               <SizingMargins Top="26" Left="2" Right="2" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <ButtonToBorderInterval Value="12" ValueType="System.Int32" />
               <CustomDrawCaptionOffset Value="0" ValueType="System.Int32" />
               <GroupCaptionTextPadding Value="10" ValueType="System.Int32" />
@@ -1428,35 +1356,42 @@
         </ScaleInfo>
       </GroupPanelLightCaption>
       <GroupPanelNoBorder>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="common\grouppanelnoborder.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0xFFECECEC;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="1,2,3" ForeColor="Transparent" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_grouppanelnoborder1.png" />
+            <Color BackColor="1,2,3" ForeColor="Transparent" />
+          </ScaleInfo>
+        </ScaleInfo>
       </GroupPanelNoBorder>
       <GroupPanelTitle>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="common\grouppaneltitle.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0xFFECECEC;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint" ForeColor="@Brush" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_grouppaneltitle.png" />
+            <Color BackColor="@Paint" ForeColor="@Brush" />
+          </ScaleInfo>
+        </ScaleInfo>
       </GroupPanelTitle>
       <GroupPanelTitleCaption>
         <ContentMargins Left="12" Right="12" />
         <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\grouppaneltitlecaption.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Deep Shadow" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\grouppaneltitlecaption[0].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <ButtonToBorderInterval Value="0" ValueType="System.Int32" />
-          <DxSolidColor Value="0:4=0xFFE6E6E6;0:7=0xFFD2D2D2;All" ValueType="System.String" />
+          <DxSolidColor Value="0:4=0xFFE49341;0:7=0xFFE49341;All" ValueType="System.String" />
           <FontDelta Value="0" ValueType="System.Int32" />
           <GroupPanelButtonInterval Value="0" ValueType="System.Int32" />
         </Properties>
@@ -1469,7 +1404,6 @@
               <SizingMargins Bottom="2" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <ButtonToBorderInterval Value="0" ValueType="System.Int32" />
               <GroupPanelButtonInterval Value="0" ValueType="System.Int32" />
             </Properties>
@@ -1479,32 +1413,19 @@
       </GroupPanelTitleCaption>
       <GroupPanelTop>
         <ContentMargins Bottom="1" Left="1" Right="1" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\grouppaneltop.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-              <SvgColor Name="st01" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st20" Value="112,112,112" SkinColorId="Brush Minor" ToneDelta="-0.25" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\grouppaneltop[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\grouppaneltop.png">
           <SizingMargins Bottom="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:3=0xFFD2D2D2;0:4=0xFFF8F8F8;0:5=0xFFD2D2D2;0:6=0xFFD2D2D2;0:7=0xFFD2D2D2;0:8=0xFFD2D2D2;All" ValueType="System.String" />
+          <DxSolidColor Value="0:6=0xFFE49341;0:8=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint" ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_grouppaneltop.png">
+            <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_grouppaneltop.png">
               <SizingMargins Bottom="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Paint" ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1548,9 +1469,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_grouptitlecustombutton.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Paint" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1621,9 +1539,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=384" ImageCount="6" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_grouptitleexpandbutton.png" />
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Vertical" ImageName="common\200dpi_grouptitleexpandbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1669,9 +1584,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_highlighteditem.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
@@ -1683,46 +1595,25 @@
         <Color ForeColor="Transparent" />
       </Label>
       <LabelLine>
-        <Image ImageSize="Width=10,Height=1" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=10,Height=1" ImageName="common\labelline.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\labelline[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=10,Height=1" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=10,Height=1" ImageName="common\labelline.png" />
         <Border Top="190,208,232" Bottom="White" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFD2D2D2;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Size MinSize="Width=1,Height=1" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=1" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=20,Height=2" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=10,Height=1" ImageName="common\200dpi_labelline.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </LabelLine>
       <LabelLineVert>
-        <Image ImageSize="Width=1,Height=10" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=1,Height=10" ImageName="common\labellinevert.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\labellinevert[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=1,Height=10" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=1,Height=10" ImageName="common\labellinevert.png" />
         <Border Left="190,208,232" Right="White" />
         <Properties>
-          <DxSolidColor Value="0:W=0xFFD2D2D2;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Size MinSize="Width=1,Height=1" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=1,Height=10" />
@@ -1772,7 +1663,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_layoutitembackground.png" />
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <Spacing Value="0" ValueType="System.Int32" />
             </Properties>
           </ScaleInfo>
@@ -1853,7 +1743,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=33,Height=33" ImageName="common\200dpi_loadingbig.png" />
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <FrameCount Value="360" ValueType="System.Int32" />
               <FrameDelay Value="5" ValueType="System.Int32" />
             </Properties>
@@ -1862,171 +1751,12 @@
       </LoadingBig>
       <ScrollButton>
         <Image ImageCount="16" Layout="Vertical" Stretch="Stretch" ImageName="common\scrollbutton.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="6">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="9">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="10">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="13">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="14">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="7">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="8">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="11">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="12">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="15">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\scrollbutton[0].svg" />
-            <SvgImage Index="4" Name="common\scrollbutton[4].svg" />
-            <SvgImage Index="12" Name="common\scrollbutton[12].svg" />
-            <SvgImage Index="8" Name="common\scrollbutton[8].svg" />
-            <SvgImage Index="11" Name="common\scrollbutton[11].svg" />
-            <SvgImage Index="6" Name="common\scrollbutton[6].svg" />
-            <SvgImage Index="5" Name="common\scrollbutton[5].svg" />
-            <SvgImage Index="10" Name="common\scrollbutton[10].svg" />
-            <SvgImage Index="9" Name="common\scrollbutton[9].svg" />
-            <SvgImage Index="7" Name="common\scrollbutton[7].svg" />
-            <SvgImage Index="13" Name="common\scrollbutton[13].svg" />
-            <SvgImage Index="14" Name="common\scrollbutton[14].svg" />
-            <SvgImage Index="15" Name="common\scrollbutton[15].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="16" Layout="Vertical" SvgImageSize="Width=9,Height=9" ImageName="common\scrollbutton_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="6" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="7" Opacity="0.25">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="8" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="9" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="10" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="11" Opacity="0.25">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="12" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="13" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="14" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="15" Opacity="0.25">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\scrollbutton_glyph[0].svg" />
-            <SvgImage Index="4" Name="common\scrollbutton_glyph[4].svg" />
-            <SvgImage Index="5" Name="common\scrollbutton_glyph[5].svg" />
-            <SvgImage Index="6" Name="common\scrollbutton_glyph[6].svg" />
-            <SvgImage Index="7" Name="common\scrollbutton_glyph[7].svg" />
-            <SvgImage Index="8" Name="common\scrollbutton_glyph[8].svg" />
-            <SvgImage Index="9" Name="common\scrollbutton_glyph[9].svg" />
-            <SvgImage Index="10" Name="common\scrollbutton_glyph[10].svg" />
-            <SvgImage Index="11" Name="common\scrollbutton_glyph[11].svg" />
-            <SvgImage Index="12" Name="common\scrollbutton_glyph[12].svg" />
-            <SvgImage Index="13" Name="common\scrollbutton_glyph[13].svg" />
-            <SvgImage Index="14" Name="common\scrollbutton_glyph[14].svg" />
-            <SvgImage Index="15" Name="common\scrollbutton_glyph[15].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="16" Layout="Vertical" SvgImageSize="Width=9,Height=9" ImageName="common\scrollbutton_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFFFFFFF;1:4=0xFFFFFFFF;2:4=0xFFF0F0F0;3:4=0xFFFFFFFF;4:4=0xFFFFFFFF;5:4=0xFFFFFFFF;6:4=0xFFF0F0F0;7:4=0xFFFFFFFF;8:4=0xFFFFFFFF;9:4=0xFFFFFFFF;10:4=0xFFF0F0F0;11:4=0xFFFFFFFF;12:4=0xFFFFFFFF;13:4=0xFFFFFFFF;14:4=0xFFF0F0F0;15:4=0xFFFFFFFF;" ValueType="System.String" />
+          <DxSolidColor Value="0:0=0xFFE49341;0:1=0xFFE49341;0:2=0xFFE49341;0:3=0xFFE49341;0:4=0xFFE49341;0:5=0xFFE49341;1:3=0xFFF0BC88;1:4=0xFFF0BC88;1:5=0xFFF0BC88;1:8=0xFFF0BC88;2:0=0xFF211D1D;2:1=0xFF211D1D;2:3=0xFF211D1D;2:4=0xFF211D1D;2:5=0xFF211D1D;2:6=0xFF211D1D;3:4=0xFFFFFFFF;4:3=0xFFE49341;4:4=0xFFE49341;5:1=0xFFF0BC88;5:4=0xFFF0BC88;5:5=0xFFF0BC88;6:1=0xFF211D1D;6:3=0xFF211D1D;6:4=0xFF211D1D;6:5=0xFF211D1D;6:7=0xFF211D1D;7:4=0xFFFFFFFF;8:3=0xFFE49341;8:4=0xFFE49341;9:3=0xFFF0BC88;9:4=0xFFF0BC88;9:5=0xFFF0BC88;9:7=0xFFF0BC88;9:8=0xFFF0BC88;10:1=0xFF211D1D;10:3=0xFF211D1D;10:4=0xFF211D1D;10:5=0xFF211D1D;10:6=0xFF211D1D;10:7=0xFF211D1D;10:8=0xFF211D1D;11:4=0xFFFFFFFF;12:4=0xFFE49341;12:6=0xFFE49341;13:3=0xFFF0BC88;13:4=0xFFF0BC88;13:5=0xFFF0BC88;13:6=0xFFF0BC88;14:0=0xFF211D1D;14:1=0xFF211D1D;14:3=0xFF211D1D;14:4=0xFF211D1D;14:5=0xFF211D1D;14:7=0xFF211D1D;15:4=0xFFFFFFFF;" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint Shadow" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
@@ -2036,294 +1766,69 @@
               <SizingMargins Bottom="4" Top="4" Left="4" Right="4" />
             </Image>
             <Glyph Stretch="NoResize" ImageCount="16" Layout="Vertical" SvgImageSize="Width=9,Height=9" ImageName="common\200dpi_scrollbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Paint Shadow" />
           </ScaleInfo>
         </ScaleInfo>
       </ScrollButton>
       <ScrollShaft>
-        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\scrollshaft.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\scrollshaft[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\scrollshaft.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFF0F0F0;1:W=0xFFF0F0F0;2:W=0xFFF0F0F0;3:W=0xFFF0F0F0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;2:W=0xFF211D1D;3:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_scrollshaft.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </ScrollShaft>
       <ScrollShaftVert>
-        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\scrollshaftvert.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\scrollshaftvert[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\scrollshaftvert.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFF0F0F0;1:W=0xFFF0F0F0;2:W=0xFFF0F0F0;3:W=0xFFF0F0F0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;2:W=0xFF211D1D;3:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\200dpi_scrollshaftvert.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </ScrollShaftVert>
       <ScrollThumbButton>
-        <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\scrollthumbbutton.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="6">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="9">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="10">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="13">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="14">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="7">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="8">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="11">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="12">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="15">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\scrollthumbbutton[0].svg" />
-            <SvgImage Index="4" Name="common\scrollthumbbutton[4].svg" />
-            <SvgImage Index="12" Name="common\scrollthumbbutton[12].svg" />
-            <SvgImage Index="8" Name="common\scrollthumbbutton[8].svg" />
-            <SvgImage Index="11" Name="common\scrollthumbbutton[11].svg" />
-            <SvgImage Index="6" Name="common\scrollthumbbutton[6].svg" />
-            <SvgImage Index="5" Name="common\scrollthumbbutton[5].svg" />
-            <SvgImage Index="10" Name="common\scrollthumbbutton[10].svg" />
-            <SvgImage Index="9" Name="common\scrollthumbbutton[9].svg" />
-            <SvgImage Index="7" Name="common\scrollthumbbutton[7].svg" />
-          </SvgImageNames>
+        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\scrollthumbbutton.png">
           <SizingMargins Bottom="2" Top="2" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:3=0xFFABABAB;0:4=0xFFFFFFFF;0:5=0xFFABABAB;1:3=0xFF898988;1:4=0xFFFFFFFF;1:5=0xFF898988;2:3=0xFF838281;2:4=0xFFF0F0F0;2:5=0xFF838281;3:3=0xFFE6E6E6;3:4=0xFFFFFFFF;3:5=0xFFE6E6E6;" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint Shadow" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_scrollthumbbutton.png">
+            <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_scrollthumbbutton.png">
               <SizingMargins Bottom="4" Top="4" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Paint Shadow" />
           </ScaleInfo>
         </ScaleInfo>
       </ScrollThumbButton>
       <ScrollThumbButtonVert>
         <ContentMargins Bottom="2" Top="2" Left="3" Right="3" />
-        <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\scrollthumbbuttonvert.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.8" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="6">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="9">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="10">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="13">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="14">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush" Opacity="0.65" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" Opacity="0.35" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="7">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="8">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="11">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="12">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="15">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="common\scrollthumbbuttonvert[0].svg" />
-            <SvgImage Index="4" Name="common\scrollthumbbuttonvert[4].svg" />
-            <SvgImage Index="12" Name="common\scrollthumbbuttonvert[12].svg" />
-            <SvgImage Index="8" Name="common\scrollthumbbuttonvert[8].svg" />
-            <SvgImage Index="11" Name="common\scrollthumbbuttonvert[11].svg" />
-            <SvgImage Index="6" Name="common\scrollthumbbuttonvert[6].svg" />
-            <SvgImage Index="5" Name="common\scrollthumbbuttonvert[5].svg" />
-            <SvgImage Index="10" Name="common\scrollthumbbuttonvert[10].svg" />
-            <SvgImage Index="9" Name="common\scrollthumbbuttonvert[9].svg" />
-            <SvgImage Index="7" Name="common\scrollthumbbuttonvert[7].svg" />
-          </SvgImageNames>
+        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\scrollthumbbuttonvert.png">
           <SizingMargins Bottom="1" Top="1" Left="2" Right="2" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFABABAB;0:4=0xFFFFFFFF;0:7=0xFFABABAB;1:1=0xFF898988;1:4=0xFFFFFFFF;1:7=0xFF898988;2:1=0xFF838281;2:4=0xFFF0F0F0;2:7=0xFF838281;3:1=0xFFE6E6E6;3:4=0xFFFFFFFF;3:7=0xFFE6E6E6;" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint Shadow" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_scrollthumbbuttonvert.png">
+            <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_scrollthumbbuttonvert.png">
               <SizingMargins Bottom="2" Top="2" Left="4" Right="4" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Paint Shadow" />
           </ScaleInfo>
         </ScaleInfo>
@@ -2423,9 +1928,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="1" Layout="Horizontal" ImageName="common\200dpi_sizegrip_glyph.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </SizeGrip>
@@ -2545,9 +2047,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="6" Layout="Vertical" Stretch="Tile" ImageName="common\200dpi_splitter.png" />
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Vertical" ImageName="common\200dpi_splitter_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Paint" />
           </ScaleInfo>
         </ScaleInfo>
@@ -2617,9 +2116,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="6" Layout="Vertical" Stretch="Tile" ImageName="common\200dpi_splitterhorz.png" />
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="common\200dpi_splitterhorz_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Paint" />
           </ScaleInfo>
         </ScaleInfo>
@@ -2697,6 +2193,188 @@
           </ScaleInfo>
         </ScaleInfo>
       </ToolTipWindow>
+      <TouchScrollCollapsedThumb>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\touchscrollcollapsedthumb.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="st00" Value="200,128,128,128" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="1">
+              <SvgColor Name="st00" Value="200,128,128,128" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="2">
+              <SvgColor Name="st00" Value="200,128,128,128" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="common\touchscrollcollapsedthumb[0].svg" />
+          </SvgImageNames>
+          <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
+        </Image>
+        <Properties>
+          <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:4=0xC77D7D7D;1:4=0xC77D7D7D;2:4=0xC77D7D7D;" ValueType="System.String" />
+        </Properties>
+        <Size MinSize="Width=16,Height=16" AllowHGrow="False" />
+        <SizeTouch AllowScale="False" AllowHGrow="False" ScaleFactor="1" MinSize="Width=16,Height=16" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_touchscrollcollapsedthumb.png">
+              <SizingMargins Bottom="4" Top="4" Left="4" Right="4" />
+            </Image>
+          </ScaleInfo>
+        </ScaleInfo>
+      </TouchScrollCollapsedThumb>
+      <TouchScrollCollapsedThumbVert>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\touchscrollcollapsedthumbvert.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="st00" Value="200,128,128,128" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="1">
+              <SvgColor Name="st00" Value="200,128,128,128" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="2">
+              <SvgColor Name="st00" Value="200,128,128,128" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="common\touchscrollcollapsedthumbvert[0].svg" />
+          </SvgImageNames>
+          <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
+        </Image>
+        <Properties>
+          <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:4=0xC77D7D7D;1:4=0xC77D7D7D;2:4=0xC77D7D7D;" ValueType="System.String" />
+        </Properties>
+        <Size MinSize="Width=16,Height=16" AllowHGrow="False" />
+        <SizeTouch AllowScale="False" AllowHGrow="False" ScaleFactor="1" MinSize="Width=16,Height=16" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_touchscrollcollapsedthumbvert.png">
+              <SizingMargins Bottom="4" Top="4" Left="4" Right="4" />
+            </Image>
+          </ScaleInfo>
+        </ScaleInfo>
+      </TouchScrollCollapsedThumbVert>
+      <TouchScrollExpandedBackground>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\touchscrollexpandedbackground.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="Paint" Value="60,128,128,128" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="common\touchscrollexpandedbackground[0].svg" />
+          </SvgImageNames>
+        </Image>
+        <Properties>
+          <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0x3B7D7D7D;All" ValueType="System.String" />
+        </Properties>
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_touchscrollexpandedbackground.png" />
+          </ScaleInfo>
+        </ScaleInfo>
+      </TouchScrollExpandedBackground>
+      <TouchScrollExpandedBackgroundVert>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\touchscrollexpandedbackgroundvert.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="Paint" Value="60,128,128,128" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="common\touchscrollexpandedbackgroundvert[0].svg" />
+          </SvgImageNames>
+        </Image>
+        <Properties>
+          <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0x3B7D7D7D;All" ValueType="System.String" />
+        </Properties>
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="common\200dpi_touchscrollexpandedbackgroundvert.png" />
+          </ScaleInfo>
+        </ScaleInfo>
+      </TouchScrollExpandedBackgroundVert>
+      <TouchScrollExpandedThumb>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\touchscrollexpandedthumb.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="st00" Value="200,128,128,128" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="1">
+              <SvgColor Name="st00" Value="Gray" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="2">
+              <SvgColor Name="st00" Value="Gray" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="common\touchscrollexpandedthumb[0].svg" />
+          </SvgImageNames>
+          <SizingMargins Bottom="3" Top="3" Left="3" Right="3" />
+        </Image>
+        <Properties>
+          <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:4=0xC77D7D7D;1:4=0xFF808080;2:4=0xFF808080;" ValueType="System.String" />
+        </Properties>
+        <Size MinSize="Width=16,Height=16" AllowHGrow="False" />
+        <SizeTouch AllowScale="False" AllowHGrow="False" ScaleFactor="1" MinSize="Width=16,Height=16" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\200dpi_touchscrollexpandedthumb.png">
+              <SizingMargins Bottom="6" Top="6" Left="6" Right="6" />
+            </Image>
+          </ScaleInfo>
+        </ScaleInfo>
+      </TouchScrollExpandedThumb>
+      <TouchScrollExpandedThumbVert>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\touchscrollexpandedthumbvert.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="st00" Value="200,128,128,128" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="1">
+              <SvgColor Name="st00" Value="Gray" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="2">
+              <SvgColor Name="st00" Value="Gray" />
+              <SvgColor Name="st10" Value="100,255,255,255" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="common\touchscrollexpandedthumbvert[0].svg" />
+          </SvgImageNames>
+          <SizingMargins Bottom="3" Top="3" Left="3" Right="3" />
+        </Image>
+        <Properties>
+          <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:4=0xC77D7D7D;1:4=0xFF808080;2:4=0xFF808080;" ValueType="System.String" />
+        </Properties>
+        <Size MinSize="Width=16,Height=16" AllowHGrow="False" />
+        <SizeTouch AllowScale="False" AllowHGrow="False" ScaleFactor="1" MinSize="Width=16,Height=16" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_touchscrollexpandedthumbvert.png">
+              <SizingMargins Bottom="6" Top="6" Left="6" Right="6" />
+            </Image>
+          </ScaleInfo>
+        </ScaleInfo>
+      </TouchScrollExpandedThumbVert>
     </Elements>
   </Skin2>
   <Skin3 SkinProduct="Editors" BasedOn="Office 2019 Colorful" SkinName="CategisSkin">
@@ -4103,9 +3781,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="editors\200dpi_progressborder.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color BackColor="@Paint" />
           </ScaleInfo>
         </ScaleInfo>
@@ -5981,6 +5656,7 @@
         </Border>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0x0;All" ValueType="System.String" />
           <Indent Value="0" ValueType="System.Int32" />
         </Properties>
         <ScaleInfo>
@@ -17404,7 +17080,7 @@
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=8,Height=0" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=128" ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formframeright1.png" />
+            <Image ImageSize="Width=64,Height=128" ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formframeright.png" />
           </ScaleInfo>
         </ScaleInfo>
       </FormFrameRight>
