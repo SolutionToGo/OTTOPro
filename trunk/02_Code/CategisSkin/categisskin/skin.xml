@@ -6343,10 +6343,18 @@
       </GridPreview>
       <GridRow>
         <ContentMargins Bottom="1" Top="1" Left="1" Right="1" />
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\gridrow.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0x0;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint High" ForeColor="@Brush High" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_gridrow.png" />
+            <Color BackColor="@Paint High" ForeColor="@Brush High" />
+          </ScaleInfo>
+        </ScaleInfo>
       </GridRow>
       <GridSpecialRowIndent>
         <Border Left="@Brush Minor" Right="@Brush Minor" Top="@Brush Minor" Bottom="@Brush Minor">
