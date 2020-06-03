@@ -5273,47 +5273,18 @@
     <Elements>
       <TabHeader>
         <ContentMargins Bottom="3" Top="3" Left="6" Right="6" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\tabheader.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Paint Shadow" />
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" ToneDelta="-0.25" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Lighter" ToneDelta="0.1" />
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" ToneDelta="-0.15" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-              <SvgColor Name="st20" Value="112,112,112" SkinColorId="Paint" Opacity="0" />
-              <SvgColor Name="st30" Value="112,112,112" SkinColorId="Brush Major" ToneDelta="-0.25" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Paint Shadow" />
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" ToneDelta="-0.25" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="tab\tabheader[0].svg" />
-            <SvgImage Index="2" Name="tab\tabheader[2].svg" />
-          </SvgImageNames>
+        <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\tabheader.png">
           <SizingMargins Top="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:0=0xFFD2D2D2;0:1=0xFFD2D2D2;0:2=0xFFD2D2D2;0:3=0xFFD2D2D2;0:4=0xFFF0F0F0;0:5=0xFFD2D2D2;1:0=0xFFD2D2D2;1:1=0xFFD2D2D2;1:2=0xFFD2D2D2;1:3=0xFFD2D2D2;1:4=0xFFE6F2FA;1:5=0xFFD2D2D2;2:0=0xFFABABAB;2:1=0xFFABABAB;2:2=0xFFABABAB;2:3=0xFFABABAB;2:4=0xFFF8F8F8;2:5=0xFFABABAB;3:0=0xFFD2D2D2;3:1=0xFFD2D2D2;3:2=0xFFD2D2D2;3:3=0xFFD2D2D2;3:4=0xFFF0F0F0;3:5=0xFFD2D2D2;4:0=0xFFD2D2D2;4:1=0xFFD2D2D2;4:2=0xFFD2D2D2;4:3=0xFFD2D2D2;4:4=0xFFF8F8F8;4:5=0xFFD2D2D2;All" ValueType="System.String" />
+          <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;1:0=0xFF211D1D;1:2=0xFF211D1D;2:0=0xFF211D1D;2:1=0xFF211D1D;2:2=0xFF211D1D;2:3=0xFF211D1D;2:5=0xFF211D1D;3:0=0xFFD2D2D2;3:2=0xFFD2D2D2;3:3=0xFFD2D2D2;3:4=0xFFF0F0F0;3:5=0xFFD2D2D2;4:0=0xFFD2D2D2;4:1=0xFFD2D2D2;4:2=0xFFD2D2D2;4:3=0xFFD2D2D2;4:4=0xFFF8F8F8;4:5=0xFFD2D2D2;" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\200dpi_tabheader.png">
+            <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\200dpi_tabheader.png">
               <SizingMargins Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </TabHeader>
@@ -5474,15 +5445,12 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0xFFE6F2FA;2:W=0xFFCDE6F7;3:W=0x0;All" ValueType="System.String" />
         </Properties>
-        <Color ForeColor="@Brush" />
+        <Color ForeColor="@Accent Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="tab\200dpi_tabheaderbutton.png" />
             <Glyph Stretch="NoResize" ImageCount="20" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="tab\200dpi_tabheaderbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
-            <Color ForeColor="@Brush" />
+            <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
       </TabHeaderButton>
@@ -5608,15 +5576,12 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="tab\200dpi_tabpagebutton.png" />
             <Glyph Stretch="NoResize" ImageCount="12" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="tab\200dpi_tabpagebutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </TabPageButton>
       <TabPane>
         <ContentMargins Bottom="1" Top="1" Left="1" Right="1" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="tab\tabpane.png">
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\tabpane.png">
           <SvgPalette>
             <SvgPalette Name="" Index="0">
               <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
@@ -5636,12 +5601,9 @@
         <Color ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="tab\200dpi_tabpane.png">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\200dpi_tabpane.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
