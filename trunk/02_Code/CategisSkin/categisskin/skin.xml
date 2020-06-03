@@ -6227,7 +6227,6 @@
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFF211D1D;" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -6272,7 +6271,6 @@
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush" />
         <ScaleInfo>
@@ -6287,7 +6285,7 @@
       <GridFixedLine>
         <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\gridfixedline.png" />
         <Properties>
-          <DxSolidColor Value="0:W=0xFF211D1D;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFC2C2C2;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Brush Major" />
         <ScaleInfo>
@@ -6320,7 +6318,7 @@
         <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\gridline.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFF211D1D;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFC2C2C2;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Brush Minor" />
         <ScaleInfo>
@@ -6399,7 +6397,7 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:8=0xFF211D1D;1:7=0xFF211D1D;1:8=0xFF211D1D;2:4=0xFF211D1D;2:8=0xFFE49341;" ValueType="System.String" />
+          <DxSolidColor Value="0:7=0xFFC2C2C2;0:8=0xFFC2C2C2;1:8=0xFFC2C2C2;2:8=0xFFC2C2C2;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
@@ -6418,7 +6416,7 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:7=0xFF211D1D;0:8=0xFF211D1D;1:8=0xFF211D1D;2:8=0xFFE49341;" ValueType="System.String" />
+          <DxSolidColor Value="0:7=0xFFC2C2C2;0:8=0xFFC2C2C2;1:8=0xFFC2C2C2;2:8=0xFFC2C2C2;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
@@ -6437,7 +6435,7 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:7=0xFF211D1D;0:8=0xFF211D1D;1:8=0xFF211D1D;2:8=0xFFE49341;" ValueType="System.String" />
+          <DxSolidColor Value="0:7=0xFFC2C2C2;0:8=0xFFC2C2C2;1:8=0xFFC2C2C2;2:8=0xFFC2C2C2;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
@@ -7095,7 +7093,6 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFE49341;0:2=0xFF211D1D;0:4=0xFFE49341;1:2=0xFF211D1D;1:4=0xFFF0BC88;2:1=0xFF211D1D;2:2=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
@@ -7114,7 +7111,6 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFE49341;0:2=0xFF211D1D;0:4=0xFFE49341;1:2=0xFF211D1D;1:4=0xFFF0BC88;2:1=0xFF211D1D;2:2=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
@@ -7133,7 +7129,7 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:7=0xFF211D1D;0:8=0xFF211D1D;1:8=0xFF211D1D;2:8=0xFFE49341;" ValueType="System.String" />
+          <DxSolidColor Value="0:7=0xFFC2C2C2;0:8=0xFFC2C2C2;1:8=0xFFC2C2C2;2:8=0xFFC2C2C2;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
