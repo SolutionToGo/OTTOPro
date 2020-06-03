@@ -6138,28 +6138,7 @@
             <SvgImage Index="0" Name="grid\filterbutton[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="3" Layout="Horizontal" ImageName="grid\filterbutton_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0.65">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Accent Paint Light" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="Mask" Value="0,0,0" SkinColorId="Accent Paint Light" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\filterbutton_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="3" Layout="Horizontal" ImageName="grid\filterbutton_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0xFFE6F2FA;2:W=0xFFCDE6F7;All" ValueType="System.String" />
@@ -6168,9 +6147,6 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=192,Height=64" ImageCount="3" Layout="Horizontal" Stretch="Stretch" ImageName="grid\200dpi_filterbutton.png" />
             <Glyph Stretch="NoResize" ImageCount="3" Layout="Horizontal" ImageName="grid\200dpi_filterbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </FilterButton>
@@ -6226,65 +6202,38 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=192,Height=64" ImageCount="3" Layout="Horizontal" Stretch="Stretch" ImageName="grid\200dpi_filterbuttonactive.png" />
             <Glyph Stretch="NoResize" ImageCount="3" Layout="Horizontal" ImageName="grid\200dpi_filterbuttonactive_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </FilterButtonActive>
       <FooterCell>
         <ContentMargins Bottom="4" Top="4" Left="4" Right="4" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\footercell.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\footercell[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\footercell.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFF0F0F0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFECECEC;All" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush High" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\200dpi_footercell.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </FooterCell>
       <FooterPanel>
         <ContentMargins Bottom="5" Top="6" Left="4" Right="4" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\footerpanel.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\footerpanel[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\footerpanel.png">
           <SizingMargins Top="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFD2D2D2;0:4=0xFFFFFFFF;All" ValueType="System.String" />
+          <DxSolidColor Value="0:1=0xFF211D1D;" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\200dpi_footerpanel.png">
+            <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\200dpi_footerpanel.png">
               <SizingMargins Top="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </FooterPanel>
@@ -6318,49 +6267,38 @@
       </GridEvenRow>
       <GridFilterPanel>
         <ContentMargins Bottom="4" Top="6" Left="4" Right="4" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\gridfilterpanel.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Major" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\gridfilterpanel[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\gridfilterpanel.png">
           <SizingMargins Top="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFABABAB;0:4=0xFFF0F0F0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:4=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\200dpi_gridfilterpanel.png">
+            <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="grid\200dpi_gridfilterpanel.png">
               <SizingMargins Top="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
       </GridFilterPanel>
       <GridFixedLine>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\gridfixedline.png" />
+        <Properties>
+          <DxSolidColor Value="0:W=0xFF211D1D;All" ValueType="System.String" />
+        </Properties>
         <Color BackColor="@Brush Major" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_gridfixedline.png" />
+            <Color BackColor="@Brush Major" />
+          </ScaleInfo>
+        </ScaleInfo>
       </GridFixedLine>
       <GridGroupPanel>
         <Image ImageCount="1" Layout="Horizontal" Stretch="Tile" ImageName="grid\gridgrouppanel.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="242,242,241" SkinColorId="Paint Shadow" />
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Major" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\gridgrouppanel[0].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="1" />
         </Image>
         <Border Left="@Paint Shadow" Right="@Paint Shadow" Top="@Paint Shadow" Bottom="@Paint Shadow" />
@@ -6374,18 +6312,23 @@
             <Image ImageCount="1" Layout="Horizontal" Stretch="Tile" ImageName="grid\200dpi_gridgrouppanel.png">
               <SizingMargins Bottom="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color GradientMode="Vertical" BackColor2="@Paint Shadow" ForeColor="@Brush Light" />
           </ScaleInfo>
         </ScaleInfo>
       </GridGroupPanel>
       <GridLine>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\gridline.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Brush Minor" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_gridline.png" />
+            <Color BackColor="@Brush Minor" />
+          </ScaleInfo>
+        </ScaleInfo>
       </GridLine>
       <GridOddRow>
         <Properties>
@@ -6419,6 +6362,9 @@
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=1" />
       </GridSpecialRowIndent>
       <GridTopNewRow>
+        <Properties>
+          <AllowTouch Value="False" ValueType="System.Boolean" />
+        </Properties>
         <Color BackColor="@Paint High" ForeColor="@Brush Light" />
       </GridTopNewRow>
       <GroupRow>
@@ -6448,256 +6394,106 @@
       </GroupRowLevel>
       <Header>
         <ContentMargins Bottom="5" Top="4" Left="3" Right="3" />
-        <Image ImageSize="Width=32,Height=96" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\header.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Deep Shadow" ToneDelta="-0.1" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\header[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\header.png">
           <SizingMargins Bottom="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFF8F8F8;0:5=0xFFABABAB;0:7=0xFFABABAB;0:8=0xFFABABAB;1:4=0xFFF8F8F8;1:5=0xFFABABAB;1:7=0xFFABABAB;1:8=0xFFABABAB;2:4=0xFFE6E6E6;2:5=0xFFABABAB;2:7=0xFFABABAB;2:8=0xFFABABAB;All" ValueType="System.String" />
+          <DxSolidColor Value="0:8=0xFF211D1D;1:7=0xFF211D1D;1:8=0xFF211D1D;2:4=0xFF211D1D;2:8=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_header.png">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_header.png">
               <SizingMargins Bottom="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush Light" />
           </ScaleInfo>
         </ScaleInfo>
       </Header>
       <HeaderLeft>
         <ContentMargins Bottom="5" Top="4" Left="3" Right="3" />
-        <Image ImageSize="Width=32,Height=96" ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\headerleft.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Deep Shadow" ToneDelta="-0.1" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\headerleft[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\headerleft.png">
           <SizingMargins Bottom="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFF8F8F8;0:5=0xFFABABAB;0:7=0xFFABABAB;0:8=0xFFABABAB;1:4=0xFFF8F8F8;1:5=0xFFABABAB;1:7=0xFFABABAB;1:8=0xFFABABAB;2:4=0xFFE6E6E6;2:5=0xFFABABAB;2:7=0xFFABABAB;2:8=0xFFABABAB;All" ValueType="System.String" />
+          <DxSolidColor Value="0:7=0xFF211D1D;0:8=0xFF211D1D;1:8=0xFF211D1D;2:8=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\200dpi_headerleft.png">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\200dpi_headerleft.png">
               <SizingMargins Bottom="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush Light" />
           </ScaleInfo>
         </ScaleInfo>
       </HeaderLeft>
       <HeaderRight>
         <ContentMargins Bottom="5" Top="4" Left="3" Right="3" />
-        <Image ImageSize="Width=32,Height=96" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\headerright.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Deep Shadow" ToneDelta="-0.1" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\headerright[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\headerright.png">
           <SizingMargins Bottom="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFF8F8F8;0:5=0xFFABABAB;0:7=0xFFABABAB;0:8=0xFFABABAB;1:4=0xFFF8F8F8;1:5=0xFFABABAB;1:7=0xFFABABAB;1:8=0xFFABABAB;2:4=0xFFE6E6E6;2:5=0xFFABABAB;2:7=0xFFABABAB;2:8=0xFFABABAB;All" ValueType="System.String" />
+          <DxSolidColor Value="0:7=0xFF211D1D;0:8=0xFF211D1D;1:8=0xFF211D1D;2:8=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_headerright.png">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_headerright.png">
               <SizingMargins Bottom="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush Light" />
           </ScaleInfo>
         </ScaleInfo>
       </HeaderRight>
       <HeaderSpecial>
         <ContentMargins Bottom="5" Top="5" Left="6" Right="6" />
-        <Image ImageSize="Width=32,Height=96" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\headerspecial.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Major" ToneDelta="-0.25" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Major" ToneDelta="-0.25" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint Deep Shadow" ToneDelta="-0.1" />
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Major" ToneDelta="-0.25" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\headerspecial[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\headerspecial.png">
           <SizingMargins Bottom="1" Top="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFABABAB;0:4=0xFFF8F8F8;1:W=0xFFABABAB;1:4=0xFFF8F8F8;2:W=0xFFABABAB;2:4=0xFFE6E6E6;All" ValueType="System.String" />
+          <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;0:6=0xFF211D1D;0:8=0xFF211D1D;1:0=0xFF211D1D;1:1=0xFF211D1D;1:2=0xFF211D1D;1:3=0xFF211D1D;1:6=0xFF211D1D;1:8=0xFF211D1D;2:0=0xFFE49341;2:2=0xFFE49341;2:6=0xFFE49341;2:7=0xFFE49341;2:8=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_headerspecial.png">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_headerspecial.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
       </HeaderSpecial>
       <Indicator>
         <ContentMargins Left="6" Right="7" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\indicator.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Paint High" />
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Major" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\indicator[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\indicator.png">
           <SizingMargins Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFFFFFFF;0:5=0xFFD2D2D2;All" ValueType="System.String" />
         </Properties>
         <Color FontBold="True" ForeColor="@Brush High" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_indicator.png">
+            <Image ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_indicator.png">
               <SizingMargins Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color FontBold="True" ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </Indicator>
       <IndicatorImages>
-        <Image ImageCount="10" Layout="Horizontal" Stretch="NoResize" SvgImageSize="Width=10,Height=10" ImageName="grid\indicatorimages.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.65">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Brush High" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Yellow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.65">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Brush High" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Brush High" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Brush High" />
-              <SvgColor Name="Mask3" Value="112,112,112" SkinColorId="Brush High" />
-              <SvgColor Name="Mask4" Value="112,112,112" SkinColorId="Brush High" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.65">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Brush High" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Accent Paint" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="6">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Red" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="7">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Red" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="8" Opacity="0.65">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Brush High" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="9" Opacity="0.65">
-              <SvgColor Name="Mask" Value="112,112,112" SkinColorId="Brush High" />
-              <SvgColor Name="Mask1" Value="112,112,112" SkinColorId="Brush High" />
-              <SvgColor Name="Mask2" Value="112,112,112" SkinColorId="Brush High" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0.65">
-              <SvgColor Name="Mask0" Value="112,112,112" SkinColorId="Brush High" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\indicatorimages[0].svg" />
-            <SvgImage Index="1" Name="grid\indicatorimages[1].svg" />
-            <SvgImage Index="2" Name="grid\indicatorimages[2].svg" />
-            <SvgImage Index="3" Name="grid\indicatorimages[3].svg" />
-            <SvgImage Index="4" Name="grid\indicatorimages[4].svg" />
-            <SvgImage Index="5" Name="grid\indicatorimages[5].svg" />
-            <SvgImage Index="7" Name="grid\indicatorimages[7].svg" />
-            <SvgImage Index="6" Name="grid\indicatorimages[6].svg" />
-            <SvgImage Index="8" Name="grid\indicatorimages[8].svg" />
-            <SvgImage Index="9" Name="grid\indicatorimages[9].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageCount="10" Layout="Horizontal" Stretch="NoResize" SvgImageSize="Width=10,Height=10" ImageName="grid\indicatorimages.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="10" Layout="Horizontal" Stretch="NoResize" SvgImageSize="Width=10,Height=10" ImageName="grid\200dpi_indicatorimages.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </IndicatorImages>
@@ -7143,58 +6939,32 @@
       </LayoutViewCardSelected>
       <MultiRowFooterCell>
         <ContentMargins Bottom="4" Top="4" Left="4" Right="4" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\multirowfootercell.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\multirowfootercell[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\multirowfootercell.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFF0F0F0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFECECEC;All" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush High" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\200dpi_multirowfootercell.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </MultiRowFooterCell>
       <MultiRowFooterPanel>
         <ContentMargins Bottom="5" Top="6" Left="4" Right="4" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\multirowfooterpanel.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint High" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\multirowfooterpanel[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\multirowfooterpanel.png">
           <SizingMargins Top="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFD2D2D2;0:4=0xFFFFFFFF;All" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <ContentMargins Bottom="-6" Top="2" />
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\200dpi_multirowfooterpanel.png">
+            <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\200dpi_multirowfooterpanel.png">
               <SizingMargins Top="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </MultiRowFooterPanel>
@@ -7242,9 +7012,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="4" Layout="Horizontal" SvgImageSize="Width=10,Height=10" ImageName="grid\200dpi_plusminus_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </PlusMinus>
@@ -7318,40 +7085,17 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=512" ImageCount="8" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_plusminusex.png" />
             <Glyph Stretch="NoResize" ImageCount="8" Layout="Horizontal" SvgImageSize="Width=9,Height=9" ImageName="grid\200dpi_plusminusex_glyph.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </PlusMinusEx>
       <SingleRowHeader>
         <ContentMargins Bottom="5" Top="4" Left="3" Right="3" />
         <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\singlerowheader.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Deep Shadow" ToneDelta="-0.1" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" ToneDelta="-0.1" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\singlerowheader[0].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="3" Top="2" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFF8F8F8;0:2=0xFFF8F8F8;0:4=0xFFF8F8F8;0:5=0xFFABABAB;1:1=0xFFF8F8F8;1:2=0xFFF8F8F8;1:4=0xFFF8F8F8;1:5=0xFFABABAB;2:1=0xFFE6E6E6;2:2=0xFFE6E6E6;2:4=0xFFE6E6E6;2:5=0xFFABABAB;" ValueType="System.String" />
+          <DxSolidColor Value="0:1=0xFFE49341;0:2=0xFF211D1D;0:4=0xFFE49341;1:2=0xFF211D1D;1:4=0xFFF0BC88;2:1=0xFF211D1D;2:2=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
@@ -7359,9 +7103,6 @@
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheader.png">
               <SizingMargins Bottom="6" Top="4" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush Light" />
           </ScaleInfo>
         </ScaleInfo>
@@ -7369,31 +7110,11 @@
       <SingleRowHeaderLeft>
         <ContentMargins Bottom="5" Top="4" Left="3" Right="3" />
         <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\singlerowheaderleft.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Deep Shadow" ToneDelta="-0.1" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" ToneDelta="-0.1" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\singlerowheaderleft[0].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="3" Top="2" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFF8F8F8;0:2=0xFFF8F8F8;0:4=0xFFF8F8F8;0:5=0xFFABABAB;1:1=0xFFF8F8F8;1:2=0xFFF8F8F8;1:4=0xFFF8F8F8;1:5=0xFFABABAB;2:1=0xFFE6E6E6;2:2=0xFFE6E6E6;2:4=0xFFE6E6E6;2:5=0xFFABABAB;" ValueType="System.String" />
+          <DxSolidColor Value="0:1=0xFFE49341;0:2=0xFF211D1D;0:4=0xFFE49341;1:2=0xFF211D1D;1:4=0xFFF0BC88;2:1=0xFF211D1D;2:2=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
@@ -7401,51 +7122,25 @@
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheaderleft.png">
               <SizingMargins Bottom="6" Top="4" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush Light" />
           </ScaleInfo>
         </ScaleInfo>
       </SingleRowHeaderLeft>
       <SingleRowHeaderRight>
         <ContentMargins Bottom="5" Top="4" Left="3" Right="3" />
-        <Image ImageSize="Width=32,Height=96" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\singlerowheaderright.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Deep Shadow" ToneDelta="-0.1" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" UseToneDelta="False" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" ToneDelta="-0.1" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="grid\singlerowheaderright[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\singlerowheaderright.png">
           <SizingMargins Bottom="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFF8F8F8;0:5=0xFFABABAB;0:7=0xFFABABAB;0:8=0xFFABABAB;1:4=0xFFF8F8F8;1:5=0xFFABABAB;1:7=0xFFABABAB;1:8=0xFFABABAB;2:4=0xFFE6E6E6;2:5=0xFFABABAB;2:7=0xFFABABAB;2:8=0xFFABABAB;All" ValueType="System.String" />
+          <DxSolidColor Value="0:7=0xFF211D1D;0:8=0xFF211D1D;1:8=0xFF211D1D;2:8=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush Light" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheaderright.png">
+            <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheaderright.png">
               <SizingMargins Bottom="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush Light" />
           </ScaleInfo>
         </ScaleInfo>
@@ -7510,7 +7205,6 @@
             <Image ImageSize="Width=320,Height=64" ImageCount="5" Layout="Horizontal" Stretch="Stretch" ImageName="grid\200dpi_smartfilterbutton.png" />
             <Glyph Stretch="NoResize" ImageCount="5" Layout="Horizontal" ImageName="grid\200dpi_smartfilterbutton_glyph.png" />
             <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
               <OffsetX Value="-2" ValueType="System.Int32" />
               <OffsetY Value="0" ValueType="System.Int32" />
               <SpecialOffsetX Value="-2" ValueType="System.Int32" />
@@ -7521,34 +7215,14 @@
       </SmartFilterButton>
       <SortShape>
         <ContentMargins Left="3" Right="3" />
-        <Glyph Stretch="NoResize" ImageCount="4" Layout="Horizontal" ImageName="grid\sortshape_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2" Opacity="0.65" />
-            <SvgPalette Name="" Index="3" Opacity="0.65" />
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="1" Name="grid\sortshape_glyph[1].svg" />
-            <SvgImage Index="0" Name="grid\sortshape_glyph[0].svg" />
-            <SvgImage Index="3" Name="grid\sortshape_glyph[3].svg" />
-            <SvgImage Index="2" Name="grid\sortshape_glyph[2].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="4" Layout="Horizontal" SvgImageSize="Width=10,Height=10" ImageName="grid\sortshape_glyph.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <DxSolidColor Value="" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Glyph Stretch="NoResize" ImageCount="4" Layout="Horizontal" ImageName="grid\200dpi_sortshape_glyph.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
+            <Glyph Stretch="NoResize" ImageCount="4" Layout="Horizontal" SvgImageSize="Width=10,Height=10" ImageName="grid\200dpi_sortshape_glyph.png" />
           </ScaleInfo>
         </ScaleInfo>
       </SortShape>
@@ -7652,9 +7326,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_winexplorerviewgroupheader.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
