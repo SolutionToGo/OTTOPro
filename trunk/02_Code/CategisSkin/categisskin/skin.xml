@@ -1774,7 +1774,7 @@
         <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\scrollshaft.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;2:W=0xFF211D1D;3:W=0xFF211D1D;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -1786,7 +1786,7 @@
         <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\scrollshaftvert.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;2:W=0xFF211D1D;3:W=0xFF211D1D;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -1800,7 +1800,7 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;2:W=0xFF211D1D;3:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint Shadow" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
@@ -1820,7 +1820,7 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;2:W=0xFF211D1D;3:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint Shadow" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
