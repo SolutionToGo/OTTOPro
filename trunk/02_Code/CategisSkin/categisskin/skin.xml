@@ -5464,62 +5464,11 @@
       </TabHeaderLine>
       <TabPageButton>
         <ContentMargins Bottom="1" Top="1" Left="1" Right="1" />
-        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="tab\tabpagebutton.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Accent Paint Lighter" ToneDelta="0.1" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Accent Paint Light" ToneDelta="-0.1" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="6" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="7" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="8" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="9" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="10" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="11" Opacity="0">
-              <SvgColor Name="Paint" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="12" Opacity="0" />
-            <SvgPalette Name="" Index="13" Opacity="0" />
-            <SvgPalette Name="" Index="14" Opacity="0" />
-            <SvgPalette Name="" Index="15" Opacity="0" />
-            <SvgPalette Name="" Index="16" Opacity="0" />
-            <SvgPalette Name="" Index="17" Opacity="0" />
-            <SvgPalette Name="" Index="18" Opacity="0" />
-            <SvgPalette Name="" Index="19" Opacity="0" />
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="tab\tabpagebutton[0].svg" />
-            <SvgImage Index="5" Name="tab\tabpagebutton[5].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="tab\tabpagebutton.png" />
         <Glyph Stretch="NoResize" ImageCount="12" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="tab\tabpagebutton_glyph.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0xFFE6F2FA;2:W=0xFFCDE6F7;3:W=0x0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0x0;1:W=0x0;2:W=0x0;3:W=0x0;All" ValueType="System.String" />
         </Properties>
         <Offset Kind="Default" Offset="X=5,Y=1" />
         <ScaleInfo>
