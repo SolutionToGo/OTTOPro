@@ -32,13 +32,9 @@ namespace BL
                     if (ProjectID < 0)
                     {
                         if (System.Threading.Thread.CurrentThread.CurrentCulture.Name.ToString() == "de-DE")
-                        {
                             throw new Exception("Fehler beim Speichern der Projektangaben");
-                        }
                         else
-                        {
                             throw new Exception("Failed to Save the Project Details");
-                        }
                     }
                     else
                         ObjEObject.ProjectID = ProjectID;
