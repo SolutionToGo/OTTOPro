@@ -88,6 +88,7 @@
     <Reference Include="DevExpress.DataAccess.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.DataAccess.v18.2.UI, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Dialogs.v18.2.Core, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Images.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -124,6 +125,7 @@
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.Spreadsheet.v18.2.Core, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Utils.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <Private>True</Private>
@@ -180,6 +182,7 @@
     <Reference Include="DevExpress.XtraRichEdit.v18.2.Extensions, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
+    <Reference Include="DevExpress.XtraSpreadsheet.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraTreeList.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
@@ -189,6 +192,10 @@
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="NormIdentifyLib, Version=1.3.5.0, Culture=neutral, PublicKeyToken=0fa20a7fbb77e22b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ThirdParty\beispiel-dn-mit-NormIdentifyLib\dll\NormIdentifyLib.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Private>True</Private>
@@ -231,8 +238,25 @@
     <Reference Include="System.Xml">
       <Private>True</Private>
     </Reference>
+    <Reference Include="Trinity6.Definition, Version=6.0.0.0, Culture=neutral, PublicKeyToken=0fa20a7fbb77e22b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\datacrossmedia\trinity6\bin\Trinity6.Definition.dll</HintPath>
+    </Reference>
+    <Reference Include="Trinity6.Developer, Version=6.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ThirdParty\beispiel-dn-mit-NormIdentifyLib\dll\Trinity6.Developer.dll</HintPath>
+    </Reference>
+    <Reference Include="Trinity6.Etim">
+      <HintPath>C:\Program Files (x86)\datacrossmedia\trinity6\bin\Trinity6.Etim.dll</HintPath>
+    </Reference>
+    <Reference Include="ZipLib, Version=0.86.1.518, Culture=neutral, PublicKeyToken=6ab1f2cb1c4fc0b8, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ThirdParty\beispiel-dn-mit-NormIdentifyLib\dll\ZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="netstandard" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DNU.cs" />
     <Compile Include="frmAddAccessory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,12 +340,6 @@
     </Compile>
     <Compile Include="frmCustomerMaster.Designer.cs">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmDataNormImport.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmDataNormImport.Designer.cs">
-      <DependentUpon>frmDataNormImport.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDocuwareLink.cs">
       <SubType>Form</SubType>
@@ -490,6 +508,12 @@
     </Compile>
     <Compile Include="frmShortCuts.Designer.cs">
       <DependentUpon>frmShortCuts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSpreadsheetControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSpreadsheetControl.designer.cs">
+      <DependentUpon>frmSpreadsheetControl.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSupplierList.cs">
       <SubType>Form</SubType>
@@ -817,9 +841,6 @@
     <EmbeddedResource Include="frmCustomerMaster.resx">
       <DependentUpon>frmCustomerMaster.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmDataNormImport.resx">
-      <DependentUpon>frmDataNormImport.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmDocuwareLink.resx">
       <DependentUpon>frmDocuwareLink.cs</DependentUpon>
     </EmbeddedResource>
@@ -903,6 +924,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmShortCuts.resx">
       <DependentUpon>frmShortCuts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSpreadsheetControl.resx">
+      <DependentUpon>frmSpreadsheetControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupplierList.resx">
       <DependentUpon>frmSupplierList.cs</DependentUpon>
@@ -1157,10 +1181,6 @@
     <ProjectReference Include="..\DataAccess\DAL.csproj">
       <Project>{5b5ed23c-d2d6-4720-96bb-ca197e4d048f}</Project>
       <Name>DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DATANORMUtility\DATANORMUtility.csproj">
-      <Project>{c069837f-9688-4a71-90da-b106ecb9a56a}</Project>
-      <Name>DATANORMUtility</Name>
     </ProjectReference>
     <ProjectReference Include="..\EL\EL.csproj">
       <Project>{fb99b4cf-8ff8-44a8-bb92-2bd32f222925}</Project>

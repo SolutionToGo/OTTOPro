@@ -1348,5 +1348,70 @@ namespace DataAccess
             return ObjESupplier;
         }
 
+        /// <summary>
+        /// Code to get import Datanorm file to database
+        /// </summary>
+        /// <param name="SupplierID"></param>
+        /// <param name="ValidityDate"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public DataTable ImportDataNorm(object SupplierID, object ValidityDate, DataTable dt)
+        {
+            DataTable dtResult = new DataTable();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Imp_DataNorm]";
+                    cmd.Parameters.Add("@SupplierID", SupplierID);
+                    cmd.Parameters.Add("@ValidityDate", ValidityDate);
+                    cmd.Parameters.Add("@dtDataNorm", dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dtResult);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                //throw new Exception("Error Occured While importing Datanorm File");
+            }
+            return dtResult;
+        }
+
+        /// <summary>
+        /// Code to validate datanorm before importing into database
+        /// </summary>
+        /// <param name="SupplierID"></param>
+        /// <param name="ValidityDate"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public DataSet ValidateDataNorm(object SupplierID, object ValidityDate, DataTable dt)
+        {
+            DataSet dsResult = new DataSet();
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = SQLCon.Sqlconn();
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.CommandText = "[P_Get_ValidateDataNorm]";
+                    cmd.Parameters.Add("@ValidityDate", ValidityDate);
+                    cmd.Parameters.Add("@dtDataNorm", dt);
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dsResult);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dsResult;
+        }
     }
 }

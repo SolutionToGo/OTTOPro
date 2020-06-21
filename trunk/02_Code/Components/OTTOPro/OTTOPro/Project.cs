@@ -198,12 +198,6 @@ namespace OTTOPro
                 Utility.SetLookupEditValue(cmbPositionKZ, "N-Normalposition");
                 chkCumulated.Checked = true;
                 tbFormBlatt1.PageVisible = false;
-
-                dtpSubmitDate.Properties.VistaEditTime = DefaultBoolean.True;
-                dtpSubmitDate.Properties.MinValue = DateTime.Now;
-                dtpProjectStartDate.Properties.MinValue = DateTime.Today;
-                dtpProjectEndDate.Properties.MinValue = DateTime.Today;
-
                 SetRoundingPriceforColumn();
 
                 if (ProjectID > 0)
@@ -697,7 +691,7 @@ namespace OTTOPro
                 ParseProjectDetails();
                 string strConfirmation = "";
                 // Confirmation incase of project convert into order
-                if (txtkommissionNumber.Text != string.Empty && txtkommissionNumber.ReadOnly == false)
+                if (txtkommissionNumber.Text != string.Empty && txtkommissionNumber.Enabled == true)
                 {
                     if (ObjEProject.ActualLvs > 0)
                     {
@@ -725,7 +719,6 @@ namespace OTTOPro
                     ObjBProject.SaveProjectDetails(ObjEProject);
                     if (!string.IsNullOrEmpty(ObjEProject.CommissionNumber))
                     {
-                        btnProjectSave.Enabled = false;
                         DisalbeProjectControls();
                     }
                     if (Utility._IsGermany == true)
@@ -743,8 +736,6 @@ namespace OTTOPro
                     cmbLVSection.Properties.DisplayMember = "LVSectionName";
                     cmbLVSection.Properties.ValueMember = "LVSectionID";
                     BindPositionData();
-                    if (ObjEProject.CommissionNumber != string.Empty)
-                        txtkommissionNumber.Enabled = false;
                 }
                 else
                 {
@@ -1120,7 +1111,6 @@ namespace OTTOPro
                     {
                         txtProjectNumber.Text = string.Empty;
                         txtkommissionNumber.Text = string.Empty;
-                        txtkommissionNumber.ReadOnly = true;
                         ObjEProject.ProjectID = -1;
                     }
                     else
@@ -1128,8 +1118,6 @@ namespace OTTOPro
                         txtProjectNumber.Text = ObjEProject.ProjectNumber;
                         txtkommissionNumber.Text = ObjEProject.CommissionNumber;
                         txtProjectNumber.Enabled = false;
-                        if (txtkommissionNumber.Text != string.Empty)
-                            txtkommissionNumber.ReadOnly = true;
                         this.Text = ObjEProject.ProjectDescription + " - " + ObjEProject.ProjectNumber;
                     }
                     ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf(ObjEProject.LVRaster);
@@ -1158,7 +1146,7 @@ namespace OTTOPro
                         ddlRaster.Enabled = false;
                         txtLVSprunge.Enabled = false;
                     }
-                    if (!string.IsNullOrEmpty(txtkommissionNumber.Text))
+                    if (!string.IsNullOrEmpty(txtkommissionNumber.Text) && Utility.UserName.ToLower() != "poweradmin")
                         btnProjectSave.Enabled = false;
                     if (ObjEProject.dtDiscount != null)
                         gcDiscount.DataSource = ObjEProject.dtDiscount;
@@ -1170,11 +1158,12 @@ namespace OTTOPro
                     txtInternS.Text = "1";
                     txtInternX.Text = "1";
                     txtMWST.Text = "19.00";
-                    dtpSubmitDate.DateTime = DateTime.Now;
-                    dtpProjectStartDate.DateTime = DateTime.Now;
-                    dtpProjectEndDate.DateTime = DateTime.Now;
                     ddlRounding.SelectedIndex = ddlRounding.Properties.Items.IndexOf("2");
                     ddlRaster.SelectedIndex = ddlRaster.Properties.Items.IndexOf("99.99.1111.9");
+                    dtpSubmitDate.Properties.VistaEditTime = DefaultBoolean.True;
+                    dtpSubmitDate.Properties.MinValue = DateTime.Now;
+                    dtpProjectStartDate.Properties.MinValue = DateTime.Today;
+                    dtpProjectEndDate.Properties.MinValue = DateTime.Today;
                 }
                 _IsBindPD = true;
             }
@@ -1215,7 +1204,11 @@ namespace OTTOPro
         /// </summary>
         private void DisalbeProjectControls()
         {
-            txtMWST.Enabled = false;
+            if (Utility.UserName.ToLower() != "poweradmin")
+            {
+                txtMWST.Enabled = false;
+                btnProjectSave.Enabled = false;
+            }
             txtBauvorhaben.Enabled = false;
             cmbKundeNo.Enabled = false;
             txtPlanner.Enabled = false;
@@ -1235,6 +1228,7 @@ namespace OTTOPro
             gcDiscount.Enabled = false;
             gcQuerCalc.Enabled = false;
             chkShowVK.Enabled = false;
+            txtkommissionNumber.Enabled = false;
         }
 
         #endregion
@@ -8116,11 +8110,7 @@ namespace OTTOPro
         #endregion
 
         #endregion
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        
         #region MULTIES
 
         #region Events

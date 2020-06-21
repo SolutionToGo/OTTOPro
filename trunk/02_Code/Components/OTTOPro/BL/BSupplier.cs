@@ -780,6 +780,52 @@ namespace BL
             }
             return ObjESupplier;
         }
+
+        /// <summary>
+        /// Code to get import Datanorm file to database
+        /// </summary>
+        /// <param name="SupplierID"></param>
+        /// <param name="ValidityDate"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public DataTable ImportDataNorm(object SupplierID, object ValidityDate, DataTable dt)
+        {
+            DataTable dtreturn = null;
+            try
+            {
+                if (ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+                dtreturn = ObjDSupplier.ImportDataNorm(SupplierID, ValidityDate, dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dtreturn;
+        }
+
+        /// <summary>
+        /// Code to validate datanorm before importing into database
+        /// </summary>
+        /// <param name="SupplierID"></param>
+        /// <param name="ValidityDate"></param>
+        /// <param name="dt"></param>
+        /// <returns></returns>
+        public DataSet ValidateDataNorm(object SupplierID, object ValidityDate, DataTable dt)
+        {
+            DataSet dtreturn = null;
+            try
+            {
+                if (ObjDSupplier == null)
+                    ObjDSupplier = new DSupplier();
+                dtreturn = ObjDSupplier.ValidateDataNorm(SupplierID, ValidityDate, dt);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return dtreturn;
+        }
     }
 }
 

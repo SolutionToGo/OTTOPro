@@ -131,7 +131,7 @@ namespace OTTOPro
         {
             try
             {
-                txtAppVersion.Caption = "Version Software : " + Utility.Appversion + " (" + DateTime.Now.ToString("dd.MM.yyyy") + ")";
+                txtAppVersion.Caption = "Version Software : " + Utility.Appversion + Utility.VersionDate;
                 txtDBVersion.Caption = "Version Datenbank : " + Utility.DBVersion;
                 txtUsername.Caption = "Nutzername : " + Utility.UserName;
                 if (Utility.Appversion != Utility.DBVersion)
@@ -831,8 +831,35 @@ namespace OTTOPro
 
         private void btnDataNormImport_ItemClick(object sender, ItemClickEventArgs e)
         {
-            frmDataNormImport Obj = new frmDataNormImport();
-            Obj.ShowDialog();
+            try
+            {
+                bool IsOpen = false;
+                FormCollection fc = Application.OpenForms;
+                foreach (Form frm in fc)
+                {
+                    if (fc != null)
+                    {
+                        if (frm.Name == "frmSpreadsheetControl")
+                        {
+                            frm.Activate();
+                            IsOpen = true;
+                            break;
+                        }
+                    }
+                }
+                if(!IsOpen)
+                {
+                    frmSpreadsheetControl Obj = new frmSpreadsheetControl();
+                    Obj.MdiParent = this;
+                    label2.Visible = false;
+                    pictureBox1.Visible = false;
+                    Obj.Show();
+                }
+            }
+            catch (Exception ex)
+            {
+                Utility.ShowError(ex);
+            }
         }
         #endregion
 

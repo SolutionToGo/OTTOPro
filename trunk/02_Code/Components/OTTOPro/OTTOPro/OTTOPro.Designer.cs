@@ -91,7 +91,6 @@
             this.txtAppVersion = new DevExpress.XtraBars.BarStaticItem();
             this.txtDBVersion = new DevExpress.XtraBars.BarStaticItem();
             this.txtUsername = new DevExpress.XtraBars.BarStaticItem();
-            this.skinRibbonGalleryBarItem3 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.btnDataNormImport = new DevExpress.XtraBars.BarButtonItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -183,7 +182,6 @@
             this.txtDBVersion,
             this.txtUsername,
             this.bbProposalLetter,
-            this.skinRibbonGalleryBarItem3,
             this.btnDataNormImport});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
             this.ribbon.MaxItemId = 80;
@@ -618,12 +616,6 @@
             this.txtUsername.ItemAppearance.Normal.Options.UseForeColor = true;
             this.txtUsername.Name = "txtUsername";
             // 
-            // skinRibbonGalleryBarItem3
-            // 
-            this.skinRibbonGalleryBarItem3.Caption = "skinRibbonGalleryBarItem3";
-            this.skinRibbonGalleryBarItem3.Id = 78;
-            this.skinRibbonGalleryBarItem3.Name = "skinRibbonGalleryBarItem3";
-            // 
             // btnDataNormImport
             // 
             this.btnDataNormImport.Caption = "DATANORM Import";
@@ -718,7 +710,6 @@
             this.rpgTextModule.ItemLinks.Add(this.btnShortCuts, true);
             this.rpgTextModule.ItemLinks.Add(this.btnReportSetting, true);
             this.rpgTextModule.ItemLinks.Add(this.btnSendLogfile);
-            this.rpgTextModule.ItemLinks.Add(this.skinRibbonGalleryBarItem3);
             this.rpgTextModule.Name = "rpgTextModule";
             this.rpgTextModule.Text = "Datenerfassung Textmodul";
             // 
@@ -978,7 +969,6 @@
         private DevExpress.XtraBars.BarStaticItem txtDBVersion;
         private DevExpress.XtraBars.BarStaticItem txtUsername;
         private DevExpress.XtraBars.BarButtonItem bbProposalLetter;
-        private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem3;
         private DevExpress.XtraBars.BarButtonItem btnDataNormImport;
     }
 }

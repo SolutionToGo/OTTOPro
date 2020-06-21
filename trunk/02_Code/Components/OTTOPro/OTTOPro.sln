@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EL", "EL\EL.csproj", "{FB99
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "GKSRVUtility", "GKSRVUtility\GKSRVUtility.vbproj", "{42F9F0E8-2E71-4802-A736-762FAA11D110}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATANORMUtility", "DATANORMUtility\DATANORMUtility.csproj", "{C069837F-9688-4A71-90DA-B106ECB9A56A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,10 +39,6 @@ Global
 		{42F9F0E8-2E71-4802-A736-762FAA11D110}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42F9F0E8-2E71-4802-A736-762FAA11D110}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42F9F0E8-2E71-4802-A736-762FAA11D110}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C069837F-9688-4A71-90DA-B106ECB9A56A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C069837F-9688-4A71-90DA-B106ECB9A56A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C069837F-9688-4A71-90DA-B106ECB9A56A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C069837F-9688-4A71-90DA-B106ECB9A56A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
