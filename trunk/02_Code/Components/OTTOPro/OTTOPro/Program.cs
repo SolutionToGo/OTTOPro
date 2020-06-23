@@ -45,7 +45,7 @@ namespace OTTOPro
                 AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>
                 {
                     System.Text.StringBuilder msg = new System.Text.StringBuilder();
-                    msg.AppendLine("Version 9.5.8 - PROD  ");
+                    msg.AppendLine("Version 9.5.9 - PROD  ");
                     msg.AppendLine(e.Exception.GetType().FullName);
                     msg.AppendLine(e.Exception.Message);
                     System.Diagnostics.StackTrace st = new System.Diagnostics.StackTrace();
