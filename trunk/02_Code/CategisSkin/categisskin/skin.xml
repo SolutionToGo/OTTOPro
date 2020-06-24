@@ -1759,6 +1759,7 @@
           <DxSolidColor Value="0:0=0xFFE49341;0:1=0xFFE49341;0:2=0xFFE49341;0:3=0xFFE49341;0:4=0xFFE49341;0:5=0xFFE49341;1:3=0xFFF0BC88;1:4=0xFFF0BC88;1:5=0xFFF0BC88;1:8=0xFFF0BC88;2:0=0xFF211D1D;2:1=0xFF211D1D;2:3=0xFF211D1D;2:4=0xFF211D1D;2:5=0xFF211D1D;2:6=0xFF211D1D;3:4=0xFFFFFFFF;4:3=0xFFE49341;4:4=0xFFE49341;5:1=0xFFF0BC88;5:4=0xFFF0BC88;5:5=0xFFF0BC88;6:1=0xFF211D1D;6:3=0xFF211D1D;6:4=0xFF211D1D;6:5=0xFF211D1D;6:7=0xFF211D1D;7:4=0xFFFFFFFF;8:3=0xFFE49341;8:4=0xFFE49341;9:3=0xFFF0BC88;9:4=0xFFF0BC88;9:5=0xFFF0BC88;9:7=0xFFF0BC88;9:8=0xFFF0BC88;10:1=0xFF211D1D;10:3=0xFF211D1D;10:4=0xFF211D1D;10:5=0xFF211D1D;10:6=0xFF211D1D;10:7=0xFF211D1D;10:8=0xFF211D1D;11:4=0xFFFFFFFF;12:4=0xFFE49341;12:6=0xFFE49341;13:3=0xFFF0BC88;13:4=0xFFF0BC88;13:5=0xFFF0BC88;13:6=0xFFF0BC88;14:0=0xFF211D1D;14:1=0xFF211D1D;14:3=0xFF211D1D;14:4=0xFF211D1D;14:5=0xFF211D1D;14:7=0xFF211D1D;15:4=0xFFFFFFFF;" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint Shadow" />
+        <Size MinSize="Width=32,Height=32" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -1776,6 +1777,8 @@
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=32,Height=32" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=32,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_scrollshaft.png" />
@@ -1788,6 +1791,8 @@
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=32,Height=32" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=32,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\200dpi_scrollshaftvert.png" />
@@ -1803,6 +1808,7 @@
           <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;2:W=0xFF211D1D;3:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint Shadow" />
+        <Size MinSize="Width=32,Height=32" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -1823,6 +1829,7 @@
           <DxSolidColor Value="0:W=0xFF211D1D;1:W=0xFF211D1D;2:W=0xFF211D1D;3:W=0xFF211D1D;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint Shadow" />
+        <Size MinSize="Width=32,Height=32" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -5280,6 +5287,8 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;1:0=0xFF211D1D;1:2=0xFF211D1D;2:0=0xFF211D1D;2:1=0xFF211D1D;2:2=0xFF211D1D;2:3=0xFF211D1D;2:5=0xFF211D1D;3:0=0xFFD2D2D2;3:2=0xFFD2D2D2;3:3=0xFFD2D2D2;3:4=0xFFF0F0F0;3:5=0xFFD2D2D2;4:0=0xFFD2D2D2;4:1=0xFFD2D2D2;4:2=0xFFD2D2D2;4:3=0xFFD2D2D2;4:4=0xFFF8F8F8;4:5=0xFFD2D2D2;" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=24" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=24" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\200dpi_tabheader.png">
@@ -5463,14 +5472,23 @@
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=1" />
       </TabHeaderLine>
       <TabPageButton>
-        <ContentMargins Bottom="1" Top="1" Left="1" Right="1" />
-        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="tab\tabpagebutton.png" />
+        <ContentMargins Bottom="1" Top="1" Left="1" Right="10" />
+        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="tab\tabpagebutton.png">
+          <ColorModes>
+            <ColorMode Value="Default" />
+            <ColorMode Value="Default" />
+            <ColorMode Value="Default" />
+            <ColorMode Value="Color2" />
+          </ColorModes>
+        </Image>
         <Glyph Stretch="NoResize" ImageCount="12" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="tab\tabpagebutton_glyph.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x0;2:W=0x0;3:W=0x0;All" ValueType="System.String" />
         </Properties>
         <Offset Kind="Default" Offset="X=5,Y=1" />
+        <Size MinSize="Width=10,Height=24" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=24" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="tab\200dpi_tabpagebutton.png" />
@@ -6268,13 +6286,15 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:7=0xFFC2C2C2;0:8=0xFFC2C2C2;1:8=0xFFC2C2C2;2:8=0xFFC2C2C2;" ValueType="System.String" />
         </Properties>
-        <Color ForeColor="@Brush Light" />
+        <Color FontSize="1" ForeColor="@Brush High" />
+        <Size MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_header.png">
               <SizingMargins Bottom="2" Right="2" />
             </Image>
-            <Color ForeColor="@Brush Light" />
+            <Color FontSize="1" ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </Header>
@@ -6287,13 +6307,15 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:7=0xFFC2C2C2;0:8=0xFFC2C2C2;1:8=0xFFC2C2C2;2:8=0xFFC2C2C2;" ValueType="System.String" />
         </Properties>
-        <Color ForeColor="@Brush Light" />
+        <Color FontSize="1" ForeColor="@Brush High" />
+        <Size MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\200dpi_headerleft.png">
               <SizingMargins Bottom="2" Right="2" />
             </Image>
-            <Color ForeColor="@Brush Light" />
+            <Color FontSize="1" ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </HeaderLeft>
@@ -6306,13 +6328,15 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:7=0xFFC2C2C2;0:8=0xFFC2C2C2;1:8=0xFFC2C2C2;2:8=0xFFC2C2C2;" ValueType="System.String" />
         </Properties>
-        <Color ForeColor="@Brush Light" />
+        <Color FontSize="1" ForeColor="@Brush High" />
+        <Size MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_headerright.png">
               <SizingMargins Bottom="2" Right="2" />
             </Image>
-            <Color ForeColor="@Brush Light" />
+            <Color FontSize="1" ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </HeaderRight>
@@ -6325,13 +6349,15 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;0:6=0xFF211D1D;0:8=0xFF211D1D;1:0=0xFF211D1D;1:1=0xFF211D1D;1:2=0xFF211D1D;1:3=0xFF211D1D;1:6=0xFF211D1D;1:8=0xFF211D1D;2:0=0xFFE49341;2:2=0xFFE49341;2:6=0xFFE49341;2:7=0xFFE49341;2:8=0xFFE49341;" ValueType="System.String" />
         </Properties>
-        <Color ForeColor="@Brush" />
+        <Color FontSize="1" ForeColor="@Brush High" />
+        <Size MinSize="Width=10,Height=24" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=24" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_headerspecial.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Color ForeColor="@Brush" />
+            <Color FontSize="1" ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </HeaderSpecial>
@@ -6963,13 +6989,15 @@
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
         </Properties>
-        <Color ForeColor="@Brush Light" />
+        <Color FontSize="1" ForeColor="@Brush High" />
+        <Size MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheader.png">
               <SizingMargins Bottom="6" Top="4" Right="2" />
             </Image>
-            <Color ForeColor="@Brush Light" />
+            <Color FontSize="1" ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </SingleRowHeader>
@@ -6981,13 +7009,15 @@
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
         </Properties>
-        <Color ForeColor="@Brush Light" />
+        <Color FontSize="1" ForeColor="@Brush High" />
+        <Size MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheaderleft.png">
               <SizingMargins Bottom="6" Top="4" Right="2" />
             </Image>
-            <Color ForeColor="@Brush Light" />
+            <Color FontSize="1" ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </SingleRowHeaderLeft>
@@ -7000,13 +7030,15 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:7=0xFFC2C2C2;0:8=0xFFC2C2C2;1:8=0xFFC2C2C2;2:8=0xFFC2C2C2;" ValueType="System.String" />
         </Properties>
-        <Color ForeColor="@Brush Light" />
+        <Color FontSize="1" ForeColor="@Brush High" />
+        <Size MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheaderright.png">
               <SizingMargins Bottom="2" Right="2" />
             </Image>
-            <Color ForeColor="@Brush Light" />
+            <Color FontSize="1" ForeColor="@Brush High" />
           </ScaleInfo>
         </ScaleInfo>
       </SingleRowHeaderRight>
@@ -12735,28 +12767,7 @@
             <SvgImage Index="0" Name="form\formbuttonmdiclose[0].svg" />
           </SvgImageNames>
         </Image>
-        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="form\formbuttonmdiclose_glyph.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3" Opacity="0.25">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4" Opacity="0.65">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="form\formbuttonmdiclose_glyph[0].svg" />
-          </SvgImageNames>
-        </Glyph>
+        <Glyph Stretch="NoResize" ImageCount="5" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="form\formbuttonmdiclose_glyph.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0xFFE6F2FA;2:W=0xFFCDE6F7;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
@@ -14976,9 +14987,6 @@
             <Image ImageCount="6" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_buttongroupbuttoninribbonpageheader.png">
               <SizingMargins Bottom="4" Top="4" Left="4" Right="4" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -16060,40 +16068,11 @@
       <ButtonInRibbonPageHeader>
         <ContentMargins Bottom="4" Top="4" Left="10" Right="10" />
         <Image ImageCount="6" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\buttoninribbonpageheader.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Accent Paint Lighter" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Accent Paint" Opacity="0.35" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Accent Paint" Opacity="0.35" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Accent Paint Light" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Accent Paint" Opacity="0.35" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Accent Paint" Opacity="0.35" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Deep Shadow" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="4">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Deep Shadow" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="5">
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\buttoninribbonpageheader[0].svg" />
-          </SvgImageNames>
           <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0xFFF8F8F8;1:4=0xFFE6F2FA;2:4=0xFFCDE6F7;3:4=0xFFE6E6E6;4:4=0xFFE6E6E6;5:4=0xFFF8F8F8;" ValueType="System.String" />
+          <DxSolidColor Value="0:0=0xFFE49341;0:1=0xFFE49341;0:2=0xFFE49341;0:3=0xFFE49341;0:4=0xFFE49341;0:5=0xFFE49341;0:8=0xFFE49341;1:3=0xFFF0BC88;1:4=0xFFF0BC88;1:5=0xFFF0BC88;1:6=0xFFF0BC88;1:7=0xFFF0BC88;1:8=0xFFF0BC88;2:0=0xFF211D1D;2:2=0xFF211D1D;2:3=0xFF211D1D;2:4=0xFF211D1D;2:5=0xFF211D1D;2:6=0xFF211D1D;2:7=0xFF211D1D;2:8=0xFF211D1D;3:4=0xFFE6E6E6;4:4=0xFFE6E6E6;5:4=0xFFF8F8F8;" ValueType="System.String" />
           <ForeColor Value="@Brush" ValueType="System.Drawing.Color" />
           <ForeColorDisabled Value="@Brush Light" ValueType="System.Drawing.Color" />
         </Properties>
@@ -16103,9 +16082,6 @@
             <Image ImageCount="6" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_buttoninribbonpageheader.png">
               <SizingMargins Bottom="4" Top="4" Left="4" Right="4" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -19087,9 +19063,6 @@
             <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_tabheaderbackground2010.png">
               <SizingMargins Bottom="2" Left="20" Right="20" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="White" />
           </ScaleInfo>
         </ScaleInfo>
