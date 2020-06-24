@@ -18041,7 +18041,6 @@
               <SizingMargins Bottom="2" Top="2" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <SeparatorIndent Value="8" ValueType="System.Int32" />
             </Properties>
           </ScaleInfo>
@@ -19050,25 +19049,10 @@
         </ScaleInfo>
       </StatusBarSeparator>
       <TabHeaderBackground>
-        <Image ImageSize="Width=32,Height=96" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\tabheaderbackground.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Paint Shadow" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\tabheaderbackground[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageSize="Width=32,Height=96" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\tabheaderbackground.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFF0F0F0;1:W=0xFFF0F0F0;2:W=0xFFF0F0F0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush" />
         <SvgPalette>
@@ -19084,9 +19068,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=192" ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_tabheaderbackground.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -19116,18 +19097,9 @@
       <TabHeaderPage>
         <ContentMargins Bottom="3" Top="5" Left="12" Right="12" />
         <ContentMarginsTouch Bottom="3" Top="4" Left="6" Right="6" />
-        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\tabheaderpage.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0" Opacity="0" />
-            <SvgPalette Name="" Index="3" Opacity="0" />
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\tabheaderpage[0].svg" />
-          </SvgImageNames>
-        </Image>
+        <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\tabheaderpage.png" />
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0x0;1:W=0xFFF8F8F8;2:W=0xFFF8F8F8;3:W=0x0;4:W=0xFFF8F8F8;All" ValueType="System.String" />
           <FontDelta Value="2" ValueType="System.Int32" />
           <LeftXIndent Value="10" ValueType="System.Int32" />
           <RightXIndent Value="10" ValueType="System.Int32" />
@@ -19147,9 +19119,8 @@
         </SvgPalette>
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_tabheaderpage.png" />
+            <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_tabheaderpage.png" />
             <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
               <LeftXIndent Value="20" ValueType="System.Int32" />
               <RightXIndent Value="20" ValueType="System.Int32" />
               <TabHeaderSelectionIndicatorHeight Value="6" ValueType="System.Int32" />
@@ -19215,9 +19186,6 @@
             <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\200dpi_tabpanelgroupbody.png">
               <SizingMargins Top="8" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </TabPanelGroupBody>
@@ -19265,38 +19233,26 @@
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=192,Height=64" ImageCount="3" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\200dpi_tabpanelgroupbutton.png" />
             <Glyph Stretch="NoResize" ImageCount="3" Layout="Vertical" ImageName="ribbon\200dpi_tabpanelgroupbutton_glyph.png" />
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
           </ScaleInfo>
         </ScaleInfo>
       </TabPanelGroupButton>
       <TabPanelGroupCaption>
         <ContentMargins Bottom="1" Top="3" Left="10" Right="10" />
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\tabpanelgroupcaption.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\tabpanelgroupcaption[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\tabpanelgroupcaption.png">
           <SizingMargins Bottom="4" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:4=0x0;0:5=0xFFD2D2D2;0:7=0x0;0:8=0x0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:7=0xFFF0BC88;0:8=0xFFF0BC88;" ValueType="System.String" />
           <TabPanelGroupRegionRadius Value="0" ValueType="System.Int32" />
         </Properties>
         <Color ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\200dpi_tabpanelgroupcaption.png">
+            <Image ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\200dpi_tabpanelgroupcaption.png">
               <SizingMargins Bottom="8" Right="2" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <TabPanelGroupRegionRadius Value="0" ValueType="System.Int32" />
             </Properties>
             <Color ForeColor="@Brush" />
