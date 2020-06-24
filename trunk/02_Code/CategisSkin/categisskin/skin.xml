@@ -12594,6 +12594,7 @@
           <DxSolidColor Value="0:W=0x0;1:W=0xFFED3D3B;2:W=0xBFED3D39;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
           <UseColor Value="False" ValueType="System.Boolean" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -12631,6 +12632,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -12668,6 +12670,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -12705,6 +12708,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -12898,6 +12902,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -12935,6 +12940,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -12953,15 +12959,15 @@
           <DxSolidColor Value="0:0=0xFF211D1D;0:1=0xFF211D1D;0:2=0xFF211D1D;0:3=0xFF211D1D;1:0=0xFF211D1D;1:1=0xFF211D1D;1:2=0xFF211D1D;1:4=0xFF211D1D;" ValueType="System.String" />
           <FontDelta Value="0" ValueType="System.Int32" />
         </Properties>
-        <Color ForeColor="@Brush" />
-        <Size MinSize="Width=10,Height=31" />
+        <Color FontSize="5" ForeColor="@Brush" />
+        <Size MinSize="Width=10,Height=48" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=30" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_formcaption.png">
               <SizingMargins Top="2" Left="2" Right="2" />
             </Image>
-            <Color ForeColor="@Brush" />
+            <Color FontSize="5" ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
       </FormCaption>
@@ -12976,7 +12982,7 @@
           <FontDelta Value="0" ValueType="System.Int32" />
         </Properties>
         <Color ForeColor="@Brush" />
-        <Size MinSize="Width=10,Height=31" />
+        <Size MinSize="Width=10,Height=32" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=30" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -13137,6 +13143,7 @@
           <DxSolidColor Value="0:W=0x0;1:W=0xFFED3D3B;2:W=0xBFED3D39;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
           <UseColor Value="False" ValueType="System.Boolean" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -13174,6 +13181,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -13211,6 +13219,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -13248,6 +13257,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -13285,6 +13295,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x1F4A4A41;2:W=0x38484444;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -13303,15 +13314,15 @@
           <DxSolidColor Value="0:0=0xFF211D1D;0:1=0xFF211D1D;0:2=0xFF211D1D;0:3=0xFF211D1D;0:5=0xFF211D1D;1:0=0xFF242020;1:1=0xFF211D1D;1:2=0xFF242020;1:3=0xFF211D1D;1:4=0xFF211D1D;1:5=0xFF211D1D;" ValueType="System.String" />
           <FontDelta Value="0" ValueType="System.Int32" />
         </Properties>
-        <Color ForeColor="@Brush" />
-        <Size MinSize="Width=10,Height=31" />
+        <Color FontSize="5" ForeColor="@Brush" />
+        <Size MinSize="Width=10,Height=48" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=30" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="form\200dpi_smallformcaption.png">
               <SizingMargins Top="2" Left="2" Right="2" />
             </Image>
-            <Color ForeColor="@Brush" />
+            <Color FontSize="5" ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
       </SmallFormCaption>
@@ -15708,6 +15719,8 @@
           <ForeColorPressed Value="@Accent Brush" ValueType="System.Drawing.Color" />
         </Properties>
         <Color ForeColor="@Accent Brush" />
+        <Size MinSize="Width=10,Height=42" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=42" />
         <SvgPalette>
           <SvgPalette Name="Pressed">
             <SvgColor Name="White" Value="22,100,167" SkinColorId="Accent Paint Dark" />
@@ -16352,6 +16365,7 @@
           <DxSolidColor Value="0:W=0x0;1:W=0xFFED3D3B;2:W=0xFFED3D3B;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
           <UseColor Value="False" ValueType="System.Boolean" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -16367,6 +16381,7 @@
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -16383,6 +16398,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0x0;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -16399,6 +16415,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0x0;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -16415,6 +16432,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0x0;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -16431,6 +16449,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0x0;1:W=0x33FFFFFF;2:W=0x0;3:W=0x0;4:W=0x0;All" ValueType="System.String" />
         </Properties>
+        <Size MinSize="Width=10,Height=42" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=20,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
@@ -16448,18 +16467,18 @@
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;1:0=0xFF221E1E;1:1=0xFF211D1D;1:2=0xFF211D1D;1:3=0xFF211D1D;1:4=0xFF211D1D;1:5=0xFF211D1D;" ValueType="System.String" />
           <FontDelta Value="0" ValueType="System.Int32" />
-          <ForeColor2 Value="@Accent Brush" ValueType="System.Drawing.Color" />
-          <ForeColorInactive Value="@Accent Brush Light" ValueType="System.Drawing.Color" />
+          <ForeColor2 Value="@Brush" ValueType="System.Drawing.Color" />
+          <ForeColorInactive Value="@Accent Brush" ValueType="System.Drawing.Color" />
         </Properties>
-        <Color ForeColor="@Accent Brush" />
-        <Size MinSize="Width=10,Height=32" />
+        <Color FontSize="5" ForeColor="@Brush" />
+        <Size MinSize="Width=10,Height=48" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=30" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formcaption.png">
               <SizingMargins Top="2" Left="2" Right="2" />
             </Image>
-            <Color ForeColor="@Accent Brush" />
+            <Color FontSize="5" ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
       </FormCaption>
@@ -16472,10 +16491,10 @@
           <AllowTouch Value="False" ValueType="System.Boolean" />
           <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;1:0=0xFF231E1E;1:1=0xFF211D1D;1:2=0xFF211D1D;1:3=0xFF211D1D;1:4=0xFF211D1D;1:5=0xFF211D1D;" ValueType="System.String" />
           <FontDelta Value="0" ValueType="System.Int32" />
-          <ForeColor2 Value="@Accent Brush Light" ValueType="System.Drawing.Color" />
-          <ForeColorInactive Value="@Accent Brush Light" ValueType="System.Drawing.Color" />
+          <ForeColor2 Value="@Brush" ValueType="System.Drawing.Color" />
+          <ForeColorInactive Value="@Accent Brush" ValueType="System.Drawing.Color" />
         </Properties>
-        <Color ForeColor="@Accent Brush" />
+        <Color FontSize="5" ForeColor="@Brush" />
         <Size MinSize="Width=10,Height=32" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=30" />
         <ScaleInfo>
@@ -16483,7 +16502,7 @@
             <Image ImageCount="2" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_formcaptionminimized.png">
               <SizingMargins Top="2" Left="2" Right="2" />
             </Image>
-            <Color ForeColor="@Accent Brush" />
+            <Color FontSize="5" ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
       </FormCaptionMinimized>
@@ -18186,9 +18205,6 @@
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_splitbutton2inabovequickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18265,9 +18281,6 @@
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_splitbutton2inbelowquickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18344,9 +18357,6 @@
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_splitbutton2incaptionquickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18428,9 +18438,6 @@
             <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_splitbutton2inribbonpageheader.png">
               <SizingMargins Bottom="4" Top="4" Right="4" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18576,9 +18583,6 @@
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_splitbuttoninabovequickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18655,9 +18659,6 @@
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_splitbuttoninbelowquickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18734,9 +18735,6 @@
             <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_splitbuttonincaptionquickaccesstoolbar.png">
               <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18825,9 +18823,6 @@
             <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="ribbon\200dpi_splitbuttoninribbonpageheader.png">
               <SizingMargins Bottom="4" Top="4" Left="4" Right="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Accent Brush" />
           </ScaleInfo>
         </ScaleInfo>
