@@ -1125,8 +1125,8 @@ namespace OTTOPro
         public static string FormBlattArticleMappingAccess = string.Empty;
         public static bool Isclose = false;
         public static string DBVersion = string.Empty;
-        public static string Appversion = "9.5.9 - PROD";
-        //public static string Appversion = "9.5.9 - UAT";
+        //public static string Appversion = "9.5.9 - PROD";
+        public static string Appversion = "9.5.9 - UAT";
         //public static string Appversion = "9.5.9 - QA";
         public static string VersionDate = " (18.06.2020)";
         public static DataTable dtLVStatus = null;

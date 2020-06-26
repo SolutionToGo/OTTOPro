@@ -7,9 +7,11 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
 using System.Linq;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace OTTOPro
 {
@@ -24,7 +26,12 @@ namespace OTTOPro
         {
             try
             {
+                Assembly asm = typeof(DevExpress.UserSkins.CategisSkin).Assembly;
+                DevExpress.Skins.SkinManager.Default.RegisterAssembly(asm);
                 // Create a new object, representing the German culture.  
+                BonusSkins.Register();
+                //UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
+                UserLookAndFeel.Default.SetSkinStyle("CategisSkin");
                 var culture = System.Globalization.CultureInfo.CurrentCulture;
                 if (culture != null)
                 {
@@ -35,11 +42,8 @@ namespace OTTOPro
                 Thread.CurrentThread.CurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentCulture = culture;
                 CultureInfo.DefaultThreadCurrentUICulture = culture;
-                UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
-                BonusSkins.Register();
-
                 log4net.Config.XmlConfigurator.Configure();
 
                 AppDomain.CurrentDomain.FirstChanceException += (sender, e) =>
@@ -61,6 +65,13 @@ namespace OTTOPro
             {
                 Utility.ShowError(ex);
             }
+        }
+    }
+    public class SkinRegistration : Component
+    {
+        public SkinRegistration()
+        {
+            DevExpress.Skins.SkinManager.Default.RegisterAssembly(typeof(DevExpress.UserSkins.CategisSkin).Assembly);
         }
     }
 }

@@ -72,6 +72,9 @@
     <Reference Include="Accessibility">
       <Private>True</Private>
     </Reference>
+    <Reference Include="CategisSkin">
+      <HintPath>..\..\..\CategisSkin\CategisSkin.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.BonusSkins.v18.2, Version=18.2.10.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>

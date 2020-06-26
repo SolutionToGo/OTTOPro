@@ -1778,7 +1778,7 @@
           <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Size MinSize="Width=32,Height=32" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=32,Height=32" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=32,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="common\200dpi_scrollshaft.png" />
@@ -1792,7 +1792,7 @@
           <DxSolidColor Value="0:W=0xFFE49341;1:W=0xFFE49341;2:W=0xFFE49341;3:W=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Size MinSize="Width=32,Height=32" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=32,Height=32" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=32,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\200dpi_scrollshaftvert.png" />
@@ -5288,7 +5288,7 @@
           <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;1:0=0xFF211D1D;1:2=0xFF211D1D;2:0=0xFF211D1D;2:1=0xFF211D1D;2:2=0xFF211D1D;2:3=0xFF211D1D;2:5=0xFF211D1D;3:0=0xFFD2D2D2;3:2=0xFFD2D2D2;3:3=0xFFD2D2D2;3:4=0xFFF0F0F0;3:5=0xFFD2D2D2;4:0=0xFFD2D2D2;4:1=0xFFD2D2D2;4:2=0xFFD2D2D2;4:3=0xFFD2D2D2;4:4=0xFFF8F8F8;4:5=0xFFD2D2D2;" ValueType="System.String" />
         </Properties>
         <Size MinSize="Width=10,Height=24" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=24" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=24" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\200dpi_tabheader.png">
@@ -5488,7 +5488,7 @@
         </Properties>
         <Offset Kind="Default" Offset="X=5,Y=1" />
         <Size MinSize="Width=10,Height=24" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=24" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=24" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="tab\200dpi_tabpagebutton.png" />
@@ -6288,7 +6288,7 @@
         </Properties>
         <Color FontSize="1" ForeColor="@Brush High" />
         <Size MinSize="Width=10,Height=32" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_header.png">
@@ -6309,7 +6309,7 @@
         </Properties>
         <Color FontSize="1" ForeColor="@Brush High" />
         <Size MinSize="Width=10,Height=32" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="grid\200dpi_headerleft.png">
@@ -6330,7 +6330,7 @@
         </Properties>
         <Color FontSize="1" ForeColor="@Brush High" />
         <Size MinSize="Width=10,Height=32" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_headerright.png">
@@ -6351,7 +6351,7 @@
         </Properties>
         <Color FontSize="1" ForeColor="@Brush High" />
         <Size MinSize="Width=10,Height=24" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=24" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=24" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_headerspecial.png">
@@ -6991,7 +6991,7 @@
         </Properties>
         <Color FontSize="1" ForeColor="@Brush High" />
         <Size MinSize="Width=10,Height=32" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheader.png">
@@ -7011,7 +7011,7 @@
         </Properties>
         <Color FontSize="1" ForeColor="@Brush High" />
         <Size MinSize="Width=10,Height=32" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheaderleft.png">
@@ -7032,7 +7032,7 @@
         </Properties>
         <Color FontSize="1" ForeColor="@Brush High" />
         <Size MinSize="Width=10,Height=32" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=10,Height=32" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=32" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageCount="3" Layout="Vertical" Stretch="Stretch" ImageName="grid\200dpi_singlerowheaderright.png">
@@ -18872,31 +18872,19 @@
         </ScaleInfo>
       </SplitButtonInStatusBar>
       <StatusBarBackground>
-        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\statusbarbackground.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="Brush0" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\statusbarbackground[0].svg" />
-          </SvgImageNames>
+        <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\statusbarbackground.png">
           <SizingMargins Top="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFD2D2D2;0:4=0xFFF0F0F0;All" ValueType="System.String" />
+          <DxSolidColor Value="0:1=0xFFE49341;1:1=0xFFE49341;1:4=0xFFE49341;2:1=0xFFE49341;2:4=0xFFE49341;3:1=0xFFE49341;3:4=0xFFE49341;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Horizontal" Stretch="Stretch" ImageName="ribbon\200dpi_statusbarbackground.png">
+            <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_statusbarbackground.png">
               <SizingMargins Top="2" />
             </Image>
-            <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -18939,9 +18927,6 @@
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=64,Height=384" ImageCount="6" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_statusbarbutton.png" />
-            <Properties>
-              <AllowTouch Value="True" ValueType="System.Boolean" />
-            </Properties>
             <Color ForeColor="@Brush" />
           </ScaleInfo>
         </ScaleInfo>
@@ -19018,7 +19003,6 @@
               <SizingMargins Bottom="4" Top="4" />
             </Image>
             <Properties>
-              <AllowTouch Value="False" ValueType="System.Boolean" />
               <SeparatorIndent Value="4" ValueType="System.Int32" />
             </Properties>
           </ScaleInfo>

@@ -92,6 +92,7 @@
             this.txtDBVersion = new DevExpress.XtraBars.BarStaticItem();
             this.txtUsername = new DevExpress.XtraBars.BarStaticItem();
             this.btnDataNormImport = new DevExpress.XtraBars.BarButtonItem();
+            this.skinRibbonGalleryBarItem3 = new DevExpress.XtraBars.SkinRibbonGalleryBarItem();
             this.miHome = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -182,9 +183,10 @@
             this.txtDBVersion,
             this.txtUsername,
             this.bbProposalLetter,
-            this.btnDataNormImport});
+            this.btnDataNormImport,
+            this.skinRibbonGalleryBarItem3});
             this.ribbon.Location = new System.Drawing.Point(0, 0);
-            this.ribbon.MaxItemId = 80;
+            this.ribbon.MaxItemId = 81;
             this.ribbon.Name = "ribbon";
             this.ribbon.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.miHome,
@@ -194,7 +196,9 @@
             this.chkAutoSave,
             this.repositoryItemCheckEdit1});
             this.ribbon.ShowExpandCollapseButton = DevExpress.Utils.DefaultBoolean.False;
-            this.ribbon.Size = new System.Drawing.Size(1230, 143);
+            this.ribbon.ShowToolbarCustomizeItem = false;
+            this.ribbon.Size = new System.Drawing.Size(1238, 154);
+            this.ribbon.Toolbar.ShowCustomizeItem = false;
             // 
             // btnNewProject
             // 
@@ -624,6 +628,12 @@
             this.btnDataNormImport.Name = "btnDataNormImport";
             this.btnDataNormImport.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDataNormImport_ItemClick);
             // 
+            // skinRibbonGalleryBarItem3
+            // 
+            this.skinRibbonGalleryBarItem3.Caption = "Theme";
+            this.skinRibbonGalleryBarItem3.Id = 80;
+            this.skinRibbonGalleryBarItem3.Name = "skinRibbonGalleryBarItem3";
+            // 
             // miHome
             // 
             this.miHome.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -710,6 +720,7 @@
             this.rpgTextModule.ItemLinks.Add(this.btnShortCuts, true);
             this.rpgTextModule.ItemLinks.Add(this.btnReportSetting, true);
             this.rpgTextModule.ItemLinks.Add(this.btnSendLogfile);
+            this.rpgTextModule.ItemLinks.Add(this.skinRibbonGalleryBarItem3);
             this.rpgTextModule.Name = "rpgTextModule";
             this.rpgTextModule.Text = "Datenerfassung Textmodul";
             // 
@@ -762,9 +773,9 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 733);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 737);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(1230, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1238, 22);
             this.statusStrip1.TabIndex = 6;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -787,9 +798,9 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(0, 714);
+            this.label2.Location = new System.Drawing.Point(0, 718);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1230, 19);
+            this.label2.Size = new System.Drawing.Size(1238, 19);
             this.label2.TabIndex = 12;
             this.label2.Text = "Powered by www.softwaretogo.de \r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -798,9 +809,9 @@
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Image = global::OTTOPro.Properties.Resources.LogoLatest_Main1;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 143);
+            this.pictureBox1.Location = new System.Drawing.Point(0, 154);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1230, 571);
+            this.pictureBox1.Size = new System.Drawing.Size(1238, 564);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 15;
             this.pictureBox1.TabStop = false;
@@ -817,7 +828,7 @@
             this.lblUserName.BackColor = System.Drawing.Color.Transparent;
             this.lblUserName.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblUserName.ForeColor = System.Drawing.Color.Blue;
-            this.lblUserName.Location = new System.Drawing.Point(1054, 89);
+            this.lblUserName.Location = new System.Drawing.Point(1062, 89);
             this.lblUserName.Name = "lblUserName";
             this.lblUserName.Size = new System.Drawing.Size(0, 13);
             this.lblUserName.TabIndex = 21;
@@ -829,7 +840,7 @@
             this.lblDBVersion.BackColor = System.Drawing.Color.Transparent;
             this.lblDBVersion.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblDBVersion.ForeColor = System.Drawing.Color.Blue;
-            this.lblDBVersion.Location = new System.Drawing.Point(1054, 108);
+            this.lblDBVersion.Location = new System.Drawing.Point(1062, 108);
             this.lblDBVersion.Name = "lblDBVersion";
             this.lblDBVersion.Size = new System.Drawing.Size(0, 13);
             this.lblDBVersion.TabIndex = 24;
@@ -859,7 +870,7 @@
             this.Appearance.Options.UseForeColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 755);
+            this.ClientSize = new System.Drawing.Size(1238, 759);
             this.Controls.Add(this.simpleButton1);
             this.Controls.Add(this.lblDBVersion);
             this.Controls.Add(this.lblUserName);
@@ -970,5 +981,6 @@
         private DevExpress.XtraBars.BarStaticItem txtUsername;
         private DevExpress.XtraBars.BarButtonItem bbProposalLetter;
         private DevExpress.XtraBars.BarButtonItem btnDataNormImport;
+        private DevExpress.XtraBars.SkinRibbonGalleryBarItem skinRibbonGalleryBarItem3;
     }
 }
