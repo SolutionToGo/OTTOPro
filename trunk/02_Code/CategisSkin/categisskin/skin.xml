@@ -18872,17 +18872,17 @@
         </ScaleInfo>
       </SplitButtonInStatusBar>
       <StatusBarBackground>
-        <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\statusbarbackground.png">
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\statusbarbackground.png">
           <SizingMargins Top="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:1=0xFFE49341;1:1=0xFFE49341;1:4=0xFFE49341;2:1=0xFFE49341;2:4=0xFFE49341;3:1=0xFFE49341;3:4=0xFFE49341;" ValueType="System.String" />
+          <DxSolidColor Value="0:1=0xFFE49341;0:4=0xFFE49341;All" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_statusbarbackground.png">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_statusbarbackground.png">
               <SizingMargins Top="2" />
             </Image>
             <Color ForeColor="@Brush" />
@@ -18932,46 +18932,17 @@
         </ScaleInfo>
       </StatusBarButton>
       <StatusBarFormBackground>
-        <Image ImageSize="Width=32,Height=128" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\statusbarformbackground.png">
-          <SvgPalette>
-            <SvgPalette Name="" Index="0">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Accent Paint" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Accent Paint" />
-              <SvgColor Name="st12" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="1">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Accent Paint" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="2">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Major" />
-              <SvgColor Name="st12" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-            <SvgPalette Name="" Index="3">
-              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint Shadow" />
-              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Major" />
-              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Minor" />
-            </SvgPalette>
-          </SvgPalette>
-          <SvgImageNames>
-            <SvgImage Index="0" Name="ribbon\statusbarformbackground[0].svg" />
-            <SvgImage Index="3" Name="ribbon\statusbarformbackground[3].svg" />
-            <SvgImage Index="1" Name="ribbon\statusbarformbackground[1].svg" />
-          </SvgImageNames>
+        <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\statusbarformbackground.png">
           <SizingMargins Top="1" Left="1" Right="1" />
         </Image>
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:0=0xFF106EBE;0:1=0xFFD2D2D2;0:2=0xFF106EBE;0:3=0xFF106EBE;0:4=0xFFF0F0F0;0:5=0xFF106EBE;1:0=0xFFD2D2D2;1:1=0xFFD2D2D2;1:2=0xFF106EBE;1:3=0xFFF0F0F0;1:4=0xFFF0F0F0;1:5=0xFF106EBE;2:0=0xFFABABAB;2:1=0xFFD2D2D2;2:2=0xFFABABAB;2:3=0xFFABABAB;2:4=0xFFF0F0F0;2:5=0xFFABABAB;3:0=0xFFD2D2D2;3:1=0xFFD2D2D2;3:2=0xFFABABAB;3:3=0xFFF0F0F0;3:4=0xFFF0F0F0;3:5=0xFFABABAB;All" ValueType="System.String" />
+          <DxSolidColor Value="0:0=0xFF211D1D;0:1=0xFFE49341;0:2=0xFF221D1D;1:0=0xFFD2D2D2;1:1=0xFFD2D2D2;1:2=0xFF106EBE;1:3=0xFFF0F0F0;1:4=0xFFF0F0F0;1:5=0xFF106EBE;2:0=0xFF211D1D;2:2=0xFF211D1D;3:0=0xFFD2D2D2;3:2=0xFFABABAB;3:3=0xFFF0F0F0;3:4=0xFFF0F0F0;3:5=0xFFABABAB;" ValueType="System.String" />
         </Properties>
         <Color ForeColor="@Brush" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
-            <Image ImageSize="Width=64,Height=256" ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_statusbarformbackground.png">
+            <Image ImageCount="4" Layout="Vertical" Stretch="Stretch" ImageName="ribbon\200dpi_statusbarformbackground.png">
               <SizingMargins Top="2" Left="2" Right="2" />
             </Image>
             <Color ForeColor="@Brush" />
