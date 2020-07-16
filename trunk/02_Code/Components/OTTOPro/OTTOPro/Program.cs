@@ -30,8 +30,8 @@ namespace OTTOPro
                 DevExpress.Skins.SkinManager.Default.RegisterAssembly(asm);
                 // Create a new object, representing the German culture.  
                 BonusSkins.Register();
-                //UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
-                UserLookAndFeel.Default.SetSkinStyle("CategisSkin");
+                UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
+                //UserLookAndFeel.Default.SetSkinStyle("CategisSkin");
                 var culture = System.Globalization.CultureInfo.CurrentCulture;
                 if (culture != null)
                 {

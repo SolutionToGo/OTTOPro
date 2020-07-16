@@ -122,6 +122,7 @@ namespace OTTOPro
                         FileVerison = "DN3";
                         return TrinityAdapter.ImportDN3;
                     case "4":
+
                         FileVerison = "DN4";
                         return TrinityAdapter.ImportDN4;
                     case "5":
