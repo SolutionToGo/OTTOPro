@@ -829,7 +829,7 @@
           <DxSolidColor Value="0:W=0xFFF2F2F2;All" ValueType="System.String" />
         </Properties>
         <Color ForeColor="$ControlText" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=16,Height=20" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=16,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Horizontal" ImageName="common\200dpi_filterpanelcomparisonglyph_glyph.png" />
@@ -901,7 +901,7 @@
         </Properties>
         <Color ForeColor="$ControlText" />
         <Size MinSize="Width=0,Height=10" />
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=16,Height=20" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=16,Height=20" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Image ImageSize="Width=192,Height=64" ImageCount="3" Layout="Horizontal" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="common\200dpi_filterpanelgroupnode.png">
@@ -1491,7 +1491,7 @@
         <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="common\grouppaneltitle.png" />
         <Properties>
           <AllowTouch Value="False" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:W=0xFFECECEC;All" ValueType="System.String" />
+          <DxSolidColor Value="0:W=0xFFFFFFFF;All" ValueType="System.String" />
         </Properties>
         <Color BackColor="@Paint" ForeColor="@Brush" />
         <ScaleInfo>
@@ -1902,7 +1902,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <DxSolidColor Value="0:W=0xFFF2F2F2;1:W=0xFFBFE0FF;2:W=0xFFF2F2F2;3:W=0xFFF2F2F2;4:W=0xFFF2F2F2;5:W=0xFFF2F2F2;All" ValueType="System.String" />
         </Properties>
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=16,Height=16" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=16,Height=16" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="common\200dpi_nodeactionbutton_glyph.png" />
@@ -1943,7 +1943,7 @@
           <AllowTouch Value="True" ValueType="System.Boolean" />
           <OperandButtonIndent Value="4" ValueType="System.Int32" />
         </Properties>
-        <SizeTouch AllowScale="True" ScaleFactor="1" MinSize="Width=16,Height=16" />
+        <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=16,Height=16" />
         <ScaleInfo>
           <ScaleInfo ScaleFactor="2">
             <Glyph Stretch="NoResize" ImageCount="6" Layout="Vertical" SvgImageSize="Width=10,Height=10" ImageName="common\200dpi_nodeoperandbutton_glyph.png" />
