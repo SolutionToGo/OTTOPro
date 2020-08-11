@@ -5468,7 +5468,7 @@
         </Image>
         <Properties>
           <AllowTouch Value="True" ValueType="System.Boolean" />
-          <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;1:0=0xFF211D1D;1:2=0xFF211D1D;2:0=0xFF211D1D;2:1=0xFF211D1D;2:2=0xFF211D1D;2:3=0xFF211D1D;2:5=0xFF211D1D;3:0=0xFFD2D2D2;3:2=0xFFD2D2D2;3:3=0xFFD2D2D2;3:4=0xFFF0F0F0;3:5=0xFFD2D2D2;4:0=0xFFD2D2D2;4:1=0xFFD2D2D2;4:2=0xFFD2D2D2;4:3=0xFFD2D2D2;4:4=0xFFF8F8F8;4:5=0xFFD2D2D2;" ValueType="System.String" />
+          <DxSolidColor Value="0:0=0xFF211D1D;0:2=0xFF211D1D;1:0=0xFF211D1D;1:2=0xFF211D1D;2:0=0xFF4C3E3E;2:2=0xFF4D3F3F;2:5=0xFF4D3F3F;3:0=0xFFD2D2D2;3:2=0xFFD2D2D2;3:3=0xFFD2D2D2;3:4=0xFFF0F0F0;3:5=0xFFD2D2D2;4:0=0xFFD2D2D2;4:1=0xFFD2D2D2;4:2=0xFFD2D2D2;4:3=0xFFD2D2D2;4:4=0xFFF8F8F8;4:5=0xFFD2D2D2;" ValueType="System.String" />
         </Properties>
         <Size MinSize="Width=10,Height=24" />
         <SizeTouch AllowScale="False" ScaleFactor="1" MinSize="Width=10,Height=24" />
